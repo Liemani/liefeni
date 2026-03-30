@@ -2,8 +2,17 @@ package lmi;
 
 import haven.*;
 import java.awt.Color;
+import java.util.*;
 
 public class LmiHandler {
+  private static Task currentTask = null;
+
+  public interface Task {
+    void tick(double dt, GameUI gui);
+    boolean isFinished();
+    void stop(GameUI gui);
+  }
+
   public static void init() {
     Console.setscmd("a", new Console.Command() {
       public void run(Console cons, String[] args) throws Exception {
@@ -17,15 +26,47 @@ public class LmiHandler {
           return;
         }
         String a_command = args[1];
+
+        if (a_command.equals("stop")) {
+          stopTask(gui);
+          return;
+        }
+
         handle(gui, a_command, args);
       }
     });
   }
 
+  public static void tick(double dt, GameUI gui) {
+    if (currentTask != null) {
+      if (currentTask.isFinished()) {
+        print(gui, "Task finished.");
+        currentTask = null;
+      } else {
+        currentTask.tick(dt, gui);
+      }
+    }
+  }
+
+  private static void stopTask(GameUI gui) {
+    if (currentTask != null) {
+      currentTask.stop(gui);
+      currentTask = null;
+      print(gui, "Task stopped.", Color.YELLOW);
+    } else {
+      print(gui, "No task running.");
+    }
+  }
+
+  private static void startTask(GameUI gui, Task task) {
+    stopTask(gui);
+    currentTask = task;
+    print(gui, "Task started: " + task.getClass().getSimpleName(), Color.GREEN);
+  }
+
   private static void handle(GameUI gui, String cmd, String[] args) {
     if (cmd.equals("move")) {
-      print(gui, "Moving... (this is a placeholder)");
-      // Add actual move logic here later
+      startTask(gui, new MoveTask(args));
     } else if (cmd.equals("hello")) {
       print(gui, "Hello from LMI!");
     } else {
@@ -41,5 +82,33 @@ public class LmiHandler {
     if (gui.syslog != null) {
       gui.syslog.append(msg, col);
     }
+  }
+
+  // --- Example Task implementation ---
+  public static class MoveTask implements Task {
+    private boolean done = false;
+    private double timer = 0;
+
+    public MoveTask(String[] args) {
+      // Initialize with args
+    }
+
+    @Override
+      public void tick(double dt, GameUI gui) {
+        timer += dt;
+        if (timer > 2.0) { // Placeholder: finish after 2 seconds
+          done = true;
+        }
+      }
+
+    @Override
+      public boolean isFinished() {
+        return done;
+      }
+
+    @Override
+      public void stop(GameUI gui) {
+        done = true;
+      }
   }
 }

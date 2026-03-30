@@ -1200,6 +1200,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 
     private double lastwndsave = 0;
     public void tick(double dt) {
+	lmi.LmiHandler.tick(dt, this);
 	super.tick(dt);
 	double now = Utils.rtime();
 	if(now - lastwndsave > 60) {
