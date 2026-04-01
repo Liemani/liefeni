@@ -314,16 +314,27 @@ public class Composite extends Drawable implements EquipTarget {
     // public method
     public String[] posePathArray() { return _posePathArray; }
 
-    // private meethod
+    // private method
     private void _poseDidChanged(Collection<ResData> poseResourceDataCollection) {
-      _setPosePathArray(poseResourceDataCollection);
+      if (poseResourceDataCollection == null) {
+        _posePathArray = null;
+      } else {
+        _setPosePathArray(poseResourceDataCollection);
+      }
+
       lmi.Delegate.poseDidChanged(this.gob);
     }
 
     private void _setPosePathArray(Collection<ResData> poseResourceDataCollection) {
       final int arraySize = poseResourceDataCollection.size();
       _posePathArray = new String[arraySize];
-      for (int i = 0; i < arraySize; ++i);
-//        _posePathArray[i] = resourceData.res.get().name;
+      int i = 0;
+      for (ResData resourceData : poseResourceDataCollection) {
+          try {
+              _posePathArray[i++] = resourceData.res.get().name;
+          } catch (Loading l) {
+              _posePathArray[i++] = "";
+          }
+      }
     }
 }

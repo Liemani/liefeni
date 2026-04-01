@@ -997,7 +997,6 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 
     // lmi custom
     // Access Property
-    // TODO: s/location/position
     public Coord location() { return Coord.of(this.rc); }
     public double direction() { return this.a; }
     public double velocity() { return this.getv(); }
@@ -1067,15 +1066,32 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 //	return rc.dist(new Coord2d(coord));
 //    }
 
+    // LMI: Pose (Low Level - Raw Data)
     public String[] posePathArray() {
 	Composite composite = this.getattr(Composite.class);
 	return (composite != null) ? composite.posePathArray() : new String[0];
     }
 
+    // LMI: Pose (Mid Level - Parsed Data)
+    public String[] poseNameArray() {
+	String[] paths = this.posePathArray();
+	String[] names = new String[paths.length];
+	for (int i = 0; i < paths.length; i++) {
+	    String p = paths[i];
+	    if (p == null) {
+		names[i] = "";
+		continue;
+	    }
+	    int lastSlash = p.lastIndexOf('/');
+	    names[i] = (lastSlash < 0) ? p : p.substring(lastSlash + 1);
+	}
+	return names;
+    }
+
+    // LMI: Pose (High Level - State Check)
     public boolean hasPose(String pose) {
-	String[] posePathArray = this.posePathArray();
-	for (String posePath : posePathArray) {
-	    if (posePath != null && posePath.endsWith(pose))
+	for (String poseName : this.poseNameArray()) {
+	    if (poseName != null && poseName.equals(pose))
 		return true;
 	}
 	return false;
@@ -1212,13 +1228,9 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
         description.append("distance: " + lmi.Self.distance(this) + "\n");
         description.append("removed: " + this.removed + "\n");
 
-        description.append("pose:\n");
-        String[] poseArray = this.posePathArray();
-        if (poseArray != null) {
-            for (String poseString : poseArray)
-                description.append("  " + poseString + "\n");
-        } else
-            description.append("  no pose\n");
+        description.append("pose path:\n");
+        for (String posePath : this.posePathArray())
+            description.append("  " + posePath + "\n");
 
 //        description.append("sdt:\n");
 //        final byte[] sdt = this.sdt();
@@ -1232,16 +1244,4 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 
         return description.toString();
     }
-
-//    public Skeleton.Pose getpose() {
-//	Drawable d = getattr(Drawable.class);
-//	if (d instanceof ResDrawable) {
-//	    Sprite spr = ((ResDrawable)d).spr;
-//	    if (spr instanceof ModSprite) {
-//		ModSprite.Poser poser = ((ModSprite)spr).imod(ModSprite.Poser.class);
-//		if (poser != null) return poser.pose;
-//	    }
-//	}
-//	return null;
-//    }
 }
