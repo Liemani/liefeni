@@ -33,7 +33,7 @@ public class Manual implements Console.Command {
       } catch (Exception e) {
         if (e instanceof LMIException) {
           final LMIException lmiException = (LMIException)e;
-          switch (lmiException.type()) {
+          switch (lmiException.type) {
             case ET_COMMAND_ERROR:
               _printError(ObjectShadow.ui().cons.out);
               break;
@@ -74,6 +74,7 @@ public class Manual implements Console.Command {
       }
       message("  [" + commandString + " Manual]");
       message((String)manMethod.invoke(null));
+
     }
 
     // Help

@@ -30,6 +30,15 @@ import java.util.*;
 import java.util.function.*;
 import haven.render.*;
 
+// lmi custom import
+import lmi.Array;
+import lmi.WaitManager;
+import lmi.LMIException;
+import static lmi.Constant.Signal.*;
+import static lmi.Constant.ExceptionType.*;
+import static lmi.Constant.TimeOut.*;
+import static lmi.Constant.gfx.borka.*;
+
 public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, EquipTarget, RandomSource {
     public Coord2d rc;
     public double a;
@@ -985,4 +994,254 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     public String toString() {
 	return(String.format("#<ob %d %s>", id, getattr(Drawable.class)));
     }
+
+    // lmi custom
+    // Access Property
+    // TODO: s/location/position
+    public Coord location() { return Coord.of(this.rc); }
+    public double direction() { return this.a; }
+    public double velocity() { return this.getv(); }
+    public int id() { return (int)this.id; }
+
+    public boolean isDirectingEast() {
+        final double direction = this.direction();
+        return Math.PI / 4 * 7 <= direction || direction < Math.PI / 4;
+    }
+
+    public boolean isDirectingSouth() {
+        final double direction = this.direction();
+        return Math.PI / 4 <= direction && direction < Math.PI / 4 * 3;
+    }
+
+    public boolean isDirectingWest() {
+        final double direction = this.direction();
+        return Math.PI / 4 * 3 <= direction && direction < Math.PI / 4 * 5;
+    }
+
+    public boolean isDirectingNorth() {
+        final double direction = this.direction();
+        return Math.PI / 4 * 5 <= direction && direction < Math.PI / 4 * 7;
+    }
+
+    public Map<Class<? extends GAttrib>, GAttrib> attributeMap() {
+        return this.attr;
+    }
+
+    public Resource resource() {
+      Drawable d = getattr(Drawable.class);
+      return (d != null) ? d.getres() : null;
+    }
+
+    public String resourceName() {
+      Resource resource = this.resource();
+      return (resource != null) ? resource.name : "";
+    }
+
+    public String resourceBasename() {
+        final String resourceName = this.resourceName();
+        if (resourceName == null) return null;
+
+        final int lastIndexOfSlash = resourceName.lastIndexOf('/');
+        if (lastIndexOfSlash < 0) return resourceName;
+
+        final String basename = resourceName.substring(lastIndexOfSlash + 1);
+        return basename;
+    }
+
+    public boolean isResourceNameEndsWith(String suffix) {
+	return resourceName().endsWith(suffix);
+    }
+
+    // Instance Method
+    public boolean isAt(Coord coord) { return this.location().equals(coord); }
+    public boolean isMoving() { return this.velocity() != 0.0; }
+    public boolean isStop() { return !isMoving(); }
+    public double distance(Coord coord) { return this.location().distance(coord); }
+    public double distance(Gob gob) { return this.location().distance(gob.location()); }
+
+//    public double distance(Gob other) {
+//	return rc.dist(other.rc);
+//    }
+//
+//    public double distance(Coord coord) {
+//	return rc.dist(new Coord2d(coord));
+//    }
+
+    public String[] posePathArray() {
+	Composite composite = this.getattr(Composite.class);
+	return (composite != null) ? composite.posePathArray() : new String[0];
+    }
+
+    public boolean hasPose(String pose) {
+	String[] posePathArray = this.posePathArray();
+	for (String posePath : posePathArray) {
+	    if (posePath != null && posePath.endsWith(pose))
+		return true;
+	}
+	return false;
+    }
+
+    public Gob followingTarget() {
+        final Moving moving = this.getattr(Moving.class);
+        if (moving == null) return null;
+        if (!(moving instanceof Following)) return null;
+
+        final Following following = (Following)moving;
+        return following.tgt();
+    }
+
+    public boolean isFollowing(Gob gob) {
+        final Gob target = this.followingTarget();
+        if (target == null) return false;
+        return target == gob;
+    }
+
+    public boolean isLifting() { return this.hasPose(RN_BANZAI); }
+    public boolean isLifting(Gob gob) { return gob.isFollowing(this); }
+
+    /// - Throws:
+    ///     - ET_MOVE
+    public void waitMove(Coord destination) {
+        while (!this.isAt(destination)) {
+            try {
+                _waitMoveBeginning();
+            } catch (LMIException e) {
+                if (e.type == ET_MOVE && this.isAt(destination)) return;
+                else throw e;
+            }
+            _waitMoveEnding();
+        }
+    }
+
+    /// - Throws:
+    ///     - ET_MOVE
+    public void waitMove() {
+        _waitMoveBeginning();
+        _waitMoveEnding();
+    }
+
+    /// - Throws:
+    ///     - ET_MOVE
+    private void _waitMoveBeginning() {
+        if (this.isMoving()) return;
+        try {
+            WaitManager.waitSignal(S_MOVE_DID_BEGIN, this, TO_TEMPORARY);
+        } catch (LMIException e) {
+            if (e.type != ET_TIME_OUT) throw e;
+            if (!this.isMoving()) throw new LMIException(ET_MOVE);
+        }
+    }
+
+    private void _waitMoveEnding() {
+        while (true) {
+            if (!this.isMoving()) return;
+            try {
+                WaitManager.waitSignal(S_MOVE_DID_END, this, TO_GENERAL);
+                break;
+            } catch (LMIException e) {
+                if (e.type != ET_TIME_OUT) throw e;
+            }
+        }
+    }
+
+    public void waitBuild() {
+        while (true) {
+            if (this.hasPose(RN_BUILDAN)) break;
+            lmi.Api.sleep(TO_TEMPORARY);
+        }
+        while (true) {
+            if (this.hasPose(RN_IDLE)) break;
+            lmi.Api.sleep(TO_TEMPORARY);
+        }
+    }
+
+    /// - Throws:
+    ///     - ET_LIFT
+    public void waitLift(Gob gob) {
+        if (this.isLifting(gob)) return;
+        try {
+            WaitManager.waitSignal(S_DID_LIFT, this, TO_TEMPORARY);
+        } catch (LMIException e) {
+            if (e.type != ET_TIME_OUT) throw e;
+            if (!this.isLifting(gob)) throw new LMIException(ET_LIFT);
+        }
+    }
+
+    /// - Throws:
+    ///     - ET_PUT
+    public void waitPut() {
+        if (!this.isLifting()) return;
+        try {
+            WaitManager.waitSignal(S_DID_PUT, this, TO_TEMPORARY);
+        } catch (LMIException e) {
+            if (e.type != ET_TIME_OUT) throw e;
+            if (this.isLifting()) throw new LMIException(ET_PUT);
+        }
+    }
+
+//    public byte[] sdt() {
+//        final ResDrawable resourceDrawable = this.getattr(ResDrawable.class);
+//        return (resourceDrawable != null) ? resourceDrawable.sdt() : null;
+//    }
+
+    // Check Category
+    /// - Deprecated: lmi.Util.nameSet_includesResourcePath
+    public boolean isLog() {
+        return this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.trees.RN_LOG);
+    }
+
+    /// - Deprecated: lmi.Util.nameSet_includesResourcePath
+    public boolean isTrunk() {
+        return this.isLog() || this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.trees.RN_OLDTRUNK);
+    }
+
+    /// - Deprecated: lmi.Util.nameSet_includesResourcePath
+    public boolean isContainer() {
+        return this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.RN_CRATE)
+            || this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.RN_CHEST)
+            || this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.RN_CUPBOARD);
+    }
+
+    // Deubg Description
+    public String debugDescription() {
+        StringBuilder description = new StringBuilder();
+
+        description.append("resource name: " + this.resourceName() + "\n");
+        description.append("location: " + this.location() + "\n");
+        description.append("direction: " + this.direction() + "\n");
+        description.append("distance: " + lmi.Self.distance(this) + "\n");
+        description.append("removed: " + this.removed + "\n");
+
+        description.append("pose:\n");
+        String[] poseArray = this.posePathArray();
+        if (poseArray != null) {
+            for (String poseString : poseArray)
+                description.append("  " + poseString + "\n");
+        } else
+            description.append("  no pose\n");
+
+//        description.append("sdt:\n");
+//        final byte[] sdt = this.sdt();
+//        if (sdt != null) {
+//            for (byte b : sdt)
+//                description.append(" " + b);
+//            description.append("\n");
+//        } else {
+//            description.append("null\n");
+//        }
+
+        return description.toString();
+    }
+
+//    public Skeleton.Pose getpose() {
+//	Drawable d = getattr(Drawable.class);
+//	if (d instanceof ResDrawable) {
+//	    Sprite spr = ((ResDrawable)d).spr;
+//	    if (spr instanceof ModSprite) {
+//		ModSprite.Poser poser = ((ModSprite)spr).imod(ModSprite.Poser.class);
+//		if (poser != null) return poser.pose;
+//	    }
+//	}
+//	return null;
+//    }
 }

@@ -675,4 +675,9 @@ public class Window extends Widget {
 		    g.getimage(img -> Debug.dumpimage(img, args[0]));
 	    });
     }
+
+    // lmi custom
+    public boolean isTitle(String text) {
+      return this.cap.contentEquals(text);
+    }
 }

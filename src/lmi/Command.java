@@ -34,7 +34,7 @@ public class Command implements haven.Console.Command {
       } catch (Exception e) {
         if (e instanceof LMIException) {
           final LMIException lmiException = (LMIException)e;
-          switch (lmiException.type()) {
+          switch (lmiException.type) {
             case ET_COMMAND_ERROR:
               _printError(ObjectShadow.ui().cons.out);
               break;

@@ -39,6 +39,15 @@ public class Following extends Moving {
 	this.tgt = tgt;
 	this.xfres = xfres;
 	this.xfname = xfname;
+	lmi.Delegate.followingDidAdded(gob);
+    }
+
+    public Gob followingTarget() {
+	return tgt();
+    }
+
+    protected void removed() {
+	lmi.Delegate.followingDidDeleted(gob);
     }
 
     public Coord3f getc() {
@@ -109,7 +118,9 @@ public class Following extends Moving {
 		Indir<Resource> xfres = OCache.Delta.getres(g, msg.uint16());
 		String xfname = msg.string();
 		g.setattr(new Following(g, oid, xfres, xfname));
+                lmi.Delegate.followingDidAdded(g);
 	    } else {
+                lmi.Delegate.followingDidDeleted(g);
 		g.delattr(Following.class);
 	    }
 	}

@@ -189,6 +189,7 @@ public class UI {
 	root = new RootWidget(this, sz);
 	widgets.put(0, root);
 	rwidgets.put(root, 0);
+	lmi.Initializer.initUI(this);
 	if(fun != null)
 	    fun.init(this);
 	if(sess == null) {
@@ -197,6 +198,7 @@ public class UI {
 	    if((loader = sess.glob.loader) == null)
 		throw(new NullPointerException());
 	}
+        lmi.Initializer.initUI(this);
     }
 
     public static class Command implements Serializable {
@@ -652,6 +654,11 @@ public class UI {
     }
 	
     public void wdgmsg(Widget sender, String msg, Object... args) {
+        if (!msg.contentEquals("focus")) {
+          System.out.println("\n[UI::wdgmsg()] {sender: \"" + sender.getClass().getName() + "\", message: \"" + msg + "\"}");
+          for (Object object : args) { lmi.Debug.describeField(object); }
+        }
+
 	int id = widgetid(sender);
 	if(id < 0) {
 	    new Warning("wdgmsg sender (%s) is not in rwidgets, message is %s", sender.getClass().getName(), msg).issue();
@@ -689,6 +696,21 @@ public class UI {
     }
 
     public void uimsg(int id, String msg, Object... args) {
+        if (
+            !msg.contentEquals("chres")
+            && !msg.contentEquals("glut")
+            && !msg.contentEquals("attr")
+            //              && !msg.contentEquals("msg")
+            && !msg.contentEquals("set")
+            && !msg.contentEquals("tip")
+            //              && !msg.contentEquals("auth")
+            //              && !msg.contentEquals("ppower")
+            //              && !msg.contentEquals("max")
+            && !msg.contentEquals("tt")) {
+//          lmi.Util.debugPrint("reciever: \"" + wdg.getClass().getName() + "\", message: \"" + msg + "\", args.length: " + args.length);
+          for (Object object : args)
+            lmi.Debug.describeField(object);
+        }
 	submitcmd(new Command(new UiMessage(id, msg, args)).dep(id, true));
     }
 
@@ -828,6 +850,7 @@ public class UI {
     private Grab[] c(Collection<Grab> g) {return(g.toArray(new Grab[0]));}
 
     public void keydown(KeyEvent ev) {
+        if (lmi.Delegate.keyDidDown(ev)) return;
 	setmods(ev);
 	if(!dispatch(root, new KeyDownEvent(ev)))
 	    dispatch(root, new GlobKeyEvent(ev));

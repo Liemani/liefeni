@@ -107,6 +107,7 @@ public class Composite extends Drawable implements EquipTarget {
 	    try {
 		Composited.Poses np = comp.new Poses(loadposes(nposes, comp.skel, nposesold));
 		np.set(nposesold?0:ipollen);
+                _poseDidChanged(nposes);
 		nposes = null;
 		updequ();
 	    } catch(Loading e) {}
@@ -304,5 +305,25 @@ public class Composite extends Drawable implements EquipTarget {
 		throw(new RuntimeException(String.format("cmpequ on non-composed object: %s", equ)));
 	    cmp.chequ(equ);
 	}
+    }
+
+    // lmi custom
+    // field
+    private String[] _posePathArray = null;
+
+    // public method
+    public String[] posePathArray() { return _posePathArray; }
+
+    // private meethod
+    private void _poseDidChanged(Collection<ResData> poseResourceDataCollection) {
+      _setPosePathArray(poseResourceDataCollection);
+      lmi.Delegate.poseDidChanged(this.gob);
+    }
+
+    private void _setPosePathArray(Collection<ResData> poseResourceDataCollection) {
+      final int arraySize = poseResourceDataCollection.size();
+      _posePathArray = new String[arraySize];
+      for (int i = 0; i < arraySize; ++i);
+//        _posePathArray[i] = resourceData.res.get().name;
     }
 }

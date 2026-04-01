@@ -40,6 +40,7 @@ public class RootWidget extends ConsoleHost implements UI.Notice.Handler, Widget
 	super(ui, new Coord(0, 0), sz);
 	setfocusctl(true);
 	hasfocus = true;
+	lmi.Initializer.initRootWidget(this);
     }
 
     public boolean getcurs(CursorQuery ev) {
@@ -52,6 +53,8 @@ public class RootWidget extends ConsoleHost implements UI.Notice.Handler, Widget
     }
 
     public boolean globtype(GlobKeyEvent ev) {
+	if(lmi.Delegate.keyDidDown(ev.awt))
+	    return(true);
 	if(ev.propagate(this))
 	    return(true);
 	if(ev.c == '`') {

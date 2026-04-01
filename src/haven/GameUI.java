@@ -307,6 +307,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	opts.hide();
 	zerg = add(new Zergwnd(), Utils.getprefc("wndc-zerg", UI.scale(new Coord(187, 50))));
 	zerg.hide();
+        lmi.Initializer.initGameUI(this);
     }
 
     protected void attached() {
@@ -1031,6 +1032,12 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	public Progress(double prog) {
 	    super(progt.f[0][0].ssz);
 	    set(prog);
+	    lmi.Delegate.progressDidAdded(this);
+	}
+
+	public void destroy() {
+	    lmi.Delegate.progressDidDestroyed();
+	    super.destroy();
 	}
 
 	public void set(double prog) {
@@ -1221,6 +1228,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	if(msg == "err") {
 	    String err = (String)args[0];
 	    ui.error(err);
+            lmi.Delegate.didGetErrorMessage(err);
 	} else if(msg == "msg") {
 	    String text = (String)args[0];
 	    ui.msg(text);
@@ -1229,6 +1237,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 		double p = Utils.dv(args[0]) / 100.0;
 		if(prog == null)
 		    prog = adda(new Progress(p), 0.5, 0.35);
+
 		else
 		    prog.set(p);
 	    } else {
@@ -1785,5 +1794,10 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
     }
     public Map<String, Console.Command> findcmds() {
 	return(cmdmap);
+    }
+
+    // lmi custom
+    public void alert(String msg) {
+      ui.error(msg);
     }
 }

@@ -775,7 +775,8 @@ public class Debug {
     //          dispatcher
     //          describeMethod(Debug.class);
     describeField(null);
-    describeField(new java.lang.Integer(1));
+    describeField(Integer.valueOf(1));
+    describeField(1);
   }
 
   // descriptionPrimitiveType() test
@@ -822,4 +823,4 @@ public class Debug {
     System.out.println(convertToDebugDescriptionAsArray(bo));
     System.out.println(convertToDebugDescriptionAsArrayOfBoolean(null));
   }
-}
+  }

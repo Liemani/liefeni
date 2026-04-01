@@ -34,7 +34,7 @@ public class AutomationManager {
 
     _automationMap = new AutomationMap();
     for (Class c : _classArray) {
-      if (Automation.class.isAssignableFrom(c)) {
+      if (c != null && Automation.class.isAssignableFrom(c)) {
         _automationMap.put(c.getSimpleName(), (Class<Automation>)c);
       }
     }
@@ -49,7 +49,7 @@ public class AutomationManager {
 
     Automation automation;
     try {
-      automation = automationClass.newInstance();
+      automation = automationClass.getDeclaredConstructor().newInstance();
     } catch (Exception e) {
       if (!(e instanceof IllegalAccessException)) throw e;
       throw new LMIException(ET_COMMAND_INITIALIZER);

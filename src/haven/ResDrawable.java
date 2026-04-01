@@ -122,4 +122,7 @@ public class ResDrawable extends Drawable implements Sprite.Owner, EquipTarget {
 	    }
 	}
     }
+
+    // lmi custom
+    public byte[] sdt() { return this.sdt.rbuf; }
 }

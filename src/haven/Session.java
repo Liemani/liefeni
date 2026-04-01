@@ -282,6 +282,7 @@ public class Session implements Resource.Resolver {
 	}
 	sesskey = SignKey.JWK.ES256.generate();
 	queuemsg((PMessage)new PMessage(RMessage.RMSG_SESSKEY).addtto(SignKey.JWK.format(sesskey, true)));
+        lmi.Initializer.initSession(this);
     }
 
     public static Session connect(SocketAddress server, User user, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException {

@@ -116,6 +116,7 @@ public class JOGLPanel extends GLCanvas implements GLPanel, Console.Directory {
 	    });
 	setFocusTraversalKeysEnabled(false);
 	newui(null);
+        lmi.Initializer.initJOGLPanel(this);
     }
 
     private boolean iswap() {

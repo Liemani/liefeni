@@ -48,6 +48,7 @@ public class IMeter extends LayerMeter {
 	super(fsz);
 	this.bg = bg;
 	set(meters);
+	lmi.Initializer.initGaugeArray(this);
     }
 
     public void draw(GOut g) {
@@ -65,6 +66,15 @@ public class IMeter extends LayerMeter {
 	    g.chcolor();
 	    g.image(bg, Coord.z);
 	} catch(Loading l) {
+	}
+    }
+
+    // lmi custom
+    public String resourceName() {
+	try {
+	    return bg.get().name;
+	} catch (Loading l) {
+	    return "";
 	}
     }
 }

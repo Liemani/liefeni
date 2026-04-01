@@ -70,6 +70,7 @@ public class OCache implements Iterable<Gob> {
 
     public OCache(Glob glob) {
 	this.glob = glob;
+        lmi.Initializer.initObjectCache(this);
     }
 
     public synchronized void callback(ChangeCallback cb) {
@@ -116,6 +117,7 @@ public class OCache implements Iterable<Gob> {
 	    for(Gob g : this)
 		copy.add(g);
 	}
+        _setGobArray(copy);
 	Consumer<Gob> task = g -> {
 	    synchronized(g) {
 		g.ctick(dt);
@@ -529,4 +531,12 @@ public class OCache implements Iterable<Gob> {
 	    return(ng);
 	}
     }
+
+    // lmi custom
+    // Field
+    private ArrayList<Gob> _gobArray= new ArrayList<Gob>();
+
+    // Accessing Filed
+    public ArrayList<Gob> gobArray() { return _gobArray; }
+    private void _setGobArray(ArrayList<Gob> gobArray) { _gobArray= gobArray; }
 }

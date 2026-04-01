@@ -774,6 +774,8 @@ public class Skeleton {
 		if(nt > len) {
 		    nt = len;
 		    done = true;
+		    if(owner instanceof Gob)
+			lmi.Delegate.poseDidChanged((Gob)owner);
 		}
 		break;
 	    case PONG:
@@ -783,6 +785,8 @@ public class Skeleton {
 		} else if(back && (nt < 0)) {
 		    nt = 0;
 		    done = true;
+		    if(owner instanceof Gob)
+			lmi.Delegate.poseDidChanged((Gob)owner);
 		}
 		break;
 	    case PONGLOOP:

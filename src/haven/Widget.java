@@ -235,6 +235,7 @@ public class Widget {
 	child.parent = this;
 	child.link();
 	child.added();
+	lmi.Delegate.newWidgetDidAdded(child);
 	childseq++;
 	if(attached)
 	    child.attached();
@@ -2011,4 +2012,20 @@ public class Widget {
 	.add(UI.class, wdg -> wdg.ui)
 	.add(Glob.class, wdg -> wdg.ui.sess.glob)
 	.add(Session.class, wdg -> wdg.ui.sess);
+
+    // lmi custom
+    public final void sendMessage(String message, Object... args) {
+      this.wdgmsg(message, args);
+      lmi.WaitManager.waitMessage(message);
+    }
+
+    public <T extends Widget> T getChildOf(Class<T> c) {
+      Widget child = this.child;
+      while (child != null) {
+        if (child.getClass() == c)
+          return c.cast(child);
+        child = child.next;
+      }
+      return null;
+    }
 }

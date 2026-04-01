@@ -78,7 +78,7 @@ public class Development implements Console.Command {
       } catch (Exception e) {
         if (e instanceof LMIException) {
           final LMIException lmiException = (LMIException)e;
-          switch (lmiException.type()) {
+          switch (lmiException.type) {
             case ET_COMMAND_ERROR:
               _printError(ObjectShadow.ui().cons.out);
               break;
@@ -534,7 +534,7 @@ public class Development implements Console.Command {
   }
 
   static void test000() {
-    Api.planAndCarryOutObject(P_DFRAME, Self.location().north().north(), 0);
+    //        Api.planAndCarryOutObject(P_DFRAME, Self.location().north().north(), 0);
   }
 
   static void test001() {
@@ -561,7 +561,7 @@ public class Development implements Console.Command {
   }
 
   static void test005() {
-    final boolean didPlanObject = ObjectShadow.mapView().didPlanObject();
-    Api.message("MapView에 plan이 됐는가: " + didPlanObject);
+    //        final boolean didPlanObject = ObjectShadow.mapView().didPlanObject();
+    //        Api.message("MapView에 plan이 됐는가: " + didPlanObject);
   }
 }

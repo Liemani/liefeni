@@ -6,7 +6,7 @@ public class LMIIntException extends LMIException {
   public int value;
 
   public LMIIntException(ExceptionType type, int value) {
-    this.type = type;
+    super(type);
     this.value = value;
   }
 

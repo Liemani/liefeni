@@ -1,25 +1,25 @@
 package lmi.automation;
 
-import lmi.Self;
 import lmi.Array;
-
+import lmi.Self;
+import lmi.AutomationManager.Automation;
 import static lmi.Constant.*;
+import static lmi.Constant.ExceptionType.*;
 
-import static lmi.Constant.*;
-
-public class Patrol002 implements Runnable {
+public class Patrol002 extends Automation {
   private Array<haven.Coord> _path;
 
   public void run() {
+    willRun();
+
     try {
-      willRun();
-      main();
-    } catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
+      while (true)
+        patrolPath();
+    } catch (lmi.LMIException e) {
+      if (e.type != ET_INTERRUPTED) throw e;
     } catch (Exception e) { e.printStackTrace(); }
   }
 
-  // private methods
   private void willRun() {
     clearPath();
   }
@@ -30,12 +30,16 @@ public class Patrol002 implements Runnable {
     _path.removeAll();
   }
 
-  private void main() throws InterruptedException {
+  public void patrolPath() throws InterruptedException {
     haven.Coord firstPoint = Self.location().add(0, -TILE_IN_COORD);
     haven.Coord secondPoint = Self.location().add(TILE_IN_COORD, 0);
     lmi.Api.move(firstPoint);
-    Thread.sleep(2000);
+    lmi.Api.sleep(2000);
     lmi.Api.move(secondPoint);
-    Thread.sleep(2000);
+    lmi.Api.sleep(2000);
+  }
+
+  public static String man() {
+    return "Patrol002\nDescription: Simple patrol test.";
   }
 }

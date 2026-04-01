@@ -458,6 +458,7 @@ public class Connection implements Transport {
 	private int fragtype;
 
 	private void handlerel(PMessage msg) {
+	    lmi.Delegate.didGetACK((RMessage)msg);
 	    if(msg.type == RMessage.RMSG_FRAGMENT) {
 		int head = msg.uint8();
 		if((head & 0x80) == 0) {
@@ -522,6 +523,7 @@ public class Connection implements Transport {
 		    RMessage msg = i.next();
 		    short sd = (short)(msg.seq - seq);
 		    if(sd <= 0) {
+                        lmi.Delegate.didGetACK(msg);
 			stats.addreply(now - msg.first);
 			i.remove();
 		    } else {

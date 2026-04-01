@@ -115,4 +115,20 @@ public class ISBox extends Widget implements DTarget {
             super.uimsg(msg, args);
         }
     }
+
+
+    // lmi custom
+    public String text() { return label.text; }
+
+    public int count() {
+      final String[] countAndCapacity = this.text().split("/", 2);
+      return Integer.parseInt(countAndCapacity[0]);
+    }
+
+    public int capacity() {
+      final String[] countAndCapacity = this.text().split("/", 2);
+      return Integer.parseInt(countAndCapacity[1]);
+    }
+
+    public void transfer() { this.wdgmsg(lmi.Constant.Message.M_XFER); }
 }

@@ -5,15 +5,10 @@ import java.awt.Color;
 import java.util.*;
 
 public class LmiHandler {
-  private static Task currentTask = null;
-
-  public interface Task {
-    void tick(double dt, GameUI gui);
-    boolean isFinished();
-    void stop(GameUI gui);
-  }
-
   public static void init() {
+    // Initialize legacy LMI system
+    lmi.Initializer.init();
+
     Console.setscmd("a", new Console.Command() {
       public void run(Console cons, String[] args) throws Exception {
         Console.Host host = cons.host();
@@ -22,55 +17,49 @@ public class LmiHandler {
         }
         GameUI gui = (GameUI)host;
         if (args.length < 2) {
-          print(gui, "Usage: :a <a_command> [args...]");
+          printCommandList(gui);
           return;
         }
         String a_command = args[1];
 
         if (a_command.equals("stop")) {
-          stopTask(gui);
+          if (AutomationManager.isRunning()) {
+            AutomationManager.interrupt();
+            print(gui, "Automation stopped.", Color.YELLOW);
+          } else {
+            print(gui, "No automation running.");
+          }
           return;
         }
 
-        handle(gui, a_command, args);
+        // Try to find and start automation
+        Class<AutomationManager.Automation> cls = AutomationManager.getClass(a_command);
+        if (cls != null) {
+          try {
+            AutomationManager.start(cls, args);
+            print(gui, "Started automation: " + a_command, Color.GREEN);
+          } catch (Exception e) {
+            print(gui, "Failed to start automation: " + e.getMessage(), Color.RED);
+            e.printStackTrace();
+          }
+        } else {
+          print(gui, "Unknown a_command: " + a_command, Color.RED);
+        }
       }
     });
   }
 
   public static void tick(double dt, GameUI gui) {
-    if (currentTask != null) {
-      if (currentTask.isFinished()) {
-        print(gui, "Task finished.");
-        currentTask = null;
-      } else {
-        currentTask.tick(dt, gui);
-      }
-    }
+    // Update context for legacy LMI
+    ObjectShadow.setGameUI(gui);
+    // MapView and other fields in ObjectShadow are usually set via hooks we added
   }
 
-  private static void stopTask(GameUI gui) {
-    if (currentTask != null) {
-      currentTask.stop(gui);
-      currentTask = null;
-      print(gui, "Task stopped.", Color.YELLOW);
-    } else {
-      print(gui, "No task running.");
-    }
-  }
-
-  private static void startTask(GameUI gui, Task task) {
-    stopTask(gui);
-    currentTask = task;
-    print(gui, "Task started: " + task.getClass().getSimpleName(), Color.GREEN);
-  }
-
-  private static void handle(GameUI gui, String cmd, String[] args) {
-    if (cmd.equals("move")) {
-      startTask(gui, new MoveTask(args));
-    } else if (cmd.equals("hello")) {
-      print(gui, "Hello from LMI!");
-    } else {
-      print(gui, "Unknown a_command: " + cmd, Color.RED);
+  private static void printCommandList(GameUI gui) {
+    print(gui, "Available a_commands:");
+    print(gui, "  stop - Stops the current automation");
+    for (String cmd : AutomationManager.getCommandStringSet()) {
+      print(gui, "  " + cmd);
     }
   }
 
@@ -82,33 +71,5 @@ public class LmiHandler {
     if (gui.syslog != null) {
       gui.syslog.append(msg, col);
     }
-  }
-
-  // --- Example Task implementation ---
-  public static class MoveTask implements Task {
-    private boolean done = false;
-    private double timer = 0;
-
-    public MoveTask(String[] args) {
-      // Initialize with args
-    }
-
-    @Override
-      public void tick(double dt, GameUI gui) {
-        timer += dt;
-        if (timer > 2.0) { // Placeholder: finish after 2 seconds
-          done = true;
-        }
-      }
-
-    @Override
-      public boolean isFinished() {
-        return done;
-      }
-
-    @Override
-      public void stop(GameUI gui) {
-        done = true;
-      }
   }
 }

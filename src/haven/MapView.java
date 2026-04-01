@@ -499,6 +499,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	this.clickmap = new ClickMap();
 	clmaptree.add(clickmap);
 	setcanfocus(true);
+	lmi.Initializer.initMapView(this);
     }
     
     protected void envdispose() {
@@ -1849,6 +1850,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 			    a = a2;
 			}
 			ret.place();
+                        lmi.Delegate.plobDidPlaced(ret);
 			return(ret);
 		    }
 		});
@@ -1981,10 +1983,12 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	}
 	
 	protected void hit(Coord pc, Coord2d mc, ClickData inf) {
+            if (lmi.Delegate.didClicked(mc, clickb, inf)) return;
 	    Object[] args = {pc, mc.floor(posres), clickb, ui.modflags()};
 	    if(inf != null)
 		args = Utils.extend(args, inf.clickargs());
 	    wdgmsg("click", args);
+	    lmi.Delegate.didClicked(mc, clickb, inf);
 	}
     }
     
@@ -2225,6 +2229,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 		    tt = null;
 		    glob.map.remove(ol);
 		    mgrab.remove();
+                    if (lmi.Delegate.areaDidSelected(sc, ec)); else
 		    wdgmsg("sel", sc, ec, modflags);
 		    sc = null;
 		}
@@ -2353,4 +2358,38 @@ public class MapView extends PView implements DTarget, Console.Directory {
 		}
 	    });
     }
+
+    // lmi custom
+    public void newSelector() {
+      synchronized(this) {
+        if(selection != null) {
+          selection.destroy();
+          selection = null;
+        }
+        selection = new Selector(null);
+      }
+    }
+
+    public void destroySelector() {
+      synchronized(this) {
+        if(selection != null) {
+          selection.destroy();
+          selection = null;
+        }
+      }
+    }
+
+    public boolean isPlanningObject() {
+      Loader.Future<Plob> placing_l = this.placing;
+      return placing_l != null && placing_l.done();
+    }
+
+    public void waitPlanObject() {
+      while (this.isPlanningObject())
+        lmi.Api.sleep(lmi.Constant.TimeOut.TO_TEMPORARY);
+    }
+
+//    public void sendCancelPlanMessage() {
+//	wdgmsg("cancel");
+//    }
 }
