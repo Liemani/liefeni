@@ -33,13 +33,14 @@ public class Self {
   public static Coord location() { return Self.gob().location(); }
   public static double direction() { return Self.gob().direction(); }
   public static double velocity() { return Self.gob().velocity(); }
-  public static haven.Skeleton.Pose pose() { return Self.gob().getpose(); }
+  public static String[] pose() { return Self.gob().resPathArray().toArray(new String[0]); }
   public static boolean hasPose(String poseName) { return Self.gob().hasPose(poseName); }
 
   public static double hardHitPoint() {
-    return haven.LMI.gaugeWidgetGaugeArray(ObjectShadow.gaugeWidgetArray()[GI_HIT_POINT])
-      .get(GI_HARD)
-      .a;
+    haven.IMeter imeter = ObjectShadow.gaugeWidgetArray()[GI_HIT_POINT];
+    java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.gaugeWidgetGaugeArray(imeter);
+    if (meter == null) return -1.0;
+    return meter.get(GI_HARD).a;
   }
 
   public static double softHitPoint() {
@@ -55,9 +56,10 @@ public class Self {
   }
 
   public static double energy() {
-    return haven.LMI.gaugeWidgetGaugeArray(ObjectShadow.gaugeWidgetArray()[GI_ENERGY])
-      .get(0)
-      .a;
+    haven.IMeter imeter = ObjectShadow.gaugeWidgetArray()[GI_ENERGY];
+    java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.gaugeWidgetGaugeArray(imeter);
+    if (meter == null) return -1.0;
+    return meter.get(0).a;
   }
 
   // etc

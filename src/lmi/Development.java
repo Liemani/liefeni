@@ -219,12 +219,14 @@ public class Development implements Console.Command {
 
   // test command
   static void describeSelf() {
-    System.out.println("resource name: " + Self.gob().resourceName());
-    System.out.println("Self.location(): " + Self.location());
-    System.out.println("Self.hardHitPoint(): " + Self.hardHitPoint());
-    System.out.println("Self.softHitPoint(): " + Self.softHitPoint());
-    System.out.println("Self.stamina(): " + Self.stamina());
-    System.out.println("Self.energy(): " + Self.energy());
+    Api.message("resource name: " + Self.gob().resourceName());
+    Api.message("Self.location(): " + Self.location());
+    Api.message("Self.hardHitPoint(): " + Self.hardHitPoint());
+    Api.message("Self.softHitPoint(): " + Self.softHitPoint());
+    Api.message("Self.stamina(): " + Self.stamina());
+    Api.message("Self.energy(): " + Self.energy());
+
+    Api.message(Self.gob().debugDescription());
   }
 
   static void describeSelfAttribute() {
@@ -563,5 +565,10 @@ public class Development implements Console.Command {
   static void test005() {
     //        final boolean didPlanObject = ObjectShadow.mapView().didPlanObject();
     //        Api.message("MapView에 plan이 됐는가: " + didPlanObject);
+  }
+
+  static void test006() {
+    System.out.println("Hello, world!");
+    //      self.
   }
 }

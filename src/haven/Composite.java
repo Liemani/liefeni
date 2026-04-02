@@ -107,7 +107,7 @@ public class Composite extends Drawable implements EquipTarget {
 	    try {
 		Composited.Poses np = comp.new Poses(loadposes(nposes, comp.skel, nposesold));
 		np.set(nposesold?0:ipollen);
-                _poseDidChanged(nposes);
+                _setPoseResNames(nposes);
 		nposes = null;
 		updequ();
 	    } catch(Loading e) {}
@@ -309,32 +309,56 @@ public class Composite extends Drawable implements EquipTarget {
 
     // lmi custom
     // field
-    private String[] _posePathArray = null;
+    public String[] poseResNames = null;
 
     // public method
-    public String[] posePathArray() { return _posePathArray; }
-
-    // private method
-    private void _poseDidChanged(Collection<ResData> poseResourceDataCollection) {
-      if (poseResourceDataCollection == null) {
-        _posePathArray = null;
-      } else {
-        _setPosePathArray(poseResourceDataCollection);
-      }
-
-      lmi.Delegate.poseDidChanged(this.gob);
+    public String baseResName() {
+      return (baseres != null) ? baseres.name : "";
     }
 
-    private void _setPosePathArray(Collection<ResData> poseResourceDataCollection) {
-      final int arraySize = poseResourceDataCollection.size();
-      _posePathArray = new String[arraySize];
+    public String[] equResNames() {
+      if (comp == null) return new String[0];
+      String[] res = new String[comp.cequ.size()];
       int i = 0;
-      for (ResData resourceData : poseResourceDataCollection) {
-          try {
-              _posePathArray[i++] = resourceData.res.get().name;
-          } catch (Loading l) {
-              _posePathArray[i++] = "";
-          }
+      for (Composited.ED ed : comp.cequ) {
+        try {
+          res[i++] = ed.res.res.get().name;
+        } catch (Loading l) {
+          res[i++] = "";
+        }
+      }
+      return res;
+    }
+
+    public String[] modResNames() {
+      if (comp == null) return new String[0];
+      String[] res = new String[comp.cmod.size()];
+      int i = 0;
+      for (Composited.MD md : comp.cmod) {
+        try {
+          res[i++] = md.mod.get().name;
+        } catch (Loading l) {
+          res[i++] = "";
+        }
+      }
+      return res;
+    }
+
+    // private method
+    private void _setPoseResNames(Collection<ResData> resDatas) {
+      if (resDatas == null) {
+        this.poseResNames = null;
+        return;
+      }
+
+      this.poseResNames = new String[resDatas.size()];
+      int i = 0;
+      for (ResData resData : resDatas) {
+        try {
+          this.poseResNames[i++] = resData.res.get().name;
+        } catch (Loading l) {
+          this.poseResNames[i++] = "";
+        }
       }
     }
 }

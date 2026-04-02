@@ -1067,34 +1067,100 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 //    }
 
     // LMI: Pose (Low Level - Raw Data)
-    public String[] posePathArray() {
-	Composite composite = this.getattr(Composite.class);
-	return (composite != null) ? composite.posePathArray() : new String[0];
+    public List<String> baseResPathArray() {
+      List<String> resPaths = new ArrayList<String>();
+      Composite composite = this.getattr(Composite.class);
+      if (composite != null) {
+        String path = composite.baseResName();
+        if (!path.isEmpty()) resPaths.add(path);
+      }
+      return resPaths;
+    }
+
+    public List<String> animResPathArray() {
+      List<String> resPaths = new ArrayList<String>();
+      Composite composite = this.getattr(Composite.class);
+      if (composite != null) {
+        String[] anims = composite.poseResNames;
+        if (anims != null) {
+          for (String p : anims) {
+            if (p != null && !p.isEmpty())
+              resPaths.add(p);
+          }
+        }
+      }
+      return resPaths;
+    }
+
+    public List<String> equResPathArray() {
+      List<String> resPaths = new ArrayList<String>();
+      Composite composite = this.getattr(Composite.class);
+      if (composite != null) {
+        String[] paths = composite.equResNames();
+        for (String p : paths) {
+          if (p != null && !p.isEmpty()) resPaths.add(p);
+        }
+      }
+      return resPaths;
+    }
+
+    public List<String> modResPathArray() {
+      List<String> resPaths = new ArrayList<String>();
+      Composite composite = this.getattr(Composite.class);
+      if (composite != null) {
+        String[] paths = composite.modResNames();
+        for (String p : paths) {
+          if (p != null && !p.isEmpty()) resPaths.add(p);
+        }
+      }
+      return resPaths;
+    }
+
+    public List<String> resPathArray() {
+      List<String> resPaths = new ArrayList<String>();
+      Composite composite = this.getattr(Composite.class);
+      if (composite != null) {
+        // 1. Base
+        String base = composite.baseResName();
+        if (!base.isEmpty()) resPaths.add(base);
+
+        // 2. Anim
+        String[] anims = composite.poseResNames;
+        if (anims != null) {
+          for (String p : anims) {
+            if (p != null && !p.isEmpty()) resPaths.add(p);
+          }
+        }
+
+        // 3. Equipment
+        String[] equs = composite.equResNames();
+        for (String p : equs) {
+          if (p != null && !p.isEmpty()) resPaths.add(p);
+        }
+
+        // 4. Model
+        String[] mods = composite.modResNames();
+        for (String p : mods) {
+          if (p != null && !p.isEmpty()) resPaths.add(p);
+        }
+      }
+      return resPaths;
     }
 
     // LMI: Pose (Mid Level - Parsed Data)
-    public String[] poseNameArray() {
-	String[] paths = this.posePathArray();
-	String[] names = new String[paths.length];
-	for (int i = 0; i < paths.length; i++) {
-	    String p = paths[i];
-	    if (p == null) {
-		names[i] = "";
-		continue;
-	    }
-	    int lastSlash = p.lastIndexOf('/');
-	    names[i] = (lastSlash < 0) ? p : p.substring(lastSlash + 1);
-	}
-	return names;
+    public List<String> poseNameArray() {
+      List<String> resPaths = this.animResPathArray();
+      List<String> poseNames = new ArrayList<String>(resPaths.size());
+      for (String p : resPaths) {
+        int lastSlash = p.lastIndexOf('/');
+        poseNames.add((lastSlash < 0) ? p : p.substring(lastSlash + 1));
+      }
+      return poseNames;
     }
 
     // LMI: Pose (High Level - State Check)
     public boolean hasPose(String pose) {
-	for (String poseName : this.poseNameArray()) {
-	    if (poseName != null && poseName.equals(pose))
-		return true;
-	}
-	return false;
+      return this.poseNameArray().contains(pose);
     }
 
     public Gob followingTarget() {
@@ -1228,9 +1294,9 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
         description.append("distance: " + lmi.Self.distance(this) + "\n");
         description.append("removed: " + this.removed + "\n");
 
-        description.append("pose path:\n");
-        for (String posePath : this.posePathArray())
-            description.append("  " + posePath + "\n");
+        description.append("resource path:\n");
+        for (String resPath : this.resPathArray())
+            description.append("  " + resPath + "\n");
 
 //        description.append("sdt:\n");
 //        final byte[] sdt = this.sdt();
