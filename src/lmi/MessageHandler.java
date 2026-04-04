@@ -1,7 +1,7 @@
 package lmi;
 
 public class MessageHandler {
-  public static String getAction(haven.RMessage message) {
+  public static String getAction(haven.PMessage message) {
     if (message.wbuf.length < 4)
       return "";
 

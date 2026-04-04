@@ -217,11 +217,11 @@ public class Api {
 
   /// - Throws:
   ///     - ET_MOVE
-  public static void moveNorth() { Api.move(Self.location().north()); }
-  public static void moveEast() { Api.move(Self.location().east()); }
-  public static void moveWest() { Api.move(Self.location().west()); }
-  public static void moveSouth() { Api.move(Self.location().south()); }
-  public static void moveCenter() { Api.move(Self.location().center()); }
+  public static void moveNorth() { Api.move(Self.position().north()); }
+  public static void moveEast() { Api.move(Self.position().east()); }
+  public static void moveWest() { Api.move(Self.position().west()); }
+  public static void moveSouth() { Api.move(Self.position().south()); }
+  public static void moveCenter() { Api.move(Self.position().center()); }
 
   /// - Throws:
   ///     - ET_LIFT
@@ -320,7 +320,7 @@ public class Api {
   }
 
   public static Array<Gob> gobArrayIn(Rect area) {
-    return Api.gobArrayWhere(gob -> area.contains(gob.location()));
+    return Api.gobArrayWhere(gob -> area.contains(gob.position()));
   }
 
   public static Array<Gob> getGobArrayInArea() {
@@ -375,7 +375,7 @@ public class Api {
   }
 
   private static void _sendObjectClickMessage(Gob gob) {
-    final Coord gobLocationInCoord = gob.location();
+    final Coord gobLocationInCoord = gob.position();
     WidgetMessageHandler.click(gob, IM_LEFT, IM_NONE);
   }
 

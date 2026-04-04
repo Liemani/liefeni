@@ -130,7 +130,7 @@ public class AlignLog extends Automation {
   ///     - ET_NO_INPUT
   private Gob _logToCarry() {
     final Array<Gob> logArrayToCarry = Api.gobArrayWhere(
-        gob -> _inputArea.contains(gob.location()) && gob.isLog());
+        gob -> _inputArea.contains(gob.position()) && gob.isLog());
 
     if (logArrayToCarry.isEmpty())
       throw new LMIException(ET_NO_INPUT);

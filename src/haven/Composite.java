@@ -35,6 +35,10 @@ import haven.Skeleton.PoseMod;
 import static haven.Composited.ED;
 import static haven.Composited.MD;
 
+// lmi start
+import java.util.stream.*;
+// lmi end
+
 public class Composite extends Drawable implements EquipTarget {
     public final static float ipollen = 0.2f;
     public final Indir<Resource> base;
@@ -307,7 +311,7 @@ public class Composite extends Drawable implements EquipTarget {
 	}
     }
 
-    // lmi custom
+    // lmi start
     // field
     public String[] poseResNames = null;
 
@@ -316,49 +320,42 @@ public class Composite extends Drawable implements EquipTarget {
       return (baseres != null) ? baseres.name : "";
     }
 
-    public String[] equResNames() {
-      if (comp == null) return new String[0];
-      String[] res = new String[comp.cequ.size()];
-      int i = 0;
-      for (Composited.ED ed : comp.cequ) {
-        try {
-          res[i++] = ed.res.res.get().name;
-        } catch (Loading l) {
-          res[i++] = "";
-        }
-      }
-      return res;
+    public Stream<String> equResNames() {
+      if (comp == null) return Stream.empty();
+      return comp.cequ.stream().map(ed -> _safeGetRes(ed.res.res));
     }
 
-    public String[] modResNames() {
-      if (comp == null) return new String[0];
-      String[] res = new String[comp.cmod.size()];
-      int i = 0;
-      for (Composited.MD md : comp.cmod) {
-        try {
-          res[i++] = md.mod.get().name;
-        } catch (Loading l) {
-          res[i++] = "";
-        }
-      }
-      return res;
+    public Stream<String> modResNames() {
+      if (comp == null) return Stream.empty();
+      return comp.cmod.stream().map(md -> _safeGetRes(md.mod));
+    }
+
+    public Stream<String> poseResNames() {
+      if (poseResNames == null) return Stream.empty();
+      return Arrays.stream(poseResNames);
     }
 
     // private method
     private void _setPoseResNames(Collection<ResData> resDatas) {
       if (resDatas == null) {
         this.poseResNames = null;
-        return;
-      }
-
-      this.poseResNames = new String[resDatas.size()];
-      int i = 0;
-      for (ResData resData : resDatas) {
-        try {
-          this.poseResNames[i++] = resData.res.get().name;
-        } catch (Loading l) {
-          this.poseResNames[i++] = "";
+      } else {
+        this.poseResNames = new String[resDatas.size()];
+        int i = 0;
+        for (ResData rd : resDatas) {
+          this.poseResNames[i++] = _safeGetRes(rd.res);
         }
       }
+
+      lmi.Delegate.poseDidChanged(this.gob);
     }
+
+    private String _safeGetRes(Indir<Resource> res) {
+      try {
+        return res.get().name;
+      } catch (Loading l) {
+        return "";
+      }
+    }
+    // lmi end
 }

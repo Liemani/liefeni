@@ -87,9 +87,9 @@ public class Delegate {
     return false;
   }
 
-  public static void didGetACK(RMessage rMessage) {
-    final String message = MessageHandler.getAction(rMessage);
-    Util.debugPrint("rMessage: \"" + message + "\"");
+  public static void didGetACK(PMessage pMessage) {
+    final String message = MessageHandler.getAction(pMessage);
+    Util.debugPrint("pMessage: \"" + message + "\"");
     WaitManager.notifyMessage(message);
   }
 

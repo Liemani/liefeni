@@ -30,10 +30,9 @@ public class Self {
     return ObjectShadow.mapView().player();
   }
 
-  public static Coord location() { return Self.gob().location(); }
+  public static Coord position() { return Self.gob().position(); }
   public static double direction() { return Self.gob().direction(); }
   public static double velocity() { return Self.gob().velocity(); }
-  public static String[] pose() { return Self.gob().resPathArray().toArray(new String[0]); }
   public static boolean hasPose(String poseName) { return Self.gob().hasPose(poseName); }
 
   public static double hardHitPoint() {

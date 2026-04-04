@@ -220,7 +220,7 @@ public class Development implements Console.Command {
   // test command
   static void describeSelf() {
     Api.message("resource name: " + Self.gob().resourceName());
-    Api.message("Self.location(): " + Self.location());
+    Api.message("Self.position(): " + Self.position());
     Api.message("Self.hardHitPoint(): " + Self.hardHitPoint());
     Api.message("Self.softHitPoint(): " + Self.softHitPoint());
     Api.message("Self.stamina(): " + Self.stamina());
@@ -253,12 +253,12 @@ public class Development implements Console.Command {
     Gob gob = Api.getGob();
 
     int targetDistance = Integer.parseInt(_args[2]);
-    Api.move(gob.location().assignSubtract(0, targetDistance));
+    Api.move(gob.position().assignSubtract(0, targetDistance));
 
     while (true) {
-      final Coord destination = Self.location().add(0, 1);
+      final Coord destination = Self.position().add(0, 1);
       Api.move(destination);
-      System.out.println("current location: " + Self.location());
+      System.out.println("current location: " + Self.position());
     }
   }
 
@@ -322,7 +322,7 @@ public class Development implements Console.Command {
     System.out.println("click next gob to move!");
     Gob variantGob = ClickManager.getGob();
 
-    Coord standardPoint = Self.location();
+    Coord standardPoint = Self.position();
     Api.lift(standardGob);
     Api.move(standardPoint.add(0, 2048));
     Api.put(standardPoint);
@@ -356,7 +356,7 @@ public class Development implements Console.Command {
     System.out.println("click next gob to move!");
     Gob variantGob = ClickManager.getGob();
 
-    Coord standardPoint = Self.location().center();
+    Coord standardPoint = Self.position().center();
     Api.lift(standardGob);
     Api.move(standardPoint.add(0, 2048));
     Api.put(standardPoint);
@@ -414,7 +414,7 @@ public class Development implements Console.Command {
   //      }
 
   private static void _checkSelfVariantWidth(Gob standardGob, int variant) {
-    final Coord variantPoint = standardGob.location().add(variant, 0);
+    final Coord variantPoint = standardGob.position().add(variant, 0);
     Coord firstStep = variantPoint.north();
 
     Api.move(firstStep);
@@ -425,7 +425,7 @@ public class Development implements Console.Command {
   }
 
   static void putLogDistanceBodyWidth() {
-    final Coord origin = Self.location().center();
+    final Coord origin = Self.position().center();
 
     System.out.println("첫 번째 로그를 선택해주세요");
     final Gob firstLog = Api.getGob();
@@ -509,7 +509,7 @@ public class Development implements Console.Command {
     int lastFailedDistance = 0;
     int succeededDistance = Integer.parseInt(_args[2]);
 
-    final Coord gobLocation = gob.location();
+    final Coord gobLocation = gob.position();
 
     final Coord branch = Coord.of(gobLocation).assignAdd(0, TILE_IN_COORD * -2);
     final Coord leaf = Coord.of(gobLocation);
@@ -527,7 +527,7 @@ public class Development implements Console.Command {
         if (e.type != ET_MOVE) throw e;
         lastFailedDistance = currentDistance;
       }
-      Util.debugPrint(Self.location());
+      Util.debugPrint(Self.position());
       if (succeededDistance - lastFailedDistance == 1)
         break;
     }
@@ -536,7 +536,7 @@ public class Development implements Console.Command {
   }
 
   static void test000() {
-    //        Api.planAndCarryOutObject(P_DFRAME, Self.location().north().north(), 0);
+    //        Api.planAndCarryOutObject(P_DFRAME, Self.position().north().north(), 0);
   }
 
   static void test001() {

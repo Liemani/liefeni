@@ -458,7 +458,7 @@ public class Connection implements Transport {
 	private int fragtype;
 
 	private void handlerel(PMessage msg) {
-	    lmi.Delegate.didGetACK((RMessage)msg);
+	    lmi.Delegate.didGetACK(msg);
 	    if(msg.type == RMessage.RMSG_FRAGMENT) {
 		int head = msg.uint8();
 		if((head & 0x80) == 0) {

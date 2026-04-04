@@ -22,8 +22,8 @@ public class Patrol001 extends Automation {
 
   private void willRun() {
     clearPath();
-    _path.append(Self.location());
-    _path.append(Self.location().add(0, TILE_IN_COORD));
+    _path.append(Self.position());
+    _path.append(Self.position().add(0, TILE_IN_COORD));
   }
 
   private void clearPath() {

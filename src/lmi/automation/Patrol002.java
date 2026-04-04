@@ -31,8 +31,8 @@ public class Patrol002 extends Automation {
   }
 
   public void patrolPath() throws InterruptedException {
-    haven.Coord firstPoint = Self.location().add(0, -TILE_IN_COORD);
-    haven.Coord secondPoint = Self.location().add(TILE_IN_COORD, 0);
+    haven.Coord firstPoint = Self.position().add(0, -TILE_IN_COORD);
+    haven.Coord secondPoint = Self.position().add(TILE_IN_COORD, 0);
     lmi.Api.move(firstPoint);
     lmi.Api.sleep(2000);
     lmi.Api.move(secondPoint);

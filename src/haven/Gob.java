@@ -30,7 +30,8 @@ import java.util.*;
 import java.util.function.*;
 import haven.render.*;
 
-// lmi custom import
+// lmi start
+import java.util.stream.*;
 import lmi.Array;
 import lmi.WaitManager;
 import lmi.LMIException;
@@ -38,6 +39,7 @@ import static lmi.Constant.Signal.*;
 import static lmi.Constant.ExceptionType.*;
 import static lmi.Constant.TimeOut.*;
 import static lmi.Constant.gfx.borka.*;
+// lmi end
 
 public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, EquipTarget, RandomSource {
     public Coord2d rc;
@@ -995,9 +997,9 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 	return(String.format("#<ob %d %s>", id, getattr(Drawable.class)));
     }
 
-    // lmi custom
+    // lmi start
     // Access Property
-    public Coord location() { return Coord.of(this.rc); }
+    public Coord position() { return Coord.of(this.rc); }
     public double direction() { return this.a; }
     public double velocity() { return this.getv(); }
     public int id() { return (int)this.id; }
@@ -1052,11 +1054,11 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     }
 
     // Instance Method
-    public boolean isAt(Coord coord) { return this.location().equals(coord); }
+    public boolean isAt(Coord coord) { return this.position().equals(coord); }
     public boolean isMoving() { return this.velocity() != 0.0; }
     public boolean isStop() { return !isMoving(); }
-    public double distance(Coord coord) { return this.location().distance(coord); }
-    public double distance(Gob gob) { return this.location().distance(gob.location()); }
+    public double distance(Coord coord) { return this.position().distance(coord); }
+    public double distance(Gob gob) { return this.position().distance(gob.position()); }
 
 //    public double distance(Gob other) {
 //	return rc.dist(other.rc);
@@ -1067,100 +1069,52 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 //    }
 
     // LMI: Pose (Low Level - Raw Data)
-    public List<String> baseResPathArray() {
-      List<String> resPaths = new ArrayList<String>();
+    public String baseResName() {
       Composite composite = this.getattr(Composite.class);
-      if (composite != null) {
-        String path = composite.baseResName();
-        if (!path.isEmpty()) resPaths.add(path);
-      }
-      return resPaths;
+      return (composite != null) ? composite.baseResName() : "";
     }
 
-    public List<String> animResPathArray() {
-      List<String> resPaths = new ArrayList<String>();
+    public Stream<String> poseResNames() {
       Composite composite = this.getattr(Composite.class);
-      if (composite != null) {
-        String[] anims = composite.poseResNames;
-        if (anims != null) {
-          for (String p : anims) {
-            if (p != null && !p.isEmpty())
-              resPaths.add(p);
-          }
-        }
-      }
-      return resPaths;
+      return (composite != null) ? composite.poseResNames() : Stream.empty();
     }
 
-    public List<String> equResPathArray() {
-      List<String> resPaths = new ArrayList<String>();
+    public Stream<String> equResNames() {
       Composite composite = this.getattr(Composite.class);
-      if (composite != null) {
-        String[] paths = composite.equResNames();
-        for (String p : paths) {
-          if (p != null && !p.isEmpty()) resPaths.add(p);
-        }
-      }
-      return resPaths;
+      return (composite != null) ? composite.equResNames() : Stream.empty();
     }
 
-    public List<String> modResPathArray() {
-      List<String> resPaths = new ArrayList<String>();
+    public Stream<String> modResNames() {
       Composite composite = this.getattr(Composite.class);
-      if (composite != null) {
-        String[] paths = composite.modResNames();
-        for (String p : paths) {
-          if (p != null && !p.isEmpty()) resPaths.add(p);
-        }
-      }
-      return resPaths;
+      return (composite != null) ? composite.modResNames() : Stream.empty();
     }
 
-    public List<String> resPathArray() {
-      List<String> resPaths = new ArrayList<String>();
+    public Stream<String> resNames() {
       Composite composite = this.getattr(Composite.class);
-      if (composite != null) {
-        // 1. Base
-        String base = composite.baseResName();
-        if (!base.isEmpty()) resPaths.add(base);
+      if (composite == null) return Stream.empty();
 
-        // 2. Anim
-        String[] anims = composite.poseResNames;
-        if (anims != null) {
-          for (String p : anims) {
-            if (p != null && !p.isEmpty()) resPaths.add(p);
-          }
-        }
-
-        // 3. Equipment
-        String[] equs = composite.equResNames();
-        for (String p : equs) {
-          if (p != null && !p.isEmpty()) resPaths.add(p);
-        }
-
-        // 4. Model
-        String[] mods = composite.modResNames();
-        for (String p : mods) {
-          if (p != null && !p.isEmpty()) resPaths.add(p);
-        }
-      }
-      return resPaths;
+      return Stream.of(
+          Stream.of(this.baseResName()),
+          this.poseResNames(),
+          this.equResNames(),
+          this.modResNames()
+      )
+      .flatMap(s -> s)
+      .filter(s -> !s.isEmpty());
     }
 
     // LMI: Pose (Mid Level - Parsed Data)
-    public List<String> poseNameArray() {
-      List<String> resPaths = this.animResPathArray();
-      List<String> poseNames = new ArrayList<String>(resPaths.size());
-      for (String p : resPaths) {
-        int lastSlash = p.lastIndexOf('/');
-        poseNames.add((lastSlash < 0) ? p : p.substring(lastSlash + 1));
-      }
-      return poseNames;
+    public Stream<String> poseNames() {
+      return this.poseResNames()
+          .map(p -> {
+            int lastSlash = p.lastIndexOf('/');
+            return (lastSlash < 0) ? p : p.substring(lastSlash + 1);
+          });
     }
 
     // LMI: Pose (High Level - State Check)
     public boolean hasPose(String pose) {
-      return this.poseNameArray().contains(pose);
+      return this.poseNames().anyMatch(p -> p.equals(pose));
     }
 
     public Gob followingTarget() {
@@ -1289,25 +1243,15 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
         StringBuilder description = new StringBuilder();
 
         description.append("resource name: " + this.resourceName() + "\n");
-        description.append("location: " + this.location() + "\n");
+        description.append("position: " + this.position() + "\n");
         description.append("direction: " + this.direction() + "\n");
         description.append("distance: " + lmi.Self.distance(this) + "\n");
         description.append("removed: " + this.removed + "\n");
 
         description.append("resource path:\n");
-        for (String resPath : this.resPathArray())
-            description.append("  " + resPath + "\n");
-
-//        description.append("sdt:\n");
-//        final byte[] sdt = this.sdt();
-//        if (sdt != null) {
-//            for (byte b : sdt)
-//                description.append(" " + b);
-//            description.append("\n");
-//        } else {
-//            description.append("null\n");
-//        }
+        this.resNames().forEach(resPath -> description.append("  " + resPath + "\n"));
 
         return description.toString();
     }
+    // lmi end
 }

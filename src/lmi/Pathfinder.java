@@ -76,7 +76,7 @@ class Pathfinder {
     Api.moveCenter();
     _setMap();
 
-    final Coord gobLocation = _transformMapCoord(gob.location());
+    final Coord gobLocation = _transformMapCoord(gob.position());
     for (Coord direction : Coord.uecw) {
       _destination = gobLocation.add(direction);
 
@@ -107,7 +107,7 @@ class Pathfinder {
   }
 
   private static Coord _calculateMapOrigin() {
-    final Coord targetLocation = Self.location().assignSubtract(TILE_IN_COORD * CHUNK_SIDE * (PURE_CHUNK_SIDE / 2));
+    final Coord targetLocation = Self.position().assignSubtract(TILE_IN_COORD * CHUNK_SIDE * (PURE_CHUNK_SIDE / 2));
     final int set = TILE_IN_COORD * CHUNK_SIDE;
     final int x = ((targetLocation.x - ((targetLocation.x < 0) ? (set - 1) : 0)) / set) * set;
     final int y = ((targetLocation.y - ((targetLocation.y < 0) ? (set - 1) : 0)) / set) * set;
@@ -117,7 +117,7 @@ class Pathfinder {
   private static void _scanMap(Coord mapOrigin) {
     final Array<Gob> obstacleArray = _getObstaclArray();
     for (Gob gob : obstacleArray) {
-      final Coord mapCoord = gob.location()
+      final Coord mapCoord = gob.position()
         .assignSubtract(_mapOrigin)
         .assignDivide(TILE_IN_COORD);
       try {
@@ -125,7 +125,7 @@ class Pathfinder {
       } catch(ArrayIndexOutOfBoundsException e) { }
     }
 
-    final Coord origin = _transformMapCoord(Self.location());
+    final Coord origin = _transformMapCoord(Self.position());
     _map[origin.x][origin.y] = false;
   }
 
@@ -175,7 +175,7 @@ class Pathfinder {
         _directionMap[i][j] = null;
     _searchPriorityMap.clear();
 
-    _origin = _transformMapCoord(Self.location());
+    _origin = _transformMapCoord(Self.position());
     _setDirection(_destination, Coord.ZERO);
     _addDistanceMap(_destination);
   }
@@ -235,7 +235,7 @@ class Pathfinder {
     }
 
     _currentMoveCoord.assign(_origin);
-    _lastMoveWorldLocation.assign(Self.location());
+    _lastMoveWorldLocation.assign(Self.position());
     _origin.assignSubtract(direction);
     Coord previousDirection = direction;
     direction = _getDirection(_origin);
@@ -258,12 +258,12 @@ class Pathfinder {
   /// - Throws:
   ///     - ET_MOVE
   private static void _correct() {
-    if (_transformMapCoord(Self.location()).equals(_currentMoveCoord)) {
+    if (_transformMapCoord(Self.position()).equals(_currentMoveCoord)) {
       _map[_currentMoveCoord.x][_currentMoveCoord.y] = true;
     } else {
       final int clockwiseOrder = (int)Math.floor((Self.direction() + Math.PI / 4) / (Math.PI / 2)) % 4;
       final int clockwiseOrderFromSouth = (clockwiseOrder + 3) % 4;
-      final Coord previousCoord = Self.location()
+      final Coord previousCoord = Self.position()
         .assignAdd(Coord.uecw[clockwiseOrderFromSouth]
             .multiply(512));
       final Coord blockedMapCoord = _transformMapCoord(Coord.of(previousCoord))

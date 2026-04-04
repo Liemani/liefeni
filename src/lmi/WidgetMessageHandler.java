@@ -23,11 +23,11 @@ class WidgetMessageHandler {
   }
 
   static void cancelAction() {
-    WidgetMessageHandler.click(Self.location(), IM_RIGHT, IM_NONE);
+    WidgetMessageHandler.click(Self.position(), IM_RIGHT, IM_NONE);
   }
 
   static void click(Gob gob, int mouseButton, int modifier, int meshId) {
-    final Coord gobLocation = gob.location();
+    final Coord gobLocation = gob.position();
     WidgetMessageHandler.sendClickMessage(
         ObjectShadow.mapView(),
         Util.mapViewCenter(),
@@ -108,7 +108,7 @@ class WidgetMessageHandler {
   }
 
   static void sendCancelPlanMessage() {
-    ObjectShadow.mapView().sendMessage(M_PLACE, Self.location(), D_EAST, IM_RIGHT, IM_NONE);
+    ObjectShadow.mapView().sendMessage(M_PLACE, Self.position(), D_EAST, IM_RIGHT, IM_NONE);
   }
 
   static void sendButtonBuildMessage(Button button) {

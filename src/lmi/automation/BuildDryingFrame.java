@@ -150,14 +150,14 @@ public class BuildDryingFrame extends Automation {
   ///     - ET_NO_INPUT
   private void _takeItemFromStockpile(String name, int count) {
     final Array<Gob> stockpileArray = Api.gobArrayWhere(gob ->
-        _outputArea.contains(gob.location())
+        _outputArea.contains(gob.position())
         && gob.resourceName().endsWith(name));
     Api.pathfindTakeItemFromStockpileArray(stockpileArray, count);
   }
 
   private Array<Gob> getContainerGobArrayInOutputArea() {
     return Api.gobArrayWhere(gob ->
-        _outputArea.contains(gob.location())
+        _outputArea.contains(gob.position())
         && gob.isContainer());
   }
 
@@ -167,7 +167,7 @@ public class BuildDryingFrame extends Automation {
   ///     - ET_NO_INPUT
   private void _takeItemFromContainer(String[] nameSet, int count) {
     final Array<Gob> containerArray = Api.gobArrayWhere(gob ->
-        _outputArea.contains(gob.location())
+        _outputArea.contains(gob.position())
         && Util.nameSet_includesResourcePath(
           nameSet_container,
           gob.resourceName()));

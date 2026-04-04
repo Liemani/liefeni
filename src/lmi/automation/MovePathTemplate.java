@@ -26,7 +26,7 @@ public class MovePathTemplate implements Runnable {
     _path = new Array<Coord>();
     // set your path here...
     // example:
-    //  _path.append(Self.location());
+    //  _path.append(Self.position());
   }
 
   private void _main() {
