@@ -458,9 +458,6 @@ public class Development implements Console.Command {
   }
 
   static void prepare() {
-    // set chat channel
-    WidgetManager.chatUI().selectSystem();
-
     // set debug print on
     Debug.toggleIsPrint();
 

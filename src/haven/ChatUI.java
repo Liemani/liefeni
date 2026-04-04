@@ -1118,7 +1118,18 @@ public class ChatUI extends Widget {
 	    chan.resize(sz.x - marg.x - chan.c.x, sz.y - chan.c.y);
 	    super.add(w);
 	    chansel.add(chan);
-	    select(chan, false);
+            // lmi start
+            // Log: 로그 채널 (System)
+            // SimpleChat: 일반 채팅 (Area)
+            // MultiChat: 여러 화자가 있는 채팅 (Region, Village, Kingdom 등)
+            // PrivChat: 귓속말 (자동 선택됨)
+            // PartyChat: 파티 채팅 (자동 선택됨)
+            if (sel == null || chan instanceof PrivChat || chan instanceof PartyChat) {
+                select(chan, false);
+            } else {
+                chan.hide();
+            }
+            // lmi end
 	    return(w);
 	} else {
 	    return(super.add(w));
