@@ -61,6 +61,18 @@ public class Charlist extends Widget {
 	    .action(() -> scroll(1));
 	sau.hide(); sad.hide();
 	resize(new Coord(bsz.x, sad.c.y + sad.sz.y));
+        // lmi start
+        new Thread(() -> {
+          try {
+            Thread.sleep(100);
+            synchronized (this.chars) {
+              if (this.chars.size() == 1) {
+                this.wdgmsg("play", this.chars.get(0).name);
+              }
+            }
+          } catch (InterruptedException e) {}
+        }).start();
+        // lmi end
     }
 
     public static class Char {
