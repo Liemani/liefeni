@@ -22,17 +22,22 @@ public class LmiHandler {
         }
         String a_command = args[1];
 
-        if (a_command.equals("stop")) {
-          if (AutomationManager.isRunning()) {
-            AutomationManager.interrupt();
-            print(gui, "Automation stopped.", Color.YELLOW);
+        // 1. Handle Options (starting with --)
+        if (a_command.startsWith("--")) {
+          if (a_command.equals("--stop")) {
+            if (AutomationManager.isRunning()) {
+              AutomationManager.interrupt();
+              print(gui, "Automation stopped.", Color.YELLOW);
+            } else {
+              print(gui, "No automation running.");
+            }
           } else {
-            print(gui, "No automation running.");
+            print(gui, "Unknown option: " + a_command, Color.RED);
           }
           return;
         }
 
-        // Try to find and start automation
+        // 2. Handle Automation Program execution
         Class<AutomationManager.Automation> cls = AutomationManager.getClass(a_command);
         if (cls != null) {
           try {
@@ -43,7 +48,7 @@ public class LmiHandler {
             e.printStackTrace();
           }
         } else {
-          print(gui, "Unknown a_command: " + a_command, Color.RED);
+          print(gui, "Unknown automation: " + a_command, Color.RED);
         }
       }
     });
@@ -56,8 +61,10 @@ public class LmiHandler {
   }
 
   private static void printCommandList(GameUI gui) {
-    print(gui, "Available a_commands:");
-    print(gui, "  stop - Stops the current automation");
+    print(gui, "Usage: a <automation_name> | --stop");
+    print(gui, "Options:");
+    print(gui, "  --stop - Stops the current automation");
+    print(gui, "Available automations:");
     for (String cmd : AutomationManager.getCommandStringSet()) {
       print(gui, "  " + cmd);
     }
