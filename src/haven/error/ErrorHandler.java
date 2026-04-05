@@ -179,6 +179,6 @@ public class ErrorHandler extends ThreadGroup {
     }
     
     public void uncaughtException(Thread t, Throwable e) {
-	reporter.report(t, e);
+	e.printStackTrace();
     }
 }
