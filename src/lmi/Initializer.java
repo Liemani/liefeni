@@ -12,7 +12,7 @@ public class Initializer {
     ObjectShadow.init();
     Debug.init();
     WaitManager.init();
-    AutomationManager.init();
+    AgentManager.init();
     Development.init();
     Pathfinder.init();
   }

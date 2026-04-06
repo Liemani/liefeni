@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 import haven.*;
 
-import lmi.AutomationManager.Automation;
+import lmi.AgentManager.Agent;
 import lmi.automation.*;
 import static lmi.Api.*;
 import static lmi.Constant.ExceptionType.*;
@@ -453,9 +453,9 @@ public class Development implements Console.Command {
       System.out.println("resource name: " + gob.resourceName());
   }
 
-  static void printAutomationStackTrace() {
-    AutomationManager.printStackTrace();
-  }
+//  static void printAutomationStackTrace() {
+//    AgentWorker.getInstance().dumpStack();
+//  }
 
   static void prepare() {
     // set debug print on

@@ -25,8 +25,8 @@ public class LmiHandler {
         // 1. Handle Options (starting with --)
         if (a_command.startsWith("--")) {
           if (a_command.equals("--stop")) {
-            if (AutomationManager.isRunning()) {
-              AutomationManager.interrupt();
+            if (AgentManager.isRunning()) {
+              AgentManager.interrupt();
               print(gui, "Automation stopped.", Color.YELLOW);
             } else {
               print(gui, "No automation running.");
@@ -38,17 +38,17 @@ public class LmiHandler {
         }
 
         // 2. Handle Automation Program execution
-        Class<AutomationManager.Automation> cls = AutomationManager.getClass(a_command);
+        Class<? extends AgentManager.Agent> cls = AgentManager.getClass(a_command);
         if (cls != null) {
           try {
-            AutomationManager.start(cls, args);
-            print(gui, "Started automation: " + a_command, Color.GREEN);
+            AgentManager.run(cls, args);
+            print(gui, "Started Agent: " + a_command, Color.GREEN);
           } catch (Exception e) {
-            print(gui, "Failed to start automation: " + e.getMessage(), Color.RED);
+            print(gui, "Failed to run Agent: " + e.getMessage(), Color.RED);
             e.printStackTrace();
           }
         } else {
-          print(gui, "Unknown automation: " + a_command, Color.RED);
+          print(gui, "Unknown Agent: " + a_command, Color.RED);
         }
       }
     });
@@ -61,11 +61,11 @@ public class LmiHandler {
   }
 
   private static void printCommandList(GameUI gui) {
-    print(gui, "Usage: a <automation_name> | --stop");
+    print(gui, "Usage: a <agent_name> | --stop");
     print(gui, "Options:");
-    print(gui, "  --stop - Stops the current automation");
-    print(gui, "Available automations:");
-    for (String cmd : AutomationManager.getCommandStringSet()) {
+    print(gui, "  --stop - Stops the current agent");
+    print(gui, "Available agents:");
+    for (String cmd : AgentManager.getCommandStringSet()) {
       print(gui, "  " + cmd);
     }
   }

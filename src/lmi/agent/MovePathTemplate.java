@@ -1,12 +1,15 @@
-package lmi.automation;
+package lmi.agent;
 
 import haven.Gob;
 import haven.Coord;
 
 import lmi.*;
 import static lmi.Api.*;
+import static lmi.Constant.TimeOut.*;
 
-public class Template implements Runnable {
+public class MovePathTemplate implements Runnable {
+  private Array<Coord> _path;
+
   public void run() {
     LMIException result = null;
     try {
@@ -20,11 +23,17 @@ public class Template implements Runnable {
 
   // private methods
   private void _willRun() {
-    // compose your initial setting here...
+    _path = new Array<Coord>();
+    // set your path here...
+    // example:
+    //  _path.append(Self.position());
   }
 
   private void _main() {
-    // compose your automation code here...
+    // compose your move automation code here...
+    // example:
+    //  for (Coord coord : _path)
+    //      Self.forceMove(coord, TO_RETRY);
   }
 
   private void _didRun(LMIException e) {
@@ -41,11 +50,5 @@ public class Template implements Runnable {
       default:
         throw e;
     }
-  }
-
-  public static String man() {
-    return
-      "man page를 작성해 주세요" +
-      "";
   }
 }
