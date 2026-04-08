@@ -1796,8 +1796,17 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	return(cmdmap);
     }
 
-    // lmi custom
+    // lmi start
     public void alert(String msg) {
       ui.error(msg);
     }
+
+    public void print(String msg, Color col) {
+      this.syslog.append(msg, col);
+    }
+
+    public void print(String msg) {
+      this.syslog.append(msg, Color.WHITE);
+    }
+    // lmi end
 }

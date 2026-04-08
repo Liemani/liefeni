@@ -42,9 +42,9 @@ public class AgentManager {
     try {
       Method manMethod = agentClass.getMethod("man");
       String help = (String)manMethod.invoke(null);
-      lmi.LmiHandler.print(lmi.ObjectShadow.gameUI(), help, Color.CYAN);
+      lmi.ObjectShadow.gameUI().syslog.append(help, Color.CYAN);
     } catch (Exception e) {
-      lmi.LmiHandler.print(lmi.ObjectShadow.gameUI(), "No help available for this agent.", Color.RED);
+      lmi.ObjectShadow.gameUI().syslog.append("No help available for this agent.", Color.RED);
     }
   }
 
