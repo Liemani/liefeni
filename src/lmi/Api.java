@@ -334,7 +334,12 @@ public class Api {
   // Print Message to Console
   public static void error(String message) { ObjectShadow.gameUI().error(message); }
   public static void alert(String message) { ObjectShadow.gameUI().alert(message); }
-  public static void message(String message) { ObjectShadow.ui().cons.out.println(message); }
+  public static void message(String message) {
+    if (ObjectShadow.gameUI() != null)
+      ObjectShadow.gameUI().print(message);
+    if (ObjectShadow.ui() != null && ObjectShadow.ui().cons != null)
+      ObjectShadow.ui().cons.out.println(message);
+  }
 
   // Etc
   public static void sleep(long microseconds) {

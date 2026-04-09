@@ -1,9 +1,8 @@
-package lmi.agent;
+package lmi.job;
 
 import haven.Gob;
 import haven.Coord;
 import lmi.*;
-import lmi.AgentManager;
 import lmi.AgentContext;
 import static lmi.Api.*;
 import static lmi.Constant.*;
@@ -13,7 +12,7 @@ import static lmi.Constant.TimeOut.*;
 import static lmi.Constant.Plan.*;
 import static lmi.Constant.gfx.terobjs.*;
 
-public class BuildDryingFrame extends AgentManager.Agent {
+public class BuildDryingFrameJob extends Job {
   final int SELF_WIDTH = BW_HORSE;
   final int SELF_HEIGHT = BH_HORSE;
   final Coord BB_SELF = BB_HORSE;
@@ -26,7 +25,7 @@ public class BuildDryingFrame extends AgentManager.Agent {
   private Coord _root, _trunk, _branch, _firstLeaf, _leaf = Coord.zero();
 
   @Override
-  public void run(String[] args) {
+  public void run(AgentContext ctx, String[] args) {
     _willRun();
     try {
       while (true) {
@@ -37,7 +36,6 @@ public class BuildDryingFrame extends AgentManager.Agent {
             Api.alert("추가 건설 자재를 기다려요");
             Api.sleep(TO_WAIT);
           } else {
-            _didRun(e);
             break;
           }
         }
@@ -51,7 +49,7 @@ public class BuildDryingFrame extends AgentManager.Agent {
     Api.alert("Drying Frame을 건설할 공간을 선택해주세요");
     _workingArea = getArea();
     _outputArea = _getOutputArea(_workingArea);
-
+    
     _root = Coord.of(_workingArea.origin).assignAdd(_workingArea.size).assignSubtract(BB_SELF);
     _firstLeaf = Coord.of(_outputArea.origin).assignAdd(BH_DRYING_FRAME / 2, BW_DRYING_FRAME / 2);
     _orderCoordMax = _calculateOrderCoordMax(_outputArea);
@@ -91,12 +89,12 @@ public class BuildDryingFrame extends AgentManager.Agent {
   }
 
   private void _takeItemFromStockpile(String name, int count) {
-    final Array<Gob> sa = Api.gobArrayWhere(g -> _outputArea.contains(g.position()) && g.resourceName().endsWith(name));
+    final Array<Gob> sa = Api.gobArrayWhere(g -> _inputArea.contains(g.position()) && g.resourceName().endsWith(name));
     Api.pathfindTakeItemFromStockpileArray(sa, count);
   }
 
   private void _takeItemFromContainer(String[] ns, int count) {
-    final Array<Gob> ca = Api.gobArrayWhere(g -> _outputArea.contains(g.position()) && Util.nameSet_includesResourcePath(nameSet_container, g.resourceName()));
+    final Array<Gob> ca = Api.gobArrayWhere(g -> _inputArea.contains(g.position()) && Util.nameSet_includesResourcePath(nameSet_container, g.resourceName()));
     Api.pathfindTakeItemFromContainerArray(ca, ns, count);
   }
 
@@ -121,11 +119,7 @@ public class BuildDryingFrame extends AgentManager.Agent {
     _trunk.y = _branch.y;
   }
 
-  private void _didRun(LMIException e) {
-    // ... same error handling as before
-  }
-
   public static String man() {
-    return "BuildDryingFrame v0.2.0\nDescription: Builds Drying Frames in sequence.";
+    return "Builds Drying Frames in sequence.\nUsage: a BuildDryingFrame";
   }
 }

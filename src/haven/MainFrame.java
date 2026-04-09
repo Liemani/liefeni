@@ -461,7 +461,7 @@ public class MainFrame extends java.awt.Frame implements Console.Directory {
 	    return;
 	}
 	setupres();
-	lmi.LmiHandler.init();
+	lmi.CommandHandler.init();
 	UI.Runner fun = null;
 	if(Bootstrap.replay.get() != null) {
 	    try {
@@ -480,7 +480,6 @@ public class MainFrame extends java.awt.Frame implements Console.Directory {
 		System.exit(1);
 	    }
 	}
-        lmi.Initializer.init();
 	MainFrame f = new MainFrame(null);
 	status("visible");
 	if(initfullscreen.get())

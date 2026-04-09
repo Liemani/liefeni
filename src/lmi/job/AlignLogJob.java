@@ -6,15 +6,15 @@ import lmi.Api;
 import lmi.Array;
 import lmi.Rect;
 import lmi.AgentContext;
+import lmi.behavior.AlignLogBehavior;
 import static lmi.Constant.BoundingBox.*;
 import static lmi.Constant.TimeOut.*;
 import static lmi.Constant.ExceptionType.*;
-import lmi.behavior.AlignLogBehavior;
 
 public class AlignLogJob extends Job {
   private final AlignLogBehavior alignBehavior = new AlignLogBehavior();
 
-  // State machine context
+  private boolean initialized = false;
   private Rect inputArea, workingArea, outputArea;
   private Coord orderCoordMax, orderCoord = Coord.zero();
   private Coord root, trunk, branch, firstLeaf, leaf = Coord.zero();
@@ -29,7 +29,10 @@ public class AlignLogJob extends Job {
 
   @Override
   public void run(AgentContext ctx, String[] args) {
-    _setup();
+    if (!initialized) {
+      _setup();
+      initialized = true;
+    }
 
     while (true) {
       try {
@@ -101,5 +104,9 @@ public class AlignLogJob extends Job {
     int x = oa.width() / BW_LOG;
     int y = (oa.height() / HEIGHT_SET) * 2 + ((oa.height() % HEIGHT_SET >= BH_LOG) ? 1 : 0);
     return Coord.of(x, y);
+  }
+
+  public static String man() {
+    return "Organizes logs in a specified area.\nUsage: a AlignLog";
   }
 }

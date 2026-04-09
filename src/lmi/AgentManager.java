@@ -1,141 +1,157 @@
 package lmi;
 
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 import java.lang.reflect.Method;
-import java.awt.Color;
+import java.io.PrintWriter;
+import lmi.job.*;
 
 public class AgentManager {
-  private static class AgentMap extends TreeMap<String, Class<Agent>> {};
-  private static AgentMap _agentMap;
+  private static final Map<String, Class<? extends Job>> jobMap = new TreeMap<>();
 
   static void init() {
-    final Class[] _classArray = {
-      lmi.agent.AlignLog.class,
-      lmi.agent.Patrol000.class,
-      lmi.agent.Patrol001.class,
-      lmi.agent.Patrol002.class,
-      lmi.agent.BuildDryingFrame.class,
-    };
-
-    _agentMap = new AgentMap();
-    for (Class c : _classArray) {
-      if (c != null && Agent.class.isAssignableFrom(c)) {
-        _agentMap.put(c.getSimpleName(), (Class<Agent>)c);
-      }
-    }
+    jobMap.put("AlignLog", AlignLogJob.class);
+    jobMap.put("Patrol000", Patrol000Job.class);
+    jobMap.put("Patrol001", Patrol001Job.class);
+    jobMap.put("Patrol002", Patrol002Job.class);
+    jobMap.put("BuildDryingFrame", BuildDryingFrameJob.class);
   }
 
-  public static Class<? extends Agent> getClass(String name) { return _agentMap.get(name); }
-  public static Set<String> getCommandStringSet() { return _agentMap.keySet(); }
-
-  public static void run(Class<? extends Agent> agentClass, String[] args) {
-    // Check for --help
-    if (args.length > 0 && args[args.length - 1].equals("--help")) {
-      printAgentHelp(agentClass);
+  public static void run(String[] args) {
+    // 1. Basic Argument Check
+    if (args.length < 2 || args[1].equals("--help")) {
+      printMainHelp();
       return;
     }
-    AgentWorker.getInstance().startAgent(agentClass, args);
-  }
 
-  private static void printAgentHelp(Class<? extends Agent> agentClass) {
-    try {
-      Method manMethod = agentClass.getMethod("man");
-      String help = (String)manMethod.invoke(null);
-      lmi.ObjectShadow.gameUI().syslog.append(help, Color.CYAN);
-    } catch (Exception e) {
-      lmi.ObjectShadow.gameUI().syslog.append("No help available for this agent.", Color.RED);
-    }
-  }
+    String cmd = args[1];
 
-  public static boolean isRunning() { return AgentWorker.getInstance().isBusy(); }
-  public static void interrupt() { AgentWorker.getInstance().stopCurrentAgent(); }
-
-  static void printCommandStringList(java.io.PrintWriter writer) {
-    writer.println("자동화 프로그램 목록:");
-    for (String commandString : AgentManager.getCommandStringSet())
-      writer.println("\t" + commandString);
-  }
-
-  public static class AgentWorker extends Thread {
-    private static AgentWorker instance;
-    private volatile Agent activeAgent = null;
-    private final Object lock = new Object();
-    private volatile Request nextRequest = null;
-
-    private static class Request {
-      final Class<? extends Agent> agentClass;
-      final String[] args;
-      Request(Class<? extends Agent> agentClass, String[] args) {
-        this.agentClass = agentClass;
-        this.args = args;
+    // 2. Handle Agent Options (--agent, --sleep, --stop, etc)
+    if (cmd.startsWith("--")) {
+      // Check for help after option: e.g., a --agent --help
+      if (args.length > 2 && args[2].equals("--help")) {
+        printOptionHelp(cmd);
+        return;
       }
+      handleAgentOption(args);
+      return;
     }
 
-    private AgentWorker() {
-      super("AgentWorker");
-      setDaemon(true);
-    }
-
-    public static synchronized AgentWorker getInstance() {
-      if (instance == null) {
-        instance = new AgentWorker();
-        instance.start();
-      }
-      return instance;
-    }
-
-    public void startAgent(Class<? extends Agent> agentClass, String[] args) {
-      synchronized (lock) {
-        nextRequest = new Request(agentClass, args);
-        this.interrupt();
-        lock.notifyAll();
-      }
-    }
-
-    public void stopCurrentAgent() {
-      synchronized (lock) {
-        nextRequest = null;
-        this.interrupt();
-      }
-    }
-
-    public boolean isBusy() {
-      return activeAgent != null;
-    }
-
-    @Override
-    public void run() {
-      while (true) {
-        try {
-          Request req;
-          synchronized (lock) {
-            while (nextRequest == null) {
-              lock.wait();
-            }
-            req = nextRequest;
-            nextRequest = null;
-          }
-
-          // Create and Run Agent
-          activeAgent = req.agentClass.getDeclaredConstructor().newInstance();
-          activeAgent.run(req.args);
-          activeAgent = null;
-        } catch (InterruptedException e) {
-          activeAgent = null;
-          Thread.interrupted(); // Clear status
-        } catch (Exception e) {
-          Util.debugPrint(e);
-          e.printStackTrace();
-          activeAgent = null;
+    // 3. Handle Job Execution
+    Class<? extends Job> jobClass = jobMap.get(cmd);
+    if (jobClass != null) {
+      try {
+        // Check for job-specific --help: e.g., a AlignLog --help
+        if (args.length > 2 && args[2].equals("--help")) {
+          printJobHelp(jobClass);
+          return;
         }
-        lmi.Api.message("[자동화 프로그램이 종료됐어요]");
+
+        Job job = jobClass.getDeclaredConstructor().newInstance();
+        Agent.getInstance().pushJob(job, args);
+      } catch (Exception e) {
+        Api.message("Error creating job [" + cmd + "]: " + e.getMessage());
+        printJobHelp(jobClass); // Show help on failure as requested
       }
+    } else {
+      Api.message("Unknown job command: " + cmd);
+      printMainHelp();
     }
   }
 
-  public abstract static class Agent {
-    protected AgentContext context;
-    public abstract void run(String[] args);
+  private static void handleAgentOption(String[] args) {
+    String opt = args[1];
+    Agent agent = Agent.getInstance();
+
+    if (opt.equals("--stop")) {
+      agent.stopAll();
+      Api.message("All jobs stopped.");
+    } else if (opt.equals("--sleep")) {
+      agent.setSleep(true);
+      Api.message("Agent is now sleeping (Survival drives disabled).");
+    } else if (opt.equals("--wake")) {
+      agent.setSleep(false);
+      Api.message("Agent is now awake.");
+    } else if (opt.equals("--agent")) {
+      handleDriveOption(args);
+    } else {
+      Api.message("Unknown option: " + opt);
+      printMainHelp();
+    }
   }
+
+  private static void handleDriveOption(String[] args) {
+    Agent agent = Agent.getInstance();
+    AgentConfig config = agent.getConfig();
+
+    // a --agent ?
+    if (args.length == 3 && args[2].equals("?")) {
+      Api.message("--- Current Agent Drives ---");
+      for (String drive : config.getAllDrives()) {
+        Api.message("  " + drive + ": " + config.getDriveStatus(drive));
+      }
+      return;
+    }
+
+    // a --agent <drive> [on|off|?]
+    if (args.length >= 3) {
+      String drive = args[2];
+      if (args.length == 3) {
+        // Default to status if no 4th arg
+        Api.message(drive + " is currently " + config.getDriveStatus(drive));
+      } else {
+        String val = args[3];
+        if (val.equals("on")) {
+          config.setDrive(drive, true);
+          Api.message(drive + " drive enabled.");
+        } else if (val.equals("off")) {
+          config.setDrive(drive, false);
+          Api.message(drive + " drive disabled.");
+        } else if (val.equals("?")) {
+          Api.message(drive + " is " + config.getDriveStatus(drive));
+        } else {
+          printOptionHelp("--agent");
+        }
+      }
+    } else {
+      printOptionHelp("--agent");
+    }
+  }
+
+  private static void printMainHelp() {
+    Api.message("=== LMI Agent System Help ===");
+    Api.message("Usage: a <job_name> [args] | <option>");
+    Api.message("Options:");
+    Api.message("  --agent <drive> [on|off|?]  Manage survival drives (e.g., food, water)");
+    Api.message("  --agent ?                   Show all drive statuses");
+    Api.message("  --sleep / --wake            Disable/Enable autonomous drives");
+    Api.message("  --stop                      Stop all running jobs and clear stack");
+    Api.message("Available Jobs:");
+    for (String job : jobMap.keySet()) Api.message("  " + job);
+  }
+
+  private static void printOptionHelp(String opt) {
+    Api.message("--- Option Help: " + opt + " ---");
+    if (opt.equals("--agent")) {
+      Api.message("Usage: a --agent <drive_name> [on|off|?]");
+      Api.message("Ex: a --agent food on (Enables automatic eating)");
+    } else if (opt.equals("--stop")) {
+      Api.message("Usage: a --stop (Interrupts everything)");
+    } else {
+      printMainHelp();
+    }
+  }
+
+  private static void printJobHelp(Class<? extends Job> jobClass) {
+    try {
+      Method man = jobClass.getMethod("man");
+      String help = (String)man.invoke(null);
+      Api.message("--- Job Manual: " + jobClass.getSimpleName() + " ---");
+      Api.message(help);
+    } catch (Exception e) {
+      Api.message("No manual available for job: " + jobClass.getSimpleName());
+    }
+  }
+
+  public static boolean isRunning() { return Agent.getInstance().isAlive(); }
+  public static void interrupt() { Agent.getInstance().stopAll(); }
 }

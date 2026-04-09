@@ -1,17 +1,13 @@
-package lmi.agent;
+package lmi.job;
 
 import lmi.Array;
 import lmi.Self;
-import lmi.AgentManager;
 import lmi.AgentContext;
 import static lmi.Constant.*;
 
-public class Patrol002 extends AgentManager.Agent {
-  private Array<haven.Coord> _path;
-
+public class Patrol002Job extends Job {
   @Override
-  public void run(String[] args) {
-    clearPath();
+  public void run(AgentContext ctx, String[] args) {
     haven.Coord firstPoint = Self.position().add(0, -TILE_IN_COORD);
     haven.Coord secondPoint = Self.position().add(TILE_IN_COORD, 0);
 
@@ -23,13 +19,7 @@ public class Patrol002 extends AgentManager.Agent {
     }
   }
 
-  private void clearPath() {
-    if (_path == null)
-      _path = new Array<haven.Coord>();
-    _path.removeAll();
-  }
-
   public static String man() {
-    return "Patrol002\nDescription: Square patrol test.";
+    return "Square patrol test.\nUsage: a Patrol002";
   }
 }
