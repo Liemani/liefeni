@@ -15,7 +15,7 @@ import static lmi.Constant.MeshId.*;
 class WidgetMessageHandler {
   static void click(Coord coord, int mouseButton, int modifier) {
     WidgetMessageHandler.sendClickMessage(
-        ObjectShadow.mapView(),
+        AppContext.mapView,
         Util.mapViewCenter(),
         coord,
         mouseButton,
@@ -29,7 +29,7 @@ class WidgetMessageHandler {
   static void click(Gob gob, int mouseButton, int modifier, int meshId) {
     final Coord gobLocation = gob.position();
     WidgetMessageHandler.sendClickMessage(
-        ObjectShadow.mapView(),
+        AppContext.mapView,
         Util.mapViewCenter(),
         gobLocation,
         mouseButton,
@@ -104,11 +104,11 @@ class WidgetMessageHandler {
       int direction,
       int mouseButton,
       int modifiers) {
-    ObjectShadow.mapView().sendMessage(M_PLACE, coord, direction, mouseButton, modifiers);
+    AppContext.mapView.sendMessage(M_PLACE, coord, direction, mouseButton, modifiers);
   }
 
   static void sendCancelPlanMessage() {
-    ObjectShadow.mapView().sendMessage(M_PLACE, Self.position(), D_EAST, IM_RIGHT, IM_NONE);
+    AppContext.mapView.sendMessage(M_PLACE, Self.position(), D_EAST, IM_RIGHT, IM_NONE);
   }
 
   static void sendButtonBuildMessage(Button button) {

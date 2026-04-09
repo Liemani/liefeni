@@ -156,7 +156,7 @@ public class Api {
   // Plan object
   static void planObject(String planName) {
     WidgetManager.menuGrid().sendMessage(M_ACT, A_BP, planName, 0);
-    while (!ObjectShadow.mapView().isPlanningObject())
+    while (!AppContext.mapView.isPlanningObject())
       Api.sleep(TO_RETRY);
   }
 
@@ -176,7 +176,7 @@ public class Api {
           Api.decidePlan(location, direction);
       }
     }
-    if (ObjectShadow.mapView().isPlanningObject())
+    if (AppContext.mapView.isPlanningObject())
       WidgetMessageHandler.sendCancelPlanMessage();
     throw new LMIException(ET_DECIDE_PLAN);
   }
@@ -302,7 +302,7 @@ public class Api {
   public static Array<Gob> gobArray() {
     Array<Gob> gobArray = new Array<Gob>();
 
-    for (Gob gob : ObjectShadow.objectCache().gobArray())
+    for (Gob gob : AppContext.objectCache.gobArray())
       if (gob.resource() != null)
         gobArray.append(gob);
 
@@ -312,7 +312,7 @@ public class Api {
   public static Array<Gob> gobArrayWhere(Predicate<Gob> predicate) {
     Array<Gob> gobArray = new Array<Gob>();
 
-    for (Gob gob : ObjectShadow.objectCache().gobArray()) {
+    for (Gob gob : AppContext.objectCache.gobArray()) {
       if (gob.resource() == null) continue;
       else if (predicate.test(gob)) gobArray.append(gob);
     }
@@ -332,13 +332,12 @@ public class Api {
   public static Rect getArea() { return ClickManager.getArea(); }
 
   // Print Message to Console
-  public static void error(String message) { ObjectShadow.gameUI().error(message); }
-  public static void alert(String message) { ObjectShadow.gameUI().alert(message); }
+  public static void error(String message) { AppContext.gameUI.error(message); }
+  public static void alert(String message) { AppContext.gameUI.alert(message); }
   public static void message(String message) {
-    if (ObjectShadow.gameUI() != null)
-      ObjectShadow.gameUI().print(message);
-    if (ObjectShadow.ui() != null && ObjectShadow.ui().cons != null)
-      ObjectShadow.ui().cons.out.println(message);
+    if (AppContext.gameUI != null) {
+      AppContext.gameUI.print(message);
+    }
   }
 
   // Etc

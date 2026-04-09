@@ -6,43 +6,31 @@ public class Initializer {
   public static void init() {
     Console.setscmd("lmi", new Command());
     Console.setscmd("man", new Manual());
-    Console.setscmd("dev", new Development());
     Scanner.init(System.in);
     ObjectFinder.init();
-    ObjectShadow.init();
+    AppContext.init();
     Debug.init();
     WaitManager.init();
     AgentManager.init();
-    Development.init();
     Pathfinder.init();
   }
 
-  // set ObjectShadow
-  // MainFrame::MainFrame()
-  // MainFrame::run()
-  // JOGLPanel::JOGLPanel()
-  // JOGLPanel::JOGLPanel()
-  // Bootstrap::Bootstrap(), RemoteUI::RemoteUI()
-  // UI::UI()
-  // RootWidget::RootWidget()
-  // GameUI::GameUI()
-  // MapView::MapView()
-  // Session::Session()
-  // Charlist::Charlist()
-  // IMeter::IMeter()
-  // Glob::Glob()
-  public static void initMainFrame(MainFrame mainFrame) { ObjectShadow.setMainFrame(mainFrame); }
-  public static void initMainThread(Thread mainThread) { ObjectShadow.setMainThread(mainThread); }
-  public static void initJOGLPanel(JOGLPanel joglPanel) { ObjectShadow.setJOGLPanel(joglPanel); }
-  public static void initDispatcher(UIPanel.Dispatcher dispatcher) { ObjectShadow.setDispatcher(dispatcher); }
-  public static void initRemoteUI(RemoteUI remoteUI) { ObjectShadow.setRemoteUI(remoteUI); }
-  public static void initUI(UI ui) { ObjectShadow.setUI(ui); }
-  public static void initRootWidget(RootWidget rootWidget) { ObjectShadow.setRootWidget(rootWidget); }
-  public static void initGameUI(GameUI gameUI) { ObjectShadow.setGameUI(gameUI); }
-  public static void initMapView(MapView mapView) { ObjectShadow.setMapView(mapView); }
-  public static void initSession(Session session) { ObjectShadow.setSession(session); }
-  public static void initGlob(Glob glob) { ObjectShadow.setGlob(glob); }
-  public static void initObjectCache(OCache objectCache) { ObjectShadow.setObjectCache(objectCache); }
+  // set AppContext
+  public static void initMainFrame(MainFrame mainFrame) { AppContext.mainFrame = mainFrame; }
+  public static void initMainThread(Thread mainThread) { AppContext.mainThread = mainThread; }
+  public static void initJOGLPanel(JOGLPanel joglPanel) { AppContext.joglPanel = joglPanel; }
+  public static void initDispatcher(UIPanel.Dispatcher dispatcher) { AppContext.dispatcher = dispatcher; }
+  public static void initRemoteUI(RemoteUI remoteUI) { AppContext.remoteUI = remoteUI; }
+  public static void initUI(UI ui) { AppContext.ui = ui; }
+  public static void initRootWidget(RootWidget rootWidget) { AppContext.rootWidget = rootWidget; }
+  public static void initGameUI(GameUI gameUI) { AppContext.gameUI = gameUI; }
+  public static void initMapView(MapView mapView) {
+    AppContext.mapView = mapView;
+    Util.initMapViewCenterByMapView(AppContext.mapView);
+  }
+  public static void initSession(Session session) { AppContext.session = session; }
+  public static void initGlob(Glob glob) { AppContext.glob = glob; }
+  public static void initObjectCache(OCache objectCache) { AppContext.objectCache = objectCache; }
 
-  public static void initGaugeArray(IMeter gauge) { ObjectShadow.setGaugeArray(gauge); }
+  public static void initGaugeArray(IMeter gauge) { AppContext.setGaugeArray(gauge); }
 }

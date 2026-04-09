@@ -26,8 +26,8 @@ import static lmi.Constant.gfx.borka.*;
 public class Self {
   // access properties
   public static Gob gob() {
-    if (ObjectShadow.mapView() == null) return null;
-    return ObjectShadow.mapView().player();
+    if (AppContext.mapView == null) return null;
+    return AppContext.mapView.player();
   }
 
   public static Coord position() { return Self.gob().position(); }
@@ -36,26 +36,26 @@ public class Self {
   public static boolean hasPose(String poseName) { return Self.gob().hasPose(poseName); }
 
   public static double hardHitPoint() {
-    haven.IMeter imeter = ObjectShadow.gaugeWidgetArray()[GI_HIT_POINT];
+    haven.IMeter imeter = AppContext.gaugeWidgetArray[GI_HIT_POINT];
     java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.gaugeWidgetGaugeArray(imeter);
     if (meter == null) return -1.0;
     return meter.get(GI_HARD).a;
   }
 
   public static double softHitPoint() {
-    return haven.LMI.gaugeWidgetGaugeArray(ObjectShadow.gaugeWidgetArray()[GI_HIT_POINT])
+    return haven.LMI.gaugeWidgetGaugeArray(AppContext.gaugeWidgetArray[GI_HIT_POINT])
       .get(GI_SOFT)
       .a;
   }
 
   public static double stamina() {
-    return haven.LMI.gaugeWidgetGaugeArray(ObjectShadow.gaugeWidgetArray()[GI_STAMINA])
+    return haven.LMI.gaugeWidgetGaugeArray(AppContext.gaugeWidgetArray[GI_STAMINA])
       .get(0)
       .a;
   }
 
   public static double energy() {
-    haven.IMeter imeter = ObjectShadow.gaugeWidgetArray()[GI_ENERGY];
+    haven.IMeter imeter = AppContext.gaugeWidgetArray[GI_ENERGY];
     java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.gaugeWidgetGaugeArray(imeter);
     if (meter == null) return -1.0;
     return meter.get(0).a;
@@ -78,7 +78,7 @@ public class Self {
   // send message shadow
   private static void _sendClickMessage(Coord coord) {
     WidgetMessageHandler.sendClickMessage(
-        ObjectShadow.mapView(),
+        AppContext.mapView,
         Util.mapViewCenter(),
         coord,
         IM_LEFT,

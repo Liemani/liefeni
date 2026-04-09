@@ -124,7 +124,7 @@ public class Util {
   }
 
   // insertIndent()
-  static void insertIndent(int indentCount) {
+  public static void insertIndent(int indentCount) {
     while (--indentCount >= 0)
       System.out.print("  ");
   }
@@ -189,7 +189,7 @@ public class Util {
   }
 
   public static Set<String> consoleCommands() {
-    return ObjectShadow.ui().cons.findcmds().keySet();
+    return AppContext.ui.cons.findcmds().keySet();
   }
 
   //      /// - Arguments:
@@ -197,13 +197,13 @@ public class Util {
   //      ///     - 0: destroy
   //      public static void addSelectMessage(int flag) {
   //          final haven.MessageBuf messageBuf = new haven.MessageBuf();
-  //          final int id = ObjectShadow.ui().widgetid(ObjectShadow.mapView());
+  //          final int id = AppContext.ui.widgetid(AppContext.mapView());
   //          final String name = "sel";
   //          messageBuf.addint32(id);
   //          messageBuf.addstring(name);
   //          messageBuf.adduint8(haven.Message.T_UINT8);
   //          messageBuf.adduint8(flag);
   //          final haven.PMessage pMessage = new haven.PMessage(haven.RMessage.RMSG_WDGMSG, messageBuf.wbuf, 0, 10);
-  //          ObjectShadow.session().addUIMessage(pMessage);
+  //          AppContext.session.addUIMessage(pMessage);
   //      }
 }

@@ -3,17 +3,30 @@ package lmi;
 import java.util.*;
 import java.lang.reflect.Method;
 import java.io.PrintWriter;
+import java.io.File;
+import java.net.URL;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.net.JarURLConnection;
+
 import lmi.job.*;
+
+import haven.UI;
 
 public class AgentManager {
   private static final Map<String, Class<? extends Job>> jobMap = new TreeMap<>();
 
   static void init() {
-    jobMap.put("AlignLog", AlignLogJob.class);
-    jobMap.put("Patrol000", Patrol000Job.class);
-    jobMap.put("Patrol001", Patrol001Job.class);
-    jobMap.put("Patrol002", Patrol002Job.class);
-    jobMap.put("BuildDryingFrame", BuildDryingFrameJob.class);
+    _registerJobs();
+  }
+
+  private static PrintWriter out() {
+    UI ui = AppContext.ui;
+    if (ui != null && ui.cons != null)
+      return ui.cons.out;
+    return new PrintWriter(System.out); // Fallback
   }
 
   public static void run(String[] args) {
@@ -38,23 +51,24 @@ public class AgentManager {
 
     // 3. Handle Job Execution
     Class<? extends Job> jobClass = jobMap.get(cmd);
-    if (jobClass != null) {
-      try {
-        // Check for job-specific --help: e.g., a AlignLog --help
-        if (args.length > 2 && args[2].equals("--help")) {
-          printJobHelp(jobClass);
-          return;
-        }
-
-        Job job = jobClass.getDeclaredConstructor().newInstance();
-        Agent.getInstance().pushJob(job, args);
-      } catch (Exception e) {
-        Api.message("Error creating job [" + cmd + "]: " + e.getMessage());
-        printJobHelp(jobClass); // Show help on failure as requested
-      }
-    } else {
+    if (jobClass == null) {
       Api.message("Unknown job command: " + cmd);
       printMainHelp();
+      return;
+    }
+
+    try {
+      // Check for job-specific --help: e.g., a AlignLog --help
+      if (args.length > 2 && args[2].equals("--help")) {
+        printJobHelp(jobClass);
+        return;
+      }
+
+      Job job = jobClass.getDeclaredConstructor().newInstance();
+      Agent.getInstance().pushJob(job, args);
+    } catch (Exception e) {
+      Api.message("Error creating job [" + cmd + "]: " + e.getMessage());
+      printJobHelp(jobClass); // Show help on failure as requested
     }
   }
 
@@ -154,4 +168,61 @@ public class AgentManager {
 
   public static boolean isRunning() { return Agent.getInstance().isAlive(); }
   public static void interrupt() { Agent.getInstance().stopAll(); }
+
+  // private static method
+  private static void _registerJobs() {
+    try {
+      String packageName = "lmi.job";
+      String path = packageName.replace('.', '/');
+      ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+      Enumeration<URL> resources = classLoader.getResources(path);
+
+      while (resources.hasMoreElements()) {
+        URL resource = resources.nextElement();
+
+        // 실행 환경이 JAR인 경우의 프로토콜은 "jar"입니다.
+        if (resource.getProtocol().equals("jar")) {
+          JarURLConnection conn = (JarURLConnection) resource.openConnection();
+          try (JarFile jar = conn.getJarFile()) {
+            Enumeration<JarEntry> entries = jar.entries();
+
+            while (entries.hasMoreElements()) {
+              JarEntry entry = entries.nextElement();
+              String name = entry.getName();
+
+              // lmi/job/ 경로로 시작하고 .class로 끝나는 파일만 필터링
+              if (name.startsWith(path + "/") && name.endsWith(".class")) {
+                // 파일 경로 형태(lmi/job/MyJob.class)를 패키지 형태(lmi.job.MyJob)로 변환
+                String className = name.replace('/', '.').substring(0, name.length() - 6);
+                _registerJob(className);
+              }
+            }
+          }
+        }
+      }
+    } catch (Exception e) {
+      System.err.println("Job 스캔 중 오류 발생:");
+      e.printStackTrace();
+    }
+  }
+
+  private static void _registerJob(String className) {
+    try {
+      Class<?> cls = Class.forName(className);
+
+      // Job 인터페이스/클래스를 상속받았고, 추상 클래스가 아닌 실제 클래스만 등록
+      if (Job.class.isAssignableFrom(cls) && !cls.isInterface() &&
+          !java.lang.reflect.Modifier.isAbstract(cls.getModifiers())) {
+
+        String simpleName = cls.getSimpleName();
+        if (simpleName.endsWith("Job")) {
+          simpleName = simpleName.substring(0, simpleName.length() - 3);
+        }
+        jobMap.put(simpleName, (Class<? extends Job>) cls);
+        System.out.println("Registered Job: " + simpleName + " [" + className + "]");
+          }
+    } catch (ClassNotFoundException e) {
+      // 클래스를 로드할 수 없는 경우 무시
+    }
+  }
 }
