@@ -302,7 +302,7 @@ public class Api {
   public static Array<Gob> gobArray() {
     Array<Gob> gobArray = new Array<Gob>();
 
-    for (Gob gob : AppContext.objectCache.gobArray())
+    for (Gob gob : AppContext.oCache.gobArray())
       if (gob.resource() != null)
         gobArray.append(gob);
 
@@ -312,7 +312,7 @@ public class Api {
   public static Array<Gob> gobArrayWhere(Predicate<Gob> predicate) {
     Array<Gob> gobArray = new Array<Gob>();
 
-    for (Gob gob : AppContext.objectCache.gobArray()) {
+    for (Gob gob : AppContext.oCache.gobArray()) {
       if (gob.resource() == null) continue;
       else if (predicate.test(gob)) gobArray.append(gob);
     }

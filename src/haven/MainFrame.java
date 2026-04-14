@@ -250,7 +250,7 @@ public class MainFrame extends java.awt.Frame implements Console.Directory {
 	    });
 	if((isz == null) && Utils.getprefb("wndmax", false))
 	    setExtendedState(getExtendedState() | MAXIMIZED_BOTH);
-        lmi.Initializer.initMainFrame(this);
+        lmi.AppContext.setMainFrame(this);
     }
 	
     private void savewndstate() {
@@ -344,7 +344,7 @@ public class MainFrame extends java.awt.Frame implements Console.Directory {
 	    if(this.mt != null)
 		throw(new RuntimeException("MainFrame is already running"));
 	    this.mt = Thread.currentThread();
-            lmi.Initializer.initMainThread(this.mt);
+            lmi.AppContext.setMainThread(this.mt);
 	}
 	try {
 	    Thread ui = new HackThread(p, "Haven UI thread");

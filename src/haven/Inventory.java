@@ -84,6 +84,11 @@ public class Inventory extends Widget implements DTarget {
 	super(sqsz.mul(sz).add(1, 1));
 	isz = sz;
     }
+
+    protected void added() {
+        super.added();
+        lmi.AppContext.setMainInventory(this);
+    }
     
     public boolean mousewheel(MouseWheelEvent ev) {
 	if(ui.modshift) {

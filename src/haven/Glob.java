@@ -55,7 +55,7 @@ public class Glob {
 	this.sess = sess;
 	map = new MCache(sess);
 	party = new Party(this);
-	lmi.Initializer.initGlob(this);
+	lmi.AppContext.setGlob(this);
     }
 
     public static interface Weather {

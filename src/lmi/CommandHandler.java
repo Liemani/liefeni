@@ -6,7 +6,7 @@ import java.util.*;
 
 public class CommandHandler {
   public static void init() {
-    lmi.Initializer.init();
+    AppContext.init();
     Console.setscmd("a", new ACommand());
   }
 

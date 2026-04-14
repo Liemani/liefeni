@@ -177,7 +177,6 @@ public class Util {
   }
 
   private static Coord _mapViewCenter;
-  public static Coord mapViewCenter() { return _mapViewCenter; }
 
   public static void initMapViewCenterByMapView(haven.MapView mapView) {
     _mapViewCenter = mapView.sz.div(2);

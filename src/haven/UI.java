@@ -189,7 +189,7 @@ public class UI {
 	root = new RootWidget(this, sz);
 	widgets.put(0, root);
 	rwidgets.put(root, 0);
-	lmi.Initializer.initUI(this);
+	lmi.AppContext.setUI(this);
 	if(fun != null)
 	    fun.init(this);
 	if(sess == null) {
@@ -198,7 +198,7 @@ public class UI {
 	    if((loader = sess.glob.loader) == null)
 		throw(new NullPointerException());
 	}
-        lmi.Initializer.initUI(this);
+        lmi.AppContext.setUI(this);
     }
 
     public static class Command implements Serializable {

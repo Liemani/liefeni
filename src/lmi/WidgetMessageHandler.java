@@ -29,7 +29,7 @@ class WidgetMessageHandler {
   static void click(Coord coord, int mouseButton, int modifier) {
     WidgetMessageHandler.sendClickMessage(
         AppContext.mapView,
-        Util.mapViewCenter(),
+        Coord.z,
         coord,
         mouseButton,
         modifier);
@@ -53,7 +53,7 @@ class WidgetMessageHandler {
     final Coord gobLocation = gob.position();
     WidgetMessageHandler.sendClickMessage(
         AppContext.mapView,
-        Util.mapViewCenter(),
+        Coord.z,
         gobLocation,
         mouseButton,
         modifier,

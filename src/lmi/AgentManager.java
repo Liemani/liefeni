@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import java.io.PrintWriter;
 import java.io.File;
 import java.net.URL;
-import java.net.URL;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -38,9 +37,9 @@ public class AgentManager {
 
     String cmd = args[1];
 
-    // 2. Handle Agent Options (--agent, --sleep, --stop, etc)
-    if (cmd.startsWith("--")) {
-      // Check for help after option: e.g., a --agent --help
+    // 2. Handle Agent Options (set, --sleep, --wake, etc)
+    if (cmd.equals("set") || cmd.startsWith("--")) {
+      // Check for help after option: e.g., a set --help
       if (args.length > 2 && args[2].equals("--help")) {
         printOptionHelp(cmd);
         return;
@@ -76,16 +75,13 @@ public class AgentManager {
     String opt = args[1];
     Agent agent = Agent.getInstance();
 
-    if (opt.equals("--stop")) {
-      agent.stopAll();
-      Api.message("All jobs stopped.");
-    } else if (opt.equals("--sleep")) {
+    if (opt.equals("--sleep")) {
       agent.setSleep(true);
       Api.message("Agent is now sleeping (Survival drives disabled).");
     } else if (opt.equals("--wake")) {
       agent.setSleep(false);
       Api.message("Agent is now awake.");
-    } else if (opt.equals("--agent")) {
+    } else if (opt.equals("set")) {
       handleDriveOption(args);
     } else {
       Api.message("Unknown option: " + opt);
@@ -97,7 +93,7 @@ public class AgentManager {
     Agent agent = Agent.getInstance();
     AgentConfig config = agent.getConfig();
 
-    // a --agent ?
+    // a set ?
     if (args.length == 3 && args[2].equals("?")) {
       Api.message("--- Current Agent Drives ---");
       for (String drive : config.getAllDrives()) {
@@ -106,7 +102,7 @@ public class AgentManager {
       return;
     }
 
-    // a --agent <drive> [on|off|?]
+    // a set <drive> [on|off|?]
     if (args.length >= 3) {
       String drive = args[2];
       if (args.length == 3) {
@@ -123,11 +119,11 @@ public class AgentManager {
         } else if (val.equals("?")) {
           Api.message(drive + " is " + config.getDriveStatus(drive));
         } else {
-          printOptionHelp("--agent");
+          printOptionHelp("set");
         }
       }
     } else {
-      printOptionHelp("--agent");
+      printOptionHelp("set");
     }
   }
 
@@ -135,21 +131,19 @@ public class AgentManager {
     Api.message("=== LMI Agent System Help ===");
     Api.message("Usage: a <job_name> [args] | <option>");
     Api.message("Options:");
-    Api.message("  --agent <drive> [on|off|?]  Manage survival drives (e.g., food, water)");
-    Api.message("  --agent ?                   Show all drive statuses");
+    Api.message("  set <drive> [on|off|?]      Manage survival drives (e.g., food, water)");
+    Api.message("  set ?                       Show all drive statuses");
     Api.message("  --sleep / --wake            Disable/Enable autonomous drives");
-    Api.message("  --stop                      Stop all running jobs and clear stack");
+    Api.message("  (Press ESC to stop all running jobs)");
     Api.message("Available Jobs:");
     for (String job : jobMap.keySet()) Api.message("  " + job);
   }
 
   private static void printOptionHelp(String opt) {
     Api.message("--- Option Help: " + opt + " ---");
-    if (opt.equals("--agent")) {
-      Api.message("Usage: a --agent <drive_name> [on|off|?]");
-      Api.message("Ex: a --agent food on (Enables automatic eating)");
-    } else if (opt.equals("--stop")) {
-      Api.message("Usage: a --stop (Interrupts everything)");
+    if (opt.equals("set")) {
+      Api.message("Usage: a set <drive_name> [on|off|?]");
+      Api.message("Ex: a set food on (Enables automatic eating)");
     } else {
       printMainHelp();
     }
