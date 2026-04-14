@@ -1,16 +1,11 @@
-// why not using instance?
-// message는 String으로 식별하기 때문에 자원 소모가 많아 1개의 wait만 지원한다
-// Signal은 enum이기 때문에 자원 소모가 적어 여러 wait을 지원한다
-//
-// least work for main thread
-// notify에서 많은 추가 작업을 하면 main thread가 일을 해야 해서 좋지 않다
-// 받은 Signal에 대해 notify하고 해당 waiter를 list에서 remove하는 작업까지만 한다
 package lmi;
 
 import java.util.LinkedList;
 import java.util.EnumMap;
 
 import lmi.Constant.Signal;
+import lmi.Constant.Brief;
+import static lmi.Constant.Brief.*;
 import static lmi.Constant.ExceptionType.*;
 import static lmi.Constant.Signal.*;
 import static lmi.Constant.TimeOut.*;
@@ -21,17 +16,59 @@ public class WaitManager {
 
   // Field
   private static EnumMap<Signal, WaiterList> _waiterListMap;
-  private static String _message;
+  private static volatile int _lastSentSeq = -1;
+  private static volatile int _lastAckedSeq = -1;
 
   // Init
   static void init() {
     _waiterListMap = new EnumMap<Signal, WaiterList>(Signal.class);
     for (Signal signal : Signal.values())
       _waiterListMap.put(signal, new WaiterList());
-    _message = null;
+    _lastSentSeq = -1;
+    _lastAckedSeq = -1;
   }
 
-  // Is Waiting Signal
+  // Sequence Tracking
+  public static void updateSentSeq(int seq) {
+    _lastSentSeq = seq;
+  }
+
+  public static void updateAckedSeq(int seq) {
+    if (seq > _lastAckedSeq || (seq < 1000 && _lastAckedSeq > 60000)) {
+      _lastAckedSeq = seq;
+      synchronized (WaitManager.class) {
+        WaitManager.class.notifyAll();
+      }
+    }
+  }
+
+  // Wait for the last sent message's ACK
+  public static Brief waitACK(long timeOut) throws InterruptedException {
+    final int targetSeq = _lastSentSeq;
+    if (targetSeq < 0) return B_SUCCESS;
+
+    final long startTime = System.currentTimeMillis();
+    synchronized (WaitManager.class) {
+      while (_lastAckedSeq < targetSeq) {
+        if (targetSeq > 60000 && _lastAckedSeq < 1000) break;
+
+        long elapsed = System.currentTimeMillis() - startTime;
+        if (timeOut != TO_NONE && elapsed >= timeOut) {
+          return B_TIMEOUT;
+        }
+
+        if (timeOut == TO_NONE) WaitManager.class.wait(TO_GENERAL);
+        else WaitManager.class.wait(timeOut - elapsed);
+      }
+    }
+    return B_SUCCESS;
+  }
+
+  public static Brief waitACK() throws InterruptedException {
+    return waitACK(TO_GENERAL);
+  }
+
+  // Signal System
   public static boolean isWaitingSignal(Signal signal, Object subject) {
     final WaiterList waiterList = _waiterListMap.get(signal);
     synchronized (waiterList) {
@@ -43,90 +80,35 @@ public class WaitManager {
     return false;
   }
 
-  public static boolean isWaitingSignal(Signal signal) {
-    final WaiterList waiterList = _waiterListMap.get(signal);
-    synchronized (waiterList) {
-      return !waiterList.isEmpty();
-    }
-  }
-
-  // Wait Signal
-  public static void waitSignal(Signal signal, Object subject, long timeOut) {
+  public static Brief waitSignal(Signal signal, Object subject, long timeOut) throws InterruptedException {
     final SignalWaiter waiter = new SignalWaiter(signal, subject);
     final WaiterList waiterList = _waiterListMap.get(signal);
     synchronized (waiterList) {
       waiterList.add(waiter);
     }
-    waiter._wait(timeOut);
+    return waiter._wait(timeOut);
   }
 
-  public static void waitSignal(Signal signal, long timeOut) {
-    WaitManager.waitSignal(signal, null, timeOut);
+  public static Brief waitSignal(Signal signal, long timeOut) throws InterruptedException {
+    return waitSignal(signal, null, timeOut);
   }
 
-  public static void waitSignal(Signal signal, Object subject) {
-    WaitManager.waitSignal(signal, subject, TO_NONE);
-  }
-
-  public static void waitSignal(Signal signal) {
-    WaitManager.waitSignal(signal, null, TO_NONE);
-  }
-
-  // Notify Signal
-  /// - Example
-  /// if (WaitManager.isWaitingSignal(signal, subject))
-  ///     WaitManager.notifySignal(signal, subject);
   public static void notifySignal(Signal signal, Object subject) {
     final WaiterList waiterList = _waiterListMap.get(signal);
     synchronized (waiterList) {
       if (waiterList.isEmpty()) return;
-
       waiterList.removeIf((signalWaiter) -> {
-          if (signalWaiter._isWaiting(subject)) {
+        if (signalWaiter._isWaiting(subject)) {
           signalWaiter._notify();
           return true;
-          } else
-          return false; });
+        }
+        return false;
+      });
     }
   }
 
   public static void notifySignal(Signal signal) {
     notifySignal(signal, null);
-  }
-
-  // Message
-  public static void waitMessage(String message) {
-    _message = message;
-    _wait();
-  }
-
-  public static void notifyMessage(String message) {
-    if (!_isWaiting(message)) return;
-
-    _message = null;
-    _notify();
-    Util.debugPrint("message: " + message);
-  }
-
-  private static boolean _isWaiting(String message) {
-    if (_message == null) return false;
-    return message.contentEquals(_message);
-  }
-
-  private static void _wait() {
-    try {
-      synchronized (WaitManager.class) {
-        WaitManager.class.wait();
-      }
-    } catch (InterruptedException e) {
-      throw new LMIException(ET_INTERRUPTED);
-    }
-  }
-
-  private static void _notify() {
-    synchronized (WaitManager.class) {
-      WaitManager.class.notify();
-    }
   }
 
   // SignalWaiter
@@ -141,23 +123,15 @@ public class WaitManager {
 
     private boolean _isWaiting(Object subject) { return _subject == subject; }
 
-    /// - Throws:
-    ///     - ET_TIME_OUT
-    private void _wait(long timeOut) {
+    private Brief _wait(long timeOut) throws InterruptedException {
       final long startTime = System.currentTimeMillis();
-
-      try {
-        synchronized (this) {
-          this.wait(timeOut);
-        }
-      } catch (InterruptedException e) {
-        throw new LMIException(ET_INTERRUPTED);
+      synchronized (this) {
+        this.wait(timeOut);
       }
-
       final long endTime = System.currentTimeMillis();
-
       if (timeOut != TO_NONE && endTime - startTime >= timeOut)
-        throw new LMIException(ET_TIME_OUT);
+        return B_TIMEOUT;
+      return B_SUCCESS;
     }
 
     private void _notify() {

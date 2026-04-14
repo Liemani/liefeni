@@ -1137,80 +1137,60 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 
     /// - Throws:
     ///     - ET_MOVE
-    public void waitMove(Coord destination) {
+    public void waitMove(Coord destination) throws InterruptedException {
         while (!this.isAt(destination)) {
-            try {
-                _waitMoveBeginning();
-            } catch (LMIException e) {
-                if (e.type == ET_MOVE && this.isAt(destination)) return;
-                else throw e;
-            }
+            _waitMoveBeginning();
             _waitMoveEnding();
         }
     }
 
     /// - Throws:
     ///     - ET_MOVE
-    public void waitMove() {
+    public void waitMove() throws InterruptedException {
         _waitMoveBeginning();
         _waitMoveEnding();
     }
 
     /// - Throws:
     ///     - ET_MOVE
-    private void _waitMoveBeginning() {
+    private void _waitMoveBeginning() throws InterruptedException {
         if (this.isMoving()) return;
-        try {
-            WaitManager.waitSignal(S_MOVE_DID_BEGIN, this, TO_TEMPORARY);
-        } catch (LMIException e) {
-            if (e.type != ET_TIME_OUT) throw e;
+        if (WaitManager.waitSignal(S_MOVE_DID_BEGIN, this, TO_TEMPORARY) == B_TIMEOUT) {
             if (!this.isMoving()) throw new LMIException(ET_MOVE);
         }
     }
 
-    private void _waitMoveEnding() {
-        while (true) {
-            if (!this.isMoving()) return;
-            try {
-                WaitManager.waitSignal(S_MOVE_DID_END, this, TO_GENERAL);
+    private void _waitMoveEnding() throws InterruptedException {
+        while (this.isMoving()) {
+            if (WaitManager.waitSignal(S_MOVE_DID_END, this, TO_GENERAL) == B_SUCCESS) {
                 break;
-            } catch (LMIException e) {
-                if (e.type != ET_TIME_OUT) throw e;
             }
         }
     }
 
-    public void waitBuild() {
-        while (true) {
-            if (this.hasPose(RN_BUILDAN)) break;
+    public void waitBuild() throws InterruptedException {
+        while (!this.hasPose(RN_BUILDAN)) {
             lmi.Api.sleep(TO_TEMPORARY);
         }
-        while (true) {
-            if (this.hasPose(RN_IDLE)) break;
+        while (!this.hasPose(RN_IDLE)) {
             lmi.Api.sleep(TO_TEMPORARY);
         }
     }
 
     /// - Throws:
     ///     - ET_LIFT
-    public void waitLift(Gob gob) {
+    public void waitLift(Gob gob) throws InterruptedException {
         if (this.isLifting(gob)) return;
-        try {
-            WaitManager.waitSignal(S_DID_LIFT, this, TO_TEMPORARY);
-        } catch (LMIException e) {
-            if (e.type != ET_TIME_OUT) throw e;
+        if (WaitManager.waitSignal(S_DID_LIFT, this, TO_TEMPORARY) == B_TIMEOUT) {
             if (!this.isLifting(gob)) throw new LMIException(ET_LIFT);
         }
     }
 
     /// - Throws:
     ///     - ET_PUT
-    public void waitPut() {
+    public void waitPut() throws InterruptedException {
         if (!this.isLifting()) return;
-        try {
-            WaitManager.waitSignal(S_DID_PUT, this, TO_TEMPORARY);
-        } catch (LMIException e) {
-            if (e.type != ET_TIME_OUT) throw e;
+        if (WaitManager.waitSignal(S_DID_PUT, this, TO_TEMPORARY) == B_TIMEOUT) {
             if (this.isLifting()) throw new LMIException(ET_PUT);
         }
     }

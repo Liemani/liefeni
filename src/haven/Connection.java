@@ -797,6 +797,7 @@ public class Connection implements Transport {
 	    msg.seq = tseq;
 	    tseq = (tseq + 1) & 0xffff;
 	    pending.add(msg);
+	    lmi.Hook.didQueueMessage(msg.seq);
 	}
 	wake();
     }

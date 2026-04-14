@@ -354,10 +354,13 @@ public class Constant {
     gfx.invobjs.herbs.RN_STINGINGNETTLE,
   };
 
+  public static enum Brief {
+    B_SUCCESS,
+    B_TIMEOUT,
+  }
+
   public static enum ExceptionType {
     // why
-    ET_INTERRUPTED,
-    ET_TIME_OUT,
     ET_TOO_SMALL_SPACE,
     ET_NO_INPUT,
     ET_FULL_OUTPUT,

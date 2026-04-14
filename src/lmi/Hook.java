@@ -1,37 +1,49 @@
 package lmi;
 
-// import java.util
-import java.util.ArrayList;
-
-// import haven
 import haven.*;
-
-// constant
 import static lmi.Constant.*;
-import static lmi.Constant.Message.*;
 import static lmi.Constant.Signal.*;
 import static lmi.Constant.Input.Mouse.*;
-
-// resource
 import static lmi.Constant.gfx.borka.*;
 
 public class Hook {
-  // widget
+  // Sequence Hooks
+  public static void didQueueMessage(int seq) {
+    WaitManager.updateSentSeq(seq);
+  }
+
+  public static void didGetACK(PMessage pMessage) {
+    if (pMessage instanceof RMessage) {
+      WaitManager.updateAckedSeq(((RMessage)pMessage).seq);
+    }
+  }
+
+  // Widget Hooks
   public static void newWidgetDidAdded(Widget widget) {
     if (widget.getClass() == FlowerMenu.class) {
       FlowerMenuHandler.setWidget((FlowerMenu)widget);
       WaitManager.notifySignal(S_FLOWER_MENU_DID_ADDED);
-    } else if (widget.getClass() == Window.class) {
-      final Window window = (Window)widget;
     }
   }
 
-  // flowerMenu
   public static void flowerMenuDidDestroyed() {
     FlowerMenuHandler.clearWidget();
   }
 
-  // linMove
+  // Interaction Hooks
+  public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData) {
+    if (!WaitManager.isWaitingSignal(S_OBJECT_DID_CLICKED))
+      return false;
+
+    if (mouseButton == IM_LEFT && clickData != null) {
+      ClickManager.setClickData(clickData);
+      WaitManager.notifySignal(S_OBJECT_DID_CLICKED);
+      return true;
+    }
+    return false;
+  }
+
+  // Game Event Hooks
   public static void linMoveDidAdded(Gob gob) {
     WaitManager.notifySignal(S_MOVE_DID_BEGIN, gob);
   }
@@ -40,10 +52,8 @@ public class Hook {
     WaitManager.notifySignal(S_MOVE_DID_END, gob);
   }
 
-  // following
   public static void followingDidAdded(Gob gob) {
     final Gob target = gob.followingTarget();
-
     if (target == Self.gob())
       WaitManager.notifySignal(S_DID_LIFT, target);
   }
@@ -51,11 +61,9 @@ public class Hook {
   public static void followingDidDeleted(Gob gob) {
     final Gob target = gob.followingTarget();
     if (target != Self.gob()) return;
-
     WaitManager.notifySignal(S_DID_PUT, target);
   }
 
-  // progress
   public static void progressDidAdded(GameUI.Progress widget) {
     ProgressManager.setWidget(widget);
     WaitManager.notifySignal(S_PROGRESS_DID_ADDED);
@@ -66,29 +74,9 @@ public class Hook {
     WaitManager.notifySignal(S_PROGRESS_DID_DESTROYED);
   }
 
-  // etc
   public static void poseDidChanged(Gob gob) {
     if (gob.hasPose(RN_IDLE))
       WaitManager.notifySignal(S_DID_PUT, gob);
-  }
-
-  public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData) {
-    if (!WaitManager.isWaitingSignal(S_OBJECT_DID_CLICKED))
-      return false;
-
-    if (mouseButton == IM_LEFT && clickData != null) {
-      ClickManager.setClickData(clickData);
-      WaitManager.notifySignal(S_OBJECT_DID_CLICKED);
-      return true;
-    }
-
-    return false;
-  }
-
-  public static void didGetACK(PMessage pMessage) {
-    final String message = MessageHandler.getAction(pMessage);
-    Util.debugPrint("pMessage: \"" + message + "\" (seq: " + (pMessage instanceof RMessage ? ((RMessage)pMessage).seq : "N/A") + ")");
-    WaitManager.notifyMessage(message);
   }
 
   public static boolean keyDidDown(java.awt.event.KeyEvent keyEvent) {
@@ -103,26 +91,21 @@ public class Hook {
     if (WaitManager.isWaitingSignal(S_AREA_DID_SELECTED)) {
       final Rect selectedArea = new Rect(first, second);
       selectedArea.origin.assignMultiply(TILE_IN_COORD);
-      selectedArea.size.assignAdd(1)
-        .assignMultiply(TILE_IN_COORD);
+      selectedArea.size.assignAdd(1).assignMultiply(TILE_IN_COORD);
       ClickManager.setSelectedArea(selectedArea);
       WaitManager.notifySignal(S_AREA_DID_SELECTED);
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
-  // Did Constructed
   public static void remoteUIDidConstructed(RemoteUI remoteUI) {
-    AppContext.setRemoteUI(remoteUI);
-  }
-
-  // etc
-  public static void plobDidPlaced(MapView.Plob plob) {
+    Initializer.initRemoteUI(remoteUI);
   }
 
   public static void didGetErrorMessage(String errorMessage) {
     ErrorMessageManager.setMessage(errorMessage);
   }
+
+  public static void plobDidPlaced(MapView.Plob plob) {}
 }
