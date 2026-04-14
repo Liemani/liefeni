@@ -15,7 +15,7 @@ import static lmi.Constant.Input.Mouse.*;
 // resource
 import static lmi.Constant.gfx.borka.*;
 
-public class Delegate {
+public class Hook {
   // widget
   public static void newWidgetDidAdded(Widget widget) {
     if (widget.getClass() == FlowerMenu.class) {
@@ -23,8 +23,6 @@ public class Delegate {
       WaitManager.notifySignal(S_FLOWER_MENU_DID_ADDED);
     } else if (widget.getClass() == Window.class) {
       final Window window = (Window)widget;
-      //              if (window.isTitle(text))
-      //                  lmi.delegate.windowDidAdded(window);
     }
   }
 
@@ -89,7 +87,7 @@ public class Delegate {
 
   public static void didGetACK(PMessage pMessage) {
     final String message = MessageHandler.getAction(pMessage);
-    Util.debugPrint("pMessage: \"" + message + "\"");
+    Util.debugPrint("pMessage: \"" + message + "\" (seq: " + (pMessage instanceof RMessage ? ((RMessage)pMessage).seq : "N/A") + ")");
     WaitManager.notifyMessage(message);
   }
 
@@ -117,15 +115,11 @@ public class Delegate {
 
   // Did Constructed
   public static void remoteUIDidConstructed(RemoteUI remoteUI) {
-    Initializer.initRemoteUI(remoteUI);
+    AppContext.setRemoteUI(remoteUI);
   }
 
   // etc
   public static void plobDidPlaced(MapView.Plob plob) {
-    //          if (!isWaitingDidPlobPlacedSignal()) return;
-    //  
-    //          if (plob.isResourceNameEndsWith(""/*what i want*/))
-    //              WaitManager.notifySignal(S_PLOB_DID_PLACED);
   }
 
   public static void didGetErrorMessage(String errorMessage) {

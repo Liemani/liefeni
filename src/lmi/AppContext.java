@@ -25,8 +25,6 @@ public class AppContext {
 
   // Unified Initialization
   public static void init() {
-    Console.setscmd("lmi", new Command());
-    Console.setscmd("man", new Manual());
     Scanner.init(System.in);
     ObjectFinder.init();
     Debug.init();

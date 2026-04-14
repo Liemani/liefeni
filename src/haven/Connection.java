@@ -522,7 +522,7 @@ public class Connection implements Transport {
 		    RMessage msg = i.next();
 		    short sd = (short)(msg.seq - seq);
 		    if(sd <= 0) {
-                        lmi.Delegate.didGetACK(msg);
+                        lmi.Hook.didGetACK(msg);
 			stats.addreply(now - msg.first);
 			i.remove();
 		    } else {

@@ -347,7 +347,7 @@ public class Composite extends Drawable implements EquipTarget {
         }
       }
 
-      lmi.Delegate.poseDidChanged(this.gob);
+      lmi.Hook.poseDidChanged(this.gob);
     }
 
     private String _safeGetRes(Indir<Resource> res) {

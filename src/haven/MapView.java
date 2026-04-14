@@ -1850,7 +1850,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 			    a = a2;
 			}
 			ret.place();
-                        lmi.Delegate.plobDidPlaced(ret);
+                        lmi.Hook.plobDidPlaced(ret);
 			return(ret);
 		    }
 		});
@@ -1983,12 +1983,12 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	}
 	
 	protected void hit(Coord pc, Coord2d mc, ClickData inf) {
-            if (lmi.Delegate.didClicked(mc, clickb, inf)) return;
+            if (lmi.Hook.didClicked(mc, clickb, inf)) return;
 	    Object[] args = {pc, mc.floor(posres), clickb, ui.modflags()};
 	    if(inf != null)
 		args = Utils.extend(args, inf.clickargs());
 	    wdgmsg("click", args);
-	    lmi.Delegate.didClicked(mc, clickb, inf);
+	    lmi.Hook.didClicked(mc, clickb, inf);
 	}
     }
     
@@ -2229,7 +2229,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 		    tt = null;
 		    glob.map.remove(ol);
 		    mgrab.remove();
-                    if (lmi.Delegate.areaDidSelected(sc, ec)); else
+                    if (lmi.Hook.areaDidSelected(sc, ec)); else
 		    wdgmsg("sel", sc, ec, modflags);
 		    sc = null;
 		}

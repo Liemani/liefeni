@@ -235,7 +235,7 @@ public class Widget {
 	child.parent = this;
 	child.link();
 	child.added();
-	lmi.Delegate.newWidgetDidAdded(child);
+	lmi.Hook.newWidgetDidAdded(child);
 	childseq++;
 	if(attached)
 	    child.attached();

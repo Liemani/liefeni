@@ -79,7 +79,7 @@ public class Self {
   private static void _sendClickMessage(Coord coord) {
     WidgetMessageHandler.sendClickMessage(
         AppContext.mapView,
-        Util.mapViewCenter(),
+        Coord.z,
         coord,
         IM_LEFT,
         IM_NONE);

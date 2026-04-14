@@ -775,7 +775,7 @@ public class Skeleton {
 		    nt = len;
 		    done = true;
 		    if(owner instanceof Gob)
-			lmi.Delegate.poseDidChanged((Gob)owner);
+			lmi.Hook.poseDidChanged((Gob)owner);
 		}
 		break;
 	    case PONG:
@@ -786,7 +786,7 @@ public class Skeleton {
 		    nt = 0;
 		    done = true;
 		    if(owner instanceof Gob)
-			lmi.Delegate.poseDidChanged((Gob)owner);
+			lmi.Hook.poseDidChanged((Gob)owner);
 		}
 		break;
 	    case PONGLOOP:

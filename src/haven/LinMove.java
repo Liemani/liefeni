@@ -38,11 +38,11 @@ public class LinMove extends Moving {
 	this.v = v;
 	this.t = 0;
 	this.e = Double.NaN;
-	lmi.Delegate.linMoveDidAdded(gob);
+	lmi.Hook.linMoveDidAdded(gob);
     }
 
     protected void removed() {
-	lmi.Delegate.linMoveDidDeleted(gob);
+	lmi.Hook.linMoveDidDeleted(gob);
     }
 
     public Coord3f getc() {
@@ -81,7 +81,7 @@ public class LinMove extends Moving {
 	    LinMove lm = g.getattr(LinMove.class);
 	    if((lm == null) || !lm.s.equals(s) || !lm.v.equals(v)) {
 		g.setattr(new LinMove(g, s, v));
-                lmi.Delegate.linMoveDidAdded(g);
+                lmi.Hook.linMoveDidAdded(g);
 	    }
 	}
     }
@@ -108,7 +108,7 @@ public class LinMove extends Moving {
 	    if(t < 0)
             {
 		g.delattr(Moving.class);
-                lmi.Delegate.linMoveDidDeleted(g);
+                lmi.Hook.linMoveDidDeleted(g);
             }
 	    else
 		lm.sett(t);

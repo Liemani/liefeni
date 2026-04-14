@@ -1032,11 +1032,11 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	public Progress(double prog) {
 	    super(progt.f[0][0].ssz);
 	    set(prog);
-	    lmi.Delegate.progressDidAdded(this);
+	    lmi.Hook.progressDidAdded(this);
 	}
 
 	public void destroy() {
-	    lmi.Delegate.progressDidDestroyed();
+	    lmi.Hook.progressDidDestroyed();
 	    super.destroy();
 	}
 
@@ -1227,7 +1227,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	if(msg == "err") {
 	    String err = (String)args[0];
 	    ui.error(err);
-            lmi.Delegate.didGetErrorMessage(err);
+            lmi.Hook.didGetErrorMessage(err);
 	} else if(msg == "msg") {
 	    String text = (String)args[0];
 	    ui.msg(text);
