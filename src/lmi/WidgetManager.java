@@ -3,8 +3,8 @@ package lmi;
 import haven.*;
 
 import static lmi.Constant.*;
-import static lmi.Constant.TimeOut.*;
-import static lmi.Constant.ExceptionType.*;
+import static lmi.Constant.Timeout.*;
+import static lmi.Constant.ExceptionReason.*;
 
 public class WidgetManager {
   public static GItem cursorGItem() {

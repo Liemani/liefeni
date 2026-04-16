@@ -1988,7 +1988,6 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	    if(inf != null)
 		args = Utils.extend(args, inf.clickargs());
 	    wdgmsg("click", args);
-	    lmi.Hook.didClicked(mc, clickb, inf);
 	}
     }
     
@@ -2384,9 +2383,9 @@ public class MapView extends PView implements DTarget, Console.Directory {
       return placing_l != null && placing_l.done();
     }
 
-    public void waitPlanObject() {
+    public void waitPlanObject() throws InterruptedException {
       while (this.isPlanningObject())
-        lmi.Api.sleep(lmi.Constant.TimeOut.TO_TEMPORARY);
+        lmi.WaitManager.sleep(lmi.Constant.Timeout.TO_TEMPORARY);
     }
 
 //    public void sendCancelPlanMessage() {

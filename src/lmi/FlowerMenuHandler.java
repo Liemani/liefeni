@@ -3,9 +3,8 @@ package lmi;
 import haven.Gob;
 
 import lmi.Constant.Message;
-import static lmi.Constant.ExceptionType.*;
-import static lmi.Constant.Signal.*;
-import static lmi.Constant.TimeOut.*;
+import static lmi.Constant.ExceptionReason.*;
+import static lmi.Constant.Timeout.*;
 import static lmi.Constant.Input.Mouse.*;
 import static lmi.Constant.Input.Modifier.*;
 
@@ -19,9 +18,9 @@ public class FlowerMenuHandler {
 
   // choose
   /// - Throws:
-  ///     - ET_FLOWER_MENU_OPEN
-  ///     - ET_FLOWER_MENU_MATCH
-  ///     - ET_PROGRESS_OPEN
+  ///     - ER_FLOWER_MENU_OPEN
+  ///     - ER_FLOWER_MENU_MATCH
+  ///     - ER_PROGRESS_OPEN
   public static void choose(Gob gob, int meshId, String name) {
     if (gob == null || name == null)
       throw new IllegalArgumentException();
@@ -35,50 +34,45 @@ public class FlowerMenuHandler {
     }
     try {
       Self.gob().waitMove();
-    } catch (LMIException e) { if (e.type == ET_INTERRUPTED) throw e; }
+    } catch (LMIException e) {}
     ProgressManager.waitProgress();
   }
 
   // private methods
   /// - Throws:
-  ///     - ET_FLOWER_MENU_OPEN
+  ///     - ER_FLOWER_MENU_OPEN
   private static void _open(Gob gob, int meshId) {
     _sendInteractMessage(gob, meshId);
     _waitFlowerMenuOpening();
   }
 
   /// - Throws:
-  ///     - ET_FLOWER_MENU_OPEN
+  ///     - ER_FLOWER_MENU_OPEN
   private static void _waitFlowerMenuOpening() {
-    if (_isAdded()) return;
-    try {
-      WaitManager.waitSignal(S_FLOWER_MENU_DID_ADDED, TO_TEMPORARY);
-    } catch (LMIException e) {
-      if (e.type != ET_TIME_OUT) throw e;
-      if (!_isAdded()) throw new LMIException(ET_FLOWER_MENU_OPEN);
-    }
+    WaitManager.waitResponse();
+    if (!_isAdded()) throw new LMIException(ER_FLOWER_MENU_OPEN);
   }
 
   private static boolean _isAdded() { return (_widget != null); }
   private static void _close() { _sendCloseMessage(); }
 
   /// - Throws:
-  ///     - ET_FLOWER_MENU_MATCH
+  ///     - ER_FLOWER_MENU_MATCH
   private static void _choose(String name) {
     for (haven.FlowerMenu.Petal petal : _widget.opts)
       if (petal.name.contentEquals(name))
         WidgetMessageHandler.sendChoosePetalMessage(_widget, petal.num);
-    throw new LMIException(ET_FLOWER_MENU_MATCH);
+    throw new LMIException(ER_FLOWER_MENU_MATCH);
   }
 
   /// - Throws:
-  ///     - ET_FLOWER_MENU_MATCH
+  ///     - ER_FLOWER_MENU_MATCH
   private static void _sendChoosePetalMessage(int index) {
     final int petalCount = _widget.opts.length;
     if (0 <= index && index < petalCount)
       WidgetMessageHandler.sendChoosePetalMessage(_widget, index);
     else
-      throw new LMIException(ET_FLOWER_MENU_MATCH);
+      throw new LMIException(ER_FLOWER_MENU_MATCH);
   }
 
   // send message shadow

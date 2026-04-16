@@ -792,12 +792,12 @@ public class Connection implements Transport {
     }
 
     public void queuemsg(PMessage pmsg) {
+        lmi.Hook.willQueueMessage(tseq);
 	RMessage msg = new RMessage(pmsg);
 	synchronized(pending) {
 	    msg.seq = tseq;
 	    tseq = (tseq + 1) & 0xffff;
 	    pending.add(msg);
-	    lmi.Hook.didQueueMessage(msg.seq);
 	}
 	wake();
     }

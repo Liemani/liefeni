@@ -2014,11 +2014,6 @@ public class Widget {
 	.add(Session.class, wdg -> wdg.ui.sess);
 
     // lmi custom
-    public final void sendMessage(String message, Object... args) {
-      this.wdgmsg(message, args);
-      lmi.WaitManager.waitMessage(message);
-    }
-
     public <T extends Widget> T getChildOf(Class<T> c) {
       Widget child = this.child;
       while (child != null) {

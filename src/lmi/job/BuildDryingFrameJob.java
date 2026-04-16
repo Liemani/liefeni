@@ -6,9 +6,9 @@ import lmi.*;
 import lmi.AgentContext;
 import static lmi.Api.*;
 import static lmi.Constant.*;
-import static lmi.Constant.ExceptionType.*;
+import static lmi.Constant.ExceptionReason.*;
 import static lmi.Constant.BoundingBox.*;
-import static lmi.Constant.TimeOut.*;
+import static lmi.Constant.Timeout.*;
 import static lmi.Constant.Plan.*;
 import static lmi.Constant.gfx.terobjs.*;
 
@@ -32,9 +32,9 @@ public class BuildDryingFrameJob extends Job {
         try {
           _loop();
         } catch (LMIException e) {
-          if (e.type == ET_NO_INPUT) {
+          if (e.reason == ER_NO_INPUT) {
             Api.alert("추가 건설 자재를 기다려요");
-            Api.sleep(TO_WAIT);
+            WaitManager.sleep(TO_WAIT);
           } else {
             break;
           }
@@ -102,7 +102,7 @@ public class BuildDryingFrameJob extends Job {
     Array<Gob> ga = Api.gobArrayIn(_outputArea);
     while (true) {
       if (_orderCoord.y == _orderCoordMax.y) {
-        if (ga.count() == _orderCoordMax.x * _orderCoordMax.y) throw new LMIException(ET_FULL_OUTPUT);
+        if (ga.count() == _orderCoordMax.x * _orderCoordMax.y) throw new LMIException(ER_FULL_OUTPUT);
         else _orderCoord.init(0, 0);
       }
       _calculateLeaf();

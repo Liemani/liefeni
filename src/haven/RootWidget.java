@@ -53,8 +53,6 @@ public class RootWidget extends ConsoleHost implements UI.Notice.Handler, Widget
     }
 
     public boolean globtype(GlobKeyEvent ev) {
-	if(lmi.Hook.keyDidDown(ev.awt))
-	    return(true);
 	if(ev.propagate(this))
 	    return(true);
 	if(ev.c == '`') {

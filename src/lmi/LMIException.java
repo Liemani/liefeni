@@ -1,6 +1,6 @@
 package lmi;
 
-import lmi.Constant.ExceptionType;
+import lmi.Constant.ExceptionReason;
 
 // useful java.lang.Exception
 //  InterruptedException
@@ -8,9 +8,9 @@ import lmi.Constant.ExceptionType;
 //  IndexOutOfBoundsException
 
 public class LMIException extends RuntimeException {
-  public ExceptionType type;
+  public ExceptionReason reason;
 
-  public LMIException(ExceptionType type) { this.type = type; }
+  public LMIException(ExceptionReason reason) { this.reason = reason; }
 
-  public String toString() { return "{ type: " + this.type + " }"; }
+  public String toString() { return "{ reason: " + this.reason + " }"; }
 }

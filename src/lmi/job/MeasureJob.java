@@ -8,7 +8,7 @@ import lmi.Util;
 import lmi.LMIException;
 import lmi.AgentContext;
 import static lmi.Constant.TILE_IN_COORD;
-import static lmi.Constant.ExceptionType.ET_MOVE;
+import static lmi.Constant.ExceptionReason.ER_MOVE;
 
 public class MeasureJob extends Job {
   @Override
@@ -39,7 +39,7 @@ public class MeasureJob extends Job {
         Api.move(leaf);
         succeededDistance = currentDistance;
       } catch (LMIException e) {
-        if (e.type != ET_MOVE) throw e;
+        if (e.reason != ER_MOVE) throw e;
         lastFailedDistance = currentDistance;
       }
       Util.debugPrint(Self.position());

@@ -8,15 +8,14 @@ import haven.Coord;
 import lmi.Constant.*;
 import lmi.Constant.Message;
 
-import static lmi.Constant.ExceptionType.*;
+import static lmi.Constant.ExceptionReason.*;
 import static lmi.Constant.Message.*;
-import static lmi.Constant.Signal.*;
 import static lmi.Constant.Action.*;
 import static lmi.Constant.Input.Mouse.*;
 import static lmi.Constant.Input.Modifier.*;
 import static lmi.Constant.InteractionType.*;
 import static lmi.Constant.MeshId.*;
-import static lmi.Constant.TimeOut.*;
+import static lmi.Constant.Timeout.*;
 import static lmi.Constant.Gauge.Index.*;
 import static lmi.Constant.Gauge.HitPointIndex.*;
 

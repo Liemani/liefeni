@@ -8,8 +8,8 @@ import lmi.Rect;
 import lmi.AgentContext;
 import lmi.behavior.AlignLogBehavior;
 import static lmi.Constant.BoundingBox.*;
-import static lmi.Constant.TimeOut.*;
-import static lmi.Constant.ExceptionType.*;
+import static lmi.Constant.Timeout.*;
+import static lmi.Constant.ExceptionReason.*;
 
 public class AlignLogJob extends Job {
   private final AlignLogBehavior alignBehavior = new AlignLogBehavior();
@@ -38,9 +38,9 @@ public class AlignLogJob extends Job {
       try {
         _loop(ctx);
       } catch (lmi.LMIException e) {
-        if (e.type == ET_NO_INPUT) {
+        if (e.reason == ER_NO_INPUT) {
           Api.alert("추가 통나무를 기다려요");
-          Api.sleep(TO_WAIT);
+          lmi.WaitManager.sleep(TO_WAIT);
         } else {
           throw e;
         }
@@ -64,7 +64,7 @@ public class AlignLogJob extends Job {
   private void _loop(AgentContext ctx) {
     _calculateNextLeaf();
     Gob targetLog = _findLog();
-    if (targetLog == null) throw new lmi.LMIException(ET_NO_INPUT);
+    if (targetLog == null) throw new lmi.LMIException(ER_NO_INPUT);
 
     alignBehavior.run(ctx, root, trunk, branch, leaf, targetLog);
   }

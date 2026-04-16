@@ -12,8 +12,8 @@ import java.util.function.Predicate;
 import haven.Gob;
 import haven.Coord;
 
-import static lmi.Constant.ExceptionType.*;
-import static lmi.Constant.TimeOut.*;
+import static lmi.Constant.ExceptionReason.*;
+import static lmi.Constant.Timeout.*;
 
 public class Util {
   public enum MemberType {
@@ -205,4 +205,22 @@ public class Util {
   //          final haven.PMessage pMessage = new haven.PMessage(haven.RMessage.RMSG_WDGMSG, messageBuf.wbuf, 0, 10);
   //          AppContext.session.addUIMessage(pMessage);
   //      }
+
+  private static double rttStartTime;
+
+  public static void startRtt() {
+    rttStartTime = System.currentTimeMillis();
+  }
+
+  public static double srtt;
+
+  // setLatency
+  public static void updateRtt() {
+    final double rttEndTime = System.currentTimeMillis();
+    final double lastRtt = rttEndTime - rttStartTime;
+
+    final int lookback = 16;
+    final double alpha = 2.0 / (lookback + 1);
+    srtt = lastRtt * alpha + srtt * (1 - alpha);
+  }
 }

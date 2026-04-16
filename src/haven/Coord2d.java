@@ -220,4 +220,12 @@ public class Coord2d implements Comparable<Coord2d>, java.io.Serializable {
     public String toString() {
 	return("(" + x + ", " + y + ")");
     }
+
+    // lmi start
+    // constructor
+    public Coord2d(Coord2d c) { this.x = c.x; this.y = c.y; }
+
+    // equal to
+    public boolean equals(Coord2d c) { return this.x == c.x && this.y == c.y; }
+    // lmi end
 }

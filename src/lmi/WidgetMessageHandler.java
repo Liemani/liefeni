@@ -85,7 +85,7 @@ class WidgetMessageHandler {
       Coord clickedMapPoint,
       int mouseButton,
       int modifiers) {
-    widget.sendMessage(
+    widget.wdgmsg(
         M_CLICK,
         clickedMapViewPoint,
         clickedMapPoint,
@@ -112,7 +112,7 @@ class WidgetMessageHandler {
       Coord gobLocation,
       int overlayId,
       int meshId) {
-    widget.sendMessage(
+    widget.wdgmsg(
         M_CLICK,
         clickedMapViewPoint,
         clickedMapPoint,
@@ -137,14 +137,14 @@ class WidgetMessageHandler {
       int direction,
       int mouseButton,
       int modifiers) {
-    AppContext.mapView.sendMessage(M_PLACE, coord, direction, mouseButton, modifiers);
+    AppContext.mapView.wdgmsg(M_PLACE, coord, direction, mouseButton, modifiers);
   }
 
   /**
    * [서버 전송] 현재 배치 중인 청사진을 취소합니다.
    */
   static void sendCancelPlanMessage() {
-    AppContext.mapView.sendMessage(M_PLACE, Self.position(), D_EAST, IM_RIGHT, IM_NONE);
+    AppContext.mapView.wdgmsg(M_PLACE, Self.position(), D_EAST, IM_RIGHT, IM_NONE);
   }
 
   // --- FlowerMenu Interactions ---
@@ -155,7 +155,7 @@ class WidgetMessageHandler {
    * @param index 선택할 항목 인덱스
    */
   static void sendChoosePetalMessage(haven.FlowerMenu widget, int index) {
-    widget.sendMessage(M_CL, index, 0);
+    widget.wdgmsg(M_CL, index, 0);
   }
 
   /**
@@ -163,7 +163,7 @@ class WidgetMessageHandler {
    * @param widget 플라워 메뉴 위젯
    */
   static void sendCloseFlowerMenuMessage(haven.FlowerMenu widget) {
-    widget.sendMessage(M_CL, -1);
+    widget.wdgmsg(M_CL, -1);
   }
 
   // --- Inventory & Item Interactions ---
@@ -173,7 +173,7 @@ class WidgetMessageHandler {
    * @param item 대상 아이템 위젯
    */
   static void sendTransferItemMessage(haven.GItem item) {
-    item.sendMessage(M_TRANSFER, Coord.ZERO, IM_LEFT);
+    item.wdgmsg(M_TRANSFER, Coord.ZERO, IM_LEFT);
   }
 
   /**
@@ -183,7 +183,7 @@ class WidgetMessageHandler {
    * @param amount 수량
    */
   static void sendInvxfMessage(haven.Inventory inv, int targetId, int amount) {
-    inv.sendMessage("invxf", targetId, amount);
+    inv.wdgmsg("invxf", targetId, amount);
   }
 
   /**
@@ -192,7 +192,7 @@ class WidgetMessageHandler {
    * @param dc 버릴 위치 좌표
    */
   static void sendDropItemMessage(haven.Inventory inv, Coord dc) {
-    inv.sendMessage(M_DROP, dc);
+    inv.wdgmsg(M_DROP, dc);
   }
 
   // --- ISBox (Stockpile) Interactions ---
@@ -202,7 +202,7 @@ class WidgetMessageHandler {
    * @param widget ISBox 위젯
    */
   static void sendClickISBoxMessage(haven.ISBox widget) {
-    widget.sendMessage(M_CLICK);
+    widget.wdgmsg(M_CLICK);
   }
 
   /**
@@ -210,7 +210,7 @@ class WidgetMessageHandler {
    * @param widget ISBox 위젯
    */
   static void sendTransferISBoxMessage(haven.ISBox widget) {
-    widget.sendMessage(M_XFER);
+    widget.wdgmsg(M_XFER);
   }
 
   /**
@@ -220,7 +220,7 @@ class WidgetMessageHandler {
    * @param mod 키보드 수정자
    */
   static void sendXfer2ISBoxMessage(haven.ISBox widget, int amount, int mod) {
-    widget.sendMessage("xfer2", amount, mod);
+    widget.wdgmsg("xfer2", amount, mod);
   }
 
   /**
@@ -228,7 +228,7 @@ class WidgetMessageHandler {
    * @param widget ISBox 위젯
    */
   static void sendDropISBoxMessage(haven.ISBox widget) {
-    widget.sendMessage(M_DROP);
+    widget.wdgmsg(M_DROP);
   }
 
   /**
@@ -236,7 +236,7 @@ class WidgetMessageHandler {
    * @param widget ISBox 위젯
    */
   static void sendIactISBoxMessage(haven.ISBox widget) {
-    widget.sendMessage("iact");
+    widget.wdgmsg("iact");
   }
 
   // --- Common Widget Interactions ---
@@ -246,7 +246,7 @@ class WidgetMessageHandler {
    * @param button 대상 버튼 위젯
    */
   static void sendButtonBuildMessage(Button button) {
-    button.sendMessage(M_ACTIVATE);
+    button.wdgmsg(M_ACTIVATE);
   }
 
   /**
@@ -254,7 +254,7 @@ class WidgetMessageHandler {
    * @param window 대상 창 위젯
    */
   static void sendCloseWindowMessage(haven.Window window) {
-    window.sendMessage("close");
+    window.wdgmsg("close");
   }
 
   /**
@@ -263,7 +263,7 @@ class WidgetMessageHandler {
    * @param focus 포커스 여부
    */
   static void sendFocusMessage(Widget widget, boolean focus) {
-    widget.sendMessage(M_FOCUS, focus);
+    widget.wdgmsg(M_FOCUS, focus);
   }
 
   // --- ChatUI Interactions ---
@@ -274,7 +274,7 @@ class WidgetMessageHandler {
    * @param text 보낼 메시지 내용
    */
   static void sendChatMessage(haven.ChatUI chat, String text) {
-    chat.sendMessage("msg", text);
+    chat.wdgmsg("msg", text);
   }
 
   // --- Login & Character Selection ---
@@ -289,6 +289,6 @@ class WidgetMessageHandler {
   }
 
   static void sendSelectCharacterMessage(haven.Charlist widget, String name) {
-    widget.sendMessage(M_PLAY, name);
+    widget.wdgmsg(M_PLAY, name);
   }
 }

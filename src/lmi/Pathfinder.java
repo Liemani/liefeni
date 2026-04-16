@@ -9,7 +9,7 @@ import haven.Gob;
 import haven.Coord;
 
 import static lmi.Constant.*;
-import static lmi.Constant.ExceptionType.*;
+import static lmi.Constant.ExceptionReason.*;
 
 class Pathfinder {
   private static Coord _mapOrigin;
@@ -50,8 +50,8 @@ class Pathfinder {
 
   // Move
   /// - Throws:
-  ///     - ET_MOVE
-  ///     - ET_NO_PATH
+  ///     - ER_FAIL
+  ///     - ER_NO_PATH
   static void move(Coord destination) {
     // if without moveCenter(), object could not loaded proper
     Api.moveCenter();
@@ -69,8 +69,8 @@ class Pathfinder {
   }
 
   /// - Throws:
-  ///     - ET_MOVE
-  ///     - ET_NO_PATH
+  ///     - ER_FAIL
+  ///     - ER_NO_PATH
   static void move(Gob gob) {
     // if without moveCenter(), object could not loaded proper
     Api.moveCenter();
@@ -85,7 +85,7 @@ class Pathfinder {
         _clear();
         return;
       } catch (LMIException e) {
-        if (e.type != ET_NO_PATH) {
+        if (e.reason != ER_NO_PATH) {
           _clear();
           throw e;
         }
@@ -94,7 +94,7 @@ class Pathfinder {
     }
 
     _clear();
-    throw new LMIException(ET_NO_PATH);
+    throw new LMIException(ER_NO_PATH);
   }
 
   // Set Map
@@ -135,8 +135,8 @@ class Pathfinder {
 
   // Find Path
   /// - Throws:
-  ///     - ET_MOVE
-  ///     - ET_NO_PATH
+  ///     - ER_FAIL
+  ///     - ER_NO_PATH
   private static void _findAndMove() {
     while (true) {
       _findPath();
@@ -147,7 +147,7 @@ class Pathfinder {
         _pathMove();
         break;
       } catch (LMIException e) {
-        if (e.type != ET_MOVE) throw e;
+        if (e.reason != ER_FAIL) throw e;
         _correct();
       }
     }
@@ -155,16 +155,16 @@ class Pathfinder {
 
   // Find Path
   /// - Throws:
-  ///     - ET_NO_PATH
+  ///     - ER_NO_PATH
   private static void _findPath() {
-    if (_map[_destination.x][_destination.y]) throw new LMIException(ET_NO_PATH);
+    if (_map[_destination.x][_destination.y]) throw new LMIException(ER_NO_PATH);
     _reset();
     while (true) {
       final int rectilinearDistance = _searchPriorityMap.firstKey();
       final LinkedList<Coord> list = _searchPriorityMap.remove(rectilinearDistance);
       for (Coord node : list)
         _search(node);
-      if (_searchPriorityMap.size() == 0) throw new LMIException(ET_NO_PATH);
+      if (_searchPriorityMap.size() == 0) throw new LMIException(ER_NO_PATH);
       if (_directionMap[_origin.x][_origin.y] != null) break;
     }
   }
@@ -226,7 +226,7 @@ class Pathfinder {
 
   // Path Move
   /// - Throws:
-  ///     - ET_MOVE
+  ///     - ER_FAIL
   private static void _pathMove() {
     Coord direction = _getDirection(_origin);
     if (direction == null) {
@@ -256,7 +256,7 @@ class Pathfinder {
 
   // Correct Map
   /// - Throws:
-  ///     - ET_MOVE
+  ///     - ER_FAIL
   private static void _correct() {
     if (_transformMapCoord(Self.position()).equals(_currentMoveCoord)) {
       _map[_currentMoveCoord.x][_currentMoveCoord.y] = true;

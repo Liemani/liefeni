@@ -4,21 +4,6 @@ package lmi;
 import haven.Coord;
 
 public class Constant {
-  public static enum Signal {
-    S_NONE,
-    S_MOVE_DID_BEGIN,
-    S_MOVE_DID_END,
-    S_DID_LIFT,
-    S_DID_PUT,
-    S_FLOWER_MENU_DID_ADDED,
-    S_PROGRESS_DID_ADDED,
-    S_PROGRESS_DID_DESTROYED,
-    S_WINDOW_DID_ADDED,
-    S_OBJECT_DID_CLICKED,
-    S_AREA_DID_SELECTED,
-    S_PLOB_DID_PLACED,
-  }
-
   public static class Message {
     public static final String M_ACT = "act";   // { Action, ... }
     public static final String M_ACTIVATE = "activate";
@@ -135,13 +120,15 @@ public class Constant {
   public static final int D_WEST = 32768;
   public static final int D_NORTH = 49152;
 
-  public static class TimeOut {
-    public static final long TO_MAX = Long.MAX_VALUE;
+  public static class Timeout {
     public static final long TO_NONE = 0;
+    public static final long TO_IMPERCEPTIBLE = 10;
+    public static final long TO_PERCEPTIBLE = 100;
     public static final long TO_TEMPORARY = 500;
     public static final long TO_GENERAL = 1000;
-    public static final long TO_RETRY = 5000;
+    public static final long TO_RETRY = 1000;
     public static final long TO_WAIT = 300000;
+    public static final long TO_MAX = Long.MAX_VALUE;
   }
 
   public static class MeshId {
@@ -354,32 +341,26 @@ public class Constant {
     gfx.invobjs.herbs.RN_STINGINGNETTLE,
   };
 
-  public static enum Brief {
-    B_SUCCESS,
-    B_TIMEOUT,
-  }
-
-  public static enum ExceptionType {
-    // why
-    ET_TOO_SMALL_SPACE,
-    ET_NO_INPUT,
-    ET_FULL_OUTPUT,
-    ET_COMMAND_ERROR,
-    ET_COMMAND_HELP,
-    ET_COMMAND_INITIALIZER,
-    ET_COMMAND_IMPLEMENT,
-    ET_MAN_IMPLEMENT,
-    ET_NO_PATH,
-
-    // fail
-    ET_MOVE,
-    ET_FLOWER_MENU_OPEN,
-    ET_FLOWER_MENU_CHOOSE,
-    ET_FLOWER_MENU_MATCH,
-    ET_COMMAND_MATCH,
-    ET_PROGRESS_OPEN,
-    ET_LIFT,
-    ET_PUT,
-    ET_DECIDE_PLAN,
+  public static enum ExceptionReason {
+    ER_INTERRUPTED,
+    ER_FAIL,
+    ER_MOVE,
+    ER_FLOWER_MENU_OPEN,
+    ER_FLOWER_MENU_CHOOSE,
+    ER_FLOWER_MENU_MATCH,
+    ER_COMMAND_MATCH,
+    ER_PROGRESS_OPEN,
+    ER_LIFT,
+    ER_PUT,
+    ER_DECIDE_PLAN,
+    ER_TOO_SMALL_SPACE,
+    ER_NO_INPUT,
+    ER_FULL_OUTPUT,
+    ER_COMMAND_ERROR,
+    ER_COMMAND_HELP,
+    ER_COMMAND_INITIALIZER,
+    ER_COMMAND_IMPLEMENT,
+    ER_MAN_IMPLEMENT,
+    ER_NO_PATH,
   }
 }

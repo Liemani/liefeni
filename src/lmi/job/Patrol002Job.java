@@ -13,9 +13,9 @@ public class Patrol002Job extends Job {
 
     while (true) {
       lmi.Api.move(firstPoint);
-      lmi.Api.sleep(2000);
+      lmi.WaitManager.sleep(2000);
       lmi.Api.move(secondPoint);
-      lmi.Api.sleep(2000);
+      lmi.WaitManager.sleep(2000);
     }
   }
 

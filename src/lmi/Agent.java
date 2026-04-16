@@ -2,6 +2,7 @@ package lmi;
 
 import java.util.Stack;
 import lmi.job.Job;
+import static lmi.Constant.ExceptionReason.*;
 
 public class Agent extends Thread {
   private static Agent instance;
@@ -9,7 +10,6 @@ public class Agent extends Thread {
   private final AgentConfig config = new AgentConfig();
   private AgentContext context = null; // Optional tracking
   private boolean sleeping = false;
-  private final Object lock = new Object();
   private String[] currentArgs = new String[0];
 
   private Agent() {
@@ -27,17 +27,15 @@ public class Agent extends Thread {
 
   // Command Interface
   public void pushJob(Job job, String[] args) {
-    synchronized (lock) {
-      jobStack.clear(); 
+    synchronized (jobStack) {
       jobStack.push(job);
       this.currentArgs = args;
-      this.interrupt(); 
-      lock.notifyAll();
+      jobStack.notifyAll();
     }
   }
 
   public void stopAll() {
-    synchronized (lock) {
+    synchronized (jobStack) {
       jobStack.clear();
       this.interrupt();
     }
@@ -51,35 +49,36 @@ public class Agent extends Thread {
     while (true) {
       try {
         Job currentJob;
-        synchronized (lock) {
+        synchronized (jobStack) {
           while (jobStack.isEmpty()) {
-            lock.wait();
+            try {
+              jobStack.wait();
+            } catch (InterruptedException e) {
+              Thread.interrupted();
+            }
           }
           currentJob = jobStack.peek();
         }
 
-        // Consciousness Loop
-        if (!sleeping) {
-          checkDrivesAndInterrupt();
-          currentJob = jobStack.peek(); // Might have changed
-        }
-
-        // Execute Job
+        currentJob = jobStack.peek(); // Might have changed
         currentJob.run(context, currentArgs); 
 
-        synchronized (lock) {
+        synchronized (jobStack) {
           if (!jobStack.isEmpty() && jobStack.peek() == currentJob) {
             jobStack.pop();
           }
         }
-
-      } catch (InterruptedException e) {
-        // Potential Job Switch or Stop
-        Thread.interrupted(); 
+      } catch (LMIException e) {
+        if (e.reason == ER_INTERRUPTED) {
+          Util.debugPrint(e);
+          e.printStackTrace();
+        } else {
+          Util.printStackTrace();
+        }
       } catch (Exception e) {
         Util.debugPrint(e);
         e.printStackTrace();
-        synchronized (lock) { if (!jobStack.isEmpty()) jobStack.pop(); }
+        synchronized (jobStack) { if (!jobStack.isEmpty()) jobStack.pop(); }
       }
     }
   }
@@ -88,7 +87,7 @@ public class Agent extends Thread {
     // Placeholder for survival logic
     // if (config.isDriveEnabled("food") && isHungry()) {
     //    jobStack.push(new EatJob());
-    //    throw new InterruptedException();
+    //    throw new LMIException();
     // }
   }
 }

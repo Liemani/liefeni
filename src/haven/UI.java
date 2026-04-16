@@ -850,7 +850,7 @@ public class UI {
     private Grab[] c(Collection<Grab> g) {return(g.toArray(new Grab[0]));}
 
     public void keydown(KeyEvent ev) {
-        if (lmi.Hook.keyDidDown(ev)) return;
+        lmi.Hook.keyDidDown(ev);
 	setmods(ev);
 	if(!dispatch(root, new KeyDownEvent(ev)))
 	    dispatch(root, new GlobKeyEvent(ev));

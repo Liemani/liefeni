@@ -18,7 +18,7 @@ public class PatrolJob extends Job {
     while (true) {
       for (haven.Coord location : _path) {
         lmi.Api.move(location);
-        lmi.Api.sleep(1000);
+        lmi.WaitManager.sleep(1000);
       }
     }
   }

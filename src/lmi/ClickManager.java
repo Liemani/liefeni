@@ -4,12 +4,13 @@ import haven.Gob;
 import haven.Coord;
 
 import lmi.Constant.Message;
-import lmi.Constant.Signal;
-import static lmi.Constant.ExceptionType.*;
-import static lmi.Constant.Signal.*;
+import static lmi.Constant.ExceptionReason.*;
 
 public class ClickManager {
   // Field
+  public static volatile boolean isGobClickMode;
+  public static volatile boolean isAreaSelectMode;
+
   private static haven.ClickData _clickData;
   private static Rect _selectedArea;
 
@@ -17,9 +18,16 @@ public class ClickManager {
   public static void setClickData(haven.ClickData clickData) { _clickData = clickData; }
   public static void setSelectedArea(Rect area) { _selectedArea = area; }
 
+  public static void reset() {
+    isGobClickMode = false;
+    isAreaSelectMode = false;
+  }
+
   // Public Method
   public static Gob getGob() {
-    WaitManager.waitSignal(S_OBJECT_DID_CLICKED);
+    isGobClickMode = true;
+
+    while (isGobClickMode) WaitManager.sleep();
 
     final haven.Clickable clickable = _clickData.ci;
     Gob clickedGob = null;
@@ -36,8 +44,12 @@ public class ClickManager {
   }
 
   public static Rect getArea() {
+    isAreaSelectMode = true;
     AppContext.mapView.newSelector();
-    WaitManager.waitSignal(S_AREA_DID_SELECTED);
+
+
+    while (isAreaSelectMode) WaitManager.sleep();
+
     AppContext.mapView.destroySelector();
 
     return _selectedArea;

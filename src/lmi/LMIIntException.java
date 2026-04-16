@@ -1,14 +1,14 @@
 package lmi;
 
-import lmi.Constant.ExceptionType;
+import lmi.Constant.ExceptionReason;
 
 public class LMIIntException extends LMIException {
   public int value;
 
-  public LMIIntException(ExceptionType type, int value) {
-    super(type);
+  public LMIIntException(ExceptionReason reasone, int value) {
+    super(reasone);
     this.value = value;
   }
 
-  public String toString() { return "{ type: " + this.type + ", value: " + this.value + " }"; }
+  public String toString() { return "{ reasone: " + this.reason + ", value: " + this.value + " }"; }
 }
