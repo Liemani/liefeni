@@ -30,7 +30,7 @@ public class Self {
   }
 
   public static Coord position() { return Self.gob().position(); }
-  public static double direction() { return Self.gob().direction(); }
+  public static double a() { return Self.gob().a; }
   public static double velocity() { return Self.gob().velocity(); }
   public static boolean hasPose(String poseName) { return Self.gob().hasPose(poseName); }
 

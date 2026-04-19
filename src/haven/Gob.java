@@ -998,27 +998,26 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     // lmi start
     // Access Property
     public Coord position() { return Coord.of(this.rc); }
-    public double direction() { return this.a; }
     public double velocity() { return this.getv(); }
     public int id() { return (int)this.id; }
 
     public boolean isDirectingEast() {
-        final double direction = this.direction();
+        final double direction = this.a;
         return Math.PI / 4 * 7 <= direction || direction < Math.PI / 4;
     }
 
     public boolean isDirectingSouth() {
-        final double direction = this.direction();
+        final double direction = this.a;
         return Math.PI / 4 <= direction && direction < Math.PI / 4 * 3;
     }
 
     public boolean isDirectingWest() {
-        final double direction = this.direction();
+        final double direction = this.a;
         return Math.PI / 4 * 3 <= direction && direction < Math.PI / 4 * 5;
     }
 
     public boolean isDirectingNorth() {
-        final double direction = this.direction();
+        final double direction = this.a;
         return Math.PI / 4 * 5 <= direction && direction < Math.PI / 4 * 7;
     }
 
@@ -1206,18 +1205,18 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 
     // Deubg Description
     public String debugDescription() {
-        StringBuilder description = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-        description.append("resource name: " + this.resourceName() + "\n");
-        description.append("position: " + this.position() + "\n");
-        description.append("direction: " + this.direction() + "\n");
-        description.append("distance: " + lmi.Self.distance(this) + "\n");
-        description.append("removed: " + this.removed + "\n");
+        sb.append("resource name: " + this.resourceName() + "\n");
+        sb.append("position: " + this.position() + "\n");
+        sb.append("angle: " + this.a + "\n");
+        sb.append("distance: " + lmi.Self.distance(this) + "\n");
+        sb.append("removed: " + this.removed + "\n");
 
-        description.append("resource path:\n");
-        this.resNames().forEach(resPath -> description.append("  " + resPath + "\n"));
+        sb.append("resource path:\n");
+        this.resNames().forEach(resPath -> sb.append("  " + resPath + "\n"));
 
-        return description.toString();
+        return sb.toString();
     }
     // lmi end
 }

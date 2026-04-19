@@ -261,7 +261,7 @@ class Pathfinder {
     if (_transformMapCoord(Self.position()).equals(_currentMoveCoord)) {
       _map[_currentMoveCoord.x][_currentMoveCoord.y] = true;
     } else {
-      final int clockwiseOrder = (int)Math.floor((Self.direction() + Math.PI / 4) / (Math.PI / 2)) % 4;
+      final int clockwiseOrder = (int)Math.floor((Self.a() + Math.PI / 4) / (Math.PI / 2)) % 4;
       final int clockwiseOrderFromSouth = (clockwiseOrder + 3) % 4;
       final Coord previousCoord = Self.position()
         .assignAdd(Coord.uecw[clockwiseOrderFromSouth]
