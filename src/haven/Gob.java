@@ -1137,7 +1137,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     public void waitMove(Coord destination) {
       waitMove();
 
-      if (this.isAt(destination)) {
+      if (!this.isAt(destination)) {
         throw new lmi.LMIException(ER_FAIL);
       }
     }

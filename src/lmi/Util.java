@@ -152,39 +152,46 @@ public class Util {
   }
 
   // etc
-  public static String targetStack() {
-    StackTraceElement targetStack = new Throwable().getStackTrace()[2];
-    return targetStack.getClassName() + "::" + targetStack.getMethodName();
+  // Debug Print
+  public static void debugPrint(Exception e) {
+    String threadName = Thread.currentThread().getName();
+    String location = _location(e.getStackTrace()[0]);
+
+    String header = String.format("[%s %s]", threadName, location);
+    System.out.println(header);
+
+    e.printStackTrace();
+    new Exception().printStackTrace();
   }
 
-  // Debug Print
-  public static void debugPrint(String description) {
-    final StringBuilder fullDescription = new StringBuilder();
+  // don't call direct
+  private static void _debugPrint(String description) {
+    String threadName = Thread.currentThread().getName();
+    String location = _location(Thread.currentThread().getStackTrace()[2]);
 
-    fullDescription.append("[" + Util.targetStack() + "()]");
-    if (description != null)
-      fullDescription.append(" { " + description + " }");
+    String header = String.format("[%s %s] %s",
+        threadName, location, description);
+    System.out.println(header);
 
-    System.out.println(fullDescription.toString());
+    new Exception().printStackTrace();
+  }
+
+  private static String _location(StackTraceElement el) {
+    return el.getClassName() + "." + el.getMethodName() + "()";
   }
 
   public static void debugPrint(Object object) {
-    Util.debugPrint(object.toString());
+    _debugPrint(object.toString());
   }
 
   public static void debugPrint() {
-    System.out.println("[" + Util.targetStack() + "()]");
+    _debugPrint("");
   }
 
   private static Coord _mapViewCenter;
 
   public static void initMapViewCenterByMapView(haven.MapView mapView) {
     _mapViewCenter = mapView.sz.div(2);
-  }
-
-  public static void printStackTrace() {
-    Util.debugPrint("thread name: " + Thread.currentThread().getName());
-    new Exception().printStackTrace();
   }
 
   public static Set<String> consoleCommands() {

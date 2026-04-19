@@ -68,17 +68,11 @@ public class Agent extends Thread {
             jobStack.pop();
           }
         }
-      } catch (LMIException e) {
-        if (e.reason == ER_INTERRUPTED) {
-          Util.debugPrint(e);
-          e.printStackTrace();
-        } else {
-          Util.printStackTrace();
-        }
       } catch (Exception e) {
         Util.debugPrint(e);
-        e.printStackTrace();
-        synchronized (jobStack) { if (!jobStack.isEmpty()) jobStack.pop(); }
+        synchronized (jobStack) {
+          if (!jobStack.isEmpty()) jobStack.pop();
+        }
       }
     }
   }

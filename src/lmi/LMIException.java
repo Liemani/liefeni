@@ -12,5 +12,7 @@ public class LMIException extends RuntimeException {
 
   public LMIException(ExceptionReason reason) { this.reason = reason; }
 
-  public String toString() { return "{ reason: " + this.reason + " }"; }
+  public String toString() {
+    return this.getClass().getName() + " " + this.reason;
+  }
 }
