@@ -654,11 +654,7 @@ public class UI {
     }
 	
     public void wdgmsg(Widget sender, String msg, Object... args) {
-        if (!msg.contentEquals("focus")) {
-          System.out.println("\n[UI::wdgmsg()] {sender: \"" + sender.getClass().getName() + "\", message: \"" + msg + "\"}");
-          for (Object object : args) { lmi.Debug.describeField(object); }
-        }
-
+        lmi.Hook.willMsgSend(sender, msg, args);
 	int id = widgetid(sender);
 	if(id < 0) {
 	    new Warning("wdgmsg sender (%s) is not in rwidgets, message is %s", sender.getClass().getName(), msg).issue();
@@ -696,21 +692,7 @@ public class UI {
     }
 
     public void uimsg(int id, String msg, Object... args) {
-        if (
-            !msg.contentEquals("chres")
-            && !msg.contentEquals("glut")
-            && !msg.contentEquals("attr")
-            //              && !msg.contentEquals("msg")
-            && !msg.contentEquals("set")
-            && !msg.contentEquals("tip")
-            //              && !msg.contentEquals("auth")
-            //              && !msg.contentEquals("ppower")
-            //              && !msg.contentEquals("max")
-            && !msg.contentEquals("tt")) {
-//          lmi.Util.debugPrint("reciever: \"" + wdg.getClass().getName() + "\", message: \"" + msg + "\", args.length: " + args.length);
-          for (Object object : args)
-            lmi.Debug.describeField(object);
-        }
+        lmi.Hook.didMsgReceive(id, msg, args);
 	submitcmd(new Command(new UiMessage(id, msg, args)).dep(id, true));
     }
 

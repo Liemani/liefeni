@@ -1207,6 +1207,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     public String debugDescription() {
         StringBuilder sb = new StringBuilder();
 
+        sb.append("id: " + this.id + "\n");
         sb.append("resource name: " + this.resourceName() + "\n");
         sb.append("position: " + this.position() + "\n");
         sb.append("angle: " + this.a + "\n");

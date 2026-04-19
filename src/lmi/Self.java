@@ -76,15 +76,10 @@ public class Self {
 
   // send message shadow
   private static void _sendClickMessage(Coord coord) {
-    WidgetMessageHandler.sendClickMessage(
-        AppContext.mapView,
-        Coord.z,
-        coord,
-        IM_LEFT,
-        IM_NONE);
+    Interaction.click(coord, IM_LEFT, IM_NONE);
   }
 
   private static void _sendCancelActionMessage() {
-    WidgetMessageHandler.cancelAction();
+    Interaction.click(Self.position(), IM_RIGHT, IM_NONE);
   }
 }

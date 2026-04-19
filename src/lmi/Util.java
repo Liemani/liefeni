@@ -164,14 +164,21 @@ public class Util {
     new Exception().printStackTrace();
   }
 
-  // don't call direct
-  private static void _debugPrint(String description) {
-    String threadName = Thread.currentThread().getName();
-    String location = _location(Thread.currentThread().getStackTrace()[2]);
+  public static void debugPrintHeader(String description) {
+    _debugPrintHeader(description, 0);
+  }
 
+  private static void _debugPrintHeader(String description, int depth) {
+    String threadName = Thread.currentThread().getName();
+    String location = _location(Thread.currentThread().getStackTrace()[depth + 3]);
     String header = String.format("[%s %s] %s",
         threadName, location, description);
     System.out.println(header);
+  }
+
+  // don't call direct
+  private static void _debugPrint(String description) {
+    _debugPrintHeader(description, 1);
 
     new Exception().printStackTrace();
   }

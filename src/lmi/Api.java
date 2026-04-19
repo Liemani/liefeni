@@ -6,8 +6,6 @@ import haven.*;
 
 import lmi.*;
 import static lmi.Constant.*;
-import static lmi.Constant.Input.Mouse.*;
-import static lmi.Constant.Input.Modifier.*;
 import static lmi.Constant.ExceptionReason.*;
 import static lmi.Constant.Timeout.*;
 import static lmi.Constant.Action.*;
@@ -18,7 +16,7 @@ import static lmi.Constant.Message.*;
 public class Api {
   /// - Throws: ER_INTERRUPTED
   public static void interact(Gob gob) {
-    WidgetMessageHandler.click(gob, IM_RIGHT, IM_NONE);
+    Interaction.click(gob, 3, 0, 0, 0, -1);
   }
 
   /// - Throws: ER_INTERRUPTED
@@ -177,13 +175,13 @@ public class Api {
       }
     }
     if (AppContext.mapView.isPlanningObject())
-      WidgetMessageHandler.sendCancelPlanMessage();
+      Interaction.place(Self.position(), D_EAST, 3, 0);
     throw new LMIException(ER_DECIDE_PLAN);
   }
 
   /// - Throws: ER_INTERRUPTED 
   public static void decidePlan(Coord location, int direction) {
-    WidgetMessageHandler.sendPlaceMessage(location, direction, IM_LEFT, IM_NONE);
+    Interaction.place(location, direction, 1, 0);
   }
 
   /// - Throws: ER_INTERRUPTED
@@ -191,7 +189,7 @@ public class Api {
   public static void build(String planName, Coord location, int direction) {
     final Window window = planAndDecideObject(planName, location, direction);
     final Button button = window.getChildOf(Button.class);
-    WidgetMessageHandler.sendButtonBuildMessage(button);
+    Interaction.activate(button);
     Self.gob().waitBuild();
   }
 
@@ -355,7 +353,7 @@ public class Api {
 
   // ISBox
   /// - Throws: ER_INTERRUPTED
-  public static void pressButton() { WidgetManager.button().wdgmsg(M_ACTIVATE); }
+  public static void pressButton() { Interaction.activate(WidgetManager.button()); }
 
   // Inventory
   /// - Throws: ER_INTERRUPTED
@@ -363,8 +361,9 @@ public class Api {
 
   /// - Throws: ER_INTERRUPTED
   public static void transferItem(Array<GItem> itemArray) {
-    for (GItem item : itemArray)
-      item.wdgmsg(M_TRANSFER, Coord.zero(), IM_LEFT);
+    for (GItem item : itemArray) {
+      Interaction.transfer(item, 1);
+    }
   }
 
   /// - Throws: ER_INTERRUPTED
@@ -384,17 +383,16 @@ public class Api {
   // Private Method
   /// - Throws: ER_INTERRUPTED
   private static void _sendMoveMessage(Coord coord) {
-    WidgetMessageHandler.click(coord, IM_LEFT, IM_NONE);
+    Interaction.click(coord, 1, 0);
   }
 
   /// - Throws: ER_INTERRUPTED
   private static void _sendObjectClickMessage(Gob gob) {
-    final Coord gobLocationInCoord = gob.position();
-    WidgetMessageHandler.click(gob, IM_LEFT, IM_NONE);
+    Interaction.click(gob, 1, 0, 0, 0, 0);
   }
 
   /// - Throws: ER_INTERRUPTED
   private static void _sendPutMessage(Coord location) {
-    WidgetMessageHandler.click(location, IM_RIGHT, IM_NONE);
+    Interaction.click(location, 3, 0);
   }
 }

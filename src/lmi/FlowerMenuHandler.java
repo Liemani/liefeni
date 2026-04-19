@@ -5,8 +5,6 @@ import haven.Gob;
 import lmi.Constant.Message;
 import static lmi.Constant.ExceptionReason.*;
 import static lmi.Constant.Timeout.*;
-import static lmi.Constant.Input.Mouse.*;
-import static lmi.Constant.Input.Modifier.*;
 
 public class FlowerMenuHandler {
   // field
@@ -61,7 +59,7 @@ public class FlowerMenuHandler {
   private static void _choose(String name) {
     for (haven.FlowerMenu.Petal petal : _widget.opts)
       if (petal.name.contentEquals(name))
-        WidgetMessageHandler.sendChoosePetalMessage(_widget, petal.num);
+        Interaction.select(_widget, petal.num);
     throw new LMIException(ER_FLOWER_MENU_MATCH);
   }
 
@@ -70,18 +68,18 @@ public class FlowerMenuHandler {
   private static void _sendChoosePetalMessage(int index) {
     final int petalCount = _widget.opts.length;
     if (0 <= index && index < petalCount)
-      WidgetMessageHandler.sendChoosePetalMessage(_widget, index);
+      Interaction.select(_widget, index);
     else
       throw new LMIException(ER_FLOWER_MENU_MATCH);
   }
 
   // send message shadow
   private static void _sendInteractMessage(Gob gob, int meshId) {
-    WidgetMessageHandler.click(gob, IM_RIGHT, IM_NONE, meshId);
+    Interaction.click(gob, 3, 0, 0, 0, meshId);
   }
 
   /// - Throws:
   private static void _sendCloseMessage() {
-    WidgetMessageHandler.sendCloseFlowerMenuMessage(_widget);
+    Interaction.close(_widget);
   }
 }

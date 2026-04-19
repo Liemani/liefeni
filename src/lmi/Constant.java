@@ -6,18 +6,10 @@ import haven.Coord;
 public class Constant {
   public static class Message {
     public static final String M_ACT = "act";   // { Action, ... }
-    public static final String M_ACTIVATE = "activate";
     public static final String M_AFK = "afk";
-    public static final String M_CL = "cl";
-    public static final String M_CLICK = "click";
-    public static final String M_DROP = "drop";
     public static final String M_ERROR = "error";
-    public static final String M_FOCUS = "focus";
     public static final String M_LOGIN = "login";
-    public static final String M_PLACE = "place";   // { Coord location, Int direction, int button, int modifier }
     public static final String M_PLAY = "play";   // { haven.widget <haven.Charlist>, String <character name> }
-    public static final String M_TRANSFER = "transfer";
-    public static final String M_XFER = "xfer";
   }
 
   public static class Action {
@@ -44,26 +36,6 @@ public class Constant {
 
   public static class WindowTitle {
     public static final String WT_DRYING_FRAME = "Drying Frame";
-  }
-
-  public static class InteractionType {
-    public static final int IT_DEFAULT = 0;
-    public static final int IT_HAS_OVERLAY = 1;
-  }
-
-  public static class Input {
-    public static class Mouse {
-      public static final int IM_LEFT = 1;
-      public static final int IM_MIDDLE = 2;
-      public static final int IM_RIGHT = 3;
-    }
-
-    public static class Modifier {
-      public static final int IM_NONE = 0;
-      public static final int IM_SHIFT = 1;
-      public static final int IM_CONTROL = 2;
-      public static final int IM_META = 4;
-    }
   }
 
   public static class Gauge {
@@ -118,7 +90,7 @@ public class Constant {
   public static final int D_EAST = 0;
   public static final int D_SOUTH = 16384;
   public static final int D_WEST = 32768;
-  public static final int D_NORTH = 49152;
+  public static final int D_NORTH = -16384;
 
   public static class Timeout {
     public static final long TO_NONE = 0;

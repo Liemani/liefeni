@@ -5,6 +5,37 @@ import static lmi.Constant.*;
 import static lmi.Constant.Input.Mouse.*;
 
 public class Hook {
+  public static void didMsgReceive(int id, String msg, Object... args) {
+//    if (!msg.contentEquals("chres")
+//        && !msg.contentEquals("glut")
+//        && !msg.contentEquals("attr")
+//        //              && !msg.contentEquals("msg")
+//        && !msg.contentEquals("set")
+//        && !msg.contentEquals("tip")
+//        //              && !msg.contentEquals("auth")
+//        //              && !msg.contentEquals("ppower")
+//        //              && !msg.contentEquals("max")
+//        && !msg.contentEquals("tt")) {
+//      //          lmi.Util.debugPrint("reciever: \"" + wdg.getClass().getName() + "\", message: \"" + msg + "\", args.length: " + args.length);
+//      for (Object object : args) {
+//        lmi.Debug.describeField(object);
+//      }
+//    }
+  }
+
+  public static void willMsgSend(Widget sender, String msg, Object... args) {
+    if (!msg.contentEquals("focus")) {
+      String name = sender.getClass().getName();
+      String description = String.format("{%s: %s} (argc: %d)", name, msg, args.length);
+      lmi.Util.debugPrintHeader(description);
+
+      for (Object object : args) {
+        String type = object.getClass().getSimpleName();
+        System.out.println(String.format("%s %s", type, object));
+      }
+    }
+  }
+
   // Sequence Hooks
   public static void willQueueMessage(int seq) {
     WaitManager.updateSentSeq(seq);
