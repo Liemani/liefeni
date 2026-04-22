@@ -130,5 +130,5 @@ public class ISBox extends Widget implements DTarget {
       return Integer.parseInt(countAndCapacity[1]);
     }
 
-    public void transfer() { this.wdgmsg(lmi.Constant.Message.M_XFER); }
+    public void transfer() { this.wdgmsg("xfer"); }
 }

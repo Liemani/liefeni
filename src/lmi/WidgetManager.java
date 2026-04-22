@@ -19,7 +19,7 @@ public class WidgetManager {
   }
 
   public static MenuGrid menuGrid() {
-    return AppContext.gameUI.menu;
+    return AppContext.menuGrid;
   }
 
   public static Indir<Resource> cursor() {

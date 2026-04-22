@@ -11,6 +11,8 @@ import java.util.jar.JarFile;
 import java.net.JarURLConnection;
 
 import lmi.job.*;
+import lmi.debug.*;
+import lmi.test.*;
 
 import haven.UI;
 
@@ -151,8 +153,8 @@ public class AgentManager {
 
   private static void printJobHelp(Class<? extends Job> jobClass) {
     try {
-      Method man = jobClass.getMethod("man");
-      String help = (String)man.invoke(null);
+      Method info = jobClass.getMethod("info");
+      String help = (String)info.invoke(null);
       Api.message("--- Job Manual: " + jobClass.getSimpleName() + " ---");
       Api.message(help);
     } catch (Exception e) {
@@ -160,13 +162,21 @@ public class AgentManager {
     }
   }
 
+  public static Map<String, Class<? extends Job>> getJobMap() { return jobMap; }
+
   public static boolean isRunning() { return Agent.getInstance().isAlive(); }
   public static void interrupt() { Agent.getInstance().stopAll(); }
 
   // private static method
   private static void _registerJobs() {
+    String[] packages = {"lmi.job", "lmi.debug", "lmi.test"};
+    for (String pkg : packages) {
+      _registerJobsInPackage(pkg);
+    }
+  }
+
+  private static void _registerJobsInPackage(String packageName) {
     try {
-      String packageName = "lmi.job";
       String path = packageName.replace('.', '/');
       ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
       Enumeration<URL> resources = classLoader.getResources(path);
@@ -174,19 +184,14 @@ public class AgentManager {
       while (resources.hasMoreElements()) {
         URL resource = resources.nextElement();
 
-        // 실행 환경이 JAR인 경우의 프로토콜은 "jar"입니다.
         if (resource.getProtocol().equals("jar")) {
           JarURLConnection conn = (JarURLConnection) resource.openConnection();
           try (JarFile jar = conn.getJarFile()) {
             Enumeration<JarEntry> entries = jar.entries();
-
             while (entries.hasMoreElements()) {
               JarEntry entry = entries.nextElement();
               String name = entry.getName();
-
-              // lmi/job/ 경로로 시작하고 .class로 끝나는 파일만 필터링
               if (name.startsWith(path + "/") && name.endsWith(".class")) {
-                // 파일 경로 형태(lmi/job/MyJob.class)를 패키지 형태(lmi.job.MyJob)로 변환
                 String className = name.replace('/', '.').substring(0, name.length() - 6);
                 _registerJob(className);
               }
@@ -195,7 +200,7 @@ public class AgentManager {
         }
       }
     } catch (Exception e) {
-      System.err.println("Job 스캔 중 오류 발생:");
+      System.err.println("Job 스캔 중 오류 발생 (" + packageName + "):");
       e.printStackTrace();
     }
   }

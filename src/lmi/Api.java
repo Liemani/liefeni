@@ -162,7 +162,7 @@ public class Api {
   ///     - ER_DECIDE_PLAN
   public static Window planAndDecideObject(String planName, Coord location, int direction) {
     Api.planObject(planName);
-    ErrorMessageManager.clear();
+//    ErrorMessageManager.clear();
     Api.decidePlan(location, direction);
     for (int retry = 0; retry < RETRY_MAX; ++retry) {
       final Window window = WidgetManager.window();
@@ -170,7 +170,7 @@ public class Api {
         return window;
       else {
         WaitManager.sleep(TO_RETRY);
-        if (ErrorMessageManager.message() != null)
+//        if (ErrorMessageManager.message() != null)
           Api.decidePlan(location, direction);
       }
     }

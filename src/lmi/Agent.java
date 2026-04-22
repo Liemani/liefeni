@@ -1,7 +1,7 @@
 package lmi;
 
 import java.util.Stack;
-import lmi.job.Job;
+import lmi.Job;
 import static lmi.Constant.ExceptionReason.*;
 
 public class Agent extends Thread {

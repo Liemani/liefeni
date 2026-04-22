@@ -11,9 +11,6 @@ import lmi.Constant.Message;
 import static lmi.Constant.ExceptionReason.*;
 import static lmi.Constant.Message.*;
 import static lmi.Constant.Action.*;
-import static lmi.Constant.Input.Mouse.*;
-import static lmi.Constant.Input.Modifier.*;
-import static lmi.Constant.InteractionType.*;
 import static lmi.Constant.MeshId.*;
 import static lmi.Constant.Timeout.*;
 import static lmi.Constant.Gauge.Index.*;
@@ -76,10 +73,10 @@ public class Self {
 
   // send message shadow
   private static void _sendClickMessage(Coord coord) {
-    Interaction.click(coord, IM_LEFT, IM_NONE);
+    Interaction.click(coord, 1, 0);
   }
 
   private static void _sendCancelActionMessage() {
-    Interaction.click(Self.position(), IM_RIGHT, IM_NONE);
+    Interaction.click(Self.position(), 3, 0);
   }
 }

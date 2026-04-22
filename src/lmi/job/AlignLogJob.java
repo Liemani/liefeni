@@ -2,6 +2,7 @@ package lmi.job;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.Job;
 import lmi.Api;
 import lmi.Array;
 import lmi.Rect;
@@ -106,7 +107,7 @@ public class AlignLogJob extends Job {
     return Coord.of(x, y);
   }
 
-  public static String man() {
+  public static String info() {
     return "Organizes logs in a specified area.\nUsage: a AlignLog";
   }
 }

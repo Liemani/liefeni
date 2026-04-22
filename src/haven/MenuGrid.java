@@ -166,6 +166,7 @@ public class MenuGrid extends Widget implements KeyBinding.Bindable {
 	    return(KeyBinding.get("scm/" + res.name, hotkey()));
 	}
 	public void use(Interaction iact) {
+            if (lmi.Hook.menuGridWillUse(this)) return;
 	    Object[] eact = new Object[] {pag.scm.ui.modflags()};
 	    if(iact.mc != null) {
 		eact = Utils.extend(eact, iact.mc.floor(OCache.posres));

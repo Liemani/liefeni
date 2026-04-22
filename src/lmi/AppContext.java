@@ -1,7 +1,7 @@
 package lmi;
 
 import haven.*;
-import lmi.job.Job;
+import lmi.Job;
 import static lmi.Constant.gfx.hud.meter.*;
 import static lmi.Constant.Gauge.Index.*;
 
@@ -15,6 +15,7 @@ public class AppContext {
   public static UI ui;
   public static RootWidget rootWidget;
   public static GameUI gameUI;
+  public static MenuGrid menuGrid;
   public static MapView mapView;
   public static Session session;
   public static IMeter[] gaugeWidgetArray;
@@ -25,9 +26,6 @@ public class AppContext {
 
   // Unified Initialization
   public static void init() {
-    Scanner.init(System.in);
-    ObjectFinder.init();
-    Debug.init();
     WaitManager.init();
     AgentManager.init();
     Pathfinder.init();
@@ -44,6 +42,10 @@ public class AppContext {
   public static void setUI(UI val) { ui = val; }
   public static void setRootWidget(RootWidget val) { rootWidget = val; }
   public static void setGameUI(GameUI val) { gameUI = val; }
+  public static void setMenuGrid(MenuGrid val) {
+    menuGrid = val;
+    MenuGridProxy.init();
+  }
   public static void setMapView(MapView val) { mapView = val; }
   public static void setSession(Session val) { session = val; }
   public static void setGlob(Glob val) { glob = val; }

@@ -2,37 +2,62 @@ package lmi;
 
 import haven.*;
 import static lmi.Constant.*;
-import static lmi.Constant.Input.Mouse.*;
 
 public class Hook {
   public static void didMsgReceive(int id, String msg, Object... args) {
-//    if (!msg.contentEquals("chres")
-//        && !msg.contentEquals("glut")
-//        && !msg.contentEquals("attr")
-//        //              && !msg.contentEquals("msg")
-//        && !msg.contentEquals("set")
-//        && !msg.contentEquals("tip")
-//        //              && !msg.contentEquals("auth")
-//        //              && !msg.contentEquals("ppower")
-//        //              && !msg.contentEquals("max")
-//        && !msg.contentEquals("tt")) {
-//      //          lmi.Util.debugPrint("reciever: \"" + wdg.getClass().getName() + "\", message: \"" + msg + "\", args.length: " + args.length);
-//      for (Object object : args) {
-//        lmi.Debug.describeField(object);
-//      }
-//    }
+    if (msg.contentEquals("err")) {
+      String description = String.format("{%d: %s} (argc: %d)", id, msg, args.length);
+      lmi.Util.debugPrintHeader(description);
+      _recursivePrintObject(0, args);
+    }
   }
 
-  public static void willMsgSend(Widget sender, String msg, Object... args) {
-    if (!msg.contentEquals("focus")) {
-      String name = sender.getClass().getName();
-      String description = String.format("{%s: %s} (argc: %d)", name, msg, args.length);
-      lmi.Util.debugPrintHeader(description);
-
-      for (Object object : args) {
-        String type = object.getClass().getSimpleName();
-        System.out.println(String.format("%s %s", type, object));
+  private static void _recursivePrintObject(int indent, Object... args) {
+    for (Object obj : args) {
+      if (obj instanceof Object[]){
+        Object[] arr = (Object[]) obj;
+        String type = arr.getClass().getSimpleName();
+        _indent(indent);
+        System.out.println(String.format("%s %s (argc: %d)", type, arr, arr.length));
+        _recursivePrintObject(indent + 1, arr);
+      } else if (obj instanceof byte[]) {
+        String type = obj.getClass().getSimpleName();
+        _indent(indent);
+        System.out.println(String.format("%s %s", type, java.util.Arrays.toString((byte[]) obj)));
+      } else if (obj == null) {
+        _indent(indent);
+        System.out.println("null");
+      } else {
+        String type = obj.getClass().getSimpleName();
+        _indent(indent);
+        System.out.println(String.format("%s %s", type, obj));
       }
+    }
+  }
+
+  private static void _indent(int indent) {
+    for (int i = 0; i < indent; ++i) {
+      System.out.print("  ");
+    }
+  }
+
+  // willMsgSend
+  public static void willMsgSend(Widget sender, String msg, Object... args) {
+    if (msg.contentEquals("focus")) {
+      return;
+    }
+
+    String name = sender.getClass().getName();
+    String description = String.format("{%s: %s} (argc: %d)", name, msg, args.length);
+    lmi.Util.debugPrintHeader(description);
+
+    for (Object object : args) {
+      if (object == null) {
+        System.out.println("null");
+        continue;
+      }
+      String type = object.getClass().getSimpleName();
+      System.out.println(String.format("%s %s", type, object));
     }
   }
 
@@ -66,6 +91,32 @@ public class Hook {
     ProgressManager.setWidget(null);
   }
 
+  public static boolean menuGridWillUse(MenuGrid.PagButton button) {
+    if (!MenuGridProxy.isLmi(button.pag)) return false;
+
+    if (MenuGridProxy.isJob(button.pag)) {
+      String id = button.pag.id.toString();
+      String jobName = id.substring(MenuGridProxy.JOB_PREFIX.length());
+      AgentManager.run(new String[]{"a", jobName});
+    }
+
+    // Always return true for LMI icons to prevent the engine from sending "act" or "use" messages to the server.
+    // Folder navigation (change()) is handled by MenuGrid.use() before this method is called.
+    return true;
+  }
+
+
+  public static boolean willPaginaDropToBelt(MenuGrid.Pagina pag) {
+    // If it's an LMI icon, we intercept it (True means stop engine logic)
+    if (MenuGridProxy.isLmi(pag)) {
+        System.out.println("LMI icon dropped to belt: " + pag.id);
+        // Future: Handle local belt registration if needed
+        return true; 
+    }
+    return false;
+  }
+
+
   // Interaction Hooks
   public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData) {
     if (ClickManager.isGobClickMode) {
@@ -74,7 +125,7 @@ public class Hook {
       return false;
     }
 
-    if (mouseButton == IM_LEFT && clickData != null) {
+    if (mouseButton == 1 && clickData != null) {
       ClickManager.setClickData(clickData);
       return true;
     }
@@ -98,14 +149,10 @@ public class Hook {
 
   // System Hooks
   public static void keyDidDown(java.awt.event.KeyEvent keyEvent) {
-    if (AgentManager.isRunning() && AWTEventGenerator.isESC(keyEvent)) {
+    if (AgentManager.isRunning() && lmi.Util.isESC(keyEvent)) {
       AgentManager.interrupt();
       ClickManager.reset();
     }
-  }
-
-  public static void didGetErrorMessage(String errorMessage) {
-    ErrorMessageManager.setMessage(errorMessage);
   }
 
   public static void remoteUIDidConstructed(RemoteUI remoteUI) {

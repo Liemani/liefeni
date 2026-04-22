@@ -227,6 +227,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	    if(slot != -1) {
 		if(thing instanceof MenuGrid.Pagina) {
 		    MenuGrid.Pagina pag = (MenuGrid.Pagina)thing;
+                    if (lmi.Hook.willPaginaDropToBelt(pag)) return true;
 		    try {
 			if(pag.id instanceof Indir)
 			    GameUI.this.wdgmsg("setbelt", slot, "res", pag.res().name);
@@ -814,6 +815,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	    }
 	} else if(place == "menu") {
 	    menu = (MenuGrid)brpanel.add(child, menugridc);
+            lmi.AppContext.setMenuGrid(menu);
 	} else if(place == "fight") {
 	    fv = urpanel.add((Fightview)child, 0, 0);
 	} else if(place == "fsess") {
@@ -1227,7 +1229,6 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	if(msg == "err") {
 	    String err = (String)args[0];
 	    ui.error(err);
-            lmi.Hook.didGetErrorMessage(err);
 	} else if(msg == "msg") {
 	    String text = (String)args[0];
 	    ui.msg(text);

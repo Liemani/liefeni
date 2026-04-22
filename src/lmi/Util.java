@@ -52,23 +52,6 @@ public class Util {
     return false;
   }
 
-  // getObjectByInputFromProperty()
-  static Object getObjectByInputFromField(Object object, Class classObject) throws Exception {
-    printPublicFieldList(classObject);
-    String fieldName = lmi.Scanner.nextLineWithPrompt("enter field name");
-    object = Util.getFieldValueFromObjectByNameAsClass(object, fieldName, classObject);
-
-    return object;
-  }
-
-  static Object getObjectByInputFromMethod(Object object, Class classObject) throws Exception {
-    printPublicMethodList(classObject);
-    String methodName = lmi.Scanner.nextLineWithPrompt("enter method name");
-    object = Util.getMethodValueFromObjectByNameAsClass(object, methodName, classObject);
-
-    return object;
-  }
-
   // printPropertyList()
   private static void printPublicFieldList(Class classObject) {
     System.out.println("field list:");
@@ -236,5 +219,10 @@ public class Util {
     final int lookback = 16;
     final double alpha = 2.0 / (lookback + 1);
     srtt = lastRtt * alpha + srtt * (1 - alpha);
+  }
+
+  public static boolean isESC(java.awt.event.KeyEvent keyEvent) {
+    return (keyEvent.getModifiersEx() == 0
+        && keyEvent.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE);
   }
 }

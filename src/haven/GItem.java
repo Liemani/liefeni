@@ -583,6 +583,6 @@ public class GItem extends AWidget implements ItemInfo.SpriteOwner, GSprite.Owne
     }
 
     public void transfer() {
-      this.wdgmsg(lmi.Constant.Message.M_TRANSFER, Coord.ZERO, lmi.Constant.Input.Mouse.IM_LEFT);
+      this.wdgmsg("transfer", Coord.z, 1);
     }
 }
