@@ -13,6 +13,7 @@ import java.net.JarURLConnection;
 import lmi.job.*;
 import lmi.debug.*;
 import lmi.test.*;
+import lmi.dev.*;
 
 import haven.UI;
 
@@ -169,7 +170,7 @@ public class AgentManager {
 
   // private static method
   private static void _registerJobs() {
-    String[] packages = {"lmi.job", "lmi.debug", "lmi.test"};
+    String[] packages = {"lmi.job", "lmi.debug", "lmi.test", "lmi.dev"};
     for (String pkg : packages) {
       _registerJobsInPackage(pkg);
     }

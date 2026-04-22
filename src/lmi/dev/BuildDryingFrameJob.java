@@ -1,4 +1,4 @@
-package lmi.test;
+package lmi.dev;
 import lmi.Job;
 
 import haven.Gob;

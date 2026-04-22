@@ -11,14 +11,18 @@ public class MenuGridProxy {
   private static final List<Pagina> _customPaginae = new ArrayList<>();
   private static Resource _sharedRes;
 
-  private static Pagina addFolder(String id, String name, String desc, Pagina parent) {
-    Pagina p = new Pagina(id, name, desc, parent, _sharedRes);
+  private static Pagina addFolder(String id, String name, String desc, Pagina parent, Resource res) {
+    Pagina p = new Pagina(id, name, desc, parent, (res != null) ? res : _sharedRes);
     _customPaginae.add(p);
     return p;
   }
 
+  private static Pagina addFolder(String id, String name, String desc, Pagina parent) {
+    return addFolder(id, name, desc, parent, null);
+  }
+
   private static Pagina addAction(String id, String name, String desc, Pagina parent) {
-    return addFolder(id, name, desc, parent);
+    return addFolder(id, name, desc, parent, null);
   }
 
   public static boolean isLmi(MenuGrid.Pagina pag) {
@@ -36,6 +40,7 @@ public class MenuGridProxy {
 
     try {
       _sharedRes = Resource.remote().loadwait(DEFAULT_ICON);
+      Resource folderRes = Resource.remote().loadwait("paginae/act/bld");
       _customPaginae.clear();
 
       // 1. Root Folder
@@ -44,8 +49,9 @@ public class MenuGridProxy {
       // 2. Sub Folders
       Pagina jobsFolder = addFolder("lmi_1_job", "Job", "Manage automated jobs.", agent);
       Pagina settingsFolder = addFolder("lmi_2_settings", "Settings", "Configure behavior.", agent);
-      Pagina debugFolder = addFolder("lmi_3_debug", "Debug", "Debugging tools.", agent);
-      Pagina testFolder = addFolder("lmi_4_test", "Test", "Testing scripts.", agent);
+      Pagina debugFolder = addFolder("lmi_3_debug", "Debug", "Debugging tools.", agent, folderRes);
+      Pagina testFolder = addFolder("lmi_4_test", "Test", "Testing scripts.", agent, folderRes);
+      Pagina devFolder = addFolder("lmi_5_dev", "Dev", "Development scripts.", agent, folderRes);
 
       // 3. Automatic Job Registration
       Map<String, Class<? extends lmi.Job>> jobMap = AgentManager.getJobMap();
@@ -57,6 +63,7 @@ public class MenuGridProxy {
         Pagina targetFolder = jobsFolder;
         if (packageName.equals("lmi.debug")) targetFolder = debugFolder;
         else if (packageName.equals("lmi.test")) targetFolder = testFolder;
+        else if (packageName.equals("lmi.dev")) targetFolder = devFolder;
 
         String description = "No description available.";
         try {
@@ -120,7 +127,18 @@ public class MenuGridProxy {
       @Override public MenuGrid.Pagina parent() { return customParent; }
       @Override public KeyMatch hotkey() { return KeyMatch.nil; }
       @Override public KeyBinding binding() { return KeyBinding.get("scm/" + id, KeyMatch.nil); }
-
+      
+      @Override public void drawmain(GOut g, GSprite spr) {
+        if (isJob(pag)) {
+            // Apply a subtle green tint (R:230, G:255, B:230) at 100% opacity
+            g.chcolor(230, 255, 230, 255);
+            super.drawmain(g, spr);
+            g.chcolor(); 
+        } else {
+            super.drawmain(g, spr);
+        }
+      }
+      
       @Override public String sortkey() { 
       // Using \ufffe ensures LMI icons stay at the very end of any sorted list
         return "\ufffe" + pag.id.toString(); 
