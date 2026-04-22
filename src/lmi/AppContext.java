@@ -1,7 +1,6 @@
 package lmi;
 
 import haven.*;
-import lmi.Job;
 import static lmi.Constant.gfx.hud.meter.*;
 import static lmi.Constant.Gauge.Index.*;
 

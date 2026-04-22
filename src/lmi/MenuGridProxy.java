@@ -1,35 +1,26 @@
 package lmi;
 
 import haven.*;
+import agent.*;
 import java.util.*;
+import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.net.JarURLConnection;
 
 public class MenuGridProxy {
   public static final String LMI_PREFIX = "lmi_";
   public static final String JOB_PREFIX = "lmi_job_";
   public static final String ACTION_PREFIX = "lmi_action_";
   private static final String DEFAULT_ICON = "paginae/act/landscape";
+  private static final String FOLDER_ICON = "paginae/act/bld";
+  
   private static final List<Pagina> _customPaginae = new ArrayList<>();
+  private static final Map<String, Pagina> _folderMap = new HashMap<>();
   private static Resource _sharedRes;
-
-  private static Pagina addFolder(String id, String name, String desc, Pagina parent, Resource res) {
-    Pagina p = new Pagina(id, name, desc, parent, (res != null) ? res : _sharedRes);
-    _customPaginae.add(p);
-    return p;
-  }
-
-  private static Pagina addFolder(String id, String name, String desc, Pagina parent) {
-    return addFolder(id, name, desc, parent, null);
-  }
-
-  private static Pagina addActionItem(String id, String name, String desc, Pagina parent) {
-    return addFolder(id, name, desc, parent, null);
-  }
+  private static Resource _folderRes;
 
   public static boolean isLmi(MenuGrid.Pagina pag) {
     if (pag == null || pag.id == null) return false;
@@ -50,88 +41,103 @@ public class MenuGridProxy {
 
     try {
       _sharedRes = Resource.remote().loadwait(DEFAULT_ICON);
-      Resource folderRes = Resource.remote().loadwait("paginae/act/bld");
+      _folderRes = Resource.remote().loadwait(FOLDER_ICON);
       _customPaginae.clear();
+      _folderMap.clear();
 
-      // 1. Root Folders
-      Pagina agent = addFolder("lmi_z_agent", "Agent", "LMI Agent Control Center", null);
-      Pagina jobsFolder = addFolder("lmi_1_job", "Job", "Manage automated jobs.", agent);
-      Pagina debugFolder = addFolder("lmi_2_debug", "Debug", "Debugging tools.", agent, folderRes);
-      Pagina devFolder = addFolder("lmi_3_dev", "Dev", "Development scripts.", agent, folderRes);
-      Pagina settingsFolder = addFolder("lmi_settings_folder", "Settings", "Configure behavior.", agent);
+      // 1. Core LMI Agent Root
+      Pagina root = _getOrCreateFolder("agent", "Agent", null);
 
-      // 2. Register Jobs from AgentManager
-      Map<String, Class<? extends Job>> jobMap = AgentManager.getJobMap();
-      for (Map.Entry<String, Class<? extends Job>> entry : jobMap.entrySet()) {
-        Class<? extends Job> cls = entry.getValue();
-        Pagina target = _getTargetFolder(cls, jobsFolder, debugFolder, devFolder);
-        addActionItem(JOB_PREFIX + entry.getKey(), entry.getKey(), _getInfo(cls), target);
-      }
-
-      // 3. Register Actions from dev/debug/test packages
-      _scanAndRegisterActions(debugFolder, devFolder);
+      // 2. Scan 'agent' package structure in JAR
+      _scanAgentStructure(root);
 
       apply();
-      System.out.println("LMI MenuGridProxy initialized (Jobs & Actions registered).");
+      System.out.println("LMI MenuGridProxy initialized with standard package hierarchy.");
     } catch (Exception e) {
       System.err.println("Failed to initialize MenuGridProxy: " + e.getMessage());
       e.printStackTrace();
     }
   }
 
-  private static Pagina _getTargetFolder(Class<?> cls, Pagina jobs, Pagina debug, Pagina dev) {
-    String pkg = cls.getPackage().getName();
-    if (pkg.equals("lmi.debug")) return debug;
-    if (pkg.equals("lmi.dev")) return dev;
-    return jobs;
+  private static void _scanAgentStructure(Pagina root) {
+    try {
+      String basePath = "agent";
+      java.security.CodeSource cs = MenuGridProxy.class.getProtectionDomain().getCodeSource();
+      if (cs == null) return;
+      URL location = cs.getLocation();
+      if (location == null) return;
+
+      if (location.getProtocol().equals("file") && location.getPath().endsWith(".jar")) {
+        File jarFile = new File(location.toURI());
+        try (JarFile jar = new JarFile(jarFile)) {
+          Enumeration<JarEntry> entries = jar.entries();
+          while (entries.hasMoreElements()) {
+            JarEntry entry = entries.nextElement();
+            String path = entry.getName();
+            if (path.startsWith(basePath + "/") && path.endsWith(".class")) {
+              String className = path.replace('/', '.').substring(0, path.length() - 6);
+              _processClass(className, path, root);
+            }
+          }
+        }
+      }
+    } catch (Exception e) {
+        System.err.println("Error scanning agent structure: " + e.getMessage());
+    }
+  }
+
+  private static void _processClass(String className, String filePath, Pagina lmiRoot) {
+    try {
+      Class<?> cls = Class.forName(className);
+      
+      // Skip base classes
+      if (cls == Job.class || cls == Action.class) return;
+      
+      boolean isJob = Job.class.isAssignableFrom(cls);
+      boolean isAction = Action.class.isAssignableFrom(cls);
+
+      if ((isJob || isAction) && !cls.isInterface() && !java.lang.reflect.Modifier.isAbstract(cls.getModifiers())) {
+        
+        // Determine Hierarchy from file path (e.g., agent/job/MyJob.class)
+        String[] parts = filePath.split("/");
+        Pagina parent = lmiRoot;
+        
+        // Skip 'agent' (index 0) and the file name (last index)
+        StringBuilder pathBuilder = new StringBuilder("agent");
+        for (int i = 1; i < parts.length - 1; i++) {
+          String folderName = parts[i];
+          pathBuilder.append("_").append(folderName);
+          String folderId = "folder_" + pathBuilder.toString();
+          String folderTitle = folderName.substring(0, 1).toUpperCase() + folderName.substring(1);
+          parent = _getOrCreateFolder(folderId, folderTitle, parent);
+        }
+
+        // Add the actual Job/Action
+        String simpleName = cls.getSimpleName();
+        String prefix = isJob ? JOB_PREFIX : ACTION_PREFIX;
+        String id = prefix + simpleName;
+        String info = _getInfo(cls);
+
+        _customPaginae.add(new Pagina(id, simpleName, info, parent, _sharedRes));
+      }
+    } catch (Exception e) { }
+  }
+
+  private static Pagina _getOrCreateFolder(String id, String name, Pagina parent) {
+    String fullId = LMI_PREFIX + id;
+    if (_folderMap.containsKey(fullId)) return _folderMap.get(fullId);
+
+    // Root folder 'Agent' gets \ufffe sorting to go to the end
+    Pagina p = new Pagina(fullId, name, name + " Folder", parent, _folderRes);
+    _customPaginae.add(p);
+    _folderMap.put(fullId, p);
+    return p;
   }
 
   private static String _getInfo(Class<?> cls) {
     try {
       return (String)cls.getMethod("info").invoke(null);
     } catch (Exception e) { return "LMI Item"; }
-  }
-
-  private static void _scanAndRegisterActions(Pagina debug, Pagina dev) {
-    String[] packages = {"lmi.debug", "lmi.test", "lmi.dev"};
-    for (String pkg : packages) {
-      try {
-        String path = pkg.replace('.', '/');
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        Enumeration<URL> resources = loader.getResources(path);
-        while (resources.hasMoreElements()) {
-          URL resource = resources.nextElement();
-          if (resource.getProtocol().equals("jar")) {
-            JarURLConnection conn = (JarURLConnection) resource.openConnection();
-            try (JarFile jar = conn.getJarFile()) {
-              Enumeration<JarEntry> entries = jar.entries();
-              while (entries.hasMoreElements()) {
-                JarEntry entry = entries.nextElement();
-                String name = entry.getName();
-                if (name.startsWith(path + "/") && name.endsWith(".class")) {
-                  String className = name.replace('/', '.').substring(0, name.length() - 6);
-                  _registerAction(className, debug, dev);
-                }
-              }
-            }
-          }
-        }
-      } catch (Exception e) { }
-    }
-  }
-
-  private static void _registerAction(String className, Pagina debug, Pagina dev) {
-    try {
-      Class<?> cls = Class.forName(className);
-      if (Action.class.isAssignableFrom(cls) && !cls.isInterface() && !java.lang.reflect.Modifier.isAbstract(cls.getModifiers())) {
-        String name = cls.getSimpleName();
-        Pagina target = _getTargetFolder(cls, null, debug, dev);
-        if (target != null) {
-            addActionItem(ACTION_PREFIX + name, name, _getInfo(cls), target);
-            System.out.println("Registered Action: " + name + " [" + className + "]");
-        }
-      }
-    } catch (Exception e) { }
   }
 
   public static void apply() {
@@ -179,7 +185,11 @@ public class MenuGridProxy {
       @Override public MenuGrid.Pagina parent() { return customParent; }
       @Override public KeyMatch hotkey() { return KeyMatch.nil; }
       @Override public KeyBinding binding() { return KeyBinding.get("scm/" + id, KeyMatch.nil); }
-      @Override public String sortkey() { return "\ufffe" + pag.id.toString(); }
+      
+      @Override public String sortkey() { 
+          // Root 'Agent' folder (\ufffe) vs others
+          return "\ufffe" + pag.id.toString(); 
+      }
       
       @Override public List<ItemInfo> info() { 
         List<ItemInfo> infoList = new ArrayList<>();
@@ -210,10 +220,10 @@ public class MenuGridProxy {
     System.out.println("--- Comprehensive MenuGrid Icon Dump ---");
     Set<MenuGrid.Pagina> all = new HashSet<>(mg.paginae);
     try {
-        java.lang.reflect.Field pmapField = mg.getClass().getDeclaredField("pmap");
-        pmapField.setAccessible(true);
-        Map<?, MenuGrid.Pagina> pmap = (Map<?, MenuGrid.Pagina>)pmapField.get(mg);
-        all.addAll(pmap.values());
+      java.lang.reflect.Field pmapField = mg.getClass().getDeclaredField("pmap");
+      pmapField.setAccessible(true);
+      Map<?, MenuGrid.Pagina> pmap = (Map<?, MenuGrid.Pagina>)pmapField.get(mg);
+      all.addAll(pmap.values());
     } catch (Exception e) {}
 
     List<MenuGrid.Pagina> sorted = new ArrayList<>(all);

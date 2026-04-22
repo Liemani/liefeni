@@ -1,6 +1,7 @@
 package lmi;
 
 import haven.*;
+import agent.Action;
 import static lmi.Constant.*;
 
 public class Hook {

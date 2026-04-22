@@ -10,10 +10,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.net.JarURLConnection;
 
-import lmi.job.*;
-import lmi.debug.*;
-import lmi.test.*;
-import lmi.dev.*;
+import agent.*;
 
 import haven.UI;
 
@@ -170,10 +167,10 @@ public class AgentManager {
 
   // private static method
   private static void _registerJobs() {
-    String[] packages = {"lmi.job", "lmi.debug", "lmi.test", "lmi.dev"};
-    for (String pkg : packages) {
-      _registerJobsInPackage(pkg);
-    }
+    _registerJobsInPackage("agent.job");
+    _registerJobsInPackage("agent.debug");
+    _registerJobsInPackage("agent.test");
+    _registerJobsInPackage("agent.dev");
   }
 
   private static void _registerJobsInPackage(String packageName) {
@@ -201,8 +198,7 @@ public class AgentManager {
         }
       }
     } catch (Exception e) {
-      System.err.println("Job 스캔 중 오류 발생 (" + packageName + "):");
-      e.printStackTrace();
+      System.err.println("Error scanning jobs in package (" + packageName + "): " + e.getMessage());
     }
   }
 
