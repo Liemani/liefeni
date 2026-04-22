@@ -98,10 +98,29 @@ public class Hook {
       String id = button.pag.id.toString();
       String jobName = id.substring(MenuGridProxy.JOB_PREFIX.length());
       AgentManager.run(new String[]{"a", jobName});
+    } else if (MenuGridProxy.isAction(button.pag)) {
+      String id = button.pag.id.toString();
+      String actionName = id.substring(MenuGridProxy.ACTION_PREFIX.length());
+      try {
+          // Find the class in the scanned packages and execute it
+          // We can use reflection to instantiate and run
+          String[] packages = {"lmi.debug", "lmi.test", "lmi.dev"};
+          for (String pkg : packages) {
+              try {
+                  Class<?> cls = Class.forName(pkg + "." + actionName);
+                  if (Action.class.isAssignableFrom(cls)) {
+                      Action action = (Action)cls.getDeclaredConstructor().newInstance();
+                      action.execute();
+                      break;
+                  }
+              } catch (ClassNotFoundException e) { }
+          }
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
     }
 
-    // Always return true for LMI icons to prevent the engine from sending "act" or "use" messages to the server.
-    // Folder navigation (change()) is handled by MenuGrid.use() before this method is called.
+    // Always return true for LMI icons to prevent server actions
     return true;
   }
 
