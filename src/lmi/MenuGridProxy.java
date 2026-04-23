@@ -3,9 +3,12 @@ package lmi;
 import haven.*;
 import agent.*;
 import java.util.*;
-import java.io.File;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.io.File;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -46,13 +49,13 @@ public class MenuGridProxy {
       _folderMap.clear();
 
       // 1. Core LMI Agent Root
-      Pagina root = _getOrCreateFolder("agent", "Agent", null);
+      Pagina root = _getOrCreateFolder("agent", "agent", null);
 
       // 2. Scan 'agent' package structure in JAR
       _scanAgentStructure(root);
 
       apply();
-      System.out.println("LMI MenuGridProxy initialized with standard package hierarchy.");
+      System.out.println("LMI MenuGridProxy initialized with local assets support.");
     } catch (Exception e) {
       System.err.println("Failed to initialize MenuGridProxy: " + e.getMessage());
       e.printStackTrace();
@@ -68,8 +71,7 @@ public class MenuGridProxy {
       if (location == null) return;
 
       if (location.getProtocol().equals("file") && location.getPath().endsWith(".jar")) {
-        File jarFile = new File(location.toURI());
-        try (JarFile jar = new JarFile(jarFile)) {
+        try (JarFile jar = new JarFile(new File(location.toURI()))) {
           Enumeration<JarEntry> entries = jar.entries();
           while (entries.hasMoreElements()) {
             JarEntry entry = entries.nextElement();
@@ -89,55 +91,61 @@ public class MenuGridProxy {
   private static void _processClass(String className, String filePath, Pagina lmiRoot) {
     try {
       Class<?> cls = Class.forName(className);
-      
-      // Skip base classes
       if (cls == Job.class || cls == Action.class) return;
       
+      String[] parts = filePath.split("/");
+      if (cls.getSimpleName().equalsIgnoreCase(parts[parts.length - 2])) return;
+
       boolean isJob = Job.class.isAssignableFrom(cls);
       boolean isAction = Action.class.isAssignableFrom(cls);
 
       if ((isJob || isAction) && !cls.isInterface() && !java.lang.reflect.Modifier.isAbstract(cls.getModifiers())) {
-        
-        // Determine Hierarchy from file path (e.g., agent/job/MyJob.class)
-        String[] parts = filePath.split("/");
         Pagina parent = lmiRoot;
-        
-        // Skip 'agent' (index 0) and the file name (last index)
         StringBuilder pathBuilder = new StringBuilder("agent");
         for (int i = 1; i < parts.length - 1; i++) {
           String folderName = parts[i];
           pathBuilder.append("_").append(folderName);
-          String folderId = "folder_" + pathBuilder.toString();
-          String folderTitle = folderName.substring(0, 1).toUpperCase() + folderName.substring(1);
-          parent = _getOrCreateFolder(folderId, folderTitle, parent);
+          parent = _getOrCreateFolder(pathBuilder.toString(), folderName, parent);
         }
 
-        // Add the actual Job/Action
-        String simpleName = cls.getSimpleName();
         String prefix = isJob ? JOB_PREFIX : ACTION_PREFIX;
-        String id = prefix + simpleName;
-        String info = _getInfo(cls);
-
-        _customPaginae.add(new Pagina(id, simpleName, info, parent, _sharedRes));
+        String id = prefix + cls.getSimpleName();
+        Pagina p = new Pagina(id, parent, _sharedRes);
+        p.setup(cls, cls.getSimpleName());
+        _customPaginae.add(p);
       }
     } catch (Exception e) { }
   }
 
-  private static Pagina _getOrCreateFolder(String id, String name, Pagina parent) {
+  private static Pagina _getOrCreateFolder(String id, String folderName, Pagina parent) {
     String fullId = LMI_PREFIX + id;
     if (_folderMap.containsKey(fullId)) return _folderMap.get(fullId);
 
-    // Root folder 'Agent' gets \ufffe sorting to go to the end
-    Pagina p = new Pagina(fullId, name, name + " Folder", parent, _folderRes);
+    Pagina p = new Pagina(fullId, parent, _folderRes);
+    String pkgBase = id;
+    if (pkgBase.startsWith("folder_")) pkgBase = pkgBase.substring(7);
+    String pkgName = pkgBase.replace('_', '.');
+    try {
+        Class<?> markerCls = Class.forName(pkgName + "." + folderName.toLowerCase());
+        p.setup(markerCls, folderName.substring(0, 1).toUpperCase() + folderName.substring(1));
+    } catch (Exception e) {
+        p.setup(null, folderName.substring(0, 1).toUpperCase() + folderName.substring(1));
+    }
+
     _customPaginae.add(p);
     _folderMap.put(fullId, p);
     return p;
   }
 
-  private static String _getInfo(Class<?> cls) {
+  private static String _callStatic(Class<?> cls, String methodName, String def) {
+    if (cls == null) return def;
     try {
-      return (String)cls.getMethod("info").invoke(null);
-    } catch (Exception e) { return "LMI Item"; }
+      Method m = cls.getMethod(methodName);
+      Object res = m.invoke(null);
+      return (res != null) ? res.toString() : def;
+    } catch (Exception e) {
+      return def;
+    }
   }
 
   public static void apply() {
@@ -158,18 +166,53 @@ public class MenuGridProxy {
   }
 
   public static class Pagina extends MenuGrid.Pagina {
-    public final String name;
-    private final String description;
+    public String name;
+    public String description;
+    public String sortKey;
+    public Class<?> sourceCls;
     private final MenuGrid.Pagina customParent;
     private Button customBtn;
-    private final Resource iconRes;
+    private Resource iconRes;
+    private Tex customTex;
 
-    public Pagina(String id, String name, String description, MenuGrid.Pagina parent, Resource iconRes) {
-      super(AppContext.menuGrid, id, iconRes.indir());
-      this.name = name;
-      this.description = description;
+    public Pagina(String id, MenuGrid.Pagina parent, Resource defRes) {
+      super(AppContext.menuGrid, id, defRes.indir());
       this.customParent = parent;
-      this.iconRes = iconRes;
+      this.iconRes = defRes;
+    }
+
+    public void setup(Class<?> cls, String defName) {
+      this.sourceCls = cls;
+      this.name = _callStatic(cls, "name", defName);
+      this.description = _callStatic(cls, "info", name);
+      this.sortKey = _callStatic(cls, "sortkey", null);
+      
+      String iconPath = _callStatic(cls, "icon", null);
+      if (iconPath != null) {
+        if (iconPath.startsWith("assets/")) {
+          _loadCustomIcon(iconPath);
+        } else {
+          try {
+            this.iconRes = Resource.remote().loadwait(iconPath);
+            this.res = this.iconRes.indir();
+            this.customTex = null;
+          } catch (Exception e) {}
+        }
+      }
+    }
+
+    private void _loadCustomIcon(String path) {
+      try {
+        File f = new File(path);
+        if (f.exists()) {
+          BufferedImage img = ImageIO.read(f);
+          if (img != null) {
+            this.customTex = new TexI(img);
+          }
+        }
+      } catch (Exception e) {
+        System.err.println("Failed to load custom icon: " + path);
+      }
     }
 
     @Override public MenuGrid.Pagina parent() { return customParent; }
@@ -187,8 +230,10 @@ public class MenuGridProxy {
       @Override public KeyBinding binding() { return KeyBinding.get("scm/" + id, KeyMatch.nil); }
       
       @Override public String sortkey() { 
-          // Root 'Agent' folder (\ufffe) vs others
-          return "\ufffe" + pag.id.toString(); 
+          if (sortKey != null) return sortKey;
+          String priority = (sourceCls != null && (Job.class.isAssignableFrom(sourceCls) || Action.class.isAssignableFrom(sourceCls))) 
+                            ? "\ufffe\uffff" : "\ufffe\ufffe";
+          return priority + pag.id.toString(); 
       }
       
       @Override public List<ItemInfo> info() { 
@@ -203,7 +248,13 @@ public class MenuGridProxy {
       }
       
       @Override public void drawmain(GOut g, GSprite spr) {
-        if (isJob(pag) || isAction(pag)) {
+        if (customTex != null) {
+          // Centering the 32x32 icon in the 32x32 button square
+          g.image(customTex, Coord.z);
+          return;
+        }
+        
+        if (sourceCls != null && (Job.class.isAssignableFrom(sourceCls) || Action.class.isAssignableFrom(sourceCls))) {
             g.chcolor(230, 255, 230, 255);
             super.drawmain(g, spr);
             g.chcolor(); 
@@ -212,29 +263,5 @@ public class MenuGridProxy {
         }
       }
     }
-  }
-
-  public static void dumpAllIcons() {
-    MenuGrid mg = AppContext.menuGrid;
-    if (mg == null) return;
-    System.out.println("--- Comprehensive MenuGrid Icon Dump ---");
-    Set<MenuGrid.Pagina> all = new HashSet<>(mg.paginae);
-    try {
-      java.lang.reflect.Field pmapField = mg.getClass().getDeclaredField("pmap");
-      pmapField.setAccessible(true);
-      Map<?, MenuGrid.Pagina> pmap = (Map<?, MenuGrid.Pagina>)pmapField.get(mg);
-      all.addAll(pmap.values());
-    } catch (Exception e) {}
-
-    List<MenuGrid.Pagina> sorted = new ArrayList<>(all);
-    sorted.sort(Comparator.comparing(p -> p.button().sortkey()));
-    for (MenuGrid.Pagina p : sorted) {
-      Resource r = p.res.get();
-      MenuGrid.Pagina parent = null;
-      try { parent = p.parent(); } catch (Exception e) {}
-      String parentInfo = (parent != null) ? " [Parent: " + parent.button().name() + "]" : " [Root]";
-      System.out.printf("ID: %s | Name: %s | SortKey: %s | Path: %s%s\n", p.id, p.button().name(), p.button().sortkey(), r.name, parentInfo);
-    }
-    System.out.println("----------------------------------------");
   }
 }
