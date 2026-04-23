@@ -103,21 +103,15 @@ public class Hook {
       String id = button.pag.id.toString();
       String actionName = id.substring(MenuGridProxy.ACTION_PREFIX.length());
       try {
-          // Find the class in the scanned packages and execute it
-          // We can use reflection to instantiate and run
-          String[] packages = {"lmi.debug", "lmi.test", "lmi.dev"};
-          for (String pkg : packages) {
-              try {
-                  Class<?> cls = Class.forName(pkg + "." + actionName);
-                  if (Action.class.isAssignableFrom(cls)) {
-                      Action action = (Action)cls.getDeclaredConstructor().newInstance();
-                      action.execute();
-                      break;
-                  }
-              } catch (ClassNotFoundException e) { }
-          }
+        Class<? extends Action> actionClass = AgentRegistry.actionClass(actionName);
+        if (actionClass != null) {
+          Action action = actionClass.getDeclaredConstructor().newInstance();
+          action.execute();
+        } else {
+          System.err.println("Unknown LMI action: " + actionName);
+        }
       } catch (Exception e) {
-          e.printStackTrace();
+        e.printStackTrace();
       }
     }
 

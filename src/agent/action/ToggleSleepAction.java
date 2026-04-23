@@ -1,0 +1,32 @@
+package agent.action;
+
+import agent.Action;
+import lmi.Agent;
+import lmi.Api;
+
+public class ToggleSleepAction extends Action {
+  @Override
+  public void execute() {
+    Agent agent = Agent.getInstance();
+    boolean sleeping = !agent.isSleeping();
+    agent.setSleep(sleeping);
+
+    if (sleeping) {
+      Api.message("Agent is now sleeping (Survival drives disabled).");
+    } else {
+      Api.message("Agent is now awake.");
+    }
+  }
+
+  public static String name() {
+    return "Toggle Sleep";
+  }
+
+  public static String info() {
+    return "Immediately toggles the Agent sleep state.";
+  }
+
+  public static String sortkey() {
+    return "\ufffe\uffff00_toggle_sleep";
+  }
+}

@@ -1,16 +1,16 @@
 package lmi;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import agent.Job;
 import static lmi.Constant.ExceptionReason.*;
 
 public class Agent extends Thread {
   private static Agent instance;
-  private final Stack<Job> jobStack = new Stack<>();
+  private final Deque<JobRequest> jobRequests = new ArrayDeque<>();
   private final AgentConfig config = new AgentConfig();
   private AgentContext context = null; // Optional tracking
   private boolean sleeping = false;
-  private String[] currentArgs = new String[0];
 
   private Agent() {
     super("AgentMind");
@@ -27,52 +27,49 @@ public class Agent extends Thread {
 
   // Command Interface
   public void pushJob(Job job, String[] args) {
-    synchronized (jobStack) {
-      jobStack.push(job);
-      this.currentArgs = args;
-      jobStack.notifyAll();
+    synchronized (jobRequests) {
+      jobRequests.addFirst(new JobRequest(job, args, context));
+      jobRequests.notifyAll();
+    }
+  }
+
+  public void enqueueJob(Job job, String[] args) {
+    synchronized (jobRequests) {
+      jobRequests.addLast(new JobRequest(job, args, context));
+      jobRequests.notifyAll();
     }
   }
 
   public void stopAll() {
-    synchronized (jobStack) {
-      jobStack.clear();
+    synchronized (jobRequests) {
+      jobRequests.clear();
       this.interrupt();
     }
   }
 
   public void setSleep(boolean sleep) { this.sleeping = sleep; }
+  public boolean isSleeping() { return sleeping; }
   public AgentConfig getConfig() { return config; }
 
   @Override
   public void run() {
     while (true) {
       try {
-        Job currentJob;
-        synchronized (jobStack) {
-          while (jobStack.isEmpty()) {
+        JobRequest request;
+        synchronized (jobRequests) {
+          while (jobRequests.isEmpty()) {
             try {
-              jobStack.wait();
+              jobRequests.wait();
             } catch (InterruptedException e) {
               Thread.interrupted();
             }
           }
-          currentJob = jobStack.peek();
+          request = jobRequests.removeFirst();
         }
 
-        currentJob = jobStack.peek(); // Might have changed
-        currentJob.run(context, currentArgs); 
-
-        synchronized (jobStack) {
-          if (!jobStack.isEmpty() && jobStack.peek() == currentJob) {
-            jobStack.pop();
-          }
-        }
+        request.job.run(request.context, request.args);
       } catch (Exception e) {
         Util.debugPrint(e);
-        synchronized (jobStack) {
-          if (!jobStack.isEmpty()) jobStack.pop();
-        }
       }
     }
   }
@@ -83,5 +80,17 @@ public class Agent extends Thread {
     //    jobStack.push(new EatJob());
     //    throw new LMIException();
     // }
+  }
+
+  private static class JobRequest {
+    private final Job job;
+    private final String[] args;
+    private final AgentContext context;
+
+    private JobRequest(Job job, String[] args, AgentContext context) {
+      this.job = job;
+      this.args = (args != null) ? args.clone() : new String[0];
+      this.context = context;
+    }
   }
 }

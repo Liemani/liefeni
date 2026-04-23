@@ -5,3 +5,6 @@
 /build.properties
 *~
 /data
+# liemani start
+/assets
+# liemani end

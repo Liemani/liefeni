@@ -4,14 +4,9 @@ import haven.*;
 import agent.*;
 import java.util.*;
 import java.lang.reflect.Method;
-import java.net.URL;
 import java.io.File;
-import java.io.InputStream;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 
 public class MenuGridProxy {
   public static final String LMI_PREFIX = "lmi_";
@@ -49,10 +44,10 @@ public class MenuGridProxy {
       _folderMap.clear();
 
       // 1. Core LMI Agent Root
-      Pagina root = _getOrCreateFolder("agent", "agent", null);
+      Pagina root = _getOrCreateFolder("agent", null);
 
-      // 2. Scan 'agent' package structure in JAR
-      _scanAgentStructure(root);
+      // 2. Build menu from shared registry
+      _buildFromRegistry(root);
 
       apply();
       System.out.println("LMI MenuGridProxy initialized with local assets support.");
@@ -62,74 +57,40 @@ public class MenuGridProxy {
     }
   }
 
-  private static void _scanAgentStructure(Pagina root) {
-    try {
-      String basePath = "agent";
-      java.security.CodeSource cs = MenuGridProxy.class.getProtectionDomain().getCodeSource();
-      if (cs == null) return;
-      URL location = cs.getLocation();
-      if (location == null) return;
-
-      if (location.getProtocol().equals("file") && location.getPath().endsWith(".jar")) {
-        try (JarFile jar = new JarFile(new File(location.toURI()))) {
-          Enumeration<JarEntry> entries = jar.entries();
-          while (entries.hasMoreElements()) {
-            JarEntry entry = entries.nextElement();
-            String path = entry.getName();
-            if (path.startsWith(basePath + "/") && path.endsWith(".class")) {
-              String className = path.replace('/', '.').substring(0, path.length() - 6);
-              _processClass(className, path, root);
-            }
-          }
-        }
-      }
-    } catch (Exception e) {
-        System.err.println("Error scanning agent structure: " + e.getMessage());
+  private static void _buildFromRegistry(Pagina root) {
+    for (AgentRegistry.Entry entry : AgentRegistry.executableEntries()) {
+      Pagina parent = _ensureFolderPath(entry.packageName(), root);
+      String prefix = (entry.kind() == AgentRegistry.Entry.Kind.JOB) ? JOB_PREFIX : ACTION_PREFIX;
+      Pagina p = new Pagina(prefix + entry.simpleName(), parent, _sharedRes);
+      p.setup(entry.cls(), entry.simpleName());
+      _customPaginae.add(p);
     }
   }
 
-  private static void _processClass(String className, String filePath, Pagina lmiRoot) {
-    try {
-      Class<?> cls = Class.forName(className);
-      if (cls == Job.class || cls == Action.class) return;
-      
-      String[] parts = filePath.split("/");
-      if (cls.getSimpleName().equalsIgnoreCase(parts[parts.length - 2])) return;
+  private static Pagina _ensureFolderPath(String packageName, Pagina root) {
+    if ("agent".equals(packageName)) return root;
 
-      boolean isJob = Job.class.isAssignableFrom(cls);
-      boolean isAction = Action.class.isAssignableFrom(cls);
-
-      if ((isJob || isAction) && !cls.isInterface() && !java.lang.reflect.Modifier.isAbstract(cls.getModifiers())) {
-        Pagina parent = lmiRoot;
-        StringBuilder pathBuilder = new StringBuilder("agent");
-        for (int i = 1; i < parts.length - 1; i++) {
-          String folderName = parts[i];
-          pathBuilder.append("_").append(folderName);
-          parent = _getOrCreateFolder(pathBuilder.toString(), folderName, parent);
-        }
-
-        String prefix = isJob ? JOB_PREFIX : ACTION_PREFIX;
-        String id = prefix + cls.getSimpleName();
-        Pagina p = new Pagina(id, parent, _sharedRes);
-        p.setup(cls, cls.getSimpleName());
-        _customPaginae.add(p);
-      }
-    } catch (Exception e) { }
+    Pagina parent = root;
+    String[] parts = packageName.split("\\.");
+    StringBuilder currentPackage = new StringBuilder("agent");
+    for (int i = 1; i < parts.length; i++) {
+      currentPackage.append('.').append(parts[i]);
+      parent = _getOrCreateFolder(currentPackage.toString(), parent);
+    }
+    return parent;
   }
 
-  private static Pagina _getOrCreateFolder(String id, String folderName, Pagina parent) {
-    String fullId = LMI_PREFIX + id;
+  private static Pagina _getOrCreateFolder(String packageName, Pagina parent) {
+    String fullId = LMI_PREFIX + packageName.replace('.', '_');
     if (_folderMap.containsKey(fullId)) return _folderMap.get(fullId);
 
     Pagina p = new Pagina(fullId, parent, _folderRes);
-    String pkgBase = id;
-    if (pkgBase.startsWith("folder_")) pkgBase = pkgBase.substring(7);
-    String pkgName = pkgBase.replace('_', '.');
+    String folderName = packageName.substring(packageName.lastIndexOf('.') + 1);
+    Class<?> markerCls = AgentRegistry.folderMetadataClass(packageName);
     try {
-        Class<?> markerCls = Class.forName(pkgName + "." + folderName.toLowerCase());
-        p.setup(markerCls, folderName.substring(0, 1).toUpperCase() + folderName.substring(1));
+      p.setup(markerCls, folderName.substring(0, 1).toUpperCase() + folderName.substring(1));
     } catch (Exception e) {
-        p.setup(null, folderName.substring(0, 1).toUpperCase() + folderName.substring(1));
+      p.setup(null, folderName.substring(0, 1).toUpperCase() + folderName.substring(1));
     }
 
     _customPaginae.add(p);

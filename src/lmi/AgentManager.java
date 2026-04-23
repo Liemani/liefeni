@@ -3,22 +3,14 @@ package lmi;
 import java.util.*;
 import java.lang.reflect.Method;
 import java.io.PrintWriter;
-import java.io.File;
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.net.JarURLConnection;
 
 import agent.*;
 
 import haven.UI;
 
 public class AgentManager {
-  private static final Map<String, Class<? extends Job>> jobMap = new TreeMap<>();
-
   static void init() {
-    _registerJobs();
+    AgentRegistry.init();
   }
 
   private static PrintWriter out() {
@@ -49,7 +41,7 @@ public class AgentManager {
     }
 
     // 3. Handle Job Execution
-    Class<? extends Job> jobClass = jobMap.get(cmd);
+    Class<? extends Job> jobClass = AgentRegistry.jobClass(cmd);
     if (jobClass == null) {
       Api.message("Unknown job command: " + cmd);
       printMainHelp();
@@ -136,7 +128,7 @@ public class AgentManager {
     Api.message("  --sleep / --wake            Disable/Enable autonomous drives");
     Api.message("  (Press ESC to stop all running jobs)");
     Api.message("Available Jobs:");
-    for (String job : jobMap.keySet()) Api.message("  " + job);
+    for (String job : AgentRegistry.jobMap().keySet()) Api.message("  " + job);
   }
 
   private static void printOptionHelp(String opt) {
@@ -160,65 +152,8 @@ public class AgentManager {
     }
   }
 
-  public static Map<String, Class<? extends Job>> getJobMap() { return jobMap; }
+  public static Map<String, Class<? extends Job>> getJobMap() { return AgentRegistry.jobMap(); }
 
   public static boolean isRunning() { return Agent.getInstance().isAlive(); }
   public static void interrupt() { Agent.getInstance().stopAll(); }
-
-  // private static method
-  private static void _registerJobs() {
-    _registerJobsInPackage("agent.job");
-    _registerJobsInPackage("agent.debug");
-    _registerJobsInPackage("agent.test");
-    _registerJobsInPackage("agent.dev");
-  }
-
-  private static void _registerJobsInPackage(String packageName) {
-    try {
-      String path = packageName.replace('.', '/');
-      ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-      Enumeration<URL> resources = classLoader.getResources(path);
-
-      while (resources.hasMoreElements()) {
-        URL resource = resources.nextElement();
-
-        if (resource.getProtocol().equals("jar")) {
-          JarURLConnection conn = (JarURLConnection) resource.openConnection();
-          try (JarFile jar = conn.getJarFile()) {
-            Enumeration<JarEntry> entries = jar.entries();
-            while (entries.hasMoreElements()) {
-              JarEntry entry = entries.nextElement();
-              String name = entry.getName();
-              if (name.startsWith(path + "/") && name.endsWith(".class")) {
-                String className = name.replace('/', '.').substring(0, name.length() - 6);
-                _registerJob(className);
-              }
-            }
-          }
-        }
-      }
-    } catch (Exception e) {
-      System.err.println("Error scanning jobs in package (" + packageName + "): " + e.getMessage());
-    }
-  }
-
-  private static void _registerJob(String className) {
-    try {
-      Class<?> cls = Class.forName(className);
-
-      // Job 인터페이스/클래스를 상속받았고, 추상 클래스가 아닌 실제 클래스만 등록
-      if (Job.class.isAssignableFrom(cls) && !cls.isInterface() &&
-          !java.lang.reflect.Modifier.isAbstract(cls.getModifiers())) {
-
-        String simpleName = cls.getSimpleName();
-        if (simpleName.endsWith("Job")) {
-          simpleName = simpleName.substring(0, simpleName.length() - 3);
-        }
-        jobMap.put(simpleName, (Class<? extends Job>) cls);
-        System.out.println("Registered Job: " + simpleName + " [" + className + "]");
-          }
-    } catch (ClassNotFoundException e) {
-      // 클래스를 로드할 수 없는 경우 무시
-    }
-  }
 }
