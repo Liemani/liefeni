@@ -2,13 +2,13 @@ package agent.debug;
 
 import agent.Job;
 
-import lmi.WidgetManager;
+import lmi.AppContext;
 import lmi.AgentContext;
 
 public class DescribeCursorGItemJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    haven.Widget gItem = WidgetManager.cursorGItem();
+    haven.Widget gItem = AppContext.cursorGItem();
     System.out.println(gItem);
   }
 

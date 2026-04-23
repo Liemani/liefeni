@@ -37,6 +37,17 @@
 즉, 현재 `Agent`는 단순 stack이나 queue가 아니라 "긴급 push + 일반 enqueue"를 처리하는 작은 스케줄러 성격을 가진다.
 다만 아직 정책이 단순하므로 별도 `Scheduler` 클래스로 분리하지 않고 `Agent` 안에 유지하고 있다.
 
+### 2.1 전역 접근점
+
+현재 `AppContext`는 이름은 그대로 유지하고 있지만, 실제 역할은 "LMI 전역 접근점"에 가깝다.
+
+- Haven에서 전달받은 주요 참조를 보관한다.
+- 자주 쓰는 UI 접근은 `AppContext.menuGrid()`, `AppContext.window()` 같은 accessor로 제공한다.
+- 기존 `WidgetManager`가 맡던 접근 함수들은 `AppContext`로 흡수되었다.
+
+다만 이 전환은 아직 완료되지 않았다.
+현재는 public static field와 accessor 메서드가 공존하는 과도기 상태다.
+
 ### 3. 동기화 모델
 
 자동화의 기본 동기화 축은 `WaitManager`다.
@@ -153,6 +164,8 @@ LMI는 엔진을 대체하는 것이 아니라 연결하고 보완하는 레이�
   - ACK/응답 타이밍 동기화
 - `src/lmi/Api.java`
   - Job에서 직접 사용하는 고수준 자동화 API
+- `src/lmi/AppContext.java`
+  - Haven 참조 보관과 자주 쓰는 UI 접근 함수를 함께 제공하는 전역 접근점
 
 ## 파일 인덱스
 
@@ -168,7 +181,7 @@ src/
     AgentManager.java: Job 탐색, 생성, 도움말 출력, 실행 진입점을 관리하는 등록기
     AgentRegistry.java: JAR 안의 `agent/**`를 스캔해 Job, Action, 폴더 메타데이터를 등록하는 공통 레지스트리
     Api.java: Job이 사용하는 고수준 자동화 API를 제공하는 퍼사드
-    AppContext.java: Haven 쪽 객체 참조를 LMI 전역 컨텍스트로 연결하는 브리지
+    AppContext.java: Haven 참조를 보관하고 자주 쓰는 UI 접근 함수를 제공하는 LMI 전역 접근점
     Array.java: Swift 스타일 편의 메서드를 덧붙인 ArrayList 래퍼
     ClickManager.java: Gob 클릭과 영역 선택 같은 사용자 입력 대기를 관리하는 상태 관리자
     CommandHandler.java: 콘솔 명령 `a`를 등록하고 LMI 초기화를 시작하는 진입점
@@ -184,7 +197,6 @@ src/
     Self.java: 플레이어 자신과 관련된 상태 조회를 모아둔 접근 계층
     Util.java: 디버그 출력, 리플렉션 보조, 문자열 처리 등 잡다한 공용 유틸리티
     WaitManager.java: 송신 seq와 ACK를 추적해 서버 응답 타이밍을 동기화하는 대기 관리자
-    WidgetManager.java: 자주 쓰는 Haven 위젯을 AppContext에서 찾아오는 접근 헬퍼
     behavior/
       AlignLogBehavior.java: 통나무 정렬 절차를 Task 조합으로 표현한 행동 시퀀스
     task/
@@ -200,5 +212,6 @@ src/
 - `Task`/`Behavior` 전면 재정리
 - `MenuGridProxy`의 추가 분해
 - `AppContext`의 lifecycle 정리
+- `AppContext` 명칭 재검토
 
 이 네 가지는 중요하지만, 현재는 런타임 골격을 먼저 안정화하는 쪽이 우선이다.

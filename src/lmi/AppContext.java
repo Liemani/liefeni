@@ -49,14 +49,8 @@ public class AppContext {
   public static void setSession(Session val) { session = val; }
   public static void setGlob(Glob val) { glob = val; }
   public static void setOCache(OCache val) { oCache = val; }
-
-  public static void setEquipory(Equipory val) {
-    if (equipory == null) equipory = val;
-  }
-
-  public static void setMainInventory(Inventory val) {
-    if (mainInventory == null) mainInventory = val;
-  }
+  public static void setEquipory(Equipory val) { equipory = val; }
+  public static void setMainInventory(Inventory val) { mainInventory = val; }
 
   public static void setGaugeArray(IMeter gauge) {
     System.out.printf("gauge.resourceName(): " + gauge.resourceName() + "\n");
@@ -67,6 +61,66 @@ public class AppContext {
       gaugeWidgetArray[GI_STAMINA] = gauge;
     else if (resourceName.endsWith(RN_ENERGY))
       gaugeWidgetArray[GI_ENERGY] = gauge;
+  }
+
+  // Accessors
+  public static GItem cursorGItem() {
+    if (gameUI == null) return null;
+
+    Widget child = gameUI.child;
+    while (child != null) {
+      if (child instanceof GItem)
+        return (GItem)child;
+      child = child.next;
+    }
+    return null;
+  }
+
+  public static MenuGrid menuGrid() { return menuGrid; }
+  public static MapView mapView() { return mapView; }
+  public static GameUI gameUI() { return gameUI; }
+  public static RootWidget rootWidget() { return rootWidget; }
+  public static UI ui() { return ui; }
+  public static Session session() { return session; }
+  public static OCache oCache() { return oCache; }
+  public static Equipory equipory() { return equipory; }
+  public static Inventory mainInventory() { return mainInventory; }
+
+  public static Indir<Resource> cursor() {
+    return (rootWidget != null) ? rootWidget.cursor : null;
+  }
+
+  public static ChatUI chatUI() {
+    return (gameUI != null) ? gameUI.getChildOf(ChatUI.class) : null;
+  }
+
+  public static Window window() {
+    return (gameUI != null) ? gameUI.getChildOf(Window.class) : null;
+  }
+
+  public static Button button() {
+    Window window = window();
+    return (window != null) ? window.getChildOf(Button.class) : null;
+  }
+
+  public static ISBox isbox() {
+    Window window = window();
+    return (window != null) ? window.getChildOf(ISBox.class) : null;
+  }
+
+  public static Inventory inventory() {
+    Window window = window();
+    return (window != null) ? window.getChildOf(Inventory.class) : null;
+  }
+
+  public static GItem gitem() {
+    Inventory inventory = inventory();
+    return (inventory != null) ? inventory.getChildOf(GItem.class) : null;
+  }
+
+  public static WItem witem() {
+    Inventory inventory = inventory();
+    return (inventory != null) ? inventory.getChildOf(WItem.class) : null;
   }
 
   // Helper Methods

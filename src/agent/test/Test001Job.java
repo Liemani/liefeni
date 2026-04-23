@@ -2,14 +2,14 @@ package agent.test;
 
 import agent.Job;
 
+import lmi.AppContext;
 import lmi.Api;
-import lmi.WidgetManager;
 import lmi.AgentContext;
 
 public class Test001Job extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    Api.message(WidgetManager.isbox().text());
+    Api.message(AppContext.isbox().text());
   }
 
   public static String info() {

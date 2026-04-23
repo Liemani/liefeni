@@ -2,13 +2,13 @@ package agent.test;
 
 import agent.Job;
 
-import lmi.WidgetManager;
+import lmi.AppContext;
 import lmi.AgentContext;
 
 public class Test003Job extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    WidgetManager.gitem().describe();
+    AppContext.gitem().describe();
   }
 
   public static String info() {

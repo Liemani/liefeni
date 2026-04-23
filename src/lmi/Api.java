@@ -153,7 +153,7 @@ public class Api {
   // Plan object
   /// - Throws: ER_INTERRUPTED
   static void planObject(String planName) {
-    WidgetManager.menuGrid().wdgmsg(M_ACT, A_BP, planName, 0);
+    AppContext.menuGrid().wdgmsg(M_ACT, A_BP, planName, 0);
     while (!AppContext.mapView.isPlanningObject())
       WaitManager.sleep(TO_RETRY);
   }
@@ -165,7 +165,7 @@ public class Api {
 //    ErrorMessageManager.clear();
     Api.decidePlan(location, direction);
     for (int retry = 0; retry < RETRY_MAX; ++retry) {
-      final Window window = WidgetManager.window();
+      final Window window = AppContext.window();
       if (window != null)
         return window;
       else {
@@ -199,7 +199,7 @@ public class Api {
   public static Window openGobWindow(Gob gob) {
     while (true) {
       Api.interact(gob);
-      final Window window = WidgetManager.window();
+      final Window window = AppContext.window();
       if (window != null)
         return window;
       else
@@ -227,7 +227,7 @@ public class Api {
   /// - Throws: ER_INTERRUPTED
   ///     - ER_LIFT
   public static void lift(Gob gob) {
-    WidgetManager.menuGrid().wdgmsg(M_ACT, A_CARRY, 0);
+    AppContext.menuGrid().wdgmsg(M_ACT, A_CARRY, 0);
     _sendObjectClickMessage(gob);
     try {
       Self.gob().waitMove();
@@ -353,11 +353,11 @@ public class Api {
 
   // ISBox
   /// - Throws: ER_INTERRUPTED
-  public static void pressButton() { Interaction.activate(WidgetManager.button()); }
+  public static void pressButton() { Interaction.activate(AppContext.button()); }
 
   // Inventory
   /// - Throws: ER_INTERRUPTED
-  public static Inventory inventory() { return WidgetManager.inventory(); }
+  public static Inventory inventory() { return AppContext.inventory(); }
 
   /// - Throws: ER_INTERRUPTED
   public static void transferItem(Array<GItem> itemArray) {
@@ -369,7 +369,7 @@ public class Api {
   /// - Throws: ER_INTERRUPTED
   //      public static Array<GItem> getItemArray(String name, int count) {
   //          // TODO fix this with considering real implementation of BuildDryingFrame
-  //          Widget child = WidgetManager.inventory().child;
+  //          Widget child = AppContext.inventory().child;
   //          while (count != 0 && child != null) {
   //              if (child instanceof GItem) {
   //                  child.wdgmsg("transfer", Coord.zero(), IM_LEFT);

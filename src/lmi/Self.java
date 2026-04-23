@@ -68,7 +68,7 @@ public class Self {
 
 
   private static boolean _isCursorChanged(String cursor) {
-    return WidgetManager.cursor().get().name.endsWith(cursor);
+    return AppContext.cursor().get().name.endsWith(cursor);
   }
 
   // send message shadow
