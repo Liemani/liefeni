@@ -43,11 +43,21 @@
 
 - Haven에서 전달받은 주요 참조를 보관한다.
 - 자주 쓰는 UI 접근은 `AppContext.menuGrid()`, `AppContext.window()` 같은 accessor로 제공한다.
+- 바깥 코드의 direct field access는 줄이고, 가능하면 `AppContext.xxx()` accessor를 통해 접근하는 방향으로 정리 중이다.
 - 기존 `WidgetManager`가 맡던 접근 함수들은 `AppContext`로 흡수되었다.
 - `IMeter`는 목록으로 보관하고, 체력/스태미나/에너지는 lazy cache로 해석한다.
+- 내부적으로 `process-level`, `session-level`, `widget-cache` 수명을 구분한다.
+- `setMenuGrid()`는 menu 참조만 저장하고, 실제 LMI 메뉴 주입은 호출부에서 `MenuGridProxy.init()`를 명시적으로 호출한다.
 
 다만 이 전환은 아직 완료되지 않았다.
 현재는 public static field와 accessor 메서드가 공존하는 과도기 상태다.
+
+세션/위젯 무효화 정책은 다음과 같다.
+
+- `setSession(newSession)`: 이전 session과 다를 때 `resetSessionState()` 호출
+- `setRootWidget(newRoot)`: 이전 root와 다를 때 `resetWidgetCache()` 호출
+
+즉, 생성은 Haven lifecycle을 따라 분산되지만, 무효화 정책은 `AppContext`에 모아둔다.
 
 ### 동기화 모델
 
@@ -161,7 +171,7 @@ LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는�
 - `src/lmi/Api.java`
   - Job에서 직접 사용하는 고수준 자동화 API
 - `src/lmi/AppContext.java`
-  - Haven 참조, UI 접근 함수, IMeter 목록 및 lazy cache를 제공하는 전역 접근점
+  - Haven 참조, UI 접근 함수, IMeter lazy cache, session/widget reset 정책을 제공하는 전역 접근점
 
 ## 파일 인덱스
 
@@ -174,7 +184,7 @@ src/
     AgentManager.java: Job 탐색, 생성, 도움말 출력, 실행 진입점을 관리하는 등록기
     AgentRegistry.java: JAR 안의 `agent/**`를 스캔해 Job, Action, 폴더 메타데이터를 등록하는 공통 레지스트리
     Api.java: Job이 사용하는 고수준 자동화 API를 제공하는 퍼사드
-    AppContext.java: Haven 참조, UI 접근 함수, IMeter 목록 및 lazy cache를 제공하는 LMI 전역 접근점
+    AppContext.java: Haven 참조, UI 접근 함수, IMeter lazy cache, session/widget reset 정책을 제공하는 LMI 전역 접근점
     Array.java: Swift 스타일 편의 메서드를 덧붙인 ArrayList 래퍼
     ClickManager.java: Gob 클릭과 영역 선택 같은 사용자 입력 대기를 관리하는 상태 관리자
     CommandHandler.java: 콘솔 명령 `a`를 등록하고 LMI 초기화를 시작하는 진입점

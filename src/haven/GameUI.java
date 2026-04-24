@@ -816,6 +816,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	} else if(place == "menu") {
 	    menu = (MenuGrid)brpanel.add(child, menugridc);
             lmi.AppContext.setMenuGrid(menu);
+            lmi.MenuGridProxy.init();
 	} else if(place == "fight") {
 	    fv = urpanel.add((Fightview)child, 0, 0);
 	} else if(place == "fsess") {

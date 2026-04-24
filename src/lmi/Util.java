@@ -185,7 +185,7 @@ public class Util {
   }
 
   public static Set<String> consoleCommands() {
-    return AppContext.ui.cons.findcmds().keySet();
+    return AppContext.ui().cons.findcmds().keySet();
   }
 
   //      /// - Arguments:

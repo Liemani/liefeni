@@ -10,7 +10,7 @@ import lmi.AgentContext;
 public class PrintWidgetTreeJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    final Widget rootWidget = AppContext.rootWidget;
+    final Widget rootWidget = AppContext.rootWidget();
     iterateWidget(rootWidget, 0);
   }
 

@@ -14,7 +14,7 @@ public class AgentManager {
   }
 
   private static PrintWriter out() {
-    UI ui = AppContext.ui;
+    UI ui = AppContext.ui();
     if (ui != null && ui.cons != null)
       return ui.cons.out;
     return new PrintWriter(System.out); // Fallback

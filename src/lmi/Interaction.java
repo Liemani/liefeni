@@ -15,7 +15,7 @@ public class Interaction {
    */
   public static void click(Coord coord, int button, int modifier) {
     Object[] args = { Coord.z, coord, button, modifier };
-    AppContext.mapView.wdgmsg("click", args);
+    AppContext.mapView().wdgmsg("click", args);
   }
 
   /**
@@ -31,7 +31,7 @@ public class Interaction {
     Coord position = gob.position();
     Object[] args = {
       Coord.z, position, button, modifier, isOverlay, gob.id(), position, olid, meshId };
-    AppContext.mapView.wdgmsg("click", args);
+    AppContext.mapView().wdgmsg("click", args);
   }
 
   /**
@@ -43,7 +43,7 @@ public class Interaction {
    */
   public static void place(Coord coord, int direction, int button, int modifier) {
     Object[] args = { coord, direction, button, modifier };
-    AppContext.mapView.wdgmsg("place", args);
+    AppContext.mapView().wdgmsg("place", args);
   }
 
   // --- Item Interactions (GItem) ---
@@ -126,7 +126,7 @@ public class Interaction {
    */
   static void drop(Gob gob, int modifier, int isOverlay, int olid, int meshId) {
     Coord position = gob.position();
-    AppContext.mapView.wdgmsg("itemact",
+    AppContext.mapView().wdgmsg("itemact",
         Coord.z, position, modifier, isOverlay, gob.id(), position, olid, meshId);
   }
 

@@ -154,7 +154,7 @@ public class Api {
   /// - Throws: ER_INTERRUPTED
   static void planObject(String planName) {
     AppContext.menuGrid().wdgmsg(M_ACT, A_BP, planName, 0);
-    while (!AppContext.mapView.isPlanningObject())
+    while (!AppContext.mapView().isPlanningObject())
       WaitManager.sleep(TO_RETRY);
   }
 
@@ -174,7 +174,7 @@ public class Api {
           Api.decidePlan(location, direction);
       }
     }
-    if (AppContext.mapView.isPlanningObject())
+    if (AppContext.mapView().isPlanningObject())
       Interaction.place(Self.position(), D_EAST, 3, 0);
     throw new LMIException(ER_DECIDE_PLAN);
   }
@@ -308,7 +308,7 @@ public class Api {
   public static Array<Gob> gobArray() {
     Array<Gob> gobArray = new Array<Gob>();
 
-    for (Gob gob : AppContext.oCache.gobArray())
+    for (Gob gob : AppContext.oCache().gobArray())
       if (gob.resource() != null)
         gobArray.append(gob);
 
@@ -319,7 +319,7 @@ public class Api {
   public static Array<Gob> gobArrayWhere(Predicate<Gob> predicate) {
     Array<Gob> gobArray = new Array<Gob>();
 
-    for (Gob gob : AppContext.oCache.gobArray()) {
+    for (Gob gob : AppContext.oCache().gobArray()) {
       if (gob.resource() == null) continue;
       else if (predicate.test(gob)) gobArray.append(gob);
     }
@@ -343,11 +343,11 @@ public class Api {
 
   // Print Message to Console
   /// - Throws: ER_INTERRUPTED
-  public static void error(String message) { AppContext.gameUI.error(message); }
-  public static void alert(String message) { AppContext.gameUI.alert(message); }
+  public static void error(String message) { AppContext.gameUI().error(message); }
+  public static void alert(String message) { AppContext.gameUI().alert(message); }
   public static void message(String message) {
-    if (AppContext.gameUI != null) {
-      AppContext.gameUI.print(message);
+    if (AppContext.gameUI() != null) {
+      AppContext.gameUI().print(message);
     }
   }
 

@@ -21,8 +21,8 @@ import static lmi.Constant.gfx.borka.*;
 public class Self {
   // access properties
   public static Gob gob() {
-    if (AppContext.mapView == null) return null;
-    return AppContext.mapView.player();
+    if (AppContext.mapView() == null) return null;
+    return AppContext.mapView().player();
   }
 
   public static Coord position() { return Self.gob().position(); }

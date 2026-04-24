@@ -6,24 +6,28 @@ import java.util.List;
 import static lmi.Constant.gfx.hud.meter.*;
 
 public class AppContext {
-  // Fields (Accessible directly)
+  // Process-level fields
   public static MainFrame mainFrame;
   public static Thread mainThread;
   public static JOGLPanel joglPanel;
   public static UIPanel.Dispatcher dispatcher;
+
+  // Session-level fields
   public static RemoteUI remoteUI;
   public static UI ui;
+  public static Session session;
+  public static Glob glob;
+  public static OCache oCache;
+
+  // Widget-cache fields
   public static RootWidget rootWidget;
   public static GameUI gameUI;
   public static MenuGrid menuGrid;
   public static MapView mapView;
-  public static Session session;
   public static List<IMeter> meterWidgets;
   public static IMeter hitPointMeter;
   public static IMeter staminaMeter;
   public static IMeter energyMeter;
-  public static Glob glob;
-  public static OCache oCache;
   public static Equipory equipory;
   public static Inventory mainInventory;
 
@@ -36,6 +40,28 @@ public class AppContext {
     meterWidgets = new ArrayList<>();
   }
 
+  public static void resetWidgetCache() {
+    rootWidget = null;
+    gameUI = null;
+    menuGrid = null;
+    mapView = null;
+    equipory = null;
+    mainInventory = null;
+    meterWidgets = new ArrayList<>();
+    hitPointMeter = null;
+    staminaMeter = null;
+    energyMeter = null;
+  }
+
+  public static void resetSessionState() {
+    remoteUI = null;
+    ui = null;
+    session = null;
+    glob = null;
+    oCache = null;
+    resetWidgetCache();
+  }
+
   // Setters (Called from haven/*.java)
   public static void setMainFrame(MainFrame val) { mainFrame = val; }
   public static void setMainThread(Thread val) { mainThread = val; }
@@ -43,14 +69,19 @@ public class AppContext {
   public static void setDispatcher(UIPanel.Dispatcher val) { dispatcher = val; }
   public static void setRemoteUI(RemoteUI val) { remoteUI = val; }
   public static void setUI(UI val) { ui = val; }
-  public static void setRootWidget(RootWidget val) { rootWidget = val; }
-  public static void setGameUI(GameUI val) { gameUI = val; }
-  public static void setMenuGrid(MenuGrid val) {
-    menuGrid = val;
-    MenuGridProxy.init();
+  public static void setRootWidget(RootWidget val) {
+    if ((rootWidget != null) && (rootWidget != val))
+      resetWidgetCache();
+    rootWidget = val;
   }
+  public static void setGameUI(GameUI val) { gameUI = val; }
+  public static void setMenuGrid(MenuGrid val) { menuGrid = val; }
   public static void setMapView(MapView val) { mapView = val; }
-  public static void setSession(Session val) { session = val; }
+  public static void setSession(Session val) {
+    if ((session != null) && (session != val))
+      resetSessionState();
+    session = val;
+  }
   public static void setGlob(Glob val) { glob = val; }
   public static void setOCache(OCache val) { oCache = val; }
   public static void setEquipory(Equipory val) { equipory = val; }

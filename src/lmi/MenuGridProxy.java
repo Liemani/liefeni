@@ -34,7 +34,7 @@ public class MenuGridProxy {
   }
 
   public static void init() {
-    MenuGrid mg = AppContext.menuGrid;
+    MenuGrid mg = AppContext.menuGrid();
     if (mg == null) return;
 
     try {
@@ -110,7 +110,7 @@ public class MenuGridProxy {
   }
 
   public static void apply() {
-    MenuGrid mg = AppContext.menuGrid;
+    MenuGrid mg = AppContext.menuGrid();
     if (mg == null) return;
     synchronized (mg.paginae) {
       for (Pagina p : _customPaginae) mg.paginae.add(p);
@@ -137,7 +137,7 @@ public class MenuGridProxy {
     private Tex customTex;
 
     public Pagina(String id, MenuGrid.Pagina parent, Resource defRes) {
-      super(AppContext.menuGrid, id, defRes.indir());
+      super(AppContext.menuGrid(), id, defRes.indir());
       this.customParent = parent;
       this.iconRes = defRes;
     }

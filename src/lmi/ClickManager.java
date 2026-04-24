@@ -45,12 +45,12 @@ public class ClickManager {
 
   public static Rect getArea() {
     isAreaSelectMode = true;
-    AppContext.mapView.newSelector();
+    AppContext.mapView().newSelector();
 
 
     while (isAreaSelectMode) WaitManager.sleep();
 
-    AppContext.mapView.destroySelector();
+    AppContext.mapView().destroySelector();
 
     return _selectedArea;
   }
