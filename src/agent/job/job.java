@@ -10,7 +10,7 @@ public class job {
      * Returns the display name of the folder.
      */
     public static String name() {
-        return "Standard Jobs";
+        return "Job";
     }
 
     /**
@@ -24,7 +24,7 @@ public class job {
      * Returns the resource path for the folder icon.
      */
     public static String icon() {
-        return "assets/icon.png";
+        return "assets/icon_J.png";
     }
 
     /**
@@ -32,6 +32,6 @@ public class job {
      * Folders with lower sort keys appear first.
      */
     public static String sortkey() {
-        return "\ufffe\ufffe01_job";
+        return "00_job";
     }
 }

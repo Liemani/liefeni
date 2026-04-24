@@ -61,8 +61,9 @@ public class MenuGridProxy {
     for (AgentRegistry.Entry entry : AgentRegistry.executableEntries()) {
       Pagina parent = _ensureFolderPath(entry.packageName(), root);
       String prefix = (entry.kind() == AgentRegistry.Entry.Kind.JOB) ? JOB_PREFIX : ACTION_PREFIX;
-      Pagina p = new Pagina(prefix + entry.simpleName(), parent, _sharedRes);
-      p.setup(entry.cls(), entry.simpleName());
+      String commandName = entry.commandName();
+      Pagina p = new Pagina(prefix + commandName, parent, _sharedRes);
+      p.setup(entry.cls(), commandName);
       _customPaginae.add(p);
     }
   }
@@ -192,9 +193,7 @@ public class MenuGridProxy {
       
       @Override public String sortkey() { 
           if (sortKey != null) return sortKey;
-          String priority = (sourceCls != null && (Job.class.isAssignableFrom(sourceCls) || Action.class.isAssignableFrom(sourceCls))) 
-                            ? "\ufffe\uffff" : "\ufffe\ufffe";
-          return priority + pag.id.toString(); 
+          return pag.id.toString();
       }
       
       @Override public List<ItemInfo> info() { 

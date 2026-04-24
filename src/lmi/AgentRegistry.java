@@ -111,7 +111,8 @@ final class AgentRegistry {
 
       if (_isConcreteActionClass(cls)) {
         Class<? extends Action> actionClass = (Class<? extends Action>) cls;
-        actionMap.put(actionClass.getSimpleName(), actionClass);
+        String actionName = _actionCommandName(actionClass);
+        actionMap.put(actionName, actionClass);
         executableEntries.add(Entry.action(actionClass));
       }
     } catch (ClassNotFoundException e) {
@@ -150,6 +151,13 @@ final class AgentRegistry {
     return simpleName;
   }
 
+  private static String _actionCommandName(Class<? extends Action> cls) {
+    String simpleName = cls.getSimpleName();
+    if (simpleName.endsWith("Action"))
+      return simpleName.substring(0, simpleName.length() - 6);
+    return simpleName;
+  }
+
   static final class Entry {
     enum Kind {
       JOB,
@@ -158,24 +166,27 @@ final class AgentRegistry {
 
     private final Kind kind;
     private final Class<?> cls;
+    private final String commandName;
 
-    private Entry(Kind kind, Class<?> cls) {
+    private Entry(Kind kind, Class<?> cls, String commandName) {
       this.kind = kind;
       this.cls = cls;
+      this.commandName = commandName;
     }
 
     static Entry job(Class<? extends Job> cls) {
-      return new Entry(Kind.JOB, cls);
+      return new Entry(Kind.JOB, cls, _jobCommandName(cls));
     }
 
     static Entry action(Class<? extends Action> cls) {
-      return new Entry(Kind.ACTION, cls);
+      return new Entry(Kind.ACTION, cls, _actionCommandName(cls));
     }
 
     Kind kind() { return kind; }
     Class<?> cls() { return cls; }
     String className() { return cls.getName(); }
     String simpleName() { return cls.getSimpleName(); }
+    String commandName() { return commandName; }
     String packageName() { return cls.getPackage().getName(); }
   }
 }
