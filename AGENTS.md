@@ -1,11 +1,11 @@
 # LMI Working Context
 
 이 저장소는 Haven & Hearth 클라이언트 위에 얹는 자동화 런타임 `LMI`와, 그 위에서 실행되는 사용자 기능 패키지 `agent`로 구성된다.
-현재 개발 기준에서 중요한 것은 "무엇을 자동화하느냐"보다 "그 자동화가 어떤 런타임 계약 위에서 안전하게 돌아가느냐"다.
+현재 중요한 것은 "무엇을 자동화하느냐"보다 "그 자동화가 어떤 런타임 계약 위에서 안전하게 돌아가느냐"다.
 
-## 핵심 구조
+## 구조 개요
 
-### 1. 계층
+### 계층
 
 - `haven`: 원본 게임 클라이언트와 엔진 코드
 - `lmi`: 자동화 런타임, 동기화, 훅, UI 주입, 실행 인프라
@@ -14,7 +14,7 @@
 의존 방향은 기본적으로 `lmi -> agent`다.
 `agent`는 실행 대상이고, `lmi`는 그것을 발견하고 실행하고 동기화하는 프레임워크다.
 
-### 2. 실행 모델
+### 실행 모델
 
 - 메인/렌더 스레드: Haven UI와 입력 처리
 - 네트워크 스레드: 서버 패킷 송수신
@@ -22,33 +22,34 @@
 
 `Agent`는 "무엇을 할지 결정하는 객체"가 아니라 "결정된 실행 요청을 안전하게 수행하는 런타임"이다.
 
-현재 `Agent`는 내부적으로 `JobRequest` 단위로 요청을 다룬다.
+현재 `Agent`는 `JobRequest` 단위로 요청을 다룬다.
 각 요청은 다음 정보를 함께 가진다.
 
 - `Job`
 - `String[] args`
 - `AgentContext`
 
-스케줄링 정책은 두 가지를 모두 지원한다.
+스케줄링 정책은 두 가지를 지원한다.
 
 - `pushJob(...)`: 현재 작업 위에 즉시 끼워 넣는 긴급 작업
 - `enqueueJob(...)`: 뒤에 이어서 실행할 일반 작업
 
-즉, 현재 `Agent`는 단순 stack이나 queue가 아니라 "긴급 push + 일반 enqueue"를 처리하는 작은 스케줄러 성격을 가진다.
+즉, 현재 `Agent`는 단순 stack이나 queue가 아니라 "긴급 push + 일반 enqueue"를 처리하는 작은 스케줄러다.
 다만 아직 정책이 단순하므로 별도 `Scheduler` 클래스로 분리하지 않고 `Agent` 안에 유지하고 있다.
 
-### 2.1 전역 접근점
+### 전역 접근점
 
 현재 `AppContext`는 이름은 그대로 유지하고 있지만, 실제 역할은 "LMI 전역 접근점"에 가깝다.
 
 - Haven에서 전달받은 주요 참조를 보관한다.
 - 자주 쓰는 UI 접근은 `AppContext.menuGrid()`, `AppContext.window()` 같은 accessor로 제공한다.
 - 기존 `WidgetManager`가 맡던 접근 함수들은 `AppContext`로 흡수되었다.
+- `IMeter`는 목록으로 보관하고, 체력/스태미나/에너지는 lazy cache로 해석한다.
 
 다만 이 전환은 아직 완료되지 않았다.
 현재는 public static field와 accessor 메서드가 공존하는 과도기 상태다.
 
-### 3. 동기화 모델
+### 동기화 모델
 
 자동화의 기본 동기화 축은 `WaitManager`다.
 
@@ -60,9 +61,23 @@
 LMI는 "서버 응답 기반으로 깨어난 뒤, 상태 조건은 직접 다시 확인한다"는 방식을 따른다.
 즉, 이벤트 기반보다는 ACK 기반 동기화 + 폴링 확인의 혼합 모델이다.
 
+### Meter 조회 모델
+
+Haven의 상태 미터는 `IMeter` 기반으로 다룬다.
+LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는다.
+
+현재 구조는 다음과 같다.
+
+- `IMeter` 생성 시 `AppContext.addMeterWidget(...)`로 목록에만 등록
+- `AppContext.hitPointMeter()`, `staminaMeter()`, `energyMeter()`가 필요할 때 lazy 하게 탐색
+- 한 번 찾은 `IMeter`는 각 슬롯에 캐시
+- 끝까지 못 찾으면 `LMIException(ER_WIDGET_MISSING)` 발생
+
+이 구조의 목적은 resource loading 타이밍에 의존하는 조기 분류를 피하면서도, 매번 선형 탐색하지 않게 하는 것이다.
+
 ## Discovery / Menu / Execution
 
-### 1. `AgentRegistry`가 단일 진실 공급원이다
+### AgentRegistry
 
 현재 `agent` 패키지의 `Job`, `Action`, 폴더 메타데이터 발견은 모두 `lmi.AgentRegistry`가 맡는다.
 
@@ -82,9 +97,9 @@ LMI는 "서버 응답 기반으로 깨어난 뒤, 상태 조건은 직접 다시
 - `MenuGridProxy`: 메뉴 계층 구성 및 메타데이터 표시
 - `Hook`: 메뉴 클릭 시 Job/Action 실행
 
-이 구조의 목적은 "찾는 규칙"과 "실행 규칙"과 "보여주는 규칙"이 서로 어긋나지 않게 하는 것이다.
+목적은 "찾는 규칙", "실행 규칙", "보여주는 규칙"을 하나로 맞추는 것이다.
 
-### 2. 메뉴 메타데이터 계약
+### 메뉴 메타데이터 계약
 
 `agent` 아래의 Job/Action/폴더 메타데이터 클래스는 다음 정적 메서드를 선택적으로 제공할 수 있다.
 
@@ -96,7 +111,7 @@ LMI는 "서버 응답 기반으로 깨어난 뒤, 상태 조건은 직접 다시
 `icon()`이 `assets/`로 시작하면 로컬 PNG를 직접 로드한다.
 그 외 문자열은 Haven resource path로 간주한다.
 
-### 3. Action의 의미
+### Action의 의미
 
 `Job`은 길거나 절차적인 작업이다.
 `Action`은 즉시 실행형 기능이다.
@@ -107,8 +122,6 @@ LMI는 "서버 응답 기반으로 깨어난 뒤, 상태 조건은 직접 다시
 ## 실패 처리 원칙
 
 현재 LMI는 `LMIException`의 `reason`으로 제어 흐름을 표현한다.
-
-중요한 원칙:
 
 - `ER_INTERRUPTED`는 어떤 계층에서도 삼키지 않는다.
 - 사용자 중단, 스레드 interrupt, 취소 계열은 항상 상위로 전파한다.
@@ -126,29 +139,12 @@ LMI는 "서버 응답 기반으로 깨어난 뒤, 상태 조건은 직접 다시
 
 ## 설계 원칙
 
-### 1. 패키지 구조를 메뉴 구조의 기반으로 사용한다
+- `agent`의 Java package 구조와 메뉴 폴더 구조는 가능한 한 일치시키는 편이 좋다.
+- `lmi`는 실행 인프라, `agent`는 사용자 기능으로 구분한다.
+- Haven 엔진 수정은 `// lmi start`와 `// lmi end` 범위 안에서만 다루는 것이 기본 원칙이다.
+- 배포 기준은 JAR이며, discovery도 JAR 기준으로 설계하는 것이 맞다.
 
-`agent`의 Java package 구조와 메뉴 폴더 구조는 가능한 한 일치시키는 편이 좋다.
-메뉴는 패키지 구조를 시각화한 결과물로 보는 것이 맞다.
-
-### 2. 런타임 인프라와 사용자 기능을 분리한다
-
-- `lmi`: 실행 인프라
-- `agent`: 사용자 기능
-
-새 기능을 추가할 때도 "이 코드가 런타임인가, 기능인가"를 먼저 구분하는 것이 중요하다.
-
-### 3. 엔진 수정은 훅 중심으로 최소화한다
-
-Haven 엔진 수정은 `// lmi start`와 `// lmi end` 범위 안에서만 다루는 것이 기본 원칙이다.
-LMI는 엔진을 대체하는 것이 아니라 연결하고 보완하는 레이어다.
-
-### 4. 배포 기준은 JAR이다
-
-이 프로젝트는 class 파일 묶음을 직접 다루는 개발 흐름보다 JAR 배포를 전제로 한다.
-따라서 discovery도 JAR 기준으로 설계하는 것이 맞다.
-
-## 지금 기준에서 중요한 파일
+## 중요한 파일
 
 - `src/lmi/Agent.java`
   - JobRequest 실행, push/enqueue 스케줄링, stop/interruption
@@ -165,12 +161,9 @@ LMI는 엔진을 대체하는 것이 아니라 연결하고 보완하는 레이�
 - `src/lmi/Api.java`
   - Job에서 직접 사용하는 고수준 자동화 API
 - `src/lmi/AppContext.java`
-  - Haven 참조 보관과 자주 쓰는 UI 접근 함수를 함께 제공하는 전역 접근점
+  - Haven 참조, UI 접근 함수, IMeter 목록 및 lazy cache를 제공하는 전역 접근점
 
 ## 파일 인덱스
-
-현재 `lmi` 패키지의 파일 책임을 빠르게 찾기 위한 요약이다.
-설명은 "현재 코드가 실제로 맡고 있는 책임" 기준의 한 줄 정리다.
 
 ```text
 src/
@@ -181,7 +174,7 @@ src/
     AgentManager.java: Job 탐색, 생성, 도움말 출력, 실행 진입점을 관리하는 등록기
     AgentRegistry.java: JAR 안의 `agent/**`를 스캔해 Job, Action, 폴더 메타데이터를 등록하는 공통 레지스트리
     Api.java: Job이 사용하는 고수준 자동화 API를 제공하는 퍼사드
-    AppContext.java: Haven 참조를 보관하고 자주 쓰는 UI 접근 함수를 제공하는 LMI 전역 접근점
+    AppContext.java: Haven 참조, UI 접근 함수, IMeter 목록 및 lazy cache를 제공하는 LMI 전역 접근점
     Array.java: Swift 스타일 편의 메서드를 덧붙인 ArrayList 래퍼
     ClickManager.java: Gob 클릭과 영역 선택 같은 사용자 입력 대기를 관리하는 상태 관리자
     CommandHandler.java: 콘솔 명령 `a`를 등록하고 LMI 초기화를 시작하는 진입점
@@ -194,7 +187,7 @@ src/
     Pathfinder.java: 주변 장애물을 바탕으로 경로를 찾고 이동을 수행하는 경로 탐색기
     ProgressManager.java: 진행 바 생성과 종료를 감시해 작업 완료를 기다리는 상태 관리자
     Rect.java: 영역 선택과 배치 계산에 사용하는 직사각형 좌표 유틸리티
-    Self.java: 플레이어 자신과 관련된 상태 조회를 모아둔 접근 계층
+    Self.java: 플레이어 자신 상태와 IMeter 기반 수치 조회를 모아둔 접근 계층
     Util.java: 디버그 출력, 리플렉션 보조, 문자열 처리 등 잡다한 공용 유틸리티
     WaitManager.java: 송신 seq와 ACK를 추적해 서버 응답 타이밍을 동기화하는 대기 관리자
     behavior/
@@ -206,7 +199,7 @@ src/
       PutTask.java: 들고 있는 물체를 지정 좌표에 내려놓는 Task
 ```
 
-## 지금 보류 중인 것
+## 보류 중인 것
 
 - `AgentContext`의 장기 설계
 - `Task`/`Behavior` 전면 재정리
@@ -214,4 +207,4 @@ src/
 - `AppContext`의 lifecycle 정리
 - `AppContext` 명칭 재검토
 
-이 네 가지는 중요하지만, 현재는 런타임 골격을 먼저 안정화하는 쪽이 우선이다.
+이 다섯 가지는 중요하지만, 현재는 런타임 골격을 먼저 안정화하는 쪽이 우선이다.

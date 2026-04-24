@@ -13,7 +13,6 @@ import static lmi.Constant.Message.*;
 import static lmi.Constant.Action.*;
 import static lmi.Constant.MeshId.*;
 import static lmi.Constant.Timeout.*;
-import static lmi.Constant.Gauge.Index.*;
 import static lmi.Constant.Gauge.HitPointIndex.*;
 
 // resource
@@ -31,29 +30,29 @@ public class Self {
   public static double velocity() { return Self.gob().velocity(); }
   public static boolean hasPose(String poseName) { return Self.gob().hasPose(poseName); }
 
+  private static java.util.List<haven.LayerMeter.Meter> _requireMeterValues(haven.IMeter meterWidget) {
+    java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.meterValues(meterWidget);
+    if (meter == null) throw new LMIException(ER_WIDGET_MISSING);
+    return meter;
+  }
+
   public static double hardHitPoint() {
-    haven.IMeter imeter = AppContext.gaugeWidgetArray[GI_HIT_POINT];
-    java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.gaugeWidgetGaugeArray(imeter);
-    if (meter == null) return -1.0;
+    java.util.List<haven.LayerMeter.Meter> meter = _requireMeterValues(AppContext.hitPointMeter());
     return meter.get(GI_HARD).a;
   }
 
   public static double softHitPoint() {
-    return haven.LMI.gaugeWidgetGaugeArray(AppContext.gaugeWidgetArray[GI_HIT_POINT])
-      .get(GI_SOFT)
-      .a;
+    java.util.List<haven.LayerMeter.Meter> meter = _requireMeterValues(AppContext.hitPointMeter());
+    return meter.get(GI_SOFT).a;
   }
 
   public static double stamina() {
-    return haven.LMI.gaugeWidgetGaugeArray(AppContext.gaugeWidgetArray[GI_STAMINA])
-      .get(0)
-      .a;
+    java.util.List<haven.LayerMeter.Meter> meter = _requireMeterValues(AppContext.staminaMeter());
+    return meter.get(0).a;
   }
 
   public static double energy() {
-    haven.IMeter imeter = AppContext.gaugeWidgetArray[GI_ENERGY];
-    java.util.List<haven.LayerMeter.Meter> meter = haven.LMI.gaugeWidgetGaugeArray(imeter);
-    if (meter == null) return -1.0;
+    java.util.List<haven.LayerMeter.Meter> meter = _requireMeterValues(AppContext.energyMeter());
     return meter.get(0).a;
   }
 

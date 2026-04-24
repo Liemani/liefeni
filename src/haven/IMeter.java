@@ -48,7 +48,7 @@ public class IMeter extends LayerMeter {
 	super(fsz);
 	this.bg = bg;
 	set(meters);
-	lmi.AppContext.setGaugeArray(this);
+        lmi.AppContext.addMeterWidget(this);
     }
 
     public void draw(GOut g) {

@@ -43,12 +43,6 @@ public class Constant {
       public static final int GI_HARD = 0;
       public static final int GI_SOFT = 1;
     }
-
-    public static class Index {
-      public static final int GI_HIT_POINT = 0;
-      public static final int GI_STAMINA = 1;
-      public static final int GI_ENERGY = 2;
-    }
   }
 
   // flower menu petal name
@@ -334,5 +328,6 @@ public class Constant {
     ER_COMMAND_IMPLEMENT,
     ER_MAN_IMPLEMENT,
     ER_NO_PATH,
+    ER_WIDGET_MISSING,
   }
 }

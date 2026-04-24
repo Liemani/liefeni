@@ -1,8 +1,9 @@
 package lmi;
 
 import haven.*;
+import java.util.ArrayList;
+import java.util.List;
 import static lmi.Constant.gfx.hud.meter.*;
-import static lmi.Constant.Gauge.Index.*;
 
 public class AppContext {
   // Fields (Accessible directly)
@@ -17,7 +18,10 @@ public class AppContext {
   public static MenuGrid menuGrid;
   public static MapView mapView;
   public static Session session;
-  public static IMeter[] gaugeWidgetArray;
+  public static List<IMeter> meterWidgets;
+  public static IMeter hitPointMeter;
+  public static IMeter staminaMeter;
+  public static IMeter energyMeter;
   public static Glob glob;
   public static OCache oCache;
   public static Equipory equipory;
@@ -28,8 +32,8 @@ public class AppContext {
     WaitManager.init();
     AgentManager.init();
     Pathfinder.init();
-    
-    gaugeWidgetArray = new IMeter[3];
+
+    meterWidgets = new ArrayList<>();
   }
 
   // Setters (Called from haven/*.java)
@@ -52,15 +56,35 @@ public class AppContext {
   public static void setEquipory(Equipory val) { equipory = val; }
   public static void setMainInventory(Inventory val) { mainInventory = val; }
 
-  public static void setGaugeArray(IMeter gauge) {
-    System.out.printf("gauge.resourceName(): " + gauge.resourceName() + "\n");
-    final String resourceName = gauge.resourceName();
-    if (resourceName.endsWith(RN_HIT_POINT))
-      gaugeWidgetArray[GI_HIT_POINT] = gauge;
-    else if (resourceName.endsWith(RN_STAMINA))
-      gaugeWidgetArray[GI_STAMINA] = gauge;
-    else if (resourceName.endsWith(RN_ENERGY))
-      gaugeWidgetArray[GI_ENERGY] = gauge;
+  public static void addMeterWidget(IMeter meter) {
+    if ((meter != null) && !meterWidgets.contains(meter))
+      meterWidgets.add(meter);
+  }
+
+  private static IMeter findMeterWidget(String resourceSuffix) {
+    for (IMeter meter : meterWidgets) {
+      if (meter.resourceName().endsWith(resourceSuffix))
+        return meter;
+    }
+    throw new LMIException(Constant.ExceptionReason.ER_WIDGET_MISSING);
+  }
+
+  public static IMeter hitPointMeter() {
+    if (hitPointMeter == null)
+      hitPointMeter = findMeterWidget(RN_HIT_POINT);
+    return hitPointMeter;
+  }
+
+  public static IMeter staminaMeter() {
+    if (staminaMeter == null)
+      staminaMeter = findMeterWidget(RN_STAMINA);
+    return staminaMeter;
+  }
+
+  public static IMeter energyMeter() {
+    if (energyMeter == null)
+      energyMeter = findMeterWidget(RN_ENERGY);
+    return energyMeter;
   }
 
   // Accessors
