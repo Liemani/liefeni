@@ -35,6 +35,41 @@ public class Interaction {
   }
 
   /**
+   * [서버 전송] 특정 Gob id를 가진 오브젝트를 클릭합니다.
+   * 전송 직전에 현재 OCache에서 Gob을 다시 조회해 최신 위치를 사용합니다.
+   * @param gobId 대상 오브젝트 id
+   * @param button 마우스 버튼 (1: left, 2: middle, 3: right)
+   * @param modifier 키보드 수정자 (1: Shift, 2: Ctrl, 4: Alt)
+   * @param isOverlay 오버레이인가 (0: false, 1: true)
+   * @param olid 오버레이 id
+   * @param meshId 특정 메쉬 ID (보통 MI_NONE)
+   */
+  public static void click(long gobId, int button, int modifier, int isOverlay, int olid, int meshId) {
+    Gob gob = AppContext.oCache().getgob(gobId);
+    if (gob == null) throw new LMIException(Constant.ExceptionReason.ER_FAIL);
+    Coord position = gob.position();
+    Object[] args = {
+      Coord.z, position, button, modifier, isOverlay, gobId, position, olid, meshId };
+    AppContext.mapView().wdgmsg("click", args);
+  }
+
+  /**
+   * [서버 전송] 특정 Gob id와 위치를 사용해 오브젝트를 클릭합니다.
+   * @param gobId 대상 오브젝트 id
+   * @param position 클릭 시 사용할 오브젝트 위치
+   * @param button 마우스 버튼 (1: left, 2: middle, 3: right)
+   * @param modifier 키보드 수정자 (1: Shift, 2: Ctrl, 4: Alt)
+   * @param isOverlay 오버레이인가 (0: false, 1: true)
+   * @param olid 오버레이 id
+   * @param meshId 특정 메쉬 ID (보통 MI_NONE)
+   */
+  public static void click(long gobId, Coord position, int button, int modifier, int isOverlay, int olid, int meshId) {
+    Object[] args = {
+      Coord.z, position, button, modifier, isOverlay, gobId, position, olid, meshId };
+    AppContext.mapView().wdgmsg("click", args);
+  }
+
+  /**
    * [서버 전송] 청사진(Blueprint)을 배치합니다.
    * @param coord 배치할 좌표
    * @param direction 방향

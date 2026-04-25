@@ -30,7 +30,7 @@ public class RecordJob extends Job {
 
     try {
       while (WaypointRecorder.isActive(session)) {
-        lmi.WaitManager.sleep();
+        lmi.WaitManager.sleepPolling();
       }
     } catch (LMIException e) {
       if (e.reason == ER_INTERRUPTED) {

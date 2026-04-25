@@ -21,11 +21,11 @@ public class JIterateJob extends Job {
     Gob gob = Api.getGob();
 
     int targetDistance = Integer.parseInt(args[2]);
-    AtomicAction.move(gob.position().add(0, -targetDistance));
+    AtomicAction.go(gob.position().add(0, -targetDistance));
 
     while (true) {
       final Coord destination = Self.position().add(0, 1);
-      AtomicAction.move(destination);
+      AtomicAction.go(destination);
       System.out.println("current location: " + Self.position());
     }
   }

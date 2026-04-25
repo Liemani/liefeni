@@ -22,8 +22,8 @@ public class InvestigateGobBoundingBoxWidthJob extends Job {
     Gob variantGob = ClickManager.getGob();
 
     Coord standardPoint = Self.position();
-    AtomicAction.lift(standardGob);
-    AtomicAction.move(standardPoint.add(0, 2048));
+    AtomicAction.lift(standardGob.id(), standardGob.position());
+    AtomicAction.go(standardPoint.add(0, 2048));
     AtomicAction.put(standardPoint);
 
     final int start = TILE_IN_COORD / 8 * 3 + 1;
@@ -43,8 +43,8 @@ public class InvestigateGobBoundingBoxWidthJob extends Job {
   }
 
   private void _carryWidth(Gob gob, Coord putPoint) {
-    AtomicAction.lift(gob);
-    AtomicAction.move(putPoint.add(0, TILE_IN_COORD * 2));
+    AtomicAction.lift(gob.id(), gob.position());
+    AtomicAction.go(putPoint.add(0, TILE_IN_COORD * 2));
     AtomicAction.put(putPoint);
   }
 

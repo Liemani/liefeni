@@ -37,9 +37,9 @@ public class MeasureJob extends Job {
       final int targetX = gobLocation.x + currentDistance;
       leaf.x = targetX;
       branch.x = targetX;
-      AtomicAction.move(branch);
+      AtomicAction.go(branch);
       try {
-        AtomicAction.move(leaf);
+        AtomicAction.go(leaf);
         succeededDistance = currentDistance;
       } catch (LMIException e) {
         if (e.reason != ER_MOVE) throw e;

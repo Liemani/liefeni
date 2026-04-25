@@ -11,19 +11,38 @@ import static lmi.Constant.Timeout.*;
 public final class AtomicAction {
   private AtomicAction() {}
 
-  public static void interact(Gob gob) {
-    Interaction.click(gob, 3, 0, 0, 0, -1);
+  public static void interact(long gobId, Coord gobPosition) {
+    Interaction.click(gobId, gobPosition, 3, 0, 0, 0, -1);
   }
 
-  public static void move(Coord coord) {
+  public static void enter(long doorId, Coord doorPosition, int meshId) {
+    double x = AppContext.mapView().cc.x;
+    Interaction.click(doorId, doorPosition, 3, 0, 0, 0, meshId);
+
+    while (Math.abs(AppContext.mapView().cc.x - x) < 1000) {
+      WaitManager.sleepPolling();
+    }
+  }
+
+  public static void go(Coord coord) {
+    final Gob self = Self.gob();
+
     Interaction.click(coord, 1, 0);
-    Self.gob().waitMove(coord);
+    WaitManager.waitResponse();
+
+    while (self.isMoving()) {
+      WaitManager.sleepPolling();
+    }
+
+    if (!self.isAt(coord)) {
+      throw new LMIException(ER_FAIL);
+    }
   }
 
-  public static void forceMove(Coord coord) {
+  public static void forceGo(Coord coord) {
     for (int retry = 0; retry < RETRY_MAX; ++retry) {
       try {
-        move(coord);
+        go(coord);
         return;
       } catch (LMIException e) {
         if (e.reason != ER_FAIL) throw e;
@@ -33,21 +52,21 @@ public final class AtomicAction {
     throw new LMIException(ER_FAIL);
   }
 
-  public static void lift(Gob gob) {
+  public static void lift(long gobId, Coord gobPosition) {
     AppContext.menuGrid().wdgmsg(Constant.Message.M_ACT, A_CARRY, 0);
-    Interaction.click(gob, 1, 0, 0, 0, 0);
+    Interaction.click(gobId, gobPosition, 1, 0, 0, 0, 0);
     try {
       Self.gob().waitMove();
     } catch (LMIException e) {
       if (e.reason != ER_FAIL) throw e;
     }
-    Self.gob().waitLift(gob);
+    Self.gob().waitLift(_gob(gobId));
   }
 
-  public static void forceLift(Gob gob) {
+  public static void forceLift(long gobId, Coord gobPosition) {
     for (int retry = 0; retry < RETRY_MAX; ++retry) {
       try {
-        lift(gob);
+        lift(gobId, gobPosition);
         return;
       } catch (LMIException e) {
         if (e.reason != ER_LIFT) throw e;
@@ -80,10 +99,10 @@ public final class AtomicAction {
     throw new LMIException(ER_PUT);
   }
 
-  public static boolean move(Coord coord, boolean force, AgentContext ctx) {
+  public static boolean go(Coord coord, boolean force, AgentContext ctx) {
     try {
-      if (force) forceMove(coord);
-      else move(coord);
+      if (force) forceGo(coord);
+      else go(coord);
       if (ctx != null) ctx.pushBreadcrumb(coord);
       return true;
     } catch (LMIException e) {
@@ -93,9 +112,9 @@ public final class AtomicAction {
     }
   }
 
-  public static boolean lift(Gob gob, AgentContext ctx) {
+  public static boolean lift(long gobId, Coord gobPosition, AgentContext ctx) {
     try {
-      forceLift(gob);
+      forceLift(gobId, gobPosition);
       return true;
     } catch (LMIException e) {
       if (e.reason == ER_INTERRUPTED) throw e;
@@ -113,5 +132,11 @@ public final class AtomicAction {
       if (e.reason == ER_PUT) return false;
       throw e;
     }
+  }
+
+  private static Gob _gob(long gobId) {
+    Gob gob = AppContext.oCache().getgob(gobId);
+    if (gob == null) throw new LMIException(ER_FAIL);
+    return gob;
   }
 }

@@ -7,11 +7,11 @@ import static lmi.Constant.*;
 
 public class Hook {
   public static void didMsgReceive(int id, String msg, Object... args) {
-    if (msg.contentEquals("err")) {
-      String description = String.format("{%d: %s} (argc: %d)", id, msg, args.length);
-      lmi.Util.debugPrintHeader(description);
-      _recursivePrintObject(0, args);
-    }
+    if (!msg.contentEquals("err")) return;
+
+    String description = String.format("{%d: %s} (argc: %d)", id, msg, args.length);
+    lmi.Util.debugPrintHeader(description);
+    _recursivePrintObject(0, args);
   }
 
   private static void _recursivePrintObject(int indent, Object... args) {

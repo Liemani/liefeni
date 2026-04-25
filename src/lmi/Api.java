@@ -175,7 +175,7 @@ public class Api {
   /// - Throws: ER_INTERRUPTED
   public static Window openGobWindow(Gob gob) {
     while (true) {
-      AtomicAction.interact(gob);
+      AtomicAction.interact(gob.id(), gob.position());
       final Window window = AppContext.window();
       if (window != null)
         return window;
@@ -195,11 +195,11 @@ public class Api {
 
   /// - Throws: ER_INTERRUPTED
   ///     - ER_FAIL
-  public static void moveNorth() { AtomicAction.move(Self.position().north()); }
-  public static void moveEast() { AtomicAction.move(Self.position().east()); }
-  public static void moveWest() { AtomicAction.move(Self.position().west()); }
-  public static void moveSouth() { AtomicAction.move(Self.position().south()); }
-  public static void moveCenter() { AtomicAction.move(Self.position().center()); }
+  public static void moveNorth() { AtomicAction.go(Self.position().north()); }
+  public static void moveEast() { AtomicAction.go(Self.position().east()); }
+  public static void moveWest() { AtomicAction.go(Self.position().west()); }
+  public static void moveSouth() { AtomicAction.go(Self.position().south()); }
+  public static void moveCenter() { AtomicAction.go(Self.position().center()); }
 
   // Get Gob
   /// - Throws: ER_INTERRUPTED

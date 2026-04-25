@@ -20,7 +20,7 @@ public class Patrol000Job extends Job {
 
     while (true) {
       for (haven.Coord location : _path) {
-        AtomicAction.move(location);
+        AtomicAction.go(location);
         lmi.WaitManager.sleep(1000);
       }
     }

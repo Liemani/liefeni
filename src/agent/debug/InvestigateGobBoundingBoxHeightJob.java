@@ -21,8 +21,8 @@ public class InvestigateGobBoundingBoxHeightJob extends Job {
     Gob variantGob = ClickManager.getGob();
 
     Coord standardPoint = Self.position().center();
-    AtomicAction.lift(standardGob);
-    AtomicAction.move(standardPoint.add(0, 2048));
+    AtomicAction.lift(standardGob.id(), standardGob.position());
+    AtomicAction.go(standardPoint.add(0, 2048));
     AtomicAction.put(standardPoint);
 
     final int start = 1024 / 8 * 15;
@@ -42,7 +42,7 @@ public class InvestigateGobBoundingBoxHeightJob extends Job {
   }
 
   private void _carryHeight(Gob gob, Coord putPoint) {
-    AtomicAction.lift(gob);
+    AtomicAction.lift(gob.id(), gob.position());
     AtomicAction.put(putPoint);
   }
 

@@ -89,7 +89,7 @@ public class Constant {
   public static class Timeout {
     public static final long TO_NONE = 0;
     public static final long TO_IMPERCEPTIBLE = 10;
-    public static final long TO_PERCEPTIBLE = 100;
+    public static final long TO_POLL = 100;
     public static final long TO_TEMPORARY = 500;
     public static final long TO_GENERAL = 1000;
     public static final long TO_RETRY = 1000;
@@ -100,6 +100,13 @@ public class Constant {
   public static class MeshId {
     public static final int MI_NONE = -1;
     public static final int MI_DEFAULT = 0;
+  }
+
+  public static class WaypointEdgeDirection {
+    public static final int BLOCKED = 0;
+    public static final int FORWARD = 1;
+    public static final int BACKWARD = 2;
+    public static final int BIDIRECTIONAL = 3;
   }
 
   public static class BoundingBox {

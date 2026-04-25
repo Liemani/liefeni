@@ -27,7 +27,7 @@ public class ClickManager {
   public static Gob getGob() {
     isGobClickMode = true;
 
-    while (isGobClickMode) WaitManager.sleep();
+    while (isGobClickMode) WaitManager.sleepPolling();
 
     final haven.Clickable clickable = _clickData.ci;
     Gob clickedGob = null;
@@ -48,7 +48,7 @@ public class ClickManager {
     AppContext.mapView().newSelector();
 
 
-    while (isAreaSelectMode) WaitManager.sleep();
+    while (isAreaSelectMode) WaitManager.sleepPolling();
 
     AppContext.mapView().destroySelector();
 

@@ -10,6 +10,8 @@ import haven.OCache;
 import java.util.ArrayList;
 import java.util.List;
 
+import lmi.Self;
+
 public final class WaypointRecorder {
   private static final Object lock = new Object();
   private static Session activeSession;
@@ -47,13 +49,22 @@ public final class WaypointRecorder {
 
       Coord pos = mapCoord.floor(OCache.posres);
       Long gobId = _gobId(clickData);
-      activeSession.clicks.add(new ClickRecord(
-        activeSession.clicks.size(),
+      Integer meshId = _meshId(clickData);
+
+      _rotateSegmentIfPreviousWasDoor(activeSession, pos.x, gobId);
+
+      SegmentRecord segment = activeSession.currentSegment();
+      if (segment.baseGobId == null && gobId != null) {
+        segment.baseGobId = gobId;
+      }
+
+      segment.points.add(new PointRecord(
+        segment.points.size(),
         pos.x,
         pos.y,
         mouseButton,
         gobId,
-        _meshId(clickData)
+        meshId
       ));
     }
   }
@@ -65,13 +76,35 @@ public final class WaypointRecorder {
         return StopResult.noActiveSession();
       session = activeSession;
       session.stoppedAtMillis = System.currentTimeMillis();
+      _markLastDoorPoint(session);
       activeSession = null;
     }
 
     String error = WaypointDatabase.save(session);
     if (error == null)
-      return StopResult.saved(session.name, session.clicks.size());
-    return StopResult.failed(session.name, session.clicks.size(), error);
+      return StopResult.saved(session.name, session.pointCount());
+    return StopResult.failed(session.name, session.pointCount(), error);
+  }
+
+  private static void _rotateSegmentIfPreviousWasDoor(Session session, int currentX, Long currentGobId) {
+    PointRecord previous = session.lastPoint();
+    if (previous == null) return;
+
+    if (Math.abs(currentX - previous.x) < 1000) return;
+
+    previous.isDoor = true;
+
+    SegmentRecord next = new SegmentRecord(
+      session.segments.size(),
+      (currentGobId != null) ? currentGobId : previous.gobId
+    );
+    session.segments.add(next);
+  }
+
+  private static void _markLastDoorPoint(Session session) {
+    PointRecord last = session.lastPoint();
+    if (last == null) return;
+    last.isDoor = Math.abs(Self.position().x - last.x) >= 1000;
   }
 
   private static Long _gobId(ClickData clickData) {
@@ -94,31 +127,66 @@ public final class WaypointRecorder {
 
   public static final class Session {
     public final String name;
-    final List<ClickRecord> clicks = new ArrayList<>();
-    final long startedAtMillis;
-    long stoppedAtMillis;
+    public final List<SegmentRecord> segments = new ArrayList<>();
+    public final long startedAtMillis;
+    public long stoppedAtMillis;
 
     private Session(String name) {
       this.name = name;
       this.startedAtMillis = System.currentTimeMillis();
+      this.segments.add(new SegmentRecord(0, null));
+    }
+
+    public int pointCount() {
+      int count = 0;
+      for (SegmentRecord segment : segments) {
+        count += segment.points.size();
+      }
+      return count;
+    }
+
+    SegmentRecord currentSegment() {
+      return segments.get(segments.size() - 1);
+    }
+
+    PointRecord lastPoint() {
+      for (int i = segments.size() - 1; i >= 0; --i) {
+        SegmentRecord segment = segments.get(i);
+        if (!segment.points.isEmpty())
+          return segment.points.get(segment.points.size() - 1);
+      }
+      return null;
     }
   }
 
-  public static final class ClickRecord {
-    final int index;
-    final int x;
-    final int y;
-    final int mouseButton;
-    final Long gobId;
-    final Integer meshId;
+  public static final class SegmentRecord {
+    public final int index;
+    public Long baseGobId;
+    public final List<PointRecord> points = new ArrayList<>();
 
-    private ClickRecord(int index, int x, int y, int mouseButton, Long gobId, Integer meshId) {
+    private SegmentRecord(int index, Long baseGobId) {
+      this.index = index;
+      this.baseGobId = baseGobId;
+    }
+  }
+
+  public static final class PointRecord {
+    public final int index;
+    public final int x;
+    public final int y;
+    public final int mouseButton;
+    public final Long gobId;
+    public final Integer meshId;
+    public boolean isDoor;
+
+    private PointRecord(int index, int x, int y, int mouseButton, Long gobId, Integer meshId) {
       this.index = index;
       this.x = x;
       this.y = y;
       this.mouseButton = mouseButton;
       this.gobId = gobId;
       this.meshId = meshId;
+      this.isDoor = false;
     }
   }
 

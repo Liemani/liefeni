@@ -58,8 +58,8 @@ public class WaitManager {
     }
   }
 
-  public static void sleep() {
-    sleep(TO_PERCEPTIBLE);
+  public static void sleepPolling() {
+    sleep(TO_POLL);
   }
 
   public static void sleep(long timeout) {

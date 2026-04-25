@@ -15,9 +15,9 @@ public class Patrol002Job extends Job {
     haven.Coord secondPoint = Self.position().add(TILE_IN_COORD, 0);
 
     while (true) {
-      AtomicAction.move(firstPoint);
+      AtomicAction.go(firstPoint);
       lmi.WaitManager.sleep(2000);
-      AtomicAction.move(secondPoint);
+      AtomicAction.go(secondPoint);
       lmi.WaitManager.sleep(2000);
     }
   }

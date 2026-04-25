@@ -3,6 +3,7 @@ package lmi;
 import haven.*;
 import java.util.ArrayList;
 import java.util.List;
+import lmi.waypoint.WaypointManager;
 import static lmi.Constant.gfx.hud.meter.*;
 
 public class AppContext {
@@ -36,6 +37,7 @@ public class AppContext {
     WaitManager.init();
     AgentManager.init();
     Pathfinder.init();
+    WaypointManager.clear();
 
     meterWidgets = new ArrayList<>();
   }
@@ -59,6 +61,7 @@ public class AppContext {
     session = null;
     glob = null;
     oCache = null;
+    WaypointManager.clear();
     resetWidgetCache();
   }
 

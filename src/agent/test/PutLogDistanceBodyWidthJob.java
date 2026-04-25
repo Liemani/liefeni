@@ -24,12 +24,12 @@ public class PutLogDistanceBodyWidthJob extends Job {
     final int averageY = (BH_LOG + BH_BODY) / 2;
     final int averageX = (BW_LOG + BW_BODY) / 2;
 
-    AtomicAction.lift(firstLog);
-    AtomicAction.move(origin.add(-averageX - 1, averageY));
+    AtomicAction.lift(firstLog.id(), firstLog.position());
+    AtomicAction.go(origin.add(-averageX - 1, averageY));
     AtomicAction.put(origin.add(-averageX - 1, 0));
 
-    AtomicAction.lift(secondLog);
-    AtomicAction.move(origin.add(averageX + 1, averageY));
+    AtomicAction.lift(secondLog.id(), secondLog.position());
+    AtomicAction.go(origin.add(averageX + 1, averageY));
     AtomicAction.put(origin.add(averageX + 1, 0));
   }
 

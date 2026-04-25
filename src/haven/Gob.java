@@ -1052,6 +1052,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 
     // Instance Method
     public boolean isAt(Coord coord) { return this.position().equals(coord); }
+    public boolean isAt(Coord2d coord) { return this.rc.equals(coord); }
     public boolean isMoving() { return this.velocity() != 0.0; }
     public boolean isStop() { return !isMoving(); }
     public double distance(Coord coord) { return this.position().distance(coord); }
@@ -1148,7 +1149,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
       WaitManager.waitResponse();
 
       while (isMoving()) {
-        WaitManager.sleep();
+        WaitManager.sleepPolling();
       }
 
       if (this.rc.equals(start)) {
@@ -1160,7 +1161,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     public void waitBuild() {
       WaitManager.waitResponse();
       while (this.hasPose(RN_BUILDAN)) {
-        WaitManager.sleep();
+        WaitManager.sleepPolling();
       }
     }
 
@@ -1168,7 +1169,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     public void waitLift(Gob gob) {
       WaitManager.waitResponse();
       while (!this.isLifting(gob)) {
-        WaitManager.sleep();
+        WaitManager.sleepPolling();
       }
     }
 
@@ -1176,7 +1177,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
     public void waitPut() {
       WaitManager.waitResponse();
       while (this.isLifting()) {
-        WaitManager.sleep();
+        WaitManager.sleepPolling();
       }
     }
 
