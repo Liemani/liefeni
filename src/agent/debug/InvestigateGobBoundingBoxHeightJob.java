@@ -4,6 +4,7 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.ClickManager;
 import lmi.Self;
@@ -20,9 +21,9 @@ public class InvestigateGobBoundingBoxHeightJob extends Job {
     Gob variantGob = ClickManager.getGob();
 
     Coord standardPoint = Self.position().center();
-    Api.lift(standardGob);
-    Api.move(standardPoint.add(0, 2048));
-    Api.put(standardPoint);
+    AtomicAction.lift(standardGob);
+    AtomicAction.move(standardPoint.add(0, 2048));
+    AtomicAction.put(standardPoint);
 
     final int start = 1024 / 8 * 15;
     int variant = start;
@@ -41,8 +42,8 @@ public class InvestigateGobBoundingBoxHeightJob extends Job {
   }
 
   private void _carryHeight(Gob gob, Coord putPoint) {
-    Api.lift(gob);
-    Api.put(putPoint);
+    AtomicAction.lift(gob);
+    AtomicAction.put(putPoint);
   }
 
   public static String info() {

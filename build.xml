@@ -54,10 +54,12 @@
 
   <target name="extlib-env">
     <mkdir dir="lib/ext" />
+    <mkdir dir="lib/ext/sqlite" />
     <available property="extlib/has-jogl" file="lib/ext/jogl/has-jogl" />
     <available property="extlib/has-lwjgl-base" file="lib/ext/lwjgl/has-lwjgl-base" />
     <available property="extlib/has-lwjgl-gl" file="lib/ext/lwjgl/has-lwjgl-gl" />
     <available property="extlib/has-steamworks" file="lib/ext/steamworks/has-steamworks" />
+    <available property="extlib/has-sqlite" file="lib/ext/sqlite/sqlite-jdbc-3.53.0.0.jar" />
   </target>
 
   <target name="extlib/jogl" depends="extlib-env" unless="extlib/has-jogl">
@@ -77,7 +79,7 @@
   </target>
 
 
-  <target name="hafen-client" depends="build-env, extlib/jogl, extlib/lwjgl-gl, extlib/steamworks">
+  <target name="hafen-client" depends="build-env, extlib/jogl, extlib/lwjgl-gl, extlib/steamworks, extlib-env">
     <condition property="explicit-annotations">
       <javaversion atleast="21" />
     </condition>
@@ -91,6 +93,7 @@
 	<pathelement path="lib/ext/lwjgl/lwjgl-awt.jar" />
 	<pathelement path="lib/ext/lwjgl/lwjgl-opengl-fat.jar" />
 	<pathelement path="lib/ext/steamworks/steamworks4j.jar" />
+	<pathelement path="lib/ext/sqlite/sqlite-jdbc-3.53.0.0.jar" />
 	<pathelement path="lib/jglob.jar" />
       </classpath>
       <compilerarg if:set="explicit-annotations" value="-proc:full" />
@@ -115,6 +118,9 @@
     <unjar src="lib/jglob.jar" dest="build/classes-lib">
       <patternset excludes="META-INF/**" />
     </unjar>
+    <unjar src="lib/ext/sqlite/sqlite-jdbc-3.53.0.0.jar" dest="build/classes-lib">
+      <patternset excludes="META-INF/**" />
+    </unjar>
   </target>
 
   <target name="jar" depends="hafen-client, buildinfo, lib-classes">
@@ -123,7 +129,7 @@
       <fileset dir="build/classes-lib" />
       <manifest>
 	<attribute name="Main-Class" value="haven.MainFrame" />
-	<attribute name="Class-Path" value="jogl-all.jar gluegen-rt.jar lwjgl-fat.jar lwjgl-awt.jar lwjgl-opengl-fat.jar steamworks4j.jar builtin-res.jar hafen-res.jar" />
+	<attribute name="Class-Path" value="jogl-all.jar gluegen-rt.jar lwjgl-fat.jar lwjgl-awt.jar lwjgl-opengl-fat.jar steamworks4j.jar sqlite-jdbc-3.53.0.0.jar builtin-res.jar hafen-res.jar" />
 	<attribute name="Enable-Native-Access" value="ALL-UNNAMED" />
       </manifest>
     </jar>
@@ -141,7 +147,7 @@
     <fail unless="lib-builtin-jar" message="builtin-res.jar not available" />
   </target>
 
-  <target name="jars" depends="build-env, jar, extlib/jogl, extlib/lwjgl-gl, extlib/steamworks">
+  <target name="jars" depends="build-env, jar, extlib/jogl, extlib/lwjgl-gl, extlib/steamworks, extlib-env">
     <copy todir="build" failonerror="false" quiet="true">
       <fileset dir="lib">
 	<include name="builtin-res.jar" />
@@ -152,11 +158,12 @@
       <fileset dir="lib/ext/jogl"><include name="*.jar" /></fileset>
       <fileset dir="lib/ext/lwjgl"><include name="*.jar" /></fileset>
       <fileset dir="lib/ext/steamworks"><include name="*.jar" /></fileset>
+      <fileset dir="lib/ext/sqlite"><include name="*.jar" /></fileset>
     </copy>
     <copy file="local-config.properties" tofile="build/haven-config.properties" failonerror="false" quiet="true" />
   </target>
 
-  <target name="bin" depends="jar, extlib/jogl, extlib/lwjgl-gl, extlib/steamworks, res-jar">
+  <target name="bin" depends="jar, extlib/jogl, extlib/lwjgl-gl, extlib/steamworks, res-jar, extlib-env">
     <mkdir dir="bin" />
     <copy todir="bin">
       <fileset dir="build">
@@ -169,6 +176,7 @@
       <fileset dir="lib/ext/jogl"><include name="*.jar" /></fileset>
       <fileset dir="lib/ext/lwjgl"><include name="*.jar" /></fileset>
       <fileset dir="lib/ext/steamworks"><include name="*.jar" /></fileset>
+      <fileset dir="lib/ext/sqlite"><include name="*.jar" /></fileset>
     </copy>
     <copy file="etc/ansgar-config.properties" tofile="bin/haven-config.properties" />
     <chmod file="bin/hafen.jar" perm="a+x" />

@@ -4,6 +4,7 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.ClickManager;
 import lmi.Self;
@@ -21,9 +22,9 @@ public class InvestigateGobBoundingBoxWidthJob extends Job {
     Gob variantGob = ClickManager.getGob();
 
     Coord standardPoint = Self.position();
-    Api.lift(standardGob);
-    Api.move(standardPoint.add(0, 2048));
-    Api.put(standardPoint);
+    AtomicAction.lift(standardGob);
+    AtomicAction.move(standardPoint.add(0, 2048));
+    AtomicAction.put(standardPoint);
 
     final int start = TILE_IN_COORD / 8 * 3 + 1;
     int variant = start;
@@ -42,9 +43,9 @@ public class InvestigateGobBoundingBoxWidthJob extends Job {
   }
 
   private void _carryWidth(Gob gob, Coord putPoint) {
-    Api.lift(gob);
-    Api.move(putPoint.add(0, TILE_IN_COORD * 2));
-    Api.put(putPoint);
+    AtomicAction.lift(gob);
+    AtomicAction.move(putPoint.add(0, TILE_IN_COORD * 2));
+    AtomicAction.put(putPoint);
   }
 
   public static String info() {

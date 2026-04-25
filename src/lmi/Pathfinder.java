@@ -64,7 +64,7 @@ class Pathfinder {
       throw e;
     } finally {
       _clear();
-      Api.forceMove(destination);
+      AtomicAction.forceMove(destination);
     }
   }
 
@@ -243,7 +243,7 @@ class Pathfinder {
       if (direction != previousDirection) {
         _currentMoveCoord.assign(_origin);
         final Coord targetLocation = _origin.multiply(TILE_IN_COORD).assignAdd(_mapOrigin).assignAdd(TILE_IN_COORD / 2);
-        Api.move(targetLocation);
+        AtomicAction.move(targetLocation);
         _lastMoveWorldLocation.assign(targetLocation);
         if (_origin.equals(_destination))
           break;
@@ -271,7 +271,7 @@ class Pathfinder {
       _map[blockedMapCoord.x][blockedMapCoord.y] = true;
     }
 
-    Api.move(_lastMoveWorldLocation);
+    AtomicAction.move(_lastMoveWorldLocation);
   }
 
   // Clear

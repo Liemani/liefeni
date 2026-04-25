@@ -2,6 +2,7 @@ package agent.test;
 
 import agent.Job;
 
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.AgentContext;
 
@@ -9,9 +10,9 @@ public class LiftJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
     if (args.length >= 3)
-      Api.lift(Api.closestGobOf(args[2]));
+      AtomicAction.lift(Api.closestGobOf(args[2]));
     else
-      Api.lift(Api.closestGob());
+      AtomicAction.lift(Api.closestGob());
   }
 
   public static String info() {

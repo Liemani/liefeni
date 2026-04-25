@@ -2,6 +2,7 @@ package agent.test;
 
 import agent.Job;
 
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.AgentContext;
 
@@ -9,9 +10,9 @@ public class InteractJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
     if (args.length >= 3)
-      Api.interact(Api.closestGobOf(args[2]));
+      AtomicAction.interact(Api.closestGobOf(args[2]));
     else
-      Api.interact(Api.closestGob());
+      AtomicAction.interact(Api.closestGob());
   }
 
   public static String info() {

@@ -1,6 +1,6 @@
 package lmi;
 
-import agent.Action;
+import agent.Effect;
 import agent.Job;
 
 import java.io.File;
@@ -22,7 +22,7 @@ final class AgentRegistry {
   private static final String BASE_PATH = "agent/";
 
   private static final Map<String, Class<? extends Job>> jobMap = new TreeMap<>();
-  private static final Map<String, Class<? extends Action>> actionMap = new TreeMap<>();
+  private static final Map<String, Class<? extends Effect>> effectMap = new TreeMap<>();
   private static final Map<String, Class<?>> folderMetadataMap = new HashMap<>();
   private static final List<Entry> executableEntries = new ArrayList<>();
 
@@ -32,7 +32,7 @@ final class AgentRegistry {
     if (initialized) return;
 
     jobMap.clear();
-    actionMap.clear();
+    effectMap.clear();
     folderMetadataMap.clear();
     executableEntries.clear();
 
@@ -51,9 +51,9 @@ final class AgentRegistry {
     return jobMap.get(name);
   }
 
-  static Class<? extends Action> actionClass(String name) {
+  static Class<? extends Effect> effectClass(String name) {
     init();
-    return actionMap.get(name);
+    return effectMap.get(name);
   }
 
   static Class<?> folderMetadataClass(String packageName) {
@@ -94,7 +94,7 @@ final class AgentRegistry {
 
     try {
       Class<?> cls = Class.forName(className);
-      if (cls == Job.class || cls == Action.class) return;
+      if (cls == Job.class || cls == Effect.class) return;
 
       if (_isFolderMetadataClass(cls)) {
         folderMetadataMap.put(cls.getPackage().getName(), cls);
@@ -109,11 +109,11 @@ final class AgentRegistry {
         return;
       }
 
-      if (_isConcreteActionClass(cls)) {
-        Class<? extends Action> actionClass = (Class<? extends Action>) cls;
-        String actionName = _actionCommandName(actionClass);
-        actionMap.put(actionName, actionClass);
-        executableEntries.add(Entry.action(actionClass));
+      if (_isConcreteEffectClass(cls)) {
+        Class<? extends Effect> effectClass = (Class<? extends Effect>) cls;
+        String effectName = _effectCommandName(effectClass);
+        effectMap.put(effectName, effectClass);
+        executableEntries.add(Entry.effect(effectClass));
       }
     } catch (ClassNotFoundException e) {
       // Ignore classes that cannot be loaded
@@ -129,7 +129,7 @@ final class AgentRegistry {
     String leaf = packageName.substring(packageName.lastIndexOf('.') + 1);
     return cls.getSimpleName().equalsIgnoreCase(leaf)
       && !Job.class.isAssignableFrom(cls)
-      && !Action.class.isAssignableFrom(cls);
+      && !Effect.class.isAssignableFrom(cls);
   }
 
   private static boolean _isConcreteJobClass(Class<?> cls) {
@@ -138,8 +138,8 @@ final class AgentRegistry {
       && !java.lang.reflect.Modifier.isAbstract(cls.getModifiers());
   }
 
-  private static boolean _isConcreteActionClass(Class<?> cls) {
-    return Action.class.isAssignableFrom(cls)
+  private static boolean _isConcreteEffectClass(Class<?> cls) {
+    return Effect.class.isAssignableFrom(cls)
       && !cls.isInterface()
       && !java.lang.reflect.Modifier.isAbstract(cls.getModifiers());
   }
@@ -151,9 +151,9 @@ final class AgentRegistry {
     return simpleName;
   }
 
-  private static String _actionCommandName(Class<? extends Action> cls) {
+  private static String _effectCommandName(Class<? extends Effect> cls) {
     String simpleName = cls.getSimpleName();
-    if (simpleName.endsWith("Action"))
+    if (simpleName.endsWith("Effect"))
       return simpleName.substring(0, simpleName.length() - 6);
     return simpleName;
   }
@@ -161,7 +161,7 @@ final class AgentRegistry {
   static final class Entry {
     enum Kind {
       JOB,
-      ACTION
+      EFFECT
     }
 
     private final Kind kind;
@@ -178,8 +178,8 @@ final class AgentRegistry {
       return new Entry(Kind.JOB, cls, _jobCommandName(cls));
     }
 
-    static Entry action(Class<? extends Action> cls) {
-      return new Entry(Kind.ACTION, cls, _actionCommandName(cls));
+    static Entry effect(Class<? extends Effect> cls) {
+      return new Entry(Kind.EFFECT, cls, _effectCommandName(cls));
     }
 
     Kind kind() { return kind; }

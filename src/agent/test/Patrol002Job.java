@@ -2,6 +2,7 @@ package agent.test;
 
 import agent.Job;
 
+import lmi.AtomicAction;
 import lmi.Array;
 import lmi.Self;
 import lmi.AgentContext;
@@ -14,9 +15,9 @@ public class Patrol002Job extends Job {
     haven.Coord secondPoint = Self.position().add(TILE_IN_COORD, 0);
 
     while (true) {
-      lmi.Api.move(firstPoint);
+      AtomicAction.move(firstPoint);
       lmi.WaitManager.sleep(2000);
-      lmi.Api.move(secondPoint);
+      AtomicAction.move(secondPoint);
       lmi.WaitManager.sleep(2000);
     }
   }

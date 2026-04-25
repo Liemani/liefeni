@@ -1,12 +1,12 @@
-package agent.action;
+package agent.effect;
 
-public class action {
+public class effect {
   public static String name() {
-    return "Action";
+    return "Effect";
   }
 
   public static String info() {
-    return "Contains immediate actions that execute without creating a long-running job.";
+    return "Contains immediate effects that execute without creating a long-running job.";
   }
 
   public static String icon() {
@@ -14,6 +14,6 @@ public class action {
   }
 
   public static String sortkey() {
-    return "01_action";
+    return "01_effect";
   }
 }

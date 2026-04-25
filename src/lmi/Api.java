@@ -15,29 +15,6 @@ import static lmi.Constant.Message.*;
 
 public class Api {
   /// - Throws: ER_INTERRUPTED
-  public static void interact(Gob gob) {
-    Interaction.click(gob, 3, 0, 0, 0, -1);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  public static void move(Coord coord) {
-    _sendMoveMessage(coord);
-    Self.gob().waitMove(coord);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  public static void forceMove(Coord coord) {
-    for (int retry = 0; retry < RETRY_MAX; ++retry) {
-      try {
-        Api.move(coord);
-        return;
-      } catch (LMIException e) { if (e.reason != ER_FAIL) throw e; }
-      WaitManager.sleep(TO_RETRY);
-    }
-    throw new LMIException(ER_FAIL);
-  }
-
-  /// - Throws: ER_INTERRUPTED
   ///     - ER_FAIL
   ///     - ER_NO_PATH
   public static void pathfindMove(Gob gob) { Pathfinder.move(gob); }
@@ -198,7 +175,7 @@ public class Api {
   /// - Throws: ER_INTERRUPTED
   public static Window openGobWindow(Gob gob) {
     while (true) {
-      Api.interact(gob);
+      AtomicAction.interact(gob);
       final Window window = AppContext.window();
       if (window != null)
         return window;
@@ -218,58 +195,11 @@ public class Api {
 
   /// - Throws: ER_INTERRUPTED
   ///     - ER_FAIL
-  public static void moveNorth() { Api.move(Self.position().north()); }
-  public static void moveEast() { Api.move(Self.position().east()); }
-  public static void moveWest() { Api.move(Self.position().west()); }
-  public static void moveSouth() { Api.move(Self.position().south()); }
-  public static void moveCenter() { Api.move(Self.position().center()); }
-
-  /// - Throws: ER_INTERRUPTED
-  ///     - ER_LIFT
-  public static void lift(Gob gob) {
-    AppContext.menuGrid().wdgmsg(M_ACT, A_CARRY, 0);
-    _sendObjectClickMessage(gob);
-    try {
-      Self.gob().waitMove();
-    } catch (LMIException e) { if (e.reason != ER_FAIL) throw e; }
-    Self.gob().waitLift(gob);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  ///     - ER_LIFT
-  public static void forceLift(Gob gob) {
-    for (int retry = 0; retry < RETRY_MAX; ++retry) {
-      try {
-        Api.lift(gob);
-        return;
-      } catch (LMIException e) { if (e.reason != ER_LIFT) throw e; }
-      WaitManager.sleep(TO_RETRY);
-    }
-    throw new LMIException(ER_LIFT);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  ///     - ER_PUT
-  public static void forcePut(Coord coord) {
-    for (int retry = 0; retry < RETRY_MAX; ++retry) {
-      try {
-        Api.put(coord);
-        return;
-      } catch (LMIException e) { if (e.reason != ER_PUT) throw e; }
-      WaitManager.sleep(TO_RETRY);
-    }
-    throw new LMIException(ER_PUT);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  ///     - ER_PUT
-  public static void put(Coord coord) {
-    _sendPutMessage(coord);
-    try {
-      Self.gob().waitMove();
-    } catch (LMIException e) { if (e.reason != ER_FAIL) throw e; }
-    Self.gob().waitPut();
-  }
+  public static void moveNorth() { AtomicAction.move(Self.position().north()); }
+  public static void moveEast() { AtomicAction.move(Self.position().east()); }
+  public static void moveWest() { AtomicAction.move(Self.position().west()); }
+  public static void moveSouth() { AtomicAction.move(Self.position().south()); }
+  public static void moveCenter() { AtomicAction.move(Self.position().center()); }
 
   // Get Gob
   /// - Throws: ER_INTERRUPTED
@@ -380,19 +310,4 @@ public class Api {
   //          return new Array<GItem>();
   //      }
 
-  // Private Method
-  /// - Throws: ER_INTERRUPTED
-  private static void _sendMoveMessage(Coord coord) {
-    Interaction.click(coord, 1, 0);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  private static void _sendObjectClickMessage(Gob gob) {
-    Interaction.click(gob, 1, 0, 0, 0, 0);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  private static void _sendPutMessage(Coord location) {
-    Interaction.click(location, 3, 0);
-  }
 }

@@ -1,10 +1,8 @@
 package lmi.behavior;
 
 import lmi.AgentContext;
+import lmi.AtomicAction;
 import lmi.LMIException;
-import lmi.task.MoveTask;
-import lmi.task.LiftTask;
-import lmi.task.PutTask;
 
 import haven.Coord;
 import haven.Gob;
@@ -12,12 +10,12 @@ import static lmi.Constant.ExceptionReason.*;
 
 public class AlignLogBehavior {
   public void run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog) {
-    if (!new MoveTask(root, true).execute(ctx)) throw new LMIException(ER_FAIL);
-    if (!new LiftTask(targetLog).execute(ctx)) throw new LMIException(ER_LIFT);
-    if (!new MoveTask(root, true).execute(ctx)) throw new LMIException(ER_FAIL);
-    if (!new MoveTask(trunk, true).execute(ctx)) throw new LMIException(ER_FAIL);
-    if (!new MoveTask(branch, true).execute(ctx)) throw new LMIException(ER_FAIL);
-    if (!new PutTask(leaf).execute(ctx)) throw new LMIException(ER_PUT);
-    if (!new MoveTask(trunk, true).execute(ctx)) throw new LMIException(ER_FAIL);
+    if (!AtomicAction.move(root, true, ctx)) throw new LMIException(ER_FAIL);
+    if (!AtomicAction.lift(targetLog, ctx)) throw new LMIException(ER_LIFT);
+    if (!AtomicAction.move(root, true, ctx)) throw new LMIException(ER_FAIL);
+    if (!AtomicAction.move(trunk, true, ctx)) throw new LMIException(ER_FAIL);
+    if (!AtomicAction.move(branch, true, ctx)) throw new LMIException(ER_FAIL);
+    if (!AtomicAction.put(leaf, ctx)) throw new LMIException(ER_PUT);
+    if (!AtomicAction.move(trunk, true, ctx)) throw new LMIException(ER_FAIL);
   }
 }

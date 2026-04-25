@@ -1,6 +1,6 @@
 # LMI Working Context
 
-이 저장소는 Haven & Hearth 클라이언트 위에 얹는 자동화 런타임 `LMI`와, 그 위에서 실행되는 사용자 기능 패키지 `agent`로 구성된다.
+이 저장소는 Haven & Hearth 클라이언트 위에 얹는 자동화 런타임 `lmi`와, 그 위에서 실행되는 사용자 기능 패키지 `agent`로 구성된다.
 현재 중요한 것은 "무엇을 자동화하느냐"보다 "그 자동화가 어떤 런타임 계약 위에서 안전하게 돌아가느냐"다.
 
 ## 구조 개요
@@ -8,8 +8,8 @@
 ### 계층
 
 - `haven`: 원본 게임 클라이언트와 엔진 코드
-- `lmi`: 자동화 런타임, 동기화, 훅, UI 주입, 실행 인프라
-- `agent`: 실제 사용자 기능인 `Job`과 `Action`
+- `lmi`: 자동화 런타임, 동기화, 훅, UI 주입, waypoint 저장/재생, 실행 인프라
+- `agent`: 실제 사용자 기능인 `Job`과 `Effect`
 
 의존 방향은 기본적으로 `lmi -> agent`다.
 `agent`는 실행 대상이고, `lmi`는 그것을 발견하고 실행하고 동기화하는 프레임워크다.
@@ -49,7 +49,6 @@
 - 내부적으로 `process-level`, `session-level`, `widget-cache` 수명을 구분한다.
 - `setMenuGrid()`는 menu 참조만 저장하고, 실제 LMI 메뉴 주입은 호출부에서 `MenuGridProxy.init()`를 명시적으로 호출한다.
 
-다만 이 전환은 아직 완료되지 않았다.
 현재는 public static field와 accessor 메서드가 공존하는 과도기 상태다.
 
 세션/위젯 무효화 정책은 다음과 같다.
@@ -89,29 +88,29 @@ LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는�
 
 ### AgentRegistry
 
-현재 `agent` 패키지의 `Job`, `Action`, 폴더 메타데이터 발견은 모두 `lmi.AgentRegistry`가 맡는다.
+현재 `agent` 패키지의 `Job`, `Effect`, 폴더 메타데이터 발견은 모두 `lmi.AgentRegistry`가 맡는다.
 
 규칙은 다음과 같다.
 
 - 배포는 JAR 기준이다.
 - 실행 중인 JAR 안의 `agent/**`를 recursive 하게 스캔한다.
 - concrete `Job`은 실행 가능한 Job으로 등록한다.
-- concrete `Action`은 실행 가능한 Action으로 등록한다.
+- concrete `Effect`는 실행 가능한 Effect로 등록한다.
 - 패키지 마지막 이름과 같은 소문자 마커 클래스는 폴더 메타데이터로 간주한다.
-  - 예: `agent.job.job`
-  - 예: `agent.action.action`
+  - 예: `agent.effect.effect`
+  - 예: `agent.tool.waypoint.waypoint`
 
 이 registry를 다음 컴포넌트가 공통으로 사용한다.
 
 - `AgentManager`: 콘솔 명령에서 Job 조회 및 실행
 - `MenuGridProxy`: 메뉴 계층 구성 및 메타데이터 표시
-- `Hook`: 메뉴 클릭 시 Job/Action 실행
+- `Hook`: 메뉴 클릭 시 Job/Effect 실행
 
 목적은 "찾는 규칙", "실행 규칙", "보여주는 규칙"을 하나로 맞추는 것이다.
 
 ### 메뉴 메타데이터 계약
 
-`agent` 아래의 Job/Action/폴더 메타데이터 클래스는 다음 정적 메서드를 선택적으로 제공할 수 있다.
+`agent` 아래의 Job/Effect/폴더 메타데이터 클래스는 다음 정적 메서드를 선택적으로 제공할 수 있다.
 
 - `name()`: 표시 이름
 - `info()`: 툴팁 설명
@@ -121,13 +120,52 @@ LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는�
 `icon()`이 `assets/`로 시작하면 로컬 PNG를 직접 로드한다.
 그 외 문자열은 Haven resource path로 간주한다.
 
-### Action의 의미
+### Effect의 의미
 
 `Job`은 길거나 절차적인 작업이다.
-`Action`은 즉시 실행형 기능이다.
+`Effect`는 메뉴 클릭 즉시 수행되는 완결 기능이다.
 
-현재 예시로 `agent.action.ToggleSleepAction`이 있으며, 이는 메뉴 클릭 즉시 `Agent` sleep 상태를 토글한다.
-이 예시는 registry -> menu -> hook -> execute 경로가 끝까지 연결되어 있음을 검증하기 위한 기준 구현이기도 하다.
+현재 예시로 `agent.effect.ToggleSleepEffect`, `agent.tool.waypoint.StopRecordEffect`가 있다.
+이들은 registry -> menu -> hook -> execute 경로가 끝까지 연결되어 있음을 보여주는 기준 구현이기도 하다.
+
+## Waypoint v1
+
+현재 waypoint는 아직 graph navigation이 아니라, **recording session + click replay** 모델이다.
+
+### 현재 기능
+
+- `RecordJob`
+  - `a Record <recording_name>`
+  - 사용자의 `MapView` 좌클릭/우클릭을 recording session에 순차 저장
+- `StopRecordEffect`
+  - 현재 recording session 종료 및 SQLite 저장
+- `NavigateJob`
+  - `a Navigate <recording_name>`
+  - 같은 이름의 recording 중 가장 최근 것을 불러와 click sequence를 재생
+
+### 현재 저장 모델
+
+SQLite DB는 실행 중인 JAR 기준 위치의 `data/lmi_waypoint.db`에 저장된다.
+
+현재 핵심 테이블은 두 개다.
+
+- `waypoint_recording`
+  - `name`
+  - `started_at`
+  - `stopped_at`
+- `waypoint_click`
+  - `click_index`
+  - `x`, `y`
+  - `mouse_button`
+  - `gob_id`
+  - `mesh_id`
+
+### 현재 한계
+
+- 아직 `node`, `edge`, `waypoint` graph 모델은 없다.
+- `NavigateJob`은 replay 수준이다.
+- 건물 진입, 맵 전환, door interaction처럼 일반 move/wait와 다른 대기 규칙이 필요한 click은 별도 원자 동작 계층이 필요하다.
+- 이 문제를 해결하기 위한 내부 최소 실행 단위 계층 이름으로 `AtomicAction`을 고려 중이다.
 
 ## 실패 처리 원칙
 
@@ -137,7 +175,7 @@ LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는�
 - 사용자 중단, 스레드 interrupt, 취소 계열은 항상 상위로 전파한다.
 - 업무상 예상 가능한 실패만 선택적으로 `false`나 분기 로직으로 처리한다.
 
-현재 `Task` 계층은 완전히 안정된 설계 상태가 아니다.
+현재 `task` 계층은 완전히 안정된 설계 상태가 아니다.
 다만 최소 원칙은 적용되어 있다.
 
 - `MoveTask`, `LiftTask`, `PutTask`는 `catch (Exception)`로 모든 실패를 삼키지 않는다.
@@ -159,7 +197,7 @@ LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는�
 - `src/lmi/Agent.java`
   - JobRequest 실행, push/enqueue 스케줄링, stop/interruption
 - `src/lmi/AgentRegistry.java`
-  - `agent/**` recursive scan, Job/Action/폴더 메타데이터 등록
+  - `agent/**` recursive scan, Job/Effect/폴더 메타데이터 등록
 - `src/lmi/AgentManager.java`
   - 콘솔 진입점에서 Job 실행 관리
 - `src/lmi/MenuGridProxy.java`
@@ -172,6 +210,10 @@ LMI는 더 이상 생성 시점에 `hp/stam/nrj`를 즉시 분류하지 않는�
   - Job에서 직접 사용하는 고수준 자동화 API
 - `src/lmi/AppContext.java`
   - Haven 참조, UI 접근 함수, IMeter lazy cache, session/widget reset 정책을 제공하는 전역 접근점
+- `src/lmi/waypoint/WaypointRecorder.java`
+  - recording session 유지와 click capture 담당
+- `src/lmi/waypoint/WaypointDatabase.java`
+  - waypoint SQLite schema, migration, load/save 담당
 
 ## 파일 인덱스
 
@@ -182,7 +224,7 @@ src/
     AgentConfig.java: 에이전트 drive 설정을 properties 파일로 저장하고 읽는 설정 저장소
     AgentContext.java: Job 실행 중 누적해서 들고 다닐 상태를 담는 경량 컨텍스트
     AgentManager.java: Job 탐색, 생성, 도움말 출력, 실행 진입점을 관리하는 등록기
-    AgentRegistry.java: JAR 안의 `agent/**`를 스캔해 Job, Action, 폴더 메타데이터를 등록하는 공통 레지스트리
+    AgentRegistry.java: JAR 안의 `agent/**`를 스캔해 Job, Effect, 폴더 메타데이터를 등록하는 공통 레지스트리
     Api.java: Job이 사용하는 고수준 자동화 API를 제공하는 퍼사드
     AppContext.java: Haven 참조, UI 접근 함수, IMeter lazy cache, session/widget reset 정책을 제공하는 LMI 전역 접근점
     Array.java: Swift 스타일 편의 메서드를 덧붙인 ArrayList 래퍼
@@ -207,14 +249,18 @@ src/
       MoveTask.java: 지정 좌표로 이동하는 Task
       LiftTask.java: 대상 Gob을 드는 Task
       PutTask.java: 들고 있는 물체를 지정 좌표에 내려놓는 Task
+    waypoint/
+      WaypointRecorder.java: waypoint recording session과 click capture를 관리하는 기록기
+      WaypointDatabase.java: waypoint SQLite schema, migration, 저장/조회 로직을 관리하는 저장소
 ```
 
 ## 보류 중인 것
 
 - `AgentContext`의 장기 설계
-- `Task`/`Behavior` 전면 재정리
+- `task`/`behavior` 전면 재정리
 - `MenuGridProxy`의 추가 분해
-- `AppContext`의 lifecycle 정리
-- `AppContext` 명칭 재검토
+- `AppContext`의 lifecycle 추가 정리
+- waypoint graph 모델 (`node` / `edge` / `waypoint`) 도입
+- 맵 전환성 interaction을 위한 내부 원자 동작 계층 (`AtomicAction` 후보) 정리
 
-이 다섯 가지는 중요하지만, 현재는 런타임 골격을 먼저 안정화하는 쪽이 우선이다.
+이 항목들은 중요하지만, 현재는 런타임 골격과 waypoint v1의 안정화를 먼저 보는 쪽이 우선이다.

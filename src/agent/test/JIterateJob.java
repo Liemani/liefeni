@@ -4,6 +4,7 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.Self;
 import lmi.AgentContext;
@@ -20,11 +21,11 @@ public class JIterateJob extends Job {
     Gob gob = Api.getGob();
 
     int targetDistance = Integer.parseInt(args[2]);
-    Api.move(gob.position().add(0, -targetDistance));
+    AtomicAction.move(gob.position().add(0, -targetDistance));
 
     while (true) {
       final Coord destination = Self.position().add(0, 1);
-      Api.move(destination);
+      AtomicAction.move(destination);
       System.out.println("current location: " + Self.position());
     }
   }

@@ -3,6 +3,7 @@ package agent.test;
 import agent.Job;
 
 import lmi.Array;
+import lmi.AtomicAction;
 import lmi.Self;
 import lmi.AgentContext;
 import static lmi.Constant.*;
@@ -19,7 +20,7 @@ public class Patrol000Job extends Job {
 
     while (true) {
       for (haven.Coord location : _path) {
-        lmi.Api.move(location);
+        AtomicAction.move(location);
         lmi.WaitManager.sleep(1000);
       }
     }

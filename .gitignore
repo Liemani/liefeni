@@ -4,7 +4,7 @@
 /local-boot.properties
 /build.properties
 *~
-/data
 # liemani start
 /assets
+/data
 # liemani end

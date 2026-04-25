@@ -4,6 +4,7 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.AgentContext;
 import lmi.Self;
@@ -23,13 +24,13 @@ public class PutLogDistanceBodyWidthJob extends Job {
     final int averageY = (BH_LOG + BH_BODY) / 2;
     final int averageX = (BW_LOG + BW_BODY) / 2;
 
-    Api.lift(firstLog);
-    Api.move(origin.add(-averageX - 1, averageY));
-    Api.put(origin.add(-averageX - 1, 0));
+    AtomicAction.lift(firstLog);
+    AtomicAction.move(origin.add(-averageX - 1, averageY));
+    AtomicAction.put(origin.add(-averageX - 1, 0));
 
-    Api.lift(secondLog);
-    Api.move(origin.add(averageX + 1, averageY));
-    Api.put(origin.add(averageX + 1, 0));
+    AtomicAction.lift(secondLog);
+    AtomicAction.move(origin.add(averageX + 1, averageY));
+    AtomicAction.put(origin.add(averageX + 1, 0));
   }
 
   public static String info() {

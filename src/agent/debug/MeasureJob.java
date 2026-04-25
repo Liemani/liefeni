@@ -4,6 +4,7 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.AtomicAction;
 import lmi.Api;
 import lmi.Self;
 import lmi.Util;
@@ -36,9 +37,9 @@ public class MeasureJob extends Job {
       final int targetX = gobLocation.x + currentDistance;
       leaf.x = targetX;
       branch.x = targetX;
-      Api.move(branch);
+      AtomicAction.move(branch);
       try {
-        Api.move(leaf);
+        AtomicAction.move(leaf);
         succeededDistance = currentDistance;
       } catch (LMIException e) {
         if (e.reason != ER_MOVE) throw e;

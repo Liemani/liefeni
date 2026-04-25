@@ -78,10 +78,10 @@ public class BuildDryingFrameJob extends Job {
     _calculateNextLeaf();
     _bringMaterial();
     Api.pathfindMove(_root);
-    Api.forceMove(_trunk);
-    Api.forceMove(_branch);
+    AtomicAction.forceMove(_trunk);
+    AtomicAction.forceMove(_branch);
     Api.build(P_DFRAME, _leaf, D_EAST);
-    Api.forceMove(_trunk);
+    AtomicAction.forceMove(_trunk);
   }
 
   private void _bringMaterial() {

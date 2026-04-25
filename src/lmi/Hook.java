@@ -1,7 +1,8 @@
 package lmi;
 
 import haven.*;
-import agent.Action;
+import agent.Effect;
+import lmi.waypoint.WaypointRecorder;
 import static lmi.Constant.*;
 
 public class Hook {
@@ -99,16 +100,16 @@ public class Hook {
       String id = button.pag.id.toString();
       String jobName = id.substring(MenuGridProxy.JOB_PREFIX.length());
       AgentManager.run(new String[]{"a", jobName});
-    } else if (MenuGridProxy.isAction(button.pag)) {
+    } else if (MenuGridProxy.isEffect(button.pag)) {
       String id = button.pag.id.toString();
-      String actionName = id.substring(MenuGridProxy.ACTION_PREFIX.length());
+      String effectName = id.substring(MenuGridProxy.EFFECT_PREFIX.length());
       try {
-        Class<? extends Action> actionClass = AgentRegistry.actionClass(actionName);
-        if (actionClass != null) {
-          Action action = actionClass.getDeclaredConstructor().newInstance();
-          action.execute();
+        Class<? extends Effect> effectClass = AgentRegistry.effectClass(effectName);
+        if (effectClass != null) {
+          Effect effect = effectClass.getDeclaredConstructor().newInstance();
+          effect.execute();
         } else {
-          System.err.println("Unknown LMI action: " + actionName);
+          System.err.println("Unknown LMI effect: " + effectName);
         }
       } catch (Exception e) {
         e.printStackTrace();
@@ -133,6 +134,10 @@ public class Hook {
 
   // Interaction Hooks
   public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData) {
+    if (!ClickManager.isGobClickMode && !ClickManager.isAreaSelectMode) {
+      WaypointRecorder.recordMapClick(coord2d, mouseButton, clickData);
+    }
+
     if (ClickManager.isGobClickMode) {
       ClickManager.isGobClickMode = false;
     } else {

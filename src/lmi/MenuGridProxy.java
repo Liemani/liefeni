@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 public class MenuGridProxy {
   public static final String LMI_PREFIX = "lmi_";
   public static final String JOB_PREFIX = "lmi_job_";
-  public static final String ACTION_PREFIX = "lmi_action_";
+  public static final String EFFECT_PREFIX = "lmi_effect_";
   private static final String DEFAULT_ICON = "paginae/act/landscape";
   private static final String FOLDER_ICON = "paginae/act/bld";
   
@@ -29,8 +29,8 @@ public class MenuGridProxy {
     return isLmi(pag) && ((String)pag.id).startsWith(JOB_PREFIX);
   }
 
-  public static boolean isAction(MenuGrid.Pagina pag) {
-    return isLmi(pag) && ((String)pag.id).startsWith(ACTION_PREFIX);
+  public static boolean isEffect(MenuGrid.Pagina pag) {
+    return isLmi(pag) && ((String)pag.id).startsWith(EFFECT_PREFIX);
   }
 
   public static void init() {
@@ -60,7 +60,7 @@ public class MenuGridProxy {
   private static void _buildFromRegistry(Pagina root) {
     for (AgentRegistry.Entry entry : AgentRegistry.executableEntries()) {
       Pagina parent = _ensureFolderPath(entry.packageName(), root);
-      String prefix = (entry.kind() == AgentRegistry.Entry.Kind.JOB) ? JOB_PREFIX : ACTION_PREFIX;
+      String prefix = (entry.kind() == AgentRegistry.Entry.Kind.JOB) ? JOB_PREFIX : EFFECT_PREFIX;
       String commandName = entry.commandName();
       Pagina p = new Pagina(prefix + commandName, parent, _sharedRes);
       p.setup(entry.cls(), commandName);
@@ -214,7 +214,7 @@ public class MenuGridProxy {
           return;
         }
         
-        if (sourceCls != null && (Job.class.isAssignableFrom(sourceCls) || Action.class.isAssignableFrom(sourceCls))) {
+        if (sourceCls != null && (Job.class.isAssignableFrom(sourceCls) || Effect.class.isAssignableFrom(sourceCls))) {
             g.chcolor(230, 255, 230, 255);
             super.drawmain(g, spr);
             g.chcolor(); 

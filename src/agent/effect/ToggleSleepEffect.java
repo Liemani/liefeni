@@ -1,10 +1,10 @@
-package agent.action;
+package agent.effect;
 
-import agent.Action;
+import agent.Effect;
 import lmi.Agent;
 import lmi.Api;
 
-public class ToggleSleepAction extends Action {
+public class ToggleSleepEffect extends Effect {
   @Override
   public void execute() {
     Agent agent = Agent.getInstance();
