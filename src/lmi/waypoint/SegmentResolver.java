@@ -1,7 +1,7 @@
 package lmi.waypoint;
 
 import lmi.waypoint.model.GobNodeRecord;
-import lmi.waypoint.model.SegmentRecord;
+import lmi.waypoint.model.RecordingSegment;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 final class SegmentResolver {
   private SegmentResolver() {}
 
-  static SegmentResolution resolve(Connection conn, SegmentRecord segment) throws SQLException {
+  static SegmentResolution resolve(Connection conn, RecordingSegment segment) throws SQLException {
     Endpoint start = new Endpoint(segment.startGobId, segment.startGobX, segment.startGobY, segment.startGobResname);
     Endpoint end = new Endpoint(segment.endGobId, segment.endGobX, segment.endGobY, segment.endGobResname);
 

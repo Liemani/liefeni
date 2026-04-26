@@ -8,33 +8,33 @@ import haven.Gob;
 import haven.OCache;
 
 import lmi.Self;
-import lmi.waypoint.model.PendingDoorTransition;
-import lmi.waypoint.model.PointRecord;
-import lmi.waypoint.model.SegmentRecord;
-import lmi.waypoint.model.Session;
+import lmi.waypoint.model.PendingPortalTransition;
+import lmi.waypoint.model.RecordingPoint;
+import lmi.waypoint.model.RecordingSegment;
+import lmi.waypoint.model.RecordingSession;
 
 public final class WaypointRecorder {
   private static final Object lock = new Object();
-  private static Session activeSession;
+  private static RecordingSession activeSession;
 
   private WaypointRecorder() {}
 
-  public static Session start(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
+  public static RecordingSession start(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
     synchronized (lock) {
       if (activeSession != null)
         throw new IllegalStateException("A waypoint recording is already active.");
-      activeSession = new Session(name, startNodeId, baseGobId, baseGobX, baseGobY);
+      activeSession = new RecordingSession(name, startNodeId, baseGobId, baseGobX, baseGobY);
       return activeSession;
     }
   }
 
-  public static boolean isActive(Session session) {
+  public static boolean isActive(RecordingSession session) {
     synchronized (lock) {
       return activeSession == session;
     }
   }
 
-  public static void discard(Session session) {
+  public static void discard(RecordingSession session) {
     synchronized (lock) {
       if (activeSession == session)
         activeSession = null;
@@ -54,10 +54,10 @@ public final class WaypointRecorder {
       Coord gobPosition = _gobPosition(clickData);
       String gobResname = _gobResname(clickData);
 
-      _resolvePendingDoorTransition(activeSession);
-      _rotateSegmentIfPreviousWasDoor(activeSession, pos.x, gobId, gobPosition, gobResname);
+      _resolvePendingPortalTransition(activeSession);
+      _rotateSegmentIfPreviousWasPortal(activeSession, pos.x, gobId, gobPosition, gobResname);
 
-      SegmentRecord segment = activeSession.currentSegment();
+      RecordingSegment segment = activeSession.currentSegment();
       if (segment.baseGobId == null && gobId != null && gobPosition != null) {
         segment.baseGobId = gobId;
         segment.baseGobX = gobPosition.x;
@@ -68,7 +68,7 @@ public final class WaypointRecorder {
         segment.startGobResname = gobResname;
       }
 
-      segment.points.add(new PointRecord(
+      segment.points.add(new RecordingPoint(
         segment.points.size(),
         pos.x,
         pos.y,
@@ -80,15 +80,15 @@ public final class WaypointRecorder {
     }
   }
 
-  public static Session stop() {
-    final Session session;
+  public static RecordingSession stop() {
+    final RecordingSession session;
     synchronized (lock) {
       if (activeSession == null)
         return null;
       session = activeSession;
       session.stoppedAtMillis = System.currentTimeMillis();
-      _markLastDoorPoint(session);
-      _resolvePendingDoorTransition(session);
+      _markLastPortalPoint(session);
+      _resolvePendingPortalTransition(session);
       activeSession = null;
     }
     return session;
@@ -103,36 +103,36 @@ public final class WaypointRecorder {
     }
   }
 
-  public static void setTerminalGob(Session session, Gob gob) {
+  public static void setTerminalGob(RecordingSession session, Gob gob) {
     if (session == null || gob == null) return;
 
-    SegmentRecord current = session.currentSegment();
+    RecordingSegment current = session.currentSegment();
     current.endGobId = (long)gob.id();
     current.endGobX = gob.position().x;
     current.endGobY = gob.position().y;
     current.endGobResname = gob.resourceName();
   }
 
-  private static void _rotateSegmentIfPreviousWasDoor(Session session, int currentX, Long currentGobId, Coord currentGobPosition, String currentGobResname) {
-    PointRecord previous = session.lastPoint();
+  private static void _rotateSegmentIfPreviousWasPortal(RecordingSession session, int currentX, Long currentGobId, Coord currentGobPosition, String currentGobResname) {
+    RecordingPoint previous = session.lastPoint();
     if (previous == null) return;
 
     if (Math.abs(currentX - previous.x) < 1000) return;
 
-    previous.isDoor = true;
+    previous.isPortal = true;
 
-    SegmentRecord current = session.currentSegment();
+    RecordingSegment current = session.currentSegment();
     current.endGobId = previous.gobId;
     current.endGobX = previous.x;
     current.endGobY = previous.y;
     current.endGobResname = previous.gobResname;
 
-    String entryDoorResname = previous.gobResname;
-    if (entryDoorResname != null) {
-      session.pendingDoorTransition = new PendingDoorTransition(entryDoorResname);
+    String entryPortalResname = previous.gobResname;
+    if (entryPortalResname != null) {
+      session.pendingPortalTransition = new PendingPortalTransition(entryPortalResname);
     }
 
-    SegmentRecord next = new SegmentRecord(
+    RecordingSegment next = new RecordingSegment(
       session.segments.size(),
       null,
       0,
@@ -141,10 +141,10 @@ public final class WaypointRecorder {
     session.segments.add(next);
   }
 
-  private static void _markLastDoorPoint(Session session) {
-    PointRecord last = session.lastPoint();
+  private static void _markLastPortalPoint(RecordingSession session) {
+    RecordingPoint last = session.lastPoint();
     if (last == null) return;
-    last.isDoor = Math.abs(Self.position().x - last.x) >= 1000;
+    last.isPortal = Math.abs(Self.position().x - last.x) >= 1000;
   }
 
   private static Long _gobId(ClickData clickData) {
@@ -183,22 +183,22 @@ public final class WaypointRecorder {
     return null;
   }
 
-  private static void _resolvePendingDoorTransition(Session session) {
-    PendingDoorTransition pending = session.pendingDoorTransition;
+  private static void _resolvePendingPortalTransition(RecordingSession session) {
+    PendingPortalTransition pending = session.pendingPortalTransition;
     if (pending == null) return;
 
-    Gob exitDoor = WaypointDoor.closestCounterpartGob(pending.entryDoorResname);
-    if (exitDoor == null) return;
+    Gob exitPortal = WaypointPortal.closestCounterpartGob(pending.entryPortalResname);
+    if (exitPortal == null) return;
 
-    SegmentRecord current = session.currentSegment();
-    current.baseGobId = (long)exitDoor.id();
-    current.baseGobX = exitDoor.position().x;
-    current.baseGobY = exitDoor.position().y;
-    current.startGobId = (long)exitDoor.id();
-    current.startGobX = exitDoor.position().x;
-    current.startGobY = exitDoor.position().y;
-    current.startGobResname = exitDoor.resourceName();
-    session.pendingDoorTransition = null;
+    RecordingSegment current = session.currentSegment();
+    current.baseGobId = (long)exitPortal.id();
+    current.baseGobX = exitPortal.position().x;
+    current.baseGobY = exitPortal.position().y;
+    current.startGobId = (long)exitPortal.id();
+    current.startGobX = exitPortal.position().x;
+    current.startGobY = exitPortal.position().y;
+    current.startGobResname = exitPortal.resourceName();
+    session.pendingPortalTransition = null;
   }
 
 }

@@ -14,21 +14,20 @@ import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.GobNodeRecord;
+import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.model.SaveEdgeResult;
-import lmi.waypoint.model.Session;
 import lmi.waypoint.model.WpNodeRecord;
 
 public class StopRecordJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    Session session = WaypointRecorder.stop();
+    RecordingSession session = WaypointRecorder.stop();
     if (session == null) {
       Api.message("No active waypoint recording.");
       return;
     }
 
-    Api.alert("끝 node 에 연결할 gob 을 클릭해 주세요");
-    Gob gob = ClickManager.getGob();
+    Gob gob = _selectEndGob();
     if (gob == null) {
       Api.message("Failed to save waypoint recording: no end gob selected.");
       return;
@@ -36,62 +35,88 @@ public class StopRecordJob extends Job {
 
     WaypointRecorder.setTerminalGob(session, gob);
 
+    WpNodeRecord endNode = _ensureEndNode(gob);
+    if (endNode == null) return;
+
+    _saveEdge(session, endNode, gob);
+  }
+
+  private static Gob _selectEndGob() {
+    Api.alert("끝 node 에 연결할 gob 을 클릭해 주세요");
+    return ClickManager.getGob();
+  }
+
+  private static WpNodeRecord _ensureEndNode(Gob gob) {
+    WpNodeRecord endNode = WaypointDatabase.findNodeByGob(gob.id());
+    if (endNode != null) return endNode;
+
+    return _createEndNode(gob);
+  }
+
+  private static WpNodeRecord _createEndNode(Gob gob) {
+    if (!WaypointManager.isCalibrated() || WaypointManager.calibrationGob() == null) {
+      Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
+      return null;
+    }
+
+    GobNodeRecord calibrationRecord = WaypointDatabase.findGob(WaypointManager.calibrationGob().id());
+    if (calibrationRecord == null) {
+      Api.message("Failed to save waypoint recording: calibration gob is not registered.");
+      return null;
+    }
+
+    String nodeName = _inputEndNodeName();
+    if (nodeName == null) return null;
+
+    int nodeVirX = calibrationRecord.virX + (Self.position().x - WaypointManager.calibrationGob().position().x);
+    int nodeVirY = calibrationRecord.virY + (Self.position().y - WaypointManager.calibrationGob().position().y);
+    int gobVirX = calibrationRecord.virX + (gob.position().x - WaypointManager.calibrationGob().position().x);
+    int gobVirY = calibrationRecord.virY + (gob.position().y - WaypointManager.calibrationGob().position().y);
+
+    CreateNodeResult createNodeResult = WaypointDatabase.createNode(
+      nodeName,
+      calibrationRecord.graphId,
+      gob.id(),
+      nodeVirX,
+      nodeVirY,
+      gobVirX,
+      gobVirY,
+      gob.resourceName()
+    );
+    if (!createNodeResult.created) {
+      Api.message("Failed to save waypoint recording: " + createNodeResult.errorMessage);
+      return null;
+    }
+
     WpNodeRecord endNode = WaypointDatabase.findNodeByGob(gob.id());
     if (endNode == null) {
-      if (!WaypointManager.isResolved() || WaypointManager.resolvedGob() == null) {
-        Api.message("Failed to save waypoint recording: waypoint coordinates are not resolved.");
-        return;
-      }
-
-      GobNodeRecord resolvedRecord = WaypointDatabase.findGob(WaypointManager.resolvedGob().id());
-      if (resolvedRecord == null) {
-        Api.message("Failed to save waypoint recording: resolved gob is not registered.");
-        return;
-      }
-
-      Api.message("Area chat 에 끝 node 이름을 입력해 주세요");
-      String nodeName = ChatInputManager.waitAreaChat();
-      if (nodeName == null || nodeName.isBlank()) {
-        Api.message("Failed to save waypoint recording: node name is empty.");
-        return;
-      }
-
-      int nodeVirX = resolvedRecord.virX + (Self.position().x - WaypointManager.resolvedGob().position().x);
-      int nodeVirY = resolvedRecord.virY + (Self.position().y - WaypointManager.resolvedGob().position().y);
-      int gobVirX = resolvedRecord.virX + (gob.position().x - WaypointManager.resolvedGob().position().x);
-      int gobVirY = resolvedRecord.virY + (gob.position().y - WaypointManager.resolvedGob().position().y);
-
-      CreateNodeResult createNodeResult = WaypointDatabase.createNode(
-        nodeName.trim(),
-        resolvedRecord.graphId,
-        gob.id(),
-        nodeVirX,
-        nodeVirY,
-        gobVirX,
-        gobVirY,
-        gob.resourceName()
-      );
-      if (!createNodeResult.created) {
-        Api.message("Failed to save waypoint recording: " + createNodeResult.errorMessage);
-        return;
-      }
-
-      endNode = WaypointDatabase.findNodeByGob(gob.id());
-      if (endNode == null) {
-        Api.message("Failed to save waypoint recording: created end node cannot be loaded.");
-        return;
-      }
+      Api.message("Failed to save waypoint recording: created end node cannot be loaded.");
+      return null;
     }
+    return endNode;
+  }
 
+  private static String _inputEndNodeName() {
+    Api.message("Area chat 에 끝 node 이름을 입력해 주세요");
+    String nodeName = ChatInputManager.waitAreaChat();
+    if (nodeName == null || nodeName.isBlank()) {
+      Api.message("Failed to save waypoint recording: node name is empty.");
+      return null;
+    }
+    return nodeName.trim();
+  }
+
+  private static void _saveEdge(RecordingSession session, WpNodeRecord endNode, Gob gob) {
     SaveEdgeResult result = WaypointEdgeWriter.save(session, endNode.id);
-    if (result.saved) {
-      WaypointManager.resolve(gob);
-      Api.message("Saved waypoint recording: " + session.name + " (" + session.pointCount() + " clicks)");
-      Api.message("Saved edge id: " + result.edgeId);
-    } else {
+    if (!result.saved) {
       Api.message("Failed to save waypoint recording: " + session.name);
       Api.message(result.errorMessage);
+      return;
     }
+
+    WaypointManager.calibrate(gob);
+    Api.message("Saved waypoint recording: " + session.name + " (" + session.pointCount() + " clicks)");
+    Api.message("Saved edge id: " + result.edgeId);
   }
 
   public static String info() {

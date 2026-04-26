@@ -3,7 +3,7 @@ package lmi.waypoint.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class SegmentRecord {
+public final class RecordingSegment {
   public final int index;
   public Long baseGobId;
   public int baseGobX;
@@ -16,9 +16,9 @@ public final class SegmentRecord {
   public int endGobX;
   public int endGobY;
   public String endGobResname;
-  public final List<PointRecord> points = new ArrayList<>();
+  public final List<RecordingPoint> points = new ArrayList<>();
 
-  public SegmentRecord(int index, Long baseGobId, int baseGobX, int baseGobY) {
+  public RecordingSegment(int index, Long baseGobId, int baseGobX, int baseGobY) {
     this.index = index;
     this.baseGobId = baseGobId;
     this.baseGobX = baseGobX;

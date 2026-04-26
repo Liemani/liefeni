@@ -14,7 +14,7 @@ import lmi.waypoint.runtime.ResolvedPoint;
 public final class WaypointManager {
   private static final int RANGE = 30 * 1024;
 
-  private static Gob resolvedGob;
+  private static Gob calibrationGob;
   private static Array<ResolvedNode> nearbyNodes = new Array<>();
   private static Array<ResolvedGob> nearbyGobs = new Array<>();
   private static Array<ResolvedPoint> nearbyPoints = new Array<>();
@@ -22,29 +22,29 @@ public final class WaypointManager {
   private WaypointManager() {}
 
   public static void clear() {
-    resolvedGob = null;
+    calibrationGob = null;
     nearbyNodes = new Array<>();
     nearbyGobs = new Array<>();
     nearbyPoints = new Array<>();
   }
 
-  public static boolean resolve(Gob gob) {
+  public static boolean calibrate(Gob gob) {
     if (gob == null) return false;
 
     GobNodeRecord record = WaypointDatabase.findGob(gob.id());
     if (record == null) return false;
 
-    resolvedGob = gob;
+    calibrationGob = gob;
     refresh();
     return true;
   }
 
-  public static boolean isResolved() {
-    return resolvedGob != null;
+  public static boolean isCalibrated() {
+    return calibrationGob != null;
   }
 
-  public static Gob resolvedGob() {
-    return resolvedGob;
+  public static Gob calibrationGob() {
+    return calibrationGob;
   }
 
   public static Array<ResolvedNode> nearbyNodes() {
@@ -89,12 +89,12 @@ public final class WaypointManager {
     nearbyGobs = new Array<>();
     nearbyPoints = new Array<>();
 
-    if (resolvedGob == null) return;
+    if (calibrationGob == null) return;
 
-    GobNodeRecord resolvedRecord = WaypointDatabase.findGob(resolvedGob.id());
+    GobNodeRecord resolvedRecord = WaypointDatabase.findGob(calibrationGob.id());
     if (resolvedRecord == null) return;
 
-    Coord resolvedWorld = resolvedGob.position();
+    Coord resolvedWorld = calibrationGob.position();
     Coord selfWorld = Self.position();
     int currentVirX = resolvedRecord.virX + (selfWorld.x - resolvedWorld.x);
     int currentVirY = resolvedRecord.virY + (selfWorld.y - resolvedWorld.y);

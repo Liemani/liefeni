@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class WaypointDoor {
+public final class WaypointPortal {
   private static final Map<String, List<String>> counterpartMap = new HashMap<>();
 
   static {
@@ -18,7 +18,7 @@ public final class WaypointDoor {
     _pair("gfx/tiles/ridges/cavein2", "gfx/tiles/ridges/caveout");
   }
 
-  private WaypointDoor() {}
+  private WaypointPortal() {}
 
   public static List<String> counterpartResnames(String resname) {
     List<String> counterpart = counterpartMap.get(resname);

@@ -9,7 +9,7 @@ import lmi.Api;
 import lmi.LMIException;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
-import lmi.waypoint.model.Session;
+import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.runtime.ResolvedGob;
 import lmi.waypoint.runtime.ResolvedNode;
 
@@ -18,47 +18,80 @@ import static lmi.Constant.ExceptionReason.*;
 public class RecordJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
+    String recordingName = _parseRecordingName(args);
+    if (recordingName == null) return;
+
+    if (!_ensureCalibrated()) return;
+
+    ResolvedNode startNode = _selectStartNode();
+    if (startNode == null) return;
+
+    ResolvedGob startGob = _selectStartGob(startNode);
+    if (startGob == null) return;
+
+    _moveToStartNode(startNode);
+
+    RecordingSession session = _startRecording(recordingName, startNode, startGob);
+    if (session == null) return;
+
+    _waitUntilStopped(session, recordingName);
+  }
+
+  private static String _parseRecordingName(String[] args) {
     if (args.length < 3) {
       Api.message("Usage: a Record <recording_name>");
-      return;
+      return null;
     }
+    return args[2];
+  }
 
-    if (!WaypointManager.isResolved()) {
-      Api.message("Waypoint recording failed: waypoint coordinates are not resolved.");
-      Api.message("Run ResolveWaypoint or CreateNode first.");
-      return;
-    }
+  private static boolean _ensureCalibrated() {
+    if (WaypointManager.isCalibrated()) return true;
+    Api.message("Waypoint recording failed: waypoint coordinates are not calibrated.");
+    Api.message("Run CalibrateWaypoint or CreateNode first.");
+    return false;
+  }
 
+  private static ResolvedNode _selectStartNode() {
     WaypointManager.refresh();
     ResolvedNode startNode = WaypointManager.nearestNode();
     if (startNode == null) {
       Api.message("Waypoint recording failed: no nearby start node is available.");
-      return;
+      return null;
     }
+    return startNode;
+  }
 
+  private static ResolvedGob _selectStartGob(ResolvedNode startNode) {
     ResolvedGob startGob = WaypointManager.nearbyGob(startNode.gobNodeId);
     if (startGob == null) {
       Api.message("Waypoint recording failed: start node base gob is not nearby.");
-      return;
+      return null;
     }
+    return startGob;
+  }
 
-    final Coord startWorld = startNode.world;
+  private static void _moveToStartNode(ResolvedNode startNode) {
+    Coord startWorld = startNode.world;
     if (!lmi.Self.gob().isAt(startWorld)) {
       AtomicAction.go(startWorld);
     }
+  }
 
-    final String recordingName = args[2];
-    final Session session;
+  private static RecordingSession _startRecording(String recordingName, ResolvedNode startNode, ResolvedGob startGob) {
     try {
-      session = WaypointRecorder.start(recordingName, startNode.id, startGob.id, startGob.world.x, startGob.world.y);
+      RecordingSession session = WaypointRecorder.start(recordingName, startNode.id, startGob.id, startGob.world.x, startGob.world.y);
+      Api.message("Waypoint recording started: " + recordingName);
+      Api.message("Start node: " + startNode.name);
+      Api.message("Use StopRecord job to save the recording.");
+      return session;
     } catch (IllegalStateException e) {
       Api.message(e.getMessage());
-      return;
+      return null;
     }
-    Api.message("Waypoint recording started: " + recordingName);
-    Api.message("Start node: " + startNode.name);
-    Api.message("Use StopRecord job to save the recording.");
+  }
 
+  private static void _waitUntilStopped(RecordingSession session, String recordingName) {
     try {
       while (WaypointRecorder.isActive(session)) {
         lmi.WaitManager.sleepPolling();

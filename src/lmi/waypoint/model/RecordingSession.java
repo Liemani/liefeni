@@ -3,36 +3,36 @@ package lmi.waypoint.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Session {
+public final class RecordingSession {
   public final String name;
   public final long startNodeId;
-  public final List<SegmentRecord> segments = new ArrayList<>();
+  public final List<RecordingSegment> segments = new ArrayList<>();
   public final long startedAtMillis;
   public long stoppedAtMillis;
-  public PendingDoorTransition pendingDoorTransition;
+  public PendingPortalTransition pendingPortalTransition;
 
-  public Session(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
+  public RecordingSession(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
     this.name = name;
     this.startNodeId = startNodeId;
     this.startedAtMillis = System.currentTimeMillis();
-    this.segments.add(new SegmentRecord(0, baseGobId, baseGobX, baseGobY));
+    this.segments.add(new RecordingSegment(0, baseGobId, baseGobX, baseGobY));
   }
 
   public int pointCount() {
     int count = 0;
-    for (SegmentRecord segment : segments) {
+    for (RecordingSegment segment : segments) {
       count += segment.points.size();
     }
     return count;
   }
 
-  public SegmentRecord currentSegment() {
+  public RecordingSegment currentSegment() {
     return segments.get(segments.size() - 1);
   }
 
-  public PointRecord lastPoint() {
+  public RecordingPoint lastPoint() {
     for (int i = segments.size() - 1; i >= 0; --i) {
-      SegmentRecord segment = segments.get(i);
+      RecordingSegment segment = segments.get(i);
       if (!segment.points.isEmpty())
         return segment.points.get(segment.points.size() - 1);
     }

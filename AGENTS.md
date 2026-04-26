@@ -223,7 +223,7 @@ Waypoint는 현재 두 계층으로 나뉜다.
 waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 
 - `WaypointEdgeWriter`
-  - `Session`을 받아 `wp_edge`, `wp_segment`, `wp_point`를 저장하는 orchestration 담당
+  - `RecordingSession`을 받아 `wp_edge`, `wp_segment`, `wp_point`를 저장하는 orchestration 담당
 - `SegmentResolver`
   - 각 segment의 시작/끝 gob를 해석해 segment가 속한 `gob_graph`를 확정
   - 둘 다 미등록이면 새 `gob_graph`와 `gob_node`를 만든다
@@ -246,13 +246,13 @@ waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 
 현재 핵심 상태는:
 
-- `Gob resolvedGob`
+- `Gob calibrationGob`
 
-즉, 현재 waypoint 좌표계 복원의 active key는 gob 하나다.
+즉, 현재 waypoint 좌표계 calibration의 active key는 gob 하나다.
 
 현재 책임:
 
-- `resolve(Gob gob)`: 등록된 `gob_node` 기준으로 현재 좌표계를 복원
+- `calibrate(Gob gob)`: 등록된 `gob_node` 기준으로 현재 좌표계를 보정
 - `refresh()`: 현재 player 위치 기준 nearby node / gob / point 캐시 재계산
 - `nearestNode()`
 - `nearbyGob(long gobId)`
@@ -268,10 +268,10 @@ nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 10
 - `ResolvedGob`
 - `ResolvedPoint`
 
-### ResolveWaypointJob
+### CalibrateWaypointJob
 
-`ResolveWaypointJob`은 사용자가 클릭한 gob가 `gob_node` 테이블에 등록되어 있으면 `WaypointManager.resolve(gob)`를 호출한다.
-성공 시 현재 graph 좌표계가 복원된 상태가 되고, nearby node / point 수를 출력한다.
+`CalibrateWaypointJob`은 사용자가 클릭한 gob가 `gob_node` 테이블에 등록되어 있으면 `WaypointManager.calibrate(gob)`를 호출한다.
+성공 시 현재 graph 좌표계가 calibrated 상태가 되고, nearby node / point 수를 출력한다.
 
 ### CreateNodeJob
 
@@ -284,15 +284,15 @@ nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 10
 3. 현재 캐릭터 위치를 새 `wp_node` 위치로 사용
 4. 선택한 gob의 virtual 좌표를 `gob.position - Self.position()`으로 계산
 5. `gob_graph`, `gob_node`, `wp_node` 생성
-6. 성공 시 `WaypointManager.resolve(gob)`까지 수행
+6. 성공 시 `WaypointManager.calibrate(gob)`까지 수행
 
-즉 `CreateNodeJob` 직후에는 `ResolveWaypointJob` 없이도 좌표계가 복원된 상태가 된다.
+즉 `CreateNodeJob` 직후에는 `CalibrateWaypointJob` 없이도 좌표계가 calibrated 상태가 된다.
 
 ### RecordJob
 
 `RecordJob`은 다음 조건에서만 시작된다.
 
-- `WaypointManager.isResolved()`가 `true`
+- `WaypointManager.isCalibrated()`가 `true`
 
 시작 흐름:
 
@@ -312,35 +312,35 @@ nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 10
 - session의 `startNodeId`
 - 각 segment의 `baseGobId`
 - 각 segment의 시작/끝 gob 정보
-- 문 클릭 뒤 아직 반대편 door gob가 확정되지 않은 `pendingDoorTransition`
+- portal click 뒤 아직 반대편 portal gob가 확정되지 않은 `pendingPortalTransition`
 
 을 들고 있다.
 
 문 전환 처리 규칙:
 
-- door click 시점에는 문 앞 gob와 `resname`만 확정한다
-- 맵 전환 직후에는 gob 로딩이 불완전할 수 있으므로 반대편 door를 바로 찾지 않는다
-- 다음 point 입력 시점 또는 `StopRecordJob` 종료 시점에 반대편 door gob를 찾는다
-- 찾을 때는 현재 맵의 모든 gob 중 `WaypointDoor` 사전에서 대응되는 `resname` 후보를 추리고, 그 중 가장 가까운 gob를 사용한다
+- portal click 시점에는 진입 portal gob와 `resname`만 확정한다
+- 맵 전환 직후에는 gob 로딩이 불완전할 수 있으므로 반대편 portal을 바로 찾지 않는다
+- 다음 point 입력 시점 또는 `StopRecordJob` 종료 시점에 반대편 portal gob를 찾는다
+- 찾을 때는 현재 맵의 모든 gob 중 `WaypointPortal` 사전에서 대응되는 `resname` 후보를 추리고, 그 중 가장 가까운 gob를 사용한다
 - 현재 사전은 다음 pair를 포함한다
   - `gfx/terobjs/arch/stonehut` <-> `gfx/terobjs/arch/stonehut-door`
   - `gfx/terobjs/burrow` <-> `gfx/tiles/ridges/caveout`
   - `gfx/tiles/ridges/cavein2` <-> `gfx/tiles/ridges/caveout`
 
-즉 현재 recorder는 door transition을 단순 boolean이 아니라:
+즉 현재 recorder는 portal transition을 단순 boolean이 아니라:
 
 - 문 앞 gob와 `resname`
-- 아직 확정되지 않은 반대편 door gob
+- 아직 확정되지 않은 반대편 portal gob
 - 새 segment의 시작 gob
 
 까지 포함하는 작은 상태 기계로 동작한다.
 
 recorder 상태 타입도 별도 model로 분리돼 있다.
 
-- `Session`
-- `SegmentRecord`
-- `PointRecord`
-- `PendingDoorTransition`
+- `RecordingSession`
+- `RecordingSegment`
+- `RecordingPoint`
+- `PendingPortalTransition`
 
 ### StopRecordJob
 
@@ -352,8 +352,8 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 2. 끝 node에 연결할 gob 선택 요청
 3. 선택한 gob가 이미 `wp_node`에 연결돼 있으면 그 node 재사용
 4. 아니면 area chat으로 node 이름 입력받아 새 `wp_node` 생성
-5. `saveEdge(...)`로 `wp_edge / wp_segment / wp_point` 저장
-6. 성공 시 끝 gob 기준으로 다시 `WaypointManager.resolve(gob)`
+5. `WaypointEdgeWriter.save(...)`로 `wp_edge / wp_segment / wp_point` 저장
+6. 성공 시 끝 gob 기준으로 다시 `WaypointManager.calibrate(gob)`
 
 ### NavigateJob
 
@@ -399,13 +399,13 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 - `src/lmi/waypoint/WaypointDatabase.java`
   - waypoint DB schema와 조회/생성 API
 - `src/lmi/waypoint/WaypointManager.java`
-  - resolved gob와 nearby node/gob/point 캐시 관리
+  - calibration gob와 nearby node/gob/point 캐시 관리
 - `src/lmi/waypoint/WaypointRecorder.java`
-  - recording session, segment, point, pending door transition 수집
-- `src/lmi/waypoint/WaypointDoor.java`
-  - door resname pair 사전과 반대편 door gob 탐색 helper
+  - recording session, segment, point, pending portal transition 수집
+- `src/lmi/waypoint/WaypointPortal.java`
+  - portal resname pair 사전과 반대편 portal gob 탐색 helper
 - `src/lmi/waypoint/WaypointEdgeWriter.java`
-  - `Session`을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
+  - `RecordingSession`을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
 - `src/lmi/waypoint/SegmentResolver.java`
   - segment의 시작/끝 gob를 보고 `gob_graph`를 해석하는 resolver
 - `src/lmi/waypoint/GobGraphMerger.java`
@@ -444,9 +444,9 @@ src/
       AlignLogBehavior.java: 통나무 정렬 절차를 AtomicAction 조합으로 표현한 행동 시퀀스
     waypoint/
       WaypointDatabase.java: `gob_* / wp_*` schema 생성과 waypoint DB 조회/생성 API
-      WaypointManager.java: resolved gob와 nearby node/gob/point 복원 캐시를 관리
-      WaypointRecorder.java: recording session과 door transition 상태를 메모리에서 수집
-      WaypointDoor.java: door resname pair 사전과 반대편 door gob 탐색 규칙을 제공
+      WaypointManager.java: calibration gob와 nearby node/gob/point 복원 캐시를 관리
+      WaypointRecorder.java: recording session과 portal transition 상태를 메모리에서 수집
+      WaypointPortal.java: portal resname pair 사전과 반대편 portal gob 탐색 규칙을 제공
       WaypointEdgeWriter.java: recording session을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
       SegmentResolver.java: segment의 시작/끝 gob를 보고 target `gob_graph`를 정하는 resolver
       GobGraphMerger.java: 두 `gob_graph`를 병합하며 `vir_x/vir_y`를 평행이동하는 merger
@@ -457,10 +457,10 @@ src/
         GobNodeRecord.java: `gob_node` row 모델
         WpNodeRecord.java: `wp_node` row 모델
         WpPointRecord.java: `wp_point` row 모델
-        Session.java: waypoint recording session 상태
-        SegmentRecord.java: recording 중 하나의 segment 상태
-        PointRecord.java: recording 중 하나의 click point 상태
-        PendingDoorTransition.java: 아직 반대편 door gob가 확정되지 않은 전이 상태
+        RecordingSession.java: waypoint recording session 상태
+        RecordingSegment.java: recording 중 하나의 segment 상태
+        RecordingPoint.java: recording 중 하나의 click point 상태
+        PendingPortalTransition.java: 아직 반대편 portal gob가 확정되지 않은 전이 상태
       runtime/
         ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`
         ResolvedGob.java: 현재 world 좌표로 복원된 nearby `gob_node`
@@ -473,8 +473,8 @@ src/
       DescribeAgentStackEffect.java: AgentMind 스레드 stack trace를 출력하는 effect
     tool/
       waypoint/
-        CreateNodeJob.java: 새 root waypoint node를 생성하고 즉시 resolve하는 job
-        ResolveWaypointJob.java: 등록된 gob를 클릭해 waypoint 좌표계를 복원하는 job
+        CreateNodeJob.java: 새 root waypoint node를 생성하고 즉시 calibrate 하는 job
+        CalibrateWaypointJob.java: 등록된 gob를 클릭해 waypoint 좌표계를 calibrate 하는 job
         RecordJob.java: nearest start node로 이동 후 waypoint recording을 시작하는 job
         StopRecordJob.java: end node를 확정하고 edge/segment/point를 저장하는 job
         NavigateJob.java: 새 schema 기준으로 아직 미구현인 navigate job

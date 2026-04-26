@@ -1,6 +1,6 @@
 package lmi.waypoint.model;
 
-public final class PointRecord {
+public final class RecordingPoint {
   public final int index;
   public final int x;
   public final int y;
@@ -8,9 +8,9 @@ public final class PointRecord {
   public final Long gobId;
   public final Integer meshId;
   public final String gobResname;
-  public boolean isDoor;
+  public boolean isPortal;
 
-  public PointRecord(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname) {
+  public RecordingPoint(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname) {
     this.index = index;
     this.x = x;
     this.y = y;
@@ -18,6 +18,6 @@ public final class PointRecord {
     this.gobId = gobId;
     this.meshId = meshId;
     this.gobResname = gobResname;
-    this.isDoor = false;
+    this.isPortal = false;
   }
 }
