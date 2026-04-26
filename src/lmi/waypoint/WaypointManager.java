@@ -2,14 +2,13 @@ package lmi.waypoint;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.AppContext;
 import lmi.Array;
 import lmi.Self;
 
 public final class WaypointManager {
   private static final int RANGE = 30 * 1024;
 
-  private static Long resolvedGobId;
+  private static Gob resolvedGob;
   private static Array<ResolvedNode> nearbyNodes = new Array<>();
   private static Array<ResolvedGob> nearbyGobs = new Array<>();
   private static Array<ResolvedPoint> nearbyPoints = new Array<>();
@@ -17,27 +16,29 @@ public final class WaypointManager {
   private WaypointManager() {}
 
   public static void clear() {
-    resolvedGobId = null;
+    resolvedGob = null;
     nearbyNodes = new Array<>();
     nearbyGobs = new Array<>();
     nearbyPoints = new Array<>();
   }
 
-  public static boolean resolve(long gobId) {
-    WaypointDatabase.GobRecord record = WaypointDatabase.findGob(gobId);
+  public static boolean resolve(Gob gob) {
+    if (gob == null) return false;
+
+    WaypointDatabase.GobNodeRecord record = WaypointDatabase.findGob(gob.id());
     if (record == null) return false;
 
-    resolvedGobId = gobId;
+    resolvedGob = gob;
     refresh();
     return true;
   }
 
   public static boolean isResolved() {
-    return resolvedGobId != null;
+    return resolvedGob != null;
   }
 
-  public static Long resolvedGobId() {
-    return resolvedGobId;
+  public static Gob resolvedGob() {
+    return resolvedGob;
   }
 
   public static Array<ResolvedNode> nearbyNodes() {
@@ -52,44 +53,65 @@ public final class WaypointManager {
     return nearbyPoints;
   }
 
+  public static ResolvedNode nearestNode() {
+    ResolvedNode nearest = null;
+    long best = Long.MAX_VALUE;
+    Coord self = Self.position();
+
+    for (ResolvedNode node : nearbyNodes) {
+      long dx = (long)node.world.x - self.x;
+      long dy = (long)node.world.y - self.y;
+      long distance = (dx * dx) + (dy * dy);
+      if (distance < best) {
+        best = distance;
+        nearest = node;
+      }
+    }
+
+    return nearest;
+  }
+
+  public static ResolvedGob nearbyGob(long gobId) {
+    for (ResolvedGob gob : nearbyGobs) {
+      if (gob.id == gobId) return gob;
+    }
+    return null;
+  }
+
   public static void refresh() {
     nearbyNodes = new Array<>();
     nearbyGobs = new Array<>();
     nearbyPoints = new Array<>();
 
-    if (resolvedGobId == null) return;
+    if (resolvedGob == null) return;
 
-    WaypointDatabase.GobRecord resolvedRecord = WaypointDatabase.findGob(resolvedGobId);
-    Gob resolvedGob = AppContext.oCache().getgob(resolvedGobId);
-    if (resolvedRecord == null || resolvedGob == null) return;
+    WaypointDatabase.GobNodeRecord resolvedRecord = WaypointDatabase.findGob(resolvedGob.id());
+    if (resolvedRecord == null) return;
 
     Coord resolvedWorld = resolvedGob.position();
     Coord selfWorld = Self.position();
-    int currentRelX = resolvedRecord.relX + (selfWorld.x - resolvedWorld.x);
-    int currentRelY = resolvedRecord.relY + (selfWorld.y - resolvedWorld.y);
+    int currentVirX = resolvedRecord.virX + (selfWorld.x - resolvedWorld.x);
+    int currentVirY = resolvedRecord.virY + (selfWorld.y - resolvedWorld.y);
 
-    for (WaypointDatabase.NodeRecord node : WaypointDatabase.loadNearbyNodes(
-      resolvedRecord.rootNodeId, currentRelX, currentRelY, RANGE)) {
-      Coord world = _world(resolvedWorld, resolvedRecord.relX, resolvedRecord.relY, node.relX, node.relY);
-      nearbyNodes.append(new ResolvedNode(node.id, node.name, node.rootNodeId, node.gobId, node.relX, node.relY, world));
+    for (WaypointDatabase.WpNodeRecord node : WaypointDatabase.loadNearbyNodes(
+      resolvedRecord.graphId, currentVirX, currentVirY, RANGE)) {
+      Coord world = _world(resolvedWorld, resolvedRecord.virX, resolvedRecord.virY, node.virX, node.virY);
+      nearbyNodes.append(new ResolvedNode(node.id, node.name, node.gobGraphId, node.gobNodeId, node.virX, node.virY, world));
     }
 
-    for (WaypointDatabase.GobRecord gob : WaypointDatabase.loadNearbyGobs(
-      resolvedRecord.rootNodeId, currentRelX, currentRelY, RANGE)) {
-      Coord world = _world(resolvedWorld, resolvedRecord.relX, resolvedRecord.relY, gob.relX, gob.relY);
-      nearbyGobs.append(new ResolvedGob(gob.id, gob.nodeId, gob.rootNodeId, gob.relX, gob.relY, gob.resname, world));
+    for (WaypointDatabase.GobNodeRecord gob : WaypointDatabase.loadNearbyGobs(
+      resolvedRecord.graphId, currentVirX, currentVirY, RANGE)) {
+      Coord world = _world(resolvedWorld, resolvedRecord.virX, resolvedRecord.virY, gob.virX, gob.virY);
+      nearbyGobs.append(new ResolvedGob(gob.id, gob.wpNodeId, gob.graphId, gob.virX, gob.virY, gob.resname, world));
     }
 
-    for (WaypointDatabase.PointRecord point : WaypointDatabase.loadPointsByRootNode(resolvedRecord.rootNodeId)) {
-      int pointRelX = point.baseRelX + point.relX;
-      int pointRelY = point.baseRelY + point.relY;
-      if (Math.abs(pointRelX - currentRelX) > RANGE) continue;
-      if (Math.abs(pointRelY - currentRelY) > RANGE) continue;
+    for (WaypointDatabase.WpPointRecord point : WaypointDatabase.loadNearbyPoints(resolvedRecord.graphId, currentVirX, currentVirY, RANGE)) {
+      if (Math.abs(point.virX - currentVirX) > RANGE) continue;
+      if (Math.abs(point.virY - currentVirY) > RANGE) continue;
 
-      Coord world = _world(resolvedWorld, resolvedRecord.relX, resolvedRecord.relY, pointRelX, pointRelY);
+      Coord world = _world(resolvedWorld, resolvedRecord.virX, resolvedRecord.virY, point.virX, point.virY);
       nearbyPoints.append(new ResolvedPoint(
-        point.segmentId, point.pointIdx, point.baseGobId, point.baseRootNodeId,
-        pointRelX, pointRelY, point.mouseButton, point.gobId, point.meshId, world));
+        point.segmentId, point.step, point.virX, point.virY, point.mouseButton, point.gobId, point.meshId, world));
     }
   }
 
@@ -100,38 +122,38 @@ public final class WaypointManager {
   public static final class ResolvedNode {
     public final long id;
     public final String name;
-    public final long rootNodeId;
-    public final long gobId;
-    public final int relX;
-    public final int relY;
+    public final long gobGraphId;
+    public final long gobNodeId;
+    public final int virX;
+    public final int virY;
     public final Coord world;
 
-    ResolvedNode(long id, String name, long rootNodeId, long gobId, int relX, int relY, Coord world) {
+    ResolvedNode(long id, String name, long gobGraphId, long gobNodeId, int virX, int virY, Coord world) {
       this.id = id;
       this.name = name;
-      this.rootNodeId = rootNodeId;
-      this.gobId = gobId;
-      this.relX = relX;
-      this.relY = relY;
+      this.gobGraphId = gobGraphId;
+      this.gobNodeId = gobNodeId;
+      this.virX = virX;
+      this.virY = virY;
       this.world = world;
     }
   }
 
   public static final class ResolvedGob {
     public final long id;
-    public final long nodeId;
-    public final long rootNodeId;
-    public final int relX;
-    public final int relY;
+    public final Long wpNodeId;
+    public final long graphId;
+    public final int virX;
+    public final int virY;
     public final String resname;
     public final Coord world;
 
-    ResolvedGob(long id, long nodeId, long rootNodeId, int relX, int relY, String resname, Coord world) {
+    ResolvedGob(long id, Long wpNodeId, long graphId, int virX, int virY, String resname, Coord world) {
       this.id = id;
-      this.nodeId = nodeId;
-      this.rootNodeId = rootNodeId;
-      this.relX = relX;
-      this.relY = relY;
+      this.wpNodeId = wpNodeId;
+      this.graphId = graphId;
+      this.virX = virX;
+      this.virY = virY;
       this.resname = resname;
       this.world = world;
     }
@@ -139,24 +161,20 @@ public final class WaypointManager {
 
   public static final class ResolvedPoint {
     public final long segmentId;
-    public final int pointIdx;
-    public final long baseGobId;
-    public final long baseRootNodeId;
-    public final int relX;
-    public final int relY;
+    public final int step;
+    public final int virX;
+    public final int virY;
     public final int mouseButton;
     public final Long gobId;
     public final Integer meshId;
     public final Coord world;
 
-    ResolvedPoint(long segmentId, int pointIdx, long baseGobId, long baseRootNodeId,
-                  int relX, int relY, int mouseButton, Long gobId, Integer meshId, Coord world) {
+    ResolvedPoint(long segmentId, int step, int virX, int virY,
+                  int mouseButton, Long gobId, Integer meshId, Coord world) {
       this.segmentId = segmentId;
-      this.pointIdx = pointIdx;
-      this.baseGobId = baseGobId;
-      this.baseRootNodeId = baseRootNodeId;
-      this.relX = relX;
-      this.relY = relY;
+      this.step = step;
+      this.virX = virX;
+      this.virY = virY;
       this.mouseButton = mouseButton;
       this.gobId = gobId;
       this.meshId = meshId;

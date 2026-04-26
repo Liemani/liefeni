@@ -18,7 +18,7 @@ public class ResolveWaypointJob extends Job {
       return;
     }
 
-    if (!WaypointManager.resolve(gob.id())) {
+    if (!WaypointManager.resolve(gob)) {
       Api.message("Waypoint resolve failed: gob is not registered in database.");
       return;
     }

@@ -18,11 +18,11 @@ public final class WaypointRecorder {
 
   private WaypointRecorder() {}
 
-  public static Session start(String name) {
+  public static Session start(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
     synchronized (lock) {
       if (activeSession != null)
         throw new IllegalStateException("A waypoint recording is already active.");
-      activeSession = new Session(name);
+      activeSession = new Session(name, startNodeId, baseGobId, baseGobX, baseGobY);
       return activeSession;
     }
   }
@@ -50,12 +50,21 @@ public final class WaypointRecorder {
       Coord pos = mapCoord.floor(OCache.posres);
       Long gobId = _gobId(clickData);
       Integer meshId = _meshId(clickData);
+      Coord gobPosition = _gobPosition(clickData);
+      String gobResname = _gobResname(clickData);
 
-      _rotateSegmentIfPreviousWasDoor(activeSession, pos.x, gobId);
+      _resolvePendingDoorTransition(activeSession);
+      _rotateSegmentIfPreviousWasDoor(activeSession, pos.x, gobId, gobPosition, gobResname);
 
       SegmentRecord segment = activeSession.currentSegment();
-      if (segment.baseGobId == null && gobId != null) {
+      if (segment.baseGobId == null && gobId != null && gobPosition != null) {
         segment.baseGobId = gobId;
+        segment.baseGobX = gobPosition.x;
+        segment.baseGobY = gobPosition.y;
+        segment.startGobId = gobId;
+        segment.startGobX = gobPosition.x;
+        segment.startGobY = gobPosition.y;
+        segment.startGobResname = gobResname;
       }
 
       segment.points.add(new PointRecord(
@@ -64,29 +73,46 @@ public final class WaypointRecorder {
         pos.y,
         mouseButton,
         gobId,
-        meshId
+        meshId,
+        gobResname
       ));
     }
   }
 
-  public static StopResult stopAndSave() {
+  public static Session stop() {
     final Session session;
     synchronized (lock) {
       if (activeSession == null)
-        return StopResult.noActiveSession();
+        return null;
       session = activeSession;
       session.stoppedAtMillis = System.currentTimeMillis();
       _markLastDoorPoint(session);
+      _resolvePendingDoorTransition(session);
       activeSession = null;
     }
-
-    String error = WaypointDatabase.save(session);
-    if (error == null)
-      return StopResult.saved(session.name, session.pointCount());
-    return StopResult.failed(session.name, session.pointCount(), error);
+    return session;
   }
 
-  private static void _rotateSegmentIfPreviousWasDoor(Session session, int currentX, Long currentGobId) {
+  public static void setTerminalGob(Gob gob) {
+    if (gob == null) return;
+
+    synchronized (lock) {
+      if (activeSession != null)
+        throw new IllegalStateException("Cannot set terminal gob while recording is still active.");
+    }
+  }
+
+  public static void setTerminalGob(Session session, Gob gob) {
+    if (session == null || gob == null) return;
+
+    SegmentRecord current = session.currentSegment();
+    current.endGobId = (long)gob.id();
+    current.endGobX = gob.position().x;
+    current.endGobY = gob.position().y;
+    current.endGobResname = gob.resourceName();
+  }
+
+  private static void _rotateSegmentIfPreviousWasDoor(Session session, int currentX, Long currentGobId, Coord currentGobPosition, String currentGobResname) {
     PointRecord previous = session.lastPoint();
     if (previous == null) return;
 
@@ -94,9 +120,22 @@ public final class WaypointRecorder {
 
     previous.isDoor = true;
 
+    SegmentRecord current = session.currentSegment();
+    current.endGobId = previous.gobId;
+    current.endGobX = previous.x;
+    current.endGobY = previous.y;
+    current.endGobResname = previous.gobResname;
+
+    String entryDoorResname = previous.gobResname;
+    if (entryDoorResname != null) {
+      session.pendingDoorTransition = new PendingDoorTransition(entryDoorResname);
+    }
+
     SegmentRecord next = new SegmentRecord(
       session.segments.size(),
-      (currentGobId != null) ? currentGobId : previous.gobId
+      null,
+      0,
+      0
     );
     session.segments.add(next);
   }
@@ -116,6 +155,15 @@ public final class WaypointRecorder {
     return null;
   }
 
+  private static String _gobResname(ClickData clickData) {
+    if (clickData == null || clickData.ci == null) return null;
+    if (clickData.ci instanceof Gob.GobClick)
+      return ((Gob.GobClick)clickData.ci).gob.resourceName();
+    if (clickData.ci instanceof haven.Composited.CompositeClick)
+      return ((haven.Composited.CompositeClick)clickData.ci).gi.gob.resourceName();
+    return null;
+  }
+
   private static Integer _meshId(ClickData clickData) {
     if (clickData == null) return null;
     for (Object node : clickData.array()) {
@@ -125,16 +173,46 @@ public final class WaypointRecorder {
     return null;
   }
 
+  private static Coord _gobPosition(ClickData clickData) {
+    if (clickData == null || clickData.ci == null) return null;
+    if (clickData.ci instanceof Gob.GobClick)
+      return ((Gob.GobClick)clickData.ci).gob.position();
+    if (clickData.ci instanceof haven.Composited.CompositeClick)
+      return ((haven.Composited.CompositeClick)clickData.ci).gi.gob.position();
+    return null;
+  }
+
+  private static void _resolvePendingDoorTransition(Session session) {
+    PendingDoorTransition pending = session.pendingDoorTransition;
+    if (pending == null) return;
+
+    Gob exitDoor = WaypointDoor.closestCounterpartGob(pending.entryDoorResname);
+    if (exitDoor == null) return;
+
+    SegmentRecord current = session.currentSegment();
+    current.baseGobId = (long)exitDoor.id();
+    current.baseGobX = exitDoor.position().x;
+    current.baseGobY = exitDoor.position().y;
+    current.startGobId = (long)exitDoor.id();
+    current.startGobX = exitDoor.position().x;
+    current.startGobY = exitDoor.position().y;
+    current.startGobResname = exitDoor.resourceName();
+    session.pendingDoorTransition = null;
+  }
+
   public static final class Session {
     public final String name;
+    public final long startNodeId;
     public final List<SegmentRecord> segments = new ArrayList<>();
     public final long startedAtMillis;
     public long stoppedAtMillis;
+    public PendingDoorTransition pendingDoorTransition;
 
-    private Session(String name) {
+    private Session(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
       this.name = name;
+      this.startNodeId = startNodeId;
       this.startedAtMillis = System.currentTimeMillis();
-      this.segments.add(new SegmentRecord(0, null));
+      this.segments.add(new SegmentRecord(0, baseGobId, baseGobX, baseGobY));
     }
 
     public int pointCount() {
@@ -162,11 +240,26 @@ public final class WaypointRecorder {
   public static final class SegmentRecord {
     public final int index;
     public Long baseGobId;
+    public int baseGobX;
+    public int baseGobY;
+    public Long startGobId;
+    public int startGobX;
+    public int startGobY;
+    public String startGobResname;
+    public Long endGobId;
+    public int endGobX;
+    public int endGobY;
+    public String endGobResname;
     public final List<PointRecord> points = new ArrayList<>();
 
-    private SegmentRecord(int index, Long baseGobId) {
+    private SegmentRecord(int index, Long baseGobId, int baseGobX, int baseGobY) {
       this.index = index;
       this.baseGobId = baseGobId;
+      this.baseGobX = baseGobX;
+      this.baseGobY = baseGobY;
+      this.startGobId = baseGobId;
+      this.startGobX = baseGobX;
+      this.startGobY = baseGobY;
     }
   }
 
@@ -177,44 +270,27 @@ public final class WaypointRecorder {
     public final int mouseButton;
     public final Long gobId;
     public final Integer meshId;
+    public final String gobResname;
     public boolean isDoor;
 
-    private PointRecord(int index, int x, int y, int mouseButton, Long gobId, Integer meshId) {
+    private PointRecord(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname) {
       this.index = index;
       this.x = x;
       this.y = y;
       this.mouseButton = mouseButton;
       this.gobId = gobId;
       this.meshId = meshId;
+      this.gobResname = gobResname;
       this.isDoor = false;
     }
   }
 
-  public static final class StopResult {
-    public final boolean hadActiveSession;
-    public final boolean saved;
-    public final String recordingName;
-    public final int clickCount;
-    public final String errorMessage;
+  public static final class PendingDoorTransition {
+    public final String entryDoorResname;
 
-    private StopResult(boolean hadActiveSession, boolean saved, String recordingName, int clickCount, String errorMessage) {
-      this.hadActiveSession = hadActiveSession;
-      this.saved = saved;
-      this.recordingName = recordingName;
-      this.clickCount = clickCount;
-      this.errorMessage = errorMessage;
-    }
-
-    private static StopResult noActiveSession() {
-      return new StopResult(false, false, null, 0, null);
-    }
-
-    private static StopResult saved(String recordingName, int clickCount) {
-      return new StopResult(true, true, recordingName, clickCount, null);
-    }
-
-    private static StopResult failed(String recordingName, int clickCount, String errorMessage) {
-      return new StopResult(true, false, recordingName, clickCount, errorMessage);
+    private PendingDoorTransition(String entryDoorResname) {
+      this.entryDoorResname = entryDoorResname;
     }
   }
+
 }

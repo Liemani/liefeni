@@ -37,6 +37,7 @@ public class AppContext {
     WaitManager.init();
     AgentManager.init();
     Pathfinder.init();
+    ChatInputManager.clear();
     WaypointManager.clear();
 
     meterWidgets = new ArrayList<>();
@@ -61,6 +62,7 @@ public class AppContext {
     session = null;
     glob = null;
     oCache = null;
+    ChatInputManager.clear();
     WaypointManager.clear();
     resetWidgetCache();
   }

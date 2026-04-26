@@ -45,6 +45,8 @@ public class Hook {
 
   // willMsgSend
   public static void willMsgSend(Widget sender, String msg, Object... args) {
+    ChatInputManager.capture(sender, msg, args);
+
     if (msg.contentEquals("focus")) {
       return;
     }
