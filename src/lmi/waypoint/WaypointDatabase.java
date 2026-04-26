@@ -1,5 +1,12 @@
 package lmi.waypoint;
 
+import lmi.waypoint.model.CreateNodeResult;
+import lmi.waypoint.model.CreateRootNodeResult;
+import lmi.waypoint.model.GobNodeRecord;
+import lmi.waypoint.model.SaveEdgeResult;
+import lmi.waypoint.model.WpNodeRecord;
+import lmi.waypoint.model.WpPointRecord;
+
 import java.io.File;
 import java.net.URL;
 import java.nio.file.Files;
@@ -274,39 +281,7 @@ public final class WaypointDatabase {
     return points;
   }
 
-  public static SaveEdgeResult saveEdge(WaypointRecorder.Session session, long endNodeId) {
-    initialize();
-
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl())) {
-      conn.setAutoCommit(false);
-      _enableForeignKeys(conn);
-
-      long edgeId = _insertWpEdge(conn, session.startNodeId, endNodeId, FORWARD, 0.0, 0.0);
-      int pointCount = 0;
-
-      for (WaypointRecorder.SegmentRecord segment : session.segments) {
-        SegmentResolution resolution = _resolveSegment(conn, segment);
-        if (!resolution.resolved)
-          return SaveEdgeResult.failed(resolution.errorMessage);
-
-        long segmentId = _insertWpSegment(conn, edgeId, segment.index, resolution.graphId);
-
-        for (WaypointRecorder.PointRecord point : segment.points) {
-          int virX = resolution.referenceVirX + (point.x - resolution.referenceActualX);
-          int virY = resolution.referenceVirY + (point.y - resolution.referenceActualY);
-          _insertWpPoint(conn, segmentId, point.index, virX, virY, point.mouseButton, point.gobId, point.meshId);
-          pointCount += 1;
-        }
-      }
-
-      conn.commit();
-      return SaveEdgeResult.saved(edgeId, pointCount);
-    } catch (Exception e) {
-      return SaveEdgeResult.failed("Failed to save edge: " + e.getMessage());
-    }
-  }
-
-  private static String _jdbcUrl() throws Exception {
+  static String _jdbcUrl() throws Exception {
     CodeSource codeSource = WaypointDatabase.class.getProtectionDomain().getCodeSource();
     if (codeSource == null)
       throw new IllegalStateException("CodeSource is unavailable");
@@ -327,7 +302,7 @@ public final class WaypointDatabase {
     return "jdbc:sqlite:" + dbPath.toAbsolutePath();
   }
 
-  private static void _enableForeignKeys(Connection conn) throws SQLException {
+  static void _enableForeignKeys(Connection conn) throws SQLException {
     try (Statement stmt = conn.createStatement()) {
       stmt.execute("PRAGMA foreign_keys = ON");
     }
@@ -449,134 +424,7 @@ public final class WaypointDatabase {
     }
   }
 
-  private static SegmentResolution _resolveSegment(Connection conn, WaypointRecorder.SegmentRecord segment) throws SQLException {
-    Endpoint start = new Endpoint(segment.startGobId, segment.startGobX, segment.startGobY, segment.startGobResname);
-    Endpoint end = new Endpoint(segment.endGobId, segment.endGobX, segment.endGobY, segment.endGobResname);
-
-    GobNodeRecord startRecord = (start.gobId != null) ? _findGob(conn, start.gobId) : null;
-    GobNodeRecord endRecord = (end.gobId != null) ? _findGob(conn, end.gobId) : null;
-
-    if (startRecord == null && endRecord == null) {
-      if (start.gobId == null || start.resname == null)
-        return SegmentResolution.failed("Segment " + segment.index + " cannot determine a start gob.");
-
-      long graphId = _insertGobGraph(conn, start.gobId);
-      _insertGobNode(conn, start.gobId, graphId, 0, 0, null, start.resname);
-      if (end.gobId != null && end.gobId != start.gobId && end.resname != null) {
-        _insertGobNode(conn, end.gobId, graphId, end.x - start.x, end.y - start.y, null, end.resname);
-      }
-      _insertGobEdge(conn, start.gobId, end.gobId);
-      return SegmentResolution.resolved(graphId, start.x, start.y, 0, 0);
-    }
-
-    if (startRecord != null && endRecord != null) {
-      if (startRecord.graphId != endRecord.graphId) {
-        GraphMerge merge = _mergeGraphs(conn, start, startRecord, end, endRecord);
-        if (!merge.merged)
-          return SegmentResolution.failed(merge.errorMessage);
-        GobNodeRecord reloaded = (merge.referenceGobId == start.gobId) ? _findGob(conn, start.gobId) : _findGob(conn, end.gobId);
-        Endpoint referenceEndpoint = (merge.referenceGobId == start.gobId) ? start : end;
-        if (reloaded == null)
-          return SegmentResolution.failed("Failed to reload merged reference gob: " + merge.referenceGobId);
-        _insertGobEdge(conn, start.gobId, end.gobId);
-        return SegmentResolution.resolved(reloaded.graphId, referenceEndpoint.x, referenceEndpoint.y, reloaded.virX, reloaded.virY);
-      }
-
-      GobNodeRecord preferred = _prefer(startRecord, endRecord);
-      Endpoint preferredEndpoint = (preferred.id == startRecord.id) ? start : end;
-      _insertGobEdge(conn, start.gobId, end.gobId);
-      return SegmentResolution.resolved(preferred.graphId, preferredEndpoint.x, preferredEndpoint.y, preferred.virX, preferred.virY);
-    }
-
-    GobNodeRecord known = (startRecord != null) ? startRecord : endRecord;
-    Endpoint knownEndpoint = (startRecord != null) ? start : end;
-    Endpoint unknownEndpoint = (startRecord != null) ? end : start;
-
-    if (unknownEndpoint.gobId != null && unknownEndpoint.resname != null) {
-      int unknownVirX = known.virX + (unknownEndpoint.x - knownEndpoint.x);
-      int unknownVirY = known.virY + (unknownEndpoint.y - knownEndpoint.y);
-      _insertGobNode(conn, unknownEndpoint.gobId, known.graphId, unknownVirX, unknownVirY, null, unknownEndpoint.resname);
-    }
-
-    _insertGobEdge(conn, start.gobId, end.gobId);
-    return SegmentResolution.resolved(known.graphId, knownEndpoint.x, knownEndpoint.y, known.virX, known.virY);
-  }
-
-  private static GobNodeRecord _prefer(GobNodeRecord a, GobNodeRecord b) {
-    if (a.wpNodeId != null && b.wpNodeId == null) return a;
-    if (b.wpNodeId != null && a.wpNodeId == null) return b;
-    return a;
-  }
-
-  private static GraphMerge _mergeGraphs(Connection conn, Endpoint start, GobNodeRecord startRecord,
-                                         Endpoint end, GobNodeRecord endRecord) throws SQLException {
-    long startCount = _countGobNodes(conn, startRecord.graphId);
-    long endCount = _countGobNodes(conn, endRecord.graphId);
-
-    GobNodeRecord keep = (startCount >= endCount) ? startRecord : endRecord;
-    GobNodeRecord move = (keep == startRecord) ? endRecord : startRecord;
-    Endpoint keepEndpoint = (keep == startRecord) ? start : end;
-    Endpoint moveEndpoint = (move == startRecord) ? start : end;
-
-    int targetVirX = keep.virX + (moveEndpoint.x - keepEndpoint.x);
-    int targetVirY = keep.virY + (moveEndpoint.y - keepEndpoint.y);
-    int deltaX = targetVirX - move.virX;
-    int deltaY = targetVirY - move.virY;
-
-    _translateGraph(conn, move.graphId, keep.graphId, deltaX, deltaY);
-    return GraphMerge.merged(keep.graphId, keep.id);
-  }
-
-  private static long _countGobNodes(Connection conn, long graphId) throws SQLException {
-    try (PreparedStatement stmt = conn.prepareStatement(
-      "SELECT COUNT(*) FROM gob_node WHERE graph_id = ?")) {
-      stmt.setLong(1, graphId);
-      try (ResultSet rs = stmt.executeQuery()) {
-        if (rs.next()) return rs.getLong(1);
-      }
-    }
-    return 0;
-  }
-
-  private static void _translateGraph(Connection conn, long fromGraphId, long toGraphId, int deltaX, int deltaY) throws SQLException {
-    try (PreparedStatement updatePoints = conn.prepareStatement(
-           "UPDATE wp_point SET vir_x = vir_x + ?, vir_y = vir_y + ? " +
-           "WHERE segment_id IN (SELECT id FROM wp_segment WHERE gob_graph_id = ?)");
-         PreparedStatement updateSegments = conn.prepareStatement(
-           "UPDATE wp_segment SET gob_graph_id = ? WHERE gob_graph_id = ?");
-         PreparedStatement updateWpNodes = conn.prepareStatement(
-           "UPDATE wp_node SET gob_graph_id = ?, vir_x = vir_x + ?, vir_y = vir_y + ? WHERE gob_graph_id = ?");
-         PreparedStatement updateGobNodes = conn.prepareStatement(
-           "UPDATE gob_node SET graph_id = ?, vir_x = vir_x + ?, vir_y = vir_y + ? WHERE graph_id = ?");
-         PreparedStatement deleteGraph = conn.prepareStatement(
-           "DELETE FROM gob_graph WHERE id = ?")) {
-      updatePoints.setInt(1, deltaX);
-      updatePoints.setInt(2, deltaY);
-      updatePoints.setLong(3, fromGraphId);
-      updatePoints.executeUpdate();
-
-      updateSegments.setLong(1, toGraphId);
-      updateSegments.setLong(2, fromGraphId);
-      updateSegments.executeUpdate();
-
-      updateWpNodes.setLong(1, toGraphId);
-      updateWpNodes.setInt(2, deltaX);
-      updateWpNodes.setInt(3, deltaY);
-      updateWpNodes.setLong(4, fromGraphId);
-      updateWpNodes.executeUpdate();
-
-      updateGobNodes.setLong(1, toGraphId);
-      updateGobNodes.setInt(2, deltaX);
-      updateGobNodes.setInt(3, deltaY);
-      updateGobNodes.setLong(4, fromGraphId);
-      updateGobNodes.executeUpdate();
-
-      deleteGraph.setLong(1, fromGraphId);
-      deleteGraph.executeUpdate();
-    }
-  }
-
-  private static GobNodeRecord _findGob(Connection conn, long gobId) throws SQLException {
+  static GobNodeRecord _findGob(Connection conn, long gobId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "SELECT id, graph_id, vir_x, vir_y, wp_node_id, resname FROM gob_node WHERE id = ?")) {
       stmt.setLong(1, gobId);
@@ -599,7 +447,7 @@ public final class WaypointDatabase {
     }
   }
 
-  private static long _insertGobGraph(Connection conn, long entryNodeId) throws SQLException {
+  static long _insertGobGraph(Connection conn, long entryNodeId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO gob_graph(entry_node_id) VALUES (?)",
       Statement.RETURN_GENERATED_KEYS)) {
@@ -613,7 +461,7 @@ public final class WaypointDatabase {
     throw new SQLException("Failed to insert gob_graph row.");
   }
 
-  private static void _insertGobNode(Connection conn, long gobId, long graphId, int virX, int virY,
+  static void _insertGobNode(Connection conn, long gobId, long graphId, int virX, int virY,
                                      Long wpNodeId, String resname) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO gob_node(id, graph_id, vir_x, vir_y, wp_node_id, resname) VALUES (?, ?, ?, ?, ?, ?)")) {
@@ -628,7 +476,7 @@ public final class WaypointDatabase {
     }
   }
 
-  private static void _insertGobEdge(Connection conn, Long node0Id, Long node1Id) throws SQLException {
+  static void _insertGobEdge(Connection conn, Long node0Id, Long node1Id) throws SQLException {
     if (node0Id == null || node1Id == null) return;
     if (node0Id.longValue() == node1Id.longValue()) return;
 
@@ -669,7 +517,7 @@ public final class WaypointDatabase {
     }
   }
 
-  private static long _insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,
+  static long _insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,
                                     double timeCost, double fatigueCost) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_edge(node0_id, node1_id, direction, time_cost, fatigue_cost) VALUES (?, ?, ?, ?, ?)",
@@ -688,7 +536,7 @@ public final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_edge row.");
   }
 
-  private static long _insertWpSegment(Connection conn, long edgeId, int step, long gobGraphId) throws SQLException {
+  static long _insertWpSegment(Connection conn, long edgeId, int step, long gobGraphId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_segment(edge_id, gob_graph_id, step) VALUES (?, ?, ?)",
       Statement.RETURN_GENERATED_KEYS)) {
@@ -704,7 +552,7 @@ public final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_segment row.");
   }
 
-  private static void _insertWpPoint(Connection conn, long segmentId, int step, int virX, int virY,
+  static void _insertWpPoint(Connection conn, long segmentId, int step, int virX, int virY,
                                      int mouseButton, Long gobId, Integer meshId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_point(segment_id, step, vir_x, vir_y, mouse_button, gob_id, mesh_id) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
@@ -721,190 +569,4 @@ public final class WaypointDatabase {
     }
   }
 
-  public static final class CreateRootNodeResult {
-    public final boolean created;
-    public final Long nodeId;
-    public final Long gobId;
-    public final Long graphId;
-    public final String errorMessage;
-
-    private CreateRootNodeResult(boolean created, Long nodeId, Long gobId, Long graphId, String errorMessage) {
-      this.created = created;
-      this.nodeId = nodeId;
-      this.gobId = gobId;
-      this.graphId = graphId;
-      this.errorMessage = errorMessage;
-    }
-
-    private static CreateRootNodeResult created(long nodeId, long gobId, long graphId) {
-      return new CreateRootNodeResult(true, nodeId, gobId, graphId, null);
-    }
-
-    private static CreateRootNodeResult failed(String errorMessage) {
-      return new CreateRootNodeResult(false, null, null, null, errorMessage);
-    }
-  }
-
-  public static final class CreateNodeResult {
-    public final boolean created;
-    public final Long nodeId;
-    public final Long gobId;
-    public final String errorMessage;
-
-    private CreateNodeResult(boolean created, Long nodeId, Long gobId, String errorMessage) {
-      this.created = created;
-      this.nodeId = nodeId;
-      this.gobId = gobId;
-      this.errorMessage = errorMessage;
-    }
-
-    private static CreateNodeResult created(long nodeId, long gobId) {
-      return new CreateNodeResult(true, nodeId, gobId, null);
-    }
-
-    private static CreateNodeResult failed(String errorMessage) {
-      return new CreateNodeResult(false, null, null, errorMessage);
-    }
-  }
-
-  public static final class SaveEdgeResult {
-    public final boolean saved;
-    public final Long edgeId;
-    public final Integer pointCount;
-    public final String errorMessage;
-
-    private SaveEdgeResult(boolean saved, Long edgeId, Integer pointCount, String errorMessage) {
-      this.saved = saved;
-      this.edgeId = edgeId;
-      this.pointCount = pointCount;
-      this.errorMessage = errorMessage;
-    }
-
-    private static SaveEdgeResult saved(long edgeId, int pointCount) {
-      return new SaveEdgeResult(true, edgeId, pointCount, null);
-    }
-
-    private static SaveEdgeResult failed(String errorMessage) {
-      return new SaveEdgeResult(false, null, null, errorMessage);
-    }
-  }
-
-  public static final class GobNodeRecord {
-    public final long id;
-    public final long graphId;
-    public final int virX;
-    public final int virY;
-    public final Long wpNodeId;
-    public final String resname;
-
-    GobNodeRecord(long id, long graphId, int virX, int virY, Long wpNodeId, String resname) {
-      this.id = id;
-      this.graphId = graphId;
-      this.virX = virX;
-      this.virY = virY;
-      this.wpNodeId = wpNodeId;
-      this.resname = resname;
-    }
-  }
-
-  public static final class WpNodeRecord {
-    public final long id;
-    public final long gobGraphId;
-    public final long gobNodeId;
-    public final int virX;
-    public final int virY;
-    public final String name;
-
-    WpNodeRecord(long id, long gobGraphId, long gobNodeId, int virX, int virY, String name) {
-      this.id = id;
-      this.gobGraphId = gobGraphId;
-      this.gobNodeId = gobNodeId;
-      this.virX = virX;
-      this.virY = virY;
-      this.name = name;
-    }
-  }
-
-  public static final class WpPointRecord {
-    public final long segmentId;
-    public final int step;
-    public final long gobGraphId;
-    public final int virX;
-    public final int virY;
-    public final int mouseButton;
-    public final Long gobId;
-    public final Integer meshId;
-
-    WpPointRecord(long segmentId, int step, long gobGraphId, int virX, int virY, int mouseButton, Long gobId, Integer meshId) {
-      this.segmentId = segmentId;
-      this.step = step;
-      this.gobGraphId = gobGraphId;
-      this.virX = virX;
-      this.virY = virY;
-      this.mouseButton = mouseButton;
-      this.gobId = gobId;
-      this.meshId = meshId;
-    }
-  }
-
-  private static final class Endpoint {
-    final Long gobId;
-    final int x;
-    final int y;
-    final String resname;
-
-    Endpoint(Long gobId, int x, int y, String resname) {
-      this.gobId = gobId;
-      this.x = x;
-      this.y = y;
-      this.resname = resname;
-    }
-  }
-
-  private static final class SegmentResolution {
-    final boolean resolved;
-    final long graphId;
-    final int referenceActualX;
-    final int referenceActualY;
-    final int referenceVirX;
-    final int referenceVirY;
-    final String errorMessage;
-
-    private SegmentResolution(boolean resolved, long graphId, int referenceActualX, int referenceActualY,
-                              int referenceVirX, int referenceVirY, String errorMessage) {
-      this.resolved = resolved;
-      this.graphId = graphId;
-      this.referenceActualX = referenceActualX;
-      this.referenceActualY = referenceActualY;
-      this.referenceVirX = referenceVirX;
-      this.referenceVirY = referenceVirY;
-      this.errorMessage = errorMessage;
-    }
-
-    static SegmentResolution resolved(long graphId, int referenceActualX, int referenceActualY, int referenceVirX, int referenceVirY) {
-      return new SegmentResolution(true, graphId, referenceActualX, referenceActualY, referenceVirX, referenceVirY, null);
-    }
-
-    static SegmentResolution failed(String errorMessage) {
-      return new SegmentResolution(false, -1L, 0, 0, 0, 0, errorMessage);
-    }
-  }
-
-  private static final class GraphMerge {
-    final boolean merged;
-    final long graphId;
-    final long referenceGobId;
-    final String errorMessage;
-
-    private GraphMerge(boolean merged, long graphId, long referenceGobId, String errorMessage) {
-      this.merged = merged;
-      this.graphId = graphId;
-      this.referenceGobId = referenceGobId;
-      this.errorMessage = errorMessage;
-    }
-
-    static GraphMerge merged(long graphId, long referenceGobId) {
-      return new GraphMerge(true, graphId, referenceGobId, null);
-    }
-  }
 }

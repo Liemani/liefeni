@@ -9,13 +9,19 @@ import lmi.ChatInputManager;
 import lmi.ClickManager;
 import lmi.Self;
 import lmi.waypoint.WaypointDatabase;
+import lmi.waypoint.WaypointEdgeWriter;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
+import lmi.waypoint.model.CreateNodeResult;
+import lmi.waypoint.model.GobNodeRecord;
+import lmi.waypoint.model.SaveEdgeResult;
+import lmi.waypoint.model.Session;
+import lmi.waypoint.model.WpNodeRecord;
 
 public class StopRecordJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    WaypointRecorder.Session session = WaypointRecorder.stop();
+    Session session = WaypointRecorder.stop();
     if (session == null) {
       Api.message("No active waypoint recording.");
       return;
@@ -30,14 +36,14 @@ public class StopRecordJob extends Job {
 
     WaypointRecorder.setTerminalGob(session, gob);
 
-    WaypointDatabase.WpNodeRecord endNode = WaypointDatabase.findNodeByGob(gob.id());
+    WpNodeRecord endNode = WaypointDatabase.findNodeByGob(gob.id());
     if (endNode == null) {
       if (!WaypointManager.isResolved() || WaypointManager.resolvedGob() == null) {
         Api.message("Failed to save waypoint recording: waypoint coordinates are not resolved.");
         return;
       }
 
-      WaypointDatabase.GobNodeRecord resolvedRecord = WaypointDatabase.findGob(WaypointManager.resolvedGob().id());
+      GobNodeRecord resolvedRecord = WaypointDatabase.findGob(WaypointManager.resolvedGob().id());
       if (resolvedRecord == null) {
         Api.message("Failed to save waypoint recording: resolved gob is not registered.");
         return;
@@ -55,7 +61,7 @@ public class StopRecordJob extends Job {
       int gobVirX = resolvedRecord.virX + (gob.position().x - WaypointManager.resolvedGob().position().x);
       int gobVirY = resolvedRecord.virY + (gob.position().y - WaypointManager.resolvedGob().position().y);
 
-      WaypointDatabase.CreateNodeResult createNodeResult = WaypointDatabase.createNode(
+      CreateNodeResult createNodeResult = WaypointDatabase.createNode(
         nodeName.trim(),
         resolvedRecord.graphId,
         gob.id(),
@@ -77,7 +83,7 @@ public class StopRecordJob extends Job {
       }
     }
 
-    WaypointDatabase.SaveEdgeResult result = WaypointDatabase.saveEdge(session, endNode.id);
+    SaveEdgeResult result = WaypointEdgeWriter.save(session, endNode.id);
     if (result.saved) {
       WaypointManager.resolve(gob);
       Api.message("Saved waypoint recording: " + session.name + " (" + session.pointCount() + " clicks)");

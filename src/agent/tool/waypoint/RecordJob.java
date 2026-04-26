@@ -9,6 +9,9 @@ import lmi.Api;
 import lmi.LMIException;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
+import lmi.waypoint.model.Session;
+import lmi.waypoint.runtime.ResolvedGob;
+import lmi.waypoint.runtime.ResolvedNode;
 
 import static lmi.Constant.ExceptionReason.*;
 
@@ -27,13 +30,13 @@ public class RecordJob extends Job {
     }
 
     WaypointManager.refresh();
-    WaypointManager.ResolvedNode startNode = WaypointManager.nearestNode();
+    ResolvedNode startNode = WaypointManager.nearestNode();
     if (startNode == null) {
       Api.message("Waypoint recording failed: no nearby start node is available.");
       return;
     }
 
-    WaypointManager.ResolvedGob startGob = WaypointManager.nearbyGob(startNode.gobNodeId);
+    ResolvedGob startGob = WaypointManager.nearbyGob(startNode.gobNodeId);
     if (startGob == null) {
       Api.message("Waypoint recording failed: start node base gob is not nearby.");
       return;
@@ -45,7 +48,7 @@ public class RecordJob extends Job {
     }
 
     final String recordingName = args[2];
-    final WaypointRecorder.Session session;
+    final Session session;
     try {
       session = WaypointRecorder.start(recordingName, startNode.id, startGob.id, startGob.world.x, startGob.world.y);
     } catch (IllegalStateException e) {

@@ -10,6 +10,7 @@ import lmi.ClickManager;
 import lmi.Self;
 import lmi.waypoint.WaypointDatabase;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.model.CreateRootNodeResult;
 
 public class CreateNodeJob extends Job {
   @Override
@@ -28,7 +29,7 @@ public class CreateNodeJob extends Job {
       return;
     }
 
-    WaypointDatabase.CreateRootNodeResult result = WaypointDatabase.createRootNode(
+    CreateRootNodeResult result = WaypointDatabase.createRootNode(
       nodeName.trim(),
       Self.position().x,
       Self.position().y,

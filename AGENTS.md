@@ -203,7 +203,7 @@ Waypoint는 현재 두 계층으로 나뉜다.
 
 ### WaypointDatabase
 
-현재 `WaypointDatabase`는 위 최종 스키마를 기준으로 동작한다.
+현재 `WaypointDatabase`는 위 최종 스키마를 기준으로 동작하는 DB 접근 중심 계층이다.
 
 중요한 공개 API:
 
@@ -215,23 +215,30 @@ Waypoint는 현재 두 계층으로 나뉜다.
 - `loadNearbyNodes(...)`
 - `loadNearbyGobs(...)`
 - `loadNearbyPoints(...)`
-- `saveEdge(...)`
 
-현재 `saveEdge(...)`는 `WaypointRecorder.Session`을 받아:
+즉 현재 `WaypointDatabase`는 schema 생성, 조회, root/node 생성 같은 기본 DB 작업에 집중한다.
 
-- `wp_edge`
-- `wp_segment`
-- `wp_point`
+### WaypointEdgeWriter / SegmentResolver / GobGraphMerger
 
-를 저장한다. 이때 각 segment에 대해:
+waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 
-- 시작/끝 gob를 보고 segment가 속한 `gob_graph`를 확정한다
-- 둘 다 미등록이면 새 `gob_graph`와 `gob_node`를 만든다
-- 하나만 등록돼 있으면 같은 graph에 나머지 endpoint `gob_node`를 만든다
-- 둘 다 등록돼 있는데 graph가 다르면 graph 병합을 수행한다
-- graph 병합 시 작은 graph의 `gob_node`, `wp_node`, `wp_segment.gob_graph_id`, `wp_point.vir_x/vir_y`를 `deltaX/deltaY`로 평행이동한다
+- `WaypointEdgeWriter`
+  - `Session`을 받아 `wp_edge`, `wp_segment`, `wp_point`를 저장하는 orchestration 담당
+- `SegmentResolver`
+  - 각 segment의 시작/끝 gob를 해석해 segment가 속한 `gob_graph`를 확정
+  - 둘 다 미등록이면 새 `gob_graph`와 `gob_node`를 만든다
+  - 하나만 등록돼 있으면 같은 graph에 나머지 endpoint `gob_node`를 만든다
+  - 둘 다 등록돼 있는데 graph가 다르면 graph 병합을 요청한다
+- `GobGraphMerger`
+  - graph 병합 시 작은 graph의 `gob_node`, `wp_node`, `wp_segment.gob_graph_id`, `wp_point.vir_x/vir_y`를 `deltaX/deltaY`로 평행이동한다
 
-즉 현재 `saveEdge(...)`는 단순 point 저장이 아니라 segment graph 확정과 graph 병합까지 포함한다.
+즉 현재 저장 경로는:
+
+- `WaypointEdgeWriter`
+- `SegmentResolver`
+- `GobGraphMerger`
+
+로 나뉘어 있고, `WaypointDatabase`는 그 저수준 DB helper를 제공하는 형태다.
 
 ### WaypointManager
 
@@ -254,6 +261,12 @@ Waypoint는 현재 두 계층으로 나뉜다.
 - `nearbyPoints()`
 
 nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 1024`다.
+
+복원 결과 타입은 더 이상 `WaypointManager` 내부 클래스가 아니라 별도 runtime 타입으로 분리돼 있다.
+
+- `ResolvedNode`
+- `ResolvedGob`
+- `ResolvedPoint`
 
 ### ResolveWaypointJob
 
@@ -322,6 +335,13 @@ nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 10
 
 까지 포함하는 작은 상태 기계로 동작한다.
 
+recorder 상태 타입도 별도 model로 분리돼 있다.
+
+- `Session`
+- `SegmentRecord`
+- `PointRecord`
+- `PendingDoorTransition`
+
 ### StopRecordJob
 
 `StopRecordJob`은 단순 중단이 아니라 저장 절차를 수행한다.
@@ -377,13 +397,19 @@ nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 10
 - `src/lmi/ChatInputManager.java`
   - area chat 입력 대기
 - `src/lmi/waypoint/WaypointDatabase.java`
-  - waypoint DB schema와 저장/조회 API
+  - waypoint DB schema와 조회/생성 API
 - `src/lmi/waypoint/WaypointManager.java`
   - resolved gob와 nearby node/gob/point 캐시 관리
 - `src/lmi/waypoint/WaypointRecorder.java`
   - recording session, segment, point, pending door transition 수집
 - `src/lmi/waypoint/WaypointDoor.java`
   - door resname pair 사전과 반대편 door gob 탐색 helper
+- `src/lmi/waypoint/WaypointEdgeWriter.java`
+  - `Session`을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
+- `src/lmi/waypoint/SegmentResolver.java`
+  - segment의 시작/끝 gob를 보고 `gob_graph`를 해석하는 resolver
+- `src/lmi/waypoint/GobGraphMerger.java`
+  - 서로 다른 `gob_graph`를 병합하고 virtual coordinate를 평행이동하는 merger
 
 ## 파일 인덱스
 
@@ -417,10 +443,28 @@ src/
     behavior/
       AlignLogBehavior.java: 통나무 정렬 절차를 AtomicAction 조합으로 표현한 행동 시퀀스
     waypoint/
-      WaypointDatabase.java: `gob_* / wp_*` schema 생성과 waypoint 저장/조회 API
+      WaypointDatabase.java: `gob_* / wp_*` schema 생성과 waypoint DB 조회/생성 API
       WaypointManager.java: resolved gob와 nearby node/gob/point 복원 캐시를 관리
-      WaypointRecorder.java: recording session, segment, point와 pending door transition을 메모리에서 수집
+      WaypointRecorder.java: recording session과 door transition 상태를 메모리에서 수집
       WaypointDoor.java: door resname pair 사전과 반대편 door gob 탐색 규칙을 제공
+      WaypointEdgeWriter.java: recording session을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
+      SegmentResolver.java: segment의 시작/끝 gob를 보고 target `gob_graph`를 정하는 resolver
+      GobGraphMerger.java: 두 `gob_graph`를 병합하며 `vir_x/vir_y`를 평행이동하는 merger
+      model/
+        CreateRootNodeResult.java: root node 생성 결과
+        CreateNodeResult.java: 일반 node 생성 결과
+        SaveEdgeResult.java: edge 저장 결과
+        GobNodeRecord.java: `gob_node` row 모델
+        WpNodeRecord.java: `wp_node` row 모델
+        WpPointRecord.java: `wp_point` row 모델
+        Session.java: waypoint recording session 상태
+        SegmentRecord.java: recording 중 하나의 segment 상태
+        PointRecord.java: recording 중 하나의 click point 상태
+        PendingDoorTransition.java: 아직 반대편 door gob가 확정되지 않은 전이 상태
+      runtime/
+        ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`
+        ResolvedGob.java: 현재 world 좌표로 복원된 nearby `gob_node`
+        ResolvedPoint.java: 현재 world 좌표로 복원된 nearby `wp_point`
   agent/
     effect/
       ToggleSleepEffect.java: Agent sleep 상태를 즉시 토글하는 effect

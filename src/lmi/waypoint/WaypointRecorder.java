@@ -7,10 +7,11 @@ import haven.FastMesh;
 import haven.Gob;
 import haven.OCache;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import lmi.Self;
+import lmi.waypoint.model.PendingDoorTransition;
+import lmi.waypoint.model.PointRecord;
+import lmi.waypoint.model.SegmentRecord;
+import lmi.waypoint.model.Session;
 
 public final class WaypointRecorder {
   private static final Object lock = new Object();
@@ -198,99 +199,6 @@ public final class WaypointRecorder {
     current.startGobY = exitDoor.position().y;
     current.startGobResname = exitDoor.resourceName();
     session.pendingDoorTransition = null;
-  }
-
-  public static final class Session {
-    public final String name;
-    public final long startNodeId;
-    public final List<SegmentRecord> segments = new ArrayList<>();
-    public final long startedAtMillis;
-    public long stoppedAtMillis;
-    public PendingDoorTransition pendingDoorTransition;
-
-    private Session(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
-      this.name = name;
-      this.startNodeId = startNodeId;
-      this.startedAtMillis = System.currentTimeMillis();
-      this.segments.add(new SegmentRecord(0, baseGobId, baseGobX, baseGobY));
-    }
-
-    public int pointCount() {
-      int count = 0;
-      for (SegmentRecord segment : segments) {
-        count += segment.points.size();
-      }
-      return count;
-    }
-
-    SegmentRecord currentSegment() {
-      return segments.get(segments.size() - 1);
-    }
-
-    PointRecord lastPoint() {
-      for (int i = segments.size() - 1; i >= 0; --i) {
-        SegmentRecord segment = segments.get(i);
-        if (!segment.points.isEmpty())
-          return segment.points.get(segment.points.size() - 1);
-      }
-      return null;
-    }
-  }
-
-  public static final class SegmentRecord {
-    public final int index;
-    public Long baseGobId;
-    public int baseGobX;
-    public int baseGobY;
-    public Long startGobId;
-    public int startGobX;
-    public int startGobY;
-    public String startGobResname;
-    public Long endGobId;
-    public int endGobX;
-    public int endGobY;
-    public String endGobResname;
-    public final List<PointRecord> points = new ArrayList<>();
-
-    private SegmentRecord(int index, Long baseGobId, int baseGobX, int baseGobY) {
-      this.index = index;
-      this.baseGobId = baseGobId;
-      this.baseGobX = baseGobX;
-      this.baseGobY = baseGobY;
-      this.startGobId = baseGobId;
-      this.startGobX = baseGobX;
-      this.startGobY = baseGobY;
-    }
-  }
-
-  public static final class PointRecord {
-    public final int index;
-    public final int x;
-    public final int y;
-    public final int mouseButton;
-    public final Long gobId;
-    public final Integer meshId;
-    public final String gobResname;
-    public boolean isDoor;
-
-    private PointRecord(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname) {
-      this.index = index;
-      this.x = x;
-      this.y = y;
-      this.mouseButton = mouseButton;
-      this.gobId = gobId;
-      this.meshId = meshId;
-      this.gobResname = gobResname;
-      this.isDoor = false;
-    }
-  }
-
-  public static final class PendingDoorTransition {
-    public final String entryDoorResname;
-
-    private PendingDoorTransition(String entryDoorResname) {
-      this.entryDoorResname = entryDoorResname;
-    }
   }
 
 }
