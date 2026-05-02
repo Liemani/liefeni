@@ -6,21 +6,15 @@ import haven.Coord;
 import lmi.AgentContext;
 import lmi.AtomicAction;
 import lmi.Api;
-import lmi.LMIException;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
 import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.runtime.ResolvedGob;
 import lmi.waypoint.runtime.ResolvedNode;
 
-import static lmi.Constant.ExceptionReason.*;
-
 public class RecordJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    String recordingName = _parseRecordingName(args);
-    if (recordingName == null) return;
-
     if (!_ensureCalibrated()) return;
 
     ResolvedNode startNode = _selectStartNode();
@@ -31,18 +25,8 @@ public class RecordJob extends Job {
 
     _moveToStartNode(startNode);
 
-    RecordingSession session = _startRecording(recordingName, startNode, startGob);
+    RecordingSession session = _startRecording(startNode, startGob);
     if (session == null) return;
-
-    _waitUntilStopped(session, recordingName);
-  }
-
-  private static String _parseRecordingName(String[] args) {
-    if (args.length < 3) {
-      Api.message("Usage: a Record <recording_name>");
-      return null;
-    }
-    return args[2];
   }
 
   private static boolean _ensureCalibrated() {
@@ -78,10 +62,10 @@ public class RecordJob extends Job {
     }
   }
 
-  private static RecordingSession _startRecording(String recordingName, ResolvedNode startNode, ResolvedGob startGob) {
+  private static RecordingSession _startRecording(ResolvedNode startNode, ResolvedGob startGob) {
     try {
-      RecordingSession session = WaypointRecorder.start(recordingName, startNode.id, startGob.id, startGob.world.x, startGob.world.y);
-      Api.message("Waypoint recording started: " + recordingName);
+      RecordingSession session = WaypointRecorder.start(startNode.id, startGob.id, startGob.world.x, startGob.world.y);
+      Api.message("Waypoint recording started.");
       Api.message("Start node: " + startNode.name);
       Api.message("Use StopRecord job to save the recording.");
       return session;
@@ -91,23 +75,7 @@ public class RecordJob extends Job {
     }
   }
 
-  private static void _waitUntilStopped(RecordingSession session, String recordingName) {
-    try {
-      while (WaypointRecorder.isActive(session)) {
-        lmi.WaitManager.sleepPolling();
-      }
-    } catch (LMIException e) {
-      if (e.reason == ER_INTERRUPTED) {
-        WaypointRecorder.discard(session);
-        Api.message("Waypoint recording discarded: " + recordingName);
-        throw e;
-      }
-      throw e;
-    }
-  }
-
   public static String info() {
-    return "Moves to the nearest nearby node and starts recording user MapView left/right clicks until StopRecord is used.\n"
-      + "Usage: a Record <recording_name>";
+    return "Moves to the nearest nearby node and starts recording user MapView left/right clicks until StopRecord is used.";
   }
 }

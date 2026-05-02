@@ -127,6 +127,29 @@ public class MenuGridProxy {
     } catch (Exception e) {}
   }
 
+  public static void dumpAllIcons() {
+    MenuGrid mg = AppContext.menuGrid();
+    if (mg == null) {
+      System.out.println("MenuGrid is not available.");
+      return;
+    }
+
+    synchronized (mg.paginae) {
+      for (MenuGrid.Pagina pagina : mg.paginae) {
+        String id = String.valueOf(pagina.id);
+        String parentId = (pagina.parent() != null) ? String.valueOf(pagina.parent().id) : "null";
+        String resource = "null";
+        try {
+          Resource res = pagina.res();
+          if (res != null)
+            resource = res.name;
+        } catch (Exception ignored) {
+        }
+        System.out.println(String.format("id=%s parent=%s resource=%s", id, parentId, resource));
+      }
+    }
+  }
+
   public static class Pagina extends MenuGrid.Pagina {
     public String name;
     public String description;

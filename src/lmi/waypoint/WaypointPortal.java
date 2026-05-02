@@ -25,6 +25,10 @@ public final class WaypointPortal {
     return (counterpart != null) ? counterpart : new ArrayList<>();
   }
 
+  public static boolean isPortalResname(String resname) {
+    return resname != null && !counterpartResnames(resname).isEmpty();
+  }
+
   public static Gob closestCounterpartGob(String resname) {
     List<String> candidates = counterpartResnames(resname);
     if (candidates.isEmpty()) return null;

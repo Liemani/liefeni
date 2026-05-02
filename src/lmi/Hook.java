@@ -2,6 +2,8 @@ package lmi;
 
 import haven.*;
 import agent.Effect;
+import lmi.waypoint.WaypointManager;
+import lmi.waypoint.WaypointOverlay;
 import lmi.waypoint.WaypointRecorder;
 import static lmi.Constant.*;
 
@@ -178,6 +180,14 @@ public class Hook {
 
   public static void remoteUIDidConstructed(RemoteUI remoteUI) {
     AppContext.setRemoteUI(remoteUI);
+  }
+
+  public static void mapViewDidDraw(MapView mapView, GOut g) {
+    WaypointOverlay.draw(mapView, g);
+  }
+
+  public static void mapViewDidTick(MapView mapView) {
+    WaypointManager.tick(mapView);
   }
 
   // Not used but kept for interface compatibility if needed

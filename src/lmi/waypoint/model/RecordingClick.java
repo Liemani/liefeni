@@ -1,6 +1,6 @@
 package lmi.waypoint.model;
 
-public final class RecordingPoint {
+public final class RecordingClick {
   public final int index;
   public final int x;
   public final int y;
@@ -10,7 +10,7 @@ public final class RecordingPoint {
   public final String gobResname;
   public boolean isPortal;
 
-  public RecordingPoint(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname) {
+  public RecordingClick(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname) {
     this.index = index;
     this.x = x;
     this.y = y;

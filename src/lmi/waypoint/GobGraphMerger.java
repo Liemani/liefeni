@@ -1,6 +1,6 @@
 package lmi.waypoint;
 
-import lmi.waypoint.model.GobNodeRecord;
+import lmi.waypoint.object.GobNode;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,13 +10,13 @@ import java.sql.SQLException;
 final class GobGraphMerger {
   private GobGraphMerger() {}
 
-  static GraphMerge merge(Connection conn, Endpoint start, GobNodeRecord startRecord,
-                          Endpoint end, GobNodeRecord endRecord) throws SQLException {
+  static GraphMerge merge(Connection conn, Endpoint start, GobNode startRecord,
+                          Endpoint end, GobNode endRecord) throws SQLException {
     long startCount = _countGobNodes(conn, startRecord.graphId);
     long endCount = _countGobNodes(conn, endRecord.graphId);
 
-    GobNodeRecord keep = (startCount >= endCount) ? startRecord : endRecord;
-    GobNodeRecord move = (keep == startRecord) ? endRecord : startRecord;
+    GobNode keep = (startCount >= endCount) ? startRecord : endRecord;
+    GobNode move = (keep == startRecord) ? endRecord : startRecord;
     Endpoint keepEndpoint = (keep == startRecord) ? start : end;
     Endpoint moveEndpoint = (move == startRecord) ? start : end;
 

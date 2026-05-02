@@ -201,22 +201,40 @@ Waypoint는 현재 두 계층으로 나뉜다.
 - 하위 `gob_*` 계층으로 좌표계를 복원하고
 - 상위 `wp_*` 계층으로 실제 navigation 그래프를 다룬다
 
-### WaypointDatabase
+### WaypointStore
 
-현재 `WaypointDatabase`는 위 최종 스키마를 기준으로 동작하는 DB 접근 중심 계층이다.
+현재 waypoint 외부 코드가 붙는 public DB/store 진입점은 `WaypointStore`로 모으는 중이다.
 
-중요한 공개 API:
+현재 facade 역할:
 
-- `initialize()`
-- `createRootNode(...)`
-- `createNode(...)`
 - `findGob(...)`
 - `findNodeByGob(...)`
+- `createRootNode(...)`
+- `createNode(...)`
 - `loadNearbyNodes(...)`
 - `loadNearbyGobs(...)`
 - `loadNearbyPoints(...)`
 
-즉 현재 `WaypointDatabase`는 schema 생성, 조회, root/node 생성 같은 기본 DB 작업에 집중한다.
+구조상 `WaypointStore`는:
+
+- waypoint SQLite connection 하나를 프로그램 lifetime 동안 소유한다
+- 외부 코드가 붙는 synchronous public facade다
+- object 계층(`GobNode`, `WpNode`, `WpPoint`)으로 결과를 변환한다
+- managed 계층의 async DB worker도 소유한다
+
+즉 `WaypointStore`는 public facade이자 shared connection owner이고, `WaypointDatabase`는 그 아래 SQL/row helper 계층으로 남는다.
+
+### WaypointDatabase
+
+현재 `WaypointDatabase`는 위 최종 스키마를 기준으로 동작하는 low-level DB helper 계층이다.
+
+역할:
+
+- schema 생성
+- connection을 인자로 받는 query / insert helper
+- row 타입(`GobNodeRecord`, `WpNodeRecord`, `WpPointRecord`) 기반 SQL 해석
+
+즉 현재 `WaypointDatabase`는 외부 진입점이 아니라, `WaypointStore` 아래에서만 쓰이는 package-private SQL helper다.
 
 ### WaypointEdgeWriter / SegmentResolver / GobGraphMerger
 
@@ -238,35 +256,58 @@ waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 - `SegmentResolver`
 - `GobGraphMerger`
 
-로 나뉘어 있고, `WaypointDatabase`는 그 저수준 DB helper를 제공하는 형태다.
+로 나뉘어 있고, 외부 진입은 `WaypointStore`, 저수준 DB helper는 `WaypointDatabase`가 제공하는 형태다.
 
 ### WaypointManager
 
-현재 좌표계 복원과 nearby 시각화용 캐시는 `lmi.waypoint.WaypointManager`가 맡는다.
+현재 `WaypointManager`는 calibration 상태와 waypoint scene 구성을 맡는다.
 
 현재 핵심 상태는:
 
 - `Gob calibrationGob`
+- `WaypointScene scene`
 
 즉, 현재 waypoint 좌표계 calibration의 active key는 gob 하나다.
 
 현재 책임:
 
 - `calibrate(Gob gob)`: 등록된 `gob_node` 기준으로 현재 좌표계를 보정
-- `refresh()`: 현재 player 위치 기준 nearby node / gob / point 캐시 재계산
+- `refresh()`: 현재 player 위치 기준 scene 재구성
+- `tick(MapView)`: cut bounds 변화 감지, portal 이동 후 자동 recalibration 시도
 - `nearestNode()`
 - `nearbyGob(long gobId)`
 - `nearbyNodes()`
 - `nearbyGobs()`
 - `nearbyPoints()`
 
-nearby 범위는 `x`, `y` 각각 30 tile이며, 내부 계산 단위는 `30 * 1024`다.
+scene 정책:
+
+- memory load 범위는 player 기준 `7 x 7 cut`
+- render 범위는 player 기준 `5 x 5 cut`
+- `wp_node`, `wp_point`는 calibration 기준으로 먼저 `vir -> world` translation 한 뒤 cut을 계산한다
+- `drawable`과 `hidden`은 별도 collection으로 관리한다
+- hidden node를 만나면 연결된 다음 `wp_node` 한 hop까지만 추가 적재한다
 
 복원 결과 타입은 더 이상 `WaypointManager` 내부 클래스가 아니라 별도 runtime 타입으로 분리돼 있다.
 
 - `ResolvedNode`
 - `ResolvedGob`
 - `ResolvedPoint`
+- `WaypointScene`
+- `WaypointCutBounds`
+
+### WaypointOverlay
+
+현재 waypoint 시각화는 별도 widget이 아니라 `MapView.draw()` 훅 기반 world overlay다.
+
+- `Hook.mapViewDidDraw(...)`
+- `WaypointOverlay.draw(mapView, g)`
+
+핵심 규칙:
+
+- drawable collection만 그린다
+- `Coord` world (`1024` 기준)를 Haven `Coord2d` world (`11` 기준)로 변환한 뒤 `MapView.screenxf(...)`로 projection 한다
+- test overlay도 같은 draw 경로에서 토글한다
 
 ### CalibrateWaypointJob
 
@@ -339,7 +380,7 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 
 - `RecordingSession`
 - `RecordingSegment`
-- `RecordingPoint`
+- `RecordingClick`
 - `PendingPortalTransition`
 
 ### StopRecordJob
@@ -396,10 +437,16 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
   - 내부 최소 실행 단위를 모은 원자 동작 계층
 - `src/lmi/ChatInputManager.java`
   - area chat 입력 대기
+- `src/lmi/waypoint/WaypointStore.java`
+  - waypoint 도메인이 사용하는 public store facade
+  - shared SQLite connection owner
+  - managed DB worker owner
 - `src/lmi/waypoint/WaypointDatabase.java`
-  - waypoint DB schema와 조회/생성 API
+  - waypoint DB schema와 low-level query/insert helper
 - `src/lmi/waypoint/WaypointManager.java`
-  - calibration gob와 nearby node/gob/point 캐시 관리
+  - calibration gob, scene build, portal auto recalibration, drawable/hidden cache 관리
+- `src/lmi/waypoint/WaypointOverlay.java`
+  - `MapView.draw()` 훅에서 drawable waypoint scene을 실제 화면에 그리는 overlay
 - `src/lmi/waypoint/WaypointRecorder.java`
   - recording session, segment, point, pending portal transition 수집
 - `src/lmi/waypoint/WaypointPortal.java`
@@ -443,8 +490,10 @@ src/
     behavior/
       AlignLogBehavior.java: 통나무 정렬 절차를 AtomicAction 조합으로 표현한 행동 시퀀스
     waypoint/
-      WaypointDatabase.java: `gob_* / wp_*` schema 생성과 waypoint DB 조회/생성 API
-      WaypointManager.java: calibration gob와 nearby node/gob/point 복원 캐시를 관리
+      WaypointStore.java: waypoint 도메인이 사용하는 public facade이자 shared connection owner
+      WaypointDatabase.java: `gob_* / wp_*` schema 생성과 connection-based low-level DB helper
+      WaypointManager.java: calibration gob, scene build, portal auto recalibration, drawable/hidden cache를 관리
+      WaypointOverlay.java: `MapView.draw()` 훅에서 drawable waypoint scene을 world overlay로 그린다
       WaypointRecorder.java: recording session과 portal transition 상태를 메모리에서 수집
       WaypointPortal.java: portal resname pair 사전과 반대편 portal gob 탐색 규칙을 제공
       WaypointEdgeWriter.java: recording session을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
@@ -454,17 +503,20 @@ src/
         CreateRootNodeResult.java: root node 생성 결과
         CreateNodeResult.java: 일반 node 생성 결과
         SaveEdgeResult.java: edge 저장 결과
+        RecordingSession.java: waypoint recording session 상태
+        RecordingSegment.java: recording 중 하나의 segment 상태
+        RecordingClick.java: recording 중 하나의 click 상태
+        PendingPortalTransition.java: 아직 반대편 portal gob가 확정되지 않은 전이 상태
+      db/
         GobNodeRecord.java: `gob_node` row 모델
         WpNodeRecord.java: `wp_node` row 모델
         WpPointRecord.java: `wp_point` row 모델
-        RecordingSession.java: waypoint recording session 상태
-        RecordingSegment.java: recording 중 하나의 segment 상태
-        RecordingPoint.java: recording 중 하나의 click point 상태
-        PendingPortalTransition.java: 아직 반대편 portal gob가 확정되지 않은 전이 상태
       runtime/
         ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`
         ResolvedGob.java: 현재 world 좌표로 복원된 nearby `gob_node`
         ResolvedPoint.java: 현재 world 좌표로 복원된 nearby `wp_point`
+        WaypointScene.java: drawable / hidden waypoint scene collection
+        WaypointCutBounds.java: player 기준 7x7 load / 5x5 render cut bounds
   agent/
     effect/
       ToggleSleepEffect.java: Agent sleep 상태를 즉시 토글하는 effect

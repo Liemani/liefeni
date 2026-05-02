@@ -7,9 +7,8 @@ import haven.FastMesh;
 import haven.Gob;
 import haven.OCache;
 
-import lmi.Self;
 import lmi.waypoint.model.PendingPortalTransition;
-import lmi.waypoint.model.RecordingPoint;
+import lmi.waypoint.model.RecordingClick;
 import lmi.waypoint.model.RecordingSegment;
 import lmi.waypoint.model.RecordingSession;
 
@@ -19,11 +18,11 @@ public final class WaypointRecorder {
 
   private WaypointRecorder() {}
 
-  public static RecordingSession start(String name, long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
+  public static RecordingSession start(long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
     synchronized (lock) {
       if (activeSession != null)
         throw new IllegalStateException("A waypoint recording is already active.");
-      activeSession = new RecordingSession(name, startNodeId, baseGobId, baseGobX, baseGobY);
+      activeSession = new RecordingSession(startNodeId, baseGobId, baseGobX, baseGobY);
       return activeSession;
     }
   }
@@ -55,7 +54,7 @@ public final class WaypointRecorder {
       String gobResname = _gobResname(clickData);
 
       _resolvePendingPortalTransition(activeSession);
-      _rotateSegmentIfPreviousWasPortal(activeSession, pos.x, gobId, gobPosition, gobResname);
+      _rotateSegmentIfPreviousWasPortal(activeSession);
 
       RecordingSegment segment = activeSession.currentSegment();
       if (segment.baseGobId == null && gobId != null && gobPosition != null) {
@@ -68,8 +67,8 @@ public final class WaypointRecorder {
         segment.startGobResname = gobResname;
       }
 
-      segment.points.add(new RecordingPoint(
-        segment.points.size(),
+      segment.clicks.add(new RecordingClick(
+        segment.clicks.size(),
         pos.x,
         pos.y,
         mouseButton,
@@ -86,8 +85,7 @@ public final class WaypointRecorder {
       if (activeSession == null)
         return null;
       session = activeSession;
-      session.stoppedAtMillis = System.currentTimeMillis();
-      _markLastPortalPoint(session);
+      _finalizeLastPortalClick(session);
       _resolvePendingPortalTransition(session);
       activeSession = null;
     }
@@ -106,18 +104,22 @@ public final class WaypointRecorder {
   public static void setTerminalGob(RecordingSession session, Gob gob) {
     if (session == null || gob == null) return;
 
-    RecordingSegment current = session.currentSegment();
-    current.endGobId = (long)gob.id();
-    current.endGobX = gob.position().x;
-    current.endGobY = gob.position().y;
-    current.endGobResname = gob.resourceName();
+    synchronized (lock) {
+      _resolvePendingPortalTransition(session);
+
+      RecordingSegment current = session.currentSegment();
+      current.endGobId = (long)gob.id();
+      current.endGobX = gob.position().x;
+      current.endGobY = gob.position().y;
+      current.endGobResname = gob.resourceName();
+    }
   }
 
-  private static void _rotateSegmentIfPreviousWasPortal(RecordingSession session, int currentX, Long currentGobId, Coord currentGobPosition, String currentGobResname) {
-    RecordingPoint previous = session.lastPoint();
+  private static void _rotateSegmentIfPreviousWasPortal(RecordingSession session) {
+    RecordingClick previous = session.lastClick();
     if (previous == null) return;
-
-    if (Math.abs(currentX - previous.x) < 1000) return;
+    if (previous.mouseButton != 3) return;
+    if (!WaypointPortal.isPortalResname(previous.gobResname)) return;
 
     previous.isPortal = true;
 
@@ -141,10 +143,12 @@ public final class WaypointRecorder {
     session.segments.add(next);
   }
 
-  private static void _markLastPortalPoint(RecordingSession session) {
-    RecordingPoint last = session.lastPoint();
+  private static void _finalizeLastPortalClick(RecordingSession session) {
+    RecordingClick last = session.lastClick();
     if (last == null) return;
-    last.isPortal = Math.abs(Self.position().x - last.x) >= 1000;
+    if (last.mouseButton != 3) return;
+    if (!WaypointPortal.isPortalResname(last.gobResname)) return;
+    last.isPortal = true;
   }
 
   private static Long _gobId(ClickData clickData) {

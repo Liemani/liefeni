@@ -1634,6 +1634,9 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	    undelay(delayed2, g);
 	    poldraw(g);
 	    partydraw(g);
+	    // lmi start
+	    lmi.Hook.mapViewDidDraw(this, g);
+	    // lmi end
 	    glob.map.reqarea(cc.floor(tilesz).sub(MCache.cutsz.mul(view + 1)),
 			     cc.floor(tilesz).add(MCache.cutsz.mul(view + 1)));
 	} catch(Loading e) {
@@ -1698,6 +1701,9 @@ public class MapView extends PView implements DTarget, Console.Directory {
 		ob.ctick(dt);
 	    }
 	}
+	// lmi start
+	lmi.Hook.mapViewDidTick(this);
+	// lmi end
     }
     
     public void resize(Coord sz) {

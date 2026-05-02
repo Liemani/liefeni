@@ -8,8 +8,8 @@ import lmi.Api;
 import lmi.ChatInputManager;
 import lmi.ClickManager;
 import lmi.Self;
-import lmi.waypoint.WaypointDatabase;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.WaypointStore;
 import lmi.waypoint.model.CreateRootNodeResult;
 
 public class CreateNodeJob extends Job {
@@ -51,7 +51,7 @@ public class CreateNodeJob extends Job {
   }
 
   private static CreateRootNodeResult _createRootNode(Gob gob, String nodeName) {
-    return WaypointDatabase.createRootNode(
+    return WaypointStore.createRootNode(
       nodeName,
       Self.position().x,
       Self.position().y,

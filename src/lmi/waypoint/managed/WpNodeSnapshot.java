@@ -1,15 +1,17 @@
-package lmi.waypoint.model;
+package lmi.waypoint.managed;
 
-public final class WpNodeRecord {
+public final class WpNodeSnapshot {
   public final long id;
+  public final long version;
   public final long gobGraphId;
   public final long gobNodeId;
   public final int virX;
   public final int virY;
   public final String name;
 
-  public WpNodeRecord(long id, long gobGraphId, long gobNodeId, int virX, int virY, String name) {
+  public WpNodeSnapshot(long id, long version, long gobGraphId, long gobNodeId, int virX, int virY, String name) {
     this.id = id;
+    this.version = version;
     this.gobGraphId = gobGraphId;
     this.gobNodeId = gobNodeId;
     this.virX = virX;

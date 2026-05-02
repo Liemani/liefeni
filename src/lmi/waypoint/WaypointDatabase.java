@@ -2,10 +2,12 @@ package lmi.waypoint;
 
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.CreateRootNodeResult;
-import lmi.waypoint.model.GobNodeRecord;
 import lmi.waypoint.model.SaveEdgeResult;
-import lmi.waypoint.model.WpNodeRecord;
-import lmi.waypoint.model.WpPointRecord;
+import lmi.waypoint.db.GobNodeRecord;
+import lmi.waypoint.db.WpEdgeRecord;
+import lmi.waypoint.db.WpNodeRecord;
+import lmi.waypoint.db.WpPointRecord;
+import lmi.waypoint.db.WpSegmentRecord;
 
 import java.io.File;
 import java.net.URL;
@@ -13,7 +15,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.CodeSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,22 +23,17 @@ import java.util.ArrayList;
 
 import static lmi.Constant.WaypointEdgeDirection.*;
 
-public final class WaypointDatabase {
+final class WaypointDatabase {
   private WaypointDatabase() {}
 
-  public static void initialize() {
-    try {
-      Class.forName("org.sqlite.JDBC");
-      try (Connection conn = DriverManager.getConnection(_jdbcUrl())) {
-        _enableForeignKeys(conn);
-        _createSchema(conn);
-      }
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to initialize waypoint database: " + e.getMessage(), e);
-    }
+  static void initialize(Connection conn) throws Exception {
+    Class.forName("org.sqlite.JDBC");
+    _enableForeignKeys(conn);
+    _createSchema(conn);
   }
 
-  public static CreateRootNodeResult createRootNode(
+  static CreateRootNodeResult createRootNode(
+    Connection conn,
     String nodeName,
     int nodeX,
     int nodeY,
@@ -46,12 +42,7 @@ public final class WaypointDatabase {
     int gobY,
     String gobResname
   ) {
-    initialize();
-
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl())) {
-      conn.setAutoCommit(false);
-      _enableForeignKeys(conn);
-
+    try {
       if (_gobNodeExists(conn, gobId))
         return CreateRootNodeResult.failed("Gob is already registered: " + gobId);
 
@@ -59,15 +50,14 @@ public final class WaypointDatabase {
       _insertGobNode(conn, gobId, graphId, gobX - nodeX, gobY - nodeY, null, gobResname);
       long wpNodeId = _insertWpNode(conn, graphId, gobId, 0, 0, nodeName);
       _updateGobNodeWpNodeId(conn, gobId, wpNodeId);
-
-      conn.commit();
       return CreateRootNodeResult.created(wpNodeId, gobId, graphId);
     } catch (Exception e) {
       return CreateRootNodeResult.failed("Failed to create root node: " + e.getMessage());
     }
   }
 
-  public static CreateNodeResult createNode(
+  static CreateNodeResult createNode(
+    Connection conn,
     String nodeName,
     long gobGraphId,
     long gobId,
@@ -77,12 +67,7 @@ public final class WaypointDatabase {
     int gobVirY,
     String gobResname
   ) {
-    initialize();
-
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl())) {
-      conn.setAutoCommit(false);
-      _enableForeignKeys(conn);
-
+    try {
       GobNodeRecord existingGob = _findGob(conn, gobId);
       if (existingGob != null) {
         if (existingGob.wpNodeId != null)
@@ -92,27 +77,21 @@ public final class WaypointDatabase {
 
         long wpNodeId = _insertWpNode(conn, gobGraphId, gobId, nodeVirX, nodeVirY, nodeName);
         _updateGobNodeWpNodeId(conn, gobId, wpNodeId);
-        conn.commit();
         return CreateNodeResult.created(wpNodeId, gobId);
       }
 
       _insertGobNode(conn, gobId, gobGraphId, gobVirX, gobVirY, null, gobResname);
       long wpNodeId = _insertWpNode(conn, gobGraphId, gobId, nodeVirX, nodeVirY, nodeName);
       _updateGobNodeWpNodeId(conn, gobId, wpNodeId);
-
-      conn.commit();
       return CreateNodeResult.created(wpNodeId, gobId);
     } catch (Exception e) {
       return CreateNodeResult.failed("Failed to create node: " + e.getMessage());
     }
   }
 
-  public static GobNodeRecord findGob(long gobId) {
-    initialize();
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl());
-         PreparedStatement stmt = conn.prepareStatement(
+  static GobNodeRecord findGob(Connection conn, long gobId) {
+    try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT id, graph_id, vir_x, vir_y, wp_node_id, resname FROM gob_node WHERE id = ?")) {
-      _enableForeignKeys(conn);
       stmt.setLong(1, gobId);
       try (ResultSet rs = stmt.executeQuery()) {
         if (!rs.next()) return null;
@@ -135,15 +114,12 @@ public final class WaypointDatabase {
     }
   }
 
-  public static WpNodeRecord findNodeByGob(long gobId) {
-    initialize();
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl());
-         PreparedStatement stmt = conn.prepareStatement(
+  static WpNodeRecord findNodeByGob(Connection conn, long gobId) {
+    try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT n.id, n.gob_graph_id, n.gob_node_id, n.vir_x, n.vir_y, n.name " +
            "FROM wp_node n " +
            "JOIN gob_node g ON g.wp_node_id = n.id " +
            "WHERE g.id = ?")) {
-      _enableForeignKeys(conn);
       stmt.setLong(1, gobId);
       try (ResultSet rs = stmt.executeQuery()) {
         if (!rs.next()) return null;
@@ -161,18 +137,36 @@ public final class WaypointDatabase {
     }
   }
 
-  public static ArrayList<WpNodeRecord> loadNearbyNodes(long graphId, int centerVirX, int centerVirY, int range) {
-    initialize();
+  static WpNodeRecord findNodeById(Connection conn, long wpNodeId) {
+    try (PreparedStatement stmt = conn.prepareStatement(
+           "SELECT id, gob_graph_id, gob_node_id, vir_x, vir_y, name " +
+           "FROM wp_node WHERE id = ?")) {
+      stmt.setLong(1, wpNodeId);
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (!rs.next()) return null;
+        return new WpNodeRecord(
+          rs.getLong("id"),
+          rs.getLong("gob_graph_id"),
+          rs.getLong("gob_node_id"),
+          rs.getInt("vir_x"),
+          rs.getInt("vir_y"),
+          rs.getString("name")
+        );
+      }
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to query wp_node " + wpNodeId + ": " + e.getMessage(), e);
+    }
+  }
+
+  static ArrayList<WpNodeRecord> loadNearbyNodes(Connection conn, long graphId, int centerVirX, int centerVirY, int range) {
     ArrayList<WpNodeRecord> nodes = new ArrayList<>();
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl());
-         PreparedStatement stmt = conn.prepareStatement(
+    try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT id, gob_graph_id, gob_node_id, vir_x, vir_y, name " +
            "FROM wp_node " +
            "WHERE gob_graph_id = ? " +
            "  AND vir_x BETWEEN ? AND ? " +
            "  AND vir_y BETWEEN ? AND ? " +
            "ORDER BY id")) {
-      _enableForeignKeys(conn);
       stmt.setLong(1, graphId);
       stmt.setInt(2, centerVirX - range);
       stmt.setInt(3, centerVirX + range);
@@ -196,18 +190,15 @@ public final class WaypointDatabase {
     return nodes;
   }
 
-  public static ArrayList<GobNodeRecord> loadNearbyGobs(long graphId, int centerVirX, int centerVirY, int range) {
-    initialize();
+  static ArrayList<GobNodeRecord> loadNearbyGobs(Connection conn, long graphId, int centerVirX, int centerVirY, int range) {
     ArrayList<GobNodeRecord> gobs = new ArrayList<>();
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl());
-         PreparedStatement stmt = conn.prepareStatement(
+    try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT id, graph_id, vir_x, vir_y, wp_node_id, resname " +
            "FROM gob_node " +
            "WHERE graph_id = ? " +
            "  AND vir_x BETWEEN ? AND ? " +
            "  AND vir_y BETWEEN ? AND ? " +
            "ORDER BY id")) {
-      _enableForeignKeys(conn);
       stmt.setLong(1, graphId);
       stmt.setInt(2, centerVirX - range);
       stmt.setInt(3, centerVirX + range);
@@ -235,19 +226,16 @@ public final class WaypointDatabase {
     return gobs;
   }
 
-  public static ArrayList<WpPointRecord> loadNearbyPoints(long graphId, int centerVirX, int centerVirY, int range) {
-    initialize();
+  static ArrayList<WpPointRecord> loadNearbyPoints(Connection conn, long graphId, int centerVirX, int centerVirY, int range) {
     ArrayList<WpPointRecord> points = new ArrayList<>();
-    try (Connection conn = DriverManager.getConnection(_jdbcUrl());
-         PreparedStatement stmt = conn.prepareStatement(
+    try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT p.segment_id, p.step, p.vir_x, p.vir_y, p.mouse_button, p.gob_id, p.mesh_id, s.gob_graph_id " +
            "FROM wp_point p " +
            "JOIN wp_segment s ON s.id = p.segment_id " +
            "WHERE s.gob_graph_id = ? " +
            "  AND p.vir_x BETWEEN ? AND ? " +
            "  AND p.vir_y BETWEEN ? AND ? " +
-           "ORDER BY segment_id, step")) {
-      _enableForeignKeys(conn);
+           "ORDER BY p.segment_id, p.step")) {
       stmt.setLong(1, graphId);
       stmt.setInt(2, centerVirX - range);
       stmt.setInt(3, centerVirX + range);
@@ -277,6 +265,88 @@ public final class WaypointDatabase {
       }
     } catch (Exception e) {
       throw new RuntimeException("Failed to load nearby wp_point rows: " + e.getMessage(), e);
+    }
+    return points;
+  }
+
+  static ArrayList<WpEdgeRecord> loadEdgesByNode(Connection conn, long wpNodeId) {
+    ArrayList<WpEdgeRecord> edges = new ArrayList<>();
+    try (PreparedStatement stmt = conn.prepareStatement(
+           "SELECT id, node0_id, node1_id, direction, time_cost, fatigue_cost " +
+           "FROM wp_edge WHERE node0_id = ? OR node1_id = ? ORDER BY id")) {
+      stmt.setLong(1, wpNodeId);
+      stmt.setLong(2, wpNodeId);
+      try (ResultSet rs = stmt.executeQuery()) {
+        while (rs.next()) {
+          edges.add(new WpEdgeRecord(
+            rs.getLong("id"),
+            rs.getLong("node0_id"),
+            rs.getLong("node1_id"),
+            rs.getInt("direction"),
+            rs.getDouble("time_cost"),
+            rs.getDouble("fatigue_cost")
+          ));
+        }
+      }
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to load wp_edge rows by wp_node " + wpNodeId + ": " + e.getMessage(), e);
+    }
+    return edges;
+  }
+
+  static ArrayList<WpSegmentRecord> loadSegmentsByEdge(Connection conn, long edgeId) {
+    ArrayList<WpSegmentRecord> segments = new ArrayList<>();
+    try (PreparedStatement stmt = conn.prepareStatement(
+           "SELECT id, edge_id, gob_graph_id, step FROM wp_segment WHERE edge_id = ? ORDER BY step")) {
+      stmt.setLong(1, edgeId);
+      try (ResultSet rs = stmt.executeQuery()) {
+        while (rs.next()) {
+          segments.add(new WpSegmentRecord(
+            rs.getLong("id"),
+            rs.getLong("edge_id"),
+            rs.getLong("gob_graph_id"),
+            rs.getInt("step")
+          ));
+        }
+      }
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to load wp_segment rows by wp_edge " + edgeId + ": " + e.getMessage(), e);
+    }
+    return segments;
+  }
+
+  static ArrayList<WpPointRecord> loadPointsBySegment(Connection conn, long segmentId) {
+    ArrayList<WpPointRecord> points = new ArrayList<>();
+    try (PreparedStatement stmt = conn.prepareStatement(
+           "SELECT p.segment_id, p.step, s.gob_graph_id, p.vir_x, p.vir_y, p.mouse_button, p.gob_id, p.mesh_id " +
+           "FROM wp_point p " +
+           "JOIN wp_segment s ON s.id = p.segment_id " +
+           "WHERE p.segment_id = ? ORDER BY p.step")) {
+      stmt.setLong(1, segmentId);
+      try (ResultSet rs = stmt.executeQuery()) {
+        while (rs.next()) {
+          Long gobId = null;
+          long gobIdValue = rs.getLong("gob_id");
+          if (!rs.wasNull()) gobId = gobIdValue;
+
+          Integer meshId = null;
+          int meshIdValue = rs.getInt("mesh_id");
+          if (!rs.wasNull()) meshId = meshIdValue;
+
+          points.add(new WpPointRecord(
+            rs.getLong("segment_id"),
+            rs.getInt("step"),
+            rs.getLong("gob_graph_id"),
+            rs.getInt("vir_x"),
+            rs.getInt("vir_y"),
+            rs.getInt("mouse_button"),
+            gobId,
+            meshId
+          ));
+        }
+      }
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to load wp_point rows by wp_segment " + segmentId + ": " + e.getMessage(), e);
     }
     return points;
   }
@@ -565,6 +635,20 @@ public final class WaypointDatabase {
       else stmt.setNull(6, java.sql.Types.BIGINT);
       if (meshId != null) stmt.setInt(7, meshId);
       else stmt.setNull(7, java.sql.Types.INTEGER);
+      stmt.executeUpdate();
+    }
+  }
+
+  static void _updateWpNode(Connection conn, long id, long gobGraphId, long gobNodeId, int virX, int virY,
+                            String name) throws SQLException {
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "UPDATE wp_node SET gob_graph_id = ?, gob_node_id = ?, vir_x = ?, vir_y = ?, name = ? WHERE id = ?")) {
+      stmt.setLong(1, gobGraphId);
+      stmt.setLong(2, gobNodeId);
+      stmt.setInt(3, virX);
+      stmt.setInt(4, virY);
+      stmt.setString(5, name);
+      stmt.setLong(6, id);
       stmt.executeUpdate();
     }
   }

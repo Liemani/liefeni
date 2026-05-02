@@ -1,4 +1,4 @@
-package lmi.waypoint.model;
+package lmi.waypoint.db;
 
 public final class GobNodeRecord {
   public final long id;

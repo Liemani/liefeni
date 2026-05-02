@@ -16,7 +16,7 @@ public final class RecordingSegment {
   public int endGobX;
   public int endGobY;
   public String endGobResname;
-  public final List<RecordingPoint> points = new ArrayList<>();
+  public final List<RecordingClick> clicks = new ArrayList<>();
 
   public RecordingSegment(int index, Long baseGobId, int baseGobX, int baseGobY) {
     this.index = index;
