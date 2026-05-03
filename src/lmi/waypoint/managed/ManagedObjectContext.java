@@ -1,7 +1,11 @@
 package lmi.waypoint.managed;
 
 import lmi.Array;
+import lmi.waypoint.EmptyWaypointResult;
+import lmi.waypoint.WaypointDbExecutor;
+import lmi.waypoint.WaypointResultHandler;
 import lmi.waypoint.WaypointStore;
+import lmi.waypoint.WaypointWriteRequest;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -48,10 +52,6 @@ public final class ManagedObjectContext {
   }
 
   public synchronized void save() {
-    save(WaypointStore.managedDbWorker());
-  }
-
-  public synchronized void save(DbWorker worker) {
     SaveBatch batch = buildSaveBatch();
     if (batch.isEmpty())
       return;
@@ -61,7 +61,24 @@ public final class ManagedObjectContext {
       if (node != null)
         node.onSaveQueued();
     }
-    worker.submit(this, batch);
+
+    WaypointDbExecutor.submitWrite(new WaypointWriteRequest<EmptyWaypointResult>() {
+      @Override
+      public EmptyWaypointResult execute(java.sql.Connection conn) throws Exception {
+        WaypointStore.applySaveBatch(conn, batch);
+        return EmptyWaypointResult.INSTANCE;
+      }
+    }, new WaypointResultHandler<EmptyWaypointResult>() {
+      @Override
+      public void onSuccess(EmptyWaypointResult result) {
+        onSaveSucceeded(batch);
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        onSaveFailed(batch);
+      }
+    });
   }
 
   synchronized void markDirty(ManagedObject object) {

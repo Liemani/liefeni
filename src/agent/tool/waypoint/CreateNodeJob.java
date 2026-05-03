@@ -1,6 +1,7 @@
 package agent.tool.waypoint;
 
 import agent.Job;
+import haven.Coord;
 import lmi.AgentContext;
 import lmi.Api;
 import lmi.ChatInputMonitor;
@@ -8,30 +9,116 @@ import lmi.ClickManager;
 import lmi.Rect;
 import lmi.Self;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.WaypointResultHandler;
 import lmi.waypoint.WaypointStore;
-import lmi.waypoint.model.CreateRootNodeResult;
+import lmi.waypoint.model.CreateAnchorResult;
+import lmi.waypoint.model.CreateNodeResult;
 
 public class CreateNodeJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    Rect area = _selectAnchorArea();
-    if (area == null) {
-      Api.message("CreateNode failed: no anchor area selected.");
+    if (!WaypointManager.anchorsLoaded()) {
+      Api.message("CreateNode failed: anchor cache is not loaded yet.");
+      return;
+    }
+
+    if (!WaypointManager.hasAnchor()) {
+      Rect area = _selectAnchorArea();
+      if (area == null) {
+        Api.message("CreateNode failed: no anchor area selected.");
+        return;
+      }
+
+      String nodeName = _inputNodeName();
+      if (nodeName == null)
+        return;
+
+      _createAnchorAndNode(area, nodeName);
+      return;
+    }
+
+    if (!WaypointManager.isCalibrated()) {
+      Api.message("CreateNode failed: waypoint is not calibrated.");
+      Api.message("Run CalibrateWaypoint first.");
       return;
     }
 
     String nodeName = _inputNodeName();
-    if (nodeName == null) {
+    if (nodeName == null)
+      return;
+
+    _createNodeAtCurrentPositionAsync(nodeName);
+  }
+
+  private static void _createAnchorAndNode(Rect area, String nodeName) {
+    WaypointStore.createAnchorAsync(new WaypointResultHandler<CreateAnchorResult>() {
+      @Override
+      public void onSuccess(CreateAnchorResult result) {
+        if (!result.created) {
+          Api.message(result.errorMessage);
+          return;
+        }
+
+        WaypointManager.markAnchorPresent();
+
+        if (!WaypointManager.calibrate(area)) {
+          Api.message("CreateNode failed: anchor was created, but waypoint calibration failed.");
+          return;
+        }
+
+        Api.message("Waypoint calibrated with area origin: " + area.origin);
+        _createNodeAtCurrentPositionAsync(nodeName);
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        Api.message("CreateNode failed: " + error.getMessage());
+      }
+    });
+  }
+
+  private static void _createNodeAtCurrentPositionAsync(String nodeName) {
+    if (!WaypointManager.isCalibrated()) {
+      Api.message("CreateNode failed: waypoint is not calibrated.");
+      Api.message("Run CalibrateWaypoint first.");
       return;
     }
 
-    CreateRootNodeResult result = _createRootNode(area, nodeName);
-    if (!result.created) {
-      Api.message(result.errorMessage);
+    Long graphId = WaypointManager.calibrationGraphId();
+    if (graphId == null) {
+      Api.message("CreateNode failed: current waypoint graph is unavailable.");
       return;
     }
 
-    _finishCreateNode(area, nodeName);
+    Coord vir = WaypointManager.virOfWorld(Self.position());
+    if (vir == null) {
+      Api.message("CreateNode failed: current waypoint position is unavailable.");
+      return;
+    }
+
+    WaypointStore.createNodeAsync(
+      nodeName,
+      graphId,
+      vir.x,
+      vir.y,
+      new WaypointResultHandler<CreateNodeResult>() {
+        @Override
+        public void onSuccess(CreateNodeResult result) {
+          if (!result.created) {
+            Api.message(result.errorMessage);
+            return;
+          }
+
+          WaypointManager.refresh();
+          Api.message("Created node: " + nodeName);
+        }
+
+        @Override
+        public void onFailure(Exception error) {
+          Api.message("CreateNode failed: " + error.getMessage());
+        }
+      }
+    );
   }
 
   private static Rect _selectAnchorArea() {
@@ -49,23 +136,7 @@ public class CreateNodeJob extends Job {
     return nodeName.trim();
   }
 
-  private static CreateRootNodeResult _createRootNode(Rect area, String nodeName) {
-    return WaypointStore.createRootNode(
-      nodeName,
-      area.origin.x,
-      area.origin.y,
-      Self.position().x,
-      Self.position().y
-    );
-  }
-
-  private static void _finishCreateNode(Rect area, String nodeName) {
-    WaypointManager.calibrate(area);
-    Api.message("Created root node: " + nodeName);
-    Api.message("Waypoint calibrated with area origin: " + area.origin);
-  }
-
   public static String info() {
-    return "Creates a new root waypoint graph using an anchor tile area and the current player position.";
+    return "Creates an anchor if needed, then creates a node at the current calibrated position.";
   }
 }

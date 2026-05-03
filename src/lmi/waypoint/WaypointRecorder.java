@@ -7,7 +7,6 @@ import haven.FastMesh;
 import haven.Gob;
 import haven.OCache;
 
-import lmi.waypoint.model.PendingPortalTransition;
 import lmi.waypoint.model.RecordingClick;
 import lmi.waypoint.model.RecordingSegment;
 import lmi.waypoint.model.RecordingSession;
@@ -54,14 +53,11 @@ public final class WaypointRecorder {
     synchronized (lock) {
       if (activeSession == null) return;
 
-      Coord pos = mapCoord.floor(OCache.posres);
       Long gobId = _gobId(clickData);
       Integer meshId = _meshId(clickData);
       Coord gobPosition = _gobPosition(clickData);
       String gobResname = _gobResname(clickData);
-
-      _resolvePendingPortalTransition(activeSession);
-      _rotateSegmentIfPreviousWasPortal(activeSession);
+      Coord pos = (gobPosition != null) ? gobPosition : mapCoord.floor(OCache.posres);
 
       RecordingSegment segment = activeSession.currentSegment();
       if (segment.baseGobX == 0 && segment.baseGobY == 0 && gobPosition != null) {
@@ -87,8 +83,6 @@ public final class WaypointRecorder {
       if (activeSession == null)
         return null;
       session = activeSession;
-      _finalizeLastPortalClick(session);
-      _resolvePendingPortalTransition(session);
       activeSession = null;
     }
     return session;
@@ -107,52 +101,12 @@ public final class WaypointRecorder {
     if (session == null || gob == null) return;
 
     synchronized (lock) {
-      _resolvePendingPortalTransition(session);
-
       RecordingSegment current = session.currentSegment();
       current.endGobId = (long)gob.id();
       current.endGobX = gob.position().x;
       current.endGobY = gob.position().y;
       current.endGobResname = gob.resourceName();
     }
-  }
-
-  private static void _rotateSegmentIfPreviousWasPortal(RecordingSession session) {
-    RecordingClick previous = session.lastClick();
-    if (previous == null) return;
-    if (previous.mouseButton != 3) return;
-    if (!WaypointPortal.isPortalResname(previous.gobResname)) return;
-
-    previous.isPortal = true;
-
-    RecordingSegment current = session.currentSegment();
-    current.endGobId = previous.gobId;
-    current.endGobX = previous.x;
-    current.endGobY = previous.y;
-    current.endGobResname = previous.gobResname;
-
-    String entryPortalResname = previous.gobResname;
-    if (entryPortalResname != null) {
-      session.pendingPortalTransition = new PendingPortalTransition(entryPortalResname);
-    }
-
-    RecordingSegment next = new RecordingSegment(
-      session.segments.size(),
-      null,
-      0,
-      0,
-      0,
-      0
-    );
-    session.segments.add(next);
-  }
-
-  private static void _finalizeLastPortalClick(RecordingSession session) {
-    RecordingClick last = session.lastClick();
-    if (last == null) return;
-    if (last.mouseButton != 3) return;
-    if (!WaypointPortal.isPortalResname(last.gobResname)) return;
-    last.isPortal = true;
   }
 
   private static Long _gobId(ClickData clickData) {
@@ -190,24 +144,4 @@ public final class WaypointRecorder {
       return ((haven.Composited.CompositeClick)clickData.ci).gi.gob.position();
     return null;
   }
-
-  private static void _resolvePendingPortalTransition(RecordingSession session) {
-    PendingPortalTransition pending = session.pendingPortalTransition;
-    if (pending == null) return;
-
-    Gob exitPortal = WaypointPortal.closestCounterpartGob(pending.entryPortalResname);
-    if (exitPortal == null) return;
-
-    RecordingSegment current = session.currentSegment();
-    current.baseGraphId = WaypointManager.calibrationGraphId();
-    current.baseGobX = exitPortal.position().x;
-    current.baseGobY = exitPortal.position().y;
-    Coord baseVir = WaypointManager.virOfWorld(exitPortal.position());
-    if (baseVir != null) {
-      current.baseVirX = baseVir.x;
-      current.baseVirY = baseVir.y;
-    }
-    session.pendingPortalTransition = null;
-  }
-
 }

@@ -5,6 +5,7 @@ import haven.Coord;
 import haven.MapView;
 import lmi.Api;
 import lmi.AppContext;
+import lmi.waypoint.WaypointDebug;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointOverlay;
 import lmi.waypoint.runtime.ResolvedNode;
@@ -13,7 +14,7 @@ public class DescribeWaypointSceneEffect extends Effect {
   @Override
   public void execute() {
     WaypointManager.refresh();
-    for (String line : WaypointManager.debugLines())
+    for (String line : WaypointDebug.lines())
       Api.message(line);
 
     MapView mapView = AppContext.mapView();

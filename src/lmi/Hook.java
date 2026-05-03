@@ -5,6 +5,7 @@ import agent.Effect;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointOverlay;
 import lmi.waypoint.WaypointRecorder;
+import lmi.waypoint.WaypointSyncManager;
 import static lmi.Constant.*;
 
 public class Hook {
@@ -13,10 +14,10 @@ public class Hook {
 //    if (!msg.contentEquals("err")
 //        && !msg.contentEquals("msg")
 //        && !msg.contentEquals("msg2")) return;
-
-    String description = String.format("{%d: %s} (argc: %d)", id, msg, args.length);
-    lmi.Util.debugPrintHeader(description);
-    _recursivePrintObject(0, args);
+//
+//    String description = String.format("{%d: %s} (argc: %d)", id, msg, args.length);
+//    lmi.Util.debugPrintHeader(description);
+//    _recursivePrintObject(0, args);
   }
 
   private static void _recursivePrintObject(int indent, Object... args) {
@@ -186,6 +187,7 @@ public class Hook {
   }
 
   public static void mapViewDidDraw(MapView mapView, GOut g) {
+    WaypointSyncManager.drain();
     WaypointOverlay.draw(mapView, g);
   }
 

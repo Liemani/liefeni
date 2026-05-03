@@ -9,6 +9,7 @@ import haven.MapView;
 import lmi.AppContext;
 import lmi.Array;
 import lmi.Constant;
+import lmi.waypoint.runtime.ResolvedLine;
 import lmi.waypoint.runtime.ResolvedNode;
 import lmi.waypoint.runtime.ResolvedPoint;
 
@@ -16,6 +17,7 @@ import java.awt.Color;
 
 public final class WaypointOverlay {
   private static final Color POINT_COLOR = new Color(180, 180, 180, 160);
+  private static final Color LINE_COLOR = new Color(160, 160, 160, 150);
   private static final Color NODE_COLOR = new Color(80, 220, 120, 220);
   private static final Color NODE_LABEL_COLOR = new Color(255, 220, 80, 240);
   private static final Color TEST_COLOR = new Color(255, 80, 80, 220);
@@ -38,6 +40,16 @@ public final class WaypointOverlay {
 
     Array<ResolvedPoint> points = WaypointManager.nearbyPoints();
     Array<ResolvedNode> nodes = WaypointManager.nearbyNodes();
+    Array<ResolvedLine> lines = WaypointManager.scene().drawableLines;
+
+    g.chcolor(LINE_COLOR);
+    for (ResolvedLine line : lines) {
+      Coord from = _screen(mapView, line.fromWorld);
+      Coord to = _screen(mapView, line.toWorld);
+      if (from == null || to == null)
+        continue;
+      g.line(from, to, 1);
+    }
 
     g.chcolor(POINT_COLOR);
     for (ResolvedPoint point : points) {

@@ -10,6 +10,11 @@ import lmi.waypoint.WaypointManager;
 public class CalibrateWaypointJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
+    if (!WaypointManager.anchorsLoaded()) {
+      Api.message("Waypoint calibration failed: anchor cache is not loaded yet.");
+      return;
+    }
+
     Rect area = _selectCalibrationArea();
     if (area == null) {
       Api.message("Waypoint calibration failed: no area selected.");

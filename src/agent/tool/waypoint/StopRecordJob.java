@@ -12,6 +12,7 @@ import lmi.Self;
 import lmi.waypoint.WaypointEdgeWriter;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
+import lmi.waypoint.WaypointResultHandler;
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.model.SaveEdgeResult;
@@ -35,10 +36,12 @@ public class StopRecordJob extends Job {
 
     WaypointRecorder.setTerminalGob(session, gob);
 
-    WpNode endNode = _ensureEndNode(gob);
-    if (endNode == null) return;
-
-    _saveEdge(session, endNode, gob);
+    _ensureEndNodeAsync(gob, new EndNodeHandler() {
+      @Override
+      public void onResolved(WpNode endNode) {
+        _saveEdgeAsync(session, endNode, gob);
+      }
+    });
   }
 
   private static Gob _selectEndGob() {
@@ -46,53 +49,66 @@ public class StopRecordJob extends Job {
     return ClickManager.getGob();
   }
 
-  private static WpNode _ensureEndNode(Gob gob) {
+  private static void _ensureEndNodeAsync(Gob gob, EndNodeHandler handler) {
     Coord nodeVir = WaypointManager.virOfWorld(Self.position());
     Long graphId = WaypointManager.calibrationGraphId();
     if (nodeVir == null || graphId == null)
-      return null;
+      return;
 
     WpNode endNode = WaypointStore.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
-    if (endNode != null) return endNode;
+    if (endNode != null) {
+      handler.onResolved(endNode);
+      return;
+    }
 
-    return _createEndNode(gob);
+    _createEndNodeAsync(gob, handler);
   }
 
-  private static WpNode _createEndNode(Gob gob) {
+  private static void _createEndNodeAsync(Gob gob, EndNodeHandler handler) {
     if (!WaypointManager.isCalibrated()) {
       Api.message("[StopRecordJob] calibration missing before end node creation");
       Api.message("[StopRecordJob] isCalibrated=" + WaypointManager.isCalibrated());
       Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
-      return null;
+      return;
     }
 
     String nodeName = _inputEndNodeName();
-    if (nodeName == null) return null;
+    if (nodeName == null) return;
 
     Long graphId = WaypointManager.calibrationGraphId();
     Coord nodeVir = WaypointManager.virOfWorld(Self.position());
     if (graphId == null || nodeVir == null) {
       Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
-      return null;
+      return;
     }
 
-    CreateNodeResult createNodeResult = WaypointStore.createNode(
+    WaypointStore.createNodeAsync(
       nodeName,
       graphId,
       nodeVir.x,
-      nodeVir.y
-    );
-    if (!createNodeResult.created) {
-      Api.message("Failed to save waypoint recording: " + createNodeResult.errorMessage);
-      return null;
-    }
+      nodeVir.y,
+      new WaypointResultHandler<CreateNodeResult>() {
+        @Override
+        public void onSuccess(CreateNodeResult createNodeResult) {
+          if (!createNodeResult.created) {
+            Api.message("Failed to save waypoint recording: " + createNodeResult.errorMessage);
+            return;
+          }
 
-    WpNode endNode = WaypointStore.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
-    if (endNode == null) {
-      Api.message("Failed to save waypoint recording: created end node cannot be loaded.");
-      return null;
-    }
-    return endNode;
+          WpNode endNode = WaypointStore.findNode(createNodeResult.nodeId);
+          if (endNode == null) {
+            Api.message("Failed to save waypoint recording: created end node cannot be loaded.");
+            return;
+          }
+          handler.onResolved(endNode);
+        }
+
+        @Override
+        public void onFailure(Exception error) {
+          Api.message("Failed to save waypoint recording: " + error.getMessage());
+        }
+      }
+    );
   }
 
   private static String _inputEndNodeName() {
@@ -105,17 +121,31 @@ public class StopRecordJob extends Job {
     return nodeName.trim();
   }
 
-  private static void _saveEdge(RecordingSession session, WpNode endNode, Gob gob) {
-    SaveEdgeResult result = WaypointEdgeWriter.save(session, endNode.id);
-    if (!result.saved) {
-      Api.message("Failed to save waypoint recording.");
-      Api.message(result.errorMessage);
-      return;
-    }
+  private static void _saveEdgeAsync(RecordingSession session, WpNode endNode, Gob gob) {
+    WaypointEdgeWriter.saveAsync(session, endNode.id, new WaypointResultHandler<SaveEdgeResult>() {
+      @Override
+      public void onSuccess(SaveEdgeResult result) {
+        if (!result.saved) {
+          Api.message("Failed to save waypoint recording.");
+          Api.message(result.errorMessage);
+          return;
+        }
 
-    WaypointManager.calibrate(gob);
-    Api.message("Saved waypoint recording (" + session.pointCount() + " clicks)");
-    Api.message("Saved edge id: " + result.edgeId);
+        WaypointManager.calibrate(gob);
+        Api.message("Saved waypoint recording (" + session.pointCount() + " clicks)");
+        Api.message("Saved edge id: " + result.edgeId);
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        Api.message("Failed to save waypoint recording.");
+        Api.message(error.getMessage());
+      }
+    });
+  }
+
+  private interface EndNodeHandler {
+    void onResolved(WpNode endNode);
   }
 
   public static String info() {

@@ -1,8 +1,10 @@
 package lmi.waypoint;
 
 import lmi.waypoint.model.CreateNodeResult;
+import lmi.waypoint.model.CreateAnchorResult;
 import lmi.waypoint.model.CreateRootNodeResult;
 import lmi.waypoint.model.SaveEdgeResult;
+import lmi.waypoint.model.UpdateAnchorResult;
 import lmi.waypoint.db.WpAnchorRecord;
 import lmi.waypoint.db.WpEdgeRecord;
 import lmi.waypoint.db.WpNodeRecord;
@@ -57,6 +59,30 @@ final class WaypointDatabase {
       return CreateRootNodeResult.created(wpNodeId, graphId);
     } catch (Exception e) {
       return CreateRootNodeResult.failed("Failed to create root node: " + e.getMessage());
+    }
+  }
+
+  static CreateAnchorResult createAnchor(Connection conn) {
+    try {
+      if (_anchorExists(conn))
+        return CreateAnchorResult.failed("wp_anchor already exists.");
+
+      long graphId = _insertWpGraph(conn);
+      _insertWpAnchor(conn, graphId, 0, 0);
+      return CreateAnchorResult.created(graphId);
+    } catch (Exception e) {
+      return CreateAnchorResult.failed("Failed to create anchor: " + e.getMessage());
+    }
+  }
+
+  static UpdateAnchorResult updateAnchor(Connection conn, long graphId, int anchorVirX, int anchorVirY) {
+    try {
+      long updated = _updateWpAnchor(conn, graphId, anchorVirX, anchorVirY);
+      if (updated < 1)
+        return UpdateAnchorResult.failed("wp_anchor does not exist.");
+      return UpdateAnchorResult.updated();
+    } catch (Exception e) {
+      return UpdateAnchorResult.failed("Failed to update anchor: " + e.getMessage());
     }
   }
 
@@ -557,6 +583,16 @@ final class WaypointDatabase {
       }
     }
     throw new SQLException("Failed to insert wp_anchor row.");
+  }
+
+  private static long _updateWpAnchor(Connection conn, long graphId, int virX, int virY) throws SQLException {
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "UPDATE wp_anchor SET graph_id = ?, vir_x = ?, vir_y = ?")) {
+      stmt.setLong(1, graphId);
+      stmt.setInt(2, virX);
+      stmt.setInt(3, virY);
+      return stmt.executeUpdate();
+    }
   }
 
   static long _insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,

@@ -185,33 +185,71 @@ Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, graph / anchor / p
 - `wp_point.vir_x`, `wp_point.vir_y`는 graph 기준 virtual coordinate 절대값이다
 - `wp_point`는 `gob_id`를 저장하지 않는다
 
+### Bootstrap
+
+초기 waypoint 준비는 다음처럼 나뉜다.
+
+- `LmiBootstrap`
+  - LMI 전역 bootstrap 진입점
+  - `RuntimeEventManager.init()`
+  - `WaypointBootstrap.init()`
+- `WaypointBootstrap`
+  - `WaypointDbExecutor.init()`
+  - anchor async preload 시작
+  - completion 시 anchor cache를 runtime context에 반영
+
+즉 bootstrap 시점부터 waypoint는 DB worker thread와 runtime cache를 같이 준비한다.
+
+### WaypointRuntimeContext / WaypointDbExecutor / WaypointSyncManager
+
+현재 waypoint는 memory-first 2-context 구조로 가는 중이다.
+
+- `WaypointRuntimeContext`
+  - runtime authoritative state
+  - `WaypointCalibrationState`
+  - `WaypointScene`
+  - `ManagedObjectContext`
+  - anchor / portal / node / edge / segment / point cache
+  - 각 cache의 `loaded/loading` 상태
+- `WaypointDbExecutor`
+  - waypoint DB 전용 async worker thread
+  - read / write request를 queue로 처리
+- `WaypointSyncManager`
+  - DB completion을 runtime 쪽으로 되돌리는 중앙 queue
+  - 현재 `Hook.mapViewDidDraw(...)`에서 drain 한다
+
+즉 main/render thread는 DB를 직접 기다리지 않고, DB completion이 나중에 runtime cache를 갱신하는 구조다.
+
 ### WaypointStore
 
-현재 waypoint 외부 코드가 붙는 public DB/store 진입점은 `WaypointStore`로 모으는 중이다.
+현재 waypoint 외부 코드가 붙는 public DB/store 진입점은 `WaypointStore`다.
 
 현재 facade 역할:
 
-- `createRootNode(...)`
-- `createNode(...)`
-- `findNodeByGraphAndVir(...)`
-- `loadAnchors(...)`
-- `loadPortalsByGraph(...)`
-- `findCounterpartPortals(...)`
-- `loadNodesByGraph(...)`
-- `loadEdgesByNode(...)`
-- `loadSegmentsByEdge(...)`
-- `loadPointsBySegment(...)`
-- `loadNearbyNodes(...)`
-- `loadNearbyPoints(...)`
+- synchronous lookup
+  - `findNode(...)`
+  - `findNodeByGraphAndVir(...)`
+- async read
+  - `loadAnchorsAsync(...)`
+  - `loadPortalsByGraphAsync(...)`
+  - `findCounterpartPortalsAsync(...)`
+  - `loadNodesByGraphAsync(...)`
+  - `loadEdgesByNodeAsync(...)`
+  - `loadSegmentsByEdgeAsync(...)`
+  - `loadPointsBySegmentAsync(...)`
+- async write
+  - `createAnchorAsync(...)`
+  - `updateAnchorAsync(...)`
+  - `createNodeAsync(...)`
 
 구조상 `WaypointStore`는:
 
 - waypoint SQLite connection 하나를 프로그램 lifetime 동안 소유한다
-- 외부 코드가 붙는 synchronous public facade다
+- 외부 코드가 붙는 facade다
 - object 계층(`WpAnchor`, `WpPortal`, `WpNode`, `WpPoint`)으로 결과를 변환한다
-- managed 계층의 async DB worker도 소유한다
+- low-level write bridge는 `WaypointWriteBridge`로 분리됐다
 
-즉 `WaypointStore`는 public facade이자 shared connection owner이고, `WaypointDatabase`는 그 아래 SQL/row helper 계층으로 남는다.
+즉 현재 `WaypointStore`는 public facade이고, 실질적인 async SQL 실행은 `WaypointDbExecutor`, 저수준 SQL helper는 `WaypointDatabase`가 맡는다.
 
 ### WaypointDatabase
 
@@ -241,28 +279,51 @@ waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 
 로 나뉘어 있고, 외부 진입은 `WaypointStore`, 저수준 DB helper는 `WaypointDatabase`가 제공하는 형태다.
 
+### WaypointCalibrationState / WaypointCalibrator / WaypointSceneBuilder
+
+waypoint runtime은 이제 다음 세 클래스로 나뉜다.
+
+- `WaypointCalibrationState`
+  - anchor 존재 여부
+  - calibration graph id
+  - calibration vir
+  - calibration world
+  - calibration portal gob
+  를 보관하는 작은 상태 객체다
+- `WaypointCalibrator`
+  - `calibrateFromAnchorArea(...)`
+  - `calibrateFromPortal(...)`
+  를 담당한다
+- `WaypointSceneBuilder`
+  - 현재 calibration state와 player world 위치를 받아 `WaypointScene`을 구성한다
+  - `ResolvedNode`, `ResolvedPoint`, `ResolvedLine`을 조립한다
+  - 필요한 cache가 비어 있으면 preload 요청만 걸고 이번 build에서는 비운 scene 또는 부분 scene을 반환한다
+
 ### WaypointManager
 
-현재 `WaypointManager`는 calibration 상태와 waypoint scene 구성을 맡는다.
+현재 `WaypointManager`는 waypoint facade이자 orchestration 계층이다.
 
-현재 핵심 상태는:
+직접 보유하는 핵심 상태는:
 
-- `Long calibrationGraphId`
-- `Coord calibrationVir`
-- `Coord calibrationWorld`
-- `WaypointScene scene`
-
-즉 현재 calibration의 active key는 graph + virtual origin + world origin이다.
+- `WaypointRuntimeContext runtimeContext`
+- `WaypointCalibrationState calibration`
 
 현재 책임:
 
 - `calibrate(Rect area)`: area-select tile 기준으로 graph를 calibration
 - `calibrate(Gob gob)`: portal counterpart 기준으로 다른 graph로 recalibration
 - `refresh()`: 현재 player 위치 기준 scene 재구성
-- `refreshSceneIfBoundsChanged()`: bounds 변화가 있으면 scene을 다시 구성
+- `requestRefresh()`: async preload completion이 scene rebuild를 요청할 때 사용
+- `processRefreshRequests()`: bounds 변화나 pending refresh 요청이 있으면 scene을 다시 구성
 - `nearestNode()`
 - `nearbyNodes()`
 - `nearbyPoints()`
+
+cache 관련 책임:
+
+- anchor / portal / node / edge / segment / point cache accessor
+- `preload*()`를 통한 async read request enqueue
+- 각 cache의 `loaded/loading` 상태를 기준으로 중복 preload를 coalesce
 
 scene 정책:
 
@@ -292,25 +353,49 @@ scene 정책:
 - `Coord` world (`1024` 기준)를 Haven `Coord2d` world (`11` 기준)로 변환한 뒤 `MapView.screenxf(...)`로 projection 한다
 - test overlay도 같은 draw 경로에서 토글한다
 
+### WaypointPortal / WaypointPortalResolver
+
+portal 관련 책임은 둘로 나뉜다.
+
+- `WaypointPortal`
+  - portal resname 판정
+  - 기본 counterpart resname 규칙
+- `WaypointPortalResolver`
+  - runtime에서 실제 counterpart portal gob를 찾는다
+  - portal recalibration용 nearest portal gob를 찾는다
+
 ### CalibrateWaypointJob
 
-`CalibrateWaypointJob`은 사용자가 클릭한 gob가 `gob_node` 테이블에 등록되어 있으면 `WaypointManager.calibrate(gob)`를 호출한다.
-성공 시 현재 graph 좌표계가 calibrated 상태가 되고, nearby node / point 수를 출력한다.
-
-### CreateNodeJob
-
-`CreateNodeJob`은 새로운 root waypoint node를 만든다.
+`CalibrateWaypointJob`은 area select 기반 calibration job이다.
 
 흐름:
 
-1. 사용자에게 기준 gob 클릭 요청
-2. area chat에 node 이름 입력 요청
-3. 현재 캐릭터 위치를 새 `wp_node` 위치로 사용
-4. 선택한 gob의 virtual 좌표를 `gob.position - Self.position()`으로 계산
-5. `gob_graph`, `gob_node`, `wp_node` 생성
-6. 성공 시 `WaypointManager.calibrate(gob)`까지 수행
+1. anchor cache가 load 되었는지 확인
+2. 사용자에게 anchor tile area select 요청
+3. `WaypointManager.calibrate(area)` 호출
+4. 성공 시 현재 graph 좌표계가 calibrated 상태가 된다
+5. nearby node / point 수를 출력한다
 
-즉 `CreateNodeJob` 직후에는 `CalibrateWaypointJob` 없이도 좌표계가 calibrated 상태가 된다.
+### CreateNodeJob
+
+`CreateNodeJob`은 anchor가 없으면 먼저 anchor를 만들고 calibration 한 뒤, 현재 위치에 node를 생성한다.
+
+흐름:
+
+1. anchor cache가 load 되었는지 확인
+2. anchor가 없으면:
+   - anchor tile area 선택
+   - area chat으로 node 이름 입력
+   - `WaypointStore.createAnchorAsync(...)`
+   - completion에서 `WaypointManager.calibrate(area)`
+   - 이어서 `WaypointStore.createNodeAsync(...)`
+3. anchor가 이미 있으면:
+   - calibrated 상태 확인
+   - area chat으로 node 이름 입력
+   - 현재 calibration graph + 현재 위치 `vir` 기준으로 `WaypointStore.createNodeAsync(...)`
+4. completion에서 `WaypointManager.refresh()`
+
+즉 현재 정식 create path는 async write + runtime refresh completion 구조다.
 
 ### RecordJob
 
@@ -320,10 +405,11 @@ scene 정책:
 
 시작 흐름:
 
-1. `WaypointManager.refresh()`
-2. nearby `wp_node` 중 가장 가까운 node 선택
-3. 그 node 위치로 먼저 이동
-4. 그 node를 `startNode`로 세션에 저장하고 recording 시작
+1. 사용자에게 anchor tile area select 요청
+2. `WaypointManager.refresh()`
+3. nearby `wp_node` 중 가장 가까운 node 선택
+4. 그 node 위치로 먼저 이동
+5. 그 node를 `startNode`로 세션에 저장하고 recording 시작
 
 즉 지금 `RecordJob`은:
 
@@ -334,30 +420,9 @@ scene 정책:
 내부 recording은 `WaypointRecorder`가 맡는다. 현재 recorder는:
 
 - session의 `startNodeId`
-- 각 segment의 `baseGobId`
-- 각 segment의 시작/끝 gob 정보
-- portal click 뒤 아직 반대편 portal gob가 확정되지 않은 `pendingPortalTransition`
+- raw `RecordingClick` sequence
 
-을 들고 있다.
-
-문 전환 처리 규칙:
-
-- portal click 시점에는 진입 portal gob와 `resname`만 확정한다
-- 맵 전환 직후에는 gob 로딩이 불완전할 수 있으므로 반대편 portal을 바로 찾지 않는다
-- 다음 point 입력 시점 또는 `StopRecordJob` 종료 시점에 반대편 portal gob를 찾는다
-- 찾을 때는 현재 맵의 모든 gob 중 `WaypointPortal` 사전에서 대응되는 `resname` 후보를 추리고, 그 중 가장 가까운 gob를 사용한다
-- 현재 사전은 다음 pair를 포함한다
-  - `gfx/terobjs/arch/stonehut` <-> `gfx/terobjs/arch/stonehut-door`
-  - `gfx/terobjs/burrow` <-> `gfx/tiles/ridges/caveout`
-  - `gfx/tiles/ridges/cavein2` <-> `gfx/tiles/ridges/caveout`
-
-즉 현재 recorder는 portal transition을 단순 boolean이 아니라:
-
-- 문 앞 gob와 `resname`
-- 아직 확정되지 않은 반대편 portal gob
-- 새 segment의 시작 gob
-
-까지 포함하는 작은 상태 기계로 동작한다.
+즉 recorder 자체는 raw input recorder이고, portal / segment 해석은 별도 planner가 맡는다.
 
 recorder 상태 타입도 별도 model로 분리돼 있다.
 
@@ -365,6 +430,12 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 - `RecordingSegment`
 - `RecordingClick`
 - `PendingPortalTransition`
+
+`RecordingSessionPlanner`는 저장 직전에:
+
+- portal click을 `isPortal`로 마킹하고
+- raw click sequence를 segment 구조로 나누고
+- portal transition이 있는 다음 segment의 `baseGraphId/baseVir/baseWorld`를 채운다
 
 ### StopRecordJob
 
@@ -375,8 +446,8 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 1. active recording 종료
 2. 끝 node에 연결할 gob 선택 요청
 3. 선택한 gob가 이미 `wp_node`에 연결돼 있으면 그 node 재사용
-4. 아니면 area chat으로 node 이름 입력받아 새 `wp_node` 생성
-5. `WaypointEdgeWriter.save(...)`로 `wp_edge / wp_segment / wp_point` 저장
+4. 아니면 area chat으로 node 이름 입력받고 `WaypointStore.createNodeAsync(...)`로 새 `wp_node` 생성
+5. completion에서 `WaypointEdgeWriter.saveAsync(...)`로 `wp_edge / wp_segment / wp_point` 저장
 6. 성공 시 끝 gob 기준으로 다시 `WaypointManager.calibrate(gob)`
 
 ### NavigateJob
@@ -423,23 +494,40 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 - `src/lmi/waypoint/WaypointStore.java`
   - waypoint 도메인이 사용하는 public store facade
   - shared SQLite connection owner
-  - managed DB worker owner
+  - async read/write facade
 - `src/lmi/waypoint/WaypointDatabase.java`
   - waypoint DB schema와 low-level query/insert helper
+- `src/lmi/waypoint/WaypointRuntimeContext.java`
+  - runtime authoritative cache와 loaded/loading 상태를 보관
+- `src/lmi/waypoint/WaypointDbExecutor.java`
+  - waypoint DB 전용 async worker thread
+- `src/lmi/waypoint/WaypointSyncManager.java`
+  - DB completion을 runtime 쪽으로 되돌리는 sync queue
+- `src/lmi/waypoint/WaypointCalibrationState.java`
+  - anchor 존재와 calibration graph/world/vir 상태를 보관하는 runtime state
+- `src/lmi/waypoint/WaypointCalibrator.java`
+  - area / portal 기준 calibration 수행 계층
+- `src/lmi/waypoint/WaypointSceneBuilder.java`
+  - calibration state와 player 위치를 받아 scene을 구성하는 builder
 - `src/lmi/waypoint/WaypointManager.java`
-  - calibration gob, scene build, portal auto recalibration, drawable/hidden cache 관리
+  - waypoint facade이자 calibration / scene refresh orchestration 계층
 - `src/lmi/waypoint/WaypointOverlay.java`
   - `MapView.draw()` 훅에서 drawable waypoint scene을 실제 화면에 그리는 overlay
 - `src/lmi/waypoint/WaypointRecorder.java`
-  - recording session, segment, point, pending portal transition 수집
+  - raw recording session과 click sequence를 메모리에서 수집
+- `src/lmi/waypoint/RecordingSessionPlanner.java`
+  - raw recording session을 portal-aware segment 구조로 재해석하는 planner
 - `src/lmi/waypoint/WaypointPortal.java`
-  - portal resname pair 사전과 반대편 portal gob 탐색 helper
+  - portal resname 판정과 기본 counterpart 규칙 helper
+- `src/lmi/waypoint/WaypointPortalResolver.java`
+  - runtime에서 counterpart / recalibration portal gob를 찾는 resolver
 - `src/lmi/waypoint/WaypointEdgeWriter.java`
   - `RecordingSession`을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
+  - async save entry도 제공
 - `src/lmi/waypoint/SegmentResolver.java`
-  - segment의 시작/끝 gob를 보고 `gob_graph`를 해석하는 resolver
-- `src/lmi/waypoint/GobGraphMerger.java`
-  - 서로 다른 `gob_graph`를 병합하고 virtual coordinate를 평행이동하는 merger
+  - segment의 `baseGraphId/baseVir/baseWorld`를 기준으로 저장 좌표계를 해석하는 resolver
+- `src/lmi/waypoint/WaypointWriteBridge.java`
+  - low-level waypoint write bridge
 
 ## 파일 인덱스
 
@@ -462,6 +550,7 @@ src/
     FlowerMenuHandler.java: 플라워 메뉴 열기, 선택, 진행 대기를 묶어 처리하는 조정자
     Hook.java: Haven 엔진 훅에서 LMI 런타임으로 이벤트를 전달하는 연결 지점
     Interaction.java: `wdgmsg()` 호출을 정리해 서버 상호작용을 일관되게 보내는 래퍼
+    LmiBootstrap.java: LMI subsystem bootstrap을 한 곳에서 수행하는 idempotent 초기화 진입점
     LMIException.java: LMI 제어 흐름과 실패 이유를 담는 런타임 예외
     MenuGridProxy.java: AgentRegistry를 바탕으로 LMI 메뉴 구조와 메타데이터를 UI에 주입하는 프록시
     Pathfinder.java: 주변 장애물을 바탕으로 경로를 찾고 이동을 수행하는 경로 탐색기
@@ -473,17 +562,27 @@ src/
     behavior/
       AlignLogBehavior.java: 통나무 정렬 절차를 AtomicAction 조합으로 표현한 행동 시퀀스
     waypoint/
-      WaypointStore.java: waypoint 도메인이 사용하는 public facade이자 shared connection owner
-      WaypointDatabase.java: `gob_* / wp_*` schema 생성과 connection-based low-level DB helper
-      WaypointManager.java: calibration gob, scene build, portal auto recalibration, drawable/hidden cache를 관리
+      WaypointBootstrap.java: waypoint DB warm-up과 anchor presence sync를 수행하는 bootstrap 계층
+      WaypointStore.java: waypoint 도메인이 사용하는 public facade이자 async read/write facade
+      WaypointDatabase.java: `wp_*` schema 생성과 connection-based low-level DB helper
+      WaypointRuntimeContext.java: runtime authoritative cache와 loaded/loading 상태를 보관
+      WaypointDbExecutor.java: waypoint DB 전용 async worker thread
+      WaypointSyncManager.java: DB completion을 runtime 쪽으로 되돌리는 sync queue
+      WaypointCalibrationState.java: anchor 존재와 calibration graph/world/vir 상태를 보관하는 runtime state
+      WaypointCalibrator.java: area / portal 기준 calibration 수행 계층
+      WaypointSceneBuilder.java: calibration state와 player 위치를 받아 waypoint scene을 구성하는 builder
+      WaypointSceneBuilder.java: cache miss 시 preload를 걸고 부분 scene 또는 빈 scene을 반환한다
+      WaypointManager.java: waypoint facade이자 calibration / scene refresh orchestration 계층
       WaypointOverlay.java: `MapView.draw()` 훅에서 drawable waypoint scene을 world overlay로 그린다
-      WaypointRecorder.java: recording session과 portal transition 상태를 메모리에서 수집
-      WaypointPortal.java: portal resname pair 사전과 반대편 portal gob 탐색 규칙을 제공
+      WaypointRecorder.java: raw recording session과 click sequence를 메모리에서 수집
+      RecordingSessionPlanner.java: raw recording session을 portal-aware segment 구조로 재해석하는 planner
+      WaypointPortal.java: portal resname 판정과 기본 counterpart 규칙을 제공
+      WaypointPortalResolver.java: runtime에서 counterpart / recalibration portal gob를 찾는 resolver
       WaypointEdgeWriter.java: recording session을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
-      SegmentResolver.java: segment의 시작/끝 gob를 보고 target `gob_graph`를 정하는 resolver
-      GobGraphMerger.java: 두 `gob_graph`를 병합하며 `vir_x/vir_y`를 평행이동하는 merger
+      SegmentResolver.java: segment의 `baseGraphId/baseVir/baseWorld`를 기준으로 저장 좌표계를 해석하는 resolver
+      WaypointWriteBridge.java: low-level waypoint write bridge
       model/
-        CreateRootNodeResult.java: root node 생성 결과
+        CreateAnchorResult.java: anchor 생성 결과
         CreateNodeResult.java: 일반 node 생성 결과
         SaveEdgeResult.java: edge 저장 결과
         RecordingSession.java: waypoint recording session 상태
@@ -491,13 +590,14 @@ src/
         RecordingClick.java: recording 중 하나의 click 상태
         PendingPortalTransition.java: 아직 반대편 portal gob가 확정되지 않은 전이 상태
       db/
-        GobNodeRecord.java: `gob_node` row 모델
+        WpAnchorRecord.java: `wp_anchor` row 모델
+        WpPortalRecord.java: `wp_portal` row 모델
         WpNodeRecord.java: `wp_node` row 모델
         WpPointRecord.java: `wp_point` row 모델
       runtime/
         ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`
-        ResolvedGob.java: 현재 world 좌표로 복원된 nearby `gob_node`
         ResolvedPoint.java: 현재 world 좌표로 복원된 nearby `wp_point`
+        ResolvedLine.java: drawable node / point 사이를 잇는 runtime line
         WaypointScene.java: drawable / hidden waypoint scene collection
         WaypointCutBounds.java: player 기준 7x7 load / 5x5 render cut bounds
   agent/
@@ -508,10 +608,10 @@ src/
       DescribeAgentStackEffect.java: AgentMind 스레드 stack trace를 출력하는 effect
     tool/
       waypoint/
-        CreateNodeJob.java: 새 root waypoint node를 생성하고 즉시 calibrate 하는 job
-        CalibrateWaypointJob.java: 등록된 gob를 클릭해 waypoint 좌표계를 calibrate 하는 job
+        CreateNodeJob.java: anchor가 없으면 먼저 anchor를 만들고 calibration 한 뒤 현재 위치에 node를 async로 생성하는 job
+        CalibrateWaypointJob.java: area-select anchor tile 기준으로 waypoint 좌표계를 calibrate 하는 job
         RecordJob.java: nearest start node로 이동 후 waypoint recording을 시작하는 job
-        StopRecordJob.java: end node를 확정하고 edge/segment/point를 저장하는 job
+        StopRecordJob.java: end node를 확정하고 end node 생성과 edge 저장을 async로 수행하는 job
         NavigateJob.java: 새 schema 기준으로 아직 미구현인 navigate job
 ```
 

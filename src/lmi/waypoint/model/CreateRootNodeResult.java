@@ -1,6 +1,8 @@
 package lmi.waypoint.model;
 
-public final class CreateRootNodeResult {
+import lmi.waypoint.WaypointResult;
+
+public final class CreateRootNodeResult implements WaypointResult {
   public final boolean created;
   public final Long nodeId;
   public final Long graphId;

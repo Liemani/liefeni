@@ -7,13 +7,21 @@ import lmi.waypoint.db.WpNodeRecord;
 import lmi.waypoint.db.WpPortalRecord;
 import lmi.waypoint.db.WpPointRecord;
 import lmi.waypoint.db.WpSegmentRecord;
-import lmi.waypoint.managed.DbWorker;
 import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
 import lmi.waypoint.managed.SaveBatch;
 import lmi.waypoint.managed.WpNodeSnapshot;
+import lmi.waypoint.model.CreateAnchorResult;
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.CreateRootNodeResult;
+import lmi.waypoint.model.LoadAnchorsResult;
+import lmi.waypoint.model.LoadCounterpartPortalsResult;
+import lmi.waypoint.model.LoadEdgesByNodeResult;
+import lmi.waypoint.model.LoadNodesByGraphResult;
+import lmi.waypoint.model.LoadPointsBySegmentResult;
+import lmi.waypoint.model.LoadPortalsResult;
+import lmi.waypoint.model.LoadSegmentsByEdgeResult;
+import lmi.waypoint.model.UpdateAnchorResult;
 import lmi.waypoint.object.WpAnchor;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
@@ -26,8 +34,11 @@ import java.sql.DriverManager;
 
 public final class WaypointStore {
   private static Connection connection;
-  private static DbWorker managedDbWorker;
   private WaypointStore() {}
+
+  public static synchronized void warmUp() {
+    _connection();
+  }
 
   public static synchronized WpNode findNode(long wpNodeId) {
     return WpNode.fromRecord(WaypointDatabase.findNodeById(_connection(), wpNodeId));
@@ -37,7 +48,7 @@ public final class WaypointStore {
     return WpNode.fromRecord(WaypointDatabase.findNodeByGraphAndVir(_connection(), graphId, virX, virY));
   }
 
-  public static synchronized Array<WpAnchor> loadAnchors() {
+  static synchronized Array<WpAnchor> loadAnchors() {
     Array<WpAnchor> anchors = new Array<>();
     for (WpAnchorRecord record : WaypointDatabase.loadAnchors(_connection())) {
       anchors.append(WpAnchor.fromRecord(record));
@@ -45,7 +56,19 @@ public final class WaypointStore {
     return anchors;
   }
 
-  public static synchronized Array<WpPortal> loadPortalsByGraph(long graphId) {
+  public static void loadAnchorsAsync(WaypointResultHandler<LoadAnchorsResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpAnchor> anchors = new Array<>();
+        for (WpAnchorRecord record : WaypointDatabase.loadAnchors(conn))
+          anchors.append(WpAnchor.fromRecord(record));
+        return new LoadAnchorsResult(anchors);
+      },
+      handler
+    );
+  }
+
+  static synchronized Array<WpPortal> loadPortalsByGraph(long graphId) {
     Array<WpPortal> portals = new Array<>();
     for (WpPortalRecord record : WaypointDatabase.loadPortalsByGraph(_connection(), graphId)) {
       portals.append(WpPortal.fromRecord(record));
@@ -53,7 +76,19 @@ public final class WaypointStore {
     return portals;
   }
 
-  public static synchronized Array<WpPortal> findCounterpartPortals(long portalId) {
+  public static void loadPortalsByGraphAsync(long graphId, WaypointResultHandler<LoadPortalsResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpPortal> portals = new Array<>();
+        for (WpPortalRecord record : WaypointDatabase.loadPortalsByGraph(conn, graphId))
+          portals.append(WpPortal.fromRecord(record));
+        return new LoadPortalsResult(graphId, portals);
+      },
+      handler
+    );
+  }
+
+  static synchronized Array<WpPortal> findCounterpartPortals(long portalId) {
     Array<WpPortal> portals = new Array<>();
     for (WpPortalRecord record : WaypointDatabase.findCounterpartPortals(_connection(), portalId)) {
       portals.append(WpPortal.fromRecord(record));
@@ -61,11 +96,23 @@ public final class WaypointStore {
     return portals;
   }
 
+  public static void findCounterpartPortalsAsync(long portalId, WaypointResultHandler<LoadCounterpartPortalsResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpPortal> portals = new Array<>();
+        for (WpPortalRecord record : WaypointDatabase.findCounterpartPortals(conn, portalId))
+          portals.append(WpPortal.fromRecord(record));
+        return new LoadCounterpartPortalsResult(portalId, portals);
+      },
+      handler
+    );
+  }
+
   public static synchronized ManagedWpNode findManagedNode(ManagedObjectContext context, long wpNodeId) {
     return _toManaged(context, findNode(wpNodeId));
   }
 
-  public static synchronized CreateRootNodeResult createRootNode(
+  static synchronized CreateRootNodeResult createRootNode(
     String nodeName,
     int anchorWorldX,
     int anchorWorldY,
@@ -80,6 +127,62 @@ public final class WaypointStore {
       nodeWorldX,
       nodeWorldY
     ));
+  }
+
+  static synchronized CreateAnchorResult createAnchor() {
+    return _withTransaction(() -> WaypointDatabase.createAnchor(_connection()));
+  }
+
+  public static void createAnchorAsync(WaypointResultHandler<CreateAnchorResult> handler) {
+    WaypointDbExecutor.submitWrite(
+      conn -> {
+        boolean originalAutoCommit = conn.getAutoCommit();
+        try {
+          conn.setAutoCommit(false);
+          CreateAnchorResult result = WaypointDatabase.createAnchor(conn);
+          conn.commit();
+          return result;
+        } catch (Exception e) {
+          try {
+            conn.rollback();
+          } catch (Exception rollbackError) {
+            e.addSuppressed(rollbackError);
+          }
+          throw e;
+        } finally {
+          conn.setAutoCommit(originalAutoCommit);
+        }
+      },
+      handler
+    );
+  }
+
+  static synchronized UpdateAnchorResult updateAnchor(long graphId, int anchorVirX, int anchorVirY) {
+    return _withTransaction(() -> WaypointDatabase.updateAnchor(_connection(), graphId, anchorVirX, anchorVirY));
+  }
+
+  public static void updateAnchorAsync(long graphId, int anchorVirX, int anchorVirY, WaypointResultHandler<UpdateAnchorResult> handler) {
+    WaypointDbExecutor.submitWrite(
+      conn -> {
+        boolean originalAutoCommit = conn.getAutoCommit();
+        try {
+          conn.setAutoCommit(false);
+          UpdateAnchorResult result = WaypointDatabase.updateAnchor(conn, graphId, anchorVirX, anchorVirY);
+          conn.commit();
+          return result;
+        } catch (Exception e) {
+          try {
+            conn.rollback();
+          } catch (Exception rollbackError) {
+            e.addSuppressed(rollbackError);
+          }
+          throw e;
+        } finally {
+          conn.setAutoCommit(originalAutoCommit);
+        }
+      },
+      handler
+    );
   }
 
   public static synchronized CreateNodeResult createNode(
@@ -97,7 +200,37 @@ public final class WaypointStore {
     ));
   }
 
-  public static synchronized Array<WpNode> loadNearbyNodes(long graphId, int centerVirX, int centerVirY, int range) {
+  public static void createNodeAsync(
+    String nodeName,
+    long graphId,
+    int nodeVirX,
+    int nodeVirY,
+    WaypointResultHandler<CreateNodeResult> handler
+  ) {
+    WaypointDbExecutor.submitWrite(
+      conn -> {
+        boolean originalAutoCommit = conn.getAutoCommit();
+        try {
+          conn.setAutoCommit(false);
+          CreateNodeResult result = WaypointDatabase.createNode(conn, nodeName, graphId, nodeVirX, nodeVirY);
+          conn.commit();
+          return result;
+        } catch (Exception e) {
+          try {
+            conn.rollback();
+          } catch (Exception rollbackError) {
+            e.addSuppressed(rollbackError);
+          }
+          throw e;
+        } finally {
+          conn.setAutoCommit(originalAutoCommit);
+        }
+      },
+      handler
+    );
+  }
+
+  static synchronized Array<WpNode> loadNearbyNodes(long graphId, int centerVirX, int centerVirY, int range) {
     Array<WpNode> nodes = new Array<>();
     for (WpNodeRecord record : WaypointDatabase.loadNearbyNodes(_connection(), graphId, centerVirX, centerVirY, range)) {
       nodes.append(WpNode.fromRecord(record));
@@ -105,7 +238,7 @@ public final class WaypointStore {
     return nodes;
   }
 
-  public static synchronized Array<WpNode> loadNodesByGraph(long graphId) {
+  static synchronized Array<WpNode> loadNodesByGraph(long graphId) {
     Array<WpNode> nodes = new Array<>();
     for (WpNodeRecord record : WaypointDatabase.loadNodesByGraph(_connection(), graphId)) {
       nodes.append(WpNode.fromRecord(record));
@@ -113,7 +246,19 @@ public final class WaypointStore {
     return nodes;
   }
 
-  public static synchronized Array<WpPoint> loadNearbyPoints(long graphId, int centerVirX, int centerVirY, int range) {
+  public static void loadNodesByGraphAsync(long graphId, WaypointResultHandler<LoadNodesByGraphResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpNode> nodes = new Array<>();
+        for (WpNodeRecord record : WaypointDatabase.loadNodesByGraph(conn, graphId))
+          nodes.append(WpNode.fromRecord(record));
+        return new LoadNodesByGraphResult(graphId, nodes);
+      },
+      handler
+    );
+  }
+
+  static synchronized Array<WpPoint> loadNearbyPoints(long graphId, int centerVirX, int centerVirY, int range) {
     Array<WpPoint> points = new Array<>();
     for (WpPointRecord record : WaypointDatabase.loadNearbyPoints(_connection(), graphId, centerVirX, centerVirY, range)) {
       points.append(WpPoint.fromRecord(record));
@@ -121,7 +266,7 @@ public final class WaypointStore {
     return points;
   }
 
-  public static synchronized Array<WpEdge> loadEdgesByNode(long wpNodeId) {
+  static synchronized Array<WpEdge> loadEdgesByNode(long wpNodeId) {
     Array<WpEdge> edges = new Array<>();
     for (WpEdgeRecord record : WaypointDatabase.loadEdgesByNode(_connection(), wpNodeId)) {
       edges.append(WpEdge.fromRecord(record));
@@ -129,7 +274,19 @@ public final class WaypointStore {
     return edges;
   }
 
-  public static synchronized Array<WpSegment> loadSegmentsByEdge(long edgeId) {
+  public static void loadEdgesByNodeAsync(long wpNodeId, WaypointResultHandler<LoadEdgesByNodeResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpEdge> edges = new Array<>();
+        for (WpEdgeRecord record : WaypointDatabase.loadEdgesByNode(conn, wpNodeId))
+          edges.append(WpEdge.fromRecord(record));
+        return new LoadEdgesByNodeResult(wpNodeId, edges);
+      },
+      handler
+    );
+  }
+
+  static synchronized Array<WpSegment> loadSegmentsByEdge(long edgeId) {
     Array<WpSegment> segments = new Array<>();
     for (WpSegmentRecord record : WaypointDatabase.loadSegmentsByEdge(_connection(), edgeId)) {
       segments.append(WpSegment.fromRecord(record));
@@ -137,7 +294,19 @@ public final class WaypointStore {
     return segments;
   }
 
-  public static synchronized Array<WpPoint> loadPointsBySegment(long segmentId) {
+  public static void loadSegmentsByEdgeAsync(long edgeId, WaypointResultHandler<LoadSegmentsByEdgeResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpSegment> segments = new Array<>();
+        for (WpSegmentRecord record : WaypointDatabase.loadSegmentsByEdge(conn, edgeId))
+          segments.append(WpSegment.fromRecord(record));
+        return new LoadSegmentsByEdgeResult(edgeId, segments);
+      },
+      handler
+    );
+  }
+
+  static synchronized Array<WpPoint> loadPointsBySegment(long segmentId) {
     Array<WpPoint> points = new Array<>();
     for (WpPointRecord record : WaypointDatabase.loadPointsBySegment(_connection(), segmentId)) {
       points.append(WpPoint.fromRecord(record));
@@ -145,10 +314,16 @@ public final class WaypointStore {
     return points;
   }
 
-  public static synchronized DbWorker managedDbWorker() {
-    if (managedDbWorker == null)
-      managedDbWorker = new DbWorker(WaypointStore::_applySaveBatch);
-    return managedDbWorker;
+  public static void loadPointsBySegmentAsync(long segmentId, WaypointResultHandler<LoadPointsBySegmentResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpPoint> points = new Array<>();
+        for (WpPointRecord record : WaypointDatabase.loadPointsBySegment(conn, segmentId))
+          points.append(WpPoint.fromRecord(record));
+        return new LoadPointsBySegmentResult(segmentId, points);
+      },
+      handler
+    );
   }
 
   static synchronized Connection _connection() {
@@ -162,32 +337,6 @@ public final class WaypointStore {
     } catch (Exception e) {
       throw new RuntimeException("Failed to open waypoint database connection: " + e.getMessage(), e);
     }
-  }
-
-  static long _insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,
-                            double timeCost, double fatigueCost) throws Exception {
-    return WaypointDatabase._insertWpEdge(conn, node0Id, node1Id, direction, timeCost, fatigueCost);
-  }
-
-  static long _insertWpSegment(Connection conn, long edgeId, int step, long graphId) throws Exception {
-    return WaypointDatabase._insertWpSegment(conn, edgeId, step, graphId);
-  }
-
-  static void _insertWpPoint(Connection conn, long segmentId, int step, int virX, int virY,
-                             int mouseButton, Integer meshId) throws Exception {
-    WaypointDatabase._insertWpPoint(conn, segmentId, step, virX, virY, mouseButton, meshId);
-  }
-
-  static void _updateWpNode(Connection conn, WpNodeSnapshot snapshot) throws Exception {
-    WaypointDatabase._updateWpNode(
-      conn,
-      snapshot.id,
-      snapshot.graphId,
-      snapshot.nodeRefId,
-      snapshot.virX,
-      snapshot.virY,
-      snapshot.name
-    );
   }
 
   private static <T> T _withTransaction(TransactionCall<T> call) {
@@ -226,25 +375,26 @@ public final class WaypointStore {
     return context.registerLoaded(ManagedWpNode.fromWpNode(context, node));
   }
 
-  private static void _applySaveBatch(SaveBatch batch) throws Exception {
-    synchronized (WaypointStore.class) {
-      Connection conn = _connection();
-      boolean originalAutoCommit = conn.getAutoCommit();
+  public static void applySaveBatch(Connection conn, SaveBatch batch) throws Exception {
+    boolean originalAutoCommit = conn.getAutoCommit();
+    try {
+      conn.setAutoCommit(false);
+      for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots)
+        WaypointWriteBridge.updateWpNode(conn, snapshot);
+      conn.commit();
+    } catch (Exception e) {
       try {
-        conn.setAutoCommit(false);
-        for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots)
-          _updateWpNode(conn, snapshot);
-        conn.commit();
-      } catch (Exception e) {
-        try {
-          conn.rollback();
-        } catch (Exception rollbackError) {
-          e.addSuppressed(rollbackError);
-        }
-        throw e;
-      } finally {
-        conn.setAutoCommit(originalAutoCommit);
+        conn.rollback();
+      } catch (Exception rollbackError) {
+        e.addSuppressed(rollbackError);
       }
+      throw e;
+    } finally {
+      conn.setAutoCommit(originalAutoCommit);
     }
+  }
+
+  private static void _applySaveBatch(SaveBatch batch) throws Exception {
+    applySaveBatch(_connection(), batch);
   }
 }

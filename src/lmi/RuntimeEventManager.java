@@ -1,8 +1,8 @@
 package lmi;
 
 import haven.Gob;
-import lmi.waypoint.WaypointPortal;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.WaypointPortalResolver;
 
 import java.util.ArrayList;
 
@@ -132,13 +132,13 @@ public final class RuntimeEventManager {
     handlers.add(new RuntimeEventHandler() {
       @Override
       public boolean handle() {
-        WaypointManager.refreshSceneIfBoundsChanged();
+        WaypointManager.processRefreshRequests();
         return false;
       }
     });
   }
 
   private static Gob _nearestRegisteredPortal() {
-    return WaypointPortal.closestPortalForRecalibration();
+    return WaypointPortalResolver.closestPortalForRecalibration();
   }
 }

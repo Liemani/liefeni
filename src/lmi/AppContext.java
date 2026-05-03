@@ -37,10 +37,10 @@ public class AppContext {
     WaitManager.init();
     AgentManager.init();
     Pathfinder.init();
-    RuntimeEventManager.init();
     ChatInputMonitor.clear();
     PortalMonitor.clear();
     WaypointManager.clear();
+    LmiBootstrap.init();
 
     meterWidgets = new ArrayList<>();
   }
@@ -68,6 +68,7 @@ public class AppContext {
     ChatInputMonitor.clear();
     PortalMonitor.clear();
     WaypointManager.clear();
+    LmiBootstrap.init();
     resetWidgetCache();
   }
 

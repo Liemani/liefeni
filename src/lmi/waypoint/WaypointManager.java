@@ -7,173 +7,301 @@ import lmi.Api;
 import lmi.Self;
 import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
+import lmi.waypoint.model.LoadCounterpartPortalsResult;
+import lmi.waypoint.model.LoadEdgesByNodeResult;
+import lmi.waypoint.model.LoadNodesByGraphResult;
+import lmi.waypoint.model.LoadPointsBySegmentResult;
+import lmi.waypoint.model.LoadPortalsResult;
+import lmi.waypoint.model.LoadSegmentsByEdgeResult;
 import lmi.waypoint.object.WpAnchor;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPortal;
 import lmi.waypoint.object.WpPoint;
+import lmi.waypoint.object.WpSegment;
 import lmi.waypoint.runtime.ResolvedNode;
 import lmi.waypoint.runtime.ResolvedPoint;
 import lmi.waypoint.runtime.WaypointCutBounds;
 import lmi.waypoint.runtime.WaypointScene;
 
-import java.util.HashSet;
 import lmi.Rect;
 
 public final class WaypointManager {
-  private static final ManagedObjectContext managedNodeContext = new ManagedObjectContext();
-
-  private static Long calibrationGraphId;
-  private static Coord calibrationVir = Coord.z;
-  private static Coord calibrationWorld = Coord.z;
-  private static Gob calibrationGob;
-  private static WaypointScene scene = new WaypointScene(WaypointCutBounds.aroundWorld(Coord.z));
-  private static Array<ResolvedNode> nearbyNodes = new Array<>();
-  private static Array<ResolvedPoint> nearbyPoints = new Array<>();
-  private static Array<ManagedWpNode> selectedManagedNodes = new Array<>();
+  private static final WaypointRuntimeContext runtimeContext = new WaypointRuntimeContext();
+  private static final ManagedObjectContext managedNodeContext = runtimeContext.managedNodeContext();
+  private static final WaypointCalibrationState calibration = runtimeContext.calibration();
+  private static boolean refreshRequested;
 
   private WaypointManager() {}
 
   public static void clear() {
-    calibrationGraphId = null;
-    calibrationVir = Coord.z;
-    calibrationWorld = Coord.z;
-    calibrationGob = null;
-    scene = new WaypointScene(WaypointCutBounds.aroundWorld(Coord.z));
-    managedNodeContext.clear();
-    nearbyNodes = new Array<>();
-    nearbyPoints = new Array<>();
-    selectedManagedNodes = new Array<>();
+    runtimeContext.clear();
+    refreshRequested = false;
   }
 
   public static boolean calibrate(Rect area) {
-    if (area == null) {
-      Api.message("[WaypointManager.calibrate] area is null");
+    if (!WaypointCalibrator.calibrateFromAnchorArea(calibration, area))
       return false;
-    }
-
-    Array<WpAnchor> anchors = WaypointStore.loadAnchors();
-    Api.message("[WaypointManager.calibrate] selected area=" + area);
-    Api.message("[WaypointManager.calibrate] anchor count=" + anchors.count());
-    if (anchors.isEmpty())
-      return false;
-
-    WpAnchor anchor = anchors.first();
-    calibrationGraphId = anchor.graphId;
-    calibrationVir = Coord.of(anchor.virX, anchor.virY);
-    calibrationWorld = area.origin.tileMin();
-    calibrationGob = null;
     refresh();
-    Api.message("[WaypointManager.calibrate] success graphId=" + calibrationGraphId + " world=" + calibrationWorld + " vir=" + calibrationVir);
+    Api.message("[WaypointManager.calibrate] success graphId=" + calibration.graphId() + " world=" + calibration.world() + " vir=" + calibration.vir());
     return true;
   }
 
   public static boolean calibrate(Gob gob) {
-    if (gob == null) {
-      Api.message("[WaypointManager.calibrate] gob is null");
+    if (!WaypointCalibrator.calibrateFromPortal(calibration, gob))
       return false;
-    }
-
-    Api.message("[WaypointManager.calibrate] gob.id=" + gob.id() + " resname=" + gob.resourceName() + " world=" + gob.position());
-    if (calibrationGraphId == null) {
-      Api.message("[WaypointManager.calibrate] current graph is null");
-      return false;
-    }
-
-    for (WpPortal portal : WaypointStore.loadPortalsByGraph(calibrationGraphId)) {
-      for (WpPortal counterpart : WaypointStore.findCounterpartPortals(portal.id)) {
-        if (!counterpart.resname.contentEquals(gob.resourceName()))
-          continue;
-
-        calibrationGraphId = counterpart.graphId;
-        calibrationVir = Coord.of(counterpart.virX, counterpart.virY);
-        calibrationWorld = gob.position();
-        calibrationGob = gob;
-        refresh();
-        Api.message("[WaypointManager.calibrate] success graphId=" + calibrationGraphId + " world=" + calibrationWorld + " vir=" + calibrationVir);
-        return true;
-      }
-    }
-
-    Api.message("[WaypointManager.calibrate] no counterpart portal matched");
-    return false;
+    refresh();
+    Api.message("[WaypointManager.calibrate] success graphId=" + calibration.graphId() + " world=" + calibration.world() + " vir=" + calibration.vir());
+    return true;
   }
 
   public static boolean isCalibrated() {
-    return calibrationGraphId != null;
+    return calibration.isCalibrated();
+  }
+
+  public static boolean hasAnchor() {
+    return calibration.hasAnchor();
+  }
+
+  public static void markAnchorPresent() {
+    calibration.markAnchorPresent();
+  }
+
+  public static void setAnchorPresent(boolean anchorPresent) {
+    calibration.setAnchorPresent(anchorPresent);
   }
 
   public static Gob calibrationGob() {
-    return calibrationGob;
+    return calibration.gob();
   }
 
   public static Long calibrationGraphId() {
-    return calibrationGraphId;
+    return calibration.graphId();
   }
 
   public static Coord calibrationVir() {
-    return Coord.of(calibrationVir);
+    return calibration.vir();
   }
 
   public static Coord calibrationWorld() {
-    return Coord.of(calibrationWorld);
+    return calibration.world();
   }
 
   public static Coord virOfWorld(Coord world) {
-    if (calibrationGraphId == null)
-      return null;
-    return _virOfWorld(calibrationVir, calibrationWorld, world);
+    return calibration.virOfWorld(world);
   }
 
   public static Array<ResolvedNode> nearbyNodes() {
-    return nearbyNodes;
+    return runtimeContext.nearbyNodes();
   }
 
   public static Array<ResolvedPoint> nearbyPoints() {
-    return nearbyPoints;
+    return runtimeContext.nearbyPoints();
   }
 
   public static Array<ManagedWpNode> selectedManagedNodes() {
-    return selectedManagedNodes;
+    return runtimeContext.selectedManagedNodes();
   }
 
   public static WaypointScene scene() {
-    return scene;
+    return runtimeContext.scene();
   }
 
-  public static Array<String> debugLines() {
-    Array<String> lines = new Array<>();
-    lines.append("isCalibrated: " + isCalibrated());
+  public static Array<WpAnchor> anchors() {
+    return runtimeContext.anchors();
+  }
 
-    if (calibrationGraphId == null) {
-      lines.append("calibrationGraphId: null");
-      lines.append(_sceneSummary());
-      return lines;
-    }
+  public static boolean beginAnchorsLoad() {
+    return runtimeContext.beginAnchorsLoad();
+  }
 
-    lines.append("calibrationGraphId: " + calibrationGraphId);
-    lines.append("calibrationVir: " + calibrationVir);
-    lines.append("calibrationWorld: " + calibrationWorld);
-    lines.append("calibrationGob: " + calibrationGob);
-    lines.append("self.world: " + Self.position());
+  public static void endAnchorsLoad() {
+    runtimeContext.endAnchorsLoad();
+  }
 
-    Coord currentVir = _virOfWorld(calibrationVir, calibrationWorld, Self.position());
-    lines.append("self.vir: " + currentVir);
-    lines.append("scene.centerCut: " + scene.bounds.centerCut);
-    lines.append("scene.renderArea: " + scene.bounds.renderArea);
-    lines.append("scene.loadArea: " + scene.bounds.loadArea);
-    lines.append(_sceneSummary());
+  public static void setAnchors(Array<WpAnchor> anchors) {
+    runtimeContext.setAnchors(anchors);
+    calibration.setAnchorPresent(!anchors.isEmpty());
+  }
 
-    for (int i = 0; i < Math.min(3, scene.drawableNodes.count()); ++i) {
-      ResolvedNode node = scene.drawableNodes.get(i);
-      lines.append("drawableNode[" + i + "]: id=" + node.id + " name=" + node.name + " vir=(" + node.virX + ", " + node.virY + ") world=" + node.world);
-    }
-    for (int i = 0; i < Math.min(3, scene.hiddenNodes.count()); ++i) {
-      ResolvedNode node = scene.hiddenNodes.get(i);
-      lines.append("hiddenNode[" + i + "]: id=" + node.id + " name=" + node.name + " vir=(" + node.virX + ", " + node.virY + ") world=" + node.world);
-    }
+  public static boolean anchorsLoaded() {
+    return runtimeContext.anchorsLoaded();
+  }
 
-    return lines;
+  public static Array<WpPortal> portals(long graphId) {
+    return runtimeContext.portals(graphId);
+  }
+
+  public static void setPortals(long graphId, Array<WpPortal> portals) {
+    runtimeContext.setPortals(graphId, portals);
+  }
+
+  public static boolean portalsLoaded(long graphId) {
+    return runtimeContext.portalsLoaded(graphId);
+  }
+
+  public static Array<WpPortal> counterpartPortals(long portalId) {
+    return runtimeContext.counterpartPortals(portalId);
+  }
+
+  public static void setCounterpartPortals(long portalId, Array<WpPortal> portals) {
+    runtimeContext.setCounterpartPortals(portalId, portals);
+  }
+
+  public static boolean counterpartPortalsLoaded(long portalId) {
+    return runtimeContext.counterpartPortalsLoaded(portalId);
+  }
+
+  public static void preloadPortals(long graphId) {
+    if (!runtimeContext.beginPortalsLoad(graphId))
+      return;
+    WaypointStore.loadPortalsByGraphAsync(graphId, new WaypointResultHandler<LoadPortalsResult>() {
+      @Override
+      public void onSuccess(LoadPortalsResult result) {
+        setPortals(result.graphId, result.portals);
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        runtimeContext.endPortalsLoad(graphId);
+      }
+    });
+  }
+
+  public static void preloadCounterpartPortals(long portalId) {
+    if (!runtimeContext.beginCounterpartPortalsLoad(portalId))
+      return;
+    WaypointStore.findCounterpartPortalsAsync(portalId, new WaypointResultHandler<LoadCounterpartPortalsResult>() {
+      @Override
+      public void onSuccess(LoadCounterpartPortalsResult result) {
+        setCounterpartPortals(result.portalId, result.portals);
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        runtimeContext.endCounterpartPortalsLoad(portalId);
+      }
+    });
+  }
+
+  public static Array<WpNode> nodes(long graphId) {
+    return runtimeContext.nodes(graphId);
+  }
+
+  public static void setNodes(long graphId, Array<WpNode> nodes) {
+    runtimeContext.setNodes(graphId, nodes);
+  }
+
+  public static boolean nodesLoaded(long graphId) {
+    return runtimeContext.nodesLoaded(graphId);
+  }
+
+  public static void preloadNodes(long graphId) {
+    if (!runtimeContext.beginNodesLoad(graphId))
+      return;
+    WaypointStore.loadNodesByGraphAsync(graphId, new WaypointResultHandler<LoadNodesByGraphResult>() {
+      @Override
+      public void onSuccess(LoadNodesByGraphResult result) {
+        setNodes(result.graphId, result.nodes);
+        if (isCalibrated() && calibrationGraphId() != null && calibrationGraphId() == result.graphId)
+          requestRefresh();
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        runtimeContext.endNodesLoad(graphId);
+      }
+    });
+  }
+
+  public static Array<WpEdge> edges(long nodeId) {
+    return runtimeContext.edges(nodeId);
+  }
+
+  public static void setEdges(long nodeId, Array<WpEdge> edges) {
+    runtimeContext.setEdges(nodeId, edges);
+  }
+
+  public static boolean edgesLoaded(long nodeId) {
+    return runtimeContext.edgesLoaded(nodeId);
+  }
+
+  public static void preloadEdges(long nodeId) {
+    if (!runtimeContext.beginEdgesLoad(nodeId))
+      return;
+    WaypointStore.loadEdgesByNodeAsync(nodeId, new WaypointResultHandler<LoadEdgesByNodeResult>() {
+      @Override
+      public void onSuccess(LoadEdgesByNodeResult result) {
+        setEdges(result.nodeId, result.edges);
+        if (isCalibrated())
+          requestRefresh();
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        runtimeContext.endEdgesLoad(nodeId);
+      }
+    });
+  }
+
+  public static Array<WpSegment> segments(long edgeId) {
+    return runtimeContext.segments(edgeId);
+  }
+
+  public static void setSegments(long edgeId, Array<WpSegment> segments) {
+    runtimeContext.setSegments(edgeId, segments);
+  }
+
+  public static boolean segmentsLoaded(long edgeId) {
+    return runtimeContext.segmentsLoaded(edgeId);
+  }
+
+  public static void preloadSegments(long edgeId) {
+    if (!runtimeContext.beginSegmentsLoad(edgeId))
+      return;
+    WaypointStore.loadSegmentsByEdgeAsync(edgeId, new WaypointResultHandler<LoadSegmentsByEdgeResult>() {
+      @Override
+      public void onSuccess(LoadSegmentsByEdgeResult result) {
+        setSegments(result.edgeId, result.segments);
+        if (isCalibrated())
+          requestRefresh();
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        runtimeContext.endSegmentsLoad(edgeId);
+      }
+    });
+  }
+
+  public static Array<WpPoint> points(long segmentId) {
+    return runtimeContext.points(segmentId);
+  }
+
+  public static void setPoints(long segmentId, Array<WpPoint> points) {
+    runtimeContext.setPoints(segmentId, points);
+  }
+
+  public static boolean pointsLoaded(long segmentId) {
+    return runtimeContext.pointsLoaded(segmentId);
+  }
+
+  public static void preloadPoints(long segmentId) {
+    if (!runtimeContext.beginPointsLoad(segmentId))
+      return;
+    WaypointStore.loadPointsBySegmentAsync(segmentId, new WaypointResultHandler<LoadPointsBySegmentResult>() {
+      @Override
+      public void onSuccess(LoadPointsBySegmentResult result) {
+        setPoints(result.segmentId, result.points);
+        if (isCalibrated())
+          requestRefresh();
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        runtimeContext.endPointsLoad(segmentId);
+      }
+    });
   }
 
   public static ResolvedNode nearestNode() {
@@ -181,7 +309,7 @@ public final class WaypointManager {
     long best = Long.MAX_VALUE;
     Coord self = Self.position();
 
-    for (ResolvedNode node : nearbyNodes) {
+    for (ResolvedNode node : runtimeContext.nearbyNodes()) {
       long dx = (long)node.world.x - self.x;
       long dy = (long)node.world.y - self.y;
       long distance = (dx * dx) + (dy * dy);
@@ -195,131 +323,27 @@ public final class WaypointManager {
   }
 
   public static void refresh() {
-    scene = new WaypointScene(WaypointCutBounds.aroundWorld(Self.position()));
-    nearbyNodes = new Array<>();
-    nearbyPoints = new Array<>();
-    selectedManagedNodes = new Array<>();
+    runtimeContext.setSceneSnapshot(new Array<>(), new Array<>(), new Array<>(), new WaypointScene(WaypointCutBounds.aroundWorld(Self.position())));
     managedNodeContext.clear();
 
-    if (calibrationGraphId == null) return;
-
-    scene = new WaypointScene(WaypointCutBounds.aroundWorld(Self.position()));
-    _buildScene();
-    nearbyNodes = scene.drawableNodes;
-    nearbyPoints = scene.drawablePoints;
+    WaypointSceneBuilder.BuildResult result = WaypointSceneBuilder.build(calibration, Self.position(), managedNodeContext);
+    runtimeContext.setSceneSnapshot(result.scene.drawableNodes, result.scene.drawablePoints, result.selectedManagedNodes, result.scene);
   }
 
-  public static void refreshSceneIfBoundsChanged() {
-    if (calibrationGraphId == null) return;
+  public static void requestRefresh() {
+    refreshRequested = true;
+  }
+
+  public static void processRefreshRequests() {
+    if (calibration.graphId() == null) return;
     WaypointCutBounds nextBounds = WaypointCutBounds.aroundWorld(Self.position());
-    if (!_sameBounds(scene.bounds, nextBounds))
+    if (refreshRequested || !_sameBounds(runtimeContext.scene().bounds, nextBounds)) {
+      refreshRequested = false;
       refresh();
-  }
-
-  private static Coord _world(Coord calibrationWorld, Coord calibrationVir, int targetVirX, int targetVirY) {
-    return calibrationWorld.add(targetVirX - calibrationVir.x, targetVirY - calibrationVir.y);
-  }
-
-  private static Coord _virOfWorld(Coord calibrationVir, Coord calibrationWorld, Coord world) {
-    return Coord.of(
-      calibrationVir.x + (world.x - calibrationWorld.x),
-      calibrationVir.y + (world.y - calibrationWorld.y)
-    );
-  }
-
-  private static void _buildScene() {
-    HashSet<Long> visitedEdges = new HashSet<>();
-
-    for (WpNode node : WaypointStore.loadNodesByGraph(calibrationGraphId)) {
-      ManagedWpNode managed = managedNodeContext.registerLoaded(ManagedWpNode.fromWpNode(managedNodeContext, node));
-      ResolvedNode resolvedNode = _resolvedNode(managed);
-      NodeVisibility visibility = _classifyNode(resolvedNode.world, scene.bounds);
-      if (visibility == NodeVisibility.SKIP) continue;
-      if (visibility == NodeVisibility.DRAWABLE) scene.drawableNodes.append(resolvedNode);
-      else scene.hiddenNodes.append(resolvedNode);
     }
-
-    selectedManagedNodes = managedNodeContext.takeSelectedWpNodes();
-
-    for (ResolvedNode node : scene.drawableNodes) {
-      _appendEdgePoints(node.id, visitedEdges);
-    }
-    for (ResolvedNode node : scene.hiddenNodes) {
-      _appendEdgePoints(node.id, visitedEdges);
-    }
-  }
-
-  private static void _appendEdgePoints(long nodeId, HashSet<Long> visitedEdges) {
-    for (WpEdge edge : WaypointStore.loadEdgesByNode(nodeId)) {
-      if (!visitedEdges.add(edge.id))
-        continue;
-
-      for (lmi.waypoint.object.WpSegment segment : WaypointStore.loadSegmentsByEdge(edge.id)) {
-      for (WpPoint point : WaypointStore.loadPointsBySegment(segment.id)) {
-        Coord world = _world(calibrationWorld, calibrationVir, point.virX, point.virY);
-        Coord pointCut = scene.bounds.cutOfWorld(world);
-        boolean inLoad = scene.bounds.loadArea.contains(pointCut);
-        boolean inRender = scene.bounds.renderArea.contains(pointCut);
-
-        if (!inLoad) continue;
-
-        ResolvedPoint resolvedPoint = new ResolvedPoint(
-          point.segmentId,
-          point.step,
-          point.virX,
-          point.virY,
-          point.mouseButton,
-          point.meshId,
-          world
-        );
-
-        if (inRender)
-          scene.drawablePoints.append(resolvedPoint);
-        else
-          scene.hiddenPoints.append(resolvedPoint);
-      }
-    }
-  }
-  }
-
-  private static NodeVisibility _classifyNode(Coord world, WaypointCutBounds bounds) {
-    Coord cut = bounds.cutOfWorld(world);
-    if (bounds.renderArea.contains(cut))
-      return NodeVisibility.DRAWABLE;
-    if (bounds.loadArea.contains(cut))
-      return NodeVisibility.HIDDEN;
-    return NodeVisibility.SKIP;
-  }
-
-  private static ResolvedNode _resolvedNode(ManagedWpNode node) {
-    Coord world = _world(calibrationWorld, calibrationVir, node.virX(), node.virY());
-    return new ResolvedNode(
-      node.id,
-      node.name(),
-      node.graphId(),
-      node.nodeRefId(),
-      node.virX(),
-      node.virY(),
-      world
-    );
   }
 
   private static boolean _sameBounds(WaypointCutBounds a, WaypointCutBounds b) {
     return a.centerCut.equals(b.centerCut);
   }
-
-  private static String _sceneSummary() {
-    return "scene drawableNodes=" + scene.drawableNodes.count() +
-           " hiddenNodes=" + scene.hiddenNodes.count() +
-           " drawablePoints=" + scene.drawablePoints.count() +
-           " hiddenPoints=" + scene.hiddenPoints.count() +
-           " selectedManagedNodes=" + selectedManagedNodes.count();
-  }
-
-  private enum NodeVisibility {
-    DRAWABLE,
-    HIDDEN,
-    SKIP
-  }
-
 }
