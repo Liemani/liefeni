@@ -31,6 +31,7 @@ import java.util.function.*;
 import haven.render.*;
 
 // lmi start
+import java.lang.reflect.Field;
 import java.util.stream.*;
 import lmi.Array;
 import lmi.WaitManager;
@@ -1048,6 +1049,50 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 
     public boolean isResourceNameEndsWith(String suffix) {
 	return resourceName().endsWith(suffix);
+    }
+
+    public String buddyName() {
+        for (GAttrib attr : this.attr.values()) {
+            if (attr == null) continue;
+            if (!attr.getClass().getName().contentEquals("haven.res.ui.obj.buddy.Buddy")) continue;
+
+            try {
+                Field buddyField = attr.getClass().getDeclaredField("b");
+                buddyField.setAccessible(true);
+                Object buddy = buddyField.get(attr);
+                if (buddy == null) return null;
+
+                Field nameField = buddy.getClass().getDeclaredField("name");
+                nameField.setAccessible(true);
+                Object name = nameField.get(buddy);
+                return (name instanceof String) ? (String)name : null;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public Integer buddyGroup() {
+        for (GAttrib attr : this.attr.values()) {
+            if (attr == null) continue;
+            if (!attr.getClass().getName().contentEquals("haven.res.ui.obj.buddy.Buddy")) continue;
+
+            try {
+                Field buddyField = attr.getClass().getDeclaredField("b");
+                buddyField.setAccessible(true);
+                Object buddy = buddyField.get(attr);
+                if (buddy == null) return null;
+
+                Field groupField = buddy.getClass().getDeclaredField("group");
+                groupField.setAccessible(true);
+                Object group = groupField.get(buddy);
+                return (group instanceof Integer) ? (Integer)group : null;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+        return null;
     }
 
     // Instance Method

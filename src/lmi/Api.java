@@ -1,7 +1,5 @@
 package lmi;
 
-import java.util.function.Predicate;
-
 import haven.*;
 
 import lmi.*;
@@ -219,53 +217,7 @@ public class Api {
   }
 
   /// - Throws: ER_INTERRUPTED
-  public static Gob closestGob() {
-    final Array<Gob> gobArray = Api.gobArrayWhere(gob -> gob != Self.gob());
-    return Api.closestGobIn(gobArray);
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  public static Gob closestGobOf(String name) {
-    final Array<Gob> gobArray = Api.gobArrayWhere(gob -> gob.resourceName().endsWith(name));
-    return Api.closestGobIn(gobArray);
-  }
-
-  /// - Throws: ER_INTERRUPTED
   public static Gob getGob() { return ClickManager.getGob(); }
-
-  // Get Gob Array
-  /// - Throws: ER_INTERRUPTED
-  public static Array<Gob> gobArray() {
-    Array<Gob> gobArray = new Array<Gob>();
-
-    for (Gob gob : AppContext.oCache().gobArray())
-      if (gob.resource() != null)
-        gobArray.append(gob);
-
-    return gobArray;
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  public static Array<Gob> gobArrayWhere(Predicate<Gob> predicate) {
-    Array<Gob> gobArray = new Array<Gob>();
-
-    for (Gob gob : AppContext.oCache().gobArray()) {
-      if (gob.resource() == null) continue;
-      else if (predicate.test(gob)) gobArray.append(gob);
-    }
-    return gobArray;
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  public static Array<Gob> gobArrayIn(Rect area) {
-    return Api.gobArrayWhere(gob -> area.contains(gob.position()));
-  }
-
-  /// - Throws: ER_INTERRUPTED
-  public static Array<Gob> getGobArrayInArea() {
-    final Rect area = ClickManager.getArea();
-    return Api.gobArrayIn(area);
-  }
 
   // Get Area
   /// - Throws: ER_INTERRUPTED
@@ -309,5 +261,4 @@ public class Api {
   //          }
   //          return new Array<GItem>();
   //      }
-
 }

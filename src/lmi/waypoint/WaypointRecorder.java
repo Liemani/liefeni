@@ -18,11 +18,18 @@ public final class WaypointRecorder {
 
   private WaypointRecorder() {}
 
-  public static RecordingSession start(long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
+  public static RecordingSession start(
+    long startNodeId,
+    long baseGraphId,
+    int baseGobX,
+    int baseGobY,
+    int baseVirX,
+    int baseVirY
+  ) {
     synchronized (lock) {
       if (activeSession != null)
         throw new IllegalStateException("A waypoint recording is already active.");
-      activeSession = new RecordingSession(startNodeId, baseGobId, baseGobX, baseGobY);
+      activeSession = new RecordingSession(startNodeId, baseGraphId, baseGobX, baseGobY, baseVirX, baseVirY);
       return activeSession;
     }
   }
@@ -57,14 +64,9 @@ public final class WaypointRecorder {
       _rotateSegmentIfPreviousWasPortal(activeSession);
 
       RecordingSegment segment = activeSession.currentSegment();
-      if (segment.baseGobId == null && gobId != null && gobPosition != null) {
-        segment.baseGobId = gobId;
+      if (segment.baseGobX == 0 && segment.baseGobY == 0 && gobPosition != null) {
         segment.baseGobX = gobPosition.x;
         segment.baseGobY = gobPosition.y;
-        segment.startGobId = gobId;
-        segment.startGobX = gobPosition.x;
-        segment.startGobY = gobPosition.y;
-        segment.startGobResname = gobResname;
       }
 
       segment.clicks.add(new RecordingClick(
@@ -138,6 +140,8 @@ public final class WaypointRecorder {
       session.segments.size(),
       null,
       0,
+      0,
+      0,
       0
     );
     session.segments.add(next);
@@ -195,13 +199,14 @@ public final class WaypointRecorder {
     if (exitPortal == null) return;
 
     RecordingSegment current = session.currentSegment();
-    current.baseGobId = (long)exitPortal.id();
+    current.baseGraphId = WaypointManager.calibrationGraphId();
     current.baseGobX = exitPortal.position().x;
     current.baseGobY = exitPortal.position().y;
-    current.startGobId = (long)exitPortal.id();
-    current.startGobX = exitPortal.position().x;
-    current.startGobY = exitPortal.position().y;
-    current.startGobResname = exitPortal.resourceName();
+    Coord baseVir = WaypointManager.virOfWorld(exitPortal.position());
+    if (baseVir != null) {
+      current.baseVirX = baseVir.x;
+      current.baseVirY = baseVir.y;
+    }
     session.pendingPortalTransition = null;
   }
 

@@ -2,10 +2,11 @@ package agent.tool.waypoint;
 
 import agent.Job;
 
+import haven.Coord;
 import haven.Gob;
 import lmi.AgentContext;
 import lmi.Api;
-import lmi.ChatInputManager;
+import lmi.ChatInputMonitor;
 import lmi.ClickManager;
 import lmi.Self;
 import lmi.waypoint.WaypointEdgeWriter;
@@ -15,7 +16,6 @@ import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.model.SaveEdgeResult;
 import lmi.waypoint.WaypointStore;
-import lmi.waypoint.object.GobNode;
 import lmi.waypoint.object.WpNode;
 
 public class StopRecordJob extends Job {
@@ -47,48 +47,47 @@ public class StopRecordJob extends Job {
   }
 
   private static WpNode _ensureEndNode(Gob gob) {
-    WpNode endNode = WaypointStore.findNodeByGob(gob.id());
+    Coord nodeVir = WaypointManager.virOfWorld(Self.position());
+    Long graphId = WaypointManager.calibrationGraphId();
+    if (nodeVir == null || graphId == null)
+      return null;
+
+    WpNode endNode = WaypointStore.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
     if (endNode != null) return endNode;
 
     return _createEndNode(gob);
   }
 
   private static WpNode _createEndNode(Gob gob) {
-    if (!WaypointManager.isCalibrated() || WaypointManager.calibrationGob() == null) {
+    if (!WaypointManager.isCalibrated()) {
+      Api.message("[StopRecordJob] calibration missing before end node creation");
+      Api.message("[StopRecordJob] isCalibrated=" + WaypointManager.isCalibrated());
       Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
-      return null;
-    }
-
-    GobNode calibrationRecord = WaypointStore.findGob(WaypointManager.calibrationGob().id());
-    if (calibrationRecord == null) {
-      Api.message("Failed to save waypoint recording: calibration gob is not registered.");
       return null;
     }
 
     String nodeName = _inputEndNodeName();
     if (nodeName == null) return null;
 
-    int nodeVirX = calibrationRecord.virX + (Self.position().x - WaypointManager.calibrationGob().position().x);
-    int nodeVirY = calibrationRecord.virY + (Self.position().y - WaypointManager.calibrationGob().position().y);
-    int gobVirX = calibrationRecord.virX + (gob.position().x - WaypointManager.calibrationGob().position().x);
-    int gobVirY = calibrationRecord.virY + (gob.position().y - WaypointManager.calibrationGob().position().y);
+    Long graphId = WaypointManager.calibrationGraphId();
+    Coord nodeVir = WaypointManager.virOfWorld(Self.position());
+    if (graphId == null || nodeVir == null) {
+      Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
+      return null;
+    }
 
     CreateNodeResult createNodeResult = WaypointStore.createNode(
       nodeName,
-      calibrationRecord.graphId,
-      gob.id(),
-      nodeVirX,
-      nodeVirY,
-      gobVirX,
-      gobVirY,
-      gob.resourceName()
+      graphId,
+      nodeVir.x,
+      nodeVir.y
     );
     if (!createNodeResult.created) {
       Api.message("Failed to save waypoint recording: " + createNodeResult.errorMessage);
       return null;
     }
 
-    WpNode endNode = WaypointStore.findNodeByGob(gob.id());
+    WpNode endNode = WaypointStore.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
     if (endNode == null) {
       Api.message("Failed to save waypoint recording: created end node cannot be loaded.");
       return null;
@@ -98,7 +97,7 @@ public class StopRecordJob extends Job {
 
   private static String _inputEndNodeName() {
     Api.message("Area chat 에 끝 node 이름을 입력해 주세요");
-    String nodeName = ChatInputManager.waitAreaChat();
+    String nodeName = ChatInputMonitor.waitAreaChat();
     if (nodeName == null || nodeName.isBlank()) {
       Api.message("Failed to save waypoint recording: node name is empty.");
       return null;

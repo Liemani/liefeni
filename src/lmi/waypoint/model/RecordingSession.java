@@ -9,10 +9,10 @@ public final class RecordingSession {
   public final long startedAtMillis;
   public PendingPortalTransition pendingPortalTransition;
 
-  public RecordingSession(long startNodeId, long baseGobId, int baseGobX, int baseGobY) {
+  public RecordingSession(long startNodeId, long baseGraphId, int baseGobX, int baseGobY, int baseVirX, int baseVirY) {
     this.startNodeId = startNodeId;
     this.startedAtMillis = System.currentTimeMillis();
-    this.segments.add(new RecordingSegment(0, baseGobId, baseGobX, baseGobY));
+    this.segments.add(new RecordingSegment(0, baseGraphId, baseGobX, baseGobY, baseVirX, baseVirY));
   }
 
   public int pointCount() {

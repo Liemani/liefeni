@@ -130,7 +130,7 @@ class Pathfinder {
   }
 
   private static Array<Gob> _getObstaclArray() {
-    return Api.gobArrayWhere(gob -> !gob.resourceName().startsWith("gfx/terobjs/plants/"));
+    return GobFinder.where(gob -> !gob.resourceName().startsWith("gfx/terobjs/plants/"));
   }
 
   // Find Path

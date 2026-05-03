@@ -3,13 +3,13 @@ package lmi.waypoint.db;
 public final class WpSegmentRecord {
   public final long id;
   public final long edgeId;
-  public final long gobGraphId;
+  public final long graphId;
   public final int step;
 
-  public WpSegmentRecord(long id, long edgeId, long gobGraphId, int step) {
+  public WpSegmentRecord(long id, long edgeId, long graphId, int step) {
     this.id = id;
     this.edgeId = edgeId;
-    this.gobGraphId = gobGraphId;
+    this.graphId = graphId;
     this.step = step;
   }
 }

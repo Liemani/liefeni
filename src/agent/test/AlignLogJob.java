@@ -8,6 +8,7 @@ import lmi.Api;
 import lmi.Array;
 import lmi.Rect;
 import lmi.AgentContext;
+import lmi.GobFinder;
 import lmi.behavior.AlignLogBehavior;
 import static lmi.Constant.BoundingBox.*;
 import static lmi.Constant.Timeout.*;
@@ -72,12 +73,12 @@ public class AlignLogJob extends Job {
   }
 
   private Gob _findLog() {
-    Array<Gob> logs = Api.gobArrayWhere(g -> inputArea.contains(g.position()) && g.isLog());
+    Array<Gob> logs = GobFinder.where(g -> inputArea.contains(g.position()) && g.isLog());
     return logs.isEmpty() ? null : Api.closestGobIn(logs);
   }
 
   private void _calculateNextLeaf() {
-    Array<Gob> existing = Api.gobArrayIn(outputArea);
+    Array<Gob> existing = GobFinder.in(outputArea);
     while (true) {
       if (orderCoord.y == orderCoordMax.y) orderCoord.init(0, 0);
       _updateLeafCoords();

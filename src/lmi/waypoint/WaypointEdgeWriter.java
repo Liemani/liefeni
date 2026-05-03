@@ -36,7 +36,7 @@ public final class WaypointEdgeWriter {
           for (RecordingClick click : segment.clicks) {
             int virX = resolution.referenceVirX + (click.x - resolution.referenceActualX);
             int virY = resolution.referenceVirY + (click.y - resolution.referenceActualY);
-            WaypointStore._insertWpPoint(conn, segmentId, click.index, virX, virY, click.mouseButton, click.gobId, click.meshId);
+            WaypointStore._insertWpPoint(conn, segmentId, click.index, virX, virY, click.mouseButton, click.meshId);
             pointCount += 1;
           }
         }

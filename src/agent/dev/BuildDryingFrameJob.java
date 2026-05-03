@@ -91,17 +91,17 @@ public class BuildDryingFrameJob extends Job {
   }
 
   private void _takeItemFromStockpile(String name, int count) {
-    final Array<Gob> sa = Api.gobArrayWhere(g -> _inputArea.contains(g.position()) && g.resourceName().endsWith(name));
+    final Array<Gob> sa = GobFinder.where(g -> _inputArea.contains(g.position()) && g.resourceName().endsWith(name));
     Api.pathfindTakeItemFromStockpileArray(sa, count);
   }
 
   private void _takeItemFromContainer(String[] ns, int count) {
-    final Array<Gob> ca = Api.gobArrayWhere(g -> _inputArea.contains(g.position()) && Util.nameSet_includesResourcePath(nameSet_container, g.resourceName()));
+    final Array<Gob> ca = GobFinder.where(g -> _inputArea.contains(g.position()) && Util.nameSet_includesResourcePath(nameSet_container, g.resourceName()));
     Api.pathfindTakeItemFromContainerArray(ca, ns, count);
   }
 
   private void _calculateNextLeaf() {
-    Array<Gob> ga = Api.gobArrayIn(_outputArea);
+    Array<Gob> ga = GobFinder.in(_outputArea);
     while (true) {
       if (_orderCoord.y == _orderCoordMax.y) {
         if (ga.count() == _orderCoordMax.x * _orderCoordMax.y) throw new LMIException(ER_FULL_OUTPUT);

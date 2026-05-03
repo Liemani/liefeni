@@ -9,7 +9,10 @@ import static lmi.Constant.*;
 
 public class Hook {
   public static void didMsgReceive(int id, String msg, Object... args) {
-    if (!msg.contentEquals("err")) return;
+    return;
+//    if (!msg.contentEquals("err")
+//        && !msg.contentEquals("msg")
+//        && !msg.contentEquals("msg2")) return;
 
     String description = String.format("{%d: %s} (argc: %d)", id, msg, args.length);
     lmi.Util.debugPrintHeader(description);
@@ -47,7 +50,7 @@ public class Hook {
 
   // willMsgSend
   public static void willMsgSend(Widget sender, String msg, Object... args) {
-    ChatInputManager.capture(sender, msg, args);
+    ChatInputMonitor.capture(sender, msg, args);
 
     if (msg.contentEquals("focus")) {
       return;
@@ -186,8 +189,14 @@ public class Hook {
     WaypointOverlay.draw(mapView, g);
   }
 
-  public static void mapViewDidTick(MapView mapView) {
-    WaypointManager.tick(mapView);
+  public static void mapViewGobsDidFinishLoading(MapView mapView) {}
+
+  public static void didEnterPortal() {
+    PortalMonitor.notifyDidEnterPortal();
+    RuntimeEventManager.calibratePortal();
+  }
+
+  public static void didSpeak(long gobId, String msg) {
   }
 
   // Not used but kept for interface compatibility if needed

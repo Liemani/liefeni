@@ -87,11 +87,10 @@ public class Constant {
   public static final int D_NORTH = -16384;
 
   public static class Timeout {
-    public static final long TO_NONE = 0;
+    public static final long TO_INFINITE = 0;
     public static final long TO_IMPERCEPTIBLE = 10;
     public static final long TO_POLL = 100;
     public static final long TO_TEMPORARY = 500;
-    public static final long TO_GENERAL = 1000;
     public static final long TO_RETRY = 1000;
     public static final long TO_WAIT = 300000;
     public static final long TO_MAX = Long.MAX_VALUE;
@@ -336,5 +335,6 @@ public class Constant {
     ER_MAN_IMPLEMENT,
     ER_NO_PATH,
     ER_WIDGET_MISSING,
+    ER_TIMEOUT,
   }
 }

@@ -9,7 +9,6 @@ import lmi.Api;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointRecorder;
 import lmi.waypoint.model.RecordingSession;
-import lmi.waypoint.runtime.ResolvedGob;
 import lmi.waypoint.runtime.ResolvedNode;
 
 public class RecordJob extends Job {
@@ -20,12 +19,9 @@ public class RecordJob extends Job {
     ResolvedNode startNode = _selectStartNode();
     if (startNode == null) return;
 
-    ResolvedGob startGob = _selectStartGob(startNode);
-    if (startGob == null) return;
-
     _moveToStartNode(startNode);
 
-    RecordingSession session = _startRecording(startNode, startGob);
+    RecordingSession session = _startRecording(startNode);
     if (session == null) return;
   }
 
@@ -46,15 +42,6 @@ public class RecordJob extends Job {
     return startNode;
   }
 
-  private static ResolvedGob _selectStartGob(ResolvedNode startNode) {
-    ResolvedGob startGob = WaypointManager.nearbyGob(startNode.gobNodeId);
-    if (startGob == null) {
-      Api.message("Waypoint recording failed: start node base gob is not nearby.");
-      return null;
-    }
-    return startGob;
-  }
-
   private static void _moveToStartNode(ResolvedNode startNode) {
     Coord startWorld = startNode.world;
     if (!lmi.Self.gob().isAt(startWorld)) {
@@ -62,9 +49,16 @@ public class RecordJob extends Job {
     }
   }
 
-  private static RecordingSession _startRecording(ResolvedNode startNode, ResolvedGob startGob) {
+  private static RecordingSession _startRecording(ResolvedNode startNode) {
     try {
-      RecordingSession session = WaypointRecorder.start(startNode.id, startGob.id, startGob.world.x, startGob.world.y);
+      RecordingSession session = WaypointRecorder.start(
+        startNode.id,
+        startNode.graphId,
+        startNode.world.x,
+        startNode.world.y,
+        startNode.virX,
+        startNode.virY
+      );
       Api.message("Waypoint recording started.");
       Api.message("Start node: " + startNode.name);
       Api.message("Use StopRecord job to save the recording.");

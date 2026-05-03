@@ -1701,9 +1701,6 @@ public class MapView extends PView implements DTarget, Console.Directory {
 		ob.ctick(dt);
 	    }
 	}
-	// lmi start
-	lmi.Hook.mapViewDidTick(this);
-	// lmi end
     }
     
     public void resize(Coord sz) {
@@ -1874,6 +1871,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	    }
 	} else if(msg == "move") {
 	    cc = ((Coord)args[0]).mul(posres);
+            lmi.Hook.didEnterPortal();
 	} else if(msg == "plob") {
 	    if(args[0] == null)
 		plgob = -1;

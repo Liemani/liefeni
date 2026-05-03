@@ -1,12 +1,11 @@
 package agent.tool.waypoint;
 
 import agent.Job;
-
-import haven.Gob;
 import lmi.AgentContext;
 import lmi.Api;
-import lmi.ChatInputManager;
+import lmi.ChatInputMonitor;
 import lmi.ClickManager;
+import lmi.Rect;
 import lmi.Self;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointStore;
@@ -15,9 +14,9 @@ import lmi.waypoint.model.CreateRootNodeResult;
 public class CreateNodeJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    Gob gob = _selectRootGob();
-    if (gob == null) {
-      Api.message("CreateNode failed: no gob selected.");
+    Rect area = _selectAnchorArea();
+    if (area == null) {
+      Api.message("CreateNode failed: no anchor area selected.");
       return;
     }
 
@@ -26,23 +25,23 @@ public class CreateNodeJob extends Job {
       return;
     }
 
-    CreateRootNodeResult result = _createRootNode(gob, nodeName);
+    CreateRootNodeResult result = _createRootNode(area, nodeName);
     if (!result.created) {
       Api.message(result.errorMessage);
       return;
     }
 
-    _finishCreateNode(gob, nodeName);
+    _finishCreateNode(area, nodeName);
   }
 
-  private static Gob _selectRootGob() {
-    Api.alert("새 root node 에 연결할 gob 을 클릭해 주세요");
-    return ClickManager.getGob();
+  private static Rect _selectAnchorArea() {
+    Api.alert("새 graph 의 anchor tile 을 포함하는 area 를 선택해 주세요");
+    return ClickManager.getArea();
   }
 
   private static String _inputNodeName() {
     Api.message("Area chat 에 새 node 이름을 입력해 주세요");
-    String nodeName = ChatInputManager.waitAreaChat();
+    String nodeName = ChatInputMonitor.waitAreaChat();
     if (nodeName == null || nodeName.isBlank()) {
       Api.message("CreateNode failed: node name is empty.");
       return null;
@@ -50,25 +49,23 @@ public class CreateNodeJob extends Job {
     return nodeName.trim();
   }
 
-  private static CreateRootNodeResult _createRootNode(Gob gob, String nodeName) {
+  private static CreateRootNodeResult _createRootNode(Rect area, String nodeName) {
     return WaypointStore.createRootNode(
       nodeName,
+      area.origin.x,
+      area.origin.y,
       Self.position().x,
-      Self.position().y,
-      gob.id(),
-      gob.position().x,
-      gob.position().y,
-      gob.resourceName()
+      Self.position().y
     );
   }
 
-  private static void _finishCreateNode(Gob gob, String nodeName) {
-    WaypointManager.calibrate(gob);
+  private static void _finishCreateNode(Rect area, String nodeName) {
+    WaypointManager.calibrate(area);
     Api.message("Created root node: " + nodeName);
-    Api.message("Waypoint calibrated with gob id: " + gob.id());
+    Api.message("Waypoint calibrated with area origin: " + area.origin);
   }
 
   public static String info() {
-    return "Creates a new root waypoint node using the current player position and a selected gob.";
+    return "Creates a new root waypoint graph using an anchor tile area and the current player position.";
   }
 }

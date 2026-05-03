@@ -10,7 +10,7 @@ public class tool {
   }
 
   public static String icon() {
-    return "assets/icon.png";
+    return "assets/icon_T.png";
   }
 
   public static String sortkey() {

@@ -1,10 +1,12 @@
 package lmi.waypoint;
 
 import haven.Gob;
-import lmi.Api;
+import lmi.GobFinder;
 import lmi.Self;
+import lmi.waypoint.object.WpPortal;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,12 +32,29 @@ public final class WaypointPortal {
   }
 
   public static Gob closestCounterpartGob(String resname) {
-    List<String> candidates = counterpartResnames(resname);
+    List<String> candidates = _candidatePortalResnamesForCounterpart(resname);
     if (candidates.isEmpty()) return null;
 
     Gob closest = null;
     double best = Double.MAX_VALUE;
-    for (Gob gob : Api.gobArray()) {
+    for (Gob gob : GobFinder.all()) {
+      if (!candidates.contains(gob.resourceName())) continue;
+      double distance = Self.distance(gob);
+      if (distance < best) {
+        best = distance;
+        closest = gob;
+      }
+    }
+    return closest;
+  }
+
+  public static Gob closestPortalForRecalibration() {
+    List<String> candidates = _candidatePortalResnamesForRecalibration();
+    if (candidates.isEmpty()) return null;
+
+    Gob closest = null;
+    double best = Double.MAX_VALUE;
+    for (Gob gob : GobFinder.all()) {
       if (!candidates.contains(gob.resourceName())) continue;
       double distance = Self.distance(gob);
       if (distance < best) {
@@ -58,5 +77,34 @@ public final class WaypointPortal {
     List<String> created = new ArrayList<>();
     counterpartMap.put(resname, created);
     return created;
+  }
+
+  private static List<String> _candidatePortalResnamesForCounterpart(String counterpartResname) {
+    Long graphId = WaypointManager.calibrationGraphId();
+    if (graphId == null || counterpartResname == null)
+      return counterpartResnames(counterpartResname);
+
+    HashSet<String> candidates = new HashSet<>();
+    for (WpPortal portal : WaypointStore.loadPortalsByGraph(graphId)) {
+      for (WpPortal counterpart : WaypointStore.findCounterpartPortals(portal.id)) {
+        if (counterpartResname.contentEquals(counterpart.resname))
+          candidates.add(portal.resname);
+      }
+    }
+    return new ArrayList<>(candidates);
+  }
+
+  private static List<String> _candidatePortalResnamesForRecalibration() {
+    Long graphId = WaypointManager.calibrationGraphId();
+    if (graphId == null)
+      return new ArrayList<>();
+
+    HashSet<String> candidates = new HashSet<>();
+    for (WpPortal portal : WaypointStore.loadPortalsByGraph(graphId)) {
+      for (WpPortal counterpart : WaypointStore.findCounterpartPortals(portal.id)) {
+        candidates.add(counterpart.resname);
+      }
+    }
+    return new ArrayList<>(candidates);
   }
 }

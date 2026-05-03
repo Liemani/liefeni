@@ -145,38 +145,25 @@ Haven의 상태 미터는 `IMeter` 기반으로 다룬다.
 
 ## Chat 입력 대기
 
-area chat 입력 대기는 `ChatInputManager`가 맡는다.
+area chat 입력 대기는 `ChatInputMonitor`가 맡는다.
 
 현재 구조:
 
 - `Hook.willMsgSend(...)`가 `ChatUI.MultiChat`의 `"msg"` 전송을 가로챈다
-- `ChatInputManager.waitAreaChat()`는 다음 area chat 입력 문자열이 들어올 때까지 block 한다
+- `ChatInputMonitor.waitAreaChat()`는 다음 area chat 입력 문자열이 들어올 때까지 block 한다
 
 이 메커니즘은 현재 `CreateNodeJob`, `StopRecordJob`의 이름 입력 대기에 사용된다.
 
 ## Waypoint
 
-Waypoint는 현재 두 계층으로 나뉜다.
+Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, graph / anchor / portal / virtual coordinate 중심으로 동작한다.
 
-### 1. `gob_*` 계층
+현재 핵심 테이블:
 
-실제 관측 가능한 gob를 기준으로 가상 좌표계와 연결 그래프를 만든다.
-
-- `gob_graph`
-- `gob_node`
-- `gob_edge`
-
-핵심 규칙:
-
-- `gob_node.id = gob_id`
-- `gob_node`는 `graph_id`, `vir_x`, `vir_y`, `resname`을 가진다
-- `gob_edge`는 좌표 연결용이므로 direction이 없다
-- `gob_graph.entry_node_id`는 graph의 대표 진입 gob node를 가리킨다
-
-### 2. `wp_*` 계층
-
-실제 캐릭터 이동 경로와 비용 계산을 표현한다.
-
+- `wp_graph`
+- `wp_anchor`
+- `wp_portal`
+- `wp_portal_pair`
 - `wp_node`
 - `wp_edge`
 - `wp_segment`
@@ -184,22 +171,19 @@ Waypoint는 현재 두 계층으로 나뉜다.
 
 핵심 규칙:
 
-- `wp_node`는 항상 정확히 하나의 `gob_node`를 anchor로 가진다
-- `wp_node.gob_graph_id`와 `wp_node.gob_node_id`를 둘 다 들고 간다
+- 첫 graph 생성 시 사용자가 area select 한 anchor tile의 시작 world 좌표가 virtual `(0, 0)`이 된다
+- `wp_anchor`는 graph별 calibration 기준 virtual 좌표를 가진다
+- `wp_portal_pair`는 무방향 portal pair를 표현하며 `portal0_id < portal1_id`를 유지한다
 - `wp_node.name`은 중복 허용
 - `wp_edge.direction`은 다음 상수를 사용한다
   - `0 = blocked`
   - `1 = forward`
   - `2 = backward`
   - `3 = bidirectional`
-- `wp_segment.gob_graph_id`는 해당 segment의 point가 속한 virtual graph를 나타낸다
+- `wp_segment.graph_id`는 해당 segment의 point가 속한 graph를 뜻한다
 - `wp_segment.step`, `wp_point.step`은 순차 인덱스다
-- `wp_point.vir_x`, `wp_point.vir_y`는 공통 virtual coordinate 기준 절대값이다
-
-즉 지금 waypoint의 핵심은:
-
-- 하위 `gob_*` 계층으로 좌표계를 복원하고
-- 상위 `wp_*` 계층으로 실제 navigation 그래프를 다룬다
+- `wp_point.vir_x`, `wp_point.vir_y`는 graph 기준 virtual coordinate 절대값이다
+- `wp_point`는 `gob_id`를 저장하지 않는다
 
 ### WaypointStore
 
@@ -207,19 +191,24 @@ Waypoint는 현재 두 계층으로 나뉜다.
 
 현재 facade 역할:
 
-- `findGob(...)`
-- `findNodeByGob(...)`
 - `createRootNode(...)`
 - `createNode(...)`
+- `findNodeByGraphAndVir(...)`
+- `loadAnchors(...)`
+- `loadPortalsByGraph(...)`
+- `findCounterpartPortals(...)`
+- `loadNodesByGraph(...)`
+- `loadEdgesByNode(...)`
+- `loadSegmentsByEdge(...)`
+- `loadPointsBySegment(...)`
 - `loadNearbyNodes(...)`
-- `loadNearbyGobs(...)`
 - `loadNearbyPoints(...)`
 
 구조상 `WaypointStore`는:
 
 - waypoint SQLite connection 하나를 프로그램 lifetime 동안 소유한다
 - 외부 코드가 붙는 synchronous public facade다
-- object 계층(`GobNode`, `WpNode`, `WpPoint`)으로 결과를 변환한다
+- object 계층(`WpAnchor`, `WpPortal`, `WpNode`, `WpPoint`)으로 결과를 변환한다
 - managed 계층의 async DB worker도 소유한다
 
 즉 `WaypointStore`는 public facade이자 shared connection owner이고, `WaypointDatabase`는 그 아래 SQL/row helper 계층으로 남는다.
@@ -232,29 +221,23 @@ Waypoint는 현재 두 계층으로 나뉜다.
 
 - schema 생성
 - connection을 인자로 받는 query / insert helper
-- row 타입(`GobNodeRecord`, `WpNodeRecord`, `WpPointRecord`) 기반 SQL 해석
+- row 타입(`WpAnchorRecord`, `WpPortalRecord`, `WpNodeRecord`, `WpPointRecord`) 기반 SQL 해석
 
 즉 현재 `WaypointDatabase`는 외부 진입점이 아니라, `WaypointStore` 아래에서만 쓰이는 package-private SQL helper다.
 
-### WaypointEdgeWriter / SegmentResolver / GobGraphMerger
+### WaypointEdgeWriter / SegmentResolver
 
 waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 
 - `WaypointEdgeWriter`
   - `RecordingSession`을 받아 `wp_edge`, `wp_segment`, `wp_point`를 저장하는 orchestration 담당
 - `SegmentResolver`
-  - 각 segment의 시작/끝 gob를 해석해 segment가 속한 `gob_graph`를 확정
-  - 둘 다 미등록이면 새 `gob_graph`와 `gob_node`를 만든다
-  - 하나만 등록돼 있으면 같은 graph에 나머지 endpoint `gob_node`를 만든다
-  - 둘 다 등록돼 있는데 graph가 다르면 graph 병합을 요청한다
-- `GobGraphMerger`
-  - graph 병합 시 작은 graph의 `gob_node`, `wp_node`, `wp_segment.gob_graph_id`, `wp_point.vir_x/vir_y`를 `deltaX/deltaY`로 평행이동한다
+  - 각 segment의 `baseGraphId`, `baseVirX`, `baseVirY`를 기준으로 segment virtual 좌표계를 해석한다
 
 즉 현재 저장 경로는:
 
 - `WaypointEdgeWriter`
 - `SegmentResolver`
-- `GobGraphMerger`
 
 로 나뉘어 있고, 외부 진입은 `WaypointStore`, 저수준 DB helper는 `WaypointDatabase`가 제공하는 형태다.
 
@@ -264,20 +247,21 @@ waypoint 저장 경로는 지금 세 계층으로 분리되어 있다.
 
 현재 핵심 상태는:
 
-- `Gob calibrationGob`
+- `Long calibrationGraphId`
+- `Coord calibrationVir`
+- `Coord calibrationWorld`
 - `WaypointScene scene`
 
-즉, 현재 waypoint 좌표계 calibration의 active key는 gob 하나다.
+즉 현재 calibration의 active key는 graph + virtual origin + world origin이다.
 
 현재 책임:
 
-- `calibrate(Gob gob)`: 등록된 `gob_node` 기준으로 현재 좌표계를 보정
+- `calibrate(Rect area)`: area-select tile 기준으로 graph를 calibration
+- `calibrate(Gob gob)`: portal counterpart 기준으로 다른 graph로 recalibration
 - `refresh()`: 현재 player 위치 기준 scene 재구성
-- `tick(MapView)`: cut bounds 변화 감지, portal 이동 후 자동 recalibration 시도
+- `refreshSceneIfBoundsChanged()`: bounds 변화가 있으면 scene을 다시 구성
 - `nearestNode()`
-- `nearbyGob(long gobId)`
 - `nearbyNodes()`
-- `nearbyGobs()`
 - `nearbyPoints()`
 
 scene 정책:
@@ -291,7 +275,6 @@ scene 정책:
 복원 결과 타입은 더 이상 `WaypointManager` 내부 클래스가 아니라 별도 runtime 타입으로 분리돼 있다.
 
 - `ResolvedNode`
-- `ResolvedGob`
 - `ResolvedPoint`
 - `WaypointScene`
 - `WaypointCutBounds`
@@ -435,7 +418,7 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
   - Haven 참조, UI 접근 함수, IMeter lazy cache, session/widget reset 정책을 제공하는 전역 접근점
 - `src/lmi/AtomicAction.java`
   - 내부 최소 실행 단위를 모은 원자 동작 계층
-- `src/lmi/ChatInputManager.java`
+- `src/lmi/ChatInputMonitor.java`
   - area chat 입력 대기
 - `src/lmi/waypoint/WaypointStore.java`
   - waypoint 도메인이 사용하는 public store facade
@@ -472,7 +455,7 @@ src/
     AppContext.java: Haven 참조, UI 접근 함수, IMeter lazy cache, session/widget reset 정책을 제공하는 LMI 전역 접근점
     Array.java: Swift 스타일 편의 메서드를 덧붙인 ArrayList 래퍼
     AtomicAction.java: 더 쪼개지지 않는 내부 원자 동작 계층
-    ChatInputManager.java: area chat 입력을 가로채고 대기하는 상태 관리자
+    ChatInputMonitor.java: area chat 입력을 가로채고 대기하는 상태 관리자
     ClickManager.java: Gob 클릭과 영역 선택 같은 사용자 입력 대기를 관리하는 상태 관리자
     CommandHandler.java: 콘솔 명령 `a`를 등록하고 LMI 초기화를 시작하는 진입점
     Constant.java: 메시지, 타임아웃, 리소스명, waypoint direction 등 공용 상수를 모아둔 정의 파일

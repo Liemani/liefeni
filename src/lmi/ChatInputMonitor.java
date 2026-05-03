@@ -5,13 +5,13 @@ import haven.Widget;
 
 import static lmi.Constant.ExceptionReason.*;
 
-public final class ChatInputManager {
+public final class ChatInputMonitor {
   private static final Object lock = new Object();
 
   private static boolean waitingAreaChat = false;
   private static String capturedAreaChat = null;
 
-  private ChatInputManager() {}
+  private ChatInputMonitor() {}
 
   public static void clear() {
     synchronized (lock) {

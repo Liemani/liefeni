@@ -34,7 +34,7 @@ public class WaitManager {
     synchronized (lock) {
       while (!isAcked(targetSeq)) {
         try {
-          lock.wait(TO_NONE);
+          lock.wait(TO_INFINITE);
         } catch (InterruptedException e) {
           throw new LMIException(ER_INTERRUPTED);
         }
