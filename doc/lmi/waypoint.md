@@ -11,6 +11,19 @@
 - portal pair를 통한 world transition 뒤 graph 재식별
 - `wp_node/wp_edge/wp_segment/wp_point` 기반 recorded path 저장
 
+현재 구현은 책임 기준으로 다음 패키지로 나뉜다.
+
+- `lmi.waypoint`
+  - facade / bootstrap / overlay / debug
+- `lmi.waypoint.persistence`
+  - DB facade, DB executor, sync queue, low-level SQL helper
+- `lmi.waypoint.runtime`
+  - runtime authoritative cache, calibration state, scene build/result
+- `lmi.waypoint.calibration`
+  - area / portal calibration, portal resolver
+- `lmi.waypoint.recording`
+  - raw recording, segment planning, edge save, segment resolution
+
 ## 스키마
 
 현재 핵심 테이블:
@@ -102,6 +115,12 @@
 
 즉 main/render thread는 DB를 직접 기다리지 않고, DB completion이 나중에 runtime cache를 갱신한다.
 
+현재 위치:
+
+- `lmi.waypoint.runtime.WaypointRuntimeContext`
+- `lmi.waypoint.persistence.WaypointDbExecutor`
+- `lmi.waypoint.persistence.WaypointSyncManager`
+
 ## Calibration
 
 현재 waypoint 좌표계를 실제 world에 맞추는 작업을 calibration이라고 부른다.
@@ -140,6 +159,12 @@ portal recalibration:
 
 현재 calibration은 DB direct read를 바로 하지 않고, 먼저 runtime cache를 본다.
 anchor / portal cache가 비어 있으면 async preload를 걸고 이번 calibration은 실패한다.
+
+현재 위치:
+
+- `lmi.waypoint.runtime.WaypointCalibrationState`
+- `lmi.waypoint.calibration.WaypointCalibrator`
+- `lmi.waypoint.WaypointManager`
 
 ## Scene / Bounds
 
@@ -183,6 +208,15 @@ cut 판정 규칙:
 - `WaypointScene`
 - `WaypointCutBounds`
 
+현재 위치:
+
+- `lmi.waypoint.runtime.WaypointSceneBuilder`
+- `lmi.waypoint.runtime.ResolvedLine`
+- `lmi.waypoint.runtime.ResolvedNode`
+- `lmi.waypoint.runtime.ResolvedPoint`
+- `lmi.waypoint.runtime.WaypointScene`
+- `lmi.waypoint.runtime.WaypointCutBounds`
+
 ## Overlay
 
 현재 waypoint 시각화는 별도 widget이 아니라 `MapView.draw()` 훅 기반이다.
@@ -209,6 +243,11 @@ cut 판정 규칙:
   - `wp_portal_pair`를 따라 counterpart portal 찾기
   - 그 counterpart의 `resname`과 현재 world gob를 매칭
   - 가장 가까운 portal gob를 선택
+
+현재 위치:
+
+- `lmi.waypoint.calibration.WaypointPortal`
+- `lmi.waypoint.calibration.WaypointPortalResolver`
 
 portal world transition event는 다음처럼 처리한다.
 
@@ -255,6 +294,14 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
   - 각 segment의 `baseGraphId/baseVir`를 기준으로 graph를 확정
 - `WaypointWriteBridge`
   - edge / segment / point / managed update용 low-level write bridge
+
+현재 위치:
+
+- `lmi.waypoint.recording.WaypointRecorder`
+- `lmi.waypoint.recording.RecordingSessionPlanner`
+- `lmi.waypoint.recording.WaypointEdgeWriter`
+- `lmi.waypoint.recording.SegmentResolver`
+- `lmi.waypoint.persistence.WaypointWriteBridge`
 
 즉 현재 저장 경로는:
 

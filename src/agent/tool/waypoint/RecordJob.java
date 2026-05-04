@@ -7,8 +7,8 @@ import lmi.AgentContext;
 import lmi.AtomicAction;
 import lmi.Api;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.WaypointRecorder;
 import lmi.waypoint.model.RecordingSession;
+import lmi.waypoint.recording.WaypointRecorder;
 import lmi.waypoint.runtime.ResolvedNode;
 
 public class RecordJob extends Job {

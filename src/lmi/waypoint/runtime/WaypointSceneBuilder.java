@@ -1,26 +1,22 @@
-package lmi.waypoint;
+package lmi.waypoint.runtime;
 
 import haven.Coord;
 import lmi.Array;
+import lmi.waypoint.WaypointManager;
 import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
-import lmi.waypoint.runtime.ResolvedLine;
-import lmi.waypoint.runtime.ResolvedNode;
-import lmi.waypoint.runtime.ResolvedPoint;
-import lmi.waypoint.runtime.WaypointCutBounds;
-import lmi.waypoint.runtime.WaypointScene;
 
 import java.util.HashMap;
 import java.util.HashSet;
 
-final class WaypointSceneBuilder {
+public final class WaypointSceneBuilder {
   private WaypointSceneBuilder() {}
 
-  static BuildResult build(
+  public static BuildResult build(
     WaypointCalibrationState calibration,
     Coord selfWorld,
     ManagedObjectContext managedNodeContext
@@ -159,9 +155,9 @@ final class WaypointSceneBuilder {
     );
   }
 
-  static final class BuildResult {
-    final WaypointScene scene;
-    final Array<ManagedWpNode> selectedManagedNodes;
+  public static final class BuildResult {
+    public final WaypointScene scene;
+    public final Array<ManagedWpNode> selectedManagedNodes;
 
     BuildResult(WaypointScene scene, Array<ManagedWpNode> selectedManagedNodes) {
       this.scene = scene;

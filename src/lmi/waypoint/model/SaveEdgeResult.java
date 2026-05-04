@@ -1,6 +1,6 @@
 package lmi.waypoint.model;
 
-import lmi.waypoint.WaypointResult;
+import lmi.waypoint.persistence.WaypointResult;
 
 public final class SaveEdgeResult implements WaypointResult {
   public final boolean saved;

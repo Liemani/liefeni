@@ -7,8 +7,8 @@ import lmi.Api;
 import lmi.ClickManager;
 import lmi.Rect;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.WaypointResultHandler;
-import lmi.waypoint.WaypointStore;
+import lmi.waypoint.persistence.WaypointResultHandler;
+import lmi.waypoint.persistence.WaypointStore;
 import lmi.waypoint.model.UpdateAnchorResult;
 
 public class ChangeAnchorJob extends Job {

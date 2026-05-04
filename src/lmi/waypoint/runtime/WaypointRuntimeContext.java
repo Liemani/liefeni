@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.runtime;
 
 import haven.Coord;
 import lmi.Array;
@@ -10,10 +10,6 @@ import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpPortal;
 import lmi.waypoint.object.WpSegment;
-import lmi.waypoint.runtime.ResolvedNode;
-import lmi.waypoint.runtime.ResolvedPoint;
-import lmi.waypoint.runtime.WaypointCutBounds;
-import lmi.waypoint.runtime.WaypointScene;
 
 import java.util.HashMap;
 import java.util.HashSet;

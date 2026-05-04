@@ -1,16 +1,16 @@
-package lmi.waypoint;
+package lmi.waypoint.runtime;
 
 import haven.Coord;
 import haven.Gob;
 
-final class WaypointCalibrationState {
+public final class WaypointCalibrationState {
   private boolean anchorPresent;
   private Long graphId;
   private Coord vir = Coord.z;
   private Coord world = Coord.z;
   private Gob gob;
 
-  void clear() {
+  public void clear() {
     anchorPresent = false;
     graphId = null;
     vir = Coord.z;
@@ -18,39 +18,39 @@ final class WaypointCalibrationState {
     gob = null;
   }
 
-  boolean hasAnchor() {
+  public boolean hasAnchor() {
     return anchorPresent;
   }
 
-  void markAnchorPresent() {
+  public void markAnchorPresent() {
     anchorPresent = true;
   }
 
-  void setAnchorPresent(boolean anchorPresent) {
+  public void setAnchorPresent(boolean anchorPresent) {
     this.anchorPresent = anchorPresent;
   }
 
-  boolean isCalibrated() {
+  public boolean isCalibrated() {
     return graphId != null;
   }
 
-  Long graphId() {
+  public Long graphId() {
     return graphId;
   }
 
-  Coord vir() {
+  public Coord vir() {
     return Coord.of(vir);
   }
 
-  Coord world() {
+  public Coord world() {
     return Coord.of(world);
   }
 
-  Gob gob() {
+  public Gob gob() {
     return gob;
   }
 
-  void setCalibration(long graphId, Coord vir, Coord world, Gob gob) {
+  public void setCalibration(long graphId, Coord vir, Coord world, Gob gob) {
     this.anchorPresent = true;
     this.graphId = graphId;
     this.vir = Coord.of(vir);
@@ -58,7 +58,7 @@ final class WaypointCalibrationState {
     this.gob = gob;
   }
 
-  Coord virOfWorld(Coord targetWorld) {
+  public Coord virOfWorld(Coord targetWorld) {
     if (graphId == null)
       return null;
     return Coord.of(
@@ -67,7 +67,7 @@ final class WaypointCalibrationState {
     );
   }
 
-  Coord worldOfVir(int targetVirX, int targetVirY) {
+  public Coord worldOfVir(int targetVirX, int targetVirY) {
     return world.add(targetVirX - vir.x, targetVirY - vir.y);
   }
 }

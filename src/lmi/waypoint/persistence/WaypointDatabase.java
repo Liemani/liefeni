@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.persistence;
 
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.CreateAnchorResult;
@@ -491,6 +491,7 @@ final class WaypointDatabase {
         "  CONSTRAINT fk_node1_id FOREIGN KEY (node1_id) REFERENCES wp_node(id)," +
         "  CONSTRAINT chk_direction CHECK (direction IN (0, 1, 2, 3))," +
         "  CONSTRAINT chk_distinct_nodes CHECK (node0_id <> node1_id)," +
+        "  CONSTRAINT chk_edge_order CHECK (node0_id < node1_id)," +
         "  UNIQUE (node0_id, node1_id)" +
         ")"
       );

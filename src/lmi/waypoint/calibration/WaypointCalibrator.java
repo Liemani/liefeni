@@ -1,17 +1,19 @@
-package lmi.waypoint;
+package lmi.waypoint.calibration;
 
 import haven.Coord;
 import haven.Gob;
 import lmi.Api;
 import lmi.Array;
 import lmi.Rect;
+import lmi.waypoint.WaypointManager;
 import lmi.waypoint.object.WpAnchor;
 import lmi.waypoint.object.WpPortal;
+import lmi.waypoint.runtime.WaypointCalibrationState;
 
-final class WaypointCalibrator {
+public final class WaypointCalibrator {
   private WaypointCalibrator() {}
 
-  static boolean calibrateFromAnchorArea(WaypointCalibrationState calibration, Rect area) {
+  public static boolean calibrateFromAnchorArea(WaypointCalibrationState calibration, Rect area) {
     if (area == null) {
       Api.message("[WaypointManager.calibrate] area is null");
       return false;
@@ -29,7 +31,7 @@ final class WaypointCalibrator {
     return true;
   }
 
-  static boolean calibrateFromPortal(WaypointCalibrationState calibration, Gob gob) {
+  public static boolean calibrateFromPortal(WaypointCalibrationState calibration, Gob gob) {
     if (gob == null) {
       Api.message("[WaypointManager.calibrate] gob is null");
       return false;

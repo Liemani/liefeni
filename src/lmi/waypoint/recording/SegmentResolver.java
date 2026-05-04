@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.recording;
 
 import lmi.waypoint.model.RecordingSegment;
 

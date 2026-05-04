@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.persistence;
 
 import lmi.Array;
 import lmi.waypoint.db.WpAnchorRecord;
@@ -326,7 +326,7 @@ public final class WaypointStore {
     );
   }
 
-  static synchronized Connection _connection() {
+  public static synchronized Connection _connection() {
     try {
       if (connection == null || connection.isClosed()) {
         Class.forName("org.sqlite.JDBC");

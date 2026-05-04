@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.recording;
 
 import haven.ClickData;
 import haven.Coord;

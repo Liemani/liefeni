@@ -1,5 +1,8 @@
 package lmi.waypoint;
 
+import lmi.waypoint.persistence.WaypointDbExecutor;
+import lmi.waypoint.persistence.WaypointResultHandler;
+import lmi.waypoint.persistence.WaypointStore;
 import lmi.waypoint.model.LoadAnchorsResult;
 
 public final class WaypointBootstrap {

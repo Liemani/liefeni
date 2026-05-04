@@ -9,15 +9,15 @@ import lmi.Api;
 import lmi.ChatInputMonitor;
 import lmi.ClickManager;
 import lmi.Self;
-import lmi.waypoint.WaypointEdgeWriter;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.WaypointRecorder;
-import lmi.waypoint.WaypointResultHandler;
+import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.model.SaveEdgeResult;
-import lmi.waypoint.WaypointStore;
+import lmi.waypoint.persistence.WaypointStore;
 import lmi.waypoint.object.WpNode;
+import lmi.waypoint.recording.WaypointEdgeWriter;
+import lmi.waypoint.recording.WaypointRecorder;
 
 public class StopRecordJob extends Job {
   @Override

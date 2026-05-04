@@ -1,6 +1,4 @@
-package lmi.waypoint;
-
-import haven.Gob;
+package lmi.waypoint.calibration;
 
 import java.util.ArrayList;
 import java.util.HashMap;

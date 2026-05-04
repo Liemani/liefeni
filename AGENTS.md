@@ -158,6 +158,19 @@ area chat 입력 대기는 `ChatInputMonitor`가 맡는다.
 
 Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, graph / anchor / portal / virtual coordinate 중심으로 동작한다.
 
+현재 코드 구조는 책임 기준으로 다음 패키지로 나뉜다.
+
+- `lmi.waypoint`
+  - facade / bootstrap / overlay / debug
+- `lmi.waypoint.persistence`
+  - DB facade, DB executor, sync queue, low-level SQL helper
+- `lmi.waypoint.runtime`
+  - runtime authoritative cache, calibration state, scene build/result
+- `lmi.waypoint.calibration`
+  - area / portal calibration, portal resolver
+- `lmi.waypoint.recording`
+  - raw recording, segment planning, edge save, segment resolution
+
 현재 핵심 테이블:
 
 - `wp_graph`
@@ -491,42 +504,42 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
   - 내부 최소 실행 단위를 모은 원자 동작 계층
 - `src/lmi/ChatInputMonitor.java`
   - area chat 입력 대기
-- `src/lmi/waypoint/WaypointStore.java`
+- `src/lmi/waypoint/persistence/WaypointStore.java`
   - waypoint 도메인이 사용하는 public store facade
   - shared SQLite connection owner
   - async read/write facade
-- `src/lmi/waypoint/WaypointDatabase.java`
+- `src/lmi/waypoint/persistence/WaypointDatabase.java`
   - waypoint DB schema와 low-level query/insert helper
-- `src/lmi/waypoint/WaypointRuntimeContext.java`
+- `src/lmi/waypoint/runtime/WaypointRuntimeContext.java`
   - runtime authoritative cache와 loaded/loading 상태를 보관
-- `src/lmi/waypoint/WaypointDbExecutor.java`
+- `src/lmi/waypoint/persistence/WaypointDbExecutor.java`
   - waypoint DB 전용 async worker thread
-- `src/lmi/waypoint/WaypointSyncManager.java`
+- `src/lmi/waypoint/persistence/WaypointSyncManager.java`
   - DB completion을 runtime 쪽으로 되돌리는 sync queue
-- `src/lmi/waypoint/WaypointCalibrationState.java`
+- `src/lmi/waypoint/runtime/WaypointCalibrationState.java`
   - anchor 존재와 calibration graph/world/vir 상태를 보관하는 runtime state
-- `src/lmi/waypoint/WaypointCalibrator.java`
+- `src/lmi/waypoint/calibration/WaypointCalibrator.java`
   - area / portal 기준 calibration 수행 계층
-- `src/lmi/waypoint/WaypointSceneBuilder.java`
+- `src/lmi/waypoint/runtime/WaypointSceneBuilder.java`
   - calibration state와 player 위치를 받아 scene을 구성하는 builder
 - `src/lmi/waypoint/WaypointManager.java`
   - waypoint facade이자 calibration / scene refresh orchestration 계층
 - `src/lmi/waypoint/WaypointOverlay.java`
   - `MapView.draw()` 훅에서 drawable waypoint scene을 실제 화면에 그리는 overlay
-- `src/lmi/waypoint/WaypointRecorder.java`
+- `src/lmi/waypoint/recording/WaypointRecorder.java`
   - raw recording session과 click sequence를 메모리에서 수집
-- `src/lmi/waypoint/RecordingSessionPlanner.java`
+- `src/lmi/waypoint/recording/RecordingSessionPlanner.java`
   - raw recording session을 portal-aware segment 구조로 재해석하는 planner
-- `src/lmi/waypoint/WaypointPortal.java`
+- `src/lmi/waypoint/calibration/WaypointPortal.java`
   - portal resname 판정과 기본 counterpart 규칙 helper
-- `src/lmi/waypoint/WaypointPortalResolver.java`
+- `src/lmi/waypoint/calibration/WaypointPortalResolver.java`
   - runtime에서 counterpart / recalibration portal gob를 찾는 resolver
-- `src/lmi/waypoint/WaypointEdgeWriter.java`
+- `src/lmi/waypoint/recording/WaypointEdgeWriter.java`
   - `RecordingSession`을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
   - async save entry도 제공
-- `src/lmi/waypoint/SegmentResolver.java`
+- `src/lmi/waypoint/recording/SegmentResolver.java`
   - segment의 `baseGraphId/baseVir/baseWorld`를 기준으로 저장 좌표계를 해석하는 resolver
-- `src/lmi/waypoint/WaypointWriteBridge.java`
+- `src/lmi/waypoint/persistence/WaypointWriteBridge.java`
   - low-level waypoint write bridge
 
 ## 파일 인덱스
@@ -563,24 +576,40 @@ src/
       AlignLogBehavior.java: 통나무 정렬 절차를 AtomicAction 조합으로 표현한 행동 시퀀스
     waypoint/
       WaypointBootstrap.java: waypoint DB warm-up과 anchor presence sync를 수행하는 bootstrap 계층
-      WaypointStore.java: waypoint 도메인이 사용하는 public facade이자 async read/write facade
-      WaypointDatabase.java: `wp_*` schema 생성과 connection-based low-level DB helper
-      WaypointRuntimeContext.java: runtime authoritative cache와 loaded/loading 상태를 보관
-      WaypointDbExecutor.java: waypoint DB 전용 async worker thread
-      WaypointSyncManager.java: DB completion을 runtime 쪽으로 되돌리는 sync queue
-      WaypointCalibrationState.java: anchor 존재와 calibration graph/world/vir 상태를 보관하는 runtime state
-      WaypointCalibrator.java: area / portal 기준 calibration 수행 계층
-      WaypointSceneBuilder.java: calibration state와 player 위치를 받아 waypoint scene을 구성하는 builder
-      WaypointSceneBuilder.java: cache miss 시 preload를 걸고 부분 scene 또는 빈 scene을 반환한다
       WaypointManager.java: waypoint facade이자 calibration / scene refresh orchestration 계층
       WaypointOverlay.java: `MapView.draw()` 훅에서 drawable waypoint scene을 world overlay로 그린다
-      WaypointRecorder.java: raw recording session과 click sequence를 메모리에서 수집
-      RecordingSessionPlanner.java: raw recording session을 portal-aware segment 구조로 재해석하는 planner
-      WaypointPortal.java: portal resname 판정과 기본 counterpart 규칙을 제공
-      WaypointPortalResolver.java: runtime에서 counterpart / recalibration portal gob를 찾는 resolver
-      WaypointEdgeWriter.java: recording session을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
-      SegmentResolver.java: segment의 `baseGraphId/baseVir/baseWorld`를 기준으로 저장 좌표계를 해석하는 resolver
-      WaypointWriteBridge.java: low-level waypoint write bridge
+      WaypointDebug.java: waypoint runtime 상태를 사람이 읽기 좋은 텍스트로 요약하는 debug helper
+      persistence/
+        WaypointStore.java: waypoint 도메인이 사용하는 public facade이자 async read/write facade
+        WaypointDatabase.java: `wp_*` schema 생성과 connection-based low-level DB helper
+        WaypointDbExecutor.java: waypoint DB 전용 async worker thread
+        WaypointSyncManager.java: DB completion을 runtime 쪽으로 되돌리는 sync queue
+        WaypointWriteBridge.java: low-level waypoint write bridge
+        WaypointRequest.java: DB executor가 처리하는 request 공통 계약
+        WaypointReadRequest.java: async read request 계약
+        WaypointWriteRequest.java: async write request 계약
+        WaypointResult.java: async completion result marker
+        WaypointResultHandler.java: async completion callback 계약
+        EmptyWaypointResult.java: payload 없는 write completion result
+      runtime/
+        WaypointRuntimeContext.java: runtime authoritative cache와 loaded/loading 상태를 보관
+        WaypointCalibrationState.java: anchor 존재와 calibration graph/world/vir 상태를 보관하는 runtime state
+        WaypointSceneBuilder.java: calibration state와 player 위치를 받아 waypoint scene을 구성하는 builder
+        ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`
+        ResolvedPoint.java: 현재 world 좌표로 복원된 nearby `wp_point`
+        ResolvedLine.java: drawable node / point 사이를 잇는 runtime line
+        WaypointScene.java: drawable / hidden waypoint scene collection
+        WaypointCutBounds.java: player 기준 7x7 load / 5x5 render cut bounds
+      calibration/
+        WaypointCalibrator.java: area / portal 기준 calibration 수행 계층
+        WaypointPortal.java: portal resname 판정과 기본 counterpart 규칙을 제공
+        WaypointPortalResolver.java: runtime에서 counterpart / recalibration portal gob를 찾는 resolver
+      recording/
+        WaypointRecorder.java: raw recording session과 click sequence를 메모리에서 수집
+        RecordingSessionPlanner.java: raw recording session을 portal-aware segment 구조로 재해석하는 planner
+        WaypointEdgeWriter.java: recording session을 `wp_edge / wp_segment / wp_point`로 저장하는 writer
+        SegmentResolver.java: segment의 `baseGraphId/baseVir/baseWorld`를 기준으로 저장 좌표계를 해석하는 resolver
+        SegmentResolution.java: segment 저장 해석 결과 값 객체
       model/
         CreateAnchorResult.java: anchor 생성 결과
         CreateNodeResult.java: 일반 node 생성 결과
@@ -594,12 +623,6 @@ src/
         WpPortalRecord.java: `wp_portal` row 모델
         WpNodeRecord.java: `wp_node` row 모델
         WpPointRecord.java: `wp_point` row 모델
-      runtime/
-        ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`
-        ResolvedPoint.java: 현재 world 좌표로 복원된 nearby `wp_point`
-        ResolvedLine.java: drawable node / point 사이를 잇는 runtime line
-        WaypointScene.java: drawable / hidden waypoint scene collection
-        WaypointCutBounds.java: player 기준 7x7 load / 5x5 render cut bounds
   agent/
     effect/
       ToggleSleepEffect.java: Agent sleep 상태를 즉시 토글하는 effect

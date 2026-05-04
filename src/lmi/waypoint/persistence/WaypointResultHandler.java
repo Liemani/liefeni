@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.persistence;
 
 public interface WaypointResultHandler<R extends WaypointResult> {
   void onSuccess(R result);

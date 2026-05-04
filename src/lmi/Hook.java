@@ -4,8 +4,8 @@ import haven.*;
 import agent.Effect;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointOverlay;
-import lmi.waypoint.WaypointRecorder;
-import lmi.waypoint.WaypointSyncManager;
+import lmi.waypoint.persistence.WaypointSyncManager;
+import lmi.waypoint.recording.WaypointRecorder;
 import static lmi.Constant.*;
 
 public class Hook {

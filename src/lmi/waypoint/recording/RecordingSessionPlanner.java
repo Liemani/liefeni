@@ -1,7 +1,10 @@
-package lmi.waypoint;
+package lmi.waypoint.recording;
 
 import haven.Coord;
 import haven.Gob;
+import lmi.waypoint.calibration.WaypointPortal;
+import lmi.waypoint.calibration.WaypointPortalResolver;
+import lmi.waypoint.WaypointManager;
 import lmi.waypoint.model.PendingPortalTransition;
 import lmi.waypoint.model.RecordingClick;
 import lmi.waypoint.model.RecordingSegment;

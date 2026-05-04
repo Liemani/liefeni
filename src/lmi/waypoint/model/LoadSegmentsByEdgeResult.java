@@ -1,7 +1,7 @@
 package lmi.waypoint.model;
 
 import lmi.Array;
-import lmi.waypoint.WaypointResult;
+import lmi.waypoint.persistence.WaypointResult;
 import lmi.waypoint.object.WpSegment;
 
 public final class LoadSegmentsByEdgeResult implements WaypointResult {

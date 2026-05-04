@@ -1,5 +1,9 @@
-package lmi.waypoint;
+package lmi.waypoint.recording;
 
+import lmi.waypoint.persistence.WaypointDbExecutor;
+import lmi.waypoint.persistence.WaypointResultHandler;
+import lmi.waypoint.persistence.WaypointStore;
+import lmi.waypoint.persistence.WaypointWriteBridge;
 import lmi.waypoint.model.RecordingClick;
 import lmi.waypoint.model.RecordingSegment;
 import lmi.waypoint.model.RecordingSession;

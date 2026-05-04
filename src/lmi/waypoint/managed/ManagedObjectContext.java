@@ -1,11 +1,11 @@
 package lmi.waypoint.managed;
 
 import lmi.Array;
-import lmi.waypoint.EmptyWaypointResult;
-import lmi.waypoint.WaypointDbExecutor;
-import lmi.waypoint.WaypointResultHandler;
-import lmi.waypoint.WaypointStore;
-import lmi.waypoint.WaypointWriteRequest;
+import lmi.waypoint.persistence.EmptyWaypointResult;
+import lmi.waypoint.persistence.WaypointDbExecutor;
+import lmi.waypoint.persistence.WaypointResultHandler;
+import lmi.waypoint.persistence.WaypointStore;
+import lmi.waypoint.persistence.WaypointWriteRequest;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

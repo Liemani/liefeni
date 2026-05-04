@@ -1,3 +1,3 @@
-package lmi.waypoint;
+package lmi.waypoint.persistence;
 
 public interface WaypointResult {}

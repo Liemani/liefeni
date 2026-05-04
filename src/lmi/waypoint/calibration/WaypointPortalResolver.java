@@ -1,8 +1,9 @@
-package lmi.waypoint;
+package lmi.waypoint.calibration;
 
 import haven.Gob;
 import lmi.GobFinder;
 import lmi.Self;
+import lmi.waypoint.WaypointManager;
 import lmi.waypoint.object.WpPortal;
 
 import java.util.ArrayList;

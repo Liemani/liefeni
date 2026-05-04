@@ -2,7 +2,7 @@ package lmi;
 
 import haven.Gob;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.WaypointPortalResolver;
+import lmi.waypoint.calibration.WaypointPortalResolver;
 
 import java.util.ArrayList;
 

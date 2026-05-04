@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.persistence;
 
 import java.sql.Connection;
 

@@ -1,4 +1,4 @@
-package lmi.waypoint;
+package lmi.waypoint.recording;
 
 final class SegmentResolution {
   final boolean resolved;
