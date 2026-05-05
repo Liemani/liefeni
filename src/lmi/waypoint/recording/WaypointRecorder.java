@@ -20,15 +20,14 @@ public final class WaypointRecorder {
   public static RecordingSession start(
     long startNodeId,
     long baseGraphId,
-    int baseGobX,
-    int baseGobY,
-    int baseVirX,
-    int baseVirY
+    long baseGridId,
+    int baseLocalX,
+    int baseLocalY
   ) {
     synchronized (lock) {
       if (activeSession != null)
         throw new IllegalStateException("A waypoint recording is already active.");
-      activeSession = new RecordingSession(startNodeId, baseGraphId, baseGobX, baseGobY, baseVirX, baseVirY);
+      activeSession = new RecordingSession(startNodeId, baseGraphId, baseGridId, baseLocalX, baseLocalY);
       return activeSession;
     }
   }
@@ -60,9 +59,14 @@ public final class WaypointRecorder {
       Coord pos = (gobPosition != null) ? gobPosition : mapCoord.floor(OCache.posres);
 
       RecordingSegment segment = activeSession.currentSegment();
-      if (segment.baseGobX == 0 && segment.baseGobY == 0 && gobPosition != null) {
-        segment.baseGobX = gobPosition.x;
-        segment.baseGobY = gobPosition.y;
+      if (segment.baseGraphId == null && gobPosition != null) {
+        lmi.waypoint.runtime.GridPosition position = lmi.waypoint.WaypointManager.gridPositionOfWorld(gobPosition);
+        if (position != null) {
+          segment.baseGraphId = lmi.waypoint.WaypointManager.activeGraphId();
+          segment.baseGridId = position.gridId;
+          segment.baseLocalX = position.localX;
+          segment.baseLocalY = position.localY;
+        }
       }
 
       segment.clicks.add(new RecordingClick(

@@ -60,11 +60,6 @@ public final class ManagedObjectContext {
     if (batch.isEmpty())
       return;
 
-    if (batch.wpAnchorSnapshot != null) {
-      ManagedWpAnchor anchor = find(ManagedWpAnchor.class, batch.wpAnchorSnapshot.id);
-      if (anchor != null)
-        anchor.onSaveQueued();
-    }
     for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots) {
       ManagedWpNode node = find(ManagedWpNode.class, snapshot.id);
       if (node != null)
@@ -110,11 +105,6 @@ public final class ManagedObjectContext {
   }
 
   synchronized void onSaveSucceeded(SaveBatch batch, SaveBatchResult result) {
-    if (batch.wpAnchorSnapshot != null) {
-      ManagedWpAnchor anchor = find(ManagedWpAnchor.class, batch.wpAnchorSnapshot.id);
-      if (anchor != null)
-        anchor.onAnchorSaveSucceeded(batch.wpAnchorSnapshot, result.anchorGraphId);
-    }
     for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots) {
       ManagedWpNode node = find(ManagedWpNode.class, snapshot.id);
       if (node != null)
@@ -123,11 +113,6 @@ public final class ManagedObjectContext {
   }
 
   synchronized void onSaveFailed(SaveBatch batch) {
-    if (batch.wpAnchorSnapshot != null) {
-      ManagedWpAnchor anchor = find(ManagedWpAnchor.class, batch.wpAnchorSnapshot.id);
-      if (anchor != null)
-        anchor.onAnchorSaveFailed();
-    }
     for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots) {
       ManagedWpNode node = find(ManagedWpNode.class, snapshot.id);
       if (node != null)
@@ -144,14 +129,11 @@ public final class ManagedObjectContext {
 
   private synchronized SaveBatch buildSaveBatch() {
     ArrayList<WpNodeSnapshot> wpNodeSnapshots = new ArrayList<>();
-    WpAnchorSnapshot wpAnchorSnapshot = null;
     for (ManagedObject object : dirtyObjects) {
-      if (object instanceof ManagedWpAnchor)
-        wpAnchorSnapshot = ((ManagedWpAnchor)object).snapshot();
       if (object instanceof ManagedWpNode)
         wpNodeSnapshots.add(((ManagedWpNode)object).snapshot());
     }
-    return new SaveBatch(wpAnchorSnapshot, wpNodeSnapshots);
+    return new SaveBatch(wpNodeSnapshots);
   }
 
   private static final class Key {

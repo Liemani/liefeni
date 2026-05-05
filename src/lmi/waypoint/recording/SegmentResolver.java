@@ -14,10 +14,9 @@ final class SegmentResolver {
 
     return SegmentResolution.resolved(
       segment.baseGraphId,
-      segment.baseGobX,
-      segment.baseGobY,
-      segment.baseVirX,
-      segment.baseVirY
+      segment.baseGridId,
+      segment.baseLocalX,
+      segment.baseLocalY
     );
   }
 }

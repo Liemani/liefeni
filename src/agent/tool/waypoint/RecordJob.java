@@ -14,7 +14,7 @@ import lmi.waypoint.runtime.ResolvedNode;
 public class RecordJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    if (!_ensureCalibrated()) return;
+    if (!_ensureGraphSelected()) return;
 
     ResolvedNode startNode = _selectStartNode();
     if (startNode == null) return;
@@ -25,10 +25,10 @@ public class RecordJob extends Job {
     if (session == null) return;
   }
 
-  private static boolean _ensureCalibrated() {
-    if (WaypointManager.isCalibrated()) return true;
-    Api.message("Waypoint recording failed: waypoint coordinates are not calibrated.");
-    Api.message("Run CalibrateWaypoint or CreateNode first.");
+  private static boolean _ensureGraphSelected() {
+    if (WaypointManager.activeGraphId() != null) return true;
+    Api.message("Waypoint recording failed: current waypoint graph is unavailable.");
+    Api.message("CreateNode first or select a graph-defining action.");
     return false;
   }
 
@@ -54,10 +54,9 @@ public class RecordJob extends Job {
       RecordingSession session = WaypointRecorder.start(
         startNode.id,
         startNode.graphId,
-        startNode.world.x,
-        startNode.world.y,
-        startNode.virX,
-        startNode.virY
+        startNode.gridId,
+        startNode.localX,
+        startNode.localY
       );
       Api.message("Waypoint recording started.");
       Api.message("Start node: " + startNode.name);

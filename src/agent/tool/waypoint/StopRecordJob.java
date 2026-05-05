@@ -2,7 +2,6 @@ package agent.tool.waypoint;
 
 import agent.Job;
 
-import haven.Coord;
 import lmi.AgentContext;
 import lmi.Api;
 import lmi.ChatInputMonitor;
@@ -19,6 +18,7 @@ import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
 import lmi.waypoint.recording.WaypointEdgeWriter;
 import lmi.waypoint.recording.WaypointRecorder;
+import lmi.waypoint.runtime.GridPosition;
 
 import java.util.HashMap;
 
@@ -40,12 +40,12 @@ public class StopRecordJob extends Job {
   }
 
   private static void _ensureEndNodeAsync(EndNodeHandler handler) {
-    Coord nodeVir = WaypointManager.virOfWorld(Self.position());
-    Long graphId = WaypointManager.calibrationGraphId();
-    if (nodeVir == null || graphId == null)
+    GridPosition position = WaypointManager.currentGridPosition();
+    Long graphId = WaypointManager.activeGraphId();
+    if (position == null || graphId == null)
       return;
 
-    WpNode endNode = WaypointManager.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
+    WpNode endNode = WaypointManager.findNodeByGraphAndGridLocal(graphId, position.gridId, position.localX, position.localY);
     if (endNode != null) {
       handler.onResolved(endNode);
       return;
@@ -55,28 +55,22 @@ public class StopRecordJob extends Job {
   }
 
   private static void _createEndNodeAsync(EndNodeHandler handler) {
-    if (!WaypointManager.isCalibrated()) {
-      Api.message("[StopRecordJob] calibration missing before end node creation");
-      Api.message("[StopRecordJob] isCalibrated=" + WaypointManager.isCalibrated());
-      Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
-      return;
-    }
-
     String nodeName = _inputEndNodeName();
     if (nodeName == null) return;
 
-    Long graphId = WaypointManager.calibrationGraphId();
-    Coord nodeVir = WaypointManager.virOfWorld(Self.position());
-    if (graphId == null || nodeVir == null) {
-      Api.message("Failed to save waypoint recording: waypoint coordinates are not calibrated.");
+    Long graphId = WaypointManager.activeGraphId();
+    GridPosition position = WaypointManager.currentGridPosition();
+    if (graphId == null || position == null) {
+      Api.message("Failed to save waypoint recording: current waypoint graph is unavailable.");
       return;
     }
 
     WaypointStore.createNodeAsync(
       nodeName,
       graphId,
-      nodeVir.x,
-      nodeVir.y,
+      position.gridId,
+      position.localX,
+      position.localY,
       new WaypointResultHandler<CreateNodeResult>() {
         @Override
         public void onSuccess(CreateNodeResult createNodeResult) {
@@ -85,7 +79,8 @@ public class StopRecordJob extends Job {
             return;
           }
 
-          WpNode endNode = WpNode.of(createNodeResult.nodeId, graphId, -1L, nodeVir.x, nodeVir.y, nodeName);
+          WpNode endNode = WpNode.of(createNodeResult.nodeId, graphId, position.gridId, position.localX, position.localY, nodeName);
+          WaypointManager.setCurrentGraphId(graphId);
           WaypointManager.appendNode(endNode);
           handler.onResolved(endNode);
         }

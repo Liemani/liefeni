@@ -3,28 +3,26 @@ package lmi.waypoint.recording;
 final class SegmentResolution {
   final boolean resolved;
   final long graphId;
-  final int referenceActualX;
-  final int referenceActualY;
-  final int referenceVirX;
-  final int referenceVirY;
+  final long referenceGridId;
+  final int referenceLocalX;
+  final int referenceLocalY;
   final String errorMessage;
 
-  private SegmentResolution(boolean resolved, long graphId, int referenceActualX, int referenceActualY,
-                            int referenceVirX, int referenceVirY, String errorMessage) {
+  private SegmentResolution(boolean resolved, long graphId, long referenceGridId, int referenceLocalX,
+                            int referenceLocalY, String errorMessage) {
     this.resolved = resolved;
     this.graphId = graphId;
-    this.referenceActualX = referenceActualX;
-    this.referenceActualY = referenceActualY;
-    this.referenceVirX = referenceVirX;
-    this.referenceVirY = referenceVirY;
+    this.referenceGridId = referenceGridId;
+    this.referenceLocalX = referenceLocalX;
+    this.referenceLocalY = referenceLocalY;
     this.errorMessage = errorMessage;
   }
 
-  static SegmentResolution resolved(long graphId, int referenceActualX, int referenceActualY, int referenceVirX, int referenceVirY) {
-    return new SegmentResolution(true, graphId, referenceActualX, referenceActualY, referenceVirX, referenceVirY, null);
+  static SegmentResolution resolved(long graphId, long referenceGridId, int referenceLocalX, int referenceLocalY) {
+    return new SegmentResolution(true, graphId, referenceGridId, referenceLocalX, referenceLocalY, null);
   }
 
   static SegmentResolution failed(String errorMessage) {
-    return new SegmentResolution(false, -1L, 0, 0, 0, 0, errorMessage);
+    return new SegmentResolution(false, -1L, 0L, 0, 0, errorMessage);
   }
 }

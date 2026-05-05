@@ -6,18 +6,18 @@ public final class ResolvedNode {
   public final long id;
   public final String name;
   public final long graphId;
-  public final long nodeRefId;
-  public final int virX;
-  public final int virY;
+  public final long gridId;
+  public final int localX;
+  public final int localY;
   public final Coord world;
 
-  public ResolvedNode(long id, String name, long graphId, long nodeRefId, int virX, int virY, Coord world) {
+  public ResolvedNode(long id, String name, long graphId, long gridId, int localX, int localY, Coord world) {
     this.id = id;
     this.name = name;
     this.graphId = graphId;
-    this.nodeRefId = nodeRefId;
-    this.virX = virX;
-    this.virY = virY;
+    this.gridId = gridId;
+    this.localX = localX;
+    this.localY = localY;
     this.world = world;
   }
 }

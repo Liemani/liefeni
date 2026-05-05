@@ -42,7 +42,7 @@ public final class WaypointOverlay implements MapOverlay {
     if (testEnabled)
       _drawTestOverlay(mapView, g);
 
-    if (!WaypointManager.isCalibrated())
+    if (WaypointManager.activeGraphId() == null)
       return;
 
     Array<ResolvedPoint> points = WaypointManager.nearbyPoints();

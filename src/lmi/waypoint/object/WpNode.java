@@ -5,26 +5,26 @@ import lmi.waypoint.db.WpNodeRecord;
 public final class WpNode {
   public final long id;
   public final long graphId;
-  public final long nodeRefId;
-  public final int virX;
-  public final int virY;
+  public final long gridId;
+  public final int localX;
+  public final int localY;
   public final String name;
 
-  private WpNode(long id, long graphId, long nodeRefId, int virX, int virY, String name) {
+  private WpNode(long id, long graphId, long gridId, int localX, int localY, String name) {
     this.id = id;
     this.graphId = graphId;
-    this.nodeRefId = nodeRefId;
-    this.virX = virX;
-    this.virY = virY;
+    this.gridId = gridId;
+    this.localX = localX;
+    this.localY = localY;
     this.name = name;
   }
 
-  public static WpNode of(long id, long graphId, long nodeRefId, int virX, int virY, String name) {
-    return new WpNode(id, graphId, nodeRefId, virX, virY, name);
+  public static WpNode of(long id, long graphId, long gridId, int localX, int localY, String name) {
+    return new WpNode(id, graphId, gridId, localX, localY, name);
   }
 
   public static WpNode fromRecord(WpNodeRecord record) {
     if (record == null) return null;
-    return new WpNode(record.id, record.graphId, record.nodeRefId, record.virX, record.virY, record.name);
+    return new WpNode(record.id, record.graphId, record.gridId, record.localX, record.localY, record.name);
   }
 }

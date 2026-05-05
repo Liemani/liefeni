@@ -1,8 +1,6 @@
 package lmi;
 
-import haven.Gob;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.calibration.WaypointPortalResolver;
 
 import java.util.ArrayList;
 
@@ -51,25 +49,6 @@ public final class RuntimeEventManager {
     }
     if (worker != null)
       worker.interrupt();
-  }
-
-  public static void calibratePortal() {
-    final long deadline = System.currentTimeMillis() + (5 * lmi.Constant.Timeout.TO_RETRY);
-    _addHandler(new RuntimeEventHandler() {
-      @Override
-      public boolean handle() {
-        System.out.printf("calibratePortal\n");
-        if (System.currentTimeMillis() >= deadline)
-          throw new LMIException(ER_TIMEOUT);
-
-        Gob portal = _nearestRegisteredPortal();
-        if (portal == null)
-          return false;
-
-        WaypointManager.calibrate(portal);
-        return true;
-      }
-    });
   }
 
   private static void _addHandler(RuntimeEventHandler handler) {
@@ -136,9 +115,5 @@ public final class RuntimeEventManager {
         return false;
       }
     });
-  }
-
-  private static Gob _nearestRegisteredPortal() {
-    return WaypointPortalResolver.closestPortalForRecalibration();
   }
 }

@@ -1,6 +1,5 @@
 package lmi.waypoint.persistence;
 
-import lmi.waypoint.managed.WpAnchorSnapshot;
 import lmi.waypoint.managed.WpNodeSnapshot;
 import lmi.waypoint.object.WpEdge;
 
@@ -16,7 +15,7 @@ public final class WaypointWriteBridge {
                                     double timeCost, double fatigueCost) throws Exception {
     if (node0Id < node1Id) {
       long id = WaypointDatabase.insertWpEdge(conn, node0Id, node1Id, direction, timeCost, fatigueCost);
-      return WpEdge.of(id, node0Id, node1Id, direction, timeCost, fatigueCost);
+      return WpEdge.of(id, WaypointDatabase.findNodeById(conn, node0Id).graphId, node0Id, node1Id, direction, timeCost, fatigueCost);
     }
 
     long id = WaypointDatabase.insertWpEdge(
@@ -27,16 +26,24 @@ public final class WaypointWriteBridge {
       timeCost,
       fatigueCost
     );
-    return WpEdge.of(id, node1Id, node0Id, reversedDirection(direction), timeCost, fatigueCost);
+    return WpEdge.of(
+      id,
+      WaypointDatabase.findNodeById(conn, node1Id).graphId,
+      node1Id,
+      node0Id,
+      reversedDirection(direction),
+      timeCost,
+      fatigueCost
+    );
   }
 
-  public static long insertWpSegment(Connection conn, long edgeId, int step, long graphId, int cutId) throws Exception {
-    return WaypointDatabase.insertWpSegment(conn, edgeId, step, graphId, cutId);
+  public static long insertWpSegment(Connection conn, long edgeId, int step, long gridId) throws Exception {
+    return WaypointDatabase.insertWpSegment(conn, edgeId, step, gridId);
   }
 
-  public static long insertWpPoint(Connection conn, long segmentId, int cutId, int step, int virX, int virY,
+  public static long insertWpPoint(Connection conn, long segmentId, long gridId, int step, int localX, int localY,
                                    int mouseButton, Integer meshId) throws Exception {
-    return WaypointDatabase.insertWpPoint(conn, segmentId, cutId, step, virX, virY, mouseButton, meshId);
+    return WaypointDatabase.insertWpPoint(conn, segmentId, gridId, step, localX, localY, mouseButton, meshId);
   }
 
   public static void updateWpNode(Connection conn, WpNodeSnapshot snapshot) throws Exception {
@@ -44,19 +51,11 @@ public final class WaypointWriteBridge {
       conn,
       snapshot.id,
       snapshot.graphId,
-      snapshot.nodeRefId,
-      snapshot.virX,
-      snapshot.virY,
+      snapshot.gridId,
+      snapshot.localX,
+      snapshot.localY,
       snapshot.name
     );
-  }
-
-  public static long saveWpAnchor(Connection conn, WpAnchorSnapshot snapshot) throws Exception {
-    if (snapshot.graphId == null)
-      return WaypointDatabase.createWpAnchor(conn, snapshot.virX, snapshot.virY);
-
-    WaypointDatabase.updateWpAnchor(conn, snapshot.graphId, snapshot.virX, snapshot.virY);
-    return snapshot.graphId;
   }
 
   private static int reversedDirection(int direction) {

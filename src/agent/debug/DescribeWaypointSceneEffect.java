@@ -39,6 +39,6 @@ public class DescribeWaypointSceneEffect extends Effect {
   }
 
   public static String info() {
-    return "Prints waypoint calibration, virtual coordinates, scene bounds, and drawable/hidden scene counts.";
+    return "Prints waypoint scene state, active graph, grid bounds, and drawable/hidden scene counts.";
   }
 }

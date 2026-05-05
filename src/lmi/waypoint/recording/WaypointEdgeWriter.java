@@ -1,6 +1,8 @@
 package lmi.waypoint.recording;
 
+import haven.Coord;
 import lmi.Array;
+import lmi.waypoint.WaypointManager;
 import lmi.waypoint.persistence.WaypointDbExecutor;
 import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.persistence.WaypointStore;
@@ -12,7 +14,7 @@ import lmi.waypoint.model.SaveEdgeResult;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
-import lmi.waypoint.runtime.WaypointCutBounds;
+import lmi.waypoint.runtime.GridPosition;
 
 import static lmi.Constant.WaypointEdgeDirection.FORWARD;
 
@@ -49,32 +51,34 @@ public final class WaypointEdgeWriter {
             }
 
             if (segment.clicks.isEmpty()) {
-              int cutId = WaypointCutBounds.cutIdOfVir(resolution.referenceVirX, resolution.referenceVirY);
-              long segmentId = WaypointWriteBridge.insertWpSegment(conn, edgeId, segmentStep, resolution.graphId, cutId);
-              savedSegments.append(WpSegment.of(segmentId, edgeId, resolution.graphId, cutId, segmentStep));
+              long segmentId = WaypointWriteBridge.insertWpSegment(conn, edgeId, segmentStep, resolution.referenceGridId);
+              savedSegments.append(WpSegment.of(segmentId, edgeId, resolution.referenceGridId, segmentStep));
               segmentStep += 1;
               continue;
             }
 
-            Integer currentCutId = null;
+            Long currentGridId = null;
             Long currentSegmentId = null;
             int pointStep = 0;
 
             for (RecordingClick click : segment.clicks) {
-              int virX = resolution.referenceVirX + (click.x - resolution.referenceActualX);
-              int virY = resolution.referenceVirY + (click.y - resolution.referenceActualY);
-              int cutId = WaypointCutBounds.cutIdOfVir(virX, virY);
+              GridPosition position = WaypointManager.gridPositionOfWorld(Coord.of(click.x, click.y));
+              if (position == null) {
+                conn.rollback();
+                conn.setAutoCommit(originalAutoCommit);
+                return SaveEdgeResult.failed("Failed to resolve grid position for recorded click.");
+              }
 
-              if (currentCutId == null || currentCutId.intValue() != cutId) {
-                currentCutId = cutId;
-                currentSegmentId = WaypointWriteBridge.insertWpSegment(conn, edgeId, segmentStep, resolution.graphId, cutId);
-                savedSegments.append(WpSegment.of(currentSegmentId, edgeId, resolution.graphId, cutId, segmentStep));
+              if (currentGridId == null || currentGridId.longValue() != position.gridId) {
+                currentGridId = position.gridId;
+                currentSegmentId = WaypointWriteBridge.insertWpSegment(conn, edgeId, segmentStep, position.gridId);
+                savedSegments.append(WpSegment.of(currentSegmentId, edgeId, position.gridId, segmentStep));
                 segmentStep += 1;
                 pointStep = 0;
               }
 
-              long pointId = WaypointWriteBridge.insertWpPoint(conn, currentSegmentId, cutId, pointStep, virX, virY, click.mouseButton, click.meshId);
-              savedPoints.append(WpPoint.of(pointId, currentSegmentId, cutId, pointStep, virX, virY, click.mouseButton, click.meshId));
+              long pointId = WaypointWriteBridge.insertWpPoint(conn, currentSegmentId, position.gridId, pointStep, position.localX, position.localY, click.mouseButton, click.meshId);
+              savedPoints.append(WpPoint.of(pointId, currentSegmentId, position.gridId, pointStep, position.localX, position.localY, click.mouseButton, click.meshId));
               pointStep += 1;
               pointCount += 1;
             }

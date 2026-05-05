@@ -4,9 +4,9 @@ import lmi.waypoint.object.WpNode;
 
 public final class ManagedWpNode extends ManagedObject {
   private long graphId;
-  private long nodeRefId;
-  private int virX;
-  private int virY;
+  private long gridId;
+  private int localX;
+  private int localY;
   private String name;
 
   public ManagedWpNode(
@@ -14,37 +14,37 @@ public final class ManagedWpNode extends ManagedObject {
     long id,
     long version,
     long graphId,
-    long nodeRefId,
-    int virX,
-    int virY,
+    long gridId,
+    int localX,
+    int localY,
     String name
   ) {
     super(context, id, version);
     this.graphId = graphId;
-    this.nodeRefId = nodeRefId;
-    this.virX = virX;
-    this.virY = virY;
+    this.gridId = gridId;
+    this.localX = localX;
+    this.localY = localY;
     this.name = name;
   }
 
   public static ManagedWpNode fromWpNode(ManagedObjectContext context, WpNode node) {
-    return new ManagedWpNode(context, node.id, 0, node.graphId, node.nodeRefId, node.virX, node.virY, node.name);
+    return new ManagedWpNode(context, node.id, 0, node.graphId, node.gridId, node.localX, node.localY, node.name);
   }
 
   public long graphId() {
     return graphId;
   }
 
-  public long nodeRefId() {
-    return nodeRefId;
+  public long gridId() {
+    return gridId;
   }
 
-  public int virX() {
-    return virX;
+  public int localX() {
+    return localX;
   }
 
-  public int virY() {
-    return virY;
+  public int localY() {
+    return localY;
   }
 
   public String name() {
@@ -57,21 +57,21 @@ public final class ManagedWpNode extends ManagedObject {
     markDirty();
   }
 
-  public void setNodeRefId(long nodeRefId) {
-    if (this.nodeRefId == nodeRefId) return;
-    this.nodeRefId = nodeRefId;
+  public void setGridId(long gridId) {
+    if (this.gridId == gridId) return;
+    this.gridId = gridId;
     markDirty();
   }
 
-  public void setVirX(int virX) {
-    if (this.virX == virX) return;
-    this.virX = virX;
+  public void setLocalX(int localX) {
+    if (this.localX == localX) return;
+    this.localX = localX;
     markDirty();
   }
 
-  public void setVirY(int virY) {
-    if (this.virY == virY) return;
-    this.virY = virY;
+  public void setLocalY(int localY) {
+    if (this.localY == localY) return;
+    this.localY = localY;
     markDirty();
   }
 
@@ -82,6 +82,6 @@ public final class ManagedWpNode extends ManagedObject {
   }
 
   public WpNodeSnapshot snapshot() {
-    return new WpNodeSnapshot(id, version(), graphId, nodeRefId, virX, virY, name);
+    return new WpNodeSnapshot(id, version(), graphId, gridId, localX, localY, name);
   }
 }

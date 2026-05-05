@@ -18,20 +18,19 @@ public final class WaypointSceneBuilder {
   private WaypointSceneBuilder() {}
 
   public static BuildResult build(
-    WaypointCalibrationState calibration,
-    Coord selfWorld,
+    long graphId,
+    WaypointGridBounds bounds,
     ManagedObjectContext managedNodeContext
   ) {
-    if (!calibration.isCalibrated())
-      return new BuildResult(new WaypointScene(WaypointCutBounds.aroundVir(Coord.z)), new Array<>());
+    if (graphId <= 0)
+      return new BuildResult(new WaypointScene(WaypointGridBounds.empty()), new Array<>());
 
-    WaypointScene scene = new WaypointScene(WaypointCutBounds.aroundVir(calibration.virOfWorld(selfWorld)));
+    WaypointScene scene = new WaypointScene(bounds);
     managedNodeContext.clear();
 
     HashSet<Long> visitedEdges = new HashSet<>();
     HashMap<Long, ResolvedNode> nodeMap = new HashMap<>();
 
-    long graphId = calibration.graphId();
     if (!WaypointManager.nodesLoaded(graphId)) {
       WaypointManager.preloadNodes(graphId);
       return new BuildResult(scene, new Array<>());
@@ -43,9 +42,11 @@ public final class WaypointSceneBuilder {
 
     for (WpNode node : WaypointManager.nodes(graphId)) {
       ManagedWpNode managed = managedNodeContext.registerLoaded(ManagedWpNode.fromWpNode(managedNodeContext, node));
-      ResolvedNode resolvedNode = _resolvedNode(calibration, managed);
-      NodeVisibility visibility = _classifyNode(node.virX, node.virY, scene.bounds);
+      NodeVisibility visibility = _classifyNode(node.gridId, scene.bounds);
       if (visibility == NodeVisibility.SKIP)
+        continue;
+      ResolvedNode resolvedNode = _resolvedNode(scene.bounds, managed);
+      if (resolvedNode == null)
         continue;
       nodeMap.put(resolvedNode.id, resolvedNode);
       if (visibility == NodeVisibility.DRAWABLE)
@@ -59,14 +60,13 @@ public final class WaypointSceneBuilder {
     for (WpEdge edge : WaypointManager.edgesByGraph(graphId)) {
       if (!visitedEdges.add(edge.id))
         continue;
-      _appendResidentEdge(calibration, scene, edge, nodeMap);
+      _appendResidentEdge(scene, edge, nodeMap);
     }
 
     return new BuildResult(scene, selectedManagedNodes);
   }
 
   private static void _appendResidentEdge(
-    WaypointCalibrationState calibration,
     WaypointScene scene,
     WpEdge edge,
     HashMap<Long, ResolvedNode> nodeMap
@@ -84,7 +84,7 @@ public final class WaypointSceneBuilder {
 
     for (WpSegment segment : edgeSegments) {
       lastResidentSegment = segment;
-      boolean segmentInRender = scene.bounds.renderContainsCutId(segment.cutId);
+      boolean segmentInRender = scene.bounds.renderContainsGridId(segment.gridId);
       Array<WpPoint> segmentPoints = WaypointManager.residentPoints(segment.id);
       segmentPoints.sort(Comparator.comparingInt(point -> point.step));
 
@@ -94,12 +94,15 @@ public final class WaypointSceneBuilder {
 
       if (segmentPoints != null) {
         for (WpPoint point : segmentPoints) {
-          Coord world = calibration.worldOfVir(point.virX, point.virY);
+          haven.Coord world = scene.bounds.worldOfGridLocal(point.gridId, point.localX, point.localY);
+          if (world == null)
+            continue;
           ResolvedPoint resolvedPoint = new ResolvedPoint(
             point.segmentId,
+            point.gridId,
             point.step,
-            point.virX,
-            point.virY,
+            point.localX,
+            point.localY,
             point.mouseButton,
             point.meshId,
             world
@@ -134,28 +137,29 @@ public final class WaypointSceneBuilder {
     }
 
     if (previousDrawableTailWorld != null && node1 != null && lastResidentSegment != null &&
-      lastResidentSegment.cutId == WaypointCutBounds.cutIdOfVir(node1.virX, node1.virY))
+      lastResidentSegment.gridId == node1.gridId)
       scene.drawableLines.append(new ResolvedLine(previousDrawableTailWorld, node1.world));
   }
 
-  private static NodeVisibility _classifyNode(int virX, int virY, WaypointCutBounds bounds) {
-    Coord cut = WaypointCutBounds.cutOfVir(virX, virY);
-    if (bounds.renderArea.contains(cut))
+  private static NodeVisibility _classifyNode(long gridId, WaypointGridBounds bounds) {
+    if (bounds.renderContainsGridId(gridId))
       return NodeVisibility.DRAWABLE;
-    if (bounds.loadArea.contains(cut))
+    if (bounds.loadContainsGridId(gridId))
       return NodeVisibility.HIDDEN;
     return NodeVisibility.SKIP;
   }
 
-  private static ResolvedNode _resolvedNode(WaypointCalibrationState calibration, ManagedWpNode node) {
-    Coord world = calibration.worldOfVir(node.virX(), node.virY());
+  private static ResolvedNode _resolvedNode(WaypointGridBounds bounds, ManagedWpNode node) {
+    haven.Coord world = bounds.worldOfGridLocal(node.gridId(), node.localX(), node.localY());
+    if (world == null)
+      return null;
     return new ResolvedNode(
       node.id,
       node.name(),
       node.graphId(),
-      node.nodeRefId(),
-      node.virX(),
-      node.virY(),
+      node.gridId(),
+      node.localX(),
+      node.localY(),
       world
     );
   }

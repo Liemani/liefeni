@@ -4,7 +4,6 @@ import haven.*;
 import agent.Effect;
 import lmi.draw.LmiOverlay;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.calibration.WaypointPortal;
 import lmi.waypoint.persistence.WaypointSyncManager;
 import lmi.waypoint.recording.WaypointRecorder;
 import static lmi.Constant.*;
@@ -197,7 +196,6 @@ public class Hook {
 
   public static void didEnterPortal() {
     PortalMonitor.notifyDidEnterPortal();
-    RuntimeEventManager.calibratePortal();
   }
 
   public static void didSpeak(long gobId, String msg) {
@@ -211,7 +209,7 @@ public class Hook {
       return;
 
     String resname = _gobResname(clickData);
-    if (!WaypointPortal.isPortalResname(resname))
+    if (resname == null)
       return;
 
     Coord gobPosition = _gobPosition(clickData);

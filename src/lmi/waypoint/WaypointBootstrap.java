@@ -1,10 +1,6 @@
 package lmi.waypoint;
 
 import lmi.waypoint.persistence.WaypointDbExecutor;
-import lmi.waypoint.persistence.WaypointResultHandler;
-import lmi.waypoint.persistence.WaypointStore;
-import lmi.waypoint.model.LoadAnchorsResult;
-
 public final class WaypointBootstrap {
   private static boolean initialized;
 
@@ -12,22 +8,6 @@ public final class WaypointBootstrap {
 
   public static synchronized void init() {
     WaypointDbExecutor.init();
-    if (!WaypointManager.beginAnchorsLoad()) {
-      initialized = true;
-      return;
-    }
-    WaypointStore.loadAnchorsAsync(new WaypointResultHandler<LoadAnchorsResult>() {
-      @Override
-      public void onSuccess(LoadAnchorsResult result) {
-        WaypointManager.setAnchors(result.anchors);
-      }
-
-      @Override
-      public void onFailure(Exception error) {
-        WaypointManager.endAnchorsLoad();
-        WaypointManager.setAnchors(new lmi.Array<>());
-      }
-    });
     initialized = true;
   }
 

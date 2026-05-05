@@ -6,7 +6,7 @@ import lmi.waypoint.WaypointOverlay;
 
 public final class LmiOverlay {
   static {
-    OverlayRegistry.register(CurrentCutDebugOverlay.instance());
+    OverlayRegistry.register(CurrentGridDebugOverlay.instance());
     OverlayRegistry.register(WaypointOverlay.instance());
   }
 

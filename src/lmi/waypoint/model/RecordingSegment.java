@@ -6,18 +6,16 @@ import java.util.List;
 public final class RecordingSegment {
   public final int index;
   public Long baseGraphId;
-  public int baseGobX;
-  public int baseGobY;
-  public int baseVirX;
-  public int baseVirY;
+  public long baseGridId;
+  public int baseLocalX;
+  public int baseLocalY;
   public final List<RecordingClick> clicks = new ArrayList<>();
 
-  public RecordingSegment(int index, Long baseGraphId, int baseGobX, int baseGobY, int baseVirX, int baseVirY) {
+  public RecordingSegment(int index, Long baseGraphId, long baseGridId, int baseLocalX, int baseLocalY) {
     this.index = index;
     this.baseGraphId = baseGraphId;
-    this.baseGobX = baseGobX;
-    this.baseGobY = baseGobY;
-    this.baseVirX = baseVirX;
-    this.baseVirY = baseVirY;
+    this.baseGridId = baseGridId;
+    this.baseLocalX = baseLocalX;
+    this.baseLocalY = baseLocalY;
   }
 }

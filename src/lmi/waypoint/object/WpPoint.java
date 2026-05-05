@@ -5,28 +5,28 @@ import lmi.waypoint.db.WpPointRecord;
 public final class WpPoint {
   public final long id;
   public final long segmentId;
-  public final int cutId;
+  public final long gridId;
   public final int step;
-  public final int virX;
-  public final int virY;
+  public final int localX;
+  public final int localY;
   public final int mouseButton;
   public final Integer meshId;
 
-  private WpPoint(long id, long segmentId, int cutId, int step, int virX, int virY,
+  private WpPoint(long id, long segmentId, long gridId, int step, int localX, int localY,
                   int mouseButton, Integer meshId) {
     this.id = id;
     this.segmentId = segmentId;
-    this.cutId = cutId;
+    this.gridId = gridId;
     this.step = step;
-    this.virX = virX;
-    this.virY = virY;
+    this.localX = localX;
+    this.localY = localY;
     this.mouseButton = mouseButton;
     this.meshId = meshId;
   }
 
-  public static WpPoint of(long id, long segmentId, int cutId, int step, int virX, int virY,
+  public static WpPoint of(long id, long segmentId, long gridId, int step, int localX, int localY,
                            int mouseButton, Integer meshId) {
-    return new WpPoint(id, segmentId, cutId, step, virX, virY, mouseButton, meshId);
+    return new WpPoint(id, segmentId, gridId, step, localX, localY, mouseButton, meshId);
   }
 
   public static WpPoint fromRecord(WpPointRecord record) {
@@ -34,10 +34,10 @@ public final class WpPoint {
     return new WpPoint(
       record.id,
       record.segmentId,
-      record.cutId,
+      record.gridId,
       record.step,
-      record.virX,
-      record.virY,
+      record.localX,
+      record.localY,
       record.mouseButton,
       record.meshId
     );

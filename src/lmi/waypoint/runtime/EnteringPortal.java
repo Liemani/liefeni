@@ -2,14 +2,16 @@ package lmi.waypoint.runtime;
 
 public final class EnteringPortal {
   public final long graphId;
-  public final int virX;
-  public final int virY;
+  public final long gridId;
+  public final int localX;
+  public final int localY;
   public final String resname;
 
-  public EnteringPortal(long graphId, int virX, int virY, String resname) {
+  public EnteringPortal(long graphId, long gridId, int localX, int localY, String resname) {
     this.graphId = graphId;
-    this.virX = virX;
-    this.virY = virY;
+    this.gridId = gridId;
+    this.localX = localX;
+    this.localY = localY;
     this.resname = resname;
   }
 }

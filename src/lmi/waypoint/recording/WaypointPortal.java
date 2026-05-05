@@ -1,4 +1,4 @@
-package lmi.waypoint.calibration;
+package lmi.waypoint.recording;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,9 +9,9 @@ public final class WaypointPortal {
   private static final Map<String, List<String>> counterpartMap = new HashMap<>();
 
   static {
-    _pair("gfx/terobjs/arch/stonehut", "gfx/terobjs/arch/stonehut-door");
-    _pair("gfx/terobjs/burrow", "gfx/tiles/ridges/caveout");
-    _pair("gfx/tiles/ridges/cavein2", "gfx/tiles/ridges/caveout");
+    pair("gfx/terobjs/arch/stonehut", "gfx/terobjs/arch/stonehut-door");
+    pair("gfx/terobjs/burrow", "gfx/tiles/ridges/caveout");
+    pair("gfx/tiles/ridges/cavein2", "gfx/tiles/ridges/caveout");
   }
 
   private WaypointPortal() {}
@@ -25,12 +25,12 @@ public final class WaypointPortal {
     return resname != null && !counterpartResnames(resname).isEmpty();
   }
 
-  private static void _pair(String a, String b) {
-    _counterpart(a).add(b);
-    _counterpart(b).add(a);
+  private static void pair(String a, String b) {
+    counterpart(a).add(b);
+    counterpart(b).add(a);
   }
 
-  private static List<String> _counterpart(String resname) {
+  private static List<String> counterpart(String resname) {
     List<String> counterpart = counterpartMap.get(resname);
     if (counterpart != null) return counterpart;
 

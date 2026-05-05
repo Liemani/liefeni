@@ -1,10 +1,8 @@
 package lmi.waypoint.recording;
 
-import haven.Coord;
 import haven.Gob;
-import lmi.waypoint.calibration.WaypointPortal;
-import lmi.waypoint.calibration.WaypointPortalResolver;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.runtime.GridPosition;
 import lmi.waypoint.model.PendingPortalTransition;
 import lmi.waypoint.model.RecordingClick;
 import lmi.waypoint.model.RecordingSegment;
@@ -27,7 +25,7 @@ final class RecordingSessionPlanner {
           plannedSegments.add(current);
 
           pending = (click.gobResname == null) ? null : new PendingPortalTransition(click.gobResname);
-          current = new RecordingSegment(plannedSegments.size(), null, 0, 0, 0, 0);
+          current = new RecordingSegment(plannedSegments.size(), null, 0L, 0, 0);
           _resolvePendingPortalTransition(current, pending);
           continue;
         }
@@ -49,10 +47,9 @@ final class RecordingSessionPlanner {
     RecordingSegment copy = new RecordingSegment(
       index,
       original.baseGraphId,
-      original.baseGobX,
-      original.baseGobY,
-      original.baseVirX,
-      original.baseVirY
+      original.baseGridId,
+      original.baseLocalX,
+      original.baseLocalY
     );
     return copy;
   }
@@ -69,13 +66,12 @@ final class RecordingSessionPlanner {
     if (exitPortal == null)
       return;
 
-    current.baseGraphId = WaypointManager.calibrationGraphId();
-    current.baseGobX = exitPortal.position().x;
-    current.baseGobY = exitPortal.position().y;
-    Coord baseVir = WaypointManager.virOfWorld(exitPortal.position());
-    if (baseVir != null) {
-      current.baseVirX = baseVir.x;
-      current.baseVirY = baseVir.y;
-    }
+    GridPosition position = WaypointManager.gridPositionOfWorld(exitPortal.position());
+    if (position == null)
+      return;
+    current.baseGraphId = WaypointManager.activeGraphId();
+    current.baseGridId = position.gridId;
+    current.baseLocalX = position.localX;
+    current.baseLocalY = position.localY;
   }
 }
