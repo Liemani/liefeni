@@ -1,7 +1,7 @@
 package lmi.waypoint.managed;
 
 import lmi.Array;
-import lmi.waypoint.persistence.EmptyWaypointResult;
+import lmi.waypoint.persistence.SaveBatchResult;
 import lmi.waypoint.persistence.WaypointDbExecutor;
 import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.persistence.WaypointStore;
@@ -52,31 +52,43 @@ public final class ManagedObjectContext {
   }
 
   public synchronized void save() {
+    save(null);
+  }
+
+  public synchronized void save(WaypointResultHandler<SaveBatchResult> handler) {
     SaveBatch batch = buildSaveBatch();
     if (batch.isEmpty())
       return;
 
+    if (batch.wpAnchorSnapshot != null) {
+      ManagedWpAnchor anchor = find(ManagedWpAnchor.class, batch.wpAnchorSnapshot.id);
+      if (anchor != null)
+        anchor.onSaveQueued();
+    }
     for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots) {
       ManagedWpNode node = find(ManagedWpNode.class, snapshot.id);
       if (node != null)
         node.onSaveQueued();
     }
 
-    WaypointDbExecutor.submitWrite(new WaypointWriteRequest<EmptyWaypointResult>() {
+    WaypointDbExecutor.submitWrite(new WaypointWriteRequest<SaveBatchResult>() {
       @Override
-      public EmptyWaypointResult execute(java.sql.Connection conn) throws Exception {
-        WaypointStore.applySaveBatch(conn, batch);
-        return EmptyWaypointResult.INSTANCE;
+      public SaveBatchResult execute(java.sql.Connection conn) throws Exception {
+        return WaypointStore.applySaveBatch(conn, batch);
       }
-    }, new WaypointResultHandler<EmptyWaypointResult>() {
+    }, new WaypointResultHandler<SaveBatchResult>() {
       @Override
-      public void onSuccess(EmptyWaypointResult result) {
-        onSaveSucceeded(batch);
+      public void onSuccess(SaveBatchResult result) {
+        onSaveSucceeded(batch, result);
+        if (handler != null)
+          handler.onSuccess(result);
       }
 
       @Override
       public void onFailure(Exception error) {
         onSaveFailed(batch);
+        if (handler != null)
+          handler.onFailure(error);
       }
     });
   }
@@ -97,7 +109,12 @@ public final class ManagedObjectContext {
     deletedObjects.remove(object);
   }
 
-  synchronized void onSaveSucceeded(SaveBatch batch) {
+  synchronized void onSaveSucceeded(SaveBatch batch, SaveBatchResult result) {
+    if (batch.wpAnchorSnapshot != null) {
+      ManagedWpAnchor anchor = find(ManagedWpAnchor.class, batch.wpAnchorSnapshot.id);
+      if (anchor != null)
+        anchor.onAnchorSaveSucceeded(batch.wpAnchorSnapshot, result.anchorGraphId);
+    }
     for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots) {
       ManagedWpNode node = find(ManagedWpNode.class, snapshot.id);
       if (node != null)
@@ -106,6 +123,11 @@ public final class ManagedObjectContext {
   }
 
   synchronized void onSaveFailed(SaveBatch batch) {
+    if (batch.wpAnchorSnapshot != null) {
+      ManagedWpAnchor anchor = find(ManagedWpAnchor.class, batch.wpAnchorSnapshot.id);
+      if (anchor != null)
+        anchor.onAnchorSaveFailed();
+    }
     for (WpNodeSnapshot snapshot : batch.wpNodeSnapshots) {
       ManagedWpNode node = find(ManagedWpNode.class, snapshot.id);
       if (node != null)
@@ -122,11 +144,14 @@ public final class ManagedObjectContext {
 
   private synchronized SaveBatch buildSaveBatch() {
     ArrayList<WpNodeSnapshot> wpNodeSnapshots = new ArrayList<>();
+    WpAnchorSnapshot wpAnchorSnapshot = null;
     for (ManagedObject object : dirtyObjects) {
+      if (object instanceof ManagedWpAnchor)
+        wpAnchorSnapshot = ((ManagedWpAnchor)object).snapshot();
       if (object instanceof ManagedWpNode)
         wpNodeSnapshots.add(((ManagedWpNode)object).snapshot());
     }
-    return new SaveBatch(wpNodeSnapshots);
+    return new SaveBatch(wpAnchorSnapshot, wpNodeSnapshots);
   }
 
   private static final class Key {

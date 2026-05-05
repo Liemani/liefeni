@@ -9,6 +9,7 @@ import lmi.waypoint.WaypointManager;
 import lmi.waypoint.object.WpAnchor;
 import lmi.waypoint.object.WpPortal;
 import lmi.waypoint.runtime.WaypointCalibrationState;
+import lmi.waypoint.runtime.WaypointCutBounds;
 
 public final class WaypointCalibrator {
   private WaypointCalibrator() {}
@@ -26,7 +27,8 @@ public final class WaypointCalibrator {
       return false;
 
     WpAnchor anchor = anchors.first();
-    calibration.setCalibration(anchor.graphId, Coord.of(anchor.virX, anchor.virY), area.origin.tileMin(), null);
+    Coord anchorWorld = WaypointCutBounds.cutOriginOfWorld(area.origin.tileMin());
+    calibration.setCalibration(anchor.graphId, Coord.of(anchor.virX, anchor.virY), anchorWorld, null);
     WaypointManager.preloadPortals(anchor.graphId);
     return true;
   }

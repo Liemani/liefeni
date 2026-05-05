@@ -19,6 +19,10 @@ public final class WpEdge {
     this.fatigueCost = fatigueCost;
   }
 
+  public static WpEdge of(long id, long node0Id, long node1Id, int direction, double timeCost, double fatigueCost) {
+    return new WpEdge(id, node0Id, node1Id, direction, timeCost, fatigueCost);
+  }
+
   public static WpEdge fromRecord(WpEdgeRecord record) {
     if (record == null) return null;
     return new WpEdge(record.id, record.node0Id, record.node1Id, record.direction, record.timeCost, record.fatigueCost);

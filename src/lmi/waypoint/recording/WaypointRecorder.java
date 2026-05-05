@@ -88,27 +88,6 @@ public final class WaypointRecorder {
     return session;
   }
 
-  public static void setTerminalGob(Gob gob) {
-    if (gob == null) return;
-
-    synchronized (lock) {
-      if (activeSession != null)
-        throw new IllegalStateException("Cannot set terminal gob while recording is still active.");
-    }
-  }
-
-  public static void setTerminalGob(RecordingSession session, Gob gob) {
-    if (session == null || gob == null) return;
-
-    synchronized (lock) {
-      RecordingSegment current = session.currentSegment();
-      current.endGobId = (long)gob.id();
-      current.endGobX = gob.position().x;
-      current.endGobY = gob.position().y;
-      current.endGobResname = gob.resourceName();
-    }
-  }
-
   private static Long _gobId(ClickData clickData) {
     if (clickData == null || clickData.ci == null) return null;
     if (clickData.ci instanceof Gob.GobClick)

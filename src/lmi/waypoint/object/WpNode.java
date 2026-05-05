@@ -19,6 +19,10 @@ public final class WpNode {
     this.name = name;
   }
 
+  public static WpNode of(long id, long graphId, long nodeRefId, int virX, int virY, String name) {
+    return new WpNode(id, graphId, nodeRefId, virX, virY, name);
+  }
+
   public static WpNode fromRecord(WpNodeRecord record) {
     if (record == null) return null;
     return new WpNode(record.id, record.graphId, record.nodeRefId, record.virX, record.virY, record.name);

@@ -237,13 +237,7 @@ public class MenuGridProxy {
           return;
         }
         
-        if (sourceCls != null && (Job.class.isAssignableFrom(sourceCls) || Effect.class.isAssignableFrom(sourceCls))) {
-            g.chcolor(230, 255, 230, 255);
-            super.drawmain(g, spr);
-            g.chcolor(); 
-        } else {
-            super.drawmain(g, spr);
-        }
+        super.drawmain(g, spr);
       }
     }
   }

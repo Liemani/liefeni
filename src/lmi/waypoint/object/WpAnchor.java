@@ -15,6 +15,10 @@ public final class WpAnchor {
     this.virY = virY;
   }
 
+  public static WpAnchor of(long id, long graphId, int virX, int virY) {
+    return new WpAnchor(id, graphId, virX, virY);
+  }
+
   public static WpAnchor fromRecord(WpAnchorRecord record) {
     if (record == null) return null;
     return new WpAnchor(record.id, record.graphId, record.virX, record.virY);

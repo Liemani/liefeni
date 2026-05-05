@@ -9,10 +9,13 @@ import lmi.ClickManager;
 import lmi.Rect;
 import lmi.Self;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.managed.ManagedObjectContext;
+import lmi.waypoint.managed.ManagedWpAnchor;
+import lmi.waypoint.persistence.SaveBatchResult;
 import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.persistence.WaypointStore;
-import lmi.waypoint.model.CreateAnchorResult;
 import lmi.waypoint.model.CreateNodeResult;
+import lmi.waypoint.object.WpNode;
 
 public class CreateNodeJob extends Job {
   @Override
@@ -51,16 +54,20 @@ public class CreateNodeJob extends Job {
   }
 
   private static void _createAnchorAndNode(Rect area, String nodeName) {
-    WaypointStore.createAnchorAsync(new WaypointResultHandler<CreateAnchorResult>() {
+    ManagedObjectContext anchorContext = WaypointManager.managedAnchorContext();
+    ManagedWpAnchor managedAnchor = WaypointManager.managedAnchor();
+    if (managedAnchor == null) {
+      managedAnchor = anchorContext.registerLoaded(ManagedWpAnchor.missing(anchorContext));
+      WaypointManager.setManagedAnchor(managedAnchor);
+    }
+    if (!managedAnchor.ensurePresent()) {
+      Api.message("CreateNode failed: anchor creation is already pending.");
+      return;
+    }
+
+    anchorContext.save(new WaypointResultHandler<SaveBatchResult>() {
       @Override
-      public void onSuccess(CreateAnchorResult result) {
-        if (!result.created) {
-          Api.message(result.errorMessage);
-          return;
-        }
-
-        WaypointManager.markAnchorPresent();
-
+      public void onSuccess(SaveBatchResult result) {
         if (!WaypointManager.calibrate(area)) {
           Api.message("CreateNode failed: anchor was created, but waypoint calibration failed.");
           return;
@@ -72,7 +79,7 @@ public class CreateNodeJob extends Job {
 
       @Override
       public void onFailure(Exception error) {
-        Api.message("CreateNode failed: " + error.getMessage());
+        Api.message("CreateNode failed: failed to save anchor: " + error.getMessage());
       }
     });
   }
@@ -109,6 +116,7 @@ public class CreateNodeJob extends Job {
             return;
           }
 
+          WaypointManager.appendNode(WpNode.of(result.nodeId, graphId, -1L, vir.x, vir.y, nodeName));
           WaypointManager.refresh();
           Api.message("Created node: " + nodeName);
         }

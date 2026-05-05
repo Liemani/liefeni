@@ -3,11 +3,9 @@ package agent.tool.waypoint;
 import agent.Job;
 
 import haven.Coord;
-import haven.Gob;
 import lmi.AgentContext;
 import lmi.Api;
 import lmi.ChatInputMonitor;
-import lmi.ClickManager;
 import lmi.Self;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.persistence.WaypointResultHandler;
@@ -15,9 +13,14 @@ import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.model.SaveEdgeResult;
 import lmi.waypoint.persistence.WaypointStore;
+import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
+import lmi.waypoint.object.WpPoint;
+import lmi.waypoint.object.WpSegment;
 import lmi.waypoint.recording.WaypointEdgeWriter;
 import lmi.waypoint.recording.WaypointRecorder;
+
+import java.util.HashMap;
 
 public class StopRecordJob extends Job {
   @Override
@@ -28,43 +31,30 @@ public class StopRecordJob extends Job {
       return;
     }
 
-    Gob gob = _selectEndGob();
-    if (gob == null) {
-      Api.message("Failed to save waypoint recording: no end gob selected.");
-      return;
-    }
-
-    WaypointRecorder.setTerminalGob(session, gob);
-
-    _ensureEndNodeAsync(gob, new EndNodeHandler() {
+    _ensureEndNodeAsync(new EndNodeHandler() {
       @Override
       public void onResolved(WpNode endNode) {
-        _saveEdgeAsync(session, endNode, gob);
+        _saveEdgeAsync(session, endNode);
       }
     });
   }
 
-  private static Gob _selectEndGob() {
-    Api.alert("끝 node 에 연결할 gob 을 클릭해 주세요");
-    return ClickManager.getGob();
-  }
-
-  private static void _ensureEndNodeAsync(Gob gob, EndNodeHandler handler) {
+  private static void _ensureEndNodeAsync(EndNodeHandler handler) {
     Coord nodeVir = WaypointManager.virOfWorld(Self.position());
     Long graphId = WaypointManager.calibrationGraphId();
     if (nodeVir == null || graphId == null)
       return;
 
-    WpNode endNode = WaypointStore.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
+    WpNode endNode = WaypointManager.findNodeByGraphAndVir(graphId, nodeVir.x, nodeVir.y);
     if (endNode != null) {
       handler.onResolved(endNode);
       return;
     }
 
-    _createEndNodeAsync(gob, handler);
+    _createEndNodeAsync(handler);
   }
 
-  private static void _createEndNodeAsync(Gob gob, EndNodeHandler handler) {
+  private static void _createEndNodeAsync(EndNodeHandler handler) {
     if (!WaypointManager.isCalibrated()) {
       Api.message("[StopRecordJob] calibration missing before end node creation");
       Api.message("[StopRecordJob] isCalibrated=" + WaypointManager.isCalibrated());
@@ -95,11 +85,8 @@ public class StopRecordJob extends Job {
             return;
           }
 
-          WpNode endNode = WaypointStore.findNode(createNodeResult.nodeId);
-          if (endNode == null) {
-            Api.message("Failed to save waypoint recording: created end node cannot be loaded.");
-            return;
-          }
+          WpNode endNode = WpNode.of(createNodeResult.nodeId, graphId, -1L, nodeVir.x, nodeVir.y, nodeName);
+          WaypointManager.appendNode(endNode);
           handler.onResolved(endNode);
         }
 
@@ -121,7 +108,7 @@ public class StopRecordJob extends Job {
     return nodeName.trim();
   }
 
-  private static void _saveEdgeAsync(RecordingSession session, WpNode endNode, Gob gob) {
+  private static void _saveEdgeAsync(RecordingSession session, WpNode endNode) {
     WaypointEdgeWriter.saveAsync(session, endNode.id, new WaypointResultHandler<SaveEdgeResult>() {
       @Override
       public void onSuccess(SaveEdgeResult result) {
@@ -131,7 +118,8 @@ public class StopRecordJob extends Job {
           return;
         }
 
-        WaypointManager.calibrate(gob);
+        _appendSavedEdge(result);
+        WaypointManager.refresh();
         Api.message("Saved waypoint recording (" + session.pointCount() + " clicks)");
         Api.message("Saved edge id: " + result.edgeId);
       }
@@ -142,6 +130,27 @@ public class StopRecordJob extends Job {
         Api.message(error.getMessage());
       }
     });
+  }
+
+  private static void _appendSavedEdge(SaveEdgeResult result) {
+    WpEdge edge = result.edge;
+    if (edge == null)
+      return;
+
+    WpNode node0 = WaypointManager.findNode(edge.node0Id);
+    if (node0 != null)
+      WaypointManager.appendEdge(node0.graphId, edge);
+
+    HashMap<Long, WpSegment> segmentsById = new HashMap<>();
+    for (WpSegment segment : result.segments) {
+      segmentsById.put(segment.id, segment);
+      WaypointManager.appendSegment(segment);
+    }
+    for (WpPoint point : result.points) {
+      WpSegment segment = segmentsById.get(point.segmentId);
+      if (segment != null)
+        WaypointManager.appendPoint(segment, point);
+    }
   }
 
   private interface EndNodeHandler {

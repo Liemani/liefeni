@@ -2,8 +2,6 @@ package lmi.waypoint.persistence;
 
 import lmi.waypoint.model.CreateNodeResult;
 import lmi.waypoint.model.CreateAnchorResult;
-import lmi.waypoint.model.CreateRootNodeResult;
-import lmi.waypoint.model.SaveEdgeResult;
 import lmi.waypoint.model.UpdateAnchorResult;
 import lmi.waypoint.db.WpAnchorRecord;
 import lmi.waypoint.db.WpEdgeRecord;
@@ -31,44 +29,13 @@ final class WaypointDatabase {
 
   static void initialize(Connection conn) throws Exception {
     Class.forName("org.sqlite.JDBC");
-    _enableForeignKeys(conn);
-    _createSchema(conn);
-  }
-
-  static CreateRootNodeResult createRootNode(
-    Connection conn,
-    String nodeName,
-    int anchorWorldX,
-    int anchorWorldY,
-    int nodeWorldX,
-    int nodeWorldY
-  ) {
-    try {
-      if (_anchorExists(conn))
-        return CreateRootNodeResult.failed("wp_anchor already exists.");
-
-      long graphId = _insertWpGraph(conn);
-      _insertWpAnchor(conn, graphId, 0, 0);
-      long wpNodeId = _insertWpNode(
-        conn,
-        graphId,
-        nodeWorldX - anchorWorldX,
-        nodeWorldY - anchorWorldY,
-        nodeName
-      );
-      return CreateRootNodeResult.created(wpNodeId, graphId);
-    } catch (Exception e) {
-      return CreateRootNodeResult.failed("Failed to create root node: " + e.getMessage());
-    }
+    enableForeignKeys(conn);
+    createSchema(conn);
   }
 
   static CreateAnchorResult createAnchor(Connection conn) {
     try {
-      if (_anchorExists(conn))
-        return CreateAnchorResult.failed("wp_anchor already exists.");
-
-      long graphId = _insertWpGraph(conn);
-      _insertWpAnchor(conn, graphId, 0, 0);
+      long graphId = createWpAnchor(conn, 0, 0);
       return CreateAnchorResult.created(graphId);
     } catch (Exception e) {
       return CreateAnchorResult.failed("Failed to create anchor: " + e.getMessage());
@@ -77,7 +44,7 @@ final class WaypointDatabase {
 
   static UpdateAnchorResult updateAnchor(Connection conn, long graphId, int anchorVirX, int anchorVirY) {
     try {
-      long updated = _updateWpAnchor(conn, graphId, anchorVirX, anchorVirY);
+      long updated = updateWpAnchor(conn, graphId, anchorVirX, anchorVirY);
       if (updated < 1)
         return UpdateAnchorResult.failed("wp_anchor does not exist.");
       return UpdateAnchorResult.updated();
@@ -97,7 +64,7 @@ final class WaypointDatabase {
       if (findNodeByGraphAndVir(conn, graphId, nodeVirX, nodeVirY) != null)
         return CreateNodeResult.failed("A waypoint node already exists at (" + nodeVirX + ", " + nodeVirY + ").");
 
-      long wpNodeId = _insertWpNode(conn, graphId, nodeVirX, nodeVirY, nodeName);
+      long wpNodeId = insertWpNode(conn, graphId, nodeVirX, nodeVirY, nodeName);
       return CreateNodeResult.created(wpNodeId);
     } catch (Exception e) {
       return CreateNodeResult.failed("Failed to create node: " + e.getMessage());
@@ -246,82 +213,15 @@ final class WaypointDatabase {
     }
   }
 
-  static ArrayList<WpNodeRecord> loadNearbyNodes(Connection conn, long graphId, int centerVirX, int centerVirY, int range) {
-    ArrayList<WpNodeRecord> nodes = new ArrayList<>();
-    try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, vir_x, vir_y, name " +
-           "FROM wp_node " +
-           "WHERE graph_id = ? " +
-           "  AND vir_x BETWEEN ? AND ? " +
-           "  AND vir_y BETWEEN ? AND ? " +
-           "ORDER BY id")) {
-      stmt.setLong(1, graphId);
-      stmt.setInt(2, centerVirX - range);
-      stmt.setInt(3, centerVirX + range);
-      stmt.setInt(4, centerVirY - range);
-      stmt.setInt(5, centerVirY + range);
-      try (ResultSet rs = stmt.executeQuery()) {
-        while (rs.next()) {
-          nodes.add(new WpNodeRecord(
-            rs.getLong("id"),
-            rs.getLong("graph_id"),
-            rs.getInt("vir_x"),
-            rs.getInt("vir_y"),
-            rs.getString("name")
-          ));
-        }
-      }
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to load nearby wp_node rows: " + e.getMessage(), e);
-    }
-    return nodes;
-  }
 
-  static ArrayList<WpPointRecord> loadNearbyPoints(Connection conn, long graphId, int centerVirX, int centerVirY, int range) {
-    ArrayList<WpPointRecord> points = new ArrayList<>();
-    try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT p.id, p.segment_id, p.step, p.vir_x, p.vir_y, p.mouse_button, p.mesh_id, s.graph_id " +
-           "FROM wp_point p " +
-           "JOIN wp_segment s ON s.id = p.segment_id " +
-           "WHERE s.graph_id = ? " +
-           "  AND p.vir_x BETWEEN ? AND ? " +
-           "  AND p.vir_y BETWEEN ? AND ? " +
-           "ORDER BY p.segment_id, p.step")) {
-      stmt.setLong(1, graphId);
-      stmt.setInt(2, centerVirX - range);
-      stmt.setInt(3, centerVirX + range);
-      stmt.setInt(4, centerVirY - range);
-      stmt.setInt(5, centerVirY + range);
-      try (ResultSet rs = stmt.executeQuery()) {
-        while (rs.next()) {
-          Integer meshId = null;
-          int meshIdValue = rs.getInt("mesh_id");
-          if (!rs.wasNull()) meshId = meshIdValue;
-
-          points.add(new WpPointRecord(
-            rs.getLong("id"),
-            rs.getLong("segment_id"),
-            rs.getInt("step"),
-            rs.getInt("vir_x"),
-            rs.getInt("vir_y"),
-            rs.getInt("mouse_button"),
-            meshId
-          ));
-        }
-      }
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to load nearby wp_point rows: " + e.getMessage(), e);
-    }
-    return points;
-  }
-
-  static ArrayList<WpEdgeRecord> loadEdgesByNode(Connection conn, long wpNodeId) {
+  static ArrayList<WpEdgeRecord> loadEdgesByGraph(Connection conn, long graphId) {
     ArrayList<WpEdgeRecord> edges = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, node0_id, node1_id, direction, time_cost, fatigue_cost " +
-           "FROM wp_edge WHERE node0_id = ? OR node1_id = ? ORDER BY id")) {
-      stmt.setLong(1, wpNodeId);
-      stmt.setLong(2, wpNodeId);
+           "SELECT e.id, e.node0_id, e.node1_id, e.direction, e.time_cost, e.fatigue_cost " +
+           "FROM wp_edge e " +
+           "JOIN wp_node n ON n.id = e.node0_id " +
+           "WHERE n.graph_id = ? ORDER BY e.id")) {
+      stmt.setLong(1, graphId);
       try (ResultSet rs = stmt.executeQuery()) {
         while (rs.next()) {
           edges.add(new WpEdgeRecord(
@@ -335,38 +235,44 @@ final class WaypointDatabase {
         }
       }
     } catch (Exception e) {
-      throw new RuntimeException("Failed to load wp_edge rows by wp_node " + wpNodeId + ": " + e.getMessage(), e);
+      throw new RuntimeException("Failed to load wp_edge rows by graph " + graphId + ": " + e.getMessage(), e);
     }
     return edges;
   }
 
-  static ArrayList<WpSegmentRecord> loadSegmentsByEdge(Connection conn, long edgeId) {
+  static ArrayList<WpSegmentRecord> loadSegmentsByGraphAndCut(Connection conn, long graphId, long cutId) {
     ArrayList<WpSegmentRecord> segments = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, edge_id, graph_id, step FROM wp_segment WHERE edge_id = ? ORDER BY step")) {
-      stmt.setLong(1, edgeId);
+           "SELECT id, edge_id, graph_id, cut_id, step " +
+           "FROM wp_segment WHERE graph_id = ? AND cut_id = ? ORDER BY edge_id, step, id")) {
+      stmt.setLong(1, graphId);
+      stmt.setLong(2, cutId);
       try (ResultSet rs = stmt.executeQuery()) {
         while (rs.next()) {
           segments.add(new WpSegmentRecord(
             rs.getLong("id"),
             rs.getLong("edge_id"),
             rs.getLong("graph_id"),
+            rs.getLong("cut_id"),
             rs.getInt("step")
           ));
         }
       }
     } catch (Exception e) {
-      throw new RuntimeException("Failed to load wp_segment rows by wp_edge " + edgeId + ": " + e.getMessage(), e);
+      throw new RuntimeException("Failed to load wp_segment rows by graph/cut (" + graphId + ", " + cutId + "): " + e.getMessage(), e);
     }
     return segments;
   }
 
-  static ArrayList<WpPointRecord> loadPointsBySegment(Connection conn, long segmentId) {
+  static ArrayList<WpPointRecord> loadPointsByGraphAndCut(Connection conn, long graphId, long cutId) {
     ArrayList<WpPointRecord> points = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, segment_id, step, vir_x, vir_y, mouse_button, mesh_id " +
-           "FROM wp_point WHERE segment_id = ? ORDER BY step")) {
-      stmt.setLong(1, segmentId);
+           "SELECT p.id, p.segment_id, p.cut_id, p.step, p.vir_x, p.vir_y, p.mouse_button, p.mesh_id " +
+           "FROM wp_point p " +
+           "JOIN wp_segment s ON s.id = p.segment_id " +
+           "WHERE s.graph_id = ? AND p.cut_id = ? ORDER BY p.segment_id, p.step")) {
+      stmt.setLong(1, graphId);
+      stmt.setLong(2, cutId);
       try (ResultSet rs = stmt.executeQuery()) {
         while (rs.next()) {
           Integer meshId = null;
@@ -376,6 +282,7 @@ final class WaypointDatabase {
           points.add(new WpPointRecord(
             rs.getLong("id"),
             rs.getLong("segment_id"),
+            rs.getLong("cut_id"),
             rs.getInt("step"),
             rs.getInt("vir_x"),
             rs.getInt("vir_y"),
@@ -385,12 +292,12 @@ final class WaypointDatabase {
         }
       }
     } catch (Exception e) {
-      throw new RuntimeException("Failed to load wp_point rows by wp_segment " + segmentId + ": " + e.getMessage(), e);
+      throw new RuntimeException("Failed to load wp_point rows by graph/cut (" + graphId + ", " + cutId + "): " + e.getMessage(), e);
     }
     return points;
   }
 
-  static String _jdbcUrl() throws Exception {
+  static String jdbcUrl() throws Exception {
     CodeSource codeSource = WaypointDatabase.class.getProtectionDomain().getCodeSource();
     if (codeSource == null)
       throw new IllegalStateException("CodeSource is unavailable");
@@ -411,13 +318,13 @@ final class WaypointDatabase {
     return "jdbc:sqlite:" + dbPath.toAbsolutePath();
   }
 
-  static void _enableForeignKeys(Connection conn) throws SQLException {
+  private static void enableForeignKeys(Connection conn) throws SQLException {
     try (Statement stmt = conn.createStatement()) {
       stmt.execute("PRAGMA foreign_keys = ON");
     }
   }
 
-  private static void _createSchema(Connection conn) throws SQLException {
+  private static void createSchema(Connection conn) throws SQLException {
     try (Statement stmt = conn.createStatement()) {
       stmt.execute(
         "CREATE TABLE IF NOT EXISTS wp_graph (" +
@@ -428,7 +335,7 @@ final class WaypointDatabase {
 
       stmt.execute(
         "CREATE TABLE IF NOT EXISTS wp_anchor (" +
-        "  id INTEGER PRIMARY KEY AUTOINCREMENT," +
+        "  id INTEGER PRIMARY KEY," +
         "  graph_id INTEGER NOT NULL UNIQUE," +
         "  vir_x INTEGER NOT NULL," +
         "  vir_y INTEGER NOT NULL," +
@@ -501,6 +408,7 @@ final class WaypointDatabase {
         "  id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "  graph_id INTEGER NOT NULL," +
         "  edge_id INTEGER NOT NULL," +
+        "  cut_id INTEGER NOT NULL," +
         "  step INTEGER NOT NULL," +
         "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP," +
         "  CONSTRAINT fk_graph_id FOREIGN KEY (graph_id) REFERENCES wp_graph(id)," +
@@ -509,11 +417,13 @@ final class WaypointDatabase {
         ")"
       );
       stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_segment_graph_id ON wp_segment (graph_id)");
+      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_segment_cut_id ON wp_segment (cut_id)");
 
       stmt.execute(
         "CREATE TABLE IF NOT EXISTS wp_point (" +
         "  id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "  segment_id INTEGER NOT NULL," +
+        "  cut_id INTEGER NOT NULL," +
         "  step INTEGER NOT NULL," +
         "  vir_x INTEGER NOT NULL," +
         "  vir_y INTEGER NOT NULL," +
@@ -525,14 +435,11 @@ final class WaypointDatabase {
         "  UNIQUE (segment_id, step)" +
         ")"
       );
+      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_point_cut_id ON wp_point (cut_id)");
     }
   }
 
-  private static long _insertWpNode(Connection conn, long graphId, long nodeRefId, int virX, int virY, String name) throws SQLException {
-    return _insertWpNode(conn, graphId, virX, virY, name);
-  }
-
-  private static long _insertWpNode(Connection conn, long graphId, int virX, int virY, String name) throws SQLException {
+  private static long insertWpNode(Connection conn, long graphId, int virX, int virY, String name) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_node(graph_id, vir_x, vir_y, name) VALUES (?, ?, ?, ?)",
       Statement.RETURN_GENERATED_KEYS)) {
@@ -549,15 +456,7 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_node row.");
   }
 
-  private static boolean _anchorExists(Connection conn) throws SQLException {
-    try (PreparedStatement stmt = conn.prepareStatement("SELECT 1 FROM wp_anchor LIMIT 1")) {
-      try (ResultSet rs = stmt.executeQuery()) {
-        return rs.next();
-      }
-    }
-  }
-
-  private static long _insertWpGraph(Connection conn) throws SQLException {
+  private static long insertWpGraph(Connection conn) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_graph DEFAULT VALUES",
       Statement.RETURN_GENERATED_KEYS)) {
@@ -570,25 +469,20 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_graph row.");
   }
 
-  private static long _insertWpAnchor(Connection conn, long graphId, int virX, int virY) throws SQLException {
+  private static long insertWpAnchor(Connection conn, long graphId, int virX, int virY) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
-      "INSERT INTO wp_anchor(graph_id, vir_x, vir_y) VALUES (?, ?, ?)",
-      Statement.RETURN_GENERATED_KEYS)) {
+      "INSERT INTO wp_anchor(id, graph_id, vir_x, vir_y) VALUES (1, ?, ?, ?)")) {
       stmt.setLong(1, graphId);
       stmt.setInt(2, virX);
       stmt.setInt(3, virY);
       stmt.executeUpdate();
-
-      try (ResultSet keys = stmt.getGeneratedKeys()) {
-        if (keys.next()) return keys.getLong(1);
-      }
+      return 1L;
     }
-    throw new SQLException("Failed to insert wp_anchor row.");
   }
 
-  private static long _updateWpAnchor(Connection conn, long graphId, int virX, int virY) throws SQLException {
+  static long updateWpAnchor(Connection conn, long graphId, int virX, int virY) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
-      "UPDATE wp_anchor SET graph_id = ?, vir_x = ?, vir_y = ?")) {
+      "UPDATE wp_anchor SET graph_id = ?, vir_x = ?, vir_y = ? WHERE id = 1")) {
       stmt.setLong(1, graphId);
       stmt.setInt(2, virX);
       stmt.setInt(3, virY);
@@ -596,8 +490,14 @@ final class WaypointDatabase {
     }
   }
 
-  static long _insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,
-                                    double timeCost, double fatigueCost) throws SQLException {
+  static long createWpAnchor(Connection conn, int virX, int virY) throws SQLException {
+    long graphId = insertWpGraph(conn);
+    insertWpAnchor(conn, graphId, virX, virY);
+    return graphId;
+  }
+
+  static long insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,
+                           double timeCost, double fatigueCost) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_edge(node0_id, node1_id, direction, time_cost, fatigue_cost) VALUES (?, ?, ?, ?, ?)",
       Statement.RETURN_GENERATED_KEYS)) {
@@ -615,13 +515,14 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_edge row.");
   }
 
-  static long _insertWpSegment(Connection conn, long edgeId, int step, long graphId) throws SQLException {
+  static long insertWpSegment(Connection conn, long edgeId, int step, long graphId, long cutId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
-      "INSERT INTO wp_segment(edge_id, graph_id, step) VALUES (?, ?, ?)",
+      "INSERT INTO wp_segment(edge_id, graph_id, cut_id, step) VALUES (?, ?, ?, ?)",
       Statement.RETURN_GENERATED_KEYS)) {
       stmt.setLong(1, edgeId);
       stmt.setLong(2, graphId);
-      stmt.setInt(3, step);
+      stmt.setLong(3, cutId);
+      stmt.setInt(4, step);
       stmt.executeUpdate();
 
       try (ResultSet keys = stmt.getGeneratedKeys()) {
@@ -631,23 +532,30 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_segment row.");
   }
 
-  static void _insertWpPoint(Connection conn, long segmentId, int step, int virX, int virY,
-                                     int mouseButton, Integer meshId) throws SQLException {
+  static long insertWpPoint(Connection conn, long segmentId, long cutId, int step, int virX, int virY,
+                            int mouseButton, Integer meshId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
-      "INSERT INTO wp_point(segment_id, step, vir_x, vir_y, mouse_button, mesh_id) VALUES (?, ?, ?, ?, ?, ?)")) {
+      "INSERT INTO wp_point(segment_id, cut_id, step, vir_x, vir_y, mouse_button, mesh_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      Statement.RETURN_GENERATED_KEYS)) {
       stmt.setLong(1, segmentId);
-      stmt.setInt(2, step);
-      stmt.setInt(3, virX);
-      stmt.setInt(4, virY);
-      stmt.setInt(5, mouseButton);
-      if (meshId != null) stmt.setInt(6, meshId);
-      else stmt.setNull(6, java.sql.Types.INTEGER);
+      stmt.setLong(2, cutId);
+      stmt.setInt(3, step);
+      stmt.setInt(4, virX);
+      stmt.setInt(5, virY);
+      stmt.setInt(6, mouseButton);
+      if (meshId != null) stmt.setInt(7, meshId);
+      else stmt.setNull(7, java.sql.Types.INTEGER);
       stmt.executeUpdate();
+
+      try (ResultSet keys = stmt.getGeneratedKeys()) {
+        if (keys.next()) return keys.getLong(1);
+      }
     }
+    throw new SQLException("Failed to insert wp_point row.");
   }
 
-  static void _updateWpNode(Connection conn, long id, long graphId, long nodeRefId, int virX, int virY,
-                            String name) throws SQLException {
+  static void updateWpNode(Connection conn, long id, long graphId, long nodeRefId, int virX, int virY,
+                           String name) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "UPDATE wp_node SET graph_id = ?, vir_x = ?, vir_y = ?, name = ? WHERE id = ?")) {
       stmt.setLong(1, graphId);

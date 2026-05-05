@@ -24,10 +24,6 @@ final class RecordingSessionPlanner {
       for (RecordingClick click : originalSegment.clicks) {
         if (_isPortalClick(click)) {
           click.isPortal = true;
-          current.endGobId = click.gobId;
-          current.endGobX = click.x;
-          current.endGobY = click.y;
-          current.endGobResname = click.gobResname;
           plannedSegments.add(current);
 
           pending = (click.gobResname == null) ? null : new PendingPortalTransition(click.gobResname);
@@ -41,7 +37,6 @@ final class RecordingSessionPlanner {
     }
 
     _resolvePendingPortalTransition(current, pending);
-    _copyTerminalGob(session, current);
     plannedSegments.add(current);
 
     session.segments.clear();
@@ -59,10 +54,6 @@ final class RecordingSessionPlanner {
       original.baseVirX,
       original.baseVirY
     );
-    copy.endGobId = original.endGobId;
-    copy.endGobX = original.endGobX;
-    copy.endGobY = original.endGobY;
-    copy.endGobResname = original.endGobResname;
     return copy;
   }
 
@@ -86,13 +77,5 @@ final class RecordingSessionPlanner {
       current.baseVirX = baseVir.x;
       current.baseVirY = baseVir.y;
     }
-  }
-
-  private static void _copyTerminalGob(RecordingSession session, RecordingSegment current) {
-    RecordingSegment lastOriginal = session.currentSegment();
-    current.endGobId = lastOriginal.endGobId;
-    current.endGobX = lastOriginal.endGobX;
-    current.endGobY = lastOriginal.endGobY;
-    current.endGobResname = lastOriginal.endGobResname;
   }
 }

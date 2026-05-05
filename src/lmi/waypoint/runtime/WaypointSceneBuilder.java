@@ -2,6 +2,7 @@ package lmi.waypoint.runtime;
 
 import haven.Coord;
 import lmi.Array;
+import lmi.Util;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
@@ -10,6 +11,7 @@ import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -21,11 +23,11 @@ public final class WaypointSceneBuilder {
     Coord selfWorld,
     ManagedObjectContext managedNodeContext
   ) {
-    WaypointScene scene = new WaypointScene(WaypointCutBounds.aroundWorld(selfWorld));
-    managedNodeContext.clear();
-
     if (!calibration.isCalibrated())
-      return new BuildResult(scene, new Array<>());
+      return new BuildResult(new WaypointScene(WaypointCutBounds.aroundVir(Coord.z)), new Array<>());
+
+    WaypointScene scene = new WaypointScene(WaypointCutBounds.aroundVir(calibration.virOfWorld(selfWorld)));
+    managedNodeContext.clear();
 
     HashSet<Long> visitedEdges = new HashSet<>();
     HashMap<Long, ResolvedNode> nodeMap = new HashMap<>();
@@ -35,11 +37,15 @@ public final class WaypointSceneBuilder {
       WaypointManager.preloadNodes(graphId);
       return new BuildResult(scene, new Array<>());
     }
+    if (!WaypointManager.edgesByGraphLoaded(graphId)) {
+      WaypointManager.preloadEdgesByGraph(graphId);
+      return new BuildResult(scene, new Array<>());
+    }
 
     for (WpNode node : WaypointManager.nodes(graphId)) {
       ManagedWpNode managed = managedNodeContext.registerLoaded(ManagedWpNode.fromWpNode(managedNodeContext, node));
       ResolvedNode resolvedNode = _resolvedNode(calibration, managed);
-      NodeVisibility visibility = _classifyNode(resolvedNode.world, scene.bounds);
+      NodeVisibility visibility = _classifyNode(node.virX, node.virY, scene.bounds);
       if (visibility == NodeVisibility.SKIP)
         continue;
       nodeMap.put(resolvedNode.id, resolvedNode);
@@ -51,57 +57,53 @@ public final class WaypointSceneBuilder {
 
     Array<ManagedWpNode> selectedManagedNodes = managedNodeContext.takeSelectedWpNodes();
 
-    for (ResolvedNode node : scene.drawableNodes)
-      _appendEdgePoints(calibration, scene, node.id, nodeMap, visitedEdges);
-    for (ResolvedNode node : scene.hiddenNodes)
-      _appendEdgePoints(calibration, scene, node.id, nodeMap, visitedEdges);
+    for (WpEdge edge : WaypointManager.edgesByGraph(graphId)) {
+      if (!visitedEdges.add(edge.id))
+        continue;
+      _appendResidentEdge(calibration, scene, edge, nodeMap);
+    }
+
+    Util.debugPrintHeader("waypoint scene build");
+    System.out.println("  graphId=" + graphId +
+      " drawableNodes=" + scene.drawableNodes.count() +
+      " hiddenNodes=" + scene.hiddenNodes.count() +
+      " drawablePoints=" + scene.drawablePoints.count() +
+      " hiddenPoints=" + scene.hiddenPoints.count() +
+      " drawableLines=" + scene.drawableLines.count());
 
     return new BuildResult(scene, selectedManagedNodes);
   }
 
-  private static void _appendEdgePoints(
+  private static void _appendResidentEdge(
     WaypointCalibrationState calibration,
     WaypointScene scene,
-    long nodeId,
-    HashMap<Long, ResolvedNode> nodeMap,
-    HashSet<Long> visitedEdges
+    WpEdge edge,
+    HashMap<Long, ResolvedNode> nodeMap
   ) {
-    if (!WaypointManager.edgesLoaded(nodeId)) {
-      WaypointManager.preloadEdges(nodeId);
+    Array<WpSegment> edgeSegments = WaypointManager.residentSegments(edge.id);
+    if (edgeSegments == null || edgeSegments.isEmpty())
       return;
-    }
+    edgeSegments.sort(Comparator.comparingInt(segment -> segment.step));
 
-    for (WpEdge edge : WaypointManager.edges(nodeId)) {
-      if (!visitedEdges.add(edge.id))
-        continue;
+    ResolvedNode node0 = nodeMap.get(edge.node0Id);
+    ResolvedNode node1 = nodeMap.get(edge.node1Id);
+    Coord previousDrawableTailWorld = null;
+    Integer previousResidentStep = null;
+    WpSegment lastResidentSegment = null;
 
-      ResolvedNode node0 = nodeMap.get(edge.node0Id);
-      ResolvedNode node1 = nodeMap.get(edge.node1Id);
+    for (WpSegment segment : edgeSegments) {
+      lastResidentSegment = segment;
+      boolean segmentInRender = scene.bounds.renderContainsCutId(segment.cutId);
+      Array<WpPoint> segmentPoints = WaypointManager.residentPoints(segment.id);
+      segmentPoints.sort(Comparator.comparingInt(point -> point.step));
 
-      if (!WaypointManager.segmentsLoaded(edge.id)) {
-        WaypointManager.preloadSegments(edge.id);
-        continue;
-      }
+      Coord firstDrawablePointWorld = null;
+      Coord lastDrawablePointWorld = null;
+      Coord previousDrawablePointWorld = null;
 
-      for (WpSegment segment : WaypointManager.segments(edge.id)) {
-        Coord firstDrawablePointWorld = null;
-        Coord lastDrawablePointWorld = null;
-        Coord previousDrawablePointWorld = null;
-
-        if (!WaypointManager.pointsLoaded(segment.id)) {
-          WaypointManager.preloadPoints(segment.id);
-          continue;
-        }
-
-        for (WpPoint point : WaypointManager.points(segment.id)) {
+      if (segmentPoints != null) {
+        for (WpPoint point : segmentPoints) {
           Coord world = calibration.worldOfVir(point.virX, point.virY);
-          Coord pointCut = scene.bounds.cutOfWorld(world);
-          boolean inLoad = scene.bounds.loadArea.contains(pointCut);
-          boolean inRender = scene.bounds.renderArea.contains(pointCut);
-
-          if (!inLoad)
-            continue;
-
           ResolvedPoint resolvedPoint = new ResolvedPoint(
             point.segmentId,
             point.step,
@@ -112,7 +114,7 @@ public final class WaypointSceneBuilder {
             world
           );
 
-          if (inRender) {
+          if (segmentInRender) {
             scene.drawablePoints.append(resolvedPoint);
             if (firstDrawablePointWorld == null)
               firstDrawablePointWorld = world;
@@ -124,17 +126,29 @@ public final class WaypointSceneBuilder {
             scene.hiddenPoints.append(resolvedPoint);
           }
         }
-
-        if (firstDrawablePointWorld != null && node0 != null)
-          scene.drawableLines.append(new ResolvedLine(node0.world, firstDrawablePointWorld));
-        if (lastDrawablePointWorld != null && node1 != null)
-          scene.drawableLines.append(new ResolvedLine(lastDrawablePointWorld, node1.world));
       }
+
+      if (firstDrawablePointWorld != null) {
+        if (previousDrawableTailWorld != null && previousResidentStep != null && segment.step == previousResidentStep + 1)
+          scene.drawableLines.append(new ResolvedLine(previousDrawableTailWorld, firstDrawablePointWorld));
+        else if (previousResidentStep == null && node0 != null)
+          scene.drawableLines.append(new ResolvedLine(node0.world, firstDrawablePointWorld));
+        previousDrawableTailWorld = lastDrawablePointWorld;
+        previousResidentStep = segment.step;
+        continue;
+      }
+
+      if (segmentInRender && (segmentPoints == null || segmentPoints.isEmpty()) && edgeSegments.size() == 1 && node0 != null && node1 != null)
+        scene.drawableLines.append(new ResolvedLine(node0.world, node1.world));
     }
+
+    if (previousDrawableTailWorld != null && node1 != null && lastResidentSegment != null &&
+      lastResidentSegment.cutId == WaypointCutBounds.cutIdOfVir(node1.virX, node1.virY))
+      scene.drawableLines.append(new ResolvedLine(previousDrawableTailWorld, node1.world));
   }
 
-  private static NodeVisibility _classifyNode(Coord world, WaypointCutBounds bounds) {
-    Coord cut = bounds.cutOfWorld(world);
+  private static NodeVisibility _classifyNode(int virX, int virY, WaypointCutBounds bounds) {
+    Coord cut = WaypointCutBounds.cutOfVir(virX, virY);
     if (bounds.renderArea.contains(cut))
       return NodeVisibility.DRAWABLE;
     if (bounds.loadArea.contains(cut))

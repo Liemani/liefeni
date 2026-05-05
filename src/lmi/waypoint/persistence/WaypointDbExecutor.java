@@ -19,7 +19,7 @@ public final class WaypointDbExecutor {
     synchronized (lock) {
       if (initialized)
         return;
-      thread = new Thread(WaypointDbExecutor::_run, "Waypoint DB Executor");
+      thread = new Thread(WaypointDbExecutor::runLoop, "Waypoint DB Executor");
       thread.setDaemon(true);
       thread.start();
       initialized = true;
@@ -47,29 +47,29 @@ public final class WaypointDbExecutor {
     WaypointSyncManager.clear();
   }
 
-  private static void _run() {
+  private static void runLoop() {
     while (true) {
       try {
         Task<?> task = queue.take();
-        task.execute(_connection());
+        task.execute(connection());
       } catch (InterruptedException e) {
         Thread.currentThread().interrupt();
-        _closeConnection();
+        closeConnection();
         return;
       } catch (Exception ignored) {}
     }
   }
 
-  private static Connection _connection() throws Exception {
+  private static Connection connection() throws Exception {
     if (connection == null || connection.isClosed()) {
       Class.forName("org.sqlite.JDBC");
-      connection = DriverManager.getConnection(WaypointDatabase._jdbcUrl());
+      connection = DriverManager.getConnection(WaypointDatabase.jdbcUrl());
       WaypointDatabase.initialize(connection);
     }
     return connection;
   }
 
-  private static void _closeConnection() {
+  private static void closeConnection() {
     try {
       if (connection != null && !connection.isClosed())
         connection.close();

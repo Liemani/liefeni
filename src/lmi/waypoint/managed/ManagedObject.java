@@ -74,4 +74,12 @@ public abstract class ManagedObject {
     saving = false;
     saveFailed = true;
   }
+
+  final void onSaveRolledBack() {
+    saving = false;
+    dirty = false;
+    deleted = false;
+    saveFailed = true;
+    context.markClean(this);
+  }
 }

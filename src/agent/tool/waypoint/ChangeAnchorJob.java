@@ -7,9 +7,11 @@ import lmi.Api;
 import lmi.ClickManager;
 import lmi.Rect;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.managed.ManagedWpAnchor;
+import lmi.waypoint.object.WpAnchor;
+import lmi.waypoint.persistence.SaveBatchResult;
 import lmi.waypoint.persistence.WaypointResultHandler;
-import lmi.waypoint.persistence.WaypointStore;
-import lmi.waypoint.model.UpdateAnchorResult;
+import lmi.waypoint.runtime.WaypointCutBounds;
 
 public class ChangeAnchorJob extends Job {
   @Override
@@ -26,7 +28,7 @@ public class ChangeAnchorJob extends Job {
       return;
     }
 
-    Coord anchorWorld = area.origin.tileMin();
+    Coord anchorWorld = WaypointCutBounds.cutOriginOfWorld(area.origin.tileMin());
     Coord anchorVir = WaypointManager.virOfWorld(anchorWorld);
     Long graphId = WaypointManager.calibrationGraphId();
     if (anchorVir == null || graphId == null) {
@@ -34,14 +36,21 @@ public class ChangeAnchorJob extends Job {
       return;
     }
 
-    WaypointStore.updateAnchorAsync(graphId, anchorVir.x, anchorVir.y, new WaypointResultHandler<UpdateAnchorResult>() {
-      @Override
-      public void onSuccess(UpdateAnchorResult result) {
-        if (!result.updated) {
-          Api.message(result.errorMessage);
-          return;
-        }
+    ManagedWpAnchor managedAnchor = WaypointManager.managedAnchor();
+    WpAnchor anchor = (managedAnchor == null) ? null : managedAnchor.toWpAnchor();
+    if (anchor == null) {
+      Api.message("ChangeAnchor failed: anchor is unavailable.");
+      return;
+    }
+    if ((anchor.graphId == graphId) && (anchor.virX == anchorVir.x) && (anchor.virY == anchorVir.y)) {
+      Api.message("ChangeAnchor skipped: anchor is unchanged.");
+      return;
+    }
 
+    managedAnchor.moveTo(graphId, anchorVir.x, anchorVir.y);
+    WaypointManager.managedAnchorContext().save(new WaypointResultHandler<SaveBatchResult>() {
+      @Override
+      public void onSuccess(SaveBatchResult result) {
         if (!WaypointManager.calibrate(area)) {
           Api.message("ChangeAnchor failed: anchor was updated, but recalibration failed.");
           return;
@@ -52,7 +61,7 @@ public class ChangeAnchorJob extends Job {
 
       @Override
       public void onFailure(Exception error) {
-        Api.message("ChangeAnchor failed: " + error.getMessage());
+        Api.message("ChangeAnchor failed: failed to save anchor: " + error.getMessage());
       }
     });
   }
