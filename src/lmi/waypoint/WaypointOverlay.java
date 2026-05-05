@@ -9,15 +9,17 @@ import haven.MapView;
 import lmi.AppContext;
 import lmi.Array;
 import lmi.Constant;
+import lmi.draw.MapOverlay;
 import lmi.waypoint.runtime.ResolvedLine;
 import lmi.waypoint.runtime.ResolvedNode;
 import lmi.waypoint.runtime.ResolvedPoint;
 
 import java.awt.Color;
 
-public final class WaypointOverlay {
-  private static final Color POINT_COLOR = new Color(180, 180, 180, 160);
-  private static final Color LINE_COLOR = new Color(160, 160, 160, 150);
+public final class WaypointOverlay implements MapOverlay {
+  private static final WaypointOverlay INSTANCE = new WaypointOverlay();
+  private static final Color POINT_COLOR = new Color(205, 205, 205, 170);
+  private static final Color LINE_COLOR = new Color(190, 190, 190, 165);
   private static final Color NODE_COLOR = new Color(80, 220, 120, 220);
   private static final Color NODE_LABEL_COLOR = new Color(255, 220, 80, 240);
   private static final Color TEST_COLOR = new Color(255, 80, 80, 220);
@@ -26,12 +28,17 @@ public final class WaypointOverlay {
 
   private WaypointOverlay() {}
 
+  public static WaypointOverlay instance() {
+    return INSTANCE;
+  }
+
   public static boolean toggleTest() {
     testEnabled = !testEnabled;
     return testEnabled;
   }
 
-  public static void draw(MapView mapView, GOut g) {
+  @Override
+  public void draw(MapView mapView, GOut g) {
     if (testEnabled)
       _drawTestOverlay(mapView, g);
 
@@ -44,8 +51,8 @@ public final class WaypointOverlay {
 
     g.chcolor(LINE_COLOR);
     for (ResolvedLine line : lines) {
-      Coord from = _screen(mapView, line.fromWorld);
-      Coord to = _screen(mapView, line.toWorld);
+      Coord from = _project(mapView, line.fromWorld);
+      Coord to = _project(mapView, line.toWorld);
       if (from == null || to == null)
         continue;
       g.line(from, to, 1);
@@ -89,6 +96,15 @@ public final class WaypointOverlay {
   }
 
   private static Coord _screen(MapView mapView, Coord world) {
+    Coord screen = _project(mapView, world);
+    if (screen == null)
+      return null;
+    if ((screen.x < 0) || (screen.y < 0) || (screen.x >= mapView.sz.x) || (screen.y >= mapView.sz.y))
+      return null;
+    return screen;
+  }
+
+  private static Coord _project(MapView mapView, Coord world) {
     Coord2d world2d = Coord2d.of(
       world.x * Constant.COORD2D_PER_COORD,
       world.y * Constant.COORD2D_PER_COORD
@@ -97,10 +113,6 @@ public final class WaypointOverlay {
     Coord3f projected = mapView.screenxf(world3d);
     if (projected == null)
       return null;
-
-    Coord screen = Coord.of(Math.round(projected.x), Math.round(projected.y));
-    if ((screen.x < 0) || (screen.y < 0) || (screen.x >= mapView.sz.x) || (screen.y >= mapView.sz.y))
-      return null;
-    return screen;
+    return Coord.of(Math.round(projected.x), Math.round(projected.y));
   }
 }

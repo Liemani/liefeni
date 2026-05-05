@@ -1,4 +1,4 @@
-package agent.debug;
+package agent.debug.tool;
 
 import agent.Job;
 

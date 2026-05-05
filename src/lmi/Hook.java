@@ -2,8 +2,8 @@ package lmi;
 
 import haven.*;
 import agent.Effect;
+import lmi.draw.LmiOverlay;
 import lmi.waypoint.WaypointManager;
-import lmi.waypoint.WaypointOverlay;
 import lmi.waypoint.persistence.WaypointSyncManager;
 import lmi.waypoint.recording.WaypointRecorder;
 import static lmi.Constant.*;
@@ -188,7 +188,7 @@ public class Hook {
 
   public static void mapViewDidDraw(MapView mapView, GOut g) {
     WaypointSyncManager.drain();
-    WaypointOverlay.draw(mapView, g);
+    LmiOverlay.draw(mapView, g);
   }
 
   public static void mapViewGobsDidFinishLoading(MapView mapView) {}

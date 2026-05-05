@@ -115,6 +115,10 @@ public final class WaypointManager {
     return calibration.virOfWorld(world);
   }
 
+  public static Coord worldOfVir(int virX, int virY) {
+    return calibration.worldOfVir(virX, virY);
+  }
+
   public static Array<ResolvedNode> nearbyNodes() {
     return runtimeContext.nearbyNodes();
   }
