@@ -342,9 +342,11 @@ scene 정책:
 
 - memory load 범위는 player 기준 `7 x 7 cut`
 - render 범위는 player 기준 `5 x 5 cut`
-- `wp_node`, `wp_point`는 calibration 기준으로 먼저 `vir -> world` translation 한 뒤 cut을 계산한다
+- cut 계산은 world cut이 아니라 virtual cut 기준으로 한다
+- calibration anchor의 world origin은 anchor tile이 속한 `1 grid = 100 tile`의 시작점이다
 - `drawable`과 `hidden`은 별도 collection으로 관리한다
-- hidden node를 만나면 연결된 다음 `wp_node` 한 hop까지만 추가 적재한다
+- `wp_node`, `wp_edge`는 graph 단위로 memory에 유지한다
+- `wp_segment`, `wp_point`는 현재 7x7 cut resident 집합 기준으로 유지한다
 
 복원 결과 타입은 더 이상 `WaypointManager` 내부 클래스가 아니라 별도 runtime 타입으로 분리돼 있다.
 
@@ -358,7 +360,9 @@ scene 정책:
 현재 waypoint 시각화는 별도 widget이 아니라 `MapView.draw()` 훅 기반 world overlay다.
 
 - `Hook.mapViewDidDraw(...)`
-- `WaypointOverlay.draw(mapView, g)`
+- `lmi.draw.LmiOverlay.draw(mapView, g)`
+- `WaypointOverlay`는 그 registry에 등록되는 `MapOverlay` 구현체다
+- `CurrentCutDebugOverlay`도 같은 registry를 통해 draw 된다
 
 핵심 규칙:
 
@@ -399,14 +403,15 @@ portal 관련 책임은 둘로 나뉜다.
 2. anchor가 없으면:
    - anchor tile area 선택
    - area chat으로 node 이름 입력
-   - `WaypointStore.createAnchorAsync(...)`
+   - singleton `ManagedWpAnchor.ensurePresent()`
+   - `ManagedObjectContext.save()`
    - completion에서 `WaypointManager.calibrate(area)`
    - 이어서 `WaypointStore.createNodeAsync(...)`
 3. anchor가 이미 있으면:
    - calibrated 상태 확인
    - area chat으로 node 이름 입력
    - 현재 calibration graph + 현재 위치 `vir` 기준으로 `WaypointStore.createNodeAsync(...)`
-4. completion에서 `WaypointManager.refresh()`
+4. node create completion에서 새 `WpNode`를 runtime cache에 append하고 `WaypointManager.refresh()`
 
 즉 현재 정식 create path는 async write + runtime refresh completion 구조다.
 
@@ -457,11 +462,11 @@ recorder 상태 타입도 별도 model로 분리돼 있다.
 현재 흐름:
 
 1. active recording 종료
-2. 끝 node에 연결할 gob 선택 요청
-3. 선택한 gob가 이미 `wp_node`에 연결돼 있으면 그 node 재사용
-4. 아니면 area chat으로 node 이름 입력받고 `WaypointStore.createNodeAsync(...)`로 새 `wp_node` 생성
-5. completion에서 `WaypointEdgeWriter.saveAsync(...)`로 `wp_edge / wp_segment / wp_point` 저장
-6. 성공 시 끝 gob 기준으로 다시 `WaypointManager.calibrate(gob)`
+2. 현재 calibration graph + 현재 위치 `vir` 기준으로 end node 재사용 여부 확인
+3. 없으면 area chat으로 node 이름 입력받고 `WaypointStore.createNodeAsync(...)`로 새 `wp_node` 생성
+4. 새 node가 생성되면 runtime cache에 즉시 append
+5. `WaypointEdgeWriter.saveAsync(...)`로 `wp_edge / wp_segment / wp_point` 저장
+6. 저장 성공 시 edge / segment / point도 runtime cache에 즉시 append하고 `WaypointManager.refresh()`
 
 ### NavigateJob
 

@@ -6,10 +6,10 @@ public final class WpSegment {
   public final long id;
   public final long edgeId;
   public final long graphId;
-  public final long cutId;
+  public final int cutId;
   public final int step;
 
-  private WpSegment(long id, long edgeId, long graphId, long cutId, int step) {
+  private WpSegment(long id, long edgeId, long graphId, int cutId, int step) {
     this.id = id;
     this.edgeId = edgeId;
     this.graphId = graphId;
@@ -17,7 +17,7 @@ public final class WpSegment {
     this.step = step;
   }
 
-  public static WpSegment of(long id, long edgeId, long graphId, long cutId, int step) {
+  public static WpSegment of(long id, long edgeId, long graphId, int cutId, int step) {
     return new WpSegment(id, edgeId, graphId, cutId, step);
   }
 

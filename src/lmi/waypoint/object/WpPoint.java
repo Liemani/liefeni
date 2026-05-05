@@ -5,14 +5,14 @@ import lmi.waypoint.db.WpPointRecord;
 public final class WpPoint {
   public final long id;
   public final long segmentId;
-  public final long cutId;
+  public final int cutId;
   public final int step;
   public final int virX;
   public final int virY;
   public final int mouseButton;
   public final Integer meshId;
 
-  private WpPoint(long id, long segmentId, long cutId, int step, int virX, int virY,
+  private WpPoint(long id, long segmentId, int cutId, int step, int virX, int virY,
                   int mouseButton, Integer meshId) {
     this.id = id;
     this.segmentId = segmentId;
@@ -24,7 +24,7 @@ public final class WpPoint {
     this.meshId = meshId;
   }
 
-  public static WpPoint of(long id, long segmentId, long cutId, int step, int virX, int virY,
+  public static WpPoint of(long id, long segmentId, int cutId, int step, int virX, int virY,
                            int mouseButton, Integer meshId) {
     return new WpPoint(id, segmentId, cutId, step, virX, virY, mouseButton, meshId);
   }

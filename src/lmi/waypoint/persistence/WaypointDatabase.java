@@ -240,20 +240,20 @@ final class WaypointDatabase {
     return edges;
   }
 
-  static ArrayList<WpSegmentRecord> loadSegmentsByGraphAndCut(Connection conn, long graphId, long cutId) {
+  static ArrayList<WpSegmentRecord> loadSegmentsByGraphAndCut(Connection conn, long graphId, int cutId) {
     ArrayList<WpSegmentRecord> segments = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT id, edge_id, graph_id, cut_id, step " +
            "FROM wp_segment WHERE graph_id = ? AND cut_id = ? ORDER BY edge_id, step, id")) {
       stmt.setLong(1, graphId);
-      stmt.setLong(2, cutId);
+      stmt.setInt(2, cutId);
       try (ResultSet rs = stmt.executeQuery()) {
         while (rs.next()) {
           segments.add(new WpSegmentRecord(
             rs.getLong("id"),
             rs.getLong("edge_id"),
             rs.getLong("graph_id"),
-            rs.getLong("cut_id"),
+            rs.getInt("cut_id"),
             rs.getInt("step")
           ));
         }
@@ -264,7 +264,7 @@ final class WaypointDatabase {
     return segments;
   }
 
-  static ArrayList<WpPointRecord> loadPointsByGraphAndCut(Connection conn, long graphId, long cutId) {
+  static ArrayList<WpPointRecord> loadPointsByGraphAndCut(Connection conn, long graphId, int cutId) {
     ArrayList<WpPointRecord> points = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
            "SELECT p.id, p.segment_id, p.cut_id, p.step, p.vir_x, p.vir_y, p.mouse_button, p.mesh_id " +
@@ -272,7 +272,7 @@ final class WaypointDatabase {
            "JOIN wp_segment s ON s.id = p.segment_id " +
            "WHERE s.graph_id = ? AND p.cut_id = ? ORDER BY p.segment_id, p.step")) {
       stmt.setLong(1, graphId);
-      stmt.setLong(2, cutId);
+      stmt.setInt(2, cutId);
       try (ResultSet rs = stmt.executeQuery()) {
         while (rs.next()) {
           Integer meshId = null;
@@ -282,7 +282,7 @@ final class WaypointDatabase {
           points.add(new WpPointRecord(
             rs.getLong("id"),
             rs.getLong("segment_id"),
-            rs.getLong("cut_id"),
+            rs.getInt("cut_id"),
             rs.getInt("step"),
             rs.getInt("vir_x"),
             rs.getInt("vir_y"),
@@ -515,13 +515,13 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_edge row.");
   }
 
-  static long insertWpSegment(Connection conn, long edgeId, int step, long graphId, long cutId) throws SQLException {
+  static long insertWpSegment(Connection conn, long edgeId, int step, long graphId, int cutId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_segment(edge_id, graph_id, cut_id, step) VALUES (?, ?, ?, ?)",
       Statement.RETURN_GENERATED_KEYS)) {
       stmt.setLong(1, edgeId);
       stmt.setLong(2, graphId);
-      stmt.setLong(3, cutId);
+      stmt.setInt(3, cutId);
       stmt.setInt(4, step);
       stmt.executeUpdate();
 
@@ -532,13 +532,13 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_segment row.");
   }
 
-  static long insertWpPoint(Connection conn, long segmentId, long cutId, int step, int virX, int virY,
+  static long insertWpPoint(Connection conn, long segmentId, int cutId, int step, int virX, int virY,
                             int mouseButton, Integer meshId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT INTO wp_point(segment_id, cut_id, step, vir_x, vir_y, mouse_button, mesh_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
       Statement.RETURN_GENERATED_KEYS)) {
       stmt.setLong(1, segmentId);
-      stmt.setLong(2, cutId);
+      stmt.setInt(2, cutId);
       stmt.setInt(3, step);
       stmt.setInt(4, virX);
       stmt.setInt(5, virY);

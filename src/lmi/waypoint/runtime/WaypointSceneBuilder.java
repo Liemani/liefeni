@@ -2,7 +2,6 @@ package lmi.waypoint.runtime;
 
 import haven.Coord;
 import lmi.Array;
-import lmi.Util;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
@@ -62,14 +61,6 @@ public final class WaypointSceneBuilder {
         continue;
       _appendResidentEdge(calibration, scene, edge, nodeMap);
     }
-
-    Util.debugPrintHeader("waypoint scene build");
-    System.out.println("  graphId=" + graphId +
-      " drawableNodes=" + scene.drawableNodes.count() +
-      " hiddenNodes=" + scene.hiddenNodes.count() +
-      " drawablePoints=" + scene.drawablePoints.count() +
-      " hiddenPoints=" + scene.hiddenPoints.count() +
-      " drawableLines=" + scene.drawableLines.count());
 
     return new BuildResult(scene, selectedManagedNodes);
   }

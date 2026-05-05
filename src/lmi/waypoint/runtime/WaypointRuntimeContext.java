@@ -22,6 +22,7 @@ public final class WaypointRuntimeContext {
   private final ManagedObjectContext managedAnchorContext = new ManagedObjectContext();
   private final ManagedObjectContext managedNodeContext = new ManagedObjectContext();
   private ManagedWpAnchor managedAnchor;
+  private EnteringPortal enteringPortal;
 
   private WaypointScene scene = new WaypointScene(WaypointCutBounds.aroundWorld(Coord.z));
   private Array<ResolvedNode> nearbyNodes = new Array<>();
@@ -49,7 +50,7 @@ public final class WaypointRuntimeContext {
   private final Map<String, Array<WpPoint>> pointsByGraphCut = new HashMap<>();
   private final Set<String> loadedPointCuts = new HashSet<>();
   private final Set<String> loadingPointCuts = new HashSet<>();
-  private final Set<Long> residentCutIds = new HashSet<>();
+  private final Set<Integer> residentCutIds = new HashSet<>();
   private final Map<Long, Array<WpSegment>> residentSegmentsByEdge = new HashMap<>();
   private final Map<Long, Array<WpPoint>> residentPointsBySegment = new HashMap<>();
 
@@ -58,6 +59,7 @@ public final class WaypointRuntimeContext {
     managedAnchorContext.clear();
     managedNodeContext.clear();
     managedAnchor = null;
+    enteringPortal = null;
     scene = new WaypointScene(WaypointCutBounds.aroundWorld(Coord.z));
     nearbyNodes = new Array<>();
     nearbyPoints = new Array<>();
@@ -173,6 +175,18 @@ public final class WaypointRuntimeContext {
 
   public synchronized void setManagedAnchor(ManagedWpAnchor managedAnchor) {
     this.managedAnchor = managedAnchor;
+  }
+
+  public synchronized EnteringPortal enteringPortal() {
+    return enteringPortal;
+  }
+
+  public synchronized void setEnteringPortal(EnteringPortal enteringPortal) {
+    this.enteringPortal = enteringPortal;
+  }
+
+  public synchronized void clearEnteringPortal() {
+    this.enteringPortal = null;
   }
 
   public synchronized Array<WpPortal> portals(long graphId) {
@@ -366,23 +380,23 @@ public final class WaypointRuntimeContext {
     loadingEdgeGraphs.remove(graphId);
   }
 
-  public synchronized Array<WpSegment> segmentsByCut(long graphId, long cutId) {
+  public synchronized Array<WpSegment> segmentsByCut(long graphId, int cutId) {
     Array<WpSegment> segments = segmentsByGraphCut.get(cutKey(graphId, cutId));
     return (segments == null) ? new Array<>() : segments;
   }
 
-  public synchronized void setSegmentsByCut(long graphId, long cutId, Array<WpSegment> segments) {
+  public synchronized void setSegmentsByCut(long graphId, int cutId, Array<WpSegment> segments) {
     String key = cutKey(graphId, cutId);
     segmentsByGraphCut.put(key, segments);
     loadedSegmentCuts.add(key);
     loadingSegmentCuts.remove(key);
   }
 
-  public synchronized boolean segmentsByCutLoaded(long graphId, long cutId) {
+  public synchronized boolean segmentsByCutLoaded(long graphId, int cutId) {
     return loadedSegmentCuts.contains(cutKey(graphId, cutId));
   }
 
-  public synchronized boolean beginSegmentsByCutLoad(long graphId, long cutId) {
+  public synchronized boolean beginSegmentsByCutLoad(long graphId, int cutId) {
     String key = cutKey(graphId, cutId);
     if (loadedSegmentCuts.contains(key) || loadingSegmentCuts.contains(key))
       return false;
@@ -390,27 +404,27 @@ public final class WaypointRuntimeContext {
     return true;
   }
 
-  public synchronized void endSegmentsByCutLoad(long graphId, long cutId) {
+  public synchronized void endSegmentsByCutLoad(long graphId, int cutId) {
     loadingSegmentCuts.remove(cutKey(graphId, cutId));
   }
 
-  public synchronized Array<WpPoint> pointsByCut(long graphId, long cutId) {
+  public synchronized Array<WpPoint> pointsByCut(long graphId, int cutId) {
     Array<WpPoint> points = pointsByGraphCut.get(cutKey(graphId, cutId));
     return (points == null) ? new Array<>() : points;
   }
 
-  public synchronized void setPointsByCut(long graphId, long cutId, Array<WpPoint> points) {
+  public synchronized void setPointsByCut(long graphId, int cutId, Array<WpPoint> points) {
     String key = cutKey(graphId, cutId);
     pointsByGraphCut.put(key, points);
     loadedPointCuts.add(key);
     loadingPointCuts.remove(key);
   }
 
-  public synchronized boolean pointsByCutLoaded(long graphId, long cutId) {
+  public synchronized boolean pointsByCutLoaded(long graphId, int cutId) {
     return loadedPointCuts.contains(cutKey(graphId, cutId));
   }
 
-  public synchronized boolean beginPointsByCutLoad(long graphId, long cutId) {
+  public synchronized boolean beginPointsByCutLoad(long graphId, int cutId) {
     String key = cutKey(graphId, cutId);
     if (loadedPointCuts.contains(key) || loadingPointCuts.contains(key))
       return false;
@@ -418,7 +432,7 @@ public final class WaypointRuntimeContext {
     return true;
   }
 
-  public synchronized void endPointsByCutLoad(long graphId, long cutId) {
+  public synchronized void endPointsByCutLoad(long graphId, int cutId) {
     loadingPointCuts.remove(cutKey(graphId, cutId));
   }
 
@@ -428,11 +442,11 @@ public final class WaypointRuntimeContext {
     residentPointsBySegment.clear();
   }
 
-  public synchronized Set<Long> residentCutIds() {
+  public synchronized Set<Integer> residentCutIds() {
     return new HashSet<>(residentCutIds);
   }
 
-  public synchronized void addResidentCut(long graphId, long cutId) {
+  public synchronized void addResidentCut(long graphId, int cutId) {
     if (!residentCutIds.add(cutId))
       return;
 
@@ -442,7 +456,7 @@ public final class WaypointRuntimeContext {
       arrayFor(residentPointsBySegment, point.segmentId).append(point);
   }
 
-  public synchronized void removeResidentCut(long graphId, long cutId) {
+  public synchronized void removeResidentCut(long graphId, int cutId) {
     if (!residentCutIds.remove(cutId))
       return;
 
@@ -475,7 +489,7 @@ public final class WaypointRuntimeContext {
     return (points == null) ? new Array<>() : points;
   }
 
-  private static String cutKey(long graphId, long cutId) {
+  private static String cutKey(long graphId, int cutId) {
     return graphId + ":" + cutId;
   }
 

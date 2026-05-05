@@ -25,6 +25,7 @@ import lmi.waypoint.object.WpPortal;
 import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
 import lmi.waypoint.runtime.WaypointCalibrationState;
+import lmi.waypoint.runtime.EnteringPortal;
 import lmi.waypoint.runtime.WaypointRuntimeContext;
 import lmi.waypoint.runtime.WaypointSceneBuilder;
 import lmi.waypoint.runtime.ResolvedNode;
@@ -57,8 +58,9 @@ public final class WaypointManager {
   }
 
   public static boolean calibrate(Gob gob) {
-    if (!WaypointCalibrator.calibrateFromPortal(calibration, gob))
+    if (!WaypointCalibrator.calibrateFromPortal(calibration, gob, runtimeContext.enteringPortal()))
       return false;
+    runtimeContext.clearEnteringPortal();
     runtimeContext.clearResident();
     refresh();
     Api.message("[WaypointManager.calibrate] success graphId=" + calibration.graphId() + " world=" + calibration.world() + " vir=" + calibration.vir());
@@ -117,6 +119,19 @@ public final class WaypointManager {
 
   public static Coord worldOfVir(int virX, int virY) {
     return calibration.worldOfVir(virX, virY);
+  }
+
+  public static EnteringPortal enteringPortal() {
+    return runtimeContext.enteringPortal();
+  }
+
+  public static void captureEnteringPortal(Coord world, String resname) {
+    if (!isCalibrated() || world == null || resname == null)
+      return;
+    Coord vir = calibration.virOfWorld(world);
+    if (vir == null)
+      return;
+    runtimeContext.setEnteringPortal(new EnteringPortal(calibration.graphId(), vir.x, vir.y, resname));
   }
 
   public static Array<ResolvedNode> nearbyNodes() {
@@ -296,19 +311,19 @@ public final class WaypointManager {
     });
   }
 
-  public static Array<WpSegment> segmentsByCut(long graphId, long cutId) {
+  public static Array<WpSegment> segmentsByCut(long graphId, int cutId) {
     return runtimeContext.segmentsByCut(graphId, cutId);
   }
 
-  public static void setSegmentsByCut(long graphId, long cutId, Array<WpSegment> segments) {
+  public static void setSegmentsByCut(long graphId, int cutId, Array<WpSegment> segments) {
     runtimeContext.setSegmentsByCut(graphId, cutId, segments);
   }
 
-  public static boolean segmentsByCutLoaded(long graphId, long cutId) {
+  public static boolean segmentsByCutLoaded(long graphId, int cutId) {
     return runtimeContext.segmentsByCutLoaded(graphId, cutId);
   }
 
-  public static void preloadSegmentsByCut(long graphId, long cutId) {
+  public static void preloadSegmentsByCut(long graphId, int cutId) {
     if (!runtimeContext.beginSegmentsByCutLoad(graphId, cutId))
       return;
     WaypointStore.loadSegmentsByCutAsync(graphId, cutId, new WaypointResultHandler<LoadSegmentsByCutResult>() {
@@ -326,19 +341,19 @@ public final class WaypointManager {
     });
   }
 
-  public static Array<WpPoint> pointsByCut(long graphId, long cutId) {
+  public static Array<WpPoint> pointsByCut(long graphId, int cutId) {
     return runtimeContext.pointsByCut(graphId, cutId);
   }
 
-  public static void setPointsByCut(long graphId, long cutId, Array<WpPoint> points) {
+  public static void setPointsByCut(long graphId, int cutId, Array<WpPoint> points) {
     runtimeContext.setPointsByCut(graphId, cutId, points);
   }
 
-  public static boolean pointsByCutLoaded(long graphId, long cutId) {
+  public static boolean pointsByCutLoaded(long graphId, int cutId) {
     return runtimeContext.pointsByCutLoaded(graphId, cutId);
   }
 
-  public static void preloadPointsByCut(long graphId, long cutId) {
+  public static void preloadPointsByCut(long graphId, int cutId) {
     if (!runtimeContext.beginPointsByCutLoad(graphId, cutId))
       return;
     WaypointStore.loadPointsByCutAsync(graphId, cutId, new WaypointResultHandler<LoadPointsByCutResult>() {
@@ -416,18 +431,18 @@ public final class WaypointManager {
     if (graphId == null)
       return;
 
-    java.util.HashSet<Long> desiredCutIds = new java.util.HashSet<>();
+    java.util.HashSet<Integer> desiredCutIds = new java.util.HashSet<>();
     for (Coord cut : bounds.loadArea)
       desiredCutIds.add(WaypointCutBounds.cutIdOfCut(cut.x, cut.y));
 
-    java.util.HashSet<Long> currentCutIds = new java.util.HashSet<>(runtimeContext.residentCutIds());
+    java.util.HashSet<Integer> currentCutIds = new java.util.HashSet<>(runtimeContext.residentCutIds());
 
-    for (Long cutId : currentCutIds) {
+    for (Integer cutId : currentCutIds) {
       if (!desiredCutIds.contains(cutId))
         runtimeContext.removeResidentCut(graphId, cutId);
     }
 
-    for (Long cutId : desiredCutIds) {
+    for (Integer cutId : desiredCutIds) {
       if (currentCutIds.contains(cutId))
         continue;
       if (!segmentsByCutLoaded(graphId, cutId)) {

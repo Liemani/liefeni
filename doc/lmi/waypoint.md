@@ -222,7 +222,8 @@ cut 판정 규칙:
 현재 waypoint 시각화는 별도 widget이 아니라 `MapView.draw()` 훅 기반이다.
 
 - `Hook.mapViewDidDraw(...)`
-- `WaypointOverlay.draw(mapView, g)`
+- `lmi.draw.LmiOverlay.draw(mapView, g)`
+- `WaypointOverlay`와 `CurrentCutDebugOverlay`는 공용 overlay registry에 등록된다
 
 핵심 규칙:
 
@@ -323,10 +324,10 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 2. `WaypointManager.hasAnchor()` 확인
 3. anchor가 없으면 anchor tile area 선택
 4. area chat으로 node 이름 입력
-5. `WaypointStore.createAnchorAsync(...)`
-6. completion에서 `WaypointManager.calibrate(area)`
+5. singleton `ManagedWpAnchor.ensurePresent()`
+6. `ManagedObjectContext.save()` completion에서 `WaypointManager.calibrate(area)`
 7. 이어서 `WaypointStore.createNodeAsync(...)`
-8. completion에서 `WaypointManager.refresh()`
+8. completion에서 새 `WpNode`를 runtime cache에 append한 뒤 `WaypointManager.refresh()`
 
 anchor가 이미 있으면 3~6을 건너뛰고 현재 위치 `vir` 기준으로 `createNodeAsync(...)`만 수행한다.
 
@@ -348,16 +349,18 @@ anchor가 이미 있으면 3~6을 건너뛰고 현재 위치 `vir` 기준으로 
 ### `StopRecordJob`
 
 1. `WaypointRecorder.stop()`
-2. end gob 선택
-3. `WaypointRecorder.setTerminalGob(...)`
-4. current `graph + vir` 기준으로 end node 재사용 또는 새 생성
-5. 새 node가 필요하면 `WaypointStore.createNodeAsync(...)`
-6. completion에서 `WaypointEdgeWriter.saveAsync(...)`
-7. 성공 시 end gob 기준으로 다시 calibration
+2. current `graph + vir` 기준으로 end node 재사용 또는 새 생성
+3. 새 node가 필요하면 `WaypointStore.createNodeAsync(...)`
+4. 새 node는 completion에서 runtime cache에 즉시 append
+5. `WaypointEdgeWriter.saveAsync(...)`
+6. 성공 시 edge / segment / point도 runtime cache에 append하고 `WaypointManager.refresh()`
 
 ## 핵심 불변식
 
 - `wp_anchor`는 graph별로 최대 1개다
+- 현재 runtime에서는 singleton managed anchor만 authoritative 하게 유지한다
+- calibration anchor의 world origin은 cut start가 아니라 grid start다
+- `wp_segment.cut_id`, `wp_point.cut_id`는 virtual cut 기준이다
 - `wp_segment.graph_id`는 해당 segment point가 속한 graph를 뜻한다
 - `wp_point.vir_x`, `wp_point.vir_y`는 segment graph 기준 absolute virtual coordinate다
 - `RecordingSession`은 저장 전 raw recording 상태다

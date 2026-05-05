@@ -28,7 +28,7 @@ public class ChangeAnchorJob extends Job {
       return;
     }
 
-    Coord anchorWorld = WaypointCutBounds.cutOriginOfWorld(area.origin.tileMin());
+    Coord anchorWorld = WaypointCutBounds.gridOriginOfWorld(area.origin.tileMin());
     Coord anchorVir = WaypointManager.virOfWorld(anchorWorld);
     Long graphId = WaypointManager.calibrationGraphId();
     if (anchorVir == null || graphId == null) {

@@ -30,11 +30,11 @@ public final class WaypointWriteBridge {
     return WpEdge.of(id, node1Id, node0Id, reversedDirection(direction), timeCost, fatigueCost);
   }
 
-  public static long insertWpSegment(Connection conn, long edgeId, int step, long graphId, long cutId) throws Exception {
+  public static long insertWpSegment(Connection conn, long edgeId, int step, long graphId, int cutId) throws Exception {
     return WaypointDatabase.insertWpSegment(conn, edgeId, step, graphId, cutId);
   }
 
-  public static long insertWpPoint(Connection conn, long segmentId, long cutId, int step, int virX, int virY,
+  public static long insertWpPoint(Connection conn, long segmentId, int cutId, int step, int virX, int virY,
                                    int mouseButton, Integer meshId) throws Exception {
     return WaypointDatabase.insertWpPoint(conn, segmentId, cutId, step, virX, virY, mouseButton, meshId);
   }

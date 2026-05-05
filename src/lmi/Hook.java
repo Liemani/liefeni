@@ -4,6 +4,7 @@ import haven.*;
 import agent.Effect;
 import lmi.draw.LmiOverlay;
 import lmi.waypoint.WaypointManager;
+import lmi.waypoint.calibration.WaypointPortal;
 import lmi.waypoint.persistence.WaypointSyncManager;
 import lmi.waypoint.recording.WaypointRecorder;
 import static lmi.Constant.*;
@@ -144,6 +145,7 @@ public class Hook {
   public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData) {
     if (!ClickManager.isGobClickMode && !ClickManager.isAreaSelectMode) {
       WaypointRecorder.recordMapClick(coord2d, mouseButton, clickData);
+      _captureEnteringPortal(mouseButton, clickData);
     }
 
     if (ClickManager.isGobClickMode) {
@@ -203,4 +205,32 @@ public class Hook {
 
   // Not used but kept for interface compatibility if needed
   public static void plobDidPlaced(MapView.Plob plob) {}
+
+  private static void _captureEnteringPortal(int mouseButton, ClickData clickData) {
+    if (mouseButton != 3 || clickData == null || clickData.ci == null)
+      return;
+
+    String resname = _gobResname(clickData);
+    if (!WaypointPortal.isPortalResname(resname))
+      return;
+
+    Coord gobPosition = _gobPosition(clickData);
+    WaypointManager.captureEnteringPortal(gobPosition, resname);
+  }
+
+  private static String _gobResname(ClickData clickData) {
+    if (clickData.ci instanceof Gob.GobClick)
+      return ((Gob.GobClick)clickData.ci).gob.resourceName();
+    if (clickData.ci instanceof haven.Composited.CompositeClick)
+      return ((haven.Composited.CompositeClick)clickData.ci).gi.gob.resourceName();
+    return null;
+  }
+
+  private static Coord _gobPosition(ClickData clickData) {
+    if (clickData.ci instanceof Gob.GobClick)
+      return ((Gob.GobClick)clickData.ci).gob.position();
+    if (clickData.ci instanceof haven.Composited.CompositeClick)
+      return ((haven.Composited.CompositeClick)clickData.ci).gi.gob.position();
+    return null;
+  }
 }

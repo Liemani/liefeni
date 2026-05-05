@@ -170,7 +170,7 @@ public final class WaypointStore {
     );
   }
 
-  public static void loadSegmentsByCutAsync(long graphId, long cutId, WaypointResultHandler<LoadSegmentsByCutResult> handler) {
+  public static void loadSegmentsByCutAsync(long graphId, int cutId, WaypointResultHandler<LoadSegmentsByCutResult> handler) {
     WaypointDbExecutor.submitRead(
       conn -> {
         Array<WpSegment> segments = new Array<>();
@@ -182,7 +182,7 @@ public final class WaypointStore {
     );
   }
 
-  public static void loadPointsByCutAsync(long graphId, long cutId, WaypointResultHandler<LoadPointsByCutResult> handler) {
+  public static void loadPointsByCutAsync(long graphId, int cutId, WaypointResultHandler<LoadPointsByCutResult> handler) {
     WaypointDbExecutor.submitRead(
       conn -> {
         Array<WpPoint> points = new Array<>();

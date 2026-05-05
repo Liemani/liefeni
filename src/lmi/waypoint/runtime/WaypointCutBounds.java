@@ -8,6 +8,7 @@ import static lmi.Constant.TILE_IN_COORD;
 
 public final class WaypointCutBounds {
   private static final int CUT_ID_SHIFT = 14;
+  private static final int GRID_TILE_SIZE = 100;
 
   public final Coord centerCut;
   public final Area loadArea;
@@ -47,6 +48,14 @@ public final class WaypointCutBounds {
     return cutOriginOfCut(cutOfWorld(world.x, world.y));
   }
 
+  public static Coord gridOriginOfWorld(Coord world) {
+    int gridWorldSize = GRID_TILE_SIZE * TILE_IN_COORD;
+    return Coord.of(
+      Math.floorDiv(world.x, gridWorldSize) * gridWorldSize,
+      Math.floorDiv(world.y, gridWorldSize) * gridWorldSize
+    );
+  }
+
   public static Coord cutOfVir(int virX, int virY) {
     int cutWidth = MCache.cutsz.x * TILE_IN_COORD;
     int cutHeight = MCache.cutsz.y * TILE_IN_COORD;
@@ -68,16 +77,16 @@ public final class WaypointCutBounds {
     );
   }
 
-  public static long cutIdOfVir(int virX, int virY) {
+  public static int cutIdOfVir(int virX, int virY) {
     Coord cut = cutOfVir(virX, virY);
     return cutIdOfCut(cut.x, cut.y);
   }
 
-  public static long cutIdOfCut(int cutX, int cutY) {
-    return cutX + ((long)cutY << CUT_ID_SHIFT);
+  public static int cutIdOfCut(int cutX, int cutY) {
+    return cutX + (cutY << CUT_ID_SHIFT);
   }
 
-  public boolean renderContainsCutId(long cutId) {
+  public boolean renderContainsCutId(int cutId) {
     for (Coord cut : renderArea) {
       if (cutId == cutIdOfCut(cut.x, cut.y))
         return true;

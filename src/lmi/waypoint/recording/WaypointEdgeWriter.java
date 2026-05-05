@@ -49,23 +49,23 @@ public final class WaypointEdgeWriter {
             }
 
             if (segment.clicks.isEmpty()) {
-              long cutId = WaypointCutBounds.cutIdOfVir(resolution.referenceVirX, resolution.referenceVirY);
+              int cutId = WaypointCutBounds.cutIdOfVir(resolution.referenceVirX, resolution.referenceVirY);
               long segmentId = WaypointWriteBridge.insertWpSegment(conn, edgeId, segmentStep, resolution.graphId, cutId);
               savedSegments.append(WpSegment.of(segmentId, edgeId, resolution.graphId, cutId, segmentStep));
               segmentStep += 1;
               continue;
             }
 
-            Long currentCutId = null;
+            Integer currentCutId = null;
             Long currentSegmentId = null;
             int pointStep = 0;
 
             for (RecordingClick click : segment.clicks) {
               int virX = resolution.referenceVirX + (click.x - resolution.referenceActualX);
               int virY = resolution.referenceVirY + (click.y - resolution.referenceActualY);
-              long cutId = WaypointCutBounds.cutIdOfVir(virX, virY);
+              int cutId = WaypointCutBounds.cutIdOfVir(virX, virY);
 
-              if (currentCutId == null || currentCutId.longValue() != cutId) {
+              if (currentCutId == null || currentCutId.intValue() != cutId) {
                 currentCutId = cutId;
                 currentSegmentId = WaypointWriteBridge.insertWpSegment(conn, edgeId, segmentStep, resolution.graphId, cutId);
                 savedSegments.append(WpSegment.of(currentSegmentId, edgeId, resolution.graphId, cutId, segmentStep));

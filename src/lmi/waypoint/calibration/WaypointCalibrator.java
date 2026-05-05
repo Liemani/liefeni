@@ -8,6 +8,7 @@ import lmi.Rect;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.object.WpAnchor;
 import lmi.waypoint.object.WpPortal;
+import lmi.waypoint.runtime.EnteringPortal;
 import lmi.waypoint.runtime.WaypointCalibrationState;
 import lmi.waypoint.runtime.WaypointCutBounds;
 
@@ -27,13 +28,13 @@ public final class WaypointCalibrator {
       return false;
 
     WpAnchor anchor = anchors.first();
-    Coord anchorWorld = WaypointCutBounds.cutOriginOfWorld(area.origin.tileMin());
+    Coord anchorWorld = WaypointCutBounds.gridOriginOfWorld(area.origin.tileMin());
     calibration.setCalibration(anchor.graphId, Coord.of(anchor.virX, anchor.virY), anchorWorld, null);
     WaypointManager.preloadPortals(anchor.graphId);
     return true;
   }
 
-  public static boolean calibrateFromPortal(WaypointCalibrationState calibration, Gob gob) {
+  public static boolean calibrateFromPortal(WaypointCalibrationState calibration, Gob gob, EnteringPortal enteringPortal) {
     if (gob == null) {
       Api.message("[WaypointManager.calibrate] gob is null");
       return false;
@@ -46,6 +47,32 @@ public final class WaypointCalibrator {
     }
 
     long graphId = calibration.graphId();
+    if (enteringPortal != null && enteringPortal.graphId == graphId) {
+      if (!WaypointManager.portalsLoaded(graphId)) {
+        WaypointManager.preloadPortals(graphId);
+        Api.message("[WaypointManager.calibrate] portal cache is not loaded yet");
+        return false;
+      }
+
+      WpPortal entryPortal = WaypointPortalResolver.findEntryPortal(enteringPortal);
+      if (entryPortal != null) {
+        if (!WaypointManager.counterpartPortalsLoaded(entryPortal.id)) {
+          WaypointManager.preloadCounterpartPortals(entryPortal.id);
+          Api.message("[WaypointManager.calibrate] counterpart portal cache is not loaded yet");
+          return false;
+        }
+
+        for (WpPortal counterpart : WaypointManager.counterpartPortals(entryPortal.id)) {
+          if (!counterpart.resname.contentEquals(gob.resourceName()))
+            continue;
+
+          calibration.setCalibration(counterpart.graphId, Coord.of(counterpart.virX, counterpart.virY), gob.position(), gob);
+          WaypointManager.preloadPortals(counterpart.graphId);
+          return true;
+        }
+      }
+    }
+
     if (!WaypointManager.portalsLoaded(graphId)) {
       WaypointManager.preloadPortals(graphId);
       Api.message("[WaypointManager.calibrate] portal cache is not loaded yet");
