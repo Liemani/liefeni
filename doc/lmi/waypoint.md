@@ -65,7 +65,7 @@
   - `grid_id`
   - `step`
 - `wp_point`
-  - `segment_id`
+- `map_segment_id`
   - `grid_id`
   - `step`
   - `local_x`
@@ -283,6 +283,173 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 5. `WaypointEdgeWriter.saveAsync(...)`로 edge / segment / point 저장
 6. 저장 성공 시 edge / segment / point도 runtime cache에 즉시 append
 7. `WaypointManager.refresh()`
+
+## Use Cases
+
+### 1. Node 생성
+
+목적:
+
+- 현재 위치를 waypoint node로 등록
+
+흐름:
+
+1. `CreateNodeJob`
+2. area chat으로 이름 입력
+3. 현재 `grid_id + local` 계산
+4. active graph가 없으면 새 `wp_graph` 시작
+5. `wp_node` 저장
+6. runtime cache 즉시 반영
+7. overlay에 node / name 표시
+
+### 2. Recording 시작
+
+목적:
+
+- 기존 node를 시작점으로 경로 기록 시작
+
+흐름:
+
+1. `RecordJob`
+2. active graph 존재 확인
+3. nearby node 중 nearest 선택
+4. 그 node로 이동
+5. `WaypointRecorder.start(...)`
+6. raw click 수집 시작
+
+### 3. Raw click recording
+
+목적:
+
+- 사용자의 map click sequence를 raw input으로 저장
+
+흐름:
+
+1. `Hook.didClicked(...)`
+2. `WaypointRecorder.recordMapClick(...)`
+3. click의 world / button / mesh / gobResname 기록
+4. portal click는 아직 raw 상태로만 들어감
+
+### 4. Portal-aware segment planning
+
+목적:
+
+- raw click sequence를 segment 단위로 재해석
+
+흐름:
+
+1. `RecordingSessionPlanner.plan(...)`
+2. portal click를 `isPortal=true`로 마킹
+3. portal click에서 segment split
+4. 다음 segment의 base를 exit portal 근처 world 기준으로 잡음
+5. 현재는 `WaypointPortal` / `WaypointPortalResolver`의 resname heuristic 사용
+
+### 5. Recording 종료 및 저장
+
+목적:
+
+- end node를 확정하고 edge/path를 DB에 저장
+
+흐름:
+
+1. `StopRecordJob`
+2. 현재 `grid_id + local` 기준 end node 재사용 여부 확인
+3. 없으면 새 node 생성
+4. `WaypointEdgeWriter.saveAsync(...)`
+5. `wp_edge`, `wp_segment`, `wp_point` 저장
+6. runtime cache 즉시 append
+7. refresh
+
+### 6. Waypoint topology load
+
+목적:
+
+- navigation용 graph topology를 메모리에 유지
+
+흐름:
+
+1. active graph 기준
+2. `loadNodesByGraphAsync(...)`
+3. `loadEdgesByGraphAsync(...)`
+4. `WaypointRuntimeContext` cache 반영
+
+핵심:
+
+- node / edge는 graph 단위로 전부 메모리에 유지
+
+### 7. Waypoint geometry resident load
+
+목적:
+
+- 시각화에 필요한 segment / point만 근처 grid 기준으로 메모리에 유지
+
+흐름:
+
+1. `WaypointManager.processRefreshRequests()`
+2. 현재 player 기준 `3 x 3 grid` 계산
+3. `loadSegmentsByGridAsync(...)`
+4. `loadPointsByGridAsync(...)`
+5. resident grid set 갱신
+
+핵심:
+
+- segment / point는 graph 전체가 아니라 local resident만 유지
+
+### 8. Scene build / overlay draw
+
+목적:
+
+- 현재 active graph와 resident geometry를 화면에 보이도록 scene 구성
+
+흐름:
+
+1. `WaypointSceneBuilder.build(...)`
+2. node / edge / segment / point cache 기반으로 `WaypointScene` 생성
+3. `WaypointOverlay.draw(...)`
+4. drawable node / point / line projection 후 렌더
+
+### 9. Entering portal snapshot
+
+목적:
+
+- portal transition 직전 어떤 portal을 탔는지 runtime에 남김
+
+흐름:
+
+1. `Hook.didClicked(...)`
+2. 우클릭 gob이면 `WaypointManager.captureEnteringPortal(...)`
+3. `graphId + gridId + local + resname` 저장
+
+### 10. Managed node 수정 저장
+
+목적:
+
+- 이미 로드된 node의 수정사항을 memory-first로 반영하고 async save
+
+흐름:
+
+1. `ManagedWpNode`
+2. `ManagedObjectContext.save()`
+3. `WaypointDbExecutor`
+4. completion 후 clean 처리
+
+### 11. Debug visualization / inspection
+
+목적:
+
+- 현재 graph / scene / grid 상태를 관찰
+
+흐름:
+
+1. `DescribeWaypointSceneEffect`
+2. `CurrentGridDebugOverlay`
+3. `DescribeMapViewCenterEffect`
+
+핵심:
+
+- grid world corner 확인
+- scene counts / bounds 확인
+- current map center / grid id 확인
 
 ## 현재 없는 것
 

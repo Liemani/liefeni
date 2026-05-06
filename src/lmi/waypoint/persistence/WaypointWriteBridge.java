@@ -51,6 +51,7 @@ public final class WaypointWriteBridge {
       conn,
       snapshot.id,
       snapshot.graphId,
+      snapshot.mapSegmentId,
       snapshot.gridId,
       snapshot.localX,
       snapshot.localY,

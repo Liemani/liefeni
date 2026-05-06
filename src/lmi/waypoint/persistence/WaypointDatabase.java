@@ -51,7 +51,7 @@ final class WaypointDatabase {
   static ArrayList<WpNodeRecord> loadNodesByGraph(Connection conn, long graphId) {
     ArrayList<WpNodeRecord> nodes = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
+           "SELECT id, graph_id, map_segment_id, grid_id, local_x, local_y, name " +
            "FROM wp_node WHERE graph_id = ? ORDER BY id")) {
       stmt.setLong(1, graphId);
       try (ResultSet rs = stmt.executeQuery()) {
@@ -59,6 +59,7 @@ final class WaypointDatabase {
           nodes.add(new WpNodeRecord(
             rs.getLong("id"),
             rs.getLong("graph_id"),
+            rs.getLong("map_segment_id"),
             rs.getLong("grid_id"),
             rs.getInt("local_x"),
             rs.getInt("local_y"),
@@ -74,7 +75,7 @@ final class WaypointDatabase {
 
   static WpNodeRecord findNodeById(Connection conn, long wpNodeId) {
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
+           "SELECT id, graph_id, map_segment_id, grid_id, local_x, local_y, name " +
            "FROM wp_node WHERE id = ?")) {
       stmt.setLong(1, wpNodeId);
       try (ResultSet rs = stmt.executeQuery()) {
@@ -82,6 +83,7 @@ final class WaypointDatabase {
         return new WpNodeRecord(
           rs.getLong("id"),
           rs.getLong("graph_id"),
+          rs.getLong("map_segment_id"),
           rs.getLong("grid_id"),
           rs.getInt("local_x"),
           rs.getInt("local_y"),
@@ -95,7 +97,7 @@ final class WaypointDatabase {
 
   static WpNodeRecord findNodeByGraphAndGridLocal(Connection conn, long graphId, long gridId, int localX, int localY) {
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
+           "SELECT id, graph_id, map_segment_id, grid_id, local_x, local_y, name " +
            "FROM wp_node WHERE graph_id = ? AND grid_id = ? AND local_x = ? AND local_y = ? " +
            "ORDER BY id LIMIT 1")) {
       stmt.setLong(1, graphId);
@@ -107,6 +109,7 @@ final class WaypointDatabase {
         return new WpNodeRecord(
           rs.getLong("id"),
           rs.getLong("graph_id"),
+          rs.getLong("map_segment_id"),
           rs.getLong("grid_id"),
           rs.getInt("local_x"),
           rs.getInt("local_y"),
@@ -235,9 +238,26 @@ final class WaypointDatabase {
   private static void createSchema(Connection conn) throws SQLException {
     try (Statement stmt = conn.createStatement()) {
       stmt.execute(
-        "CREATE TABLE IF NOT EXISTS wp_graph (" +
+        "CREATE TABLE IF NOT EXISTS map_segment (" +
+        "  id INTEGER PRIMARY KEY" +
+        ")"
+      );
+
+      stmt.execute(
+        "CREATE TABLE IF NOT EXISTS map_grid (" +
         "  id INTEGER PRIMARY KEY," +
-        "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP" +
+        "  map_segment_id INTEGER NOT NULL," +
+        "  local_x INTEGER NOT NULL," +
+        "  local_y INTEGER NOT NULL," +
+        "  haven_id INTEGER UNIQUE," +
+        "  CONSTRAINT fk_map_segment_id FOREIGN KEY (map_segment_id) REFERENCES map_segment(id)," +
+        "  UNIQUE (map_segment_id, local_x, local_y)" +
+        ")"
+      );
+
+      stmt.execute(
+        "CREATE TABLE IF NOT EXISTS wp_graph (" +
+        "  id INTEGER PRIMARY KEY" +
         ")"
       );
 
@@ -249,13 +269,12 @@ final class WaypointDatabase {
         "  local_x INTEGER NOT NULL," +
         "  local_y INTEGER NOT NULL," +
         "  name TEXT NOT NULL," +
-        "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP," +
         "  CONSTRAINT fk_graph_id FOREIGN KEY (graph_id) REFERENCES wp_graph(id)," +
+        "  CONSTRAINT fk_grid_id FOREIGN KEY (grid_id) REFERENCES map_grid(id)," +
         "  UNIQUE (grid_id, local_x, local_y)" +
         ")"
       );
       stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_node_graph_id ON wp_node (graph_id)");
-      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_node_grid_id ON wp_node (grid_id)");
 
       stmt.execute(
         "CREATE TABLE IF NOT EXISTS wp_edge (" +
@@ -266,7 +285,6 @@ final class WaypointDatabase {
         "  direction INTEGER NOT NULL," +
         "  time_cost DOUBLE NOT NULL," +
         "  fatigue_cost DOUBLE NOT NULL," +
-        "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP," +
         "  CONSTRAINT fk_graph_id FOREIGN KEY (graph_id) REFERENCES wp_graph(id)," +
         "  CONSTRAINT fk_node0_id FOREIGN KEY (node0_id) REFERENCES wp_node(id)," +
         "  CONSTRAINT fk_node1_id FOREIGN KEY (node1_id) REFERENCES wp_node(id)," +
@@ -281,35 +299,33 @@ final class WaypointDatabase {
       stmt.execute(
         "CREATE TABLE IF NOT EXISTS wp_segment (" +
         "  id INTEGER PRIMARY KEY," +
-        "  edge_id INTEGER NOT NULL," +
         "  grid_id INTEGER NOT NULL," +
+        "  edge_id INTEGER NOT NULL," +
         "  step INTEGER NOT NULL," +
-        "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP," +
+        "  CONSTRAINT fk_grid_id FOREIGN KEY (grid_id) REFERENCES map_grid(id)," +
         "  CONSTRAINT fk_edge_id FOREIGN KEY (edge_id) REFERENCES wp_edge(id)," +
         "  UNIQUE (edge_id, step)" +
         ")"
       );
-      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_segment_edge_id ON wp_segment (edge_id)");
       stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_segment_grid_id ON wp_segment (grid_id)");
 
       stmt.execute(
         "CREATE TABLE IF NOT EXISTS wp_point (" +
         "  id INTEGER PRIMARY KEY," +
-        "  segment_id INTEGER NOT NULL," +
         "  grid_id INTEGER NOT NULL," +
-        "  step INTEGER NOT NULL," +
         "  local_x INTEGER NOT NULL," +
         "  local_y INTEGER NOT NULL," +
+        "  segment_id INTEGER NOT NULL," +
+        "  step INTEGER NOT NULL," +
         "  mouse_button INTEGER NOT NULL," +
         "  mesh_id INTEGER," +
-        "  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP," +
+        "  CONSTRAINT fk_grid_id FOREIGN KEY (grid_id) REFERENCES map_grid(id)," +
         "  CONSTRAINT fk_segment_id FOREIGN KEY (segment_id) REFERENCES wp_segment(id)," +
         "  CONSTRAINT chk_mouse_button CHECK (mouse_button IN (1, 3))," +
         "  UNIQUE (segment_id, step)" +
         ")"
       );
-      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_point_segment_id ON wp_point (segment_id)");
-      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_point_grid_id ON wp_point (grid_id)");
+      stmt.execute("CREATE INDEX IF NOT EXISTS idx_wp_point_local ON wp_point (grid_id, local_x, local_y)");
     }
   }
 
@@ -408,16 +424,17 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_point row.");
   }
 
-  static void updateWpNode(Connection conn, long id, long graphId, long gridId, int localX, int localY,
+  static void updateWpNode(Connection conn, long id, long graphId, long mapSegmentId, long gridId, int localX, int localY,
                            String name) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
-      "UPDATE wp_node SET graph_id = ?, grid_id = ?, local_x = ?, local_y = ?, name = ? WHERE id = ?")) {
+      "UPDATE wp_node SET graph_id = ?, map_segment_id = ?, grid_id = ?, local_x = ?, local_y = ?, name = ? WHERE id = ?")) {
       stmt.setLong(1, graphId);
-      stmt.setLong(2, gridId);
-      stmt.setInt(3, localX);
-      stmt.setInt(4, localY);
-      stmt.setString(5, name);
-      stmt.setLong(6, id);
+      stmt.setLong(2, mapSegmentId);
+      stmt.setLong(3, gridId);
+      stmt.setInt(4, localX);
+      stmt.setInt(5, localY);
+      stmt.setString(6, name);
+      stmt.setLong(7, id);
       stmt.executeUpdate();
     }
   }
