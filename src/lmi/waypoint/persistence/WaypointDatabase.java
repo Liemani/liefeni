@@ -51,7 +51,7 @@ final class WaypointDatabase {
   static ArrayList<WpNodeRecord> loadNodesByGraph(Connection conn, long graphId) {
     ArrayList<WpNodeRecord> nodes = new ArrayList<>();
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, map_segment_id, grid_id, local_x, local_y, name " +
+           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
            "FROM wp_node WHERE graph_id = ? ORDER BY id")) {
       stmt.setLong(1, graphId);
       try (ResultSet rs = stmt.executeQuery()) {
@@ -59,7 +59,6 @@ final class WaypointDatabase {
           nodes.add(new WpNodeRecord(
             rs.getLong("id"),
             rs.getLong("graph_id"),
-            rs.getLong("map_segment_id"),
             rs.getLong("grid_id"),
             rs.getInt("local_x"),
             rs.getInt("local_y"),
@@ -75,7 +74,7 @@ final class WaypointDatabase {
 
   static WpNodeRecord findNodeById(Connection conn, long wpNodeId) {
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, map_segment_id, grid_id, local_x, local_y, name " +
+           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
            "FROM wp_node WHERE id = ?")) {
       stmt.setLong(1, wpNodeId);
       try (ResultSet rs = stmt.executeQuery()) {
@@ -83,7 +82,6 @@ final class WaypointDatabase {
         return new WpNodeRecord(
           rs.getLong("id"),
           rs.getLong("graph_id"),
-          rs.getLong("map_segment_id"),
           rs.getLong("grid_id"),
           rs.getInt("local_x"),
           rs.getInt("local_y"),
@@ -97,7 +95,7 @@ final class WaypointDatabase {
 
   static WpNodeRecord findNodeByGraphAndGridLocal(Connection conn, long graphId, long gridId, int localX, int localY) {
     try (PreparedStatement stmt = conn.prepareStatement(
-           "SELECT id, graph_id, map_segment_id, grid_id, local_x, local_y, name " +
+           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
            "FROM wp_node WHERE graph_id = ? AND grid_id = ? AND local_x = ? AND local_y = ? " +
            "ORDER BY id LIMIT 1")) {
       stmt.setLong(1, graphId);
@@ -109,7 +107,6 @@ final class WaypointDatabase {
         return new WpNodeRecord(
           rs.getLong("id"),
           rs.getLong("graph_id"),
-          rs.getLong("map_segment_id"),
           rs.getLong("grid_id"),
           rs.getInt("local_x"),
           rs.getInt("local_y"),
@@ -424,17 +421,83 @@ final class WaypointDatabase {
     throw new SQLException("Failed to insert wp_point row.");
   }
 
-  static void updateWpNode(Connection conn, long id, long graphId, long mapSegmentId, long gridId, int localX, int localY,
+  static void updateWpNode(Connection conn, long id, long graphId, long gridId, int localX, int localY,
                            String name) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
-      "UPDATE wp_node SET graph_id = ?, map_segment_id = ?, grid_id = ?, local_x = ?, local_y = ?, name = ? WHERE id = ?")) {
+      "UPDATE wp_node SET graph_id = ?, grid_id = ?, local_x = ?, local_y = ?, name = ? WHERE id = ?")) {
       stmt.setLong(1, graphId);
-      stmt.setLong(2, mapSegmentId);
-      stmt.setLong(3, gridId);
-      stmt.setInt(4, localX);
-      stmt.setInt(5, localY);
-      stmt.setString(6, name);
-      stmt.setLong(7, id);
+      stmt.setLong(2, gridId);
+      stmt.setInt(3, localX);
+      stmt.setInt(4, localY);
+      stmt.setString(5, name);
+      stmt.setLong(6, id);
+      stmt.executeUpdate();
+    }
+  }
+
+  static long ensureMapGrid(Connection conn, long mapSegmentId, int localX, int localY, long havenGridId) throws SQLException {
+    Long existingId = findMapGridIdByHavenId(conn, havenGridId);
+    if (existingId != null)
+      return existingId;
+
+    ensureMapSegment(conn, mapSegmentId);
+
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "SELECT id, haven_id FROM map_grid WHERE map_segment_id = ? AND local_x = ? AND local_y = ?")) {
+      stmt.setLong(1, mapSegmentId);
+      stmt.setInt(2, localX);
+      stmt.setInt(3, localY);
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (rs.next()) {
+          long id = rs.getLong("id");
+          long existingHavenId = rs.getLong("haven_id");
+          if (rs.wasNull()) {
+            try (PreparedStatement update = conn.prepareStatement(
+              "UPDATE map_grid SET haven_id = ? WHERE id = ?")) {
+              update.setLong(1, havenGridId);
+              update.setLong(2, id);
+              update.executeUpdate();
+            }
+          } else if (existingHavenId != havenGridId) {
+            throw new SQLException("map_grid haven_id mismatch at (" + mapSegmentId + ", " + localX + ", " + localY + ")");
+          }
+          return id;
+        }
+      }
+    }
+
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "INSERT INTO map_grid(map_segment_id, local_x, local_y, haven_id) VALUES (?, ?, ?, ?)",
+      Statement.RETURN_GENERATED_KEYS)) {
+      stmt.setLong(1, mapSegmentId);
+      stmt.setInt(2, localX);
+      stmt.setInt(3, localY);
+      stmt.setLong(4, havenGridId);
+      stmt.executeUpdate();
+
+      try (ResultSet keys = stmt.getGeneratedKeys()) {
+        if (keys.next()) return keys.getLong(1);
+      }
+    }
+
+    throw new SQLException("Failed to insert map_grid row.");
+  }
+
+  private static Long findMapGridIdByHavenId(Connection conn, long havenGridId) throws SQLException {
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "SELECT id FROM map_grid WHERE haven_id = ?")) {
+      stmt.setLong(1, havenGridId);
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (rs.next()) return rs.getLong("id");
+      }
+    }
+    return null;
+  }
+
+  private static void ensureMapSegment(Connection conn, long mapSegmentId) throws SQLException {
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "INSERT OR IGNORE INTO map_segment(id) VALUES (?)")) {
+      stmt.setLong(1, mapSegmentId);
       stmt.executeUpdate();
     }
   }

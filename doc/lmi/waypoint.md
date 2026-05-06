@@ -7,7 +7,7 @@
 현재 waypoint는 더 이상 anchor / calibration / virtual coordinate를 사용하지 않는다.
 핵심은 다음 세 가지다.
 
-- `grid_id + local_x + local_y`로 world 위치를 안정적으로 저장
+- Haven grid / segment를 waypoint 내부 `map_grid.id`로 안정적으로 매핑
 - `wp_graph`로 분리된 navigation graph를 유지
 - `wp_node / wp_edge / wp_segment / wp_point`로 recorded path를 저장하고 시각화
 
@@ -26,6 +26,8 @@
 
 현재 핵심 테이블:
 
+- `map_segment`
+- `map_grid`
 - `wp_graph`
 - `wp_node`
 - `wp_edge`
@@ -34,6 +36,10 @@
 
 의미:
 
+- `map_segment`
+  - Haven `MapFile.Segment`와 1:1로 대응하는 row
+- `map_grid`
+  - Haven grid를 waypoint 내부 FK용 grid row로 매핑
 - `wp_graph`
   - 서로 분리된 navigation graph
 - `wp_node`
@@ -47,6 +53,14 @@
 
 핵심 컬럼:
 
+- `map_segment`
+  - `id`
+- `map_grid`
+  - `id`
+  - `map_segment_id`
+  - `local_x`
+  - `local_y`
+  - `haven_id`
 - `wp_node`
   - `graph_id`
   - `grid_id`
@@ -65,7 +79,6 @@
   - `grid_id`
   - `step`
 - `wp_point`
-- `map_segment_id`
   - `grid_id`
   - `step`
   - `local_x`
@@ -76,6 +89,10 @@
 핵심 규칙:
 
 - 모든 `id`는 `INTEGER PRIMARY KEY`
+- `map_segment.id == Haven MapFile.Segment.id`
+- `map_grid.id`는 waypoint 내부 FK용 id다
+- `map_grid.haven_id == Haven MCache.Grid.id`
+- `map_grid.local_x`, `map_grid.local_y`는 해당 grid origin의 world 좌표다
 - `wp_node` 위치는 전역 유일하다
   - `UNIQUE (grid_id, local_x, local_y)`
 - `wp_edge.direction`
@@ -90,24 +107,28 @@
 - `wp_point.mouse_button`은 `1` 또는 `3`만 허용한다
 - `wp_point`는 `gob_id`를 저장하지 않는다
 
-## Grid Local Coordinate
+## Grid Mapping
 
-현재 저장 좌표는 모두 `grid_id + local coordinate`다.
+현재 waypoint가 직접 쓰는 `grid_id`는 Haven `MCache.Grid.id`가 아니다.
 
-- `grid_id`
-  - Haven `MCache.Grid.id`
+- Haven `MCache.Grid.id`
+  - `map_grid.haven_id`
+- waypoint 내부 `grid_id`
+  - `map_grid.id`
 - `local_x`, `local_y`
-  - 해당 grid origin world 기준 local offset
+  - 해당 `map_grid` origin world 기준 local offset
 
 runtime 변환:
 
 1. world 좌표에서 현재 tile 계산
 2. tile이 속한 `MCache.Grid` 조회
-3. `grid.id`를 `grid_id`로 사용
-4. `world - grid origin world`를 `local_x/local_y`로 사용
+3. `MapFile.gridinfo.get(grid.id)`로 Haven `Segment.id`를 찾음
+4. `map_segment(id = Segment.id)`를 보장
+5. `map_grid(haven_id = grid.id, map_segment_id = Segment.id, local_x = gridOriginWorld.x, local_y = gridOriginWorld.y)`를 보장
+6. 그 `map_grid.id`를 waypoint `grid_id`로 사용
+7. `world - grid origin world`를 `local_x/local_y`로 사용
 
-즉 waypoint는 더 이상 world <-> virtual translation 문제를 풀지 않고,
-현재 grid identity를 기준으로 직접 world 위치를 저장한다.
+즉 waypoint는 더 이상 virtual 좌표계를 쓰지 않고, Haven grid / segment 구조를 내부 FK 체계로 옮겨서 저장한다.
 
 ## Bootstrap
 
@@ -157,6 +178,20 @@ DB completion이 나중에 runtime cache를 갱신한다.
 - node / edge topology는 active graph 단위로 메모리에 유지
 - `CreateNodeJob`이 처음 node를 만들면 새 `wp_graph`를 시작한다
 - 이후 create / record / stop은 이 active graph를 기준으로 동작한다
+
+## Grid Resolution
+
+현재 world 좌표에서 waypoint `grid_id`를 얻는 책임은 `WaypointGridResolver`가 맡는다.
+
+흐름:
+
+1. Haven `MCache.Grid`를 찾는다
+2. `MapFile.gridinfo`로 Haven `Segment.id`를 찾는다
+3. `map_segment` row를 보장한다
+4. `map_grid` row를 보장한다
+5. waypoint 내부 `map_grid.id`를 반환한다
+
+즉 runtime과 DB는 더 이상 Haven `grid.id`를 직접 키로 쓰지 않고, 내부 `map_grid.id`를 공통 키로 쓴다.
 
 ## Scene / Bounds
 
@@ -252,7 +287,7 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 
 저장 규칙:
 
-- click를 world에서 `grid_id + local`로 즉시 변환
+- click를 world에서 waypoint `grid_id + local`로 즉시 변환
 - grid가 바뀌면 새 `wp_segment`를 시작
 - `wp_point`는 항상 자기 `wp_segment.grid_id`와 같은 grid에 저장
 - `StopRecordJob` 성공 시 새 edge / segment / point를 runtime cache에 즉시 append한다
@@ -262,7 +297,7 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 ### `CreateNodeJob`
 
 1. area chat으로 node 이름 입력
-2. 현재 `grid_id + local` 계산
+2. 현재 world에서 waypoint `grid_id + local` 계산
 3. active graph가 없으면 `createNodeAsync(...)`가 새 `wp_graph`를 시작
 4. DB completion에서 새 `WpNode`를 runtime cache에 append
 5. `WaypointManager.refresh()`
@@ -277,7 +312,7 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 ### `StopRecordJob`
 
 1. active recording 종료
-2. 현재 `grid_id + local` 기준으로 end node 재사용 여부 확인
+2. 현재 waypoint `grid_id + local` 기준으로 end node 재사용 여부 확인
 3. 없으면 area chat으로 이름 입력 후 새 node 생성
 4. 새 node는 DB completion에서 runtime cache에 즉시 append
 5. `WaypointEdgeWriter.saveAsync(...)`로 edge / segment / point 저장
@@ -296,7 +331,7 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 
 1. `CreateNodeJob`
 2. area chat으로 이름 입력
-3. 현재 `grid_id + local` 계산
+3. 현재 world에서 waypoint `grid_id + local` 계산
 4. active graph가 없으면 새 `wp_graph` 시작
 5. `wp_node` 저장
 6. runtime cache 즉시 반영
@@ -353,7 +388,7 @@ recording 중 메모리 상태는 다음 타입으로 표현한다.
 흐름:
 
 1. `StopRecordJob`
-2. 현재 `grid_id + local` 기준 end node 재사용 여부 확인
+2. 현재 waypoint `grid_id + local` 기준 end node 재사용 여부 확인
 3. 없으면 새 node 생성
 4. `WaypointEdgeWriter.saveAsync(...)`
 5. `wp_edge`, `wp_segment`, `wp_point` 저장

@@ -18,6 +18,7 @@ import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 public final class WaypointStore {
   private WaypointStore() {}
@@ -118,6 +119,17 @@ public final class WaypointStore {
       throw e;
     } finally {
       conn.setAutoCommit(originalAutoCommit);
+    }
+  }
+
+  public static long ensureMapGridId(long mapSegmentId, int localX, int localY, long havenGridId) {
+    try (Connection conn = DriverManager.getConnection(WaypointDatabase.jdbcUrl())) {
+      return WaypointDatabase.ensureMapGrid(conn, mapSegmentId, localX, localY, havenGridId);
+    } catch (Exception e) {
+      throw new RuntimeException(
+        "Failed to ensure map_grid for haven grid " + havenGridId + " in segment " + mapSegmentId + ": " + e.getMessage(),
+        e
+      );
     }
   }
 }

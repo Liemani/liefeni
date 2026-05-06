@@ -4,7 +4,6 @@ import lmi.waypoint.object.WpNode;
 
 public final class ManagedWpNode extends ManagedObject {
   private long graphId;
-  private long mapSegmentId;
   private long gridId;
   private int localX;
   private int localY;
@@ -15,7 +14,6 @@ public final class ManagedWpNode extends ManagedObject {
     long id,
     long version,
     long graphId,
-    long mapSegmentId,
     long gridId,
     int localX,
     int localY,
@@ -23,7 +21,6 @@ public final class ManagedWpNode extends ManagedObject {
   ) {
     super(context, id, version);
     this.graphId = graphId;
-    this.mapSegmentId = mapSegmentId;
     this.gridId = gridId;
     this.localX = localX;
     this.localY = localY;
@@ -31,15 +28,11 @@ public final class ManagedWpNode extends ManagedObject {
   }
 
   public static ManagedWpNode fromWpNode(ManagedObjectContext context, WpNode node) {
-    return new ManagedWpNode(context, node.id, 0, node.graphId, node.mapSegmentId, node.gridId, node.localX, node.localY, node.name);
+    return new ManagedWpNode(context, node.id, 0, node.graphId, node.gridId, node.localX, node.localY, node.name);
   }
 
   public long graphId() {
     return graphId;
-  }
-
-  public long mapSegmentId() {
-    return mapSegmentId;
   }
 
   public long gridId() {
@@ -61,12 +54,6 @@ public final class ManagedWpNode extends ManagedObject {
   public void setGraphId(long graphId) {
     if (this.graphId == graphId) return;
     this.graphId = graphId;
-    markDirty();
-  }
-
-  public void setMapSegmentId(long mapSegmentId) {
-    if (this.mapSegmentId == mapSegmentId) return;
-    this.mapSegmentId = mapSegmentId;
     markDirty();
   }
 
@@ -95,6 +82,6 @@ public final class ManagedWpNode extends ManagedObject {
   }
 
   public WpNodeSnapshot snapshot() {
-    return new WpNodeSnapshot(id, version(), graphId, mapSegmentId, gridId, localX, localY, name);
+    return new WpNodeSnapshot(id, version(), graphId, gridId, localX, localY, name);
   }
 }

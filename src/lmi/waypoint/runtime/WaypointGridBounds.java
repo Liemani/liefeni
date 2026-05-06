@@ -54,18 +54,18 @@ public final class WaypointGridBounds {
     HashMap<Long, Coord> gridOrigins = new HashMap<>();
 
     for (Coord gc : loadArea) {
-      MCache.Grid grid = _findLoadedGrid(gc);
+      ResolvedGrid grid = WaypointGridResolver.resolveGrid(gc);
       if (grid == null)
         continue;
-      loadGridIds.add(grid.id);
-      gridOrigins.put(grid.id, Coord.of(grid.ul.mul(MCache.tilesz)));
+      loadGridIds.add(grid.mapGridId);
+      gridOrigins.put(grid.mapGridId, grid.originWorld);
     }
     for (Coord gc : renderArea) {
-      MCache.Grid grid = _findLoadedGrid(gc);
+      ResolvedGrid grid = WaypointGridResolver.resolveGrid(gc);
       if (grid == null)
         continue;
-      renderGridIds.add(grid.id);
-      gridOrigins.put(grid.id, Coord.of(grid.ul.mul(MCache.tilesz)));
+      renderGridIds.add(grid.mapGridId);
+      gridOrigins.put(grid.mapGridId, grid.originWorld);
     }
 
     return new WaypointGridBounds(centerGrid, loadArea, renderArea, loadGridIds, renderGridIds, gridOrigins);
@@ -88,13 +88,5 @@ public final class WaypointGridBounds {
     if (origin == null)
       return null;
     return origin.add(localX, localY);
-  }
-
-  private static MCache.Grid _findLoadedGrid(Coord gc) {
-    try {
-      return AppContext.glob.map.getgrid(gc);
-    } catch (RuntimeException e) {
-      return null;
-    }
   }
 }

@@ -156,7 +156,7 @@ area chat 입력 대기는 `ChatInputMonitor`가 맡는다.
 
 ## Waypoint
 
-Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, `grid_id + local_x + local_y` 중심으로 동작한다.
+Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, `map_segment` / `map_grid` / `local_x + local_y` 중심으로 동작한다.
 
 현재 코드 구조는 책임 기준으로 다음 패키지로 나뉜다.
 
@@ -171,6 +171,8 @@ Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, `grid_id + local_x
 
 현재 핵심 테이블:
 
+- `map_segment`
+- `map_grid`
 - `wp_graph`
 - `wp_node`
 - `wp_edge`
@@ -179,7 +181,12 @@ Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, `grid_id + local_x
 
 핵심 규칙:
 
-- 모든 위치는 `grid_id + local_x + local_y`로 저장한다
+- `map_segment.id == Haven MapFile.Segment.id`
+- `map_grid.id`는 waypoint 내부 FK용 id다
+- `map_grid.haven_id == Haven MCache.Grid.id`
+- `map_grid.local_x`, `map_grid.local_y`는 해당 grid origin의 world 좌표다
+- `wp_node.grid_id`, `wp_segment.grid_id`, `wp_point.grid_id`는 `map_grid.id`를 참조한다
+- `wp_node.local_x`, `wp_node.local_y`, `wp_point.local_x`, `wp_point.local_y`는 해당 grid origin 기준 local offset이다
 - `wp_node` 위치는 전역 유일하다
   - `UNIQUE (grid_id, local_x, local_y)`
 - `wp_edge.graph_id`는 topology load 경계를 뜻한다
@@ -255,6 +262,7 @@ Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, `grid_id + local_x
 역할:
 
 - schema 생성
+- Haven grid / segment를 `map_segment` / `map_grid` row로 보장
 - connection을 인자로 받는 query / insert helper
 - row 타입(`WpNodeRecord`, `WpEdgeRecord`, `WpSegmentRecord`, `WpPointRecord`) 기반 SQL 해석
 
@@ -279,6 +287,13 @@ Waypoint는 이제 `gob_id` 불변성을 가정하지 않고, `grid_id + local_x
 - `processRefreshRequests()`
 - node / edge / segment / point cache accessor
 - resident `3 x 3 grid` 동기화
+
+현재 `gridPositionOfWorld(...)`는:
+
+1. world에서 Haven `MCache.Grid`를 찾고
+2. `MapFile.gridinfo`로 Haven `Segment.id`를 확인하고
+3. `map_segment` / `map_grid`를 보장한 뒤
+4. waypoint 내부 `map_grid.id`와 local offset을 반환한다
 
 scene 정책:
 
@@ -322,7 +337,7 @@ scene 정책:
 흐름:
 
 1. area chat으로 node 이름 입력
-2. 현재 `grid_id + local` 계산
+2. 현재 world에서 waypoint `grid_id + local` 계산
 3. active graph가 없으면 새 `wp_graph`를 시작
 4. `WaypointStore.createNodeAsync(...)`
 5. completion에서 새 `WpNode`를 runtime cache에 append하고 `WaypointManager.refresh()`
@@ -397,6 +412,8 @@ scene 정책:
   - async read/write facade
 - `src/lmi/waypoint/persistence/WaypointDatabase.java`
   - waypoint DB schema와 low-level query/insert helper
+- `src/lmi/waypoint/runtime/WaypointGridResolver.java`
+  - Haven `grid.id` / `MapFile.Segment.id`를 waypoint `map_grid.id`로 resolve하는 helper
 - `src/lmi/waypoint/runtime/WaypointRuntimeContext.java`
   - runtime authoritative cache와 loaded/loading 상태를 보관
 - `src/lmi/waypoint/persistence/WaypointDbExecutor.java`
@@ -475,6 +492,7 @@ src/
         WaypointResultHandler.java: async completion callback 계약
         EmptyWaypointResult.java: payload 없는 write completion result
       runtime/
+        WaypointGridResolver.java: Haven grid와 mapfile segment를 waypoint `map_grid.id`로 resolve하는 helper
         WaypointRuntimeContext.java: runtime authoritative cache와 loaded/loading 상태를 보관
         WaypointSceneBuilder.java: current graph와 player grid bounds를 받아 waypoint scene을 구성하는 builder
         ResolvedNode.java: 현재 world 좌표로 복원된 nearby `wp_node`

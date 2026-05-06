@@ -26,6 +26,8 @@ import lmi.waypoint.runtime.ResolvedPoint;
 import lmi.waypoint.runtime.WaypointGridBounds;
 import lmi.waypoint.runtime.WaypointScene;
 import lmi.waypoint.runtime.GridPosition;
+import lmi.waypoint.runtime.ResolvedGrid;
+import lmi.waypoint.runtime.WaypointGridResolver;
 
 public final class WaypointManager {
   private static final WaypointRuntimeContext runtimeContext = new WaypointRuntimeContext();
@@ -36,6 +38,7 @@ public final class WaypointManager {
 
   public static void clear() {
     runtimeContext.clear();
+    WaypointGridResolver.clear();
     refreshRequested = false;
   }
 
@@ -98,12 +101,12 @@ public final class WaypointManager {
     if (world == null || AppContext.glob == null)
       return null;
     Coord tile = Coord2d.of(world).floor(MCache.tilesz);
-    MCache.Grid grid = AppContext.glob.map.getgrid(tile.div(MCache.cmaps));
+    Coord gc = tile.div(MCache.cmaps);
+    ResolvedGrid grid = WaypointGridResolver.resolveGrid(gc);
     if (grid == null)
       return null;
-    Coord gridOrigin = Coord.of(grid.ul.mul(MCache.tilesz));
-    Coord local = Coord.of(world.x - gridOrigin.x, world.y - gridOrigin.y);
-    return new GridPosition(grid.id, local.x, local.y);
+    Coord local = Coord.of(world.x - grid.originWorld.x, world.y - grid.originWorld.y);
+    return new GridPosition(grid.mapGridId, grid.havenGridId, grid.mapSegmentId, local.x, local.y);
   }
 
   public static GridPosition currentGridPosition() {
