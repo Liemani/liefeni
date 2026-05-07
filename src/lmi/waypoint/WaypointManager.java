@@ -2,6 +2,7 @@ package lmi.waypoint;
 
 import haven.Coord;
 import haven.Coord2d;
+import haven.Gob;
 import haven.MCache;
 import lmi.Array;
 import lmi.AppContext;
@@ -12,6 +13,7 @@ import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
 import lmi.waypoint.model.LoadEdgesByGraphResult;
 import lmi.waypoint.model.LoadNodesByGraphResult;
+import lmi.waypoint.model.LoadNodesByGridResult;
 import lmi.waypoint.model.LoadPointsByCutResult;
 import lmi.waypoint.model.LoadSegmentsByCutResult;
 import lmi.waypoint.object.WpEdge;
@@ -33,6 +35,8 @@ public final class WaypointManager {
   private static final WaypointRuntimeContext runtimeContext = new WaypointRuntimeContext();
   private static final ManagedObjectContext managedNodeContext = runtimeContext.managedNodeContext();
   private static boolean refreshRequested;
+  private static Long pendingGraphResolveGridId;
+  private static Long lastResolvedGraphGridId;
 
   private WaypointManager() {}
 
@@ -40,6 +44,8 @@ public final class WaypointManager {
     runtimeContext.clear();
     WaypointGridResolver.clear();
     refreshRequested = false;
+    pendingGraphResolveGridId = null;
+    lastResolvedGraphGridId = null;
   }
 
   public static Long currentGraphId() {
@@ -110,7 +116,10 @@ public final class WaypointManager {
   }
 
   public static GridPosition currentGridPosition() {
-    return gridPositionOfWorld(Self.position());
+    Coord selfWorld = _selfPosition();
+    if (selfWorld == null)
+      return null;
+    return gridPositionOfWorld(selfWorld);
   }
 
   public static void setNodes(long graphId, Array<WpNode> nodes) {
@@ -258,7 +267,9 @@ public final class WaypointManager {
   public static ResolvedNode nearestNode() {
     ResolvedNode nearest = null;
     long best = Long.MAX_VALUE;
-    Coord self = Self.position();
+    Coord self = _selfPosition();
+    if (self == null)
+      return null;
 
     for (ResolvedNode node : runtimeContext.nearbyNodes()) {
       long dx = (long)node.world.x - self.x;
@@ -274,7 +285,11 @@ public final class WaypointManager {
   }
 
   public static void refresh() {
-    WaypointGridBounds bounds = WaypointGridBounds.aroundWorld(Self.position());
+    Coord selfWorld = _selfPosition();
+    if (selfWorld == null)
+      return;
+
+    WaypointGridBounds bounds = WaypointGridBounds.aroundWorld(selfWorld);
     _syncResidentGrids(bounds);
     runtimeContext.setSceneSnapshot(new Array<>(), new Array<>(), new Array<>(), new WaypointScene(bounds));
     managedNodeContext.clear();
@@ -288,12 +303,87 @@ public final class WaypointManager {
   }
 
   public static void processRefreshRequests() {
-    if (activeGraphId() == null) return;
-    WaypointGridBounds nextBounds = WaypointGridBounds.aroundWorld(Self.position());
+    Coord selfWorld = _selfPosition();
+    if (selfWorld == null)
+      return;
+
+    GridPosition position = currentGridPosition();
+    if (position == null)
+      return;
+
+    _resolveActiveGraph(position);
+    if (activeGraphId() == null)
+      return;
+
+    WaypointGridBounds nextBounds = WaypointGridBounds.aroundWorld(selfWorld);
     if (refreshRequested || !_sameBounds(runtimeContext.scene().bounds, nextBounds)) {
       refreshRequested = false;
       refresh();
     }
+  }
+
+  private static void _resolveActiveGraph(GridPosition position) {
+    if (position == null)
+      return;
+    if (pendingGraphResolveGridId != null && pendingGraphResolveGridId == position.gridId)
+      return;
+    if (lastResolvedGraphGridId != null && lastResolvedGraphGridId == position.gridId && activeGraphId() != null)
+      return;
+
+    pendingGraphResolveGridId = position.gridId;
+    final long requestedGridId = position.gridId;
+    final int requestedLocalX = position.localX;
+    final int requestedLocalY = position.localY;
+
+    WaypointStore.loadNodesByGridAsync(requestedGridId, new WaypointResultHandler<LoadNodesByGridResult>() {
+      @Override
+      public void onSuccess(LoadNodesByGridResult result) {
+        pendingGraphResolveGridId = null;
+
+        GridPosition current = currentGridPosition();
+        if (current == null || current.gridId != requestedGridId)
+          return;
+
+        lastResolvedGraphGridId = requestedGridId;
+        WpNode nearest = _nearestNode(result.nodes, requestedLocalX, requestedLocalY);
+        Long nextGraphId = (nearest == null) ? null : nearest.graphId;
+        Long currentGraphId = activeGraphId();
+        if ((currentGraphId == null && nextGraphId == null) ||
+          (currentGraphId != null && currentGraphId.equals(nextGraphId)))
+          return;
+
+        runtimeContext.clearResident();
+        setCurrentGraphId(nextGraphId);
+        requestRefresh();
+      }
+
+      @Override
+      public void onFailure(Exception error) {
+        pendingGraphResolveGridId = null;
+      }
+    });
+  }
+
+  private static WpNode _nearestNode(Array<WpNode> nodes, int localX, int localY) {
+    WpNode nearest = null;
+    long best = Long.MAX_VALUE;
+    for (WpNode node : nodes) {
+      long dx = (long)node.localX - localX;
+      long dy = (long)node.localY - localY;
+      long distance = (dx * dx) + (dy * dy);
+      if (distance < best) {
+        best = distance;
+        nearest = node;
+      }
+    }
+    return nearest;
+  }
+
+  private static Coord _selfPosition() {
+    Gob self = Self.gob();
+    if (self == null)
+      return null;
+    return self.position();
   }
 
   private static boolean _sameBounds(WaypointGridBounds a, WaypointGridBounds b) {

@@ -139,6 +139,7 @@ public class RemoteUI implements UI.Receiver, UI.Runner {
 		}
 	    }
 	} finally {
+            lmi.LmiLifecycle.leaveSession();
 	    sess.close();
 	    while(sess.getuimsg() != null);
 	}

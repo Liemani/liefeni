@@ -461,7 +461,7 @@ public class MainFrame extends java.awt.Frame implements Console.Directory {
 	    return;
 	}
 	setupres();
-	lmi.CommandHandler.init();
+	lmi.LmiLifecycle.initProcess();
 	UI.Runner fun = null;
 	if(Bootstrap.replay.get() != null) {
 	    try {

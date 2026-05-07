@@ -130,17 +130,20 @@ runtime 변환:
 
 즉 waypoint는 더 이상 virtual 좌표계를 쓰지 않고, Haven grid / segment 구조를 내부 FK 체계로 옮겨서 저장한다.
 
-## Bootstrap
+## Lifecycle
 
-현재 waypoint bootstrap은 단순하다.
+현재 waypoint는 LMI lifecycle을 따라 초기화된다.
 
-- `LmiBootstrap`
-  - `RuntimeEventManager.init()`
-  - `WaypointBootstrap.init()`
-- `WaypointBootstrap`
-  - `WaypointDbExecutor.init()`
+- `LmiLifecycle.enterSession()`
+  - `RuntimeEventManager` thread를 준비한다
+  - `WaypointBootstrap.init()`를 통해 `WaypointDbExecutor`를 준비한다
+- `LmiLifecycle.enterWorld()`
+  - `MapView.plgob`가 세팅되어 `player()`가 생긴 뒤 호출된다
+  - 여기서 waypoint refresh polling이 등록된다
+- `LmiLifecycle.leaveWorld()`
+  - world-dependent polling과 runtime state를 정리한다
 
-즉 bootstrap 시점에 waypoint는 DB worker thread만 준비한다.
+즉 waypoint DB worker는 session 단계에서 준비하고, waypoint refresh는 world 단계에서 시작한다.
 
 ## Runtime / Persistence Context
 

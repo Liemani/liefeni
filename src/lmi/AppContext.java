@@ -3,7 +3,6 @@ package lmi;
 import haven.*;
 import java.util.ArrayList;
 import java.util.List;
-import lmi.waypoint.WaypointManager;
 import static lmi.Constant.gfx.hud.meter.*;
 
 public class AppContext {
@@ -34,14 +33,6 @@ public class AppContext {
 
   // Unified Initialization
   public static void init() {
-    WaitManager.init();
-    AgentManager.init();
-    Pathfinder.init();
-    ChatInputMonitor.clear();
-    PortalMonitor.clear();
-    WaypointManager.clear();
-    LmiBootstrap.init();
-
     meterWidgets = new ArrayList<>();
   }
 
@@ -64,11 +55,6 @@ public class AppContext {
     session = null;
     glob = null;
     oCache = null;
-    RuntimeEventManager.clear();
-    ChatInputMonitor.clear();
-    PortalMonitor.clear();
-    WaypointManager.clear();
-    LmiBootstrap.init();
     resetWidgetCache();
   }
 
@@ -80,16 +66,18 @@ public class AppContext {
   public static void setRemoteUI(RemoteUI val) { remoteUI = val; }
   public static void setUI(UI val) { ui = val; }
   public static void setRootWidget(RootWidget val) {
-    if ((rootWidget != null) && (rootWidget != val))
-      resetWidgetCache();
     rootWidget = val;
   }
-  public static void setGameUI(GameUI val) { gameUI = val; }
-  public static void setMenuGrid(MenuGrid val) { menuGrid = val; }
-  public static void setMapView(MapView val) { mapView = val; }
+  public static void setGameUI(GameUI val) {
+    gameUI = val;
+  }
+  public static void setMenuGrid(MenuGrid val) {
+    menuGrid = val;
+  }
+  public static void setMapView(MapView val) {
+    mapView = val;
+  }
   public static void setSession(Session val) {
-    if ((session != null) && (session != val))
-      resetSessionState();
     session = val;
   }
   public static void setGlob(Glob val) { glob = val; }

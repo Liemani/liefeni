@@ -499,7 +499,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	this.clickmap = new ClickMap();
 	clmaptree.add(clickmap);
 	setcanfocus(true);
-	lmi.AppContext.setMapView(this);
+	lmi.LmiLifecycle.enterWorld(this);
     }
     
     protected void envdispose() {
@@ -511,6 +511,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
     }
 
     public void dispose() {
+        lmi.LmiLifecycle.leaveWorld();
 	gobs.slot.remove();
 	clmaplist.dispose();
 	clobjlist.dispose();

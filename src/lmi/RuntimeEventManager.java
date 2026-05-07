@@ -11,6 +11,13 @@ import static lmi.Constant.Timeout.TO_POLL;
 public final class RuntimeEventManager {
   private static final Object lock = new Object();
   private static final ArrayList<RuntimeEventHandler> handlers = new ArrayList<>();
+  private static final RuntimeEventHandler waypointRefreshHandler = new RuntimeEventHandler() {
+    @Override
+    public boolean handle() {
+      WaypointManager.processRefreshRequests();
+      return false;
+    }
+  };
 
   private static Thread thread;
   private static boolean running = false;
@@ -19,9 +26,7 @@ public final class RuntimeEventManager {
 
   public static void init() {
     synchronized (lock) {
-      handlers.clear();
       running = true;
-      _addPersistentHandlers();
       if (thread != null && thread.isAlive())
         return;
 
@@ -34,6 +39,17 @@ public final class RuntimeEventManager {
   public static void clear() {
     synchronized (lock) {
       handlers.clear();
+      lock.notifyAll();
+    }
+  }
+
+  public static void registerWaypointRefreshHandler() {
+    _addHandler(waypointRefreshHandler);
+  }
+
+  public static void unregisterWaypointRefreshHandler() {
+    synchronized (lock) {
+      handlers.remove(waypointRefreshHandler);
       lock.notifyAll();
     }
   }
@@ -53,6 +69,8 @@ public final class RuntimeEventManager {
 
   private static void _addHandler(RuntimeEventHandler handler) {
     synchronized (lock) {
+      if (handlers.contains(handler))
+        return;
       handlers.add(handler);
       lock.notifyAll();
     }
@@ -105,15 +123,5 @@ public final class RuntimeEventManager {
 
   public interface RuntimeEventHandler {
     boolean handle();
-  }
-
-  private static void _addPersistentHandlers() {
-    handlers.add(new RuntimeEventHandler() {
-      @Override
-      public boolean handle() {
-        WaypointManager.processRefreshRequests();
-        return false;
-      }
-    });
   }
 }

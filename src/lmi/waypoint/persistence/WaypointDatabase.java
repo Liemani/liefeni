@@ -19,12 +19,29 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 final class WaypointDatabase {
+  private static final String WAYPOINT_SCHEMA_NAMESPACE = "waypoint";
+  private static final int WAYPOINT_SCHEMA_VERSION = 1;
+
   private WaypointDatabase() {}
 
   static void initialize(Connection conn) throws Exception {
     Class.forName("org.sqlite.JDBC");
     enableForeignKeys(conn);
-    createSchema(conn);
+    ensureSchemaVersionTable(conn);
+
+    Integer currentVersion = loadSchemaVersion(conn);
+    if (currentVersion == null) {
+      createSchema(conn);
+      saveSchemaVersion(conn, WAYPOINT_SCHEMA_VERSION);
+      return;
+    }
+
+    if (currentVersion != WAYPOINT_SCHEMA_VERSION) {
+      throw new IllegalStateException(
+        "Waypoint schema version mismatch: expected " + WAYPOINT_SCHEMA_VERSION + ", found " + currentVersion +
+          ". Delete the waypoint DB file and restart."
+      );
+    }
   }
 
   static CreateNodeResult createNode(
@@ -68,6 +85,30 @@ final class WaypointDatabase {
       }
     } catch (Exception e) {
       throw new RuntimeException("Failed to load wp_node rows by graph " + graphId + ": " + e.getMessage(), e);
+    }
+    return nodes;
+  }
+
+  static ArrayList<WpNodeRecord> loadNodesByGridId(Connection conn, long gridId) {
+    ArrayList<WpNodeRecord> nodes = new ArrayList<>();
+    try (PreparedStatement stmt = conn.prepareStatement(
+           "SELECT id, graph_id, grid_id, local_x, local_y, name " +
+           "FROM wp_node WHERE grid_id = ? ORDER BY id")) {
+      stmt.setLong(1, gridId);
+      try (ResultSet rs = stmt.executeQuery()) {
+        while (rs.next()) {
+          nodes.add(new WpNodeRecord(
+            rs.getLong("id"),
+            rs.getLong("graph_id"),
+            rs.getLong("grid_id"),
+            rs.getInt("local_x"),
+            rs.getInt("local_y"),
+            rs.getString("name")
+          ));
+        }
+      }
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to load wp_node rows by grid " + gridId + ": " + e.getMessage(), e);
     }
     return nodes;
   }
@@ -229,6 +270,37 @@ final class WaypointDatabase {
   private static void enableForeignKeys(Connection conn) throws SQLException {
     try (Statement stmt = conn.createStatement()) {
       stmt.execute("PRAGMA foreign_keys = ON");
+    }
+  }
+
+  private static void ensureSchemaVersionTable(Connection conn) throws SQLException {
+    try (Statement stmt = conn.createStatement()) {
+      stmt.execute(
+        "CREATE TABLE IF NOT EXISTS wp_meta (" +
+        "  key TEXT PRIMARY KEY," +
+        "  value TEXT NOT NULL" +
+        ")"
+      );
+    }
+  }
+
+  private static Integer loadSchemaVersion(Connection conn) throws SQLException {
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "SELECT value FROM wp_meta WHERE key = ?")) {
+      stmt.setString(1, WAYPOINT_SCHEMA_NAMESPACE + ".schema_version");
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (!rs.next()) return null;
+        return Integer.parseInt(rs.getString("value"));
+      }
+    }
+  }
+
+  private static void saveSchemaVersion(Connection conn, int version) throws SQLException {
+    try (PreparedStatement stmt = conn.prepareStatement(
+      "INSERT OR REPLACE INTO wp_meta(key, value) VALUES (?, ?)")) {
+      stmt.setString(1, WAYPOINT_SCHEMA_NAMESPACE + ".schema_version");
+      stmt.setString(2, Integer.toString(version));
+      stmt.executeUpdate();
     }
   }
 

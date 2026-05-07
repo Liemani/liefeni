@@ -8,8 +8,10 @@ import lmi.waypoint.db.WpSegmentRecord;
 import lmi.waypoint.managed.SaveBatch;
 import lmi.waypoint.managed.WpNodeSnapshot;
 import lmi.waypoint.model.CreateNodeResult;
+import lmi.waypoint.model.EnsureMapGridResult;
 import lmi.waypoint.model.LoadEdgesByGraphResult;
 import lmi.waypoint.model.LoadNodesByGraphResult;
+import lmi.waypoint.model.LoadNodesByGridResult;
 import lmi.waypoint.model.LoadPointsByCutResult;
 import lmi.waypoint.model.LoadSegmentsByCutResult;
 import lmi.waypoint.object.WpEdge;
@@ -18,10 +20,16 @@ import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 
 public final class WaypointStore {
   private WaypointStore() {}
+
+  public static void initializeAsync(WaypointResultHandler<EmptyWaypointResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> EmptyWaypointResult.INSTANCE,
+      handler
+    );
+  }
 
   public static void createNodeAsync(
     String nodeName,
@@ -61,6 +69,18 @@ public final class WaypointStore {
         for (WpNodeRecord record : WaypointDatabase.loadNodesByGraph(conn, graphId))
           nodes.append(WpNode.fromRecord(record));
         return new LoadNodesByGraphResult(graphId, nodes);
+      },
+      handler
+    );
+  }
+
+  public static void loadNodesByGridAsync(long gridId, WaypointResultHandler<LoadNodesByGridResult> handler) {
+    WaypointDbExecutor.submitRead(
+      conn -> {
+        Array<WpNode> nodes = new Array<>();
+        for (WpNodeRecord record : WaypointDatabase.loadNodesByGridId(conn, gridId))
+          nodes.append(WpNode.fromRecord(record));
+        return new LoadNodesByGridResult(gridId, nodes);
       },
       handler
     );
@@ -122,14 +142,19 @@ public final class WaypointStore {
     }
   }
 
-  public static long ensureMapGridId(long mapSegmentId, int localX, int localY, long havenGridId) {
-    try (Connection conn = DriverManager.getConnection(WaypointDatabase.jdbcUrl())) {
-      return WaypointDatabase.ensureMapGrid(conn, mapSegmentId, localX, localY, havenGridId);
-    } catch (Exception e) {
-      throw new RuntimeException(
-        "Failed to ensure map_grid for haven grid " + havenGridId + " in segment " + mapSegmentId + ": " + e.getMessage(),
-        e
-      );
-    }
+  public static void ensureMapGridAsync(
+    long mapSegmentId,
+    int localX,
+    int localY,
+    long havenGridId,
+    WaypointResultHandler<EnsureMapGridResult> handler
+  ) {
+    WaypointDbExecutor.submitWrite(
+      conn -> {
+        long mapGridId = WaypointDatabase.ensureMapGrid(conn, mapSegmentId, localX, localY, havenGridId);
+        return new EnsureMapGridResult(mapGridId, mapSegmentId, havenGridId, localX, localY);
+      },
+      handler
+    );
   }
 }

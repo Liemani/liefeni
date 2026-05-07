@@ -308,7 +308,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	opts.hide();
 	zerg = add(new Zergwnd(), Utils.getprefc("wndc-zerg", UI.scale(new Coord(187, 50))));
 	zerg.hide();
-        lmi.AppContext.setGameUI(this);
+        lmi.LmiLifecycle.setGameUI(this);
     }
 
     protected void attached() {
@@ -815,8 +815,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	    }
 	} else if(place == "menu") {
 	    menu = (MenuGrid)brpanel.add(child, menugridc);
-            lmi.AppContext.setMenuGrid(menu);
-            lmi.MenuGridProxy.init();
+            lmi.LmiLifecycle.setMenuGrid(menu);
 	} else if(place == "fight") {
 	    fv = urpanel.add((Fightview)child, 0, 0);
 	} else if(place == "fsess") {
