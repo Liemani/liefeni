@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/Patrol000Job.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `Patrol000Job`
+- Target: `agent.test.Patrol000Job`
+- Owner: `agent.test`
+- Concept: `Patrol000Job`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

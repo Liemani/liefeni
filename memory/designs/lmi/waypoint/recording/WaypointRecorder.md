@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/recording/WaypointRecorder.java`
-- Package: `lmi.waypoint.recording`
-- Declared Type: `class`
-- Declared Name: `WaypointRecorder`
+- Target: `lmi.waypoint.recording.WaypointRecorder`
+- Owner: `lmi.waypoint.recording`
+- Concept: `WaypointRecorder`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

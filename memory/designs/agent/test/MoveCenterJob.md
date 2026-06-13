@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/MoveCenterJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `MoveCenterJob`
+- Target: `agent.test.MoveCenterJob`
+- Owner: `agent.test`
+- Concept: `MoveCenterJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

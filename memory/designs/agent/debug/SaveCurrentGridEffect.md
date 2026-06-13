@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/SaveCurrentGridEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `SaveCurrentGridEffect`
+- Target: `agent.debug.SaveCurrentGridEffect`
+- Owner: `agent.debug`
+- Concept: `SaveCurrentGridEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

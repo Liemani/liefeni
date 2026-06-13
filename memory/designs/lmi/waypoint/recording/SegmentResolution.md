@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/recording/SegmentResolution.java`
-- Package: `lmi.waypoint.recording`
-- Declared Type: `class`
-- Declared Name: `SegmentResolution`
+- Target: `lmi.waypoint.recording.SegmentResolution`
+- Owner: `lmi.waypoint.recording`
+- Concept: `SegmentResolution`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

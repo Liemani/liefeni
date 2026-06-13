@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/ToggleWaypointOverlayTestEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `ToggleWaypointOverlayTestEffect`
+- Target: `agent.debug.ToggleWaypointOverlayTestEffect`
+- Owner: `agent.debug`
+- Concept: `ToggleWaypointOverlayTestEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

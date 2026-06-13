@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/GridPosition.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `GridPosition`
+- Target: `lmi.waypoint.runtime.GridPosition`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `GridPosition`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

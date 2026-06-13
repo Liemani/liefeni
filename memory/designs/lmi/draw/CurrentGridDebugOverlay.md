@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/draw/CurrentGridDebugOverlay.java`
-- Package: `lmi.draw`
-- Declared Type: `class`
-- Declared Name: `CurrentGridDebugOverlay`
+- Target: `lmi.draw.CurrentGridDebugOverlay`
+- Owner: `lmi.draw`
+- Concept: `CurrentGridDebugOverlay`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `MapOverlay`
 
 ## Role

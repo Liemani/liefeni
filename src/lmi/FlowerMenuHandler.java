@@ -2,7 +2,7 @@ package lmi;
 
 import haven.Gob;
 
-import lmi.Constant.Message;
+import lmi.bridge.ProgressManager;
 import static lmi.Constant.ExceptionReason.*;
 import static lmi.Constant.Timeout.*;
 

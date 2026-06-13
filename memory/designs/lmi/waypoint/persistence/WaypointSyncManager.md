@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointSyncManager.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `WaypointSyncManager`
+- Target: `lmi.waypoint.persistence.WaypointSyncManager`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointSyncManager`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

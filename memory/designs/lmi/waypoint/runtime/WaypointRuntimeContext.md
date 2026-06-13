@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/WaypointRuntimeContext.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `WaypointRuntimeContext`
+- Target: `lmi.waypoint.runtime.WaypointRuntimeContext`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `WaypointRuntimeContext`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

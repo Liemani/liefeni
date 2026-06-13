@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/tool/tool.java`
-- Package: `agent.tool`
-- Declared Type: `class`
-- Declared Name: `tool`
+- Target: `agent.tool.tool`
+- Owner: `agent.tool`
+- Concept: `tool`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

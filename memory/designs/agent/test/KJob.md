@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/KJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `KJob`
+- Target: `agent.test.KJob`
+- Owner: `agent.test`
+- Concept: `KJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/EnteringPortal.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `EnteringPortal`
+- Target: `lmi.waypoint.runtime.EnteringPortal`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `EnteringPortal`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

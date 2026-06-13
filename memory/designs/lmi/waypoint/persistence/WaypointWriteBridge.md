@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointWriteBridge.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `WaypointWriteBridge`
+- Target: `lmi.waypoint.persistence.WaypointWriteBridge`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointWriteBridge`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

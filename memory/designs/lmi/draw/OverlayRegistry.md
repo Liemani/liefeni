@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/draw/OverlayRegistry.java`
-- Package: `lmi.draw`
-- Declared Type: `class`
-- Declared Name: `OverlayRegistry`
+- Target: `lmi.draw.OverlayRegistry`
+- Owner: `lmi.draw`
+- Concept: `OverlayRegistry`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

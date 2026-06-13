@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/managed/WpNodeSnapshot.java`
-- Package: `lmi.waypoint.managed`
-- Declared Type: `class`
-- Declared Name: `WpNodeSnapshot`
+- Target: `lmi.waypoint.managed.WpNodeSnapshot`
+- Owner: `lmi.waypoint.managed`
+- Concept: `WpNodeSnapshot`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

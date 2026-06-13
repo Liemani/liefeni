@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/recording/RecordingSessionPlanner.java`
-- Package: `lmi.waypoint.recording`
-- Declared Type: `class`
-- Declared Name: `RecordingSessionPlanner`
+- Target: `lmi.waypoint.recording.RecordingSessionPlanner`
+- Owner: `lmi.waypoint.recording`
+- Concept: `RecordingSessionPlanner`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

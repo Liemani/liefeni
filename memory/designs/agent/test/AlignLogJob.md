@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/AlignLogJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `AlignLogJob`
+- Target: `agent.test.AlignLogJob`
+- Owner: `agent.test`
+- Concept: `AlignLogJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

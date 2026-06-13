@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/draw/MapOverlay.java`
-- Package: `lmi.draw`
-- Declared Type: `interface`
-- Declared Name: `MapOverlay`
+- Target: `lmi.draw.MapOverlay`
+- Owner: `lmi.draw`
+- Concept: `MapOverlay`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

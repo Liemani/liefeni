@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/WaypointGridResolver.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `WaypointGridResolver`
+- Target: `lmi.waypoint.runtime.WaypointGridResolver`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `WaypointGridResolver`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

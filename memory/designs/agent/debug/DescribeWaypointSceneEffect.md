@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/DescribeWaypointSceneEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `DescribeWaypointSceneEffect`
+- Target: `agent.debug.DescribeWaypointSceneEffect`
+- Owner: `agent.debug`
+- Concept: `DescribeWaypointSceneEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

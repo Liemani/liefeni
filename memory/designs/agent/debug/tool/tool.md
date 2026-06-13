@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/tool.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `tool`
+- Target: `agent.debug.tool.tool`
+- Owner: `agent.debug.tool`
+- Concept: `tool`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/draw/LmiOverlay.java`
-- Package: `lmi.draw`
-- Declared Type: `class`
-- Declared Name: `LmiOverlay`
+- Target: `lmi.draw.LmiOverlay`
+- Owner: `lmi.draw`
+- Concept: `LmiOverlay`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

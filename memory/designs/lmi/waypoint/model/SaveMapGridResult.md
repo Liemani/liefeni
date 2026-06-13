@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/SaveMapGridResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `SaveMapGridResult`
+- Target: `lmi.waypoint.model.SaveMapGridResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `SaveMapGridResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/WaypointManager.java`
-- Package: `lmi.waypoint`
-- Declared Type: `class`
-- Declared Name: `WaypointManager`
+- Target: `lmi.waypoint.WaypointManager`
+- Owner: `lmi.waypoint`
+- Concept: `WaypointManager`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

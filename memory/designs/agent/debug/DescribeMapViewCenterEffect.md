@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/DescribeMapViewCenterEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `DescribeMapViewCenterEffect`
+- Target: `agent.debug.DescribeMapViewCenterEffect`
+- Owner: `agent.debug`
+- Concept: `DescribeMapViewCenterEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

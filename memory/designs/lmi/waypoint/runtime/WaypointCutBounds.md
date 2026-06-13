@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/WaypointCutBounds.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `WaypointCutBounds`
+- Target: `lmi.waypoint.runtime.WaypointCutBounds`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `WaypointCutBounds`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

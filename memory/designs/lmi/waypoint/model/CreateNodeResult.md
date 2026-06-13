@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/CreateNodeResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `CreateNodeResult`
+- Target: `lmi.waypoint.model.CreateNodeResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `CreateNodeResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

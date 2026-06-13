@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/LoadSegmentsByCutResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `LoadSegmentsByCutResult`
+- Target: `lmi.waypoint.model.LoadSegmentsByCutResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `LoadSegmentsByCutResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

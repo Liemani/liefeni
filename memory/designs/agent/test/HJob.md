@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/HJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `HJob`
+- Target: `agent.test.HJob`
+- Owner: `agent.test`
+- Concept: `HJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

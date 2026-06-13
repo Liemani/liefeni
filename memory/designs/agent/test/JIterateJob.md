@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/JIterateJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `JIterateJob`
+- Target: `agent.test.JIterateJob`
+- Owner: `agent.test`
+- Concept: `JIterateJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/setting/setting.java`
-- Package: `agent.setting`
-- Declared Type: `class`
-- Declared Name: `setting`
+- Target: `agent.setting.setting`
+- Owner: `agent.setting`
+- Concept: `setting`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

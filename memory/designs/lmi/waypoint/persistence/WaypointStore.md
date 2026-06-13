@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointStore.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `WaypointStore`
+- Target: `lmi.waypoint.persistence.WaypointStore`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointStore`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

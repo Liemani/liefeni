@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/object/WpSegment.java`
-- Package: `lmi.waypoint.object`
-- Declared Type: `class`
-- Declared Name: `WpSegment`
+- Target: `lmi.waypoint.object.WpSegment`
+- Owner: `lmi.waypoint.object`
+- Concept: `WpSegment`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

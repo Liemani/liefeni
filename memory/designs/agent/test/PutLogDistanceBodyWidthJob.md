@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/PutLogDistanceBodyWidthJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `PutLogDistanceBodyWidthJob`
+- Target: `agent.test.PutLogDistanceBodyWidthJob`
+- Owner: `agent.test`
+- Concept: `PutLogDistanceBodyWidthJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/ResolvedPoint.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `ResolvedPoint`
+- Target: `lmi.waypoint.runtime.ResolvedPoint`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `ResolvedPoint`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/DescribeSelfJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `DescribeSelfJob`
+- Target: `agent.debug.tool.DescribeSelfJob`
+- Owner: `agent.debug.tool`
+- Concept: `DescribeSelfJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

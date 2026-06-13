@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/PendingPortalTransition.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `PendingPortalTransition`
+- Target: `lmi.waypoint.model.PendingPortalTransition`
+- Owner: `lmi.waypoint.model`
+- Concept: `PendingPortalTransition`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

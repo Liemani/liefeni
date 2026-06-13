@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/RecordingClick.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `RecordingClick`
+- Target: `lmi.waypoint.model.RecordingClick`
+- Owner: `lmi.waypoint.model`
+- Concept: `RecordingClick`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

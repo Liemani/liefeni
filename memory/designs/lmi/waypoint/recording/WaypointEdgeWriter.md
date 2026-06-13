@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/recording/WaypointEdgeWriter.java`
-- Package: `lmi.waypoint.recording`
-- Declared Type: `class`
-- Declared Name: `WaypointEdgeWriter`
+- Target: `lmi.waypoint.recording.WaypointEdgeWriter`
+- Owner: `lmi.waypoint.recording`
+- Concept: `WaypointEdgeWriter`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

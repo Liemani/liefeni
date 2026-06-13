@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/managed/SaveBatch.java`
-- Package: `lmi.waypoint.managed`
-- Declared Type: `class`
-- Declared Name: `SaveBatch`
+- Target: `lmi.waypoint.managed.SaveBatch`
+- Owner: `lmi.waypoint.managed`
+- Concept: `SaveBatch`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

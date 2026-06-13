@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/tool/waypoint/StopRecordJob.java`
-- Package: `agent.tool.waypoint`
-- Declared Type: `interface`
-- Declared Name: `EndNodeHandler`
+- Target: `agent.tool.waypoint.StopRecordJob`
+- Owner: `agent.tool.waypoint`
+- Concept: `StopRecordJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

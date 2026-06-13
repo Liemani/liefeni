@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/PrintIconsJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `PrintIconsJob`
+- Target: `agent.debug.tool.PrintIconsJob`
+- Owner: `agent.debug.tool`
+- Concept: `PrintIconsJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

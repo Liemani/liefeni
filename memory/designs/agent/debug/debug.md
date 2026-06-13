@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/debug.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `debug`
+- Target: `agent.debug.debug`
+- Owner: `agent.debug`
+- Concept: `debug`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

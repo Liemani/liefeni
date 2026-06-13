@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/DescribeMCacheGridsEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `DescribeMCacheGridsEffect`
+- Target: `agent.debug.DescribeMCacheGridsEffect`
+- Owner: `agent.debug`
+- Concept: `DescribeMCacheGridsEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

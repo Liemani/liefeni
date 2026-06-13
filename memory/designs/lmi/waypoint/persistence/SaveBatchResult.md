@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/SaveBatchResult.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `SaveBatchResult`
+- Target: `lmi.waypoint.persistence.SaveBatchResult`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `SaveBatchResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

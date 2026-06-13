@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/WaypointScene.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `WaypointScene`
+- Target: `lmi.waypoint.runtime.WaypointScene`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `WaypointScene`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

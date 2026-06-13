@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointWriteRequest.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `interface`
-- Declared Name: `WaypointWriteRequest`
+- Target: `lmi.waypoint.persistence.WaypointWriteRequest`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointWriteRequest`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `WaypointResult>`
 
 ## Role

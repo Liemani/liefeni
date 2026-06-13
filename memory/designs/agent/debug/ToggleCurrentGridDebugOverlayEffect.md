@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/ToggleCurrentGridDebugOverlayEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `ToggleCurrentGridDebugOverlayEffect`
+- Target: `agent.debug.ToggleCurrentGridDebugOverlayEffect`
+- Owner: `agent.debug`
+- Concept: `ToggleCurrentGridDebugOverlayEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

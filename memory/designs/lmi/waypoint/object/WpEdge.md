@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/object/WpEdge.java`
-- Package: `lmi.waypoint.object`
-- Declared Type: `class`
-- Declared Name: `WpEdge`
+- Target: `lmi.waypoint.object.WpEdge`
+- Owner: `lmi.waypoint.object`
+- Concept: `WpEdge`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

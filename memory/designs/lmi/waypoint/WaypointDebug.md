@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/WaypointDebug.java`
-- Package: `lmi.waypoint`
-- Declared Type: `class`
-- Declared Name: `WaypointDebug`
+- Target: `lmi.waypoint.WaypointDebug`
+- Owner: `lmi.waypoint`
+- Concept: `WaypointDebug`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/CompareReappearedGobJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `CompareReappearedGobJob`
+- Target: `agent.debug.tool.CompareReappearedGobJob`
+- Owner: `agent.debug.tool`
+- Concept: `CompareReappearedGobJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

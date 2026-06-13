@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/LoadNodesByGraphResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `LoadNodesByGraphResult`
+- Target: `lmi.waypoint.model.LoadNodesByGraphResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `LoadNodesByGraphResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

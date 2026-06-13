@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/JJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `JJob`
+- Target: `agent.test.JJob`
+- Owner: `agent.test`
+- Concept: `JJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

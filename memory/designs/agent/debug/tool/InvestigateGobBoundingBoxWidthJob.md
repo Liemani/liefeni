@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/InvestigateGobBoundingBoxWidthJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `InvestigateGobBoundingBoxWidthJob`
+- Target: `agent.debug.tool.InvestigateGobBoundingBoxWidthJob`
+- Owner: `agent.debug.tool`
+- Concept: `InvestigateGobBoundingBoxWidthJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

@@ -4,16 +4,19 @@
 
 ## Meta
 
-- Status: <Draft / Active / Replaced / Archived>
-- Date: YYYY-MM-DD
+- Target: <document subject or interaction target>
+- Owner: <design area, e.g. lmi.bridge>
+- Concept: <design item name>
+- Created: YYYY-MM-DD
+- Updated: YYYY-MM-DD
 - Related Issues:
-- [<issue file>](../issues/<issue file>)
+  - [<issue file>](../issues/<issue file>)
 - Related Decisions:
-- [<decision file>](../decisions/<decision file>)
+  - [<decision file>](../decisions/<decision file>)
 - Related Tasks:
-- [<task file>](../tasks/<task file>)
+  - [<task file>](../tasks/<task file>)
 - Indexes:
-- [<index file>](../indexes/<index file>)
+  - [<index file>](../indexes/<index file>)
 
 ## Context
 

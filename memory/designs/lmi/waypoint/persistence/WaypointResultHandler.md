@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointResultHandler.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `interface`
-- Declared Name: `WaypointResultHandler`
+- Target: `lmi.waypoint.persistence.WaypointResultHandler`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointResultHandler`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `WaypointResult>`
 
 ## Role

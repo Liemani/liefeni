@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/InvestigateGobBoundingBoxHeightJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `InvestigateGobBoundingBoxHeightJob`
+- Target: `agent.debug.tool.InvestigateGobBoundingBoxHeightJob`
+- Owner: `agent.debug.tool`
+- Concept: `InvestigateGobBoundingBoxHeightJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

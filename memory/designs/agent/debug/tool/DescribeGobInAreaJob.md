@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/DescribeGobInAreaJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `DescribeGobInAreaJob`
+- Target: `agent.debug.tool.DescribeGobInAreaJob`
+- Owner: `agent.debug.tool`
+- Concept: `DescribeGobInAreaJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

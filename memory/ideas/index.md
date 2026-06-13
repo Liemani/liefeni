@@ -7,6 +7,7 @@
 - [design-minimap-cave-icon-db.md](design-minimap-cave-icon-db.md)
 - [check-direct-paginae-class-definition.md](check-direct-paginae-class-definition.md)
 - [diagnostic-message-standardization.md](diagnostic-message-standardization.md)
+- [timer.md](timer.md)
 
 ## Promoted
 
@@ -15,3 +16,7 @@
 ## Dropped
 
 - 없음
+
+## Ideas
+
+- [lmi-writing-rules-for-minimal-haven-patches.md](lmi-writing-rules-for-minimal-haven-patches.md)

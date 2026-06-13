@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/dev/BuildDryingFrameJob.java`
-- Package: `agent.dev`
-- Declared Type: `class`
-- Declared Name: `BuildDryingFrameJob`
+- Target: `agent.dev.BuildDryingFrameJob`
+- Owner: `agent.dev`
+- Concept: `BuildDryingFrameJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

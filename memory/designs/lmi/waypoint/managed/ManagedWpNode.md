@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/managed/ManagedWpNode.java`
-- Package: `lmi.waypoint.managed`
-- Declared Type: `class`
-- Declared Name: `ManagedWpNode`
+- Target: `lmi.waypoint.managed.ManagedWpNode`
+- Owner: `lmi.waypoint.managed`
+- Concept: `ManagedWpNode`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `ManagedObject`
 
 ## Role

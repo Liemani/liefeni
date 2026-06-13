@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/Job.java`
-- Package: `agent`
-- Declared Type: `class`
-- Declared Name: `Job`
+- Target: `agent.Job`
+- Owner: `agent`
+- Concept: `Job`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

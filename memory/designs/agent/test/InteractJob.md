@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/InteractJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `InteractJob`
+- Target: `agent.test.InteractJob`
+- Owner: `agent.test`
+- Concept: `InteractJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/PrintAllISBoxTextJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `PrintAllISBoxTextJob`
+- Target: `agent.debug.tool.PrintAllISBoxTextJob`
+- Owner: `agent.debug.tool`
+- Concept: `PrintAllISBoxTextJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/tool/waypoint/NavigateJob.java`
-- Package: `agent.tool.waypoint`
-- Declared Type: `class`
-- Declared Name: `NavigateJob`
+- Target: `agent.tool.waypoint.NavigateJob`
+- Owner: `agent.tool.waypoint`
+- Concept: `NavigateJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

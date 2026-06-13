@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/LoadNodesByGridResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `LoadNodesByGridResult`
+- Target: `lmi.waypoint.model.LoadNodesByGridResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `LoadNodesByGridResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

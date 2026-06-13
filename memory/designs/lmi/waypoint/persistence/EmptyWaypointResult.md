@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/EmptyWaypointResult.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `EmptyWaypointResult`
+- Target: `lmi.waypoint.persistence.EmptyWaypointResult`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `EmptyWaypointResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

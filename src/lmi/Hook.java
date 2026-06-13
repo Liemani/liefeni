@@ -2,6 +2,7 @@ package lmi;
 
 import haven.*;
 import agent.Effect;
+import lmi.bridge.ProgressManager;
 import lmi.draw.LmiOverlay;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.persistence.WaypointSyncManager;

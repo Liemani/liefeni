@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/LoadEdgesByGraphResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `LoadEdgesByGraphResult`
+- Target: `lmi.waypoint.model.LoadEdgesByGraphResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `LoadEdgesByGraphResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/db/WpSegmentRecord.java`
-- Package: `lmi.waypoint.db`
-- Declared Type: `class`
-- Declared Name: `WpSegmentRecord`
+- Target: `lmi.waypoint.db.WpSegmentRecord`
+- Owner: `lmi.waypoint.db`
+- Concept: `WpSegmentRecord`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

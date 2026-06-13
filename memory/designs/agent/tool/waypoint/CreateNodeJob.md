@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/tool/waypoint/CreateNodeJob.java`
-- Package: `agent.tool.waypoint`
-- Declared Type: `class`
-- Declared Name: `CreateNodeJob`
+- Target: `agent.tool.waypoint.CreateNodeJob`
+- Owner: `agent.tool.waypoint`
+- Concept: `CreateNodeJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

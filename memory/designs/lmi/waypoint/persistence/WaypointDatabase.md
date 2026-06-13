@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointDatabase.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `WaypointDatabase`
+- Target: `lmi.waypoint.persistence.WaypointDatabase`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointDatabase`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

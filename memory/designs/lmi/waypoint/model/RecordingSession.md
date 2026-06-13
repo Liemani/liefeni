@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/RecordingSession.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `RecordingSession`
+- Target: `lmi.waypoint.model.RecordingSession`
+- Owner: `lmi.waypoint.model`
+- Concept: `RecordingSession`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

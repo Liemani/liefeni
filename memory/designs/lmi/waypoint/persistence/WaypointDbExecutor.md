@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointDbExecutor.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `class`
-- Declared Name: `Task`
+- Target: `lmi.waypoint.persistence.WaypointDbExecutor`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointDbExecutor`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `WaypointResult>`
 
 ## Role

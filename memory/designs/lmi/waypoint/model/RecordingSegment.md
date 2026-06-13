@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/RecordingSegment.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `RecordingSegment`
+- Target: `lmi.waypoint.model.RecordingSegment`
+- Owner: `lmi.waypoint.model`
+- Concept: `RecordingSegment`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

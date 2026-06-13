@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/behavior/AlignLogBehavior.java`
-- Package: `lmi.behavior`
-- Declared Type: `class`
-- Declared Name: `AlignLogBehavior`
+- Target: `lmi.behavior.AlignLogBehavior`
+- Owner: `lmi.behavior`
+- Concept: `AlignLogBehavior`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

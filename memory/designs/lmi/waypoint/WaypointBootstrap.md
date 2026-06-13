@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/WaypointBootstrap.java`
-- Package: `lmi.waypoint`
-- Declared Type: `class`
-- Declared Name: `WaypointBootstrap`
+- Target: `lmi.waypoint.WaypointBootstrap`
+- Owner: `lmi.waypoint`
+- Concept: `WaypointBootstrap`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

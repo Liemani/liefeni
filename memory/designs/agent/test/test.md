@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/test.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `test`
+- Target: `agent.test.test`
+- Owner: `agent.test`
+- Concept: `test`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

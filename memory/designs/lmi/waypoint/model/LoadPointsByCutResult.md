@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/LoadPointsByCutResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `LoadPointsByCutResult`
+- Target: `lmi.waypoint.model.LoadPointsByCutResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `LoadPointsByCutResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

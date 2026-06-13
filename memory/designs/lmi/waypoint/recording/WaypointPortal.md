@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/recording/WaypointPortal.java`
-- Package: `lmi.waypoint.recording`
-- Declared Type: `class`
-- Declared Name: `WaypointPortal`
+- Target: `lmi.waypoint.recording.WaypointPortal`
+- Owner: `lmi.waypoint.recording`
+- Concept: `WaypointPortal`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

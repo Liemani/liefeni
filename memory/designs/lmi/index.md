@@ -6,39 +6,12 @@
 
 - Defines the core LMI runtime, lifecycle, and shared helper classes.
 
-## Files
-
-- [Agent.md](Agent.md)
-- [AgentConfig.md](AgentConfig.md)
-- [AgentContext.md](AgentContext.md)
-- [AgentManager.md](AgentManager.md)
-- [AgentRegistry.md](AgentRegistry.md)
-- [Api.md](Api.md)
-- [AppContext.md](AppContext.md)
-- [Array.md](Array.md)
-- [AtomicAction.md](AtomicAction.md)
-- [ChatInputMonitor.md](ChatInputMonitor.md)
-- [ClickManager.md](ClickManager.md)
-- [CommandHandler.md](CommandHandler.md)
-- [Constant.md](Constant.md)
-- [FlowerMenuHandler.md](FlowerMenuHandler.md)
-- [GobFinder.md](GobFinder.md)
-- [Hook.md](Hook.md)
-- [Interaction.md](Interaction.md)
-- [LMIException.md](LMIException.md)
-- [LmiLifecycle.md](LmiLifecycle.md)
-- [MenuGridProxy.md](MenuGridProxy.md)
-- [Pathfinder.md](Pathfinder.md)
-- [PortalMonitor.md](PortalMonitor.md)
-- [ProgressManager.md](ProgressManager.md)
-- [Rect.md](Rect.md)
-- [RuntimeEventManager.md](RuntimeEventManager.md)
-- [Self.md](Self.md)
-- [Util.md](Util.md)
-- [WaitManager.md](WaitManager.md)
-
 ## Child Packages
 
+- [core/](core/index.md)
+- [bridge/](bridge/index.md)
+- [lifecycle/](lifecycle/index.md)
+- [runtime/](runtime/index.md)
 - [behavior/](behavior/index.md)
 - [draw/](draw/index.md)
 - [waypoint/](waypoint/index.md)

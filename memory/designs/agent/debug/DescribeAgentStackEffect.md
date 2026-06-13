@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/DescribeAgentStackEffect.java`
-- Package: `agent.debug`
-- Declared Type: `class`
-- Declared Name: `DescribeAgentStackEffect`
+- Target: `agent.debug.DescribeAgentStackEffect`
+- Owner: `agent.debug`
+- Concept: `DescribeAgentStackEffect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Effect`
 
 ## Role

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/test/LiftJob.java`
-- Package: `agent.test`
-- Declared Type: `class`
-- Declared Name: `LiftJob`
+- Target: `agent.test.LiftJob`
+- Owner: `agent.test`
+- Concept: `LiftJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

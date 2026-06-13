@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/managed/ManagedObjectContext.java`
-- Package: `lmi.waypoint.managed`
-- Declared Type: `class`
-- Declared Name: `Key`
+- Target: `lmi.waypoint.managed.ManagedObjectContext`
+- Owner: `lmi.waypoint.managed`
+- Concept: `ManagedObjectContext`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

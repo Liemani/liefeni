@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/WaypointGridBounds.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `WaypointGridBounds`
+- Target: `lmi.waypoint.runtime.WaypointGridBounds`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `WaypointGridBounds`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

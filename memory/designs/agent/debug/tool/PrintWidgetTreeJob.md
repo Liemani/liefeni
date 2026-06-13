@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/PrintWidgetTreeJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `PrintWidgetTreeJob`
+- Target: `agent.debug.tool.PrintWidgetTreeJob`
+- Owner: `agent.debug.tool`
+- Concept: `PrintWidgetTreeJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

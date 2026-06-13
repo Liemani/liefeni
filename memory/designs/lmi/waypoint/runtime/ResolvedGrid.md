@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/runtime/ResolvedGrid.java`
-- Package: `lmi.waypoint.runtime`
-- Declared Type: `class`
-- Declared Name: `ResolvedGrid`
+- Target: `lmi.waypoint.runtime.ResolvedGrid`
+- Owner: `lmi.waypoint.runtime`
+- Concept: `ResolvedGrid`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

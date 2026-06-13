@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/persistence/WaypointReadRequest.java`
-- Package: `lmi.waypoint.persistence`
-- Declared Type: `interface`
-- Declared Name: `WaypointReadRequest`
+- Target: `lmi.waypoint.persistence.WaypointReadRequest`
+- Owner: `lmi.waypoint.persistence`
+- Concept: `WaypointReadRequest`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `WaypointResult>`
 
 ## Role

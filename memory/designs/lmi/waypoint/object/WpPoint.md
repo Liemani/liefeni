@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/object/WpPoint.java`
-- Package: `lmi.waypoint.object`
-- Declared Type: `class`
-- Declared Name: `WpPoint`
+- Target: `lmi.waypoint.object.WpPoint`
+- Owner: `lmi.waypoint.object`
+- Concept: `WpPoint`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

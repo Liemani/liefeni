@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/model/SaveEdgeResult.java`
-- Package: `lmi.waypoint.model`
-- Declared Type: `class`
-- Declared Name: `SaveEdgeResult`
+- Target: `lmi.waypoint.model.SaveEdgeResult`
+- Owner: `lmi.waypoint.model`
+- Concept: `SaveEdgeResult`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Implements: `WaypointResult`
 
 ## Role

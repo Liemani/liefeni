@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/object/WpNode.java`
-- Package: `lmi.waypoint.object`
-- Declared Type: `class`
-- Declared Name: `WpNode`
+- Target: `lmi.waypoint.object.WpNode`
+- Owner: `lmi.waypoint.object`
+- Concept: `WpNode`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/lmi/waypoint/db/WpNodeRecord.java`
-- Package: `lmi.waypoint.db`
-- Declared Type: `class`
-- Declared Name: `WpNodeRecord`
+- Target: `lmi.waypoint.db.WpNodeRecord`
+- Owner: `lmi.waypoint.db`
+- Concept: `WpNodeRecord`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

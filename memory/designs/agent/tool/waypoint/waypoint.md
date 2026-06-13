@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/tool/waypoint/waypoint.java`
-- Package: `agent.tool.waypoint`
-- Declared Type: `class`
-- Declared Name: `waypoint`
+- Target: `agent.tool.waypoint.waypoint`
+- Owner: `agent.tool.waypoint`
+- Concept: `waypoint`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/effect/effect.java`
-- Package: `agent.effect`
-- Declared Type: `class`
-- Declared Name: `effect`
+- Target: `agent.effect.effect`
+- Owner: `agent.effect`
+- Concept: `effect`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 

@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/debug/tool/MeasureJob.java`
-- Package: `agent.debug.tool`
-- Declared Type: `class`
-- Declared Name: `MeasureJob`
+- Target: `agent.debug.tool.MeasureJob`
+- Owner: `agent.debug.tool`
+- Concept: `MeasureJob`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 - Extends: `Job`
 
 ## Role

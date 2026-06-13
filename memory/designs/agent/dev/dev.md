@@ -2,10 +2,11 @@
 
 ## Meta
 
-- Source: `src/agent/dev/dev.java`
-- Package: `agent.dev`
-- Declared Type: `class`
-- Declared Name: `dev`
+- Target: `agent.dev.dev`
+- Owner: `agent.dev`
+- Concept: `dev`
+- Created: `2026-06-13`
+- Updated: `2026-06-13`
 
 ## Role
 
