@@ -12,7 +12,6 @@ import lmi.waypoint.persistence.WaypointStore;
 
 public final class LmiLifecycle {
   private static boolean isProcessInitialized;
-  private static boolean isSessionEntered;
   private static boolean isWorldEntered;
   private static boolean isWidgetsEntered;
 
@@ -29,24 +28,23 @@ public final class LmiLifecycle {
   }
 
   public static synchronized void enterSession(Session session) {
-    AppContext.setSession(session);
-    if (isSessionEntered)
+    if (AppContext.session == session)
       return;
+    AppContext.setSession(session);
     WaitManager.init();
     RuntimeEventManager.init();
     WaypointBootstrap.init();
-    isSessionEntered = true;
   }
 
-  public static synchronized void leaveSession() {
-    if (!isSessionEntered)
+  public static synchronized void leaveSession(Session session) {
+    Util.debugPrintHeader("leaveSession");
+    if (AppContext.session != session)
       return;
     RuntimeEventManager.clear();
     ChatInputMonitor.clear();
     PortalMonitor.clear();
     WaypointManager.clear();
     AppContext.resetSessionState();
-    isSessionEntered = false;
   }
 
   public static synchronized void setRootWidget(RootWidget rootWidget) {

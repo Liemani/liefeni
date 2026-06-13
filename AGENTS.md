@@ -6,7 +6,7 @@
 - `src/lmi/`: LMI runtime, lifecycle, hooks, UI injection, sync, and waypoint infrastructure.
 - `src/agent/`: user-facing automation features. Main areas are `tool/` for `Job`s, `effect/` for instant actions, and `debug/` / `test/` for diagnostics.
 - `assets/`, `data/`, `etc/`: local resources and configuration inputs.
-- `doc/lmi/`: architecture and waypoint documentation. Start with `doc/lmi/runtime.md` and `doc/lmi/waypoint.md`.
+- `memory/wiki/`: architecture and waypoint documentation. Start with `memory/wiki/runtime.md` and `memory/wiki/waypoint.md`.
 
 ## Build, Test, and Development Commands
 
@@ -44,3 +44,4 @@ There is no single repository-wide automated test suite in regular use. `src/age
 
 - Lifecycle ownership should flow from Haven events into `LmiLifecycle`, not from `AppContext`.
 - Waypoint persistence should go through `WaypointStore` / `WaypointDbExecutor`; do not add direct ad hoc JDBC paths.
+- Broader working context lives in [memory/wiki/index.md](memory/wiki/index.md).
