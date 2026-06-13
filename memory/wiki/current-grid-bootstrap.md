@@ -1,31 +1,29 @@
 # Current Grid Bootstrap
 
-## Indexes
+## Meta
 
-- [../indexes/waypoint.md](../indexes/waypoint.md)
+- Date: 2026-06-13
+- Indexes:
+  - [waypoint.md](../indexes/waypoint.md)
+- Related Requirements:
+  - [wp-map-grid-row-must-exist-before-action.md](../decisions/wp-map-grid-row-must-exist-before-action.md)
+  - [wp-current-grid-eager-bootstrap-and-fallback.md](../decisions/wp-current-grid-eager-bootstrap-and-fallback.md)
+  - [db-initialize-must-be-enqueued-before-other-db-work.md](../decisions/db-initialize-must-be-enqueued-before-other-db-work.md)
+- Related Decisions:
+  - [waypoint-db-initialize-queue-order.md](../decisions/waypoint-db-initialize-queue-order.md)
+  - [waypoint-grid-save-next-refresh.md](../decisions/waypoint-grid-save-next-refresh.md)
+  - [current-grid-eager-and-lazy-save.md](../decisions/current-grid-eager-and-lazy-save.md)
 
 이 문서는 current player grid를 waypoint DB에 확보하는 현재 문제와, 이를 해결하기 위한 설계를 정리한다.
-
-관련 요구사항:
-
-- `REQ-WP-002`
-- `REQ-WP-003`
-- `REQ-DB-005`
-
-관련 결정:
-
-- `DEC-005`
-- `DEC-006`
-- `DEC-010`
 
 ## 문제
 
 현재 `CreateNodeJob`이 실패하는 직접 원인은:
 
-- 현재 player가 서 있는 Haven grid가 아직 waypoint DB의 `map_segment` / `map_grid` row로 확보되지 않았고
+- 현재 player가 서 있는 Haven grid가 아직 waypoint DB의 `map_segment` / `map_grid` record로 확보되지 않았고
 - `CreateNodeJob`이 그 상태에서 현재 grid 위치를 즉시 요구하기 때문이다
 
-즉 문제는 “새 DB라서 row가 없다” 자체가 아니라,
+즉 문제는 “새 DB라서 record가 없다” 자체가 아니라,
 
 - eager path가 약하고
 - lazy fallback이 불완전하며
@@ -59,14 +57,14 @@
 2. success callback에서 `WaypointManager.requestRefresh()`를 건다
 3. current player grid 확보 요청도 함께 시작한다
 
-즉 world enter 이후 가능한 빨리 현재 Haven grid를 `map_segment` / `map_grid` row로 확보하는 것이 기본 경로다.
+즉 world enter 이후 가능한 빨리 현재 Haven grid를 `map_segment` / `map_grid` record로 확보하는 것이 기본 경로다.
 
 ## 2. Refresh Lazy Fallback
 
 `WaypointManager.processRefreshRequests()`는 현재처럼:
 
 1. current world 위치에서 current Haven grid를 찾고
-2. waypoint `map_grid`가 아직 없으면 ensure request를 enqueue하고
+2. waypoint `map_grid`가 아직 없으면 저장 요청을 queue에 넣고
 3. 다음 tick / refresh에서 다시 본다
 
 이 경로는 eager path가 아직 끝나지 않았거나, 새로운 grid에 막 진입한 경우의 fallback이다.
@@ -89,14 +87,14 @@
 
 추천 helper:
 
-- `WaypointManager.ensureCurrentGrid()`
+- `WaypointManager.saveCurrentGridIfMissing()`
 
 역할:
 
 - 현재 player 위치의 Haven grid를 본다
-- current `map_segment` / `map_grid` row 확보 요청을 건다
+- current `map_segment` / `map_grid` record 확보 요청을 건다
 - 이미 있으면 no-op
-- 없으면 async ensure enqueue
+- 없으면 비동기 저장 요청을 queue에 넣는다
 
 이 helper를:
 
@@ -112,7 +110,7 @@
 
 - `currentGridPosition()`
   - 조회
-- `ensureCurrentGrid()`
+- `saveCurrentGridIfMissing()`
   - 확보 시도
 
 를 분리하는 것이다.
@@ -124,11 +122,11 @@
 
 current grid 확보는
 
-- world enter eager ensure
+- world enter eager save
 - refresh lazy fallback
 - user action fallback
 
 3단계 구조로 간다.
 
-그리고 그 공통 로직은 `WaypointManager.ensureCurrentGrid()` 같은 helper로 모아
+그리고 그 공통 로직은 `WaypointManager.saveCurrentGridIfMissing()` 같은 helper로 모아
 중복 구현과 요구사항 drift를 줄인다.

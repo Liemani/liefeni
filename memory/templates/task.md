@@ -2,31 +2,20 @@
 
 <이 task가 어떤 실행 단위인지, 또는 어떤 child task들을 묶는지 한두 문장으로 설명>
 
-## Status
+## Meta
 
-<Now / Backlog / Done / Canceled>
-
-## Lifecycle
-
+- Status: <Now / Backlog / Done / Canceled>
 - Created: YYYY-MM-DD
 - Started: YYYY-MM-DD
 - Completed: YYYY-MM-DD
 - Canceled: YYYY-MM-DD
-
-## Parent Task
-
+- Parent Task:
 - [<task file>](../tasks/<task file>)
-
-## Child Tasks
-
+- Child Tasks:
 - [<task file>](../tasks/<task file>)
-
-## Indexes
-
+- Indexes:
 - [<index file>](../indexes/<index file>)
-
-## Related Decisions
-
+- Related Decisions:
 - [<decision file>](../decisions/<decision file>)
 
 ## Notes

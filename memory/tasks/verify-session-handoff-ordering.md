@@ -4,13 +4,10 @@
 
 `REQ-LC-005`: session handoff / reconnect 시 `leaveSession(Session)`과 `enterSession(Session)` 순서가 실제로 안전한지 로그 기반으로 재검증하기
 
-## Priority
+## Meta
 
-`P1`
-
-## Status
-
-Backlog
+- Status: Backlog
+- Created: 2026-06-13
 
 ## Notes
 

@@ -1,8 +1,9 @@
 # Waypoint DB
 
-## Indexes
+## Meta
 
-- [../indexes/waypoint.md](../indexes/waypoint.md)
+- Indexes:
+  - [waypoint.md](../indexes/waypoint.md)
 
 이 문서는 waypoint persistence 계층의 현재 책임과 실행 흐름을 정리한다.
 
@@ -39,7 +40,7 @@
 - connection은 lazy open이다
 - first request 시 `WaypointDatabase.initialize(conn)`가 호출된다
 - world enter 시 `WaypointStore.initializeAsync(...)`를 먼저 enqueue해서 schema initialize가 queue 앞쪽에 오게 만든다
-- 그 다음 `ensureMapGridAsync(...)`, `loadNodesByGraphAsync(...)` 같은 요청들이 같은 queue를 탄다
+- 그 다음 `saveMapGridIfMissingAsync(...)`, `loadNodesByGraphAsync(...)` 같은 요청들이 같은 queue를 탄다
 
 즉 별도 sync call 없이도 queue ordering 자체가 initialization barrier 역할을 한다.
 
@@ -47,7 +48,7 @@
 
 DB 위치:
 
-- `data/lmi_waypoint.db`
+- `data/liefeni.db`
 
 `WaypointDatabase.jdbcUrl()`는 실행 위치 기준 `data/` 디렉토리를 보장하고 SQLite URL을 만든다.
 
@@ -102,14 +103,14 @@ schema version 정책:
 - `loadEdgesByGraphAsync(...)`
 - `loadSegmentsByGridAsync(...)`
 - `loadPointsByGridAsync(...)`
-- `ensureMapGridAsync(...)`
+- `saveMapGridIfMissingAsync(...)`
 - `applySaveBatch(...)`
 
 의미:
 
 - graph topology는 `graph_id` 기준으로 읽는다
 - geometry는 `grid_id` 기준으로 읽는다
-- Haven grid / segment를 waypoint 내부 `map_grid.id`로 연결할 때 `ensureMapGridAsync(...)`를 사용한다
+- Haven grid / segment를 waypoint 내부 `map_grid.id`로 연결할 때 `saveMapGridIfMissingAsync(...)`를 사용한다
 
 ## map_grid 보장 흐름
 
@@ -118,10 +119,10 @@ schema version 정책:
 1. `WaypointGridResolver`가 Haven `MCache.Grid`를 찾는다
 2. `MapFile.gridinfo`로 Haven `Segment.id`를 얻는다
 3. grid origin world 좌표를 계산한다
-4. runtime cache에 `havenGridId -> mapGridId`가 없으면 `ensureMapGridAsync(...)`를 enqueue한다
+4. runtime cache에 `havenGridId -> mapGridId`가 없으면 `saveMapGridIfMissingAsync(...)`를 queue에 넣는다
 5. DB completion 시 `ResolvedGrid`를 runtime cache에 넣고 `WaypointManager.requestRefresh()`를 건다
 
-즉 grid resolve도 preload-first, retry-on-next-refresh 모델이다.
+즉 grid 연결도 preload-first, retry-on-next-refresh 모델이다.
 
 ## Write 경로
 
@@ -132,7 +133,7 @@ low-level insert는 `WaypointDatabase`가 가진다.
 - `insertWpSegment(...)`
 - `insertWpPoint(...)`
 - `updateWpNode(...)`
-- `ensureMapGrid(...)`
+- `saveMapGridIfMissing(...)`
 
 `WaypointWriteBridge`는 여기에 도메인 규칙을 조금 얹는다.
 

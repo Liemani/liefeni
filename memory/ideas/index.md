@@ -1,0 +1,17 @@
+# Ideas
+
+이 문서는 아직 task로 올리기 전 단계의 아이디어를 추적한다.
+
+## Open
+
+- [design-minimap-cave-icon-db.md](design-minimap-cave-icon-db.md)
+- [check-direct-paginae-class-definition.md](check-direct-paginae-class-definition.md)
+- [diagnostic-message-standardization.md](diagnostic-message-standardization.md)
+
+## Promoted
+
+- 없음
+
+## Dropped
+
+- 없음

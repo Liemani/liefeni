@@ -1,6 +1,8 @@
 # DEC-011
 
-Haven-originated LMI 작업은 render와 non-render를 분리한다.
+## Meta
+
+- Date: 2026-06-13 Haven-originated LMI 작업은 render와 non-render를 분리한다.
 
 ## 이유
 

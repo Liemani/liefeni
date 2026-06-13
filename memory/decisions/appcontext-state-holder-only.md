@@ -1,6 +1,8 @@
 # DEC-008
 
-`AppContext`는 lifecycle orchestrator가 아니라 Haven 참조 보관, accessor, cache clear 역할에 집중한다.
+## Meta
+
+- Date: 2026-06-13 `AppContext`는 lifecycle orchestrator가 아니라 Haven 참조 보관 accessor cache clear 역할에 집중한다.
 
 ## 이유
 

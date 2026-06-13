@@ -4,13 +4,10 @@
 
 `register` 관련 내용과 역할 정리하기
 
-## Priority
+## Meta
 
-`P2`
-
-## Status
-
-Backlog
+- Status: Backlog
+- Created: 2026-06-13
 
 ## Notes
 

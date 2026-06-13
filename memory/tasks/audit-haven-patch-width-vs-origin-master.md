@@ -4,13 +4,10 @@
 
 `origin/master`와 비교해서 Haven 쪽 patch가 과하게 넓어진 부분이 있는지 다시 검증하기
 
-## Priority
+## Meta
 
-`P2`
-
-## Status
-
-Backlog
+- Status: Backlog
+- Created: 2026-06-13
 
 ## Notes
 

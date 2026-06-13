@@ -1,6 +1,8 @@
 # DEC-001
 
-lifecycle ownership은 Haven concrete event에서 `LmiLifecycle`로 직접 넘어가도록 정리한다.
+## Meta
+
+- Date: 2026-06-13 lifecycle ownership은 Haven concrete event에서 `LmiLifecycle`로 직접 넘어가도록 정리한다.
 
 ## 이유
 

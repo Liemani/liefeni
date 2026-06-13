@@ -1,20 +1,15 @@
 # <이슈 제목>
 
-## Status
+## Meta
 
-<Open / Promoted / Closed / Dropped>
-
-## Created
-
-YYYY-MM-DD
-
-## Related Tasks
-
+- Status: <Open / Promoted / Closed / Dropped>
+- Created: YYYY-MM-DD
+- Related Tasks:
 - [<task file>](../tasks/<task file>)
-
-## Related Decisions
-
+- Related Decisions:
 - [<decision file>](../decisions/<decision file>)
+- Indexes:
+- [<index file>](../indexes/<index file>)
 
 ## Notes
 

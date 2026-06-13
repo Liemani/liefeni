@@ -1,6 +1,8 @@
 # DEC-003
 
-world enter trigger는 `plob`가 아니라 `MapView` 생성이다.
+## Meta
+
+- Date: 2026-06-13 world enter trigger는 `plob`가 아니라 `MapView` 생성이다.
 
 ## 이유
 

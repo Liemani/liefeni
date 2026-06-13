@@ -1,6 +1,8 @@
 # DEC-013
 
-LMI의 독립 실행 단위는 목적별로 분리한다: runtime polling, waypoint DB ordering, automation job execution.
+## Meta
+
+- Date: 2026-06-13 LMI의 독립 실행 단위는 목적별로 분리한다: runtime polling waypoint DB ordering automation job execution.
 
 ## 이유
 

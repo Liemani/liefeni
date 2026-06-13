@@ -1,16 +1,13 @@
 # <아이디어 제목>
 
-## Status
+## Meta
 
-<Open / Promoted / Dropped>
-
-## Created
-
-YYYY-MM-DD
-
-## Related Tasks
-
+- Status: <Open / Promoted / Dropped>
+- Created: YYYY-MM-DD
+- Related Tasks:
 - [<task file>](../tasks/<task file>)
+- Indexes:
+- [<index file>](../indexes/<index file>)
 
 ## Notes
 

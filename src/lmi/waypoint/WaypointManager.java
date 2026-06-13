@@ -16,6 +16,7 @@ import lmi.waypoint.model.LoadNodesByGraphResult;
 import lmi.waypoint.model.LoadNodesByGridResult;
 import lmi.waypoint.model.LoadPointsByCutResult;
 import lmi.waypoint.model.LoadSegmentsByCutResult;
+import lmi.waypoint.model.SaveMapGridResult;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPoint;
@@ -120,6 +121,20 @@ public final class WaypointManager {
     if (selfWorld == null)
       return null;
     return gridPositionOfWorld(selfWorld);
+  }
+
+  public static void saveCurrentGridIfMissing(Coord gc, WaypointResultHandler<SaveMapGridResult> handler) {
+    WaypointGridResolver.saveGridIfMissing(gc, handler);
+  }
+
+  public static void saveCurrentGridIfMissing(WaypointResultHandler<SaveMapGridResult> handler) {
+    Coord selfWorld = _selfPosition();
+    if (selfWorld == null) {
+      handler.onFailure(new RuntimeException("player position is unavailable."));
+      return;
+    }
+    Coord tile = Coord2d.of(selfWorld).floor(MCache.tilesz);
+    saveCurrentGridIfMissing(tile.div(MCache.cmaps), handler);
   }
 
   public static void setNodes(long graphId, Array<WpNode> nodes) {

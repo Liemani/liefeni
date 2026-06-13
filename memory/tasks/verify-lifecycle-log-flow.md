@@ -4,13 +4,10 @@
 
 로그인 -> 캐릭터 선택 -> world enter -> logout 흐름에서 lifecycle 로그 확인
 
-## Priority
+## Meta
 
-`P1`
-
-## Status
-
-Backlog
+- Status: Backlog
+- Created: 2026-06-13
 
 ## Notes
 

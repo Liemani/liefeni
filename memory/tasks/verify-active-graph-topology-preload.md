@@ -4,17 +4,12 @@
 
 `REQ-WP-004`: active graph 결정과 graph topology preload가 실제 in-game 흐름에서 항상 맞게 동작하는지 검증하기
 
-## Priority
+## Meta
 
-`P1`
-
-## Indexes
-
+- Status: Backlog
+- Created: 2026-06-13
+- Indexes:
 - [waypoint.md](../indexes/waypoint.md)
-
-## Status
-
-Backlog
 
 ## Notes
 

@@ -1,10 +1,8 @@
 # DEC-009
 
-## Indexes
+## Meta
 
-- [waypoint.md](../indexes/waypoint.md)
-
-waypoint persistence는 public store facade와 dedicated DB worker 구조를 유지한다.
+- Date: 2026-06-13 ### Indexes - waypoint persistence는 public store facade와 dedicated DB worker 구조를 유지한다.
 
 ## 이유
 

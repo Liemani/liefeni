@@ -1,6 +1,8 @@
 # Map Icons
 
-## Indexes
+## Meta
+
+### Indexes
 
 - [../indexes/waypoint.md](../indexes/waypoint.md)
 

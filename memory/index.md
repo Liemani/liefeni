@@ -9,6 +9,7 @@
 - [issues](issues/index.md)
 - [tasks](tasks/index.md)
 - [decisions](decisions/index.md)
+- [designs](designs/index.md)
 - [indexes](indexes/index.md)
 - [rules](rules.md)
 - [templates](templates/index.md)

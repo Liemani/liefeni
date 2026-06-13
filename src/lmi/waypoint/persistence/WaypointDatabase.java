@@ -263,7 +263,7 @@ final class WaypointDatabase {
     Path dataDir = baseDir.toPath().resolve("data");
     Files.createDirectories(dataDir);
 
-    Path dbPath = dataDir.resolve("lmi_waypoint.db");
+    Path dbPath = dataDir.resolve("liefeni.db");
     return "jdbc:sqlite:" + dbPath.toAbsolutePath();
   }
 
@@ -507,12 +507,12 @@ final class WaypointDatabase {
     }
   }
 
-  static long ensureMapGrid(Connection conn, long mapSegmentId, int localX, int localY, long havenGridId) throws SQLException {
+  static long saveMapGridIfMissing(Connection conn, long mapSegmentId, int localX, int localY, long havenGridId) throws SQLException {
     Long existingId = findMapGridIdByHavenId(conn, havenGridId);
     if (existingId != null)
       return existingId;
 
-    ensureMapSegment(conn, mapSegmentId);
+    saveMapSegmentIfMissing(conn, mapSegmentId);
 
     try (PreparedStatement stmt = conn.prepareStatement(
       "SELECT id, haven_id FROM map_grid WHERE map_segment_id = ? AND local_x = ? AND local_y = ?")) {
@@ -566,7 +566,7 @@ final class WaypointDatabase {
     return null;
   }
 
-  private static void ensureMapSegment(Connection conn, long mapSegmentId) throws SQLException {
+  private static void saveMapSegmentIfMissing(Connection conn, long mapSegmentId) throws SQLException {
     try (PreparedStatement stmt = conn.prepareStatement(
       "INSERT OR IGNORE INTO map_segment(id) VALUES (?)")) {
       stmt.setLong(1, mapSegmentId);

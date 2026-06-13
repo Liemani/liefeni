@@ -1,10 +1,8 @@
 # DEC-007
 
-## Indexes
+## Meta
 
-- [waypoint.md](../indexes/waypoint.md)
-
-waypoint schema version mismatch는 자동 migration하지 않는다.
+- Date: 2026-06-13 ### Indexes - waypoint schema version mismatch는 자동 migration하지 않는다.
 
 ## 이유
 

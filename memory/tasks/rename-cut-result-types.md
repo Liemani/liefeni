@@ -4,17 +4,12 @@
 
 `LoadSegmentsByCutResult`, `LoadPointsByCutResult` naming을 현재 grid 기준 의미와 맞추기
 
-## Priority
+## Meta
 
-`P2`
-
-## Indexes
-
+- Status: Backlog
+- Created: 2026-06-13
+- Indexes:
 - [waypoint.md](../indexes/waypoint.md)
-
-## Status
-
-Backlog
 
 ## Notes
 

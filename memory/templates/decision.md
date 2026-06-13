@@ -1,16 +1,11 @@
 # <결정 제목>
 
-<이 결정이 무엇에 대한 것인지 한두 문장으로 설명>
+## Meta
 
-## Related Work Logs
-
-
-## Related Tasks
-
+- Date: YYYY-MM-DD
+- Related Tasks:
 - [<task file>](../tasks/<task file>)
-
-## Indexes
-
+- Indexes:
 - [<index file>](../indexes/<index file>)
 
 ## 결정

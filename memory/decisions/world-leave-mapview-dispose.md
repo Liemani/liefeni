@@ -1,6 +1,8 @@
 # DEC-004
 
-world leave trigger는 `MapView.dispose()`다.
+## Meta
+
+- Date: 2026-06-13 world leave trigger는 `MapView.dispose()`다.
 
 ## 이유
 

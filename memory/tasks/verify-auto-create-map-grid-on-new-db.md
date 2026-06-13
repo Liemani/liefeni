@@ -4,17 +4,14 @@
 
 새 DB 파일에서 첫 world enter 후 `map_segment` / `map_grid`가 자동으로 쌓이는지 확인
 
-## Priority
+## Meta
 
-`P0`
-
-## Indexes
-
+- Status: Backlog
+- Created: 2026-06-13
+- Indexes:
 - [waypoint.md](../indexes/waypoint.md)
-
-## Status
-
-Backlog
+- Parent Task:
+- [implement-current-grid-bootstrap.md](implement-current-grid-bootstrap.md)
 
 ## Notes
 

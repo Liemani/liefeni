@@ -1,6 +1,8 @@
 # DEC-012
 
-Haven -> LMI integration entry는 장기적으로 하나의 bridge class에 모은다.
+## Meta
+
+- Date: 2026-06-13 Haven -> LMI integration entry는 장기적으로 하나의 bridge class에 모은다.
 
 ## 이유
 

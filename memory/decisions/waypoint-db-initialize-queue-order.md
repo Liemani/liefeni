@@ -1,10 +1,8 @@
 # DEC-005
 
-## Indexes
+## Meta
 
-- [waypoint.md](../indexes/waypoint.md)
-
-waypoint DB initialize는 world enter 시 executor queue의 앞부분에 먼저 enqueue한다.
+- Date: 2026-06-13 ### Indexes - waypoint DB initialize는 world enter 시 executor queue의 앞부분에 먼저 enqueue한다.
 
 ## 이유
 

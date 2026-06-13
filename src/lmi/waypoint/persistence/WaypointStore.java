@@ -8,12 +8,12 @@ import lmi.waypoint.db.WpSegmentRecord;
 import lmi.waypoint.managed.SaveBatch;
 import lmi.waypoint.managed.WpNodeSnapshot;
 import lmi.waypoint.model.CreateNodeResult;
-import lmi.waypoint.model.EnsureMapGridResult;
 import lmi.waypoint.model.LoadEdgesByGraphResult;
 import lmi.waypoint.model.LoadNodesByGraphResult;
 import lmi.waypoint.model.LoadNodesByGridResult;
 import lmi.waypoint.model.LoadPointsByCutResult;
 import lmi.waypoint.model.LoadSegmentsByCutResult;
+import lmi.waypoint.model.SaveMapGridResult;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPoint;
@@ -142,17 +142,17 @@ public final class WaypointStore {
     }
   }
 
-  public static void ensureMapGridAsync(
+  public static void saveMapGridIfMissingAsync(
     long mapSegmentId,
     int localX,
     int localY,
     long havenGridId,
-    WaypointResultHandler<EnsureMapGridResult> handler
+    WaypointResultHandler<SaveMapGridResult> handler
   ) {
     WaypointDbExecutor.submitWrite(
       conn -> {
-        long mapGridId = WaypointDatabase.ensureMapGrid(conn, mapSegmentId, localX, localY, havenGridId);
-        return new EnsureMapGridResult(mapGridId, mapSegmentId, havenGridId, localX, localY);
+        long mapGridId = WaypointDatabase.saveMapGridIfMissing(conn, mapSegmentId, localX, localY, havenGridId);
+        return new SaveMapGridResult(mapGridId, mapSegmentId, havenGridId, localX, localY);
       },
       handler
     );

@@ -1,6 +1,8 @@
 # DEC-014
 
-LMI는 Haven 위에 붙는 확장 계층으로 유지하고, Haven 수정은 최소 hook/bridge patch로 제한한다.
+## Meta
+
+- Date: 2026-06-13 LMI는 Haven 위에 붙는 확장 계층으로 유지하고 Haven 수정은 최소 hook/bridge patch로 제한한다.
 
 ## 이유
 

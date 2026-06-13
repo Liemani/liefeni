@@ -4,17 +4,14 @@
 
 `REQ-WP-003`: world enter 직후 현재 player grid를 자동 저장하는 흐름 만들기
 
-## Priority
+## Meta
 
-`P0`
-
-## Indexes
-
+- Status: Backlog
+- Created: 2026-06-13
+- Indexes:
 - [waypoint.md](../indexes/waypoint.md)
-
-## Status
-
-Backlog
+- Parent Task:
+- [implement-current-grid-bootstrap.md](implement-current-grid-bootstrap.md)
 
 ## Notes
 

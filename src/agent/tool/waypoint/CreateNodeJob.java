@@ -4,6 +4,7 @@ import agent.Job;
 import lmi.AgentContext;
 import lmi.Api;
 import lmi.ChatInputMonitor;
+import lmi.Util;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.persistence.WaypointStore;
@@ -26,7 +27,7 @@ public class CreateNodeJob extends Job {
 
     GridPosition position = WaypointManager.currentGridPosition();
     if (position == null) {
-      Api.message("CreateNode failed: current grid position is unavailable.");
+      Util.debugPrint("CreateNode failed: current grid position is unavailable.");
       return;
     }
 

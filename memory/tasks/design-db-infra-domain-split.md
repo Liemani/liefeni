@@ -4,17 +4,12 @@
 
 waypoint DB 공통 인프라와 waypoint 도메인 계층 분리 범위 설계하기
 
-## Priority
+## Meta
 
-`P2`
-
-## Indexes
-
+- Status: Backlog
+- Created: 2026-06-13
+- Indexes:
 - [waypoint.md](../indexes/waypoint.md)
-
-## Status
-
-Backlog
 
 ## Notes
 

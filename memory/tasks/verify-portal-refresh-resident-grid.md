@@ -4,17 +4,12 @@
 
 portal transition 후 waypoint refresh / resident grid 갱신 확인
 
-## Priority
+## Meta
 
-`P1`
-
-## Indexes
-
+- Status: Backlog
+- Created: 2026-06-13
+- Indexes:
 - [waypoint.md](../indexes/waypoint.md)
-
-## Status
-
-Backlog
 
 ## Notes
 

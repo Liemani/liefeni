@@ -1,8 +1,9 @@
 # Waypoint
 
-## Indexes
+## Meta
 
-- [../indexes/waypoint.md](../indexes/waypoint.md)
+- Indexes:
+  - [waypoint.md](../indexes/waypoint.md)
 
 이 문서는 현재 LMI waypoint 시스템의 목적, 스키마, runtime, recording 흐름을 정리한다.
 
@@ -26,7 +27,7 @@
 - `lmi.waypoint.recording`
   - raw recording, portal-aware segment planning, edge save
 
-DB / executor / schema version / `map_grid` ensure 흐름은 [waypoint-db.md](./waypoint-db.md)를 본다.
+DB / executor / schema version / `map_grid` 저장 흐름은 [waypoint-db.md](./waypoint-db.md)를 본다.
 
 ## 스키마
 
