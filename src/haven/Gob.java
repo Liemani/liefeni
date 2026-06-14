@@ -33,11 +33,11 @@ import haven.render.*;
 // lmi start
 import java.lang.reflect.Field;
 import java.util.stream.*;
-import lmi.Array;
-import lmi.WaitManager;
-import static lmi.Constant.ExceptionReason.*;
-import static lmi.Constant.Timeout.*;
-import static lmi.Constant.gfx.borka.*;
+import lmi.core.Array;
+import lmi.runtime.WaitManager;
+import static lmi.core.Constant.ExceptionReason.*;
+import static lmi.core.Constant.Timeout.*;
+import static lmi.core.Constant.gfx.borka.*;
 // lmi end
 
 public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, EquipTarget, RandomSource {
@@ -1183,7 +1183,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
       waitMove();
 
       if (!this.isAt(destination)) {
-        throw new lmi.LMIException(ER_FAIL);
+        throw new lmi.core.LMIException(ER_FAIL);
       }
     }
 
@@ -1198,7 +1198,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
       }
 
       if (this.rc.equals(start)) {
-        throw new lmi.LMIException(ER_FAIL);
+        throw new lmi.core.LMIException(ER_FAIL);
       }
     }
 
@@ -1232,21 +1232,21 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
 //    }
 
     // Check Category
-    /// - Deprecated: lmi.Util.nameSet_includesResourcePath
+    /// - Deprecated: lmi.core.Util.nameSet_includesResourcePath
     public boolean isLog() {
-        return this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.trees.RN_LOG);
+        return this.isResourceNameEndsWith(lmi.core.Constant.gfx.terobjs.trees.RN_LOG);
     }
 
-    /// - Deprecated: lmi.Util.nameSet_includesResourcePath
+    /// - Deprecated: lmi.core.Util.nameSet_includesResourcePath
     public boolean isTrunk() {
-        return this.isLog() || this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.trees.RN_OLDTRUNK);
+        return this.isLog() || this.isResourceNameEndsWith(lmi.core.Constant.gfx.terobjs.trees.RN_OLDTRUNK);
     }
 
-    /// - Deprecated: lmi.Util.nameSet_includesResourcePath
+    /// - Deprecated: lmi.core.Util.nameSet_includesResourcePath
     public boolean isContainer() {
-        return this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.RN_CRATE)
-            || this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.RN_CHEST)
-            || this.isResourceNameEndsWith(lmi.Constant.gfx.terobjs.RN_CUPBOARD);
+        return this.isResourceNameEndsWith(lmi.core.Constant.gfx.terobjs.RN_CRATE)
+            || this.isResourceNameEndsWith(lmi.core.Constant.gfx.terobjs.RN_CHEST)
+            || this.isResourceNameEndsWith(lmi.core.Constant.gfx.terobjs.RN_CUPBOARD);
     }
 
     // Deubg Description
@@ -1257,7 +1257,7 @@ public class Gob implements RenderTree.Node, Sprite.Owner, Skeleton.ModOwner, Eq
         sb.append("resource name: " + this.resourceName() + "\n");
         sb.append("position: " + this.position() + "\n");
         sb.append("angle: " + this.a + "\n");
-        sb.append("distance: " + lmi.Self.distance(this) + "\n");
+        sb.append("distance: " + lmi.core.LocalPlayer.distance(this) + "\n");
         sb.append("removed: " + this.removed + "\n");
 
         sb.append("resource path:\n");

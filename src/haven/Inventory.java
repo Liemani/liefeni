@@ -87,7 +87,7 @@ public class Inventory extends Widget implements DTarget {
 
     protected void added() {
         super.added();
-        lmi.AppContext.setMainInventory(this);
+        lmi.core.AppContext.setMainInventory(this);
     }
     
     public boolean mousewheel(MouseWheelEvent ev) {

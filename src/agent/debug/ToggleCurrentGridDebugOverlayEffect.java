@@ -1,7 +1,7 @@
 package agent.debug;
 
 import agent.Effect;
-import lmi.Api;
+import lmi.bridge.Api;
 import lmi.draw.CurrentGridDebugOverlay;
 
 public class ToggleCurrentGridDebugOverlayEffect extends Effect {

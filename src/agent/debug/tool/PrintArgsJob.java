@@ -2,8 +2,8 @@ package agent.debug.tool;
 
 import agent.Job;
 
-import lmi.Api;
-import lmi.AgentContext;
+import lmi.bridge.Api;
+import lmi.runtime.AgentContext;
 
 public class PrintArgsJob extends Job {
     @Override

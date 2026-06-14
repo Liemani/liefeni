@@ -4,16 +4,16 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.AtomicAction;
-import lmi.Api;
-import lmi.AgentContext;
-import lmi.Self;
-import static lmi.Constant.BoundingBox.*;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
+import lmi.runtime.AgentContext;
+import lmi.core.LocalPlayer;
+import static lmi.core.Constant.BoundingBox.*;
 
 public class PutLogDistanceBodyWidthJob extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    final Coord origin = Self.position().center();
+    final Coord origin = LocalPlayer.position().center();
 
     System.out.println("첫 번째 로그를 선택해주세요");
     final Gob firstLog = Api.getGob();

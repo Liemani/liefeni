@@ -4,13 +4,13 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.AtomicAction;
-import lmi.Api;
-import lmi.ClickManager;
-import lmi.Self;
-import lmi.LMIException;
-import lmi.AgentContext;
-import static lmi.Constant.TILE_IN_COORD;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
+import lmi.core.ClickManager;
+import lmi.core.LocalPlayer;
+import lmi.core.LMIException;
+import lmi.runtime.AgentContext;
+import static lmi.core.Constant.TILE_IN_COORD;
 
 public class InvestigateGobBoundingBoxWidthJob extends Job {
   @Override
@@ -21,7 +21,7 @@ public class InvestigateGobBoundingBoxWidthJob extends Job {
     System.out.println("click next gob to move!");
     Gob variantGob = ClickManager.getGob();
 
-    Coord standardPoint = Self.position();
+    Coord standardPoint = LocalPlayer.position();
     AtomicAction.lift(standardGob.id(), standardGob.position());
     AtomicAction.go(standardPoint.add(0, 2048));
     AtomicAction.put(standardPoint);

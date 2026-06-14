@@ -40,7 +40,7 @@ public class RootWidget extends ConsoleHost implements UI.Notice.Handler, Widget
 	super(ui, new Coord(0, 0), sz);
 	setfocusctl(true);
 	hasfocus = true;
-	lmi.LmiLifecycle.setRootWidget(this);
+	lmi.lifecycle.LmiLifecycle.setRootWidget(this);
     }
 
     public boolean getcurs(CursorQuery ev) {

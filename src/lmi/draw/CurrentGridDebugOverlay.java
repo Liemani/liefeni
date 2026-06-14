@@ -6,11 +6,11 @@ import haven.Coord3f;
 import haven.FastText;
 import haven.GOut;
 import haven.MapView;
-import lmi.AppContext;
-import lmi.Constant;
-import lmi.Self;
+import lmi.core.Constant;
+import lmi.core.LocalPlayer;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.runtime.GridPosition;
+import lmi.bridge.GlobBridge;
 
 import java.awt.Color;
 
@@ -44,7 +44,7 @@ public final class CurrentGridDebugOverlay implements MapOverlay {
 
   @Override
   public void draw(MapView mapView, GOut g) {
-    Coord selfWorld = Self.position();
+    Coord selfWorld = LocalPlayer.position();
     GridPosition selfGrid = WaypointManager.currentGridPosition();
     if (selfGrid == null)
       return;
@@ -79,7 +79,7 @@ public final class CurrentGridDebugOverlay implements MapOverlay {
       world.x * Constant.COORD2D_PER_COORD,
       world.y * Constant.COORD2D_PER_COORD
     );
-    Coord3f world3d = AppContext.glob.map.getzp(world2d);
+    Coord3f world3d = GlobBridge.glob().map.getzp(world2d);
     Coord3f projected = mapView.screenxf(world3d);
     if (projected == null)
       return null;

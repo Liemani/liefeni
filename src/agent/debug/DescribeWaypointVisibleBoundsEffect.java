@@ -7,8 +7,8 @@ import haven.Coord2d;
 import haven.Coord3f;
 import haven.MapView;
 import haven.MCache;
-import lmi.Api;
-import lmi.AppContext;
+import lmi.bridge.Api;
+import lmi.bridge.MapViewBridge;
 
 import java.lang.reflect.Field;
 
@@ -17,7 +17,7 @@ import static haven.MCache.tilesz;
 public class DescribeWaypointVisibleBoundsEffect extends Effect {
   @Override
   public void execute() {
-    MapView mapView = AppContext.mapView();
+    MapView mapView = MapViewBridge.mapView();
     if (mapView == null) {
       Api.message("MapView is unavailable.");
       return;

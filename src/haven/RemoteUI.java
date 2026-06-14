@@ -34,7 +34,7 @@ public class RemoteUI implements UI.Receiver, UI.Runner {
     public RemoteUI(Session sess) {
 	this.sess = sess;
 	Widget.initnames();
-	lmi.Hook.remoteUIDidConstructed(this);
+	lmi.bridge.Hook.remoteUIDidConstructed(this);
     }
 
     public void rcvmsg(int id, String name, Object... args) {
@@ -139,7 +139,7 @@ public class RemoteUI implements UI.Receiver, UI.Runner {
 		}
 	    }
 	} finally {
-            lmi.LmiLifecycle.leaveSession(sess);
+            lmi.lifecycle.LmiLifecycle.leaveSession(sess);
 	    sess.close();
 	    while(sess.getuimsg() != null);
 	}

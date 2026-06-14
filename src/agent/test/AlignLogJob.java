@@ -4,15 +4,15 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.Api;
-import lmi.Array;
-import lmi.Rect;
-import lmi.AgentContext;
-import lmi.GobFinder;
+import lmi.bridge.Api;
+import lmi.core.Array;
+import lmi.core.Rect;
+import lmi.runtime.AgentContext;
+import lmi.core.GobFinder;
 import lmi.behavior.AlignLogBehavior;
-import static lmi.Constant.BoundingBox.*;
-import static lmi.Constant.Timeout.*;
-import static lmi.Constant.ExceptionReason.*;
+import static lmi.core.Constant.BoundingBox.*;
+import static lmi.core.Constant.Timeout.*;
+import static lmi.core.Constant.ExceptionReason.*;
 
 public class AlignLogJob extends Job {
   private final AlignLogBehavior alignBehavior = new AlignLogBehavior();
@@ -40,10 +40,10 @@ public class AlignLogJob extends Job {
     while (true) {
       try {
         _loop(ctx);
-      } catch (lmi.LMIException e) {
+      } catch (lmi.core.LMIException e) {
         if (e.reason == ER_NO_INPUT) {
           Api.alert("추가 통나무를 기다려요");
-          lmi.WaitManager.sleep(TO_WAIT);
+          lmi.runtime.WaitManager.sleep(TO_WAIT);
         } else {
           throw e;
         }
@@ -67,7 +67,7 @@ public class AlignLogJob extends Job {
   private void _loop(AgentContext ctx) {
     _calculateNextLeaf();
     Gob targetLog = _findLog();
-    if (targetLog == null) throw new lmi.LMIException(ER_NO_INPUT);
+    if (targetLog == null) throw new lmi.core.LMIException(ER_NO_INPUT);
 
     alignBehavior.run(ctx, root, trunk, branch, leaf, targetLog);
   }

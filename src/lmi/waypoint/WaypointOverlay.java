@@ -6,10 +6,10 @@ import haven.Coord3f;
 import haven.FastText;
 import haven.GOut;
 import haven.MapView;
-import lmi.AppContext;
-import lmi.Array;
-import lmi.Constant;
+import lmi.core.Array;
+import lmi.core.Constant;
 import lmi.draw.MapOverlay;
+import lmi.bridge.GlobBridge;
 import lmi.waypoint.runtime.ResolvedLine;
 import lmi.waypoint.runtime.ResolvedNode;
 import lmi.waypoint.runtime.ResolvedPoint;
@@ -109,7 +109,7 @@ public final class WaypointOverlay implements MapOverlay {
       world.x * Constant.COORD2D_PER_COORD,
       world.y * Constant.COORD2D_PER_COORD
     );
-    Coord3f world3d = AppContext.glob.map.getzp(world2d);
+    Coord3f world3d = GlobBridge.glob().map.getzp(world2d);
     Coord3f projected = mapView.screenxf(world3d);
     if (projected == null)
       return null;

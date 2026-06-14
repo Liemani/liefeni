@@ -1,7 +1,7 @@
 package lmi.waypoint.recording;
 
 import haven.Coord;
-import lmi.Array;
+import lmi.core.Array;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.persistence.WaypointDbExecutor;
 import lmi.waypoint.persistence.WaypointResultHandler;
@@ -16,7 +16,7 @@ import lmi.waypoint.object.WpPoint;
 import lmi.waypoint.object.WpSegment;
 import lmi.waypoint.runtime.GridPosition;
 
-import static lmi.Constant.WaypointEdgeDirection.FORWARD;
+import static lmi.core.Constant.WaypointEdgeDirection.FORWARD;
 
 public final class WaypointEdgeWriter {
   private WaypointEdgeWriter() {}

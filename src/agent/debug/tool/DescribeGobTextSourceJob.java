@@ -5,9 +5,9 @@ import agent.Job;
 import haven.GAttrib;
 import haven.Gob;
 import haven.Speaking;
-import lmi.AgentContext;
-import lmi.Api;
-import lmi.Array;
+import lmi.runtime.AgentContext;
+import lmi.bridge.Api;
+import lmi.core.Array;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

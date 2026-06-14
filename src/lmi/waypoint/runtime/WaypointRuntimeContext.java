@@ -1,7 +1,7 @@
 package lmi.waypoint.runtime;
 
 import haven.Coord;
-import lmi.Array;
+import lmi.core.Array;
 import lmi.waypoint.managed.ManagedObjectContext;
 import lmi.waypoint.managed.ManagedWpNode;
 import lmi.waypoint.object.WpEdge;

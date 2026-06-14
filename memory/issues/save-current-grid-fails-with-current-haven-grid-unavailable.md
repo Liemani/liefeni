@@ -30,6 +30,6 @@
   - 현재 player 위치는 있어도, 그 위치에 해당하는 Haven grid를 `AppContext.glob.map.getgrid(gc)`에서 얻지 못하고 있다.
   - 따라서 current grid 저장의 가장 기초 단계가 아직 안정적이지 않다.
 - 확인할 점:
-  - effect 실행 시점의 `Self.position()`과 계산된 `gc`
+  - effect 실행 시점의 `LocalPlayer.position()`과 계산된 `gc`
   - `MCache.getgrid(gc)`가 실패하는 조건
   - world enter 직후와 충분히 로드된 뒤의 차이

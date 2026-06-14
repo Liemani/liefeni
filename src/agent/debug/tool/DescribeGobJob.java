@@ -2,9 +2,9 @@ package agent.debug.tool;
 
 import agent.Job;
 
-import lmi.Api;
-import lmi.ClickManager;
-import lmi.AgentContext;
+import lmi.bridge.Api;
+import lmi.core.ClickManager;
+import lmi.runtime.AgentContext;
 import haven.Gob;
 
 public class DescribeGobJob extends Job {

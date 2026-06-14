@@ -2,8 +2,8 @@ package agent.test;
 
 import agent.Job;
 
-import lmi.AppContext;
-import lmi.AgentContext;
+import lmi.core.AppContext;
+import lmi.runtime.AgentContext;
 
 public class Test003Job extends Job {
   @Override

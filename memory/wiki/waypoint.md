@@ -191,12 +191,13 @@ DB completion이 나중에 runtime cache를 갱신한다.
 
 ## Grid Resolution
 
-현재 world 좌표에서 waypoint `grid_id`를 얻는 책임은 `WaypointGridResolver`가 맡는다.
+현재 world 좌표에서 waypoint `grid_id`를 얻는 책임은 `WaypointGridResolver`가 맡고,
+current-grid save 조율은 `WaypointGridSaveCoordinator`가 맡는다.
 
 흐름:
 
 1. Haven `MCache.Grid`를 찾는다
-2. `MapFile.gridinfo`로 Haven `Segment.id`를 찾는다
+2. `WaypointGridSaveCoordinator`가 필요하면 `MapFile.gridinfo`로 Haven `Segment.id`를 찾는다
 3. `map_segment` row를 보장한다
 4. `map_grid` row를 보장한다
 5. waypoint 내부 `map_grid.id`를 반환한다

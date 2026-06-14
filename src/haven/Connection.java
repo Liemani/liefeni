@@ -522,7 +522,7 @@ public class Connection implements Transport {
 		    RMessage msg = i.next();
 		    short sd = (short)(msg.seq - seq);
 		    if(sd <= 0) {
-                        lmi.Hook.didGetACK(msg);
+                        lmi.bridge.Hook.didGetACK(msg);
 			stats.addreply(now - msg.first);
 			i.remove();
 		    } else {
@@ -792,7 +792,7 @@ public class Connection implements Transport {
     }
 
     public void queuemsg(PMessage pmsg) {
-        lmi.Hook.willQueueMessage(tseq);
+        lmi.bridge.Hook.willQueueMessage(tseq);
 	RMessage msg = new RMessage(pmsg);
 	synchronized(pending) {
 	    msg.seq = tseq;

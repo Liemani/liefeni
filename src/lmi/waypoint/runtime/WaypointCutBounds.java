@@ -4,7 +4,7 @@ import haven.Area;
 import haven.Coord;
 import haven.MCache;
 
-import static lmi.Constant.TILE_IN_COORD;
+import static lmi.core.Constant.TILE_IN_COORD;
 
 public final class WaypointCutBounds {
   private static final int CUT_ID_SHIFT = 14;

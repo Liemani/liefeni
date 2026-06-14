@@ -3,9 +3,9 @@ package agent.debug.tool;
 import agent.Job;
 
 import haven.Widget;
-import lmi.AppContext;
-import lmi.Util;
-import lmi.AgentContext;
+import lmi.core.AppContext;
+import lmi.core.Util;
+import lmi.runtime.AgentContext;
 
 public class PrintWidgetTreeJob extends Job {
   @Override

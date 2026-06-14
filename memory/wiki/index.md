@@ -8,7 +8,7 @@
 - [current-grid-bootstrap.md](./current-grid-bootstrap.md)
 - [server_message.md](./server_message.md)
 - [../decisions/index.md](../decisions/index.md)
-- [../designs/index.md](../designs/index.md)
+- [../docs/index.md](../docs/index.md)
 - [../tasks/index.md](../tasks/index.md)
 
 이 파일은 예전 `AGENTS.md`의 축약 컨텍스트를 대체한다.

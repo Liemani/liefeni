@@ -1,9 +1,9 @@
 package lmi.bridge;
 
-import lmi.LMIException;
-import lmi.WaitManager;
-import static lmi.Constant.ExceptionReason.*;
-import static lmi.Constant.Timeout.*;
+import lmi.core.LMIException;
+import lmi.runtime.WaitManager;
+import static lmi.core.Constant.ExceptionReason.*;
+import static lmi.core.Constant.Timeout.*;
 
 public class ProgressManager {
   // field

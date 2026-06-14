@@ -1,6 +1,6 @@
 package lmi.waypoint.persistence;
 
-import lmi.Array;
+import lmi.core.Array;
 import lmi.waypoint.db.WpEdgeRecord;
 import lmi.waypoint.db.WpNodeRecord;
 import lmi.waypoint.db.WpPointRecord;

@@ -3,9 +3,9 @@ package agent.tool.waypoint;
 import agent.Job;
 
 import haven.Coord;
-import lmi.AgentContext;
-import lmi.AtomicAction;
-import lmi.Api;
+import lmi.runtime.AgentContext;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.model.RecordingSession;
 import lmi.waypoint.recording.WaypointRecorder;
@@ -44,7 +44,7 @@ public class RecordJob extends Job {
 
   private static void _moveToStartNode(ResolvedNode startNode) {
     Coord startWorld = startNode.world;
-    if (!lmi.Self.gob().isAt(startWorld)) {
+    if (!lmi.core.LocalPlayer.gob().isAt(startWorld)) {
       AtomicAction.go(startWorld);
     }
   }

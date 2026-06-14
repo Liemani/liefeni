@@ -87,7 +87,7 @@
 
 추천 helper:
 
-- `WaypointManager.saveCurrentGridIfMissing()`
+- `WaypointGridSaveCoordinator.saveIfMissing(Coord gc, ...)`
 
 역할:
 
@@ -110,7 +110,7 @@
 
 - `currentGridPosition()`
   - 조회
-- `saveCurrentGridIfMissing()`
+- `WaypointGridSaveCoordinator.saveIfMissing(Coord gc, ...)`
   - 확보 시도
 
 를 분리하는 것이다.
@@ -128,5 +128,5 @@ current grid 확보는
 
 3단계 구조로 간다.
 
-그리고 그 공통 로직은 `WaypointManager.saveCurrentGridIfMissing()` 같은 helper로 모아
+그리고 그 공통 로직은 `WaypointGridSaveCoordinator.saveIfMissing(Coord gc, ...)` 같은 helper로 모아
 중복 구현과 요구사항 drift를 줄인다.

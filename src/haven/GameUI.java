@@ -227,7 +227,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	    if(slot != -1) {
 		if(thing instanceof MenuGrid.Pagina) {
 		    MenuGrid.Pagina pag = (MenuGrid.Pagina)thing;
-                    if (lmi.Hook.willPaginaDropToBelt(pag)) return true;
+                    if (lmi.bridge.Hook.willPaginaDropToBelt(pag)) return true;
 		    try {
 			if(pag.id instanceof Indir)
 			    GameUI.this.wdgmsg("setbelt", slot, "res", pag.res().name);
@@ -308,7 +308,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	opts.hide();
 	zerg = add(new Zergwnd(), Utils.getprefc("wndc-zerg", UI.scale(new Coord(187, 50))));
 	zerg.hide();
-        lmi.LmiLifecycle.setGameUI(this);
+        lmi.lifecycle.LmiLifecycle.setGameUI(this);
     }
 
     protected void attached() {
@@ -815,7 +815,7 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	    }
 	} else if(place == "menu") {
 	    menu = (MenuGrid)brpanel.add(child, menugridc);
-            lmi.LmiLifecycle.setMenuGrid(menu);
+            lmi.lifecycle.LmiLifecycle.setMenuGrid(menu);
 	} else if(place == "fight") {
 	    fv = urpanel.add((Fightview)child, 0, 0);
 	} else if(place == "fsess") {
@@ -1034,11 +1034,11 @@ public class GameUI extends ConsoleHost implements Console.Directory, UI.Notice.
 	public Progress(double prog) {
 	    super(progt.f[0][0].ssz);
 	    set(prog);
-	    lmi.Hook.progressDidAdded(this);
+	    lmi.bridge.Hook.progressDidAdded(this);
 	}
 
 	public void destroy() {
-	    lmi.Hook.progressDidDestroyed();
+	    lmi.bridge.Hook.progressDidDestroyed();
 	    super.destroy();
 	}
 

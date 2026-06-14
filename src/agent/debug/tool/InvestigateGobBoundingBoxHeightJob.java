@@ -4,12 +4,12 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.AtomicAction;
-import lmi.Api;
-import lmi.ClickManager;
-import lmi.Self;
-import lmi.LMIException;
-import lmi.AgentContext;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
+import lmi.core.ClickManager;
+import lmi.core.LocalPlayer;
+import lmi.core.LMIException;
+import lmi.runtime.AgentContext;
 
 public class InvestigateGobBoundingBoxHeightJob extends Job {
   @Override
@@ -20,7 +20,7 @@ public class InvestigateGobBoundingBoxHeightJob extends Job {
     System.out.println("click next gob to move!");
     Gob variantGob = ClickManager.getGob();
 
-    Coord standardPoint = Self.position().center();
+    Coord standardPoint = LocalPlayer.position().center();
     AtomicAction.lift(standardGob.id(), standardGob.position());
     AtomicAction.go(standardPoint.add(0, 2048));
     AtomicAction.put(standardPoint);

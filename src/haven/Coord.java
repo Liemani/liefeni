@@ -30,7 +30,7 @@ import static java.lang.Math.PI;
 import java.util.Iterator;
 
 // lmi custom import
-import static lmi.Constant.*;
+import static lmi.core.Constant.*;
 
 public class Coord implements Comparable<Coord>, java.io.Serializable {
     public int x, y;

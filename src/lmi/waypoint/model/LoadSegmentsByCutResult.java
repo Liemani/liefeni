@@ -1,6 +1,6 @@
 package lmi.waypoint.model;
 
-import lmi.Array;
+import lmi.core.Array;
 import lmi.waypoint.object.WpSegment;
 import lmi.waypoint.persistence.WaypointResult;
 

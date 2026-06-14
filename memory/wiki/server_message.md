@@ -206,7 +206,7 @@ Integer 30
 
 - click 전송
 - `WaitManager.waitResponse()`
-- 실제로 움직였으면 `Self.gob().waitMove()`
+- 실제로 움직였으면 `LocalPlayer.gob().waitMove()`
 
 ### 2. 공간 전환 보조 신호
 

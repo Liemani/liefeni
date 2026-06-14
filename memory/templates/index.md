@@ -8,7 +8,8 @@
 - [issue.md](issue.md): 아직 해결되지 않은 문제를 관리하는 템플릿
 - [task.md](task.md): 작업 항목을 개별 문서로 관리하는 템플릿
 - [decision.md](decision.md): 의사결정을 개별 문서로 기록하는 템플릿
-- [design.md](design.md): 여러 decision과 task를 엮은 설계 문서를 기록하는 템플릿
+- [doc-file.md](doc-file.md): 단일 source file 을 설명하는 문서 템플릿
+- [doc-directory.md](doc-directory.md): 디렉터리 단위 문서 템플릿
 
 ## idea.md
 
@@ -32,11 +33,17 @@
 - 근거가 된 시도와 연결된 작업을 함께 링크합니다.
 - 필요하면 관련 index도 함께 링크합니다.
 
-## design.md
+## doc-file.md
 
-- 구현 전 구조를 설명하거나, 여러 decision과 task를 엮은 설계안을 남길 때 사용합니다.
-- 관련 issue, decision, task를 함께 링크합니다.
-- 필요하면 관련 index도 함께 링크합니다.
+- 단일 source file 을 설명할 때 사용합니다.
+- `Source`는 실제 파일을 가리킵니다.
+- 관련 issue, decision, task, index를 함께 링크합니다.
+
+## doc-directory.md
+
+- 디렉터리 단위의 책임, 하위 패키지, 파일 구성을 설명할 때 사용합니다.
+- `Source`는 해당 디렉터리의 `index.md`를 가리킵니다.
+- 하위 패키지를 `Child Packages`에 먼저 두고, 그 다음 파일을 적습니다.
 
 ## Writing Rules
 

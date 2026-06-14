@@ -184,7 +184,7 @@ public class UI {
 	root = new RootWidget(this, sz);
 	widgets.put(0, root);
 	rwidgets.put(root, 0);
-	lmi.AppContext.setUI(this);
+	lmi.core.AppContext.setUI(this);
 	if(fun != null)
 	    fun.init(this);
 	if(sess == null) {
@@ -193,7 +193,7 @@ public class UI {
 	    if((loader = sess.glob.loader) == null)
 		throw(new NullPointerException());
 	}
-        lmi.AppContext.setUI(this);
+        lmi.core.AppContext.setUI(this);
     }
 
     public static class Command implements Serializable {
@@ -669,7 +669,7 @@ public class UI {
     }
 	
     public void wdgmsg(Widget sender, String msg, Object... args) {
-        lmi.Hook.willMsgSend(sender, msg, args);
+        lmi.bridge.Hook.willMsgSend(sender, msg, args);
 	int id = widgetid(sender);
 	if(id < 0) {
 	    new Warning("wdgmsg sender (%s) is not in rwidgets, message is %s", sender.getClass().getName(), msg).issue();
@@ -707,7 +707,7 @@ public class UI {
     }
 
     public void uimsg(int id, String msg, Object... args) {
-        lmi.Hook.didMsgReceive(id, msg, args);
+        lmi.bridge.Hook.didMsgReceive(id, msg, args);
 	submitcmd(new Command(new UiMessage(id, msg, args)).dep(id, true));
     }
 
@@ -847,7 +847,7 @@ public class UI {
     private Grab[] c(Collection<Grab> g) {return(g.toArray(new Grab[0]));}
 
     public void keydown(KeyEvent ev) {
-        lmi.Hook.keyDidDown(ev);
+        lmi.bridge.Hook.keyDidDown(ev);
 	setmods(ev);
 	if(!dispatch(root, new KeyDownEvent(ev)))
 	    dispatch(root, new GlobKeyEvent(ev));

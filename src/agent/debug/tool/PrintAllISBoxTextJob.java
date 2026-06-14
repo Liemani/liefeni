@@ -5,9 +5,9 @@ import agent.Job;
 import haven.ISBox;
 import haven.Widget;
 import haven.Window;
-import lmi.AppContext;
-import lmi.Util;
-import lmi.AgentContext;
+import lmi.core.AppContext;
+import lmi.core.Util;
+import lmi.runtime.AgentContext;
 
 public class PrintAllISBoxTextJob extends Job {
   @Override

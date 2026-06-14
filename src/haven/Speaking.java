@@ -70,7 +70,7 @@ public class Speaking extends GAttrib implements RenderTree.Node, PView.Render2D
 	public void apply(Gob g, OCache.AttrDelta msg) {
 	    float zo = msg.int16() / 100.0f;
 	    String text = msg.string();
-            lmi.Hook.didSpeak(g.id, text);
+            lmi.bridge.Hook.didSpeak(g.id, text);
 	    if(text.length() < 1) {
 		g.delattr(Speaking.class);
 	    } else {

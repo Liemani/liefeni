@@ -4,15 +4,16 @@ import agent.Job;
 
 import haven.Gob;
 import haven.Coord;
-import lmi.*;
-import lmi.AgentContext;
-import static lmi.Api.*;
-import static lmi.Constant.*;
-import static lmi.Constant.ExceptionReason.*;
-import static lmi.Constant.BoundingBox.*;
-import static lmi.Constant.Timeout.*;
-import static lmi.Constant.Plan.*;
-import static lmi.Constant.gfx.terobjs.*;
+import lmi.bridge.Api;
+import lmi.runtime.WaitManager;
+import lmi.core.*;
+import lmi.runtime.AgentContext;
+import static lmi.core.Constant.*;
+import static lmi.core.Constant.ExceptionReason.*;
+import static lmi.core.Constant.BoundingBox.*;
+import static lmi.core.Constant.Timeout.*;
+import static lmi.core.Constant.Plan.*;
+import static lmi.core.Constant.gfx.terobjs.*;
 
 public class BuildDryingFrameJob extends Job {
   final int SELF_WIDTH = BW_HORSE;
@@ -47,9 +48,9 @@ public class BuildDryingFrameJob extends Job {
 
   private void _willRun() {
     Api.alert("건설 자재가 있는 공간을 선택해주세요");
-    _inputArea = getArea();
+    _inputArea = Api.getArea();
     Api.alert("Drying Frame을 건설할 공간을 선택해주세요");
-    _workingArea = getArea();
+    _workingArea = Api.getArea();
     _outputArea = _getOutputArea(_workingArea);
     
     _root = Coord.of(_workingArea.origin).assignAdd(_workingArea.size).assignSubtract(BB_SELF);
@@ -87,7 +88,7 @@ public class BuildDryingFrameJob extends Job {
   private void _bringMaterial() {
     _takeItemFromStockpile(RN_STOCKPILE_BOUGH, 2);
     _takeItemFromStockpile(RN_STOCKPILE_BRANCH, 5);
-    _takeItemFromContainer(lmi.Constant.nameSet_string, 2);
+    _takeItemFromContainer(lmi.core.Constant.nameSet_string, 2);
   }
 
   private void _takeItemFromStockpile(String name, int count) {

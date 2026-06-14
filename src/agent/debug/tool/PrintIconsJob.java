@@ -2,9 +2,9 @@ package agent.debug.tool;
 
 import agent.Job;
 
-import lmi.AgentContext;
-import lmi.Util;
-import lmi.MenuGridProxy;
+import lmi.runtime.AgentContext;
+import lmi.core.Util;
+import lmi.bridge.MenuGridProxy;
 
 public class PrintIconsJob extends Job {
   @Override

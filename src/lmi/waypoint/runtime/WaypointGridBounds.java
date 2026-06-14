@@ -4,7 +4,7 @@ import haven.Area;
 import haven.Coord;
 import haven.Coord2d;
 import haven.MCache;
-import lmi.AppContext;
+import lmi.bridge.GlobBridge;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -42,11 +42,13 @@ public final class WaypointGridBounds {
   }
 
   public static WaypointGridBounds aroundWorld(Coord world) {
-    if (world == null || AppContext.glob == null)
+    if (world == null || GlobBridge.glob() == null)
       return empty();
 
-    Coord tile = Coord2d.of(world).floor(MCache.tilesz);
-    Coord centerGrid = tile.div(MCache.cmaps);
+    MCache.Grid centerHavenGrid = GlobBridge.gridAtWorld(Coord2d.of(world));
+    if (centerHavenGrid == null)
+      return empty();
+    Coord centerGrid = centerHavenGrid.gc;
     Area loadArea = new Area(centerGrid.sub(1, 1), centerGrid.add(2, 2));
     Area renderArea = new Area(centerGrid.sub(1, 1), centerGrid.add(2, 2));
     HashSet<Long> loadGridIds = new HashSet<>();

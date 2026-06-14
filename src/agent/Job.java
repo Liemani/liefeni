@@ -1,6 +1,6 @@
 package agent;
 
-import lmi.AgentContext;
+import lmi.runtime.AgentContext;
 
 public abstract class Job {
   public abstract void run(AgentContext ctx, String[] args);

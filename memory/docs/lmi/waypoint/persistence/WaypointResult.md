@@ -1,0 +1,17 @@
+# WaypointResult
+
+## Meta
+
+- Source: [WaypointResult.java](../../../../../src/lmi/waypoint/persistence/WaypointResult.java)
+- Created: `2026-06-13`
+- Updated: `2026-06-14`
+
+## Role
+
+- Carries a typed result payload for waypoint work.
+
+## Code Members
+
+### Member Index
+
+### Member Reference

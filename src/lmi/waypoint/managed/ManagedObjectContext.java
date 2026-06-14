@@ -1,6 +1,6 @@
 package lmi.waypoint.managed;
 
-import lmi.Array;
+import lmi.core.Array;
 import lmi.waypoint.persistence.SaveBatchResult;
 import lmi.waypoint.persistence.WaypointDbExecutor;
 import lmi.waypoint.persistence.WaypointResultHandler;

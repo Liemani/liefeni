@@ -1,6 +1,6 @@
 package lmi.waypoint;
 
-import lmi.Array;
+import lmi.core.Array;
 import lmi.waypoint.runtime.ResolvedNode;
 
 public final class WaypointDebug {

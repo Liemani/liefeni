@@ -30,7 +30,7 @@
 - [verify-portal-refresh-resident-grid.md](../tasks/verify-portal-refresh-resident-grid.md)
 - [verify-auto-create-map-grid-on-new-db.md](../tasks/verify-auto-create-map-grid-on-new-db.md)
 - [rename-cut-result-types.md](../tasks/rename-cut-result-types.md)
-- [design-db-infra-domain-split.md](../tasks/design-db-infra-domain-split.md)
+- [waypoint-db-infra-domain-split.md](../tasks/waypoint-db-infra-domain-split.md)
 
 ## Issues
 
@@ -39,7 +39,7 @@
 
 ## Ideas
 
-- [design-minimap-cave-icon-db.md](../ideas/design-minimap-cave-icon-db.md)
+- [minimap-cave-icon-db.md](../ideas/minimap-cave-icon-db.md)
 
 ## Wiki
 

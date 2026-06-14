@@ -1,12 +1,12 @@
 package lmi.behavior;
 
-import lmi.AgentContext;
-import lmi.AtomicAction;
-import lmi.LMIException;
+import lmi.runtime.AgentContext;
+import lmi.core.AtomicAction;
+import lmi.core.LMIException;
 
 import haven.Coord;
 import haven.Gob;
-import static lmi.Constant.ExceptionReason.*;
+import static lmi.core.Constant.ExceptionReason.*;
 
 public class AlignLogBehavior {
   public void run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog) {

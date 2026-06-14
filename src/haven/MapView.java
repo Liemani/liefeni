@@ -499,7 +499,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	this.clickmap = new ClickMap();
 	clmaptree.add(clickmap);
 	setcanfocus(true);
-	lmi.LmiLifecycle.enterWorld(this);
+	lmi.lifecycle.LmiLifecycle.enterWorld(this);
     }
     
     protected void envdispose() {
@@ -511,7 +511,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
     }
 
     public void dispose() {
-        lmi.LmiLifecycle.leaveWorld();
+        lmi.lifecycle.LmiLifecycle.leaveWorld();
 	gobs.slot.remove();
 	clmaplist.dispose();
 	clobjlist.dispose();
@@ -1636,7 +1636,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	    poldraw(g);
 	    partydraw(g);
 	    // lmi start
-	    lmi.Hook.mapViewDidDraw(this, g);
+	    lmi.bridge.Hook.mapViewDidDraw(this, g);
 	    // lmi end
 	    glob.map.reqarea(cc.floor(tilesz).sub(MCache.cutsz.mul(view + 1)),
 			     cc.floor(tilesz).add(MCache.cutsz.mul(view + 1)));
@@ -1855,7 +1855,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 			    a = a2;
 			}
 			ret.place();
-                        lmi.Hook.plobDidPlaced(ret);
+                        lmi.bridge.Hook.plobDidPlaced(ret);
 			return(ret);
 		    }
 		});
@@ -1873,7 +1873,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	    }
 	} else if(msg == "move") {
 	    cc = ((Coord)args[0]).mul(posres);
-            lmi.Hook.didEnterPortal();
+            lmi.bridge.Hook.didEnterPortal();
 	} else if(msg == "plob") {
 	    if(args[0] == null)
 		plgob = -1;
@@ -1989,7 +1989,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	}
 	
 	protected void hit(Coord pc, Coord2d mc, ClickData inf) {
-            if (lmi.Hook.didClicked(mc, clickb, inf)) return;
+            if (lmi.bridge.Hook.didClicked(mc, clickb, inf)) return;
 	    Object[] args = {pc, mc.floor(posres), clickb, ui.modflags()};
 	    if(inf != null)
 		args = Utils.extend(args, inf.clickargs());
@@ -2234,7 +2234,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 		    tt = null;
 		    glob.map.remove(ol);
 		    mgrab.remove();
-                    if (lmi.Hook.areaDidSelected(sc, ec)); else
+                    if (lmi.bridge.Hook.areaDidSelected(sc, ec)); else
 		    wdgmsg("sel", sc, ec, modflags);
 		    sc = null;
 		}
@@ -2391,7 +2391,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 
     public void waitPlanObject() throws InterruptedException {
       while (this.isPlanningObject())
-        lmi.WaitManager.sleep(lmi.Constant.Timeout.TO_TEMPORARY);
+        lmi.runtime.WaitManager.sleep(lmi.core.Constant.Timeout.TO_TEMPORARY);
     }
 
 //    public void sendCancelPlanMessage() {

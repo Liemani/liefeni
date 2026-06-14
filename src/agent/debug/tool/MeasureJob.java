@@ -4,14 +4,14 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.AtomicAction;
-import lmi.Api;
-import lmi.Self;
-import lmi.Util;
-import lmi.LMIException;
-import lmi.AgentContext;
-import static lmi.Constant.TILE_IN_COORD;
-import static lmi.Constant.ExceptionReason.ER_MOVE;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
+import lmi.core.LocalPlayer;
+import lmi.core.Util;
+import lmi.core.LMIException;
+import lmi.runtime.AgentContext;
+import static lmi.core.Constant.TILE_IN_COORD;
+import static lmi.core.Constant.ExceptionReason.ER_MOVE;
 
 public class MeasureJob extends Job {
   @Override
@@ -45,7 +45,7 @@ public class MeasureJob extends Job {
         if (e.reason != ER_MOVE) throw e;
         lastFailedDistance = currentDistance;
       }
-      Util.debugPrint(Self.position());
+      Util.debugPrint(LocalPlayer.position());
       if (succeededDistance - lastFailedDistance == 1)
         break;
     }

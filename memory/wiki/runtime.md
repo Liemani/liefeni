@@ -160,7 +160,7 @@ Haven의 상태 미터는 `IMeter` 기반으로 다룬다.
 현재 예시:
 
 - `agent.effect.ToggleSleepEffect`
-- `agent.debug.DescribeSelfEffect`
+- `agent.debug.DescribeLocalPlayerEffect`
 - `agent.debug.DescribeAgentStackEffect`
 
 ## AtomicAction
@@ -180,7 +180,7 @@ Haven의 상태 미터는 `IMeter` 기반으로 다룬다.
 핵심 원칙:
 
 - `Gob` 객체 전체보다는 `gobId`, `gobPosition` 같은 필요한 값만 인자로 받는다.
-- `go(Coord)`는 `Self.gob().waitMove(coord)`를 바로 호출하지 않고, 내부에서 click / wait / 도착 판정을 직접 수행한다.
+- `go(Coord)`는 `LocalPlayer.gob().waitMove(coord)`를 바로 호출하지 않고, 내부에서 click / wait / 도착 판정을 직접 수행한다.
 - 공간 전환성 click은 `enter(...)`처럼 별도 원자 동작으로 둔다.
 
 ## Chat 입력 대기
@@ -291,7 +291,9 @@ Haven minimap / map marker 저장 구조는 [map-icons.md](./map-icons.md)를 �
 - `src/lmi/waypoint/persistence/WaypointDatabase.java`
   - waypoint DB schema와 low-level query / insert helper
 - `src/lmi/waypoint/runtime/WaypointGridResolver.java`
-  - Haven `grid.id` / `MapFile.Segment.id`를 waypoint `map_grid.id`에 연결하는 helper
+  - Haven `grid.id`를 waypoint `ResolvedGrid`로 해석하는 helper
+- `src/lmi/waypoint/runtime/WaypointGridSaveCoordinator.java`
+  - current-grid save request를 dedupe하고 async save를 조율하는 helper
 - `src/lmi/waypoint/runtime/WaypointRuntimeContext.java`
   - runtime authoritative cache와 loaded/loading 상태를 보관
 - `src/lmi/waypoint/persistence/WaypointDbExecutor.java`
@@ -301,7 +303,7 @@ Haven minimap / map marker 저장 구조는 [map-icons.md](./map-icons.md)를 �
 - `src/lmi/waypoint/runtime/WaypointSceneBuilder.java`
   - current graph와 player grid bounds를 받아 scene을 구성하는 builder
 - `src/lmi/waypoint/WaypointManager.java`
-  - waypoint facade이자 graph / grid runtime orchestration 계층
+  - waypoint runtime orchestration 계층
 - `src/lmi/waypoint/WaypointOverlay.java`
   - `MapView.draw()` 훅에서 drawable waypoint scene을 실제 화면에 그리는 overlay
 
@@ -332,7 +334,7 @@ src/
     Pathfinder.java: 주변 장애물을 바탕으로 경로를 찾고 이동을 수행하는 경로 탐색기
     ProgressManager.java: 진행 바 생성과 종료를 감시해 작업 완료를 기다리는 상태 관리자
     Rect.java: 영역 선택과 배치 계산에 사용하는 직사각형 좌표 유틸리티
-    Self.java: 플레이어 자신 상태와 IMeter 기반 수치 조회를 모아둔 접근 계층
+    LocalPlayer.java: 플레이어 자신 상태와 IMeter 기반 수치 조회를 모아둔 접근 계층
     Util.java: 디버그 출력, 리플렉션 보조, 문자열 처리 등 잡다한 공용 유틸리티
     WaitManager.java: 송신 seq와 ACK를 추적해 서버 응답 타이밍을 동기화하는 대기 관리자
     behavior/

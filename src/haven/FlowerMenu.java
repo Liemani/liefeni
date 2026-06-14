@@ -145,7 +145,7 @@ public class FlowerMenu extends Widget {
 	    }
 	    if(s == 1.0)
 		ui.destroy(FlowerMenu.this);
-            lmi.Hook.flowerMenuDidDestroyed();
+            lmi.bridge.Hook.flowerMenuDidDestroyed();
 	}
     }
 
@@ -164,7 +164,7 @@ public class FlowerMenu extends Widget {
 	    }
 	    if(s == 1.0)
 		ui.destroy(FlowerMenu.this);
-            lmi.Hook.flowerMenuDidDestroyed();
+            lmi.bridge.Hook.flowerMenuDidDestroyed();
 	}
     }
 

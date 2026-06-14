@@ -17,7 +17,7 @@
 - [verify-auto-create-map-grid-on-new-db.md](verify-auto-create-map-grid-on-new-db.md): 새 DB 파일에서 첫 world enter 후 `map_segment` / `map_grid` 자동 생성 확인
 - [rename-cut-result-types.md](rename-cut-result-types.md): `LoadSegmentsByCutResult`, `LoadPointsByCutResult` naming 정리
 - [organize-register-meaning.md](organize-register-meaning.md): `register` 관련 내용과 역할 정리
-- [design-db-infra-domain-split.md](design-db-infra-domain-split.md): waypoint DB 공통 인프라와 waypoint 도메인 계층 분리 범위 설계
+- [waypoint-db-infra-domain-split.md](waypoint-db-infra-domain-split.md): waypoint DB 공통 인프라와 waypoint 도메인 계층 분리 범위 정리
 - [audit-haven-patch-width-vs-origin-master.md](audit-haven-patch-width-vs-origin-master.md): `origin/master` 대비 Haven patch audit
 
 ## Done

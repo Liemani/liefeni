@@ -1,8 +1,8 @@
 package lmi.waypoint.recording;
 
 import haven.Gob;
-import lmi.GobFinder;
-import lmi.Self;
+import lmi.core.GobFinder;
+import lmi.core.LocalPlayer;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public final class WaypointPortalResolver {
     for (Gob gob : GobFinder.all()) {
       if (!candidates.contains(gob.resourceName()))
         continue;
-      double distance = Self.distance(gob);
+      double distance = LocalPlayer.distance(gob);
       if (distance < best) {
         best = distance;
         closest = gob;

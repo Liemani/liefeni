@@ -2,23 +2,23 @@ package agent.test;
 
 import agent.Job;
 
-import lmi.AtomicAction;
-import lmi.Array;
-import lmi.Self;
-import lmi.AgentContext;
-import static lmi.Constant.*;
+import lmi.core.AtomicAction;
+import lmi.core.Array;
+import lmi.core.LocalPlayer;
+import lmi.runtime.AgentContext;
+import static lmi.core.Constant.*;
 
 public class Patrol002Job extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
-    haven.Coord firstPoint = Self.position().add(0, -TILE_IN_COORD);
-    haven.Coord secondPoint = Self.position().add(TILE_IN_COORD, 0);
+    haven.Coord firstPoint = LocalPlayer.position().add(0, -TILE_IN_COORD);
+    haven.Coord secondPoint = LocalPlayer.position().add(TILE_IN_COORD, 0);
 
     while (true) {
       AtomicAction.go(firstPoint);
-      lmi.WaitManager.sleep(2000);
+      lmi.runtime.WaitManager.sleep(2000);
       AtomicAction.go(secondPoint);
-      lmi.WaitManager.sleep(2000);
+      lmi.runtime.WaitManager.sleep(2000);
     }
   }
 

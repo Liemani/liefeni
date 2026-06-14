@@ -4,9 +4,10 @@ import haven.Coord;
 import haven.Coord2d;
 import haven.Gob;
 import haven.MCache;
-import lmi.Array;
-import lmi.AppContext;
-import lmi.Self;
+import lmi.core.Array;
+import lmi.core.AppContext;
+import lmi.core.LocalPlayer;
+import lmi.bridge.GlobBridge;
 import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.persistence.WaypointStore;
 import lmi.waypoint.managed.ManagedObjectContext;
@@ -16,7 +17,6 @@ import lmi.waypoint.model.LoadNodesByGraphResult;
 import lmi.waypoint.model.LoadNodesByGridResult;
 import lmi.waypoint.model.LoadPointsByCutResult;
 import lmi.waypoint.model.LoadSegmentsByCutResult;
-import lmi.waypoint.model.SaveMapGridResult;
 import lmi.waypoint.object.WpEdge;
 import lmi.waypoint.object.WpNode;
 import lmi.waypoint.object.WpPoint;
@@ -105,10 +105,12 @@ public final class WaypointManager {
   }
 
   public static GridPosition gridPositionOfWorld(Coord world) {
-    if (world == null || AppContext.glob == null)
+    if (world == null || GlobBridge.glob() == null)
       return null;
-    Coord tile = Coord2d.of(world).floor(MCache.tilesz);
-    Coord gc = tile.div(MCache.cmaps);
+    haven.MCache.Grid havenGrid = GlobBridge.gridAtWorld(Coord2d.of(world));
+    if (havenGrid == null)
+      return null;
+    Coord gc = havenGrid.gc;
     ResolvedGrid grid = WaypointGridResolver.resolveGrid(gc);
     if (grid == null)
       return null;
@@ -121,20 +123,6 @@ public final class WaypointManager {
     if (selfWorld == null)
       return null;
     return gridPositionOfWorld(selfWorld);
-  }
-
-  public static void saveCurrentGridIfMissing(Coord gc, WaypointResultHandler<SaveMapGridResult> handler) {
-    WaypointGridResolver.saveGridIfMissing(gc, handler);
-  }
-
-  public static void saveCurrentGridIfMissing(WaypointResultHandler<SaveMapGridResult> handler) {
-    Coord selfWorld = _selfPosition();
-    if (selfWorld == null) {
-      handler.onFailure(new RuntimeException("player position is unavailable."));
-      return;
-    }
-    Coord tile = Coord2d.of(selfWorld).floor(MCache.tilesz);
-    saveCurrentGridIfMissing(tile.div(MCache.cmaps), handler);
   }
 
   public static void setNodes(long graphId, Array<WpNode> nodes) {
@@ -395,7 +383,7 @@ public final class WaypointManager {
   }
 
   private static Coord _selfPosition() {
-    Gob self = Self.gob();
+    Gob self = LocalPlayer.gob();
     if (self == null)
       return null;
     return self.position();

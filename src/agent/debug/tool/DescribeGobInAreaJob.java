@@ -3,9 +3,9 @@ package agent.debug.tool;
 import agent.Job;
 
 import haven.Gob;
-import lmi.Array;
-import lmi.AgentContext;
-import lmi.GobFinder;
+import lmi.core.Array;
+import lmi.runtime.AgentContext;
+import lmi.core.GobFinder;
 
 public class DescribeGobInAreaJob extends Job {
   @Override

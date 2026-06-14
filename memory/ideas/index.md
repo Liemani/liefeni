@@ -4,9 +4,10 @@
 
 ## Open
 
-- [design-minimap-cave-icon-db.md](design-minimap-cave-icon-db.md)
+- [minimap-cave-icon-db.md](minimap-cave-icon-db.md)
 - [check-direct-paginae-class-definition.md](check-direct-paginae-class-definition.md)
 - [diagnostic-message-standardization.md](diagnostic-message-standardization.md)
+- [waypoint-schema-generation-order.md](waypoint-schema-generation-order.md)
 - [timer.md](timer.md)
 
 ## Promoted

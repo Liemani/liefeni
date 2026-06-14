@@ -57,7 +57,7 @@ public interface GLPanel extends UIPanel, UI.Context {
 	public Loop(GLPanel p) {
 	    this.p = p;
 	    ed = new Dispatcher();
-            lmi.AppContext.setDispatcher(ed);
+            lmi.core.AppContext.setDispatcher(ed);
 	    ed.register((java.awt.Component)p);
 	}
 

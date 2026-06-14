@@ -2,8 +2,8 @@ package agent.debug;
 
 import agent.Effect;
 
-import lmi.Agent;
-import lmi.Api;
+import lmi.runtime.Agent;
+import lmi.bridge.Api;
 
 public class DescribeAgentStackEffect extends Effect {
   @Override

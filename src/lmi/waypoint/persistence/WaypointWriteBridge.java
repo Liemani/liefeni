@@ -5,8 +5,8 @@ import lmi.waypoint.object.WpEdge;
 
 import java.sql.Connection;
 
-import static lmi.Constant.WaypointEdgeDirection.BACKWARD;
-import static lmi.Constant.WaypointEdgeDirection.FORWARD;
+import static lmi.core.Constant.WaypointEdgeDirection.BACKWARD;
+import static lmi.core.Constant.WaypointEdgeDirection.FORWARD;
 
 public final class WaypointWriteBridge {
   private WaypointWriteBridge() {}

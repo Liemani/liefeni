@@ -3,8 +3,8 @@ package agent.debug;
 import agent.Effect;
 import haven.Coord;
 import haven.MCache;
-import lmi.Api;
-import lmi.AppContext;
+import lmi.bridge.Api;
+import lmi.bridge.GlobBridge;
 
 import java.lang.reflect.Field;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class DescribeMCacheGridsEffect extends Effect {
   @Override
   public void execute() {
-    MCache map = AppContext.glob == null ? null : AppContext.glob.map;
+    MCache map = GlobBridge.glob() == null ? null : GlobBridge.glob().map;
     if (map == null) {
       Api.message("MCache is unavailable.");
       return;

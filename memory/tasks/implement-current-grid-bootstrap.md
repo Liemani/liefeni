@@ -21,4 +21,4 @@
 - world enter eager path
 - refresh lazy fallback
 - user action fallback
-- `WaypointManager.saveCurrentGridIfMissing()` 같은 공통 helper 분리
+- `WaypointGridSaveCoordinator.saveIfMissing(Coord gc, ...)` 같은 공통 helper 분리

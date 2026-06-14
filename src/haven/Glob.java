@@ -30,6 +30,7 @@ import java.util.*;
 import java.awt.Color;
 import haven.render.*;
 import haven.render.sl.*;
+import lmi.bridge.GlobBridge;
 
 public class Glob {
     public final OCache oc = new OCache(this);
@@ -55,7 +56,7 @@ public class Glob {
 	this.sess = sess;
 	map = new MCache(sess);
 	party = new Party(this);
-	lmi.AppContext.setGlob(this);
+	GlobBridge.setGlob(this);
     }
 
     public static interface Weather {

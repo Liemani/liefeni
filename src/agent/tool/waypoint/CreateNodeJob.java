@@ -1,10 +1,10 @@
 package agent.tool.waypoint;
 
 import agent.Job;
-import lmi.AgentContext;
-import lmi.Api;
-import lmi.ChatInputMonitor;
-import lmi.Util;
+import lmi.runtime.AgentContext;
+import lmi.bridge.Api;
+import lmi.runtime.ChatInputMonitor;
+import lmi.core.Util;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.persistence.WaypointResultHandler;
 import lmi.waypoint.persistence.WaypointStore;

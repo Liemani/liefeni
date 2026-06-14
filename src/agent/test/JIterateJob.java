@@ -4,10 +4,10 @@ import agent.Job;
 
 import haven.Coord;
 import haven.Gob;
-import lmi.AtomicAction;
-import lmi.Api;
-import lmi.Self;
-import lmi.AgentContext;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
+import lmi.core.LocalPlayer;
+import lmi.runtime.AgentContext;
 
 public class JIterateJob extends Job {
   @Override
@@ -24,9 +24,9 @@ public class JIterateJob extends Job {
     AtomicAction.go(gob.position().add(0, -targetDistance));
 
     while (true) {
-      final Coord destination = Self.position().add(0, 1);
+      final Coord destination = LocalPlayer.position().add(0, 1);
       AtomicAction.go(destination);
-      System.out.println("current location: " + Self.position());
+      System.out.println("current location: " + LocalPlayer.position());
     }
   }
 

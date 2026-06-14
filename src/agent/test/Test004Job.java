@@ -2,8 +2,8 @@ package agent.test;
 
 import agent.Job;
 
-import lmi.Api;
-import lmi.AgentContext;
+import lmi.bridge.Api;
+import lmi.runtime.AgentContext;
 
 public class Test004Job extends Job {
   @Override
@@ -15,7 +15,7 @@ public class Test004Job extends Job {
     final int count = Integer.parseInt(args[2]);
 
     Api.alert("string item을 가져올 container를 클릭해주세요");
-    Api.takeItemFromContainer(Api.getGob(), lmi.Constant.nameSet_string, count);
+    Api.takeItemFromContainer(Api.getGob(), lmi.core.Constant.nameSet_string, count);
   }
 
   public static String info() {

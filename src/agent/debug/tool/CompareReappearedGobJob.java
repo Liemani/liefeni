@@ -2,10 +2,10 @@ package agent.debug.tool;
 
 import agent.Job;
 import haven.Gob;
-import lmi.AgentContext;
-import lmi.Api;
-import lmi.ClickManager;
-import lmi.WaitManager;
+import lmi.runtime.AgentContext;
+import lmi.bridge.Api;
+import lmi.core.ClickManager;
+import lmi.runtime.WaitManager;
 
 public class CompareReappearedGobJob extends Job {
   @Override

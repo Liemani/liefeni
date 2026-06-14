@@ -2,11 +2,11 @@ package agent.test;
 
 import agent.Job;
 
-import lmi.Array;
-import lmi.AtomicAction;
-import lmi.Self;
-import lmi.AgentContext;
-import static lmi.Constant.*;
+import lmi.core.Array;
+import lmi.core.AtomicAction;
+import lmi.core.LocalPlayer;
+import lmi.runtime.AgentContext;
+import static lmi.core.Constant.*;
 
 public class Patrol001Job extends Job {
   private Array<haven.Coord> _path = new Array<>();
@@ -14,14 +14,14 @@ public class Patrol001Job extends Job {
   @Override
   public void run(AgentContext ctx, String[] args) {
     if (_path.isEmpty()) {
-      _path.append(Self.position());
-      _path.append(Self.position().add(0, -TILE_IN_COORD));
+      _path.append(LocalPlayer.position());
+      _path.append(LocalPlayer.position().add(0, -TILE_IN_COORD));
     }
 
     while (true) {
       for (haven.Coord location : _path) {
         AtomicAction.go(location);
-        lmi.WaitManager.sleep(1000);
+        lmi.runtime.WaitManager.sleep(1000);
       }
     }
   }

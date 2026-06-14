@@ -111,15 +111,16 @@ schema version 정책:
 - graph topology는 `graph_id` 기준으로 읽는다
 - geometry는 `grid_id` 기준으로 읽는다
 - Haven grid / segment를 waypoint 내부 `map_grid.id`로 연결할 때 `saveMapGridIfMissingAsync(...)`를 사용한다
+- current-grid save 요청은 `WaypointGridSaveCoordinator.saveIfMissing(Coord gc, ...)`에서 시작한다
 
 ## map_grid 보장 흐름
 
 현재 world 좌표에서 waypoint `grid_id`를 얻을 때는 다음 흐름을 탄다.
 
-1. `WaypointGridResolver`가 Haven `MCache.Grid`를 찾는다
-2. `MapFile.gridinfo`로 Haven `Segment.id`를 얻는다
+1. `WaypointGridResolver`가 Haven `MCache.Grid`를 찾고 `ResolvedGrid` cache를 확인한다
+2. `WaypointGridSaveCoordinator`가 필요하면 `MapFile.gridinfo`로 Haven `Segment.id`를 얻는다
 3. grid origin world 좌표를 계산한다
-4. runtime cache에 `havenGridId -> mapGridId`가 없으면 `saveMapGridIfMissingAsync(...)`를 queue에 넣는다
+4. runtime cache에 `havenGridId -> mapGridId`가 없으면 `WaypointStore.saveMapGridIfMissingAsync(...)`를 queue에 넣는다
 5. DB completion 시 `ResolvedGrid`를 runtime cache에 넣고 `WaypointManager.requestRefresh()`를 건다
 
 즉 grid 연결도 preload-first, retry-on-next-refresh 모델이다.

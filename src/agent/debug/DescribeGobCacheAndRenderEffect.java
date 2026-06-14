@@ -4,8 +4,9 @@ import agent.Effect;
 import haven.Gob;
 import haven.MapView;
 import haven.OCache;
-import lmi.Api;
-import lmi.AppContext;
+import lmi.bridge.Api;
+import lmi.core.AppContext;
+import lmi.bridge.MapViewBridge;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class DescribeGobCacheAndRenderEffect extends Effect {
   @Override
   public void execute() {
     OCache oc = AppContext.oCache();
-    MapView mapView = AppContext.mapView();
+    MapView mapView = MapViewBridge.mapView();
     if (oc == null) {
       Api.message("OCache is unavailable.");
       return;

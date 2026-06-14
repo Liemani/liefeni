@@ -1,8 +1,8 @@
 package agent.effect;
 
 import agent.Effect;
-import lmi.Agent;
-import lmi.Api;
+import lmi.runtime.Agent;
+import lmi.bridge.Api;
 
 public class ToggleSleepEffect extends Effect {
   @Override

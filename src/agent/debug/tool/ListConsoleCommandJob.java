@@ -2,9 +2,9 @@ package agent.debug.tool;
 
 import agent.Job;
 
-import lmi.Api;
-import lmi.Util;
-import lmi.AgentContext;
+import lmi.bridge.Api;
+import lmi.core.Util;
+import lmi.runtime.AgentContext;
 
 public class ListConsoleCommandJob extends Job {
   @Override

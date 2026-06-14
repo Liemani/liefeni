@@ -1,6 +1,6 @@
 package lmi.waypoint.runtime;
 
-import lmi.Array;
+import lmi.core.Array;
 
 public final class WaypointScene {
   public final WaypointGridBounds bounds;

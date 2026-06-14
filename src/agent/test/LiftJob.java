@@ -2,10 +2,10 @@ package agent.test;
 
 import agent.Job;
 
-import lmi.AtomicAction;
-import lmi.Api;
-import lmi.AgentContext;
-import lmi.GobFinder;
+import lmi.core.AtomicAction;
+import lmi.bridge.Api;
+import lmi.runtime.AgentContext;
+import lmi.core.GobFinder;
 import haven.Gob;
 
 public class LiftJob extends Job {

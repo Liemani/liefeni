@@ -3,12 +3,12 @@ package agent.debug;
 import agent.Effect;
 import haven.Coord;
 import haven.MapView;
-import lmi.Api;
-import lmi.AppContext;
+import lmi.bridge.Api;
 import lmi.waypoint.WaypointDebug;
 import lmi.waypoint.WaypointManager;
 import lmi.waypoint.WaypointOverlay;
 import lmi.waypoint.runtime.ResolvedNode;
+import lmi.bridge.MapViewBridge;
 
 public class DescribeWaypointSceneEffect extends Effect {
   @Override
@@ -17,7 +17,7 @@ public class DescribeWaypointSceneEffect extends Effect {
     for (String line : WaypointDebug.lines())
       Api.message(line);
 
-    MapView mapView = AppContext.mapView();
+    MapView mapView = MapViewBridge.mapView();
     if (mapView == null) {
       Api.message("MapView: null");
       return;

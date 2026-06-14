@@ -553,20 +553,20 @@ public class GItem extends AWidget implements ItemInfo.SpriteOwner, GSprite.Owne
     public void describe() {
       final String resourceName = this.resourceName();
       if (resourceName != null)
-        lmi.Util.debugPrint(resourceName);
+        lmi.core.Util.debugPrint(resourceName);
       else
-        lmi.Util.debugPrint("no resource");
+        lmi.core.Util.debugPrint("no resource");
 
       final byte[] sdt = this.sdt.rbuf;
-      lmi.Util.debugPrint("sdt:");
+      lmi.core.Util.debugPrint("sdt:");
       if (sdt != null) {
         for (byte b: this.sdt.rbuf)
-          lmi.Util.debugPrint(" " + b);
+          lmi.core.Util.debugPrint(" " + b);
       } else
-        lmi.Util.debugPrint("null\n");
+        lmi.core.Util.debugPrint("null\n");
 
-      lmi.Util.debugPrint("meter: " + meter);
-      lmi.Util.debugPrint("num: " + num);
+      lmi.core.Util.debugPrint("meter: " + meter);
+      lmi.core.Util.debugPrint("num: " + num);
     }
 
     public String resourceName() {
@@ -579,15 +579,15 @@ public class GItem extends AWidget implements ItemInfo.SpriteOwner, GSprite.Owne
     }
 
     public boolean isString() {
-      return isResourceNameEndsWith(lmi.Constant.gfx.invobjs.herbs.RN_CATTAILFIBRE)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.herbs.RN_SPINDLYTAPROOT)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.herbs.RN_STINGINGNETTLE)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.RN_BARKCORDAGE)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.RN_HEMPFIBRE)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.RN_HIDESTRAP)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.RN_REEDTWINE)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.RN_STRAWSTRING)
-        || isResourceNameEndsWith(lmi.Constant.gfx.invobjs.RN_TOUGHROOT);
+      return isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.herbs.RN_CATTAILFIBRE)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.herbs.RN_SPINDLYTAPROOT)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.herbs.RN_STINGINGNETTLE)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.RN_BARKCORDAGE)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.RN_HEMPFIBRE)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.RN_HIDESTRAP)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.RN_REEDTWINE)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.RN_STRAWSTRING)
+        || isResourceNameEndsWith(lmi.core.Constant.gfx.invobjs.RN_TOUGHROOT);
     }
 
     public void transfer() {

@@ -1,7 +1,7 @@
 package agent.debug;
 
 import agent.Effect;
-import lmi.Api;
+import lmi.bridge.Api;
 import lmi.waypoint.WaypointOverlay;
 
 public class ToggleWaypointOverlayTestEffect extends Effect {
