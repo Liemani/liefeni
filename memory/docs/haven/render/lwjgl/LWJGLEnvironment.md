@@ -1,5 +1,7 @@
 # LWJGLEnvironment
 
+This file documents the responsibilities and members of `LWJGLEnvironment`.
+
 ## Meta
 
 - Source: [LWJGLEnvironment.java](../../../../../src/haven/render/lwjgl/LWJGLEnvironment.java)
@@ -8,56 +10,46 @@
 
 ## Role
 
-- Represents an LWJGL render environment.
+Represents an LWJGL render environment.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [coreprof](#member-1)
-
-#### Methods
-
-- [LWJGLCaps(GL gl, LWJGLEnvironment env)](#member-2)
-- [checkreq()](#member-3)
-- [mkcaps(GL initgl)](#member-4)
-- [malloc(int sz)](#member-5)
-- [subsume(ByteBuffer data, int sz)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `coreprof`
+### LWJGLCaps
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-2"></a>
-##### `LWJGLCaps(GL gl, LWJGLEnvironment env)`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-3"></a>
-##### `checkreq()`
+#### `public final boolean coreprof`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `mkcaps(GL initgl)`
+### Methods
+
+#### `public LWJGLEnvironment(Area wnd)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `malloc(int sz)`
+#### `public LWJGLCaps(GL gl, LWJGLEnvironment env)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `subsume(ByteBuffer data, int sz)`
+#### `public void checkreq()`
+
+- Description: TODO
+
+#### `public LWJGLCaps mkcaps(GL initgl)`
+
+- Description: TODO
+
+#### `public SysBuffer malloc(int sz)`
+
+- Description: TODO
+
+#### `public SysBuffer subsume(ByteBuffer data, int sz)`
 
 - Description: TODO

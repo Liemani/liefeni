@@ -1,5 +1,7 @@
 # HttpStatus
 
+This file documents the responsibilities and members of `HttpStatus`.
+
 ## Meta
 
 - Source: [HttpStatus.java](../../../src/haven/HttpStatus.java)
@@ -8,92 +10,68 @@
 
 ## Role
 
-- Represents an HTTP status value.
+Represents an HTTP status value.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [mond](#member-1)
-- [src](#member-2)
-- [syn](#member-3)
-- [status](#member-4)
-- [users](#member-5)
-- [quit](#member-6)
-- [delays](#member-9)
-- [cur](#member-10)
-
-#### Methods
-
-- [handle(String... words)](#member-7)
-- [handle(byte[] buf, int off, int len)](#member-8)
-- [run()](#member-11)
-- [quit()](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mond`
+#### `public static final Config.Variable<URI> mond = Config.Services.var("srvmon", "")`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `src`
+#### `private static final int[] delays =`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `syn`
+### Fields
+
+#### `public final URI src`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `status`
+#### `public boolean syn = false`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `users`
+#### `public String status`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `quit`
+#### `public int users`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `delays`
+#### `private boolean quit = false`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `cur`
+#### `private InputStream cur = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `handle(String... words)`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `handle(byte[] buf, int off, int len)`
+#### `public HttpStatus(URI src)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `run()`
+#### `public HttpStatus()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `quit()`
+#### `private void handle(String... words)`
+
+- Description: TODO
+
+#### `private void handle(byte[] buf, int off, int len)`
+
+- Description: TODO
+
+#### `public void run()`
+
+- Description: TODO
+
+#### `public void quit()`
 
 - Description: TODO

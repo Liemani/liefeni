@@ -1,5 +1,7 @@
 # Digest
 
+This file documents the responsibilities and members of `Digest`.
+
 ## Meta
 
 - Source: [Digest.java](../../../src/haven/Digest.java)
@@ -8,235 +10,152 @@
 
 ## Role
 
-- Provides message digest support.
+Provides message digest support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [MD5](#member-1)
-- [SHA1](#member-2)
-- [SHA256](#member-3)
-- [SHA384](#member-4)
-- [SHA512](#member-5)
-- [SHA3_256](#member-6)
-- [SHA3_384](#member-7)
-- [SHA3_512](#member-8)
-- [BLAKE2B](#member-9)
-
-#### Fields
-
-- [md](#member-18)
-- [dig](#member-24)
-- [inner](#member-25)
-- [outer](#member-26)
-
-#### Methods
-
-- [public int diglen();](#member-10)
-- [public int blocklen();](#member-11)
-- [public Digest update(byte[] buf, int off, int len);](#member-12)
-- [update(byte[] part)](#member-13)
-- [public byte[] digest();](#member-14)
-- [public Digest copy();](#member-15)
-- [hexdigest()](#member-16)
-- [hash(Algorithm alg, byte[]... parts)](#member-17)
-- [Builtin(MessageDigest md)](#member-19)
-- [update(byte[] buf, int off, int len)](#member-20)
-- [digest()](#member-21)
-- [copy()](#member-22)
-- [alg(String name, int dsz, int bsz)](#member-23)
-- [addkey(Digest dig, byte[] key, byte mod)](#member-27)
-- [HMAC(HMAC that)](#member-28)
-- [HMAC(Algorithm dig, byte[] key)](#member-29)
-- [update(byte[] part, int off, int len)](#member-30)
-- [digest()](#member-31)
-- [copy()](#member-32)
-- [of(Algorithm dig, byte[] key)](#member-33)
-- [hkdf(Algorithm dig, byte[] salt, byte[] ikm, byte[] info, int len)](#member-34)
-- [pbkdf2(Algorithm prf, byte[] salt, int rounds, int len)](#member-35)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `MD5`
+#### `public static final Algorithm MD5 = Builtin.alg("MD5", 16, 64)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `SHA1`
+#### `public static final Algorithm SHA1 = Builtin.alg("SHA-1", 20, 64)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `SHA256`
+#### `public static final Algorithm SHA256 = Builtin.alg("SHA-256", 32, 64)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `SHA384`
+#### `public static final Algorithm SHA384 = Builtin.alg("SHA-384", 48, 128)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `SHA512`
+#### `public static final Algorithm SHA512 = Builtin.alg("SHA-512", 64, 128)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `SHA3_256`
+#### `public static final Algorithm SHA3_256 = Builtin.alg("SHA3-256", 32, 136)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `SHA3_384`
+#### `public static final Algorithm SHA3_384 = Builtin.alg("SHA3-384", 48, 104)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `SHA3_512`
+#### `public static final Algorithm SHA3_512 = Builtin.alg("SHA3-512", 64, 72)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `BLAKE2B`
+#### `public static final Algorithm BLAKE2B = new Blake2b()`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-18"></a>
-##### `md`
-
-- Description: TODO
-
-<a id="member-24"></a>
-##### `dig`
+#### `private final MessageDigest md`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `inner`
+#### `public final Algorithm dig`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `outer`
+#### `private final Digest inner, outer`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-10"></a>
-##### `public int diglen();`
+#### `private final Digest inner, outer`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `public int blocklen();`
+### Methods
+
+#### `public int diglen()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `public Digest update(byte[] buf, int off, int len);`
+#### `public int blocklen()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `update(byte[] part)`
+#### `public Digest update(byte[] buf, int off, int len)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `public byte[] digest();`
+#### `public default Digest update(byte[] part)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `public Digest copy();`
+#### `public byte[] digest()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `hexdigest()`
+#### `public Digest copy()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `hash(Algorithm alg, byte[]... parts)`
+#### `public default String hexdigest()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `Builtin(MessageDigest md)`
+#### `public static byte[] hash(Algorithm alg, byte[]... parts)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `update(byte[] buf, int off, int len)`
+#### `Builtin(MessageDigest md)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `digest()`
+#### `public Digest update(byte[] buf, int off, int len)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `copy()`
+#### `public byte[] digest()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `alg(String name, int dsz, int bsz)`
+#### `public Digest copy()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `addkey(Digest dig, byte[] key, byte mod)`
+#### `private static Algorithm alg(String name, int dsz, int bsz)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `HMAC(HMAC that)`
+#### `private Digest addkey(Digest dig, byte[] key, byte mod)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `HMAC(Algorithm dig, byte[] key)`
+#### `private HMAC(HMAC that)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `update(byte[] part, int off, int len)`
+#### `public HMAC(Algorithm dig, byte[] key)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `digest()`
+#### `public Digest update(byte[] part, int off, int len)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `copy()`
+#### `public byte[] digest()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `of(Algorithm dig, byte[] key)`
+#### `public Digest copy()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `hkdf(Algorithm dig, byte[] salt, byte[] ikm, byte[] info, int len)`
+#### `public static Algorithm of(Algorithm dig, byte[] key)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `pbkdf2(Algorithm prf, byte[] salt, int rounds, int len)`
+#### `public static byte[] hkdf(Algorithm dig, byte[] salt, byte[] ikm, byte[] info, int len)`
+
+- Description: TODO
+
+#### `public static byte[] pbkdf2(Algorithm prf, byte[] salt, int rounds, int len)`
 
 - Description: TODO

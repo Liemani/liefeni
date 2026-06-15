@@ -1,5 +1,7 @@
 # IntMap
 
+This file documents the responsibilities and members of `IntMap`.
+
 ## Meta
 
 - Source: [IntMap.java](../../../src/haven/IntMap.java)
@@ -8,152 +10,118 @@
 
 ## Role
 
-- Provides an integer-keyed map.
+Provides an integer-keyed map.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [nil](#member-1)
-- [vals](#member-2)
-- [sz](#member-3)
-- [k](#member-8)
-- [entries](#member-15)
-
-#### Methods
-
-- [icast(V v)](#member-4)
-- [ocast(Object v)](#member-5)
-- [containsKey(int k)](#member-6)
-- [containsKey(Object k)](#member-7)
-- [IteredEntry(int k)](#member-9)
-- [getKey()](#member-10)
-- [getValue()](#member-11)
-- [equals(Object o)](#member-12)
-- [hashCode()](#member-13)
-- [setValue(V nv)](#member-14)
-- [entrySet()](#member-16)
-- [get(int k)](#member-17)
-- [get(Object k)](#member-18)
-- [put(int k, V v)](#member-19)
-- [put(Integer k, V v)](#member-20)
-- [remove(int k)](#member-21)
-- [remove(Integer k)](#member-22)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `nil`
+### IteredEntry
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `vals`
+## Members
+
+### Constants
+
+#### `private static final Object nil = new Object()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sz`
+### Fields
+
+#### `private Object[] vals`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `k`
+#### `private int sz`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `entries`
+#### `private final int k`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `icast(V v)`
+#### `private Set<Entry<Integer, V>> entries = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `ocast(Object v)`
+### Methods
+
+#### `public IntMap(int capacity)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `containsKey(int k)`
+#### `public IntMap()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `containsKey(Object k)`
+#### `public IntMap(Map<Integer, V> m)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `IteredEntry(int k)`
+#### `private Object icast(V v)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `getKey()`
+#### `private V ocast(Object v)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `getValue()`
+#### `public boolean containsKey(int k)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `equals(Object o)`
+#### `public boolean containsKey(Object k)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `hashCode()`
+#### `private IteredEntry(int k)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `setValue(V nv)`
+#### `public Integer getKey()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `entrySet()`
+#### `public V getValue()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `get(int k)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `get(Object k)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `put(int k, V v)`
+#### `public V setValue(V nv)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `put(Integer k, V v)`
+#### `public Set<Entry<Integer, V>> entrySet()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `remove(int k)`
+#### `public V get(int k)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `remove(Integer k)`
+#### `public V get(Object k)`
+
+- Description: TODO
+
+#### `public V put(int k, V v)`
+
+- Description: TODO
+
+#### `public V put(Integer k, V v)`
+
+- Description: TODO
+
+#### `public V remove(int k)`
+
+- Description: TODO
+
+#### `public V remove(Integer k)`
 
 - Description: TODO

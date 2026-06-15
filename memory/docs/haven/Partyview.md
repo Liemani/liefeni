@@ -1,5 +1,7 @@
 # Partyview
 
+This file documents the responsibilities and members of `Partyview`.
+
 ## Meta
 
 - Source: [Partyview.java](../../../src/haven/Partyview.java)
@@ -8,152 +10,114 @@
 
 ## Role
 
-- Displays party UI.
+Displays party UI.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [marg](#member-1)
-- [party](#member-2)
-- [ign](#member-3)
-- [leave](#member-4)
-- [avs](#member-5)
-- [om](#member-6)
-- [m](#member-9)
-- [color](#member-10)
-- [tooltip](#member-11)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-7)
-- [added()](#member-8)
-- [MemberView(Coord sz, Member m)](#member-12)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-13)
-- [drawframe(GOut g)](#member-14)
-- [tooltip(Coord c, Widget prev)](#member-15)
-- [update()](#member-16)
-- [tick(double dt)](#member-17)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-18)
-- [updsteam()](#member-19)
-- [destroy()](#member-20)
-- [uimsg(String msg, Object... args)](#member-21)
-- [dispose()](#member-22)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `marg`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `party`
+### MemberView
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ign`
+## Members
+
+### Constants
+
+#### `public static final int marg = UI.scale(4)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `leave`
+### Fields
+
+#### `public final Party party`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `avs`
+#### `public final long ign`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `om`
+#### `private final Button leave`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `m`
+#### `private Map<Member, MemberView> avs = Collections.emptyMap()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `color`
+#### `private Map<Long, Member> om = null`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `tooltip`
+#### `public final Member m`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `create(UI ui, Object[] args)`
+#### `public Color color = Color.WHITE`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `added()`
+#### `private Tex tooltip = null`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `MemberView(Coord sz, Member m)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `Partyview(Party party, long ign)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `drawframe(GOut g)`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public MemberView(Coord sz, Member m)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `update()`
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `tick(double dt)`
+#### `public void drawframe(GOut g)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `updsteam()`
+#### `private void update()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `destroy()`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `dispose()`
+#### `private void updsteam()`
+
+- Description: TODO
+
+#### `public void destroy()`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void dispose()`
 
 - Description: TODO

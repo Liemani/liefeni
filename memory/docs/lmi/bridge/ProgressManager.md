@@ -1,5 +1,7 @@
 # ProgressManager
 
+This file documents the responsibilities and members of `ProgressManager`.
+
 ## Meta
 
 - Source: [ProgressManager.java](../../../../src/lmi/bridge/ProgressManager.java)
@@ -8,56 +10,36 @@
 
 ## Role
 
-- Tracks a `GameUI.Progress` widget and waits for it to appear and disappear around blocking actions.
+Tracks a `GameUI.Progress` widget and waits for it to appear and disappear around blocking actions.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [_widget](#member-1)
-
-#### Methods
-
-- [setWidget(haven.GameUI.Progress widget)](#member-2)
-- [waitProgress()](#member-3)
-- [_isProgressing()](#member-4)
-- [_waitProgressAdded()](#member-5)
-- [waitProgressDestroyed()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `_widget`
+#### `private static haven.GameUI.Progress _widget = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `setWidget(haven.GameUI.Progress widget)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `waitProgress()`
+#### `public static void setWidget(haven.GameUI.Progress widget)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `_isProgressing()`
+#### `public static void waitProgress()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `_waitProgressAdded()`
+#### `private static boolean _isProgressing()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `waitProgressDestroyed()`
+#### `private static void _waitProgressAdded()`
+
+- Description: TODO
+
+#### `private static void waitProgressDestroyed()`
 
 - Description: TODO

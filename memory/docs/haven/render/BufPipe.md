@@ -1,5 +1,7 @@
 # BufPipe
 
+This file documents the responsibilities and members of `BufPipe`.
+
 ## Meta
 
 - Source: [BufPipe.java](../../../../src/haven/render/BufPipe.java)
@@ -8,74 +10,56 @@
 
 ## Role
 
-- Represents a buffer-backed render pipe.
+Represents a buffer-backed render pipe.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [states](#member-1)
-
-#### Methods
-
-- [get(Slot<T> slot)](#member-2)
-- [put(Slot<? super T> slot, T state)](#member-3)
-- [states()](#member-4)
-- [copy()](#member-5)
-- [copy(Pipe from)](#member-6)
-- [hashCode()](#member-7)
-- [equals(Object o)](#member-8)
-- [toString()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `states`
+#### `private State[] states`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `get(Slot<T> slot)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `put(Slot<? super T> slot, T state)`
+#### `public BufPipe(State[] states)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `states()`
+#### `public BufPipe()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `copy()`
+#### `public <T extends State> T get(Slot<T> slot)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `copy(Pipe from)`
+#### `public <T extends State> void put(Slot<? super T> slot, T state)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `hashCode()`
+#### `public State[] states()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `equals(Object o)`
+#### `public BufPipe copy()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `toString()`
+#### `public void copy(Pipe from)`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

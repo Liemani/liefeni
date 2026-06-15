@@ -1,5 +1,7 @@
 # PrioQueue
 
+This file documents the responsibilities and members of `PrioQueue`.
+
 ## Meta
 
 - Source: [PrioQueue.java](../../../src/haven/PrioQueue.java)
@@ -8,45 +10,32 @@
 
 ## Role
 
-- Provides a priority queue implementation.
+Provides a priority queue implementation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [peek()](#member-1)
-- [element()](#member-2)
-- [poll()](#member-3)
-- [remove()](#member-4)
-- [removeid(E el)](#member-5)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `peek()`
+#### `public E peek()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `element()`
+#### `public E element()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `poll()`
+#### `public E poll()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `remove()`
+#### `public E remove()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `removeid(E el)`
+#### `public boolean removeid(E el)`
 
 - Description: TODO

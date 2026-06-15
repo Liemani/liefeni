@@ -1,5 +1,7 @@
 # TexPal
 
+This file documents the responsibilities and members of `TexPal`.
+
 ## Meta
 
 - Source: [TexPal.java](../../../../src/haven/resutil/TexPal.java)
@@ -8,62 +10,50 @@
 
 ## Role
 
-- Represents a texture palette helper.
+Represents a texture palette helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [tex](#member-2)
-- [ctex](#member-3)
-- [shader](#member-4)
-
-#### Methods
-
-- [shader()](#member-5)
-- [apply(Pipe buf)](#member-6)
-- [cons(Material.Buffer buf, Object... args)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $res
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tex`
+## Members
+
+### Constants
+
+#### `public static final Slot<TexPal> slot = new Slot<TexPal>(Slot.Type.DRAW, TexPal.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ctex`
+#### `private static final Uniform ctex = new Uniform(SAMPLER2D, p -> p.get(slot).tex.img, slot)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `shader`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-5"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `apply(Pipe buf)`
+#### `public final TexRender tex`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+### Methods
+
+#### `public TexPal(TexRender tex)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
 
 - Description: TODO

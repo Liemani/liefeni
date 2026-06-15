@@ -1,5 +1,7 @@
 # EmptyWaypointResult
 
+This file documents the responsibilities and members of `EmptyWaypointResult`.
+
 ## Meta
 
 - Source: [EmptyWaypointResult.java](../../../../../src/lmi/waypoint/persistence/EmptyWaypointResult.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
+#### `public static final EmptyWaypointResult INSTANCE = new EmptyWaypointResult()`
 
-- [INSTANCE](#member-1)
+- Description: TODO
 
-### Member Reference
+### Fields
 
-#### Constants
+### Methods
 
-<a id="member-1"></a>
-##### `INSTANCE`
+#### `private EmptyWaypointResult()`
 
 - Description: TODO

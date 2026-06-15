@@ -1,5 +1,7 @@
 # DescribeWaypointSceneEffect
 
+This file documents the responsibilities and members of `DescribeWaypointSceneEffect`.
+
 ## Meta
 
 - Source: [DescribeWaypointSceneEffect.java](../../../../src/agent/debug/DescribeWaypointSceneEffect.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Provides a debug effect for inspecting or mutating runtime state.
+Provides a debug effect for inspecting or mutating runtime state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [execute()](#member-1)
-- [name()](#member-2)
-- [info()](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `execute()`
+#### `public void execute()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

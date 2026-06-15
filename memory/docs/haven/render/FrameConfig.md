@@ -1,5 +1,7 @@
 # FrameConfig
 
+This file documents the responsibilities and members of `FrameConfig`.
+
 ## Meta
 
 - Source: [FrameConfig.java](../../../../src/haven/render/FrameConfig.java)
@@ -8,74 +10,56 @@
 
 ## Role
 
-- Represents frame configuration.
+Represents frame configuration.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [u_numsamples](#member-2)
-- [u_screensize](#member-3)
-- [u_pixelpitch](#member-4)
-- [sz](#member-5)
-- [samples](#member-6)
-
-#### Methods
-
-- [shader()](#member-7)
-- [apply(Pipe p)](#member-8)
-- [toString()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<FrameConfig> slot = new Slot<>(Slot.Type.SYS, FrameConfig.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u_numsamples`
+#### `public static final Uniform u_numsamples = new Uniform(Type.INT, "numsamples", p -> p.get(slot).samples, slot)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `u_screensize`
+#### `public static final Uniform u_screensize = new Uniform(Type.VEC2, "screensize", p -> p.get(slot).sz, slot)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `u_pixelpitch`
+#### `public static final Uniform u_pixelpitch = new Uniform(Type.VEC2, "pixelpitch", p ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sz`
+### Fields
+
+#### `public final Coord sz`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `samples`
+#### `public final int samples`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `apply(Pipe p)`
+#### `public FrameConfig(Coord sz, int samples)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `toString()`
+#### `public FrameConfig(Coord sz)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

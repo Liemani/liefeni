@@ -1,5 +1,7 @@
 # LValue
 
+This file documents the responsibilities and members of `LValue`.
+
 ## Meta
 
 - Source: [LValue.java](../../../../../src/haven/render/sl/LValue.java)
@@ -8,10 +10,12 @@
 
 ## Role
 
-- Represents a logical assignable value.
+Represents a logical assignable value.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-### Member Reference
+### Fields
+
+### Methods

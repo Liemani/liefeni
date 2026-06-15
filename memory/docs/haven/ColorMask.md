@@ -1,5 +1,7 @@
 # ColorMask
 
+This file documents the responsibilities and members of `ColorMask`.
+
 ## Meta
 
 - Source: [ColorMask.java](../../../src/haven/ColorMask.java)
@@ -8,56 +10,44 @@
 
 ## Role
 
-- Provides a color mask helper.
+Provides a color mask helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [ccol](#member-2)
-- [col](#member-3)
-- [sh](#member-4)
-
-#### Methods
-
-- [shader()](#member-5)
-- [apply(Pipe buf)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<ColorMask> slot = new Slot<ColorMask>(Slot.Type.DRAW, ColorMask.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ccol`
+#### `public static final Uniform ccol = new Uniform(VEC4, p -> p.get(slot).col, slot)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `col`
+#### `private static final ShaderMacro sh = prog ->`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sh`
+### Fields
+
+#### `private final FColor col`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `shader()`
+#### `public ColorMask(FColor col)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `apply(Pipe buf)`
+#### `public ColorMask(Color col)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Output
 
+This file documents the responsibilities and members of `Output`.
+
 ## Meta
 
 - Source: [Output.java](../../../../../src/haven/render/sl/Output.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Represents a shader output.
+Represents a shader output.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [out](#member-1)
-- [ctx](#member-2)
-- [indent](#member-3)
-
-#### Methods
-
-- [write(char c)](#member-4)
-- [write(String str)](#member-5)
-- [write(Symbol sym)](#member-6)
-- [indent()](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `out`
+#### `private final Writer out`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ctx`
+#### `public final Context ctx`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `indent`
+#### `public int indent = 0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `write(char c)`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `write(String str)`
+#### `public Output(Writer out, Context ctx)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `write(Symbol sym)`
+#### `public void write(char c)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `indent()`
+#### `public void write(String str)`
+
+- Description: TODO
+
+#### `public void write(Symbol sym)`
+
+- Description: TODO
+
+#### `public void indent()`
 
 - Description: TODO

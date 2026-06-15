@@ -1,5 +1,7 @@
 # KeywordArgs
 
+This file documents the responsibilities and members of `KeywordArgs`.
+
 ## Meta
 
 - Source: [KeywordArgs.java](../../../src/haven/KeywordArgs.java)
@@ -8,122 +10,110 @@
 
 ## Role
 
-- Stores keyword argument mappings.
+Stores keyword argument mappings.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [formats](#member-1)
-- [parsed](#member-2)
-- [argv](#member-3)
-- [respool](#member-4)
-- [argv](#member-5)
-- [p](#member-6)
-- [name](#member-12)
-- [argv](#member-13)
-
-#### Methods
-
-- [FormatException(String name, KeywordArgs buf, int p)](#member-7)
-- [public Pair<Object, Integer> parse(KeywordArgs args, String spec, int a);](#member-8)
-- [parse(String spec, Map<Character, Parser> extra, int a)](#member-9)
-- [has(String nm)](#member-10)
-- [get(String nm, Object def)](#member-11)
-- [MissingArgumentException(String name, Object[] argv)](#member-14)
-- [get(String nm)](#member-15)
-- [oget(String nm)](#member-16)
-- [toString()](#member-17)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `formats`
+### FormatException
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `parsed`
+### MissingArgumentException
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `argv`
+### Parser
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `respool`
+## Members
+
+### Constants
+
+#### `public static final Map<Character, Parser> formats = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `argv`
+### Fields
+
+#### `public final Map<String, Object> parsed = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `p`
+#### `public final Object[] argv`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `name`
+#### `public final Resource.Pool respool`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `argv`
+#### `public final Object[] argv`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `FormatException(String name, KeywordArgs buf, int p)`
+#### `public final int p`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public Pair<Object, Integer> parse(KeywordArgs args, String spec, int a);`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `parse(String spec, Map<Character, Parser> extra, int a)`
+#### `public final Object[] argv`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `has(String nm)`
+### Methods
+
+#### `public KeywordArgs(Object[] argv, Map<Character, Parser> extrafmt, Resource.Pool respool, String... pos)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `get(String nm, Object def)`
+#### `public KeywordArgs(Object[] argv, Resource.Pool respool, String... pos)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `MissingArgumentException(String name, Object[] argv)`
+#### `public KeywordArgs(Object[] argv, Map<Character, Parser> extrafmt, String... pos)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `get(String nm)`
+#### `public KeywordArgs(Object[] argv, String... pos)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `oget(String nm)`
+#### `public FormatException(String name, KeywordArgs buf, int p)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `toString()`
+#### `public Pair<Object, Integer> parse(KeywordArgs args, String spec, int a)`
+
+- Description: TODO
+
+#### `protected int parse(String spec, Map<Character, Parser> extra, int a)`
+
+- Description: TODO
+
+#### `public boolean has(String nm)`
+
+- Description: TODO
+
+#### `public Object get(String nm, Object def)`
+
+- Description: TODO
+
+#### `public MissingArgumentException(String name, Object[] argv)`
+
+- Description: TODO
+
+#### `public Object get(String nm)`
+
+- Description: TODO
+
+#### `public Optional<Object> oget(String nm)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

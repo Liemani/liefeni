@@ -1,5 +1,7 @@
 # BufferBGL
 
+This file documents the responsibilities and members of `BufferBGL`.
+
 ## Meta
 
 - Source: [BufferBGL.java](../../../../../src/haven/render/gl/BufferBGL.java)
@@ -8,139 +10,102 @@
 
 ## Role
 
-- Provides buffered GL command access.
+Provides buffered GL command access.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [DEBUG](#member-1)
-
-#### Fields
-
-- [empty](#member-2)
-- [curprof](#member-3)
-- [list](#member-4)
-- [n](#member-5)
-- [stime](#member-11)
-- [n](#member-12)
-- [cmds](#member-13)
-- [times](#member-14)
-- [start](#member-16)
-- [stop](#member-17)
-
-#### Methods
-
-- [run(GL gl)](#member-6)
-- [abort()](#member-7)
-- [add(Command cmd)](#member-8)
-- [trim()](#member-9)
-- [dump()](#member-10)
-- [register(Command cmd)](#member-15)
-- [dump(PrintStream out)](#member-18)
-- [dump(Path out)](#member-19)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `DEBUG`
+### Profile
 
 - Description: TODO
 
-#### Fields
+## Members
 
-<a id="member-2"></a>
-##### `empty`
+### Constants
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `curprof`
+#### `public static final boolean DEBUG = false`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `list`
+#### `public static final BufferBGL empty = new BufferBGL(0)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `n`
+### Fields
+
+#### `private static Profile curprof = null`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `stime`
+#### `private Command[] list`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `n`
+#### `private int n = 0`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `cmds`
+#### `private double stime`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `times`
+#### `private int n`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `start`
+#### `private Command[] cmds = new Command[128]`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `stop`
+#### `private double[] times = new double[128]`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `run(GL gl)`
+#### `public final Request start = gl ->`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `abort()`
+#### `public final Request stop = gl ->`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `add(Command cmd)`
+### Methods
+
+#### `public BufferBGL(int c)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `trim()`
+#### `public BufferBGL()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `dump()`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `register(Command cmd)`
+#### `public void abort()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `dump(PrintStream out)`
+#### `protected void add(Command cmd)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `dump(Path out)`
+#### `public BufferBGL trim()`
+
+- Description: TODO
+
+#### `protected Iterable<Command> dump()`
+
+- Description: TODO
+
+#### `private void register(Command cmd)`
+
+- Description: TODO
+
+#### `public void dump(PrintStream out)`
+
+- Description: TODO
+
+#### `public Request dump(Path out)`
 
 - Description: TODO

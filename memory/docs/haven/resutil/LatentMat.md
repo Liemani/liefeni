@@ -1,5 +1,7 @@
 # LatentMat
 
+This file documents the responsibilities and members of `LatentMat`.
+
 ## Meta
 
 - Source: [LatentMat.java](../../../../src/haven/resutil/LatentMat.java)
@@ -8,62 +10,54 @@
 
 ## Role
 
-- Represents a latent material helper.
+Represents a latent material helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [mat](#member-2)
-- [id](#member-3)
-- [act](#member-4)
-
-#### Methods
-
-- [shader()](#member-5)
-- [apply(Pipe buf)](#member-6)
-- [cons(Material.Buffer buf, Object... args)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $latent
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `mat`
+## Members
+
+### Constants
+
+#### `public static final Slot<LatentMat> slot = new Slot<>(Slot.Type.DRAW, LatentMat.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `id`
+### Fields
+
+#### `public final Pipe.Op mat`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `act`
+#### `public final String id, act`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `shader()`
+#### `public final String id, act`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `apply(Pipe buf)`
+### Methods
+
+#### `public LatentMat(Pipe.Op mat, String id)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public LatentMat(String act)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
 
 - Description: TODO

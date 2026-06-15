@@ -1,5 +1,7 @@
 # WeightList
 
+This file documents the responsibilities and members of `WeightList`.
+
 ## Meta
 
 - Source: [WeightList.java](../../../src/haven/WeightList.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Provides a weighted list.
+Provides a weighted list.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [c](#member-1)
-- [w](#member-2)
-- [tw](#member-3)
-
-#### Methods
-
-- [add(T c, int w)](#member-4)
-- [pick(int p)](#member-5)
-- [pick(Random gen)](#member-6)
-- [size()](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `c`
+#### `List<T> c`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `w`
+#### `List<Integer> w`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `tw`
+#### `int tw = 0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `add(T c, int w)`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `pick(int p)`
+#### `public WeightList()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `pick(Random gen)`
+#### `public void add(T c, int w)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `size()`
+#### `public T pick(int p)`
+
+- Description: TODO
+
+#### `public T pick(Random gen)`
+
+- Description: TODO
+
+#### `public int size()`
 
 - Description: TODO

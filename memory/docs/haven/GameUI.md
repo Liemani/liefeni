@@ -1,5 +1,7 @@
 # GameUI
 
+This file documents the responsibilities and members of `GameUI`.
+
 ## Meta
 
 - Source: [GameUI.java](../../../src/haven/GameUI.java)
@@ -8,1394 +10,1018 @@
 
 ## Role
 
-- Composes the main in-game UI.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [blpw](#member-1)
-- [brpw](#member-2)
-- [chrid](#member-3)
-- [genus](#member-4)
-- [plid](#member-5)
-- [ulpanel](#member-6)
-- [umpanel](#member-7)
-- [urpanel](#member-8)
-- [blpanel](#member-9)
-- [mapmenupanel](#member-10)
-- [brpanel](#member-11)
-- [menupanel](#member-12)
-- [portrait](#member-13)
-- [menu](#member-14)
-- [map](#member-15)
-- [iconconf](#member-16)
-- [mmap](#member-17)
-- [fv](#member-18)
-- [meters](#member-19)
-- [lastmsg](#member-20)
-- [msgtime](#member-21)
-- [invwnd](#member-22)
-- [equwnd](#member-23)
-- [makewnd](#member-24)
-- [srchwnd](#member-25)
-- [iconwnd](#member-26)
-- [makewndc](#member-27)
-- [maininv](#member-28)
-- [chrwdg](#member-29)
-- [mapfile](#member-30)
-- [qqview](#member-31)
-- [buddies](#member-32)
-- [zerg](#member-33)
-- [polities](#member-34)
-- [help](#member-35)
-- [opts](#member-36)
-- [hand](#member-37)
-- [vhand](#member-38)
-- [chat](#member-39)
-- [syslog](#member-40)
-- [prog](#member-41)
-- [afk](#member-42)
-- [belt](#member-43)
-- [beltwdg](#member-44)
-- [polowners](#member-45)
-- [buffs](#member-46)
-- [idx](#member-47)
-- [beltctxr](#member-51)
-- [rdt](#member-52)
-- [spr](#member-54)
-- [pag](#member-62)
-- [minimapc](#member-77)
-- [menugridc](#member-78)
-- [kb_srch](#member-80)
-- [fold_br](#member-82)
-- [fold_bl](#member-83)
-- [id](#member-88)
-- [g](#member-89)
-- [base](#member-90)
-- [tvis](#member-91)
-- [cur](#member-92)
-- [tabs](#member-107)
-- [kin](#member-108)
-- [pol](#member-109)
-- [pol2](#member-110)
-- [tab](#member-111)
-- [inv](#member-112)
-- [item](#member-121)
-- [dc](#member-122)
-- [wndids](#member-128)
-- [time](#member-130)
-- [map](#member-131)
-- [gobid](#member-132)
-- [wnd](#member-135)
-- [oc](#member-136)
-- [progt](#member-142)
-- [prog](#member-143)
-- [curi](#member-144)
-- [cmdmap](#member-160)
-- [lastsavegrid](#member-162)
-- [lastsaveseq](#member-163)
-- [lastwndsave](#member-165)
-- [fitmarg](#member-169)
-- [kb_inv](#member-176)
-- [kb_equ](#member-177)
-- [kb_chr](#member-178)
-- [kb_bud](#member-179)
-- [kb_opt](#member-180)
-- [menubg](#member-181)
-- [kb_map](#member-184)
-- [kb_claim](#member-185)
-- [kb_vil](#member-186)
-- [kb_rlm](#member-187)
-- [kb_ico](#member-188)
-- [mapmenubg](#member-189)
-- [kb_shoot](#member-193)
-- [kb_chat](#member-194)
-- [kb_hide](#member-195)
-- [kb_logout](#member-196)
-- [kb_switchchr](#member-197)
-- [uimode](#member-199)
-- [beltkeys](#member-210)
-- [curbelt](#member-211)
-- [nkeybg](#member-217)
-- [curbelt](#member-218)
-- [pagoff](#member-219)
-- [cmdmap](#member-225)
-
-#### Methods
-
-- [BeltSlot(int idx)](#member-48)
-- [public abstract void draw(GOut g);](#member-49)
-- [public abstract void use(MenuGrid.Interaction iact);](#member-50)
-- [ResBeltSlot(int idx, ResData rdt)](#member-53)
-- [spr()](#member-55)
-- [draw(GOut g)](#member-56)
-- [use(MenuGrid.Interaction iact)](#member-57)
-- [getres()](#member-58)
-- [mkrandoom()](#member-59)
-- [context(Class<T> cl)](#member-60)
-- [wdg()](#member-61)
-- [PagBeltSlot(int idx, MenuGrid.Pagina pag)](#member-63)
-- [draw(GOut g)](#member-64)
-- [use(MenuGrid.Interaction iact)](#member-65)
-- [resolve(MenuGrid scm, Indir<Resource> resid)](#member-66)
-- [mkbeltslot(int idx, ResData rdt)](#member-67)
-- [Belt(Coord sz)](#member-68)
-- [act(int idx, MenuGrid.Interaction iact)](#member-69)
-- [keyact(int slot)](#member-70)
-- [public abstract int beltslot(Coord c);](#member-71)
-- [mousedown(MouseDownEvent ev)](#member-72)
-- [drop(Coord c, Coord ul)](#member-73)
-- [iteminteract(Coord c, Coord ul)](#member-74)
-- [dropthing(Coord c, Object thing)](#member-75)
-- [create(UI ui, Object[] args)](#member-76)
-- [attached()](#member-79)
-- [menubuttons(Widget bg)](#member-81)
-- [updfold(boolean reset)](#member-84)
-- [foldbuttons()](#member-85)
-- [added()](#member-86)
-- [dispose()](#member-87)
-- [Hidepanel(String id, Indir<Coord> base, Coord g)](#member-93)
-- [add(T child)](#member-94)
-- [base()](#member-95)
-- [move(double a)](#member-96)
-- [move()](#member-97)
-- [presize()](#member-98)
-- [cresize(Widget ch)](#member-99)
-- [mshow(final boolean vis)](#member-100)
-- [mshow()](#member-101)
-- [cshow(boolean vis)](#member-102)
-- [cdestroy(Widget w)](#member-103)
-- [Hidewnd(Coord sz, String cap, boolean lg)](#member-104)
-- [Hidewnd(Coord sz, String cap)](#member-105)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-106)
-- [TButton(String nm, boolean g)](#member-113)
-- [draw(GOut g)](#member-114)
-- [click()](#member-115)
-- [Zergwnd()](#member-116)
-- [repack()](#member-117)
-- [ntab(Widget ch, TButton btn)](#member-118)
-- [dtab(TButton btn)](#member-119)
-- [addpol(Polity p)](#member-120)
-- [DraggedItem(GItem item, Coord dc)](#member-123)
-- [updhand()](#member-124)
-- [mapfilename()](#member-125)
-- [optplacement(Widget child, Coord org)](#member-126)
-- [savewndpos()](#member-127)
-- [addchild(Widget child, Object... args)](#member-129)
-- [GobTrans(MapView map, long gobid)](#member-133)
-- [oc()](#member-134)
-- [Anim(Window wnd, boolean hide, Anim from)](#member-137)
-- [draw(GOut g, Tex tex)](#member-138)
-- [show(Window wnd, Anim hide)](#member-139)
-- [hide(Window wnd, Anim show)](#member-140)
-- [cdestroy(Widget w)](#member-141)
-- [Progress(double prog)](#member-145)
-- [destroy()](#member-146)
-- [set(double prog)](#member-147)
-- [draw(GOut g)](#member-148)
-- [checkhit(Coord c)](#member-149)
-- [draw(GOut g)](#member-150)
-- [iconconfname()](#member-151)
-- [loadiconconf()](#member-152)
-- [CornerMap(Coord sz, MapFile file)](#member-153)
-- [dragp(int button)](#member-154)
-- [clickmarker(DisplayMarker mark, Location loc, int button, boolean press)](#member-155)
-- [clickicon(DisplayIcon icon, Location loc, int button, boolean press)](#member-156)
-- [clickloc(Location loc, int button, boolean press)](#member-157)
-- [draw(GOut g)](#member-158)
-- [allowzoomout()](#member-159)
-- [findcmds()](#member-161)
-- [mapfiletick()](#member-164)
-- [tick(double dt)](#member-166)
-- [uimsg(String msg, Object... args)](#member-167)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-168)
-- [fitwdg(Widget wdg, Coord c)](#member-170)
-- [fitwdg(Widget wdg)](#member-171)
-- [wndstate(Window wnd)](#member-172)
-- [togglewnd(Window wnd)](#member-173)
-- [MenuButton(String base, KeyBinding gkey, String tooltip)](#member-174)
-- [MenuCheckBox(String base, KeyBinding gkey, String tooltip)](#member-175)
-- [MainMenu()](#member-182)
-- [draw(GOut g)](#member-183)
-- [toggleol(String tag, boolean a)](#member-190)
-- [MapMenu()](#member-191)
-- [draw(GOut g)](#member-192)
-- [globtype(GlobKeyEvent ev)](#member-198)
-- [toggleui(int mode)](#member-200)
-- [resetui()](#member-201)
-- [toggleui()](#member-202)
-- [resize(Coord sz)](#member-203)
-- [presize()](#member-204)
-- [public ChatUI.Channel.Message logmessage();](#member-205)
-- [msg(UI.Notice msg)](#member-206)
-- [error(String msg)](#member-207)
-- [act(String... args)](#member-208)
-- [act(int mods, Coord mc, Gob gob, String... args)](#member-209)
-- [FKeyBelt()](#member-212)
-- [beltc(int i)](#member-213)
-- [beltslot(Coord c)](#member-214)
-- [draw(GOut g)](#member-215)
-- [globtype(GlobKeyEvent ev)](#member-216)
-- [NKeyBelt()](#member-220)
-- [beltc(int i)](#member-221)
-- [beltslot(Coord c)](#member-222)
-- [draw(GOut g)](#member-223)
-- [globtype(GlobKeyEvent ev)](#member-224)
-- [findcmds()](#member-226)
-- [alert(String msg)](#member-227)
-- [print(String msg, Color col)](#member-228)
-- [print(String msg)](#member-229)
+Composes the main in-game UI.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### $_
 
-<a id="member-1"></a>
-##### `blpw`
+- Description: TODO
+
+### Anim
+
+- Description: TODO
+
+### Belt
+
+- Description: TODO
+
+### BeltSlot
+
+- Description: TODO
+
+### CornerMap
+
+- Description: TODO
+
+### DraggedItem
+
+- Description: TODO
+
+### FKeyBelt
+
+- Description: TODO
+
+### GobTrans
+
+- Description: TODO
+
+### Hidepanel
+
+- Description: TODO
+
+### Hidewnd
+
+- Description: TODO
+
+### LogMessage
+
+- Description: TODO
+
+### MainMenu
+
+- Description: TODO
 
+### MapMenu
+
+- Description: TODO
+
+### MenuButton
+
+- Description: TODO
+
+### MenuCheckBox
+
+- Description: TODO
+
+### NKeyBelt
+
+- Description: TODO
+
+### PagBeltSlot
+
+- Description: TODO
+
+### Progress
+
+- Description: TODO
+
+### ResBeltSlot
+
+- Description: TODO
+
+### TButton
+
+- Description: TODO
+
+### Zergwnd
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `brpw`
+## Members
 
+### Constants
+
+#### `private static final int blpw = UI.scale(142), brpw = UI.scale(142)`
+
+- Description: TODO
+
+#### `private static final int blpw = UI.scale(142), brpw = UI.scale(142)`
+
 - Description: TODO
 
-<a id="member-3"></a>
-##### `chrid`
+#### `private static final OwnerContext.ClassResolver<ResBeltSlot> beltctxr = new OwnerContext.ClassResolver<ResBeltSlot>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `genus`
+#### `public static final KeyBinding kb_srch = KeyBinding.get("scm-srch", KeyMatch.forchar('Z', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `plid`
+#### `public static final double time = 0.1`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ulpanel`
+#### `private static final Resource.Anim progt = Resource.local().loadwait("gfx/hud/prog").layer(Resource.animc)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `umpanel`
+#### `private static final int fitmarg = UI.scale(100)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `urpanel`
+#### `public static final KeyBinding kb_inv = KeyBinding.get("inv", KeyMatch.forcode(KeyEvent.VK_TAB, 0))`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `blpanel`
+#### `public static final KeyBinding kb_equ = KeyBinding.get("equ", KeyMatch.forchar('E', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mapmenupanel`
+#### `public static final KeyBinding kb_chr = KeyBinding.get("chr", KeyMatch.forchar('T', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `brpanel`
+#### `public static final KeyBinding kb_bud = KeyBinding.get("bud", KeyMatch.forchar('B', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `menupanel`
+#### `public static final KeyBinding kb_opt = KeyBinding.get("opt", KeyMatch.forchar('O', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `portrait`
+#### `private static final Tex menubg = Resource.loadtex("gfx/hud/rbtn-bg")`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `menu`
+#### `public static final KeyBinding kb_map = KeyBinding.get("map", KeyMatch.forchar('A', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `map`
+#### `public static final KeyBinding kb_claim = KeyBinding.get("ol-claim", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `iconconf`
+#### `public static final KeyBinding kb_vil = KeyBinding.get("ol-vil", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `mmap`
+#### `public static final KeyBinding kb_rlm = KeyBinding.get("ol-rlm", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `fv`
+#### `public static final KeyBinding kb_ico = KeyBinding.get("map-icons", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `meters`
+#### `private static final Tex mapmenubg = Resource.loadtex("gfx/hud/lbtn-bg")`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `lastmsg`
+#### `public static final KeyBinding kb_shoot = KeyBinding.get("screenshot", KeyMatch.forchar('S', KeyMatch.M))`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `msgtime`
+#### `public static final KeyBinding kb_chat = KeyBinding.get("chat-toggle", KeyMatch.forchar('C', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `invwnd`
+#### `public static final KeyBinding kb_hide = KeyBinding.get("ui-toggle", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `equwnd`
+#### `public static final KeyBinding kb_logout = KeyBinding.get("logout", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `makewnd`
+#### `public static final KeyBinding kb_switchchr = KeyBinding.get("logout-cs", KeyMatch.nil)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `srchwnd`
+#### `private static final Tex nkeybg = Resource.loadtex("gfx/hud/hb-main")`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-26"></a>
-##### `iconwnd`
+#### `public final String chrid, genus`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `makewndc`
+#### `public final String chrid, genus`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `maininv`
+#### `public final long plid`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `chrwdg`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `mapfile`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `qqview`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `buddies`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `zerg`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `polities`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `help`
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `opts`
+#### `public Widget portrait`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `hand`
+#### `public MenuGrid menu`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `vhand`
+#### `public MapView map`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `chat`
+#### `public GobIcon.Settings iconconf`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `syslog`
+#### `public MiniMap mmap`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `prog`
+#### `public Fightview fv`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `afk`
+#### `private List<Widget> meters = new LinkedList<Widget>()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `belt`
+#### `private Text lastmsg`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `beltwdg`
+#### `private double msgtime`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `polowners`
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `buffs`
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `idx`
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `beltctxr`
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `rdt`
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `spr`
+#### `private Coord makewndc = Utils.getprefc("makewndc", new Coord(400, 200))`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `pag`
+#### `public Inventory maininv`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `minimapc`
+#### `public CharWnd chrwdg`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `menugridc`
+#### `public MapWnd mapfile`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `kb_srch`
+#### `private Widget qqview`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `fold_br`
+#### `public BuddyWnd buddies`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `fold_bl`
+#### `private final Zergwnd zerg`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `id`
+#### `public final Collection<Polity> polities = new ArrayList<Polity>()`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `g`
+#### `public HelpWnd help`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `base`
+#### `public OptWnd opts`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `tvis`
+#### `public Collection<DraggedItem> hand = new LinkedList<DraggedItem>()`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `cur`
+#### `public WItem vhand`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `tabs`
+#### `public ChatUI chat`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `kin`
+#### `public ChatUI.Channel syslog`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `pol`
+#### `public Progress prog = null`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `pol2`
+#### `private boolean afk = false`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `tab`
+#### `public BeltSlot[] belt = new BeltSlot[144]`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `inv`
+#### `public Belt beltwdg`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `item`
+#### `public final Map<Integer, String> polowners = new HashMap<Integer, String>()`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `dc`
+#### `public Bufflist buffs`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `wndids`
+#### `public final int idx`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `time`
+#### `public final ResData rdt`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `map`
+#### `private GSprite spr = null`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `gobid`
+#### `public final MenuGrid.Pagina pag`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `wnd`
+#### `private final Coord minimapc`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `oc`
+#### `private final Coord menugridc`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `progt`
+#### `private final IButton[] fold_br = new IButton[4]`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `prog`
+#### `private final IButton[] fold_bl = new IButton[4]`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `curi`
+#### `public final String id`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `cmdmap`
+#### `public final Coord g`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `lastsavegrid`
+#### `public final Indir<Coord> base`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `lastsaveseq`
+#### `public boolean tvis`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `lastwndsave`
+#### `private double cur`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `fitmarg`
+#### `Tabs tabs = new Tabs(Coord.z, Coord.z, this)`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `kb_inv`
+#### `final TButton kin, pol, pol2`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `kb_equ`
+#### `final TButton kin, pol, pol2`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `kb_chr`
+#### `final TButton kin, pol, pol2`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `kb_bud`
+#### `Tabs.Tab tab = null`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `kb_opt`
+#### `final Tex inv`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `menubg`
+#### `final GItem item`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `kb_map`
+#### `final Coord dc`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `kb_claim`
+#### `private final BMap<String, Window> wndids = new HashBMap<String, Window>()`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `kb_vil`
+#### `public final MapView map`
 
 - Description: TODO
 
-<a id="member-187"></a>
-##### `kb_rlm`
+#### `public final long gobid`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `kb_ico`
+#### `public final Window wnd`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `mapmenubg`
+#### `private Coord oc`
 
 - Description: TODO
 
-<a id="member-193"></a>
-##### `kb_shoot`
+#### `public double prog`
 
 - Description: TODO
 
-<a id="member-194"></a>
-##### `kb_chat`
+#### `private TexI curi`
 
 - Description: TODO
 
-<a id="member-195"></a>
-##### `kb_hide`
+#### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
 
 - Description: TODO
 
-<a id="member-196"></a>
-##### `kb_logout`
+#### `private Coord lastsavegrid = null`
 
 - Description: TODO
 
-<a id="member-197"></a>
-##### `kb_switchchr`
+#### `private int lastsaveseq = -1`
 
 - Description: TODO
 
-<a id="member-199"></a>
-##### `uimode`
+#### `private double lastwndsave = 0`
 
 - Description: TODO
 
-<a id="member-210"></a>
-##### `beltkeys`
+#### `private int uimode = 1`
 
 - Description: TODO
 
-<a id="member-211"></a>
-##### `curbelt`
+#### `public final int beltkeys[] =`
 
 - Description: TODO
 
-<a id="member-217"></a>
-##### `nkeybg`
+#### `public int curbelt = 0`
 
 - Description: TODO
 
-<a id="member-218"></a>
-##### `curbelt`
+#### `public int curbelt = 0`
 
 - Description: TODO
 
-<a id="member-219"></a>
-##### `pagoff`
+#### `final Coord pagoff = UI.scale(new Coord(5, 25))`
 
 - Description: TODO
 
-<a id="member-225"></a>
-##### `cmdmap`
+#### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public BeltSlot(int idx)`
+
+- Description: TODO
 
-<a id="member-48"></a>
-##### `BeltSlot(int idx)`
+#### `public abstract void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `public abstract void draw(GOut g);`
+#### `public abstract void use(MenuGrid.Interaction iact)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `public abstract void use(MenuGrid.Interaction iact);`
+#### `public ResBeltSlot(int idx, ResData rdt)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `ResBeltSlot(int idx, ResData rdt)`
+#### `public GSprite spr()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `spr()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `draw(GOut g)`
+#### `public void use(MenuGrid.Interaction iact)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `use(MenuGrid.Interaction iact)`
+#### `public Resource getres()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `getres()`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `mkrandoom()`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `context(Class<T> cl)`
+#### `private GameUI wdg()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `wdg()`
+#### `public PagBeltSlot(int idx, MenuGrid.Pagina pag)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `PagBeltSlot(int idx, MenuGrid.Pagina pag)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `draw(GOut g)`
+#### `public void use(MenuGrid.Interaction iact)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `use(MenuGrid.Interaction iact)`
+#### `public static MenuGrid.Pagina resolve(MenuGrid scm, Indir<Resource> resid)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `resolve(MenuGrid scm, Indir<Resource> resid)`
+#### `public BeltSlot mkbeltslot(int idx, ResData rdt)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `mkbeltslot(int idx, ResData rdt)`
+#### `public Belt(Coord sz)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `Belt(Coord sz)`
+#### `public void act(int idx, MenuGrid.Interaction iact)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `act(int idx, MenuGrid.Interaction iact)`
+#### `public void keyact(int slot)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `keyact(int slot)`
+#### `public abstract int beltslot(Coord c)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `public abstract int beltslot(Coord c);`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean drop(Coord c, Coord ul)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `drop(Coord c, Coord ul)`
+#### `public boolean iteminteract(Coord c, Coord ul)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `iteminteract(Coord c, Coord ul)`
+#### `public boolean dropthing(Coord c, Object thing)`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `dropthing(Coord c, Object thing)`
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `create(UI ui, Object[] args)`
+#### `public GameUI(String chrid, long plid, String genus)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `attached()`
+#### `protected void attached()`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `menubuttons(Widget bg)`
+#### `private void menubuttons(Widget bg)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `updfold(boolean reset)`
+#### `private void updfold(boolean reset)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `foldbuttons()`
+#### `private void foldbuttons()`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `added()`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `dispose()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `Hidepanel(String id, Indir<Coord> base, Coord g)`
+#### `public Hidepanel(String id, Indir<Coord> base, Coord g)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `add(T child)`
+#### `public <T extends Widget> T add(T child)`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `base()`
+#### `public Coord base()`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `move(double a)`
+#### `public void move(double a)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `move()`
+#### `public void move()`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `presize()`
+#### `public void presize()`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `cresize(Widget ch)`
+#### `public void cresize(Widget ch)`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `mshow(final boolean vis)`
+#### `public boolean mshow(final boolean vis)`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `mshow()`
+#### `public boolean mshow()`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `cshow(boolean vis)`
+#### `public boolean cshow(boolean vis)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `cdestroy(Widget w)`
+#### `public void cdestroy(Widget w)`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `Hidewnd(Coord sz, String cap, boolean lg)`
+#### `public Hidewnd(Coord sz, String cap, boolean lg)`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `Hidewnd(Coord sz, String cap)`
+#### `public Hidewnd(Coord sz, String cap)`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `TButton(String nm, boolean g)`
+#### `TButton(String nm, boolean g)`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `click()`
+#### `public void click()`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `Zergwnd()`
+#### `Zergwnd()`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `repack()`
+#### `private void repack()`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `ntab(Widget ch, TButton btn)`
+#### `Tabs.Tab ntab(Widget ch, TButton btn)`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `dtab(TButton btn)`
+#### `void dtab(TButton btn)`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `addpol(Polity p)`
+#### `void addpol(Polity p)`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `DraggedItem(GItem item, Coord dc)`
+#### `DraggedItem(GItem item, Coord dc)`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `updhand()`
+#### `private void updhand()`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `mapfilename()`
+#### `private String mapfilename()`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `optplacement(Widget child, Coord org)`
+#### `public Coord optplacement(Widget child, Coord org)`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `savewndpos()`
+#### `private void savewndpos()`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public void addchild(Widget child, Object... args)`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `GobTrans(MapView map, long gobid)`
+#### `public GobTrans(MapView map, long gobid)`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `oc()`
+#### `private Coord oc()`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `Anim(Window wnd, boolean hide, Anim from)`
+#### `public Anim(Window wnd, boolean hide, Anim from)`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `draw(GOut g, Tex tex)`
+#### `public void draw(GOut g, Tex tex)`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `show(Window wnd, Anim hide)`
+#### `public Anim show(Window wnd, Anim hide)`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `hide(Window wnd, Anim show)`
+#### `public Anim hide(Window wnd, Anim show)`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `cdestroy(Widget w)`
+#### `public void cdestroy(Widget w)`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `Progress(double prog)`
+#### `public Progress(double prog)`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `destroy()`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `set(double prog)`
+#### `public void set(double prog)`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `checkhit(Coord c)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `iconconfname()`
+#### `private String iconconfname()`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `loadiconconf()`
+#### `private GobIcon.Settings loadiconconf()`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `CornerMap(Coord sz, MapFile file)`
+#### `public CornerMap(Coord sz, MapFile file)`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `dragp(int button)`
+#### `public boolean dragp(int button)`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
+#### `public boolean clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
+#### `public boolean clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `clickloc(Location loc, int button, boolean press)`
+#### `public boolean clickloc(Location loc, int button, boolean press)`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `allowzoomout()`
+#### `protected boolean allowzoomout()`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `findcmds()`
+#### `public Map<String, Console.Command> findcmds()`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `mapfiletick()`
+#### `private void mapfiletick()`
 
 - Description: TODO
 
-<a id="member-166"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `fitwdg(Widget wdg, Coord c)`
+#### `private Coord fitwdg(Widget wdg, Coord c)`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `fitwdg(Widget wdg)`
+#### `private void fitwdg(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `wndstate(Window wnd)`
+#### `private boolean wndstate(Window wnd)`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `togglewnd(Window wnd)`
+#### `private void togglewnd(Window wnd)`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `MenuButton(String base, KeyBinding gkey, String tooltip)`
+#### `MenuButton(String base, KeyBinding gkey, String tooltip)`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `MenuCheckBox(String base, KeyBinding gkey, String tooltip)`
+#### `MenuCheckBox(String base, KeyBinding gkey, String tooltip)`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `MainMenu()`
+#### `public MainMenu()`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-190"></a>
-##### `toggleol(String tag, boolean a)`
+#### `private void toggleol(String tag, boolean a)`
 
 - Description: TODO
 
-<a id="member-191"></a>
-##### `MapMenu()`
+#### `public MapMenu()`
 
 - Description: TODO
 
-<a id="member-192"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-198"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-200"></a>
-##### `toggleui(int mode)`
+#### `public void toggleui(int mode)`
 
 - Description: TODO
 
-<a id="member-201"></a>
-##### `resetui()`
+#### `public void resetui()`
 
 - Description: TODO
 
-<a id="member-202"></a>
-##### `toggleui()`
+#### `public void toggleui()`
 
 - Description: TODO
 
-<a id="member-203"></a>
-##### `resize(Coord sz)`
+#### `public void resize(Coord sz)`
 
 - Description: TODO
 
-<a id="member-204"></a>
-##### `presize()`
+#### `public void presize()`
 
 - Description: TODO
 
-<a id="member-205"></a>
-##### `public ChatUI.Channel.Message logmessage();`
+#### `public ChatUI.Channel.Message logmessage()`
 
 - Description: TODO
 
-<a id="member-206"></a>
-##### `msg(UI.Notice msg)`
+#### `public boolean msg(UI.Notice msg)`
 
 - Description: TODO
 
-<a id="member-207"></a>
-##### `error(String msg)`
+#### `public void error(String msg)`
 
 - Description: TODO
 
-<a id="member-208"></a>
-##### `act(String... args)`
+#### `public void act(String... args)`
 
 - Description: TODO
 
-<a id="member-209"></a>
-##### `act(int mods, Coord mc, Gob gob, String... args)`
+#### `public void act(int mods, Coord mc, Gob gob, String... args)`
 
 - Description: TODO
 
-<a id="member-212"></a>
-##### `FKeyBelt()`
+#### `public FKeyBelt()`
 
 - Description: TODO
 
-<a id="member-213"></a>
-##### `beltc(int i)`
+#### `private Coord beltc(int i)`
 
 - Description: TODO
 
-<a id="member-214"></a>
-##### `beltslot(Coord c)`
+#### `public int beltslot(Coord c)`
 
 - Description: TODO
 
-<a id="member-215"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-216"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-220"></a>
-##### `NKeyBelt()`
+#### `public NKeyBelt()`
 
 - Description: TODO
 
-<a id="member-221"></a>
-##### `beltc(int i)`
+#### `private Coord beltc(int i)`
 
 - Description: TODO
 
-<a id="member-222"></a>
-##### `beltslot(Coord c)`
+#### `public int beltslot(Coord c)`
 
 - Description: TODO
 
-<a id="member-223"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-224"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-226"></a>
-##### `findcmds()`
+#### `public Map<String, Console.Command> findcmds()`
 
 - Description: TODO
 
-<a id="member-227"></a>
-##### `alert(String msg)`
+#### `public void alert(String msg)`
 
 - Description: TODO
 
-<a id="member-228"></a>
-##### `print(String msg, Color col)`
+#### `public void print(String msg, Color col)`
 
 - Description: TODO
 
-<a id="member-229"></a>
-##### `print(String msg)`
+#### `public void print(String msg)`
 
 - Description: TODO

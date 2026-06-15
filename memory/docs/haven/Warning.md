@@ -1,5 +1,7 @@
 # Warning
 
+This file documents the responsibilities and members of `Warning`.
+
 ## Meta
 
 - Source: [Warning.java](../../../src/haven/Warning.java)
@@ -8,121 +10,92 @@
 
 ## Role
 
-- Represents a warning message.
+Represents a warning message.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [DEBUG](#member-1)
-- [ERROR](#member-2)
-- [CRITICAL](#member-3)
-- [LOGSIZE](#member-12)
-
-#### Fields
-
-- [ctime](#member-4)
-- [level](#member-5)
-- [trace](#member-6)
-- [ctrace](#member-7)
-- [log](#member-13)
-
-#### Methods
-
-- [level(int level)](#member-8)
-- [trace(boolean trace)](#member-9)
-- [ctrace(boolean ctrace)](#member-10)
-- [report(PrintStream out, String head)](#member-11)
-- [issue()](#member-14)
-- [warn(int level, String fmt, Object... args)](#member-15)
-- [warn(String fmt, Object... args)](#member-16)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `DEBUG`
+#### `public static final int DEBUG = 0`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ERROR`
+#### `public static final int ERROR = 5`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `CRITICAL`
+#### `public static final int CRITICAL = 10`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `LOGSIZE`
+#### `private static final int LOGSIZE = 10`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-4"></a>
-##### `ctime`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `level`
+#### `public final double ctime = Utils.rtime()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `trace`
+#### `public int level = DEBUG`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ctrace`
+#### `public boolean trace = false, ctrace = true`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `log`
+#### `public boolean trace = false, ctrace = true`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `level(int level)`
+#### `private static LinkedList<Warning> log = null`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `trace(boolean trace)`
+### Methods
+
+#### `public Warning(Throwable cause, String message)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `ctrace(boolean ctrace)`
+#### `public Warning(String message)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `report(PrintStream out, String head)`
+#### `public Warning(String message, Object... args)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `issue()`
+#### `public Warning(Throwable cause)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `warn(int level, String fmt, Object... args)`
+#### `public Warning level(int level)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `warn(String fmt, Object... args)`
+#### `public Warning trace(boolean trace)`
+
+- Description: TODO
+
+#### `public Warning ctrace(boolean ctrace)`
+
+- Description: TODO
+
+#### `public void report(PrintStream out, String head)`
+
+- Description: TODO
+
+#### `public void issue()`
+
+- Description: TODO
+
+#### `public static void warn(int level, String fmt, Object... args)`
+
+- Description: TODO
+
+#### `public static void warn(String fmt, Object... args)`
 
 - Description: TODO

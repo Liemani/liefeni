@@ -1,5 +1,7 @@
 # Vec3Cons
 
+This file documents the responsibilities and members of `Vec3Cons`.
+
 ## Meta
 
 - Source: [Vec3Cons.java](../../../../../src/haven/render/sl/Vec3Cons.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents a vec3 constructor.
+Represents a vec3 constructor.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [z](#member-1)
-- [u](#member-2)
-- [els](#member-3)
-
-#### Methods
-
-- [walk(Walker w)](#member-4)
-- [output(Output out)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `z`
+#### `public static final Vec3Cons z = new Vec3Cons(FloatLiteral.z, FloatLiteral.z, FloatLiteral.z)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u`
+#### `public static final Vec3Cons u = new Vec3Cons(FloatLiteral.u, FloatLiteral.u, FloatLiteral.u)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `els`
+### Fields
+
+#### `public final Expression[] els`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `walk(Walker w)`
+#### `public Vec3Cons(Expression... els)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # ResData
 
+This file documents the responsibilities and members of `ResData`.
+
 ## Meta
 
 - Source: [ResData.java](../../../src/haven/ResData.java)
@@ -8,68 +10,48 @@
 
 ## Role
 
-- Holds resource data.
+Holds resource data.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [res](#member-1)
-- [sdt](#member-2)
-
-#### Methods
-
-- [clone()](#member-3)
-- [hashCode()](#member-4)
-- [equals(Object other)](#member-5)
-- [wrap(List<? extends Indir<Resource>> in)](#member-6)
-- [wrap(Indir<Resource>[] in)](#member-7)
-- [toString()](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `res`
+#### `public Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `sdt`
+#### `public MessageBuf sdt`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `clone()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `hashCode()`
+#### `public ResData(Indir<Resource> res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equals(Object other)`
+#### `public ResData clone()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `wrap(List<? extends Indir<Resource>> in)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `wrap(Indir<Resource>[] in)`
+#### `public boolean equals(Object other)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `toString()`
+#### `public static List<ResData> wrap(List<? extends Indir<Resource>> in)`
+
+- Description: TODO
+
+#### `public static ResData[] wrap(Indir<Resource>[] in)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

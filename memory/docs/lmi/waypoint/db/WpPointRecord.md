@@ -1,5 +1,7 @@
 # WpPointRecord
 
+This file documents the responsibilities and members of `WpPointRecord`.
+
 ## Meta
 
 - Source: [WpPointRecord.java](../../../../../src/lmi/waypoint/db/WpPointRecord.java)
@@ -8,63 +10,48 @@
 
 ## Role
 
-- Represents a low-level waypoint persistence record.
+Represents a low-level waypoint persistence record.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [segmentId](#member-2)
-- [gridId](#member-3)
-- [step](#member-4)
-- [localX](#member-5)
-- [localY](#member-6)
-- [mouseButton](#member-7)
-- [meshId](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `public final long id`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `segmentId`
+#### `public final long segmentId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `step`
+#### `public final int step`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `mouseButton`
+#### `public final int mouseButton`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `meshId`
+#### `public final Integer meshId`
+
+- Description: TODO
+
+### Methods
+
+#### `public WpPointRecord(long id, long segmentId, long gridId, int step, int localX, int localY, int mouseButton, Integer meshId)`
 
 - Description: TODO

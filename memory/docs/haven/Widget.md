@@ -1,5 +1,7 @@
 # Widget
 
+This file documents the responsibilities and members of `Widget`.
+
 ## Meta
 
 - Source: [Widget.java](../../../src/haven/Widget.java)
@@ -8,1874 +10,1430 @@
 
 ## Role
 
-- Defines the base UI widget.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [ui](#member-1)
-- [c](#member-2)
-- [sz](#member-3)
-- [z](#member-4)
-- [next](#member-5)
-- [prev](#member-6)
-- [child](#member-7)
-- [lchild](#member-8)
-- [parent](#member-9)
-- [childseq](#member-10)
-- [focustab](#member-11)
-- [focusctl](#member-12)
-- [hasfocus](#member-13)
-- [visible](#member-14)
-- [attached](#member-15)
-- [canfocus](#member-16)
-- [autofocus](#member-17)
-- [canactivate](#member-18)
-- [cancancel](#member-19)
-- [focused](#member-20)
-- [cursor](#member-21)
-- [tooltip](#member-22)
-- [gkey](#member-23)
-- [kb_gkey](#member-24)
-- [types](#member-25)
-- [inited](#member-38)
-- [spec](#member-53)
-- [pos](#member-54)
-- [stack](#member-55)
-- [propagate](#member-98)
-- [grabbed](#member-99)
-- [handling](#member-100)
-- [target](#member-101)
-- [phandled](#member-102)
-- [listening](#member-112)
-- [dt](#member-117)
-- [out](#member-121)
-- [msg](#member-125)
-- [args](#member-126)
-- [c](#member-130)
-- [b](#member-139)
-- [a](#member-156)
-- [s](#member-157)
-- [hovering](#member-162)
-- [key_act](#member-169)
-- [key_esc](#member-170)
-- [key_tab](#member-171)
-- [awt](#member-172)
-- [code](#member-173)
-- [mods](#member-174)
-- [c](#member-175)
-- [root](#member-187)
-- [ret](#member-188)
-- [root](#member-193)
-- [last](#member-194)
-- [ret](#member-195)
-- [from](#member-196)
-- [defcurs](#member-202)
-- [gkeys](#member-214)
-- [title](#member-269)
-- [res](#member-270)
-- [tiptitle](#member-271)
-- [rend](#member-272)
-- [hasrend](#member-273)
-- [base](#member-278)
-- [rich](#member-279)
-- [rend](#member-280)
-- [hrend](#member-281)
-- [rkey](#member-282)
-- [anims](#member-297)
-- [nanims](#member-298)
-- [a](#member-303)
-- [s](#member-304)
-- [wdgctx](#member-308)
-
-#### Methods
-
-- [public String value();](#member-26)
-- [create(UI ui, Object[] args)](#member-27)
-- [create(UI ui, Object[] args)](#member-28)
-- [create(UI ui, Object[] args)](#member-29)
-- [protected abstract Coord getc();](#member-30)
-- [add(T child)](#member-31)
-- [cresize(Widget ch)](#member-32)
-- [presize()](#member-33)
-- [added()](#member-34)
-- [create(UI ui, final Object[] args)](#member-35)
-- [public Widget create(UI ui, Object[] par);](#member-36)
-- [FactMaker()](#member-37)
-- [initnames()](#member-39)
-- [gettype3(String name)](#member-40)
-- [public static Factory gettype2(String name) throws InterruptedException](#member-41)
-- [gettype(String name)](#member-42)
-- [attach(UI ui)](#member-43)
-- [attached()](#member-44)
-- [add0(T child)](#member-45)
-- [add(T child)](#member-46)
-- [add(T child, Coord c)](#member-47)
-- [add(T child, int x, int y)](#member-48)
-- [adda(T child, int x, int y, double ax, double ay)](#member-49)
-- [adda(T child, Coord c, double ax, double ay)](#member-50)
-- [adda(T child, double ax, double ay)](#member-51)
-- [added()](#member-52)
-- [RelposError(Throwable cause, String spec, int pos, Stack<Object> stack)](#member-56)
-- [getMessage()](#member-57)
-- [relpos(String spec, Object self, Object[] args, int off)](#member-58)
-- [addchild(Widget child, Object... args)](#member-59)
-- [link()](#member-60)
-- [linkfirst()](#member-61)
-- [unlink()](#member-62)
-- [xlate(Coord c, boolean in)](#member-63)
-- [parentpos(Widget in)](#member-64)
-- [parentpos(Widget in, Coord c)](#member-65)
-- [rootpos()](#member-66)
-- [rootpos(Coord c)](#member-67)
-- [rootxlate(Coord c)](#member-68)
-- [hasparent(Widget w2)](#member-69)
-- [gotfocus()](#member-70)
-- [dispose()](#member-71)
-- [rdispose()](#member-72)
-- [remove()](#member-73)
-- [reqdestroy()](#member-74)
-- [destroy()](#member-75)
-- [cdestroy(Widget w)](#member-76)
-- [wdgid()](#member-77)
-- [lostfocus()](#member-78)
-- [setfocus(Widget w)](#member-79)
-- [setcanfocus(boolean canfocus)](#member-80)
-- [newfocusable(Widget w)](#member-81)
-- [delfocusable(Widget w)](#member-82)
-- [findfocus()](#member-83)
-- [setfocusctl(boolean focusctl)](#member-84)
-- [setfocustab(boolean focustab)](#member-85)
-- [HandlerMaker()](#member-86)
-- [public void handle(Widget tgt, Object... args);](#member-87)
-- [uimsg(String msg, Object... args)](#member-88)
-- [wdgmsg(String msg, Object... args)](#member-89)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-90)
-- [tick(double dt)](#member-91)
-- [tick(TickEvent ev)](#member-92)
-- [gtick(haven.render.Render out)](#member-93)
-- [gtick(GTickEvent ev)](#member-94)
-- [draw(GOut g, boolean strict)](#member-95)
-- [draw(GOut g)](#member-96)
-- [checkhit(Coord c)](#member-97)
-- [Event()](#member-103)
-- [Event(Event from)](#member-104)
-- [grabbed(boolean g)](#member-105)
-- [protected abstract boolean propagation(Widget from);](#member-106)
-- [stop()](#member-107)
-- [shandle(Widget w)](#member-108)
-- [propagate(Widget from)](#member-109)
-- [fpropagate(Widget from)](#member-110)
-- [dispatch(Widget w)](#member-111)
-- [listen(Class<E> t, EventHandler<? super E> h)](#member-113)
-- [deafen(EventHandler<?> h)](#member-114)
-- [listening(Class<H> cl)](#member-115)
-- [handle(Event ev)](#member-116)
-- [TickEvent(double dt)](#member-118)
-- [propagation(Widget from)](#member-119)
-- [shandle(Widget w)](#member-120)
-- [GTickEvent(haven.render.Render out)](#member-122)
-- [propagation(Widget from)](#member-123)
-- [shandle(Widget w)](#member-124)
-- [MessageEvent(String msg, Object[] args)](#member-127)
-- [propagation(Widget from)](#member-128)
-- [shandle(Widget w)](#member-129)
-- [PointerEvent(Coord c)](#member-131)
-- [PointerEvent(PointerEvent from, Coord c)](#member-132)
-- [public abstract PointerEvent derive(Coord c);](#member-133)
-- [propagation(Widget from)](#member-134)
-- [MouseEvent(Coord c)](#member-135)
-- [MouseEvent(MouseEvent from, Coord c)](#member-136)
-- [MouseActionEvent(Coord c)](#member-137)
-- [MouseActionEvent(MouseEvent from, Coord c)](#member-138)
-- [MouseButtonEvent(Coord c, int b)](#member-140)
-- [MouseButtonEvent(MouseButtonEvent from, Coord c)](#member-141)
-- [public abstract MouseButtonEvent derive(Coord c);](#member-142)
-- [MouseDownEvent(Coord c, int b)](#member-143)
-- [MouseDownEvent(MouseDownEvent from, Coord c)](#member-144)
-- [derive(Coord c)](#member-145)
-- [shandle(Widget w)](#member-146)
-- [MouseUpEvent(Coord c, int b)](#member-147)
-- [MouseUpEvent(MouseUpEvent from, Coord c)](#member-148)
-- [derive(Coord c)](#member-149)
-- [shandle(Widget w)](#member-150)
-- [MouseMoveEvent(Coord c)](#member-151)
-- [MouseMoveEvent(MouseMoveEvent from, Coord c)](#member-152)
-- [derive(Coord c)](#member-153)
-- [propagation(Widget from)](#member-154)
-- [shandle(Widget w)](#member-155)
-- [MouseWheelEvent(Coord c, int a, double s)](#member-158)
-- [MouseWheelEvent(MouseWheelEvent from, Coord c)](#member-159)
-- [derive(Coord c)](#member-160)
-- [shandle(Widget w)](#member-161)
-- [MouseHoverEvent(Coord c)](#member-163)
-- [MouseHoverEvent(MouseHoverEvent from, Coord c)](#member-164)
-- [derive(Coord c)](#member-165)
-- [hovering(boolean h)](#member-166)
-- [propagation(Widget from)](#member-167)
-- [shandle(Widget w)](#member-168)
-- [KbdEvent(KeyEvent awt)](#member-176)
-- [FocusedKeyEvent(KeyEvent awt)](#member-177)
-- [propagation(Widget from)](#member-178)
-- [KeyDownEvent(KeyEvent awt)](#member-179)
-- [shandle(Widget w)](#member-180)
-- [KeyUpEvent(KeyEvent awt)](#member-181)
-- [shandle(Widget w)](#member-182)
-- [GlobKeyEvent(KeyEvent awt)](#member-183)
-- [propagation(Widget from)](#member-184)
-- [shandle(Widget w)](#member-185)
-- [propagation(Widget from)](#member-186)
-- [QueryEvent(Coord c)](#member-189)
-- [QueryEvent(QueryEvent<R> from, Coord c)](#member-190)
-- [set(R ret)](#member-191)
-- [defvalue()](#member-192)
-- [TooltipQuery(Coord c, Widget last)](#member-197)
-- [TooltipQuery(TooltipQuery from, Coord c)](#member-198)
-- [derive(Coord c)](#member-199)
-- [set(Object ret, Widget from)](#member-200)
-- [shandle(Widget w)](#member-201)
-- [CursorQuery(Coord c)](#member-203)
-- [CursorQuery(CursorQuery from, Coord c)](#member-204)
-- [derive(Coord c)](#member-205)
-- [public boolean getcurs(CursorQuery ev);](#member-206)
-- [shandle(Widget w)](#member-207)
-- [defvalue()](#member-208)
-- [mousedown(MouseDownEvent ev)](#member-209)
-- [mouseup(MouseUpEvent ev)](#member-210)
-- [mousewheel(MouseWheelEvent ev)](#member-211)
-- [mousemove(MouseMoveEvent ev)](#member-212)
-- [mousehover(MouseHoverEvent ev, boolean hovering)](#member-213)
-- [gkeymatch(int gkey)](#member-215)
-- [gkeytype(GlobKeyEvent ev)](#member-216)
-- [keydown(KeyDownEvent ev)](#member-217)
-- [keyup(KeyUpEvent ev)](#member-218)
-- [globtype(GlobKeyEvent ev)](#member-219)
-- [setgkey(KeyMatch gkey)](#member-220)
-- [setgkey(KeyBinding gkey)](#member-221)
-- [area()](#member-222)
-- [parentarea(Widget in)](#member-223)
-- [rootarea()](#member-224)
-- [contentsz()](#member-225)
-- [pack()](#member-226)
-- [move(Coord c)](#member-227)
-- [resize(Coord sz)](#member-228)
-- [z(int z)](#member-229)
-- [move(Area a)](#member-230)
-- [resize(int x, int y)](#member-231)
-- [resizew(int w)](#member-232)
-- [resizeh(int h)](#member-233)
-- [cresize(Widget ch)](#member-234)
-- [presize()](#member-235)
-- [Position(int x, int y)](#member-236)
-- [Position(Coord c)](#member-237)
-- [add(int X, int Y)](#member-238)
-- [add(Coord c)](#member-239)
-- [adds(int x, int y)](#member-240)
-- [adds(Coord c)](#member-241)
-- [sub(int X, int Y)](#member-242)
-- [sub(Coord c)](#member-243)
-- [subs(int x, int y)](#member-244)
-- [subs(Coord c)](#member-245)
-- [x(int X)](#member-246)
-- [y(int Y)](#member-247)
-- [xs(int x)](#member-248)
-- [ys(int y)](#member-249)
-- [getpos(String nm)](#member-250)
-- [pos(String nm)](#member-251)
-- [addhlp(Coord c, int pad, Widget... children)](#member-252)
-- [addhlp(Coord c, int pad, int w, Widget... children)](#member-253)
-- [addhl(Coord c, int w, Widget... children)](#member-254)
-- [addvlp(Coord c, int pad, Widget... children)](#member-255)
-- [addvlp(Coord c, int pad, int h, Widget... children)](#member-256)
-- [addvl(Coord c, int h, Widget... children)](#member-257)
-- [raise()](#member-258)
-- [lower()](#member-259)
-- [getchild(Class<T> cl)](#member-260)
-- [findchild(Class<T> cl)](#member-261)
-- [rprev()](#member-262)
-- [rnext()](#member-263)
-- [Children()](#member-264)
-- [size()](#member-265)
-- [listIterator(int idx)](#member-266)
-- [children()](#member-267)
-- [children(final Class<T> cl)](#member-268)
-- [PaginaTip(Indir<Resource> res, String title)](#member-274)
-- [PaginaTip(Indir<Resource> res, boolean tiptitle)](#member-275)
-- [PaginaTip(Indir<Resource> res)](#member-276)
-- [get()](#member-277)
-- [KeyboundTip(String base, boolean rich)](#member-283)
-- [KeyboundTip(String base)](#member-284)
-- [KeyboundTip()](#member-285)
-- [get()](#member-286)
-- [tooltip(Coord c, Widget prev)](#member-287)
-- [tooltip(TooltipQuery ev)](#member-288)
-- [settip(String text, boolean rich)](#member-289)
-- [settip(String text)](#member-290)
-- [getparent(Class<T> cl)](#member-291)
-- [hide()](#member-292)
-- [show()](#member-293)
-- [show(boolean show)](#member-294)
-- [visible()](#member-295)
-- [tvisible()](#member-296)
-- [clearanims(Class<T> type)](#member-299)
-- [Anim()](#member-300)
-- [clear()](#member-301)
-- [public abstract boolean tick(double dt);](#member-302)
-- [NormAnim(double s)](#member-305)
-- [tick(double dt)](#member-306)
-- [public abstract void ntick(double a);](#member-307)
-- [getChildOf(Class<T> c)](#member-309)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `ui`
-
-- Description: TODO
-
-<a id="member-2"></a>
-##### `c`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `sz`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `z`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `next`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `prev`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `child`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `lchild`
-
-- Description: TODO
-
-<a id="member-9"></a>
-##### `parent`
-
-- Description: TODO
-
-<a id="member-10"></a>
-##### `childseq`
-
-- Description: TODO
-
-<a id="member-11"></a>
-##### `focustab`
-
-- Description: TODO
+Defines the base UI widget.
 
-<a id="member-12"></a>
-##### `focusctl`
+## Nested Types
 
+### $ACont
+
+- Description: TODO
+
+### $CCont
+
+- Description: TODO
+
+### $Cont
+
+- Description: TODO
+
+### $FCont
+
+- Description: TODO
+
+### AlignPanel
+
+- Description: TODO
+
+### Anim
+
+- Description: TODO
+
+### Children
+
+- Description: TODO
+
+### CursorQuery
+
+- Description: TODO
+
+### Event
+
+- Description: TODO
+
+### FactMaker
+
+- Description: TODO
+
+### Factory
+
+- Description: TODO
+
+### FocusChangeEvent
+
+- Description: TODO
+
+### FocusedKeyEvent
+
+- Description: TODO
+
+### GTickEvent
+
+- Description: TODO
+
+### GlobKeyEvent
+
+- Description: TODO
+
+### GotFocusEvent
+
+- Description: TODO
+
+### Handler
+
+- Description: TODO
+
+### HandlerMaker
+
+- Description: TODO
+
+### KbdEvent
+
+- Description: TODO
+
+### KeyDownEvent
+
+- Description: TODO
+
+### KeyUpEvent
+
+- Description: TODO
+
+### KeyboundTip
+
+- Description: TODO
+
+### LostFocusEvent
+
+- Description: TODO
+
+### MessageEvent
+
+- Description: TODO
+
+### MessageHandler
+
+- Description: TODO
+
+### MouseActionEvent
+
+- Description: TODO
+
+### MouseButtonEvent
+
+- Description: TODO
+
+### MouseDownEvent
+
+- Description: TODO
+
+### MouseEvent
+
+- Description: TODO
+
+### MouseHoverEvent
+
+- Description: TODO
+
+### MouseMoveEvent
+
+- Description: TODO
+
+### MouseUpEvent
+
+- Description: TODO
+
+### MouseWheelEvent
+
+- Description: TODO
+
+### NormAnim
+
+- Description: TODO
+
+### PaginaTip
+
+- Description: TODO
+
+### PointerEvent
+
+- Description: TODO
+
+### Position
+
+- Description: TODO
+
+### QueryEvent
+
+- Description: TODO
+
+### RName
+
+- Description: TODO
+
+### RelposError
+
+- Description: TODO
+
+### TickEvent
+
+- Description: TODO
+
+### TooltipQuery
+
+- Description: TODO
+
+## Members
+
+### Constants
+
+#### `public static final KeyMatch key_act = KeyMatch.forcode(KeyEvent.VK_ENTER, 0)`
+
 - Description: TODO
 
-<a id="member-13"></a>
-##### `hasfocus`
+#### `public static final KeyMatch key_esc = KeyMatch.forcode(KeyEvent.VK_ESCAPE, 0)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `visible`
+#### `public static final KeyMatch key_tab = KeyMatch.forcode(KeyEvent.VK_TAB, 0)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `attached`
+#### `public static final Resource defcurs = Resource.local().loadwait("gfx/hud/curs/arw")`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `canfocus`
+#### `private static final Map<Integer, Integer> gkeys = Utils.<Integer, Integer>map().`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `autofocus`
+#### `public static final OwnerContext.ClassResolver<Widget> wdgctx = new OwnerContext.ClassResolver<Widget>()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `canactivate`
+### Fields
 
+#### `public UI ui`
+
+- Description: TODO
+
+#### `public Coord c, sz`
+
+- Description: TODO
+
+#### `public Coord c, sz`
+
+- Description: TODO
+
+#### `public int z`
+
+- Description: TODO
+
+#### `public Widget next, prev, child, lchild, parent`
+
+- Description: TODO
+
+#### `public Widget next, prev, child, lchild, parent`
+
+- Description: TODO
+
+#### `public Widget next, prev, child, lchild, parent`
+
+- Description: TODO
+
+#### `public Widget next, prev, child, lchild, parent`
+
+- Description: TODO
+
+#### `public Widget next, prev, child, lchild, parent`
+
+- Description: TODO
+
+#### `public int childseq`
+
+- Description: TODO
+
+#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
+
+- Description: TODO
+
+#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
+
+- Description: TODO
+
+#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
+
 - Description: TODO
 
-<a id="member-19"></a>
-##### `cancancel`
+#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `focused`
+#### `private boolean attached = false`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `cursor`
+#### `public boolean canfocus = false, autofocus = false`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `tooltip`
+#### `public boolean canfocus = false, autofocus = false`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `gkey`
+#### `public boolean canactivate = false, cancancel = false`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `kb_gkey`
+#### `public boolean canactivate = false, cancancel = false`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `types`
+#### `public Widget focused`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `inited`
+#### `public Indir<Resource> cursor = null`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `spec`
+#### `public Object tooltip = null`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `pos`
+#### `public KeyMatch gkey`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `stack`
+#### `public KeyBinding kb_gkey`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `propagate`
+#### `static Map<String, Factory> types = new TreeMap<String, Factory>()`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `grabbed`
+#### `private static boolean inited = false`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `handling`
+#### `public final String spec`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `target`
+#### `public final int pos`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `phandled`
+#### `public final Stack<Object> stack`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `listening`
+#### `public boolean propagate, grabbed`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `dt`
+#### `public boolean propagate, grabbed`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `out`
+#### `public Widget handling, target`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `msg`
+#### `public Widget handling, target`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `args`
+#### `private boolean phandled`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `c`
+#### `private List<EventHandler.Listener<?>> listening = null`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `b`
+#### `public final double dt`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `a`
+#### `public final haven.render.Render out`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `s`
+#### `public final String msg`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `hovering`
+#### `public final Object[] args`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `key_act`
+#### `public final Coord c`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `key_esc`
+#### `public final int b`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `key_tab`
+#### `public final int a`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `awt`
+#### `public final double s`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `code`
+#### `public boolean hovering`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `mods`
+#### `public final KeyEvent awt`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `c`
+#### `public final int code, mods`
 
 - Description: TODO
 
-<a id="member-187"></a>
-##### `root`
+#### `public final int code, mods`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `ret`
+#### `public final char c`
 
 - Description: TODO
 
-<a id="member-193"></a>
-##### `root`
+#### `public final QueryEvent<R> root`
 
 - Description: TODO
 
-<a id="member-194"></a>
-##### `last`
+#### `public R ret`
 
 - Description: TODO
 
-<a id="member-195"></a>
-##### `ret`
+#### `public final TooltipQuery root`
 
 - Description: TODO
 
-<a id="member-196"></a>
-##### `from`
+#### `public final Widget last`
 
 - Description: TODO
 
-<a id="member-202"></a>
-##### `defcurs`
+#### `public Object ret`
 
 - Description: TODO
 
-<a id="member-214"></a>
-##### `gkeys`
+#### `public Widget from`
 
 - Description: TODO
 
-<a id="member-269"></a>
-##### `title`
+#### `public final String title`
 
 - Description: TODO
 
-<a id="member-270"></a>
-##### `res`
+#### `public final Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-271"></a>
-##### `tiptitle`
+#### `public final boolean tiptitle`
 
 - Description: TODO
 
-<a id="member-272"></a>
-##### `rend`
+#### `private Tex rend`
 
 - Description: TODO
 
-<a id="member-273"></a>
-##### `hasrend`
+#### `private boolean hasrend = false`
 
 - Description: TODO
 
-<a id="member-278"></a>
-##### `base`
+#### `public final String base`
 
 - Description: TODO
 
-<a id="member-279"></a>
-##### `rich`
+#### `public final boolean rich`
 
 - Description: TODO
 
-<a id="member-280"></a>
-##### `rend`
+#### `private Tex rend = null`
 
 - Description: TODO
 
-<a id="member-281"></a>
-##### `hrend`
+#### `private boolean hrend = false`
 
 - Description: TODO
 
-<a id="member-282"></a>
-##### `rkey`
+#### `private KeyMatch rkey = null`
 
 - Description: TODO
 
-<a id="member-297"></a>
-##### `anims`
+#### `public final Collection<Anim> anims = new LinkedList<Anim>()`
 
 - Description: TODO
 
-<a id="member-298"></a>
-##### `nanims`
+#### `public final Collection<Anim> nanims = new LinkedList<Anim>()`
 
 - Description: TODO
 
-<a id="member-303"></a>
-##### `a`
+#### `private double a = 0.0`
 
 - Description: TODO
 
-<a id="member-304"></a>
-##### `s`
+#### `private final double s`
 
 - Description: TODO
 
-<a id="member-308"></a>
-##### `wdgctx`
+### Methods
 
+#### `public String value()`
+
+- Description: TODO
+
+#### `public Widget create(UI ui, Object[] args)`
+
 - Description: TODO
 
-#### Methods
+#### `public Widget create(UI ui, Object[] args)`
+
+- Description: TODO
 
-<a id="member-26"></a>
-##### `public String value();`
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `create(UI ui, Object[] args)`
+#### `protected abstract Coord getc()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `create(UI ui, Object[] args)`
+#### `public <T extends Widget> T add(T child)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `create(UI ui, Object[] args)`
+#### `public void cresize(Widget ch)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `protected abstract Coord getc();`
+#### `public void presize()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `add(T child)`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `cresize(Widget ch)`
+#### `public Widget create(UI ui, final Object[] args)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `presize()`
+#### `public Widget create(UI ui, Object[] par)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `added()`
+#### `public FactMaker()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `create(UI ui, final Object[] args)`
+#### `public static void initnames()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `public Widget create(UI ui, Object[] par);`
+#### `public static Factory gettype3(String name)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `FactMaker()`
+#### `public static Factory gettype2(String name) throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `initnames()`
+#### `public static Factory gettype(String name)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `gettype3(String name)`
+#### `public Widget(Coord sz)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `public static Factory gettype2(String name) throws InterruptedException`
+#### `public Widget()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `gettype(String name)`
+#### `public Widget(UI ui, Coord c, Coord sz)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `attach(UI ui)`
+#### `protected void attach(UI ui)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `attached()`
+#### `protected void attached()`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `add0(T child)`
+#### `private <T extends Widget> T add0(T child)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `add(T child)`
+#### `public <T extends Widget> T add(T child)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `add(T child, Coord c)`
+#### `public <T extends Widget> T add(T child, Coord c)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `add(T child, int x, int y)`
+#### `public <T extends Widget> T add(T child, int x, int y)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `adda(T child, int x, int y, double ax, double ay)`
+#### `public <T extends Widget> T adda(T child, int x, int y, double ax, double ay)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `adda(T child, Coord c, double ax, double ay)`
+#### `public <T extends Widget> T adda(T child, Coord c, double ax, double ay)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `adda(T child, double ax, double ay)`
+#### `public <T extends Widget> T adda(T child, double ax, double ay)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `added()`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `RelposError(Throwable cause, String spec, int pos, Stack<Object> stack)`
+#### `public RelposError(Throwable cause, String spec, int pos, Stack<Object> stack)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `getMessage()`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `relpos(String spec, Object self, Object[] args, int off)`
+#### `public Coord relpos(String spec, Object self, Object[] args, int off)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public void addchild(Widget child, Object... args)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `link()`
+#### `public void link()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `linkfirst()`
+#### `public void linkfirst()`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `unlink()`
+#### `public void unlink()`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `xlate(Coord c, boolean in)`
+#### `public Coord xlate(Coord c, boolean in)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `parentpos(Widget in)`
+#### `public Coord parentpos(Widget in)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `parentpos(Widget in, Coord c)`
+#### `public Coord parentpos(Widget in, Coord c)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `rootpos()`
+#### `public Coord rootpos()`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `rootpos(Coord c)`
+#### `public Coord rootpos(Coord c)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `rootxlate(Coord c)`
+#### `public Coord rootxlate(Coord c)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `hasparent(Widget w2)`
+#### `public boolean hasparent(Widget w2)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `gotfocus()`
+#### `public void gotfocus()`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `dispose()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `rdispose()`
+#### `public void rdispose()`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `remove()`
+#### `public void remove()`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `reqdestroy()`
+#### `public void reqdestroy()`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `destroy()`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `cdestroy(Widget w)`
+#### `public void cdestroy(Widget w)`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `wdgid()`
+#### `public int wdgid()`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `lostfocus()`
+#### `public void lostfocus()`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `setfocus(Widget w)`
+#### `public void setfocus(Widget w)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `setcanfocus(boolean canfocus)`
+#### `public void setcanfocus(boolean canfocus)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `newfocusable(Widget w)`
+#### `public void newfocusable(Widget w)`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `delfocusable(Widget w)`
+#### `public void delfocusable(Widget w)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `findfocus()`
+#### `private void findfocus()`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `setfocusctl(boolean focusctl)`
+#### `public void setfocusctl(boolean focusctl)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `setfocustab(boolean focustab)`
+#### `public void setfocustab(boolean focustab)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `HandlerMaker()`
+#### `public HandlerMaker()`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `public void handle(Widget tgt, Object... args);`
+#### `public void handle(Widget tgt, Object... args)`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `wdgmsg(String msg, Object... args)`
+#### `public void wdgmsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `tick(TickEvent ev)`
+#### `public void tick(TickEvent ev)`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `gtick(haven.render.Render out)`
+#### `public void gtick(haven.render.Render out)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `gtick(GTickEvent ev)`
+#### `public void gtick(GTickEvent ev)`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `draw(GOut g, boolean strict)`
+#### `public void draw(GOut g, boolean strict)`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `checkhit(Coord c)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `Event()`
+#### `public Event()`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `Event(Event from)`
+#### `public Event(Event from)`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `grabbed(boolean g)`
+#### `public Event grabbed(boolean g)`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `protected abstract boolean propagation(Widget from);`
+#### `protected abstract boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `stop()`
+#### `public void stop()`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `propagate(Widget from)`
+#### `public boolean propagate(Widget from)`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `fpropagate(Widget from)`
+#### `public boolean fpropagate(Widget from)`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `dispatch(Widget w)`
+#### `public boolean dispatch(Widget w)`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `listen(Class<E> t, EventHandler<? super E> h)`
+#### `public <E> void listen(Class<E> t, EventHandler<? super E> h)`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `deafen(EventHandler<?> h)`
+#### `public boolean deafen(EventHandler<?> h)`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `listening(Class<H> cl)`
+#### `public <H extends EventHandler<?>> H listening(Class<H> cl)`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `handle(Event ev)`
+#### `public boolean handle(Event ev)`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `TickEvent(double dt)`
+#### `public TickEvent(double dt)`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `GTickEvent(haven.render.Render out)`
+#### `public GTickEvent(haven.render.Render out)`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `MessageEvent(String msg, Object[] args)`
+#### `public MessageEvent(String msg, Object[] args)`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `PointerEvent(Coord c)`
+#### `public PointerEvent(Coord c)`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `PointerEvent(PointerEvent from, Coord c)`
+#### `public PointerEvent(PointerEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `public abstract PointerEvent derive(Coord c);`
+#### `public abstract PointerEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `MouseEvent(Coord c)`
+#### `public MouseEvent(Coord c)`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `MouseEvent(MouseEvent from, Coord c)`
+#### `public MouseEvent(MouseEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `MouseActionEvent(Coord c)`
+#### `public MouseActionEvent(Coord c)`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `MouseActionEvent(MouseEvent from, Coord c)`
+#### `public MouseActionEvent(MouseEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `MouseButtonEvent(Coord c, int b)`
+#### `public MouseButtonEvent(Coord c, int b)`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `MouseButtonEvent(MouseButtonEvent from, Coord c)`
+#### `public MouseButtonEvent(MouseButtonEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `public abstract MouseButtonEvent derive(Coord c);`
+#### `public abstract MouseButtonEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `MouseDownEvent(Coord c, int b)`
+#### `public MouseDownEvent(Coord c, int b)`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `MouseDownEvent(MouseDownEvent from, Coord c)`
+#### `public MouseDownEvent(MouseDownEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `derive(Coord c)`
+#### `public MouseDownEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `MouseUpEvent(Coord c, int b)`
+#### `public MouseUpEvent(Coord c, int b)`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `MouseUpEvent(MouseUpEvent from, Coord c)`
+#### `public MouseUpEvent(MouseUpEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `derive(Coord c)`
+#### `public MouseUpEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `MouseMoveEvent(Coord c)`
+#### `public MouseMoveEvent(Coord c)`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `MouseMoveEvent(MouseMoveEvent from, Coord c)`
+#### `public MouseMoveEvent(MouseMoveEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `derive(Coord c)`
+#### `public MouseMoveEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `shandle(Widget w)`
+#### `public boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `MouseWheelEvent(Coord c, int a, double s)`
+#### `public MouseWheelEvent(Coord c, int a, double s)`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `MouseWheelEvent(MouseWheelEvent from, Coord c)`
+#### `public MouseWheelEvent(MouseWheelEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `derive(Coord c)`
+#### `public MouseWheelEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `shandle(Widget w)`
+#### `public boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `MouseHoverEvent(Coord c)`
+#### `public MouseHoverEvent(Coord c)`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `MouseHoverEvent(MouseHoverEvent from, Coord c)`
+#### `public MouseHoverEvent(MouseHoverEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `derive(Coord c)`
+#### `public MouseHoverEvent derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-166"></a>
-##### `hovering(boolean h)`
+#### `public MouseHoverEvent hovering(boolean h)`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `KbdEvent(KeyEvent awt)`
+#### `public KbdEvent(KeyEvent awt)`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `FocusedKeyEvent(KeyEvent awt)`
+#### `public FocusedKeyEvent(KeyEvent awt)`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `KeyDownEvent(KeyEvent awt)`
+#### `public KeyDownEvent(KeyEvent awt)`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `KeyUpEvent(KeyEvent awt)`
+#### `public KeyUpEvent(KeyEvent awt)`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `shandle(Widget w)`
+#### `public boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `GlobKeyEvent(KeyEvent awt)`
+#### `public GlobKeyEvent(KeyEvent awt)`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `propagation(Widget from)`
+#### `public boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `QueryEvent(Coord c)`
+#### `public QueryEvent(Coord c)`
 
 - Description: TODO
 
-<a id="member-190"></a>
-##### `QueryEvent(QueryEvent<R> from, Coord c)`
+#### `public QueryEvent(QueryEvent<R> from, Coord c)`
 
 - Description: TODO
 
-<a id="member-191"></a>
-##### `set(R ret)`
+#### `public boolean set(R ret)`
 
 - Description: TODO
 
-<a id="member-192"></a>
-##### `defvalue()`
+#### `protected R defvalue()`
 
 - Description: TODO
 
-<a id="member-197"></a>
-##### `TooltipQuery(Coord c, Widget last)`
+#### `public TooltipQuery(Coord c, Widget last)`
 
 - Description: TODO
 
-<a id="member-198"></a>
-##### `TooltipQuery(TooltipQuery from, Coord c)`
+#### `public TooltipQuery(TooltipQuery from, Coord c)`
 
 - Description: TODO
 
-<a id="member-199"></a>
-##### `derive(Coord c)`
+#### `public TooltipQuery derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-200"></a>
-##### `set(Object ret, Widget from)`
+#### `public boolean set(Object ret, Widget from)`
 
 - Description: TODO
 
-<a id="member-201"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-203"></a>
-##### `CursorQuery(Coord c)`
+#### `public CursorQuery(Coord c)`
 
 - Description: TODO
 
-<a id="member-204"></a>
-##### `CursorQuery(CursorQuery from, Coord c)`
+#### `public CursorQuery(CursorQuery from, Coord c)`
 
 - Description: TODO
 
-<a id="member-205"></a>
-##### `derive(Coord c)`
+#### `public CursorQuery derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-206"></a>
-##### `public boolean getcurs(CursorQuery ev);`
+#### `public boolean getcurs(CursorQuery ev)`
 
 - Description: TODO
 
-<a id="member-207"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-208"></a>
-##### `defvalue()`
+#### `protected Object defvalue()`
 
 - Description: TODO
 
-<a id="member-209"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-210"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-211"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-212"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO
 
-<a id="member-213"></a>
-##### `mousehover(MouseHoverEvent ev, boolean hovering)`
+#### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
 
 - Description: TODO
 
-<a id="member-215"></a>
-##### `gkeymatch(int gkey)`
+#### `public static KeyMatch gkeymatch(int gkey)`
 
 - Description: TODO
 
-<a id="member-216"></a>
-##### `gkeytype(GlobKeyEvent ev)`
+#### `public boolean gkeytype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-217"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-218"></a>
-##### `keyup(KeyUpEvent ev)`
+#### `public boolean keyup(KeyUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-219"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-220"></a>
-##### `setgkey(KeyMatch gkey)`
+#### `public Widget setgkey(KeyMatch gkey)`
 
 - Description: TODO
 
-<a id="member-221"></a>
-##### `setgkey(KeyBinding gkey)`
+#### `public Widget setgkey(KeyBinding gkey)`
 
 - Description: TODO
 
-<a id="member-222"></a>
-##### `area()`
+#### `public Area area()`
 
 - Description: TODO
 
-<a id="member-223"></a>
-##### `parentarea(Widget in)`
+#### `public Area parentarea(Widget in)`
 
 - Description: TODO
 
-<a id="member-224"></a>
-##### `rootarea()`
+#### `public Area rootarea()`
 
 - Description: TODO
 
-<a id="member-225"></a>
-##### `contentsz()`
+#### `public Coord contentsz()`
 
 - Description: TODO
 
-<a id="member-226"></a>
-##### `pack()`
+#### `public void pack()`
 
 - Description: TODO
 
-<a id="member-227"></a>
-##### `move(Coord c)`
+#### `public void move(Coord c)`
 
 - Description: TODO
 
-<a id="member-228"></a>
-##### `resize(Coord sz)`
+#### `public void resize(Coord sz)`
 
 - Description: TODO
 
-<a id="member-229"></a>
-##### `z(int z)`
+#### `public void z(int z)`
 
 - Description: TODO
 
-<a id="member-230"></a>
-##### `move(Area a)`
+#### `public void move(Area a)`
 
 - Description: TODO
 
-<a id="member-231"></a>
-##### `resize(int x, int y)`
+#### `public void resize(int x, int y)`
 
 - Description: TODO
 
-<a id="member-232"></a>
-##### `resizew(int w)`
+#### `public void resizew(int w)`
 
 - Description: TODO
 
-<a id="member-233"></a>
-##### `resizeh(int h)`
+#### `public void resizeh(int h)`
 
 - Description: TODO
 
-<a id="member-234"></a>
-##### `cresize(Widget ch)`
+#### `public void cresize(Widget ch)`
 
 - Description: TODO
 
-<a id="member-235"></a>
-##### `presize()`
+#### `public void presize()`
 
 - Description: TODO
 
-<a id="member-236"></a>
-##### `Position(int x, int y)`
+#### `public Position(int x, int y)`
 
 - Description: TODO
 
-<a id="member-237"></a>
-##### `Position(Coord c)`
+#### `public Position(Coord c)`
 
 - Description: TODO
 
-<a id="member-238"></a>
-##### `add(int X, int Y)`
+#### `public Position add(int X, int Y)`
 
 - Description: TODO
 
-<a id="member-239"></a>
-##### `add(Coord c)`
+#### `public Position add(Coord c)`
 
 - Description: TODO
 
-<a id="member-240"></a>
-##### `adds(int x, int y)`
+#### `public Position adds(int x, int y)`
 
 - Description: TODO
 
-<a id="member-241"></a>
-##### `adds(Coord c)`
+#### `public Position adds(Coord c)`
 
 - Description: TODO
 
-<a id="member-242"></a>
-##### `sub(int X, int Y)`
+#### `public Position sub(int X, int Y)`
 
 - Description: TODO
 
-<a id="member-243"></a>
-##### `sub(Coord c)`
+#### `public Position sub(Coord c)`
 
 - Description: TODO
 
-<a id="member-244"></a>
-##### `subs(int x, int y)`
+#### `public Position subs(int x, int y)`
 
 - Description: TODO
 
-<a id="member-245"></a>
-##### `subs(Coord c)`
+#### `public Position subs(Coord c)`
 
 - Description: TODO
 
-<a id="member-246"></a>
-##### `x(int X)`
+#### `public Position x(int X)`
 
 - Description: TODO
 
-<a id="member-247"></a>
-##### `y(int Y)`
+#### `public Position y(int Y)`
 
 - Description: TODO
 
-<a id="member-248"></a>
-##### `xs(int x)`
+#### `public Position xs(int x)`
 
 - Description: TODO
 
-<a id="member-249"></a>
-##### `ys(int y)`
+#### `public Position ys(int y)`
 
 - Description: TODO
 
-<a id="member-250"></a>
-##### `getpos(String nm)`
+#### `public Position getpos(String nm)`
 
 - Description: TODO
 
-<a id="member-251"></a>
-##### `pos(String nm)`
+#### `public Position pos(String nm)`
 
 - Description: TODO
 
-<a id="member-252"></a>
-##### `addhlp(Coord c, int pad, Widget... children)`
+#### `public Coord addhlp(Coord c, int pad, Widget... children)`
 
 - Description: TODO
 
-<a id="member-253"></a>
-##### `addhlp(Coord c, int pad, int w, Widget... children)`
+#### `public int addhlp(Coord c, int pad, int w, Widget... children)`
 
 - Description: TODO
 
-<a id="member-254"></a>
-##### `addhl(Coord c, int w, Widget... children)`
+#### `public int addhl(Coord c, int w, Widget... children)`
 
 - Description: TODO
 
-<a id="member-255"></a>
-##### `addvlp(Coord c, int pad, Widget... children)`
+#### `public Coord addvlp(Coord c, int pad, Widget... children)`
 
 - Description: TODO
 
-<a id="member-256"></a>
-##### `addvlp(Coord c, int pad, int h, Widget... children)`
+#### `public int addvlp(Coord c, int pad, int h, Widget... children)`
 
 - Description: TODO
 
-<a id="member-257"></a>
-##### `addvl(Coord c, int h, Widget... children)`
+#### `public int addvl(Coord c, int h, Widget... children)`
 
 - Description: TODO
 
-<a id="member-258"></a>
-##### `raise()`
+#### `public void raise()`
 
 - Description: TODO
 
-<a id="member-259"></a>
-##### `lower()`
+#### `public void lower()`
 
 - Description: TODO
 
-<a id="member-260"></a>
-##### `getchild(Class<T> cl)`
+#### `public <T> T getchild(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-261"></a>
-##### `findchild(Class<T> cl)`
+#### `public <T extends Widget> T findchild(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-262"></a>
-##### `rprev()`
+#### `public Widget rprev()`
 
 - Description: TODO
 
-<a id="member-263"></a>
-##### `rnext()`
+#### `public Widget rnext()`
 
 - Description: TODO
 
-<a id="member-264"></a>
-##### `Children()`
+#### `protected Children()`
 
 - Description: TODO
 
-<a id="member-265"></a>
-##### `size()`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-266"></a>
-##### `listIterator(int idx)`
+#### `public ListIterator<Widget> listIterator(int idx)`
 
 - Description: TODO
 
-<a id="member-267"></a>
-##### `children()`
+#### `public List<Widget> children()`
 
 - Description: TODO
 
-<a id="member-268"></a>
-##### `children(final Class<T> cl)`
+#### `public <T extends Widget> Set<T> children(final Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-274"></a>
-##### `PaginaTip(Indir<Resource> res, String title)`
+#### `public PaginaTip(Indir<Resource> res, String title)`
 
 - Description: TODO
 
-<a id="member-275"></a>
-##### `PaginaTip(Indir<Resource> res, boolean tiptitle)`
+#### `public PaginaTip(Indir<Resource> res, boolean tiptitle)`
 
 - Description: TODO
 
-<a id="member-276"></a>
-##### `PaginaTip(Indir<Resource> res)`
+#### `public PaginaTip(Indir<Resource> res)`
 
 - Description: TODO
 
-<a id="member-277"></a>
-##### `get()`
+#### `public Tex get()`
 
 - Description: TODO
 
-<a id="member-283"></a>
-##### `KeyboundTip(String base, boolean rich)`
+#### `public KeyboundTip(String base, boolean rich)`
 
 - Description: TODO
 
-<a id="member-284"></a>
-##### `KeyboundTip(String base)`
+#### `public KeyboundTip(String base)`
 
 - Description: TODO
 
-<a id="member-285"></a>
-##### `KeyboundTip()`
+#### `public KeyboundTip()`
 
 - Description: TODO
 
-<a id="member-286"></a>
-##### `get()`
+#### `public Tex get()`
 
 - Description: TODO
 
-<a id="member-287"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-288"></a>
-##### `tooltip(TooltipQuery ev)`
+#### `public boolean tooltip(TooltipQuery ev)`
 
 - Description: TODO
 
-<a id="member-289"></a>
-##### `settip(String text, boolean rich)`
+#### `public Widget settip(String text, boolean rich)`
 
 - Description: TODO
 
-<a id="member-290"></a>
-##### `settip(String text)`
+#### `public Widget settip(String text)`
 
 - Description: TODO
 
-<a id="member-291"></a>
-##### `getparent(Class<T> cl)`
+#### `public <T extends Widget> T getparent(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-292"></a>
-##### `hide()`
+#### `public void hide()`
 
 - Description: TODO
 
-<a id="member-293"></a>
-##### `show()`
+#### `public void show()`
 
 - Description: TODO
 
-<a id="member-294"></a>
-##### `show(boolean show)`
+#### `public boolean show(boolean show)`
 
 - Description: TODO
 
-<a id="member-295"></a>
-##### `visible()`
+#### `public boolean visible()`
 
 - Description: TODO
 
-<a id="member-296"></a>
-##### `tvisible()`
+#### `public boolean tvisible()`
 
 - Description: TODO
 
-<a id="member-299"></a>
-##### `clearanims(Class<T> type)`
+#### `public <T extends Anim> void clearanims(Class<T> type)`
 
 - Description: TODO
 
-<a id="member-300"></a>
-##### `Anim()`
+#### `public Anim()`
 
 - Description: TODO
 
-<a id="member-301"></a>
-##### `clear()`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-302"></a>
-##### `public abstract boolean tick(double dt);`
+#### `public abstract boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-305"></a>
-##### `NormAnim(double s)`
+#### `public NormAnim(double s)`
 
 - Description: TODO
 
-<a id="member-306"></a>
-##### `tick(double dt)`
+#### `public boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-307"></a>
-##### `public abstract void ntick(double a);`
+#### `public abstract void ntick(double a)`
 
 - Description: TODO
 
-<a id="member-309"></a>
-##### `getChildOf(Class<T> c)`
+#### `public <T extends Widget> T getChildOf(Class<T> c)`
 
 - Description: TODO

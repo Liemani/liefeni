@@ -1,5 +1,7 @@
 # SystemDrop
 
+This file documents the responsibilities and members of `SystemDrop`.
+
 ## Meta
 
 - Source: [SystemDrop.java](../../../src/haven/SystemDrop.java)
@@ -8,39 +10,28 @@
 
 ## Role
 
-- Represents a system drop target or payload.
+Represents a system drop target or payload.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public boolean supports(DataFlavor f);](#member-1)
-- [public Object receive(DataFlavor f) throws IOException ;](#member-2)
-- [of(DropTargetDragEvent ev)](#member-3)
-- [of(DropTargetDropEvent ev)](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public boolean supports(DataFlavor f);`
+#### `public boolean supports(DataFlavor f)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public Object receive(DataFlavor f) throws IOException ;`
+#### `public Object receive(DataFlavor f) throws IOException`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `of(DropTargetDragEvent ev)`
+#### `public static SystemDrop of(DropTargetDragEvent ev)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `of(DropTargetDropEvent ev)`
+#### `public static SystemDrop of(DropTargetDropEvent ev)`
 
 - Description: TODO

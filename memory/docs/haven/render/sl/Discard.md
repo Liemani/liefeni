@@ -1,5 +1,7 @@
 # Discard
 
+This file documents the responsibilities and members of `Discard`.
+
 ## Meta
 
 - Source: [Discard.java](../../../../../src/haven/render/sl/Discard.java)
@@ -8,27 +10,24 @@
 
 ## Role
 
-- Represents a discard statement.
+Represents a discard statement.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [walk(Walker w)](#member-1)
-- [output(Output out)](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `walk(Walker w)`
+#### `public Discard()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

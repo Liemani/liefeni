@@ -1,5 +1,7 @@
 # Textlog
 
+This file documents the responsibilities and members of `Textlog`.
+
 ## Meta
 
 - Source: [Textlog.java](../../../src/haven/Textlog.java)
@@ -8,134 +10,98 @@
 
 ## Role
 
-- Displays a scrolling text log.
+Displays a scrolling text log.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [texpap](#member-1)
-- [schain](#member-2)
-- [sflarp](#member-3)
-- [fnd](#member-4)
-- [lines](#member-5)
-- [maxy](#member-6)
-- [cury](#member-7)
-- [margin](#member-8)
-- [sdrag](#member-9)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-10)
-- [draw(GOut g)](#member-11)
-- [append(String line, Color col)](#member-12)
-- [append(String line)](#member-13)
-- [uimsg(String msg, Object... args)](#member-14)
-- [mousewheel(MouseWheelEvent ev)](#member-15)
-- [update(Coord c)](#member-16)
-- [mousedown(MouseDownEvent ev)](#member-17)
-- [mousemove(MouseMoveEvent ev)](#member-18)
-- [mouseup(MouseUpEvent ev)](#member-19)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `texpap`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `schain`
+## Members
+
+### Constants
+
+### Fields
+
+#### `static Tex texpap = Resource.loadtex("gfx/hud/texpap")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sflarp`
+#### `static Tex schain = Resource.loadtex("gfx/hud/schain")`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `fnd`
+#### `static Tex sflarp = Resource.loadtex("gfx/hud/sflarp")`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `lines`
+#### `static RichText.Foundry fnd = new RichText.Foundry(TextAttribute.FAMILY, "SansSerif", TextAttribute.SIZE, UI.scale(9f), TextAttribute.FOREGROUND, Color.BLACK)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `maxy`
+#### `List<Text> lines`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cury`
+#### `int maxy, cury`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `margin`
+#### `int maxy, cury`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `sdrag`
+#### `int margin = UI.scale(3)`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-10"></a>
-##### `create(UI ui, Object[] args)`
+#### `UI.Grab sdrag = null`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `append(String line, Color col)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `append(String line)`
+#### `public Textlog(Coord sz)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void append(String line, Color col)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public void append(String line)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `update(Coord c)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `private void update(Coord c)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public void mousemove(MouseMoveEvent ev)`
+
+- Description: TODO
+
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO

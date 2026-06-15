@@ -1,5 +1,7 @@
 # AlignLogBehavior
 
+This file documents the responsibilities and members of `AlignLogBehavior`.
+
 ## Meta
 
 - Source: [AlignLogBehavior.java](../../../../src/lmi/behavior/AlignLogBehavior.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Implements a reusable behavior for log alignment.
+Implements a reusable behavior for log alignment.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog)](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog)`
+#### `public void run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog)`
 
 - Description: TODO

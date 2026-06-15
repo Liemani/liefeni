@@ -1,5 +1,7 @@
 # Homing
 
+This file documents the responsibilities and members of `Homing`.
+
 ## Meta
 
 - Source: [Homing.java](../../../src/haven/Homing.java)
@@ -8,74 +10,58 @@
 
 ## Role
 
-- Represents homing behavior or state.
+Represents homing behavior or state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [tgt](#member-1)
-- [tc](#member-2)
-- [v](#member-3)
-- [dist](#member-4)
-
-#### Methods
-
-- [getc()](#member-5)
-- [getv()](#member-6)
-- [move(Coord2d c)](#member-7)
-- [ctick(double dt)](#member-8)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `tgt`
+### $homing
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tc`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public long tgt`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `v`
+#### `public Coord2d tc`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `dist`
+#### `public double v, dist`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `getc()`
+#### `public double v, dist`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `getv()`
+### Methods
+
+#### `public Homing(Gob gob, long tgt, Coord2d tc, double v)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `move(Coord2d c)`
+#### `public Coord3f getc()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ctick(double dt)`
+#### `public double getv()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+#### `public void move(Coord2d c)`
+
+- Description: TODO
+
+#### `public void ctick(double dt)`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

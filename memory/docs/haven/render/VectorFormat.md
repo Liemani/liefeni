@@ -1,5 +1,7 @@
 # VectorFormat
 
+This file documents the responsibilities and members of `VectorFormat`.
+
 ## Meta
 
 - Source: [VectorFormat.java](../../../../src/haven/render/VectorFormat.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a vector format.
+Represents a vector format.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [nc](#member-1)
-- [cf](#member-2)
-
-#### Methods
-
-- [size()](#member-3)
-- [toString()](#member-4)
-- [equals(Object o)](#member-5)
-- [hashCode()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `nc`
+#### `public final int nc`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cf`
+#### `public final NumberFormat cf`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `size()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `toString()`
+#### `public VectorFormat(int nc, NumberFormat cf)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equals(Object o)`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `hashCode()`
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public int hashCode()`
 
 - Description: TODO

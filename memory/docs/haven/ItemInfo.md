@@ -1,5 +1,7 @@
 # ItemInfo
 
+This file documents the responsibilities and members of `ItemInfo`.
+
 ## Meta
 
 - Source: [ItemInfo.java](../../../src/haven/ItemInfo.java)
@@ -8,428 +10,358 @@
 
 ## Role
 
-- Holds item information and tooltips.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [owner](#member-1)
-- [nil](#member-5)
-- [data](#member-6)
-- [time](#member-7)
-- [owner](#member-12)
-- [cmp](#member-13)
-- [width](#member-14)
-- [tips](#member-15)
-- [itab](#member-16)
-- [str](#member-29)
-- [str](#member-32)
-- [doc](#member-41)
-- [sub](#member-47)
-- [ch](#member-48)
-- [from](#member-60)
-- [data](#member-61)
-- [forinfo](#member-62)
-- [save](#member-63)
+Holds item information and tooltips.
 
-#### Methods
+## Nested Types
 
-- [public List<ItemInfo> info();](#member-2)
-- [public Resource resource();](#member-3)
-- [public GSprite sprite();](#member-4)
-- [Raw(Object[] data, double time)](#member-8)
-- [Raw(Object[] data)](#member-9)
-- [public ItemInfo build(Owner owner, Raw raw, Object... args);](#member-10)
-- [FactMaker()](#member-11)
-- [Layout(Owner owner)](#member-17)
-- [public T make(Owner owner);](#member-18)
-- [intern(TipID<T> id)](#member-19)
-- [add(Tip tip)](#member-20)
-- [render()](#member-21)
-- [Tip(Owner owner)](#member-22)
-- [tipimg()](#member-23)
-- [tipimg(int w)](#member-24)
-- [shortvar()](#member-25)
-- [prepare(Layout l)](#member-26)
-- [layout(Layout l)](#member-27)
-- [order()](#member-28)
-- [AdHoc(Owner owner, String str)](#member-30)
-- [tipimg()](#member-31)
-- [Name(Owner owner, Text str)](#member-33)
-- [Name(Owner owner, String str)](#member-34)
-- [tipimg()](#member-35)
-- [order()](#member-36)
-- [shortvar()](#member-37)
-- [public String name();](#member-38)
-- [get(Owner owner)](#member-39)
-- [build(Owner owner, Raw raw, Object... args)](#member-40)
-- [Pagina(Owner owner, RichText.Document doc)](#member-42)
-- [Pagina(Owner owner, String str)](#member-43)
-- [tipimg(int w)](#member-44)
-- [layout(Layout l)](#member-45)
-- [order()](#member-46)
-- [Contents(Owner owner, List<ItemInfo> sub)](#member-49)
-- [tipimg()](#member-50)
-- [shortvar()](#member-51)
-- [catimgs(int margin, BufferedImage... imgs)](#member-52)
-- [catimgsh(int margin, BufferedImage... imgs)](#member-53)
-- [longtip(List<ItemInfo> info)](#member-54)
-- [shorttip(List<ItemInfo> info)](#member-55)
-- [find(Class<T> cl, List<ItemInfo> il)](#member-56)
-- [buildinfo(Owner owner, Raw raw)](#member-57)
-- [buildinfo(Owner owner, Object[] rawinfo)](#member-58)
-- [dump(Object arg)](#member-59)
-- [AttrCache(Supplier<List<ItemInfo>> from, Function<List<ItemInfo>, Supplier<R>> data)](#member-64)
-- [get()](#member-65)
-- [map1(Class<I> icl, Function<I, Supplier<R>> data)](#member-66)
-- [map1s(Class<I> icl, Function<I, R> data)](#member-67)
-- [public List<ItemInfo> info();](#member-68)
+### AdHoc
 
-### Member Reference
+- Description: TODO
+
+### AttrCache
+
+- Description: TODO
+
+### Contents
+
+- Description: TODO
+
+### Default
+
+- Description: TODO
+
+### Dynamic
+
+- Description: TODO
+
+### FactMaker
+
+- Description: TODO
+
+### InfoFactory
+
+- Description: TODO
+
+### InfoTip
+
+- Description: TODO
+
+### Layout
+
+- Description: TODO
+
+### Name
+
+- Description: TODO
+
+### Owner
+
+- Description: TODO
+
+### Pagina
+
+- Description: TODO
+
+### Raw
+
+- Description: TODO
+
+### ResOwner
+
+- Description: TODO
 
-#### Fields
+### SpriteOwner
 
-<a id="member-1"></a>
-##### `owner`
+- Description: TODO
+
+### Tip
+
+- Description: TODO
+
+### TipID
+
+- Description: TODO
 
+## Members
+
+### Constants
+
+#### `public static final Raw nil = new Raw(new Object[0], 0)`
+
 - Description: TODO
 
-<a id="member-5"></a>
-##### `nil`
+#### `private static final Text.Line ch = Text.render("Contents:")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `data`
+### Fields
 
+#### `public final Owner owner`
+
 - Description: TODO
 
-<a id="member-7"></a>
-##### `time`
+#### `public final Object[] data`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `owner`
+#### `public final double time`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `cmp`
+#### `public final Owner owner`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `width`
+#### `public final CompImage cmp = new CompImage()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `tips`
+#### `public int width = 0`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `itab`
+#### `private final List<Tip> tips = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `str`
+#### `private final Map<TipID, Tip> itab = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `str`
+#### `public final Text str`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `doc`
+#### `public final Text str`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `sub`
+#### `public final RichText.Document doc`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `ch`
+#### `public final List<ItemInfo> sub`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `from`
+#### `private final Supplier<List<ItemInfo>> from`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `data`
+#### `private final Function<List<ItemInfo>, Supplier<R>> data`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `forinfo`
+#### `private List<ItemInfo> forinfo = null`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `save`
+#### `private Supplier<R> save`
 
 - Description: TODO
+
+### Methods
 
-#### Methods
+#### `public List<ItemInfo> info()`
+
+- Description: TODO
 
-<a id="member-2"></a>
-##### `public List<ItemInfo> info();`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public Resource resource();`
+#### `public GSprite sprite()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public GSprite sprite();`
+#### `public Raw(Object[] data, double time)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Raw(Object[] data, double time)`
+#### `public Raw(Object[] data)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `Raw(Object[] data)`
+#### `public ItemInfo build(Owner owner, Raw raw, Object... args)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `public ItemInfo build(Owner owner, Raw raw, Object... args);`
+#### `public FactMaker()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `FactMaker()`
+#### `public ItemInfo(Owner owner)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `Layout(Owner owner)`
+#### `public Layout(Owner owner)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `public T make(Owner owner);`
+#### `public T make(Owner owner)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `intern(TipID<T> id)`
+#### `public <T extends Tip> T intern(TipID<T> id)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `add(Tip tip)`
+#### `public void add(Tip tip)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `render()`
+#### `public BufferedImage render()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `Tip(Owner owner)`
+#### `public Tip(Owner owner)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `tipimg()`
+#### `public BufferedImage tipimg()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `tipimg(int w)`
+#### `public BufferedImage tipimg(int w)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `shortvar()`
+#### `public Tip shortvar()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `prepare(Layout l)`
+#### `public void prepare(Layout l)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `layout(Layout l)`
+#### `public void layout(Layout l)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `order()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `AdHoc(Owner owner, String str)`
+#### `public AdHoc(Owner owner, String str)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `tipimg()`
+#### `public BufferedImage tipimg()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `Name(Owner owner, Text str)`
+#### `public Name(Owner owner, Text str)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `Name(Owner owner, String str)`
+#### `public Name(Owner owner, String str)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `tipimg()`
+#### `public BufferedImage tipimg()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `order()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `shortvar()`
+#### `public Tip shortvar()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `public String name();`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `get(Owner owner)`
+#### `public static String get(Owner owner)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `build(Owner owner, Raw raw, Object... args)`
+#### `public ItemInfo build(Owner owner, Raw raw, Object... args)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `Pagina(Owner owner, RichText.Document doc)`
+#### `public Pagina(Owner owner, RichText.Document doc)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `Pagina(Owner owner, String str)`
+#### `public Pagina(Owner owner, String str)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `tipimg(int w)`
+#### `public BufferedImage tipimg(int w)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `layout(Layout l)`
+#### `public void layout(Layout l)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `order()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `Contents(Owner owner, List<ItemInfo> sub)`
+#### `public Contents(Owner owner, List<ItemInfo> sub)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `tipimg()`
+#### `public BufferedImage tipimg()`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `shortvar()`
+#### `public Tip shortvar()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `catimgs(int margin, BufferedImage... imgs)`
+#### `public static BufferedImage catimgs(int margin, BufferedImage... imgs)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `catimgsh(int margin, BufferedImage... imgs)`
+#### `public static BufferedImage catimgsh(int margin, BufferedImage... imgs)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `longtip(List<ItemInfo> info)`
+#### `public static BufferedImage longtip(List<ItemInfo> info)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `shorttip(List<ItemInfo> info)`
+#### `public static BufferedImage shorttip(List<ItemInfo> info)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `find(Class<T> cl, List<ItemInfo> il)`
+#### `public static <T> T find(Class<T> cl, List<ItemInfo> il)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `buildinfo(Owner owner, Raw raw)`
+#### `public static List<ItemInfo> buildinfo(Owner owner, Raw raw)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `buildinfo(Owner owner, Object[] rawinfo)`
+#### `public static List<ItemInfo> buildinfo(Owner owner, Object[] rawinfo)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `dump(Object arg)`
+#### `private static String dump(Object arg)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `AttrCache(Supplier<List<ItemInfo>> from, Function<List<ItemInfo>, Supplier<R>> data)`
+#### `public AttrCache(Supplier<List<ItemInfo>> from, Function<List<ItemInfo>, Supplier<R>> data)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `get()`
+#### `public R get()`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `map1(Class<I> icl, Function<I, Supplier<R>> data)`
+#### `public static <I, R> Function<List<ItemInfo>, Supplier<R>> map1(Class<I> icl, Function<I, Supplier<R>> data)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `map1s(Class<I> icl, Function<I, R> data)`
+#### `public static <I, R> Function<List<ItemInfo>, Supplier<R>> map1s(Class<I> icl, Function<I, R> data)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `public List<ItemInfo> info();`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # For
 
+This file documents the responsibilities and members of `For`.
+
 ## Meta
 
 - Source: [For.java](../../../../../src/haven/render/sl/For.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a shader for-loop.
+Represents a shader for-loop.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [init](#member-1)
-- [cond](#member-2)
-- [step](#member-3)
-- [body](#member-4)
-
-#### Methods
-
-- [walk(Walker w)](#member-5)
-- [output(Output out)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `init`
+#### `public final Expression init, cond, step`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cond`
+#### `public final Expression init, cond, step`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `step`
+#### `public final Expression init, cond, step`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `body`
+#### `public final Statement body`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `walk(Walker w)`
+#### `public For(Expression init, Expression cond, Expression step, Statement body)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

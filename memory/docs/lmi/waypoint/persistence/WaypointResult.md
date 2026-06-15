@@ -1,5 +1,7 @@
 # WaypointResult
 
+This file documents the responsibilities and members of `WaypointResult`.
+
 ## Meta
 
 - Source: [WaypointResult.java](../../../../../src/lmi/waypoint/persistence/WaypointResult.java)
@@ -8,10 +10,12 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-### Member Reference
+### Fields
+
+### Methods

@@ -1,5 +1,7 @@
 # WrapMode
 
+This file documents the responsibilities and members of `WrapMode`.
+
 ## Meta
 
 - Source: [WrapMode.java](../../../src/haven/WrapMode.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Represents text or render wrap modes.
+Represents text or render wrap modes.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [ends](#member-1)
+#### `public final boolean ends`
 
-### Member Reference
+- Description: TODO
 
-#### Fields
+### Methods
 
-<a id="member-1"></a>
-##### `ends`
+#### `WrapMode(boolean ends)`
 
 - Description: TODO

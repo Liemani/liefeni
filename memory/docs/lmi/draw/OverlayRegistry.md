@@ -1,5 +1,7 @@
 # OverlayRegistry
 
+This file documents the responsibilities and members of `OverlayRegistry`.
+
 ## Meta
 
 - Source: [OverlayRegistry.java](../../../../src/lmi/draw/OverlayRegistry.java)
@@ -8,44 +10,32 @@
 
 ## Role
 
-- Registers overlay renderers and keeps overlay lookup organized.
+Registers overlay renderers and keeps overlay lookup organized.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [overlays](#member-1)
-
-#### Methods
-
-- [register(MapOverlay overlay)](#member-2)
-- [unregister(MapOverlay overlay)](#member-3)
-- [overlays()](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `overlays`
+#### `private static final ArrayList<MapOverlay> overlays = new ArrayList<>()`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `register(MapOverlay overlay)`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `unregister(MapOverlay overlay)`
+#### `private OverlayRegistry()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `overlays()`
+#### `public static synchronized void register(MapOverlay overlay)`
+
+- Description: TODO
+
+#### `public static synchronized void unregister(MapOverlay overlay)`
+
+- Description: TODO
+
+#### `public static synchronized List<MapOverlay> overlays()`
 
 - Description: TODO

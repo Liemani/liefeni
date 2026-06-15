@@ -1,5 +1,7 @@
 # BAttrWnd
 
+This file documents the responsibilities and members of `BAttrWnd`.
+
 ## Meta
 
 - Source: [BAttrWnd.java](../../../src/haven/BAttrWnd.java)
@@ -8,620 +10,458 @@
 
 ## Role
 
-- Displays body attribute information.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [attrs](#member-1)
-- [feps](#member-2)
-- [cons](#member-3)
-- [glut](#member-4)
-- [rnm](#member-6)
-- [img](#member-7)
-- [bg](#member-8)
-- [lvlt](#member-9)
-- [ct](#member-10)
-- [cbv](#member-11)
-- [ccv](#member-12)
-- [tflt](#member-17)
-- [hilit](#member-18)
-- [buffed](#member-19)
-- [full](#member-20)
-- [none](#member-21)
-- [els](#member-22)
-- [ecmp](#member-23)
-- [t](#member-24)
-- [a](#member-25)
-- [hl](#member-26)
-- [back](#member-30)
-- [cmp](#member-31)
-- [order](#member-32)
-- [oels](#member-37)
-- [spec](#member-40)
-- [el](#member-45)
-- [nm](#member-46)
-- [a](#member-47)
-- [da](#member-48)
-- [lasttip](#member-52)
-- [frame](#member-57)
-- [marg](#member-58)
-- [trmg](#member-59)
-- [cap](#member-60)
-- [els](#member-61)
-- [enew](#member-62)
-- [etr](#member-63)
-- [trev](#member-64)
-- [trol](#member-65)
-- [trtm](#member-66)
-- [col](#member-67)
-- [nm](#member-68)
-- [sort](#member-69)
-- [res](#member-72)
-- [a](#member-73)
-- [ev](#member-75)
-- [dcmp](#member-77)
-- [rtip](#member-85)
-- [frame](#member-87)
-- [marg](#member-88)
-- [fg](#member-89)
-- [bg](#member-90)
-- [glut](#member-91)
-- [lglut](#member-92)
-- [gmod](#member-93)
-- [lbl](#member-94)
-- [rtip](#member-98)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-5)
-- [Attr(Glob glob, String attr, Color bg)](#member-13)
-- [tick(double dt)](#member-14)
-- [draw(GOut g)](#member-15)
-- [lvlup()](#member-16)
-- [El(ResData t, double a)](#member-27)
-- [update(double a)](#member-28)
-- [Constipations(Coord sz)](#member-29)
-- [Reordered(List<T> back, Comparator<? super T> cmp)](#member-33)
-- [size()](#member-34)
-- [get(int i)](#member-35)
-- [update()](#member-36)
-- [items()](#member-38)
-- [makeitem(El el, int idx, Coord sz)](#member-39)
-- [ItemIcon(Coord sz, ItemSpec spec)](#member-41)
-- [img()](#member-42)
-- [text()](#member-43)
-- [filter()](#member-44)
-- [Item(Coord sz, El el)](#member-49)
-- [update()](#member-50)
-- [draw(GOut g)](#member-51)
-- [draw(GOut g)](#member-53)
-- [drawslot(GOut g, El el, int idx, Area area)](#member-54)
-- [unselect(int button)](#member-55)
-- [update(ResData t, double a)](#member-56)
-- [Event(Resource res, Message buf)](#member-70)
-- [init()](#member-71)
-- [El(Indir<Resource> res, double a)](#member-74)
-- [ev()](#member-76)
-- [FoodMeter()](#member-78)
-- [mktrol(List<El> els, Indir<Resource> trev)](#member-79)
-- [drawels(GOut g, List<El> els, int alpha)](#member-80)
-- [tick(double dt)](#member-81)
-- [draw(GOut g)](#member-82)
-- [update(Object... args)](#member-83)
-- [trig(Indir<Resource> ev)](#member-84)
-- [tooltip(Coord c, Widget prev)](#member-86)
-- [GlutMeter()](#member-95)
-- [draw(GOut g)](#member-96)
-- [update(Object... args)](#member-97)
-- [tooltip(Coord c, Widget prev)](#member-99)
-- [uimsg(String nm, Object... args)](#member-100)
+Displays body attribute information.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### $_
 
-<a id="member-1"></a>
-##### `attrs`
+- Description: TODO
+
+### Attr
+
+- Description: TODO
+
+### Constipations
+
+- Description: TODO
+
+### El
+
+- Description: TODO
+
+### Event
+
+- Description: TODO
+
+### FoodMeter
+
+- Description: TODO
+
+### GlutMeter
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `feps`
+### Item
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cons`
+### ItemIcon
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `glut`
+### Reordered
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `rnm`
+## Members
 
+### Constants
+
+#### `public static final PUtils.Convolution tflt = new PUtils.Hanning(1)`
+
+- Description: TODO
+
+#### `public static final Color hilit = new Color(255, 255, 0, 48)`
+
+- Description: TODO
+
+#### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
+
+- Description: TODO
+
+#### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
+
+- Description: TODO
+
+#### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
+
 - Description: TODO
 
-<a id="member-7"></a>
-##### `img`
+#### `public static final Comparator<El> ecmp = (a, b) ->`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `bg`
+#### `public static final Tex frame = Resource.loadtex("gfx/hud/chr/foodm")`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `lvlt`
+#### `public static final Coord marg = new Coord(5, 5), trmg = new Coord(10, 10)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `ct`
+#### `public static final Coord marg = new Coord(5, 5), trmg = new Coord(10, 10)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `cbv`
+#### `public static final Comparator<El> dcmp = new Comparator<El>()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ccv`
+#### `public static final Tex frame = Resource.loadtex("gfx/hud/chr/glutm")`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `tflt`
+#### `public static final Coord marg = new Coord(5, 5)`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-18"></a>
-##### `hilit`
+#### `public final List<Attr> attrs`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `buffed`
+#### `public final FoodMeter feps`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `full`
+#### `public final Constipations cons`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `none`
+#### `public final GlutMeter glut`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `els`
+#### `public final Text rnm`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `ecmp`
+#### `public final Tex img`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `t`
+#### `public final Color bg`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `a`
+#### `private double lvlt = 0.0`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `hl`
+#### `private Text ct`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `back`
+#### `private int cbv = -1, ccv = -1`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `cmp`
+#### `private int cbv = -1, ccv = -1`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `order`
+#### `public final List<El> els = new ArrayList<El>()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `oels`
+#### `public final ResData t`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `spec`
+#### `public double a`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `el`
+#### `private boolean hl`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `nm`
+#### `private final List<T> back`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `a`
+#### `private final Comparator<? super T> cmp`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `da`
+#### `private Integer[] order =`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `lasttip`
+#### `private final Reordered<El> oels = new Reordered<>(els, ecmp)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `frame`
+#### `public final ItemSpec spec`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `marg`
+#### `public final El el`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `trmg`
+#### `private Widget nm, a`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `cap`
+#### `private Widget nm, a`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `els`
+#### `private double da = Double.NaN`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `enew`
+#### `private ItemInfo.InfoTip lasttip = null`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `etr`
+#### `public double cap`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `trev`
+#### `public List<El> els = new LinkedList<El>()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `trol`
+#### `private List<El> enew = null, etr = null`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `trtm`
+#### `private List<El> enew = null, etr = null`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `col`
+#### `private Indir<Resource> trev = null`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `nm`
+#### `private Tex trol`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `sort`
+#### `private double trtm = 0`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `res`
+#### `public final Color col`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `a`
+#### `public final String nm`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `ev`
+#### `public final int sort`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `dcmp`
+#### `public final Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `rtip`
+#### `public double a`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `frame`
+#### `private Event ev = null`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `marg`
+#### `private Tex rtip = null`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `fg`
+#### `public Color fg = Color.BLACK, bg = Color.BLACK`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `bg`
+#### `public Color fg = Color.BLACK, bg = Color.BLACK`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `glut`
+#### `public double glut, lglut, gmod`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `lglut`
+#### `public double glut, lglut, gmod`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `gmod`
+#### `public double glut, lglut, gmod`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `lbl`
+#### `public String lbl`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `rtip`
+#### `private Tex rtip = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
+
+- Description: TODO
 
-<a id="member-5"></a>
-##### `create(UI ui, Object[] args)`
+#### `private Attr(Glob glob, String attr, Color bg)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `Attr(Glob glob, String attr, Color bg)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `tick(double dt)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `draw(GOut g)`
+#### `public void lvlup()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `lvlup()`
+#### `public El(ResData t, double a)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `El(ResData t, double a)`
+#### `public void update(double a)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `update(double a)`
+#### `public Constipations(Coord sz)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `Constipations(Coord sz)`
+#### `public Reordered(List<T> back, Comparator<? super T> cmp)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `Reordered(List<T> back, Comparator<? super T> cmp)`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `size()`
+#### `public T get(int i)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `get(int i)`
+#### `public void update()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `update()`
+#### `protected List<El> items()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `items()`
+#### `protected Widget makeitem(El el, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `makeitem(El el, int idx, Coord sz)`
+#### `public ItemIcon(Coord sz, ItemSpec spec)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `ItemIcon(Coord sz, ItemSpec spec)`
+#### `protected BufferedImage img()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `img()`
+#### `protected String text()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `text()`
+#### `protected PUtils.Convolution filter()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `filter()`
+#### `public Item(Coord sz, El el)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `Item(Coord sz, El el)`
+#### `private void update()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `update()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `draw(GOut g)`
+#### `protected void drawslot(GOut g, El el, int idx, Area area)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `drawslot(GOut g, El el, int idx, Area area)`
+#### `public boolean unselect(int button)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `unselect(int button)`
+#### `public void update(ResData t, double a)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `update(ResData t, double a)`
+#### `public Event(Resource res, Message buf)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `Event(Resource res, Message buf)`
+#### `public void init()`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `init()`
+#### `public El(Indir<Resource> res, double a)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `El(Indir<Resource> res, double a)`
+#### `public Event ev()`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `ev()`
+#### `public FoodMeter()`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `FoodMeter()`
+#### `private BufferedImage mktrol(List<El> els, Indir<Resource> trev)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `mktrol(List<El> els, Indir<Resource> trev)`
+#### `private void drawels(GOut g, List<El> els, int alpha)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `drawels(GOut g, List<El> els, int alpha)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `tick(double dt)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `draw(GOut g)`
+#### `public void update(Object... args)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `update(Object... args)`
+#### `public void trig(Indir<Resource> ev)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `trig(Indir<Resource> ev)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public GlutMeter()`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `GlutMeter()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `draw(GOut g)`
+#### `public void update(Object... args)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `update(Object... args)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public BAttrWnd(Glob glob)`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `uimsg(String nm, Object... args)`
+#### `public void uimsg(String nm, Object... args)`
 
 - Description: TODO

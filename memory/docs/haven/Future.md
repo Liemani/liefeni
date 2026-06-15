@@ -1,5 +1,7 @@
 # Future
 
+This file documents the responsibilities and members of `Future`.
+
 ## Meta
 
 - Source: [Future.java](../../../src/haven/Future.java)
@@ -8,104 +10,74 @@
 
 ## Role
 
-- Represents deferred computation state.
+Represents deferred computation state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [wq](#member-4)
-- [val](#member-5)
-- [exc](#member-6)
-- [set](#member-7)
-- [future](#member-9)
-
-#### Methods
-
-- [public T get();](#member-1)
-- [public boolean done();](#member-2)
-- [PastException(Throwable cause)](#member-3)
-- [done()](#member-8)
-- [NotDone(Simple future)](#member-10)
-- [waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)](#member-11)
-- [get()](#member-12)
-- [set(T val)](#member-13)
-- [error(Throwable cause)](#member-14)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-4"></a>
-##### `wq`
+### NotDone
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `val`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final Waitable.Queue wq = new Waitable.Queue()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `exc`
+#### `private T val`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `set`
+#### `private Throwable exc`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `future`
+#### `private boolean set = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-1"></a>
-##### `public T get();`
+#### `public final transient Simple future`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public boolean done();`
+### Methods
+
+#### `public T get()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `PastException(Throwable cause)`
+#### `public boolean done()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `done()`
+#### `public PastException(Throwable cause)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `NotDone(Simple future)`
+#### `public boolean done()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
+#### `private NotDone(Simple future)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `get()`
+#### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `set(T val)`
+#### `public T get()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `error(Throwable cause)`
+#### `public void set(T val)`
+
+- Description: TODO
+
+#### `public void error(Throwable cause)`
 
 - Description: TODO

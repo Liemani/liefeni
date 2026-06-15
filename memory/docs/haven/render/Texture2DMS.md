@@ -1,5 +1,7 @@
 # Texture2DMS
 
+This file documents the responsibilities and members of `Texture2DMS`.
+
 ## Meta
 
 - Source: [Texture2DMS.java](../../../../src/haven/render/Texture2DMS.java)
@@ -8,80 +10,70 @@
 
 ## Role
 
-- Represents a multisampled 2D texture.
+Represents a multisampled 2D texture.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [w](#member-1)
-- [h](#member-2)
-- [s](#member-3)
-- [fixed](#member-4)
-
-#### Methods
-
-- [sz()](#member-5)
-- [image()](#member-6)
-- [images()](#member-7)
-- [Sampler2DMS(Texture2DMS tex)](#member-8)
-- [sampler()](#member-9)
-- [toString()](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `w`
+### Sampler2DMS
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `h`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final int w, h, s`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `s`
+#### `public final int w, h, s`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `fixed`
+#### `public final int w, h, s`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `sz()`
+#### `public final boolean fixed`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `image()`
+### Methods
+
+#### `public Texture2DMS(int w, int h, int s, boolean fixed, VectorFormat ifmt)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `images()`
+#### `public Texture2DMS(Coord dim, int s, boolean fixed, VectorFormat ifmt)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Sampler2DMS(Texture2DMS tex)`
+#### `public Texture2DMS(Coord dim, int s, VectorFormat ifmt)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `sampler()`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `toString()`
+#### `public Image<Texture2DMS> image()`
+
+- Description: TODO
+
+#### `public Collection<Image<Texture2DMS>> images()`
+
+- Description: TODO
+
+#### `public Sampler2DMS(Texture2DMS tex)`
+
+- Description: TODO
+
+#### `public Sampler2DMS sampler()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

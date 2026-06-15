@@ -1,5 +1,7 @@
 # BrowserAuth
 
+This file documents the responsibilities and members of `BrowserAuth`.
+
 ## Meta
 
 - Source: [BrowserAuth.java](../../../src/haven/BrowserAuth.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Supports browser-based authentication.
+Supports browser-based authentication.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public abstract String method();](#member-1)
-- [public String tryauth(AuthClient cl) throws IOException](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public abstract String method();`
+#### `public abstract String method()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public String tryauth(AuthClient cl) throws IOException`
+#### `public String tryauth(AuthClient cl) throws IOException`
 
 - Description: TODO

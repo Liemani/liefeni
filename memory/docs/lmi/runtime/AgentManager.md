@@ -1,5 +1,7 @@
 # AgentManager
 
+This file documents the responsibilities and members of `AgentManager`.
+
 ## Meta
 
 - Source: [AgentManager.java](../../../../src/lmi/runtime/AgentManager.java)
@@ -8,81 +10,56 @@
 
 ## Role
 
-- Coordinates subsystem state and routes work through the appropriate boundary.
+Coordinates subsystem state and routes work through the appropriate boundary.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [init()](#member-1)
-- [out()](#member-2)
-- [run(String[] args)](#member-3)
-- [handleAgentOption(String[] args)](#member-4)
-- [handleDriveOption(String[] args)](#member-5)
-- [printMainHelp()](#member-6)
-- [printOptionHelp(String opt)](#member-7)
-- [printJobHelp(Class<? extends Job> jobClass)](#member-8)
-- [getJobMap()](#member-9)
-- [isRunning()](#member-10)
-- [interrupt()](#member-11)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `init()`
+#### `public static void init()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `out()`
+#### `private static PrintWriter out()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `run(String[] args)`
+#### `public static void run(String[] args)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `handleAgentOption(String[] args)`
+#### `private static void handleAgentOption(String[] args)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `handleDriveOption(String[] args)`
+#### `private static void handleDriveOption(String[] args)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `printMainHelp()`
+#### `private static void printMainHelp()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `printOptionHelp(String opt)`
+#### `private static void printOptionHelp(String opt)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `printJobHelp(Class<? extends Job> jobClass)`
+#### `private static void printJobHelp(Class<? extends Job> jobClass)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `getJobMap()`
+#### `public static Map<String, Class<? extends Job>> getJobMap()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `isRunning()`
+#### `public static boolean isRunning()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `interrupt()`
+#### `public static void interrupt()`
 
 - Description: TODO

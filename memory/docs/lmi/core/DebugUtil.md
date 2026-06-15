@@ -1,5 +1,7 @@
 # DebugUtil
 
+This file documents the responsibilities and members of `DebugUtil`.
+
 ## Meta
 
 - Source: [DebugUtil.java](../../../../src/lmi/core/DebugUtil.java)
@@ -8,33 +10,28 @@
 
 ## Role
 
-- Provides debug-only reflection helpers for object inspection.
+Provides debug-only reflection helpers for object inspection.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [debugPrintObjectFields(Object object)](#member-1)
-- [_debugPrintObjectFields(Object object, Class<?> classObject, int depth, Set<Object> visited)](#member-2)
-- [_formatValue(Field field, Object value)](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `debugPrintObjectFields(Object object)`
+#### `private DebugUtil()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `_debugPrintObjectFields(Object object, Class<?> classObject, int depth, Set<Object> visited)`
+#### `public static void debugPrintObjectFields(Object object)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `_formatValue(Field field, Object value)`
+#### `private static void _debugPrintObjectFields(Object object, Class<?> classObject, int depth, Set<Object> visited)`
+
+- Description: TODO
+
+#### `private static String _formatValue(Field field, Object value)`
 
 - Description: TODO

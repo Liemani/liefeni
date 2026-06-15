@@ -1,5 +1,7 @@
 # AppContext
 
+This file documents the responsibilities and members of `AppContext`.
+
 ## Meta
 
 - Source: [AppContext.java](../../../../src/lmi/core/AppContext.java)
@@ -8,369 +10,245 @@
 
 ## Role
 
-- Holds shared references to the current Haven session and UI-level state that is not owned by a specific bridge surface.
-- Avoids owning world/map-view references that now live in bridge helpers.
+Holds shared references to the current Haven session and UI-level state that is not owned by a specific bridge surface.
+Avoids owning world/map-view references that now live in bridge helpers.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [mainFrame](#member-1)
-- [mainThread](#member-2)
-- [joglPanel](#member-3)
-- [dispatcher](#member-4)
-- [remoteUI](#member-5)
-- [ui](#member-6)
-- [session](#member-7)
-- [oCache](#member-8)
-- [rootWidget](#member-9)
-- [gameUI](#member-10)
-- [menuGrid](#member-11)
-- [meterWidgets](#member-12)
-- [hitPointMeter](#member-13)
-- [staminaMeter](#member-14)
-- [energyMeter](#member-15)
-- [equipory](#member-16)
-- [mainInventory](#member-17)
-
-#### Methods
-
-- [init()](#member-18)
-- [resetWidgetCache()](#member-19)
-- [resetSessionState()](#member-20)
-- [setMainFrame(MainFrame val)](#member-21)
-- [setMainThread(Thread val)](#member-22)
-- [setJOGLPanel(JOGLPanel val)](#member-23)
-- [setDispatcher(UIPanel.Dispatcher val)](#member-24)
-- [setRemoteUI(RemoteUI val)](#member-25)
-- [setUI(UI val)](#member-26)
-- [setRootWidget(RootWidget val)](#member-27)
-- [setGameUI(GameUI val)](#member-28)
-- [setMenuGrid(MenuGrid val)](#member-29)
-- [setSession(Session val)](#member-30)
-- [setOCache(OCache val)](#member-31)
-- [setEquipory(Equipory val)](#member-32)
-- [setMainInventory(Inventory val)](#member-33)
-- [addMeterWidget(IMeter meter)](#member-34)
-- [findMeterWidget(String resourceSuffix)](#member-35)
-- [hitPointMeter()](#member-36)
-- [staminaMeter()](#member-37)
-- [energyMeter()](#member-38)
-- [cursorGItem()](#member-39)
-- [menuGrid()](#member-40)
-- [gameUI()](#member-41)
-- [rootWidget()](#member-42)
-- [ui()](#member-43)
-- [session()](#member-44)
-- [oCache()](#member-45)
-- [equipory()](#member-46)
-- [mainInventory()](#member-47)
-- [cursor()](#member-48)
-- [chatUI()](#member-49)
-- [window()](#member-50)
-- [button()](#member-51)
-- [isbox()](#member-52)
-- [inventory()](#member-53)
-- [gitem()](#member-54)
-- [witem()](#member-55)
-- [getMouseLocation()](#member-56)
-- [interruptMainThread()](#member-57)
-- [closeSession()](#member-58)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mainFrame`
+#### `public static MainFrame mainFrame`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `mainThread`
+#### `public static Thread mainThread`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `joglPanel`
+#### `public static JOGLPanel joglPanel`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `dispatcher`
+#### `public static UIPanel.Dispatcher dispatcher`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `remoteUI`
+#### `public static RemoteUI remoteUI`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ui`
+#### `public static UI ui`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `session`
+#### `public static Session session`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `oCache`
+#### `public static OCache oCache`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `rootWidget`
+#### `public static RootWidget rootWidget`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `gameUI`
+#### `public static GameUI gameUI`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `menuGrid`
+#### `public static MenuGrid menuGrid`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `meterWidgets`
+#### `public static List<IMeter> meterWidgets`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `hitPointMeter`
+#### `public static IMeter hitPointMeter`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `staminaMeter`
+#### `public static IMeter staminaMeter`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `energyMeter`
+#### `public static IMeter energyMeter`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `equipory`
+#### `public static Equipory equipory`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `mainInventory`
+#### `public static Inventory mainInventory`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-18"></a>
-##### `init()`
-
-- Description: TODO
-
-<a id="member-19"></a>
-##### `resetWidgetCache()`
+#### `public static void init()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `resetSessionState()`
+#### `public static void resetWidgetCache()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `setMainFrame(MainFrame val)`
+#### `public static void resetSessionState()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `setMainThread(Thread val)`
+#### `public static void setMainFrame(MainFrame val)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `setJOGLPanel(JOGLPanel val)`
+#### `public static void setMainThread(Thread val)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `setDispatcher(UIPanel.Dispatcher val)`
+#### `public static void setJOGLPanel(JOGLPanel val)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `setRemoteUI(RemoteUI val)`
+#### `public static void setDispatcher(UIPanel.Dispatcher val)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `setUI(UI val)`
+#### `public static void setRemoteUI(RemoteUI val)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `setRootWidget(RootWidget val)`
+#### `public static void setUI(UI val)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `setGameUI(GameUI val)`
+#### `public static void setRootWidget(RootWidget val)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `setMenuGrid(MenuGrid val)`
+#### `public static void setGameUI(GameUI val)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `setSession(Session val)`
+#### `public static void setMenuGrid(MenuGrid val)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `setOCache(OCache val)`
+#### `public static void setSession(Session val)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `setEquipory(Equipory val)`
+#### `public static void setOCache(OCache val)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `setMainInventory(Inventory val)`
+#### `public static void setEquipory(Equipory val)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `addMeterWidget(IMeter meter)`
+#### `public static void setMainInventory(Inventory val)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `findMeterWidget(String resourceSuffix)`
+#### `public static void addMeterWidget(IMeter meter)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `hitPointMeter()`
+#### `private static IMeter findMeterWidget(String resourceSuffix)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `staminaMeter()`
+#### `public static IMeter hitPointMeter()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `energyMeter()`
+#### `public static IMeter staminaMeter()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `cursorGItem()`
+#### `public static IMeter energyMeter()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `menuGrid()`
+#### `public static GItem cursorGItem()`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `gameUI()`
+#### `public static MenuGrid menuGrid()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `rootWidget()`
+#### `public static GameUI gameUI()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `ui()`
+#### `public static RootWidget rootWidget()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `session()`
+#### `public static UI ui()`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `oCache()`
+#### `public static Session session()`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `equipory()`
+#### `public static OCache oCache()`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `mainInventory()`
+#### `public static Equipory equipory()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `cursor()`
+#### `public static Inventory mainInventory()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `chatUI()`
+#### `public static Indir<Resource> cursor()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `window()`
+#### `public static ChatUI chatUI()`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `button()`
+#### `public static Window window()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `isbox()`
+#### `public static Button button()`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `inventory()`
+#### `public static ISBox isbox()`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `gitem()`
+#### `public static Inventory inventory()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `witem()`
+#### `public static GItem gitem()`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `getMouseLocation()`
+#### `public static WItem witem()`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `interruptMainThread()`
+#### `static Coord getMouseLocation()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `closeSession()`
+#### `static void interruptMainThread()`
+
+- Description: TODO
+
+#### `static void closeSession()`
 
 - Description: TODO

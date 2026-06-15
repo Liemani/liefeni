@@ -1,5 +1,7 @@
 # PendingPortalTransition
 
+This file documents the responsibilities and members of `PendingPortalTransition`.
+
 ## Meta
 
 - Source: [PendingPortalTransition.java](../../../../../src/lmi/waypoint/model/PendingPortalTransition.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Provides the `PendingPortalTransition` functionality.
+Provides the `PendingPortalTransition` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [entryPortalResname](#member-1)
+#### `public final String entryPortalResname`
 
-### Member Reference
+- Description: TODO
 
-#### Fields
+### Methods
 
-<a id="member-1"></a>
-##### `entryPortalResname`
+#### `public PendingPortalTransition(String entryPortalResname)`
 
 - Description: TODO

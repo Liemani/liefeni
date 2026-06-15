@@ -1,5 +1,7 @@
 # RecordJob
 
+This file documents the responsibilities and members of `RecordJob`.
+
 ## Meta
 
 - Source: [RecordJob.java](../../../../../src/agent/tool/waypoint/RecordJob.java)
@@ -8,51 +10,36 @@
 
 ## Role
 
-- Provides a waypoint tool job entry point.
+Provides a waypoint tool job entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [run(AgentContext ctx, String[] args)](#member-1)
-- [_ensureGraphSelected()](#member-2)
-- [_selectStartNode()](#member-3)
-- [_moveToStartNode(ResolvedNode startNode)](#member-4)
-- [_startRecording(ResolvedNode startNode)](#member-5)
-- [info()](#member-6)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, String[] args)`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `_ensureGraphSelected()`
+#### `private static boolean _ensureGraphSelected()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `_selectStartNode()`
+#### `private static ResolvedNode _selectStartNode()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `_moveToStartNode(ResolvedNode startNode)`
+#### `private static void _moveToStartNode(ResolvedNode startNode)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `_startRecording(ResolvedNode startNode)`
+#### `private static RecordingSession _startRecording(ResolvedNode startNode)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

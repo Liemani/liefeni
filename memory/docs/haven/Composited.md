@@ -1,5 +1,7 @@
 # Composited
 
+This file documents the responsibilities and members of `Composited`.
+
 ## Meta
 
 - Source: [Composited.java](../../../src/haven/Composited.java)
@@ -8,638 +10,470 @@
 
 ## Role
 
-- Handles composited render state and clicks.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [skel](#member-1)
-- [pose](#member-2)
-- [eqowner](#member-3)
-- [mod](#member-4)
-- [equ](#member-5)
-- [poses](#member-6)
-- [cmod](#member-7)
-- [cequ](#member-8)
-- [slots](#member-9)
-- [mods](#member-10)
-- [old](#member-11)
-- [ipold](#member-12)
-- [ipol](#member-13)
-- [limit](#member-14)
-- [stat](#member-15)
-- [ldone](#member-16)
-- [srnd](#member-17)
-- [rsmod](#member-18)
-- [z1](#member-25)
-- [z2](#member-26)
-- [cmp](#member-29)
-- [m](#member-31)
-- [morph](#member-32)
-- [id](#member-33)
-- [slots](#member-34)
-- [z](#member-35)
-- [lz](#member-36)
-- [mat](#member-37)
-- [order](#member-38)
-- [lay](#member-41)
-- [eqctxr](#member-48)
-- [spr](#member-49)
-- [n](#member-50)
-- [desc](#member-51)
-- [id](#member-52)
-- [mod](#member-60)
-- [tex](#member-61)
-- [id](#member-62)
-- [real](#member-63)
-- [t](#member-68)
-- [id](#member-69)
-- [at](#member-70)
-- [res](#member-71)
-- [off](#member-72)
-- [real](#member-73)
-- [base](#member-79)
-- [mod](#member-80)
-- [equ](#member-81)
-- [matowner](#member-87)
-- [gi](#member-90)
-- [prep](#member-93)
-
-#### Methods
-
-- [Poses()](#member-19)
-- [Poses(List<? extends PoseMod> mods)](#member-20)
-- [rebuild()](#member-21)
-- [set(float ipol)](#member-22)
-- [tick(float dt)](#member-23)
-- [done()](#member-24)
-- [ModOrder(int z1, int z2)](#member-27)
-- [mainorder()](#member-28)
-- [comparator()](#member-30)
-- [Layer(Material mat, int z1, int z2)](#member-39)
-- [added(RenderTree.Slot slot)](#member-40)
-- [Model(FastMesh m, int id)](#member-42)
-- [addlay(Material mat)](#member-43)
-- [added(RenderTree.Slot slot)](#member-44)
-- [removed(RenderTree.Slot slot)](#member-45)
-- [ticker()](#member-46)
-- [autotick(double dt)](#member-47)
-- [Equipped(ED ed)](#member-53)
-- [tick(double dt)](#member-54)
-- [gtick(Render g)](#member-55)
-- [context(Class<T> cl)](#member-56)
-- [mkrandoom()](#member-57)
-- [comp()](#member-58)
-- [toString()](#member-59)
-- [MD(Indir<Resource> mod, List<ResData> tex)](#member-64)
-- [equals(Object o)](#member-65)
-- [clone()](#member-66)
-- [toString()](#member-67)
-- [ED(int t, String at, ResData res, Coord3f off)](#member-74)
-- [equals(Object o)](#member-75)
-- [equals2(Object o)](#member-76)
-- [clone()](#member-77)
-- [toString()](#member-78)
-- [Desc()](#member-82)
-- [Desc(Indir<Resource> base)](#member-83)
-- [decode(Resource.Resolver sess, Object[] args)](#member-84)
-- [clone()](#member-85)
-- [toString()](#member-86)
-- [nmod(Collection<MD> nmod)](#member-88)
-- [nequ(List<ED> nequ)](#member-89)
-- [CompositeClick(Gob.GobClick gi)](#member-91)
-- [clickargs(ClickData cd)](#member-92)
-- [toString()](#member-94)
-- [parts(RenderTree.Slot slot)](#member-95)
-- [added(RenderTree.Slot slot)](#member-96)
-- [removed(RenderTree.Slot slot)](#member-97)
-- [eqpoint(String nm, Message dat)](#member-98)
-- [draw(GOut g)](#member-99)
-- [tick(double dt)](#member-100)
-- [gtick(Render g)](#member-101)
-- [chmod(List<MD> mod)](#member-102)
-- [chequ(List<ED> equ)](#member-103)
+Handles composited render state and clicks.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### CompositeClick
 
-<a id="member-1"></a>
-##### `skel`
+- Description: TODO
+
+### Desc
+
+- Description: TODO
+
+### ED
+
+- Description: TODO
+
+### Equipped
+
+- Description: TODO
+
+### Layer
+
+- Description: TODO
+
+### MD
+
+- Description: TODO
+
+### ModOrder
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `pose`
+### Model
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `eqowner`
+### Poses
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `mod`
+## Members
 
+### Constants
+
+#### `private static final Comparator<ModOrder> cmp = new Comparator<ModOrder>()`
+
+- Description: TODO
+
+#### `private static final OwnerContext.ClassResolver<Equipped> eqctxr = new OwnerContext.ClassResolver<Equipped>()`
+
+- Description: TODO
+
+#### `public static final Pipe.Op prep = p ->`
+
+- Description: TODO
+
+### Fields
+
+#### `public final Skeleton skel`
+
+- Description: TODO
+
+#### `public final Pose pose`
+
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equ`
+#### `public final OwnerContext eqowner`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `poses`
+#### `public Collection<Model> mod = new ArrayList<Model>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cmod`
+#### `public Collection<Equipped> equ = new ArrayList<Equipped>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `cequ`
+#### `public Poses poses = new Poses()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `slots`
+#### `public List<MD> cmod = new LinkedList<MD>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mods`
+#### `public List<ED> cequ = new LinkedList<ED>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `old`
+#### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ipold`
+#### `public final PoseMod[] mods`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `ipol`
+#### `Pose old`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `limit`
+#### `float ipold = 0.0f, ipol = 0.0f`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `stat`
+#### `float ipold = 0.0f, ipol = 0.0f`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `ldone`
+#### `public float limit = -1.0f`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `srnd`
+#### `public boolean stat, ldone`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `rsmod`
+#### `public boolean stat, ldone`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `z1`
+#### `private Random srnd = new Random()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `z2`
+#### `private float rsmod = (srnd.nextFloat() * 0.1f) + 0.95f`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `cmp`
+#### `public final int z1, z2`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `m`
+#### `public final int z1, z2`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `morph`
+#### `public final FastMesh m`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `id`
+#### `public final PoseMorph morph`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `slots`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `z`
+#### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `lz`
+#### `private int z = 0, lz = 0`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `mat`
+#### `private int z = 0, lz = 0`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `order`
+#### `public final Material mat`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `lay`
+#### `public final ModOrder order`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `eqctxr`
+#### `public final List<Layer> lay = new ArrayList<Layer>()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `spr`
+#### `public final Sprite spr`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `n`
+#### `private final RUtils.StateNode<Sprite> n`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `desc`
+#### `public final ED desc`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `id`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `mod`
+#### `public Indir<Resource> mod`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `tex`
+#### `public List<ResData> tex`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `id`
+#### `public int id = -1`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `real`
+#### `private Model real`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `t`
+#### `public int t, id = -1`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `id`
+#### `public int t, id = -1`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `at`
+#### `public String at`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `res`
+#### `public ResData res`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `off`
+#### `public Coord3f off`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `real`
+#### `private Equipped real`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `base`
+#### `public Indir<Resource> base`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `mod`
+#### `public List<MD> mod = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `equ`
+#### `public List<ED> equ = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `matowner`
+#### `private final Material.Owner matowner = new Material.Owner()`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `gi`
+#### `public final Gob.GobClick gi`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `prep`
+### Methods
 
+#### `public Poses()`
+
 - Description: TODO
 
-#### Methods
+#### `public Poses(List<? extends PoseMod> mods)`
+
+- Description: TODO
 
-<a id="member-19"></a>
-##### `Poses()`
+#### `private void rebuild()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `Poses(List<? extends PoseMod> mods)`
+#### `public void set(float ipol)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `rebuild()`
+#### `public void tick(float dt)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `set(float ipol)`
+#### `protected void done()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `tick(float dt)`
+#### `public Composited(Skeleton skel, OwnerContext eqowner)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `done()`
+#### `public Composited(Skeleton skel)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `ModOrder(int z1, int z2)`
+#### `public ModOrder(int z1, int z2)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `mainorder()`
+#### `public int mainorder()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `comparator()`
+#### `public Comparator<ModOrder> comparator()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `Layer(Material mat, int z1, int z2)`
+#### `private Layer(Material mat, int z1, int z2)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `Model(FastMesh m, int id)`
+#### `private Model(FastMesh m, int id)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `addlay(Material mat)`
+#### `private void addlay(Material mat)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `ticker()`
+#### `public TickList.Ticking ticker()`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `autotick(double dt)`
+#### `public void autotick(double dt)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `Equipped(ED ed)`
+#### `private Equipped(ED ed)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `gtick(Render g)`
+#### `public void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `context(Class<T> cl)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `mkrandoom()`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `comp()`
+#### `public Composited comp()`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `MD(Indir<Resource> mod, List<ResData> tex)`
+#### `public MD(Indir<Resource> mod, List<ResData> tex)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `equals(Object o)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `clone()`
+#### `public MD clone()`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `ED(int t, String at, ResData res, Coord3f off)`
+#### `public ED(int t, String at, ResData res, Coord3f off)`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `equals(Object o)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `equals2(Object o)`
+#### `public boolean equals2(Object o)`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `clone()`
+#### `public ED clone()`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `Desc()`
+#### `public Desc()`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `Desc(Indir<Resource> base)`
+#### `public Desc(Indir<Resource> base)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `decode(Resource.Resolver sess, Object[] args)`
+#### `public static Desc decode(Resource.Resolver sess, Object[] args)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `clone()`
+#### `public Desc clone()`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `nmod(Collection<MD> nmod)`
+#### `private Collection<Model> nmod(Collection<MD> nmod)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `nequ(List<ED> nequ)`
+#### `private Collection<Equipped> nequ(List<ED> nequ)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `CompositeClick(Gob.GobClick gi)`
+#### `public CompositeClick(Gob.GobClick gi)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `clickargs(ClickData cd)`
+#### `public Object[] clickargs(ClickData cd)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `parts(RenderTree.Slot slot)`
+#### `private void parts(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `eqpoint(String nm, Message dat)`
+#### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `gtick(Render g)`
+#### `public void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `chmod(List<MD> mod)`
+#### `public void chmod(List<MD> mod)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `chequ(List<ED> equ)`
+#### `public void chequ(List<ED> equ)`
 
 - Description: TODO

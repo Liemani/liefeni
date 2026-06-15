@@ -1,5 +1,7 @@
 # Tex2D
 
+This file documents the responsibilities and members of `Tex2D`.
+
 ## Meta
 
 - Source: [Tex2D.java](../../../../src/haven/render/Tex2D.java)
@@ -8,86 +10,60 @@
 
 ## Role
 
-- Represents a 2D texture.
+Represents a 2D texture.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [texc](#member-1)
-- [prog](#member-2)
-- [ipol](#member-3)
-- [tex2d](#member-4)
-- [rtexcoord](#member-5)
-- [mod](#member-10)
-- [clip](#member-11)
-
-#### Methods
-
-- [texcoord()](#member-6)
-- [color()](#member-7)
-- [tex2d(Uniform.Data<Object> data)](#member-8)
-- [get(ProgramContext prog)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `texc`
+#### `public static final Attribute texc = new Attribute(VEC2, "ctexc")`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `prog`
+#### `public static final AutoVarying rtexcoord = new AutoVarying(VEC2, "s_tex2d")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ipol`
+#### `public static final ShaderMacro mod = prog ->`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `tex2d`
+#### `public static final ShaderMacro clip = prog ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `rtexcoord`
+### Fields
+
+#### `public final ProgramContext prog`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mod`
+#### `public Varying.Interpol ipol = Varying.Interpol.NORMAL`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `clip`
+#### `public Uniform tex2d`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `texcoord()`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `color()`
+#### `public Value texcoord()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `tex2d(Uniform.Data<Object> data)`
+#### `public Value color()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `get(ProgramContext prog)`
+#### `public void tex2d(Uniform.Data<Object> data)`
+
+- Description: TODO
+
+#### `public Tex2D(ProgramContext prog)`
+
+- Description: TODO
+
+#### `public static Tex2D get(ProgramContext prog)`
 
 - Description: TODO

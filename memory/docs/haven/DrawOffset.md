@@ -1,5 +1,7 @@
 # DrawOffset
 
+This file documents the responsibilities and members of `DrawOffset`.
+
 ## Meta
 
 - Source: [DrawOffset.java](../../../src/haven/DrawOffset.java)
@@ -8,32 +10,30 @@
 
 ## Role
 
-- Represents a draw offset helper.
+Represents a draw offset helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [off](#member-1)
-
-#### Methods
-
-- [apply(Gob g, OCache.AttrDelta msg)](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `off`
+### $zoff
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-2"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+### Constants
+
+### Fields
+
+#### `public Coord3f off`
+
+- Description: TODO
+
+### Methods
+
+#### `public DrawOffset(Gob gob, Coord3f off)`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

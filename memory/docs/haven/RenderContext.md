@@ -1,5 +1,7 @@
 # RenderContext
 
+This file documents the responsibilities and members of `RenderContext`.
+
 ## Meta
 
 - Source: [RenderContext.java](../../../src/haven/RenderContext.java)
@@ -8,241 +10,170 @@
 
 ## Role
 
-- Represents a render context contract.
+Represents a render context contract.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [ORDER_RESOLVE](#member-14)
-- [ORDER_TONEMAP](#member-15)
-- [ORDER_DEFAULT](#member-16)
-- [ORDER_RESAMPLE](#member-17)
-
-#### Fields
-
-- [slot](#member-1)
-- [post](#member-2)
-- [global](#member-3)
-- [cfmt](#member-4)
-- [samples](#member-5)
-- [sz](#member-6)
-- [buf](#member-18)
-
-#### Methods
-
-- [FrameFormat(VectorFormat cfmt, int samples, Coord sz)](#member-7)
-- [FrameFormat(Texture tex)](#member-8)
-- [FrameFormat(FrameFormat from)](#member-9)
-- [equals(FrameFormat that)](#member-10)
-- [equals(Object x)](#member-11)
-- [maketex()](#member-12)
-- [matching(Texture tex)](#member-13)
-- [run(GOut g, Sampler2D in)](#member-19)
-- [run(GOut g, Sampler in)](#member-20)
-- [order()](#member-21)
-- [outformat(FrameFormat in)](#member-22)
-- [dispose()](#member-23)
-- [prerender(Render out)](#member-24)
-- [postrender(Render out)](#member-25)
-- [postproc()](#member-26)
-- [add(PostProcessor post)](#member-27)
-- [remove(PostProcessor post)](#member-28)
-- [public abstract Pipe.Op basic(Object id);](#member-29)
-- [public abstract void basic(Object id, Pipe.Op state);](#member-30)
-- [add(Global glob)](#member-31)
-- [put(Global glob)](#member-32)
-- [prerender(Render out)](#member-33)
-- [postrender(Render out)](#member-34)
-- [shader()](#member-35)
-- [apply(Pipe p)](#member-36)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-14"></a>
-##### `ORDER_RESOLVE`
+### FrameFormat
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `ORDER_TONEMAP`
+### Global
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `ORDER_DEFAULT`
+### PostProcessor
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `ORDER_RESAMPLE`
+## Members
+
+### Constants
+
+#### `public static final Slot<RenderContext> slot = new Slot<>(Slot.Type.SYS, RenderContext.class)`
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final int ORDER_RESOLVE = -200, ORDER_TONEMAP = -100, ORDER_DEFAULT = 0, ORDER_RESAMPLE = 100`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `post`
+#### `public static final int ORDER_RESOLVE = -200, ORDER_TONEMAP = -100, ORDER_DEFAULT = 0, ORDER_RESAMPLE = 100`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `global`
+#### `public static final int ORDER_RESOLVE = -200, ORDER_TONEMAP = -100, ORDER_DEFAULT = 0, ORDER_RESAMPLE = 100`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cfmt`
+#### `public static final int ORDER_RESOLVE = -200, ORDER_TONEMAP = -100, ORDER_DEFAULT = 0, ORDER_RESAMPLE = 100`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `samples`
+### Fields
+
+#### `private final List<PostProcessor> post = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `sz`
+#### `private final Map<Global, Integer> global = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `buf`
+#### `public VectorFormat cfmt`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `FrameFormat(VectorFormat cfmt, int samples, Coord sz)`
+#### `public int samples`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `FrameFormat(Texture tex)`
+#### `public Coord sz`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `FrameFormat(FrameFormat from)`
+#### `public Sampler buf = null`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `equals(FrameFormat that)`
+### Methods
+
+#### `public FrameFormat(VectorFormat cfmt, int samples, Coord sz)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `equals(Object x)`
+#### `public FrameFormat(Texture tex)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `maketex()`
+#### `public FrameFormat(FrameFormat from)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `matching(Texture tex)`
+#### `public boolean equals(FrameFormat that)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `run(GOut g, Sampler2D in)`
+#### `public boolean equals(Object x)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `run(GOut g, Sampler in)`
+#### `public Texture maketex()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `order()`
+#### `public boolean matching(Texture tex)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `outformat(FrameFormat in)`
+#### `public void run(GOut g, Sampler2D in)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `dispose()`
+#### `public void run(GOut g, Sampler in)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `prerender(Render out)`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `postrender(Render out)`
+#### `public FrameFormat outformat(FrameFormat in)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `postproc()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `add(PostProcessor post)`
+#### `public default void prerender(Render out)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `remove(PostProcessor post)`
+#### `public default void postrender(Render out)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `public abstract Pipe.Op basic(Object id);`
+#### `public Collection<PostProcessor> postproc()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `public abstract void basic(Object id, Pipe.Op state);`
+#### `public void add(PostProcessor post)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `add(Global glob)`
+#### `public void remove(PostProcessor post)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `put(Global glob)`
+#### `public abstract Pipe.Op basic(Object id)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `prerender(Render out)`
+#### `public abstract void basic(Object id, Pipe.Op state)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `postrender(Render out)`
+#### `public void add(Global glob)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `shader()`
+#### `public void put(Global glob)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `apply(Pipe p)`
+#### `public void prerender(Render out)`
+
+- Description: TODO
+
+#### `public void postrender(Render out)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
 
 - Description: TODO

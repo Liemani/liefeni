@@ -1,5 +1,7 @@
 # MeshMorph
 
+This file documents the responsibilities and members of `MeshMorph`.
+
 ## Meta
 
 - Source: [MeshMorph.java](../../../src/haven/MeshMorph.java)
@@ -8,80 +10,70 @@
 
 ## Role
 
-- Represents mesh morphing support.
+Represents mesh morphing support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [vctx](#member-1)
-- [morphs](#member-2)
-- [morphed](#member-3)
-- [va](#member-5)
-- [type](#member-6)
-
-#### Methods
-
-- [public void morph(Value val, MorphType type, VertexContext vctx);](#member-4)
-- [Attrib(Value va, MorphType type)](#member-7)
-- [add(Morpher morph)](#member-8)
-- [add(Value va, MorphType type)](#member-9)
-- [get(VertexContext vctx)](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `vctx`
+### Attrib
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `morphs`
+### MorphType
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `morphed`
+### Morpher
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `va`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final VertexContext vctx`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `type`
+#### `private final Collection<Morpher> morphs = new ArrayList<>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `public void morph(Value val, MorphType type, VertexContext vctx);`
+#### `private final Collection<Attrib> morphed = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `Attrib(Value va, MorphType type)`
+#### `final Value va`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `add(Morpher morph)`
+#### `final MorphType type`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `add(Value va, MorphType type)`
+### Methods
+
+#### `public void morph(Value val, MorphType type, VertexContext vctx)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `get(VertexContext vctx)`
+#### `Attrib(Value va, MorphType type)`
+
+- Description: TODO
+
+#### `private MeshMorph(VertexContext vctx)`
+
+- Description: TODO
+
+#### `public void add(Morpher morph)`
+
+- Description: TODO
+
+#### `public void add(Value va, MorphType type)`
+
+- Description: TODO
+
+#### `public static MeshMorph get(VertexContext vctx)`
 
 - Description: TODO

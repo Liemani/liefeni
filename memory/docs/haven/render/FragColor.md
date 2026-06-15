@@ -1,5 +1,7 @@
 # FragColor
 
+This file documents the responsibilities and members of `FragColor`.
+
 ## Meta
 
 - Source: [FragColor.java](../../../../src/haven/render/FragColor.java)
@@ -8,170 +10,130 @@
 
 ## Role
 
-- Represents fragment color state.
+Represents fragment color state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [blend](#member-2)
-- [fragcol](#member-3)
-- [defcolor](#member-4)
-- [image](#member-5)
-- [srgb](#member-6)
-- [mode](#member-7)
-- [srgb](#member-12)
-- [value](#member-18)
-- [mksrgb](#member-19)
-- [shaders](#member-20)
-
-#### Methods
-
-- [FragBlend(BlendMode mode)](#member-8)
-- [apply(Pipe buf)](#member-9)
-- [shader()](#member-10)
-- [blend(BlendMode mode)](#member-11)
-- [ColorValue(ValBlock vals)](#member-13)
-- [root()](#member-14)
-- [cons2(Block blk)](#member-15)
-- [fragcol0(FragmentContext fctx)](#member-16)
-- [fragcol(FragmentContext fctx)](#member-17)
-- [shader()](#member-21)
-- [apply(Pipe p)](#member-22)
-- [hashCode()](#member-23)
-- [equals(Object o)](#member-24)
-- [toString()](#member-25)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### ColorValue
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `blend`
+### FragBlend
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `fragcol`
+## Members
+
+### Constants
+
+#### `public static final Slot<FragColor> slot = new Slot<>(Slot.Type.SYS, FragColor.class)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `defcolor`
+#### `public static final Slot<FragBlend> blend = new Slot<>(Slot.Type.SYS, FragBlend.class)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `image`
+#### `public static final FragData fragcol = new FragData(Type.VEC4, "fragcol", p ->`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `srgb`
+#### `public static final Object defcolor = new Object()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `mode`
+#### `private static final ShaderMacro value = prog -> fragcol0(prog.fctx).force()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `srgb`
+#### `private static final ShaderMacro mksrgb = prog -> fragcol0(prog.fctx).srgb = true`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `value`
+#### `private static final ShaderMacro[] shaders =`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `mksrgb`
+### Fields
+
+#### `public final T image`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `shaders`
+#### `public final boolean srgb`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `FragBlend(BlendMode mode)`
+#### `final BlendMode mode`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `apply(Pipe buf)`
+#### `boolean srgb = false`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `shader()`
+### Methods
+
+#### `public FragColor(T image, boolean srgb)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `blend(BlendMode mode)`
+#### `public FragColor(T image)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `ColorValue(ValBlock vals)`
+#### `FragBlend(BlendMode mode)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `root()`
+#### `public void apply(Pipe buf)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `cons2(Block blk)`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `fragcol0(FragmentContext fctx)`
+#### `public static Pipe.Op blend(BlendMode mode)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `fragcol(FragmentContext fctx)`
+#### `ColorValue(ValBlock vals)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `shader()`
+#### `public Expression root()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `apply(Pipe p)`
+#### `protected void cons2(Block blk)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `hashCode()`
+#### `private static ColorValue fragcol0(FragmentContext fctx)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `equals(Object o)`
+#### `public static Value fragcol(FragmentContext fctx)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `toString()`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

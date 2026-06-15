@@ -1,5 +1,7 @@
 # WaypointEdgeWriter
 
+This file documents the responsibilities and members of `WaypointEdgeWriter`.
+
 ## Meta
 
 - Source: [WaypointEdgeWriter.java](../../../../../src/lmi/waypoint/recording/WaypointEdgeWriter.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Writes waypoint recording state into persistence or runtime output.
+Writes waypoint recording state into persistence or runtime output.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public static void saveAsync(](#member-1)
+### Methods
 
-### Member Reference
+#### `private WaypointEdgeWriter()`
 
-#### Methods
+- Description: TODO
 
-<a id="member-1"></a>
-##### `public static void saveAsync(`
+#### `public static void saveAsync(`
 
 - Description: TODO

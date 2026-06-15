@@ -1,5 +1,7 @@
 # Music
 
+This file documents the responsibilities and members of `Music`.
+
 ## Meta
 
 - Source: [Music.java](../../../src/haven/Music.java)
@@ -8,110 +10,78 @@
 
 ## Role
 
-- Handles music playback.
+Handles music playback.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [player](#member-1)
-- [enabled](#member-2)
-- [debug](#member-3)
-- [res](#member-5)
-- [waitfor](#member-6)
-- [seq](#member-7)
-- [synth](#member-8)
-- [done](#member-9)
-- [loop](#member-10)
-
-#### Methods
-
-- [debug(String str)](#member-4)
-- [Player(Indir<Resource> res, Thread waitfor)](#member-11)
-- [run()](#member-12)
-- [play(Indir<Resource> res, boolean loop)](#member-13)
-- [public static void main(String[] args) throws Exception](#member-14)
-- [enable(boolean enabled)](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `player`
+### Player
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `enabled`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private static Player player`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `debug`
+#### `public static boolean enabled = true`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `res`
+#### `private static boolean debug = false`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `waitfor`
+#### `private Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `seq`
+#### `private Thread waitfor`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `synth`
+#### `private Sequencer seq`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `done`
+#### `private Synthesizer synth`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `loop`
+#### `private boolean done`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `debug(String str)`
+#### `private boolean loop = false`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `Player(Indir<Resource> res, Thread waitfor)`
+### Methods
+
+#### `private static void debug(String str)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `run()`
+#### `private Player(Indir<Resource> res, Thread waitfor)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `play(Indir<Resource> res, boolean loop)`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `public static void main(String[] args) throws Exception`
+#### `public static void play(Indir<Resource> res, boolean loop)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `enable(boolean enabled)`
+#### `public static void main(String[] args) throws Exception`
+
+- Description: TODO
+
+#### `public static void enable(boolean enabled)`
 
 - Description: TODO

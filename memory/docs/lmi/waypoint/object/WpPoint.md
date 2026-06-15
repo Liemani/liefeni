@@ -1,5 +1,7 @@
 # WpPoint
 
+This file documents the responsibilities and members of `WpPoint`.
+
 ## Meta
 
 - Source: [WpPoint.java](../../../../../src/lmi/waypoint/object/WpPoint.java)
@@ -8,80 +10,56 @@
 
 ## Role
 
-- Represents a waypoint point value or runtime cache entry.
+Represents a waypoint point value or runtime cache entry.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [segmentId](#member-2)
-- [gridId](#member-3)
-- [step](#member-4)
-- [localX](#member-5)
-- [localY](#member-6)
-- [mouseButton](#member-7)
-- [meshId](#member-8)
-
-#### Methods
-
-- [public static WpPoint of(long id, long segmentId, long gridId, int step, int localX, int localY,](#member-9)
-- [fromRecord(WpPointRecord record)](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `public final long id`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `segmentId`
+#### `public final long segmentId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `step`
+#### `public final int step`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `mouseButton`
+#### `public final int mouseButton`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `meshId`
+#### `public final Integer meshId`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-9"></a>
-##### `public static WpPoint of(long id, long segmentId, long gridId, int step, int localX, int localY,`
+#### `private WpPoint(long id, long segmentId, long gridId, int step, int localX, int localY,`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `fromRecord(WpPointRecord record)`
+#### `public static WpPoint of(long id, long segmentId, long gridId, int step, int localX, int localY,`
+
+- Description: TODO
+
+#### `public static WpPoint fromRecord(WpPointRecord record)`
 
 - Description: TODO

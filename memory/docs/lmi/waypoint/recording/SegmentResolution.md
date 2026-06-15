@@ -1,5 +1,7 @@
 # SegmentResolution
 
+This file documents the responsibilities and members of `SegmentResolution`.
+
 ## Meta
 
 - Source: [SegmentResolution.java](../../../../../src/lmi/waypoint/recording/SegmentResolution.java)
@@ -8,68 +10,48 @@
 
 ## Role
 
-- Provides the `SegmentResolution` functionality.
+Provides the `SegmentResolution` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [resolved](#member-1)
-- [graphId](#member-2)
-- [referenceGridId](#member-3)
-- [referenceLocalX](#member-4)
-- [referenceLocalY](#member-5)
-- [errorMessage](#member-6)
-
-#### Methods
-
-- [resolved(long graphId, long referenceGridId, int referenceLocalX, int referenceLocalY)](#member-7)
-- [failed(String errorMessage)](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `resolved`
+#### `final boolean resolved`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `graphId`
+#### `final long graphId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `referenceGridId`
+#### `final long referenceGridId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `referenceLocalX`
+#### `final int referenceLocalX`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `referenceLocalY`
+#### `final int referenceLocalY`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `errorMessage`
+#### `final String errorMessage`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `resolved(long graphId, long referenceGridId, int referenceLocalX, int referenceLocalY)`
+#### `private SegmentResolution(boolean resolved, long graphId, long referenceGridId, int referenceLocalX,`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `failed(String errorMessage)`
+#### `static SegmentResolution resolved(long graphId, long referenceGridId, int referenceLocalX, int referenceLocalY)`
+
+- Description: TODO
+
+#### `static SegmentResolution failed(String errorMessage)`
 
 - Description: TODO

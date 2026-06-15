@@ -1,5 +1,7 @@
 # WpSegmentRecord
 
+This file documents the responsibilities and members of `WpSegmentRecord`.
+
 ## Meta
 
 - Source: [WpSegmentRecord.java](../../../../../src/lmi/waypoint/db/WpSegmentRecord.java)
@@ -8,39 +10,32 @@
 
 ## Role
 
-- Represents a low-level waypoint persistence record.
+Represents a low-level waypoint persistence record.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [edgeId](#member-2)
-- [gridId](#member-3)
-- [step](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `public final long id`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `edgeId`
+#### `public final long edgeId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `step`
+#### `public final int step`
+
+- Description: TODO
+
+### Methods
+
+#### `public WpSegmentRecord(long id, long edgeId, long gridId, int step)`
 
 - Description: TODO

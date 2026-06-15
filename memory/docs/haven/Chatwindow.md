@@ -1,5 +1,7 @@
 # Chatwindow
 
+This file documents the responsibilities and members of `Chatwindow`.
+
 ## Meta
 
 - Source: [Chatwindow.java](../../../src/haven/Chatwindow.java)
@@ -8,86 +10,66 @@
 
 ## Role
 
-- Displays a chat window widget.
+Displays a chat window widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [stdout](#member-1)
-- [in](#member-2)
-- [out](#member-3)
-- [stdio](#member-4)
-- [reader](#member-5)
-- [readbuf](#member-6)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-7)
-- [stdin()](#member-8)
-- [stdio(boolean on)](#member-9)
-- [uimsg(String msg, Object... args)](#member-10)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `stdout`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `in`
+## Members
+
+### Constants
+
+#### `private static final PrintWriter stdout = new PrintWriter(System.out)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `out`
+### Fields
+
+#### `public final TextEntry in`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `stdio`
+#### `public final Textlog out`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `reader`
+#### `private boolean stdio`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `readbuf`
+#### `private Thread reader`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `create(UI ui, Object[] args)`
+#### `private final StringBuilder readbuf = new StringBuilder()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `stdin()`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `stdio(boolean on)`
+#### `public Chatwindow(Coord sz)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `uimsg(String msg, Object... args)`
+#### `private void stdin()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public void stdio(boolean on)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO

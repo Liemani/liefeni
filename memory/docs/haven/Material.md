@@ -1,5 +1,7 @@
 # Material
 
+This file documents the responsibilities and members of `Material`.
+
 ## Meta
 
 - Source: [Material.java](../../../src/haven/Material.java)
@@ -8,254 +10,234 @@
 
 ## Role
 
-- Represents render material data.
+Represents render material data.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [states](#member-1)
-- [dynstates](#member-2)
-- [nofacecull](#member-3)
-- [mask](#member-5)
-- [res](#member-19)
-- [states](#member-20)
-- [dynstates](#member-21)
-- [left](#member-22)
-- [rnames](#member-26)
-- [id](#member-27)
-- [res](#member-28)
-- [info](#member-29)
-- [id](#member-32)
-- [m](#member-33)
-- [cons](#member-34)
-
-#### Methods
-
-- [cons(Buffer buf, Object... args)](#member-4)
-- [cons(Buffer buf, Object... args)](#member-6)
-- [cons(Buffer buf, Object... args)](#member-7)
-- [cons(Buffer buf, Object... args)](#member-8)
-- [fn(Resource res, char desc)](#member-9)
-- [fac(Resource res, char desc)](#member-10)
-- [cons(Buffer buf, Object... args)](#member-11)
-- [cons(Buffer buf, Object... args)](#member-12)
-- [toString()](#member-13)
-- [apply(Pipe p)](#member-14)
-- [apply(RenderTree.Node r)](#member-15)
-- [cons(Buffer buf, Object... args)](#member-16)
-- [public Material create(Owner owner, Resource res, Message sdt);](#member-17)
-- [fromres(Owner owner, Resource res, Message sdt)](#member-18)
-- [Buffer(Resource res, List<Object[]> specs)](#member-23)
-- [public void cons(Buffer buf, Object... args);](#member-24)
-- [public String value();](#member-25)
-- [ResMaterial(Pipe.Op[] states, Pipe.Op[] dynstates, Res info)](#member-30)
-- [toString()](#member-31)
-- [Res(Resource res, Message buf)](#member-35)
-- [findspec(String nm)](#member-36)
-- [get()](#member-37)
-- [init()](#member-38)
-- [layerid()](#member-39)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `states`
+### $blend
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `dynstates`
+### $maskcol
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `nofacecull`
+### $maskdepth
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `mask`
+### $mlink
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `res`
+### $nofacecull
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `states`
+### $order
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `dynstates`
+### $vcol
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `left`
+### Buffer
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `rnames`
+### Factory
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `id`
+### Owner
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `res`
+### Res
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `info`
+### ResMaterial
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `id`
+### Spec
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `m`
+### SpecName
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `cons`
+## Members
+
+### Constants
+
+#### `public static final Pipe.Op nofacecull = (p -> p.put(States.facecull, null))`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `cons(Buffer buf, Object... args)`
+#### `private static final Map<String, Spec> rnames = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `cons(Buffer buf, Object... args)`
+### Fields
+
+#### `public final Pipe.Op states, dynstates`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cons(Buffer buf, Object... args)`
+#### `public final Pipe.Op states, dynstates`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `cons(Buffer buf, Object... args)`
+#### `final Pipe.Op mask = p -> p.put(FragColor.slot, null)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `fn(Resource res, char desc)`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `fac(Resource res, char desc)`
+#### `public final List<Pipe.Op> states, dynstates`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `cons(Buffer buf, Object... args)`
+#### `public final List<Pipe.Op> states, dynstates`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `cons(Buffer buf, Object... args)`
+#### `private final List<Object[]> left`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `toString()`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `apply(Pipe p)`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `apply(RenderTree.Node r)`
+#### `public final Res info`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `cons(Buffer buf, Object... args)`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `public Material create(Owner owner, Resource res, Message sdt);`
+#### `private transient Material m`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `fromres(Owner owner, Resource res, Message sdt)`
+#### `private transient Buffer cons`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `Buffer(Resource res, List<Object[]> specs)`
+### Methods
+
+#### `public void cons(Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `public void cons(Buffer buf, Object... args);`
+#### `public void cons(Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `public String value();`
+#### `public void cons(Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `ResMaterial(Pipe.Op[] states, Pipe.Op[] dynstates, Res info)`
+#### `public void cons(Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `toString()`
+#### `private static BlendMode.Function fn(Resource res, char desc)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `Res(Resource res, Message buf)`
+#### `private static BlendMode.Factor fac(Resource res, char desc)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `findspec(String nm)`
+#### `public void cons(Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `get()`
+#### `public void cons(Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `init()`
+#### `public Material(Pipe.Op[] states, Pipe.Op[] dynstates)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `layerid()`
+#### `public Material(Pipe.Op... states)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public Wrapping apply(RenderTree.Node r)`
+
+- Description: TODO
+
+#### `public void cons(Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `public Material create(Owner owner, Resource res, Message sdt)`
+
+- Description: TODO
+
+#### `public static Material fromres(Owner owner, Resource res, Message sdt)`
+
+- Description: TODO
+
+#### `public Buffer(Resource res, List<Object[]> specs)`
+
+- Description: TODO
+
+#### `public void cons(Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `public String value()`
+
+- Description: TODO
+
+#### `public ResMaterial(Pipe.Op[] states, Pipe.Op[] dynstates, Res info)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public Res(Resource res, Message buf)`
+
+- Description: TODO
+
+#### `public Spec findspec(String nm)`
+
+- Description: TODO
+
+#### `public Material get()`
+
+- Description: TODO
+
+#### `public void init()`
+
+- Description: TODO
+
+#### `public Integer layerid()`
 
 - Description: TODO

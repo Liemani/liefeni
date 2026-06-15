@@ -1,5 +1,7 @@
 # DescribeGobTextSourceJob
 
+This file documents the responsibilities and members of `DescribeGobTextSourceJob`.
+
 ## Meta
 
 - Source: [DescribeGobTextSourceJob.java](../../../../../src/agent/debug/tool/DescribeGobTextSourceJob.java)
@@ -8,75 +10,52 @@
 
 ## Role
 
-- Provides a debug job for inspecting or measuring runtime state.
+Provides a debug job for inspecting or measuring runtime state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [run(AgentContext ctx, String[] args)](#member-1)
-- [info()](#member-2)
-- [_describeSpeaking(Gob gob)](#member-3)
-- [_describeAttributes(Gob gob)](#member-4)
-- [_describeOverlays(Gob gob)](#member-5)
-- [_describeDrawable(Gob gob)](#member-6)
-- [_readTextField(Speaking speaking)](#member-7)
-- [_describeTextCandidates(String label, Object object)](#member-8)
-- [_collectTextCandidates(String path, Object object, int depth, int maxDepth, Set<Object> visited, Array<String> lines)](#member-9)
-- [_stringifyTextLike(Object object)](#member-10)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, String[] args)`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `_describeSpeaking(Gob gob)`
+#### `private static void _describeSpeaking(Gob gob)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `_describeAttributes(Gob gob)`
+#### `private static void _describeAttributes(Gob gob)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `_describeOverlays(Gob gob)`
+#### `private static void _describeOverlays(Gob gob)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `_describeDrawable(Gob gob)`
+#### `private static void _describeDrawable(Gob gob)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `_readTextField(Speaking speaking)`
+#### `private static String _readTextField(Speaking speaking)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `_describeTextCandidates(String label, Object object)`
+#### `private static void _describeTextCandidates(String label, Object object)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `_collectTextCandidates(String path, Object object, int depth, int maxDepth, Set<Object> visited, Array<String> lines)`
+#### `private static void _collectTextCandidates(String path, Object object, int depth, int maxDepth, Set<Object> visited, Array<String> lines)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `_stringifyTextLike(Object object)`
+#### `private static String _stringifyTextLike(Object object)`
 
 - Description: TODO

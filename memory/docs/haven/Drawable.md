@@ -1,5 +1,7 @@
 # Drawable
 
+This file documents the responsibilities and members of `Drawable`.
+
 ## Meta
 
 - Source: [Drawable.java](../../../src/haven/Drawable.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Defines a drawable render object.
+Defines a drawable render object.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [placer](#member-3)
-
-#### Methods
-
-- [public abstract Resource getres();](#member-1)
-- [getsurf(String surf)](#member-2)
-- [placer()](#member-4)
-- [gtick(Render g)](#member-5)
-- [toString()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-3"></a>
-##### `placer`
+#### `protected Gob.Placer placer = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-1"></a>
-##### `public abstract Resource getres();`
-
-- Description: TODO
-
-<a id="member-2"></a>
-##### `getsurf(String surf)`
+#### `public Drawable(Gob gob)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `placer()`
+#### `public abstract Resource getres()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `gtick(Render g)`
+#### `private MCache.SurfaceID getsurf(String surf)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `toString()`
+#### `public Gob.Placer placer()`
+
+- Description: TODO
+
+#### `public void gtick(Render g)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Model
 
+This file documents the responsibilities and members of `Model`.
+
 ## Meta
 
 - Source: [Model.java](../../../../src/haven/render/Model.java)
@@ -8,170 +10,134 @@
 
 ## Role
 
-- Represents a render model.
+Represents a render model.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [mode](#member-1)
-- [va](#member-2)
-- [ind](#member-3)
-- [f](#member-4)
-- [n](#member-5)
-- [ninst](#member-6)
-- [ro](#member-7)
-- [desc](#member-8)
-- [fmt](#member-9)
-- [n](#member-10)
-- [usage](#member-11)
-- [init](#member-12)
-- [shared](#member-13)
-- [ro](#member-14)
-- [desc](#member-15)
-
-#### Methods
-
-- [Indices(int n, NumberFormat fmt, Usage usage, Filler<? super Indices> init)](#member-16)
-- [size()](#member-17)
-- [shared()](#member-18)
-- [dispose()](#member-19)
-- [toString()](#member-20)
-- [desc(Object desc)](#member-21)
-- [dispose()](#member-22)
-- [draw(Pipe state, Render out)](#member-23)
-- [toString()](#member-24)
-- [desc(Object desc)](#member-25)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mode`
+### Indices
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `va`
+### Mode
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ind`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Mode mode`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `f`
+#### `public final VertexArray va`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `n`
+#### `public final Indices ind`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ninst`
+#### `public final int f, n`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ro`
+#### `public final int f, n`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `desc`
+#### `public final int ninst`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `fmt`
+#### `public Disposable ro`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `n`
+#### `public Object desc`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `usage`
+#### `public final NumberFormat fmt`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `init`
+#### `public final int n`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `shared`
+#### `public final Usage usage`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `ro`
+#### `public final Filler<? super Indices> init`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `desc`
+#### `public boolean shared = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-16"></a>
-##### `Indices(int n, NumberFormat fmt, Usage usage, Filler<? super Indices> init)`
+#### `public Disposable ro`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `size()`
+#### `public Object desc`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `shared()`
+### Methods
+
+#### `public Model(Mode mode, VertexArray va, Indices ind, int f, int n, int ninst)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `dispose()`
+#### `public Model(Mode mode, VertexArray va, Indices ind, int f, int n)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `toString()`
+#### `public Model(Mode mode, VertexArray va, Indices ind)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `desc(Object desc)`
+#### `public Indices(int n, NumberFormat fmt, Usage usage, Filler<? super Indices> init)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `dispose()`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `draw(Pipe state, Render out)`
+#### `public Indices shared()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `toString()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `desc(Object desc)`
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public Indices desc(Object desc)`
+
+- Description: TODO
+
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public void draw(Pipe state, Render out)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public Model desc(Object desc)`
 
 - Description: TODO

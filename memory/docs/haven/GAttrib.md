@@ -1,5 +1,7 @@
 # GAttrib
 
+This file documents the responsibilities and members of `GAttrib`.
+
 ## Meta
 
 - Source: [GAttrib.java](../../../src/haven/GAttrib.java)
@@ -8,68 +10,58 @@
 
 ## Role
 
-- Represents a gob attribute.
+Represents a gob attribute.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [gob](#member-1)
-- [slots](#member-4)
-
-#### Methods
-
-- [ctick(double dt)](#member-2)
-- [dispose()](#member-3)
-- [added(RenderTree.Slot slot)](#member-5)
-- [removed(RenderTree.Slot slot)](#member-6)
-- [make(Class<?> cl, Resource ires, Object... argv)](#member-7)
-- [public void apply(Gob gob, Message sdt);](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `gob`
+### Parser
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `slots`
+### ParserMaker
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-2"></a>
-##### `ctick(double dt)`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-3"></a>
-##### `dispose()`
+#### `public final Gob gob`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `added(RenderTree.Slot slot)`
+#### `Collection<RenderTree.Slot> slots`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `removed(RenderTree.Slot slot)`
+### Methods
+
+#### `public GAttrib(Gob gob)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `make(Class<?> cl, Resource ires, Object... argv)`
+#### `public void ctick(double dt)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public void apply(Gob gob, Message sdt);`
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public void added(RenderTree.Slot slot)`
+
+- Description: TODO
+
+#### `public void removed(RenderTree.Slot slot)`
+
+- Description: TODO
+
+#### `public Parser make(Class<?> cl, Resource ires, Object... argv)`
+
+- Description: TODO
+
+#### `public void apply(Gob gob, Message sdt)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # SSearchBox
 
+This file documents the responsibilities and members of `SSearchBox`.
+
 ## Meta
 
 - Source: [SSearchBox.java](../../../src/haven/SSearchBox.java)
@@ -8,98 +10,72 @@
 
 ## Role
 
-- Displays a styled search box widget.
+Displays a styled search box widget.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [searching](#member-1)
-- [filtered](#member-2)
-- [info](#member-3)
-
-#### Methods
-
-- [protected abstract List<? extends I> allitems();](#member-4)
-- [protected abstract boolean searchmatch(I item, String text);](#member-5)
-- [items()](#member-6)
-- [keydown(KeyDownEvent ev)](#member-7)
-- [updinfo()](#member-8)
-- [search(String text)](#member-9)
-- [draw(GOut g)](#member-10)
-- [stopsearch()](#member-11)
-- [lostfocus()](#member-12)
-- [mousedown(MouseDownEvent ev)](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `searching`
+#### `public String searching = null`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `filtered`
+#### `private List<I> filtered = null`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info`
+#### `private Text info`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `protected abstract List<? extends I> allitems();`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `protected abstract boolean searchmatch(I item, String text);`
+#### `protected abstract List<? extends I> allitems()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `items()`
+#### `protected abstract boolean searchmatch(I item, String text)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `protected List<? extends I> items()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `updinfo()`
+#### `public SSearchBox(Coord sz, int itemh, int marg)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `search(String text)`
+#### `public SSearchBox(Coord sz, int itemh)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `draw(GOut g)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `stopsearch()`
+#### `private void updinfo()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `lostfocus()`
+#### `public void search(String text)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public void stopsearch()`
+
+- Description: TODO
+
+#### `public void lostfocus()`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO

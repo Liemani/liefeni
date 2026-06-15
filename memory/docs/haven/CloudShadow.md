@@ -1,5 +1,7 @@
 # CloudShadow
 
+This file documents the responsibilities and members of `CloudShadow`.
+
 ## Meta
 
 - Source: [CloudShadow.java](../../../src/haven/CloudShadow.java)
@@ -8,134 +10,92 @@
 
 ## Role
 
-- Represents cloud shadow rendering support.
+Represents cloud shadow rendering support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [tex](#member-2)
-- [dir](#member-3)
-- [vel](#member-4)
-- [scale](#member-5)
-- [cmin](#member-6)
-- [cmax](#member-7)
-- [rmin](#member-8)
-- [rmax](#member-9)
-- [tsky](#member-10)
-- [cdir](#member-11)
-- [cvel](#member-12)
-- [cscl](#member-13)
-- [cthr](#member-14)
-- [shader](#member-15)
-
-#### Methods
-
-- [shader()](#member-16)
-- [apply(Pipe buf)](#member-17)
-- [equals(CloudShadow that)](#member-18)
-- [equals(Object o)](#member-19)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<CloudShadow> slot = new Slot<CloudShadow>(Slot.Type.DRAW, CloudShadow.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tex`
+#### `public static final Uniform tsky = new Uniform(SAMPLER2D, p -> p.get(slot).tex.img, slot)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dir`
+#### `public static final Uniform cdir = new Uniform(VEC2, p ->`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `vel`
+#### `public static final Uniform cvel = new Uniform(VEC2, p -> p.get(slot).vel, slot)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `scale`
+#### `public static final Uniform cscl = new Uniform(FLOAT, p -> p.get(slot).scale, slot)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `cmin`
+#### `public static final Uniform cthr = new Uniform(VEC4, p ->`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cmax`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `rmin`
+### Fields
+
+#### `public final TexRender tex`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `rmax`
+#### `public Coord3f dir, vel`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `tsky`
+#### `public Coord3f dir, vel`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `cdir`
+#### `public float scale`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `cvel`
+#### `public float cmin = 0.5f, cmax = 1.0f, rmin = 0.4f, rmax = 1.0f`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `cscl`
+#### `public float cmin = 0.5f, cmax = 1.0f, rmin = 0.4f, rmax = 1.0f`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `cthr`
+#### `public float cmin = 0.5f, cmax = 1.0f, rmin = 0.4f, rmax = 1.0f`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `shader`
+#### `public float cmin = 0.5f, cmax = 1.0f, rmin = 0.4f, rmax = 1.0f`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-16"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-17"></a>
-##### `apply(Pipe buf)`
+#### `public CloudShadow(TexRender tex, DirLight light, Coord3f vel, float scale)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `equals(CloudShadow that)`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `equals(Object o)`
+#### `public void apply(Pipe buf)`
+
+- Description: TODO
+
+#### `public boolean equals(CloudShadow that)`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # BaseTest
 
+This file documents the responsibilities and members of `BaseTest`.
+
 ## Meta
 
 - Source: [BaseTest.java](../../../../src/haven/test/BaseTest.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Provides a base test harness.
+Provides a base test harness.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [tg](#member-1)
-- [me](#member-2)
-
-#### Methods
-
-- [printf(String fmt, Object... args)](#member-3)
-- [start()](#member-4)
-- [stop()](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `tg`
+#### `public ThreadGroup tg`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `me`
+#### `public Thread me`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `printf(String fmt, Object... args)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `start()`
+#### `public BaseTest()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `stop()`
+#### `public static void printf(String fmt, Object... args)`
+
+- Description: TODO
+
+#### `public void start()`
+
+- Description: TODO
+
+#### `public void stop()`
 
 - Description: TODO

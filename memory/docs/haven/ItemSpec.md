@@ -1,5 +1,7 @@
 # ItemSpec
 
+This file documents the responsibilities and members of `ItemSpec`.
+
 ## Meta
 
 - Source: [ItemSpec.java](../../../src/haven/ItemSpec.java)
@@ -8,116 +10,80 @@
 
 ## Role
 
-- Describes an item specification.
+Describes an item specification.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [definfo](#member-1)
-- [info](#member-2)
-- [res](#member-3)
-- [ctx](#member-4)
-- [rnd](#member-7)
-- [spr](#member-11)
-- [cinfo](#member-14)
-
-#### Methods
-
-- [context(Class<T> cl)](#member-5)
-- [getres()](#member-6)
-- [mkrandoom()](#member-8)
-- [sprite()](#member-9)
-- [resource()](#member-10)
-- [spr()](#member-12)
-- [image()](#member-13)
-- [info()](#member-15)
-- [name()](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `definfo`
+#### `private static final Object[] definfo =`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info`
+### Fields
+
+#### `public final Object[] info`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `res`
+#### `public final ResData res`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ctx`
+#### `public final OwnerContext ctx`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `rnd`
+#### `private Random rnd = null`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `spr`
+#### `private GSprite spr = null`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `cinfo`
+#### `private List<ItemInfo> cinfo = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `context(Class<T> cl)`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `getres()`
+#### `public ItemSpec(OwnerContext ctx, ResData res, Object[] info)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `mkrandoom()`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `sprite()`
+#### `public Resource getres()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `resource()`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `spr()`
+#### `public GSprite sprite()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `image()`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `info()`
+#### `public GSprite spr()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `name()`
+#### `public BufferedImage image()`
+
+- Description: TODO
+
+#### `public List<ItemInfo> info()`
+
+- Description: TODO
+
+#### `public String name()`
 
 - Description: TODO

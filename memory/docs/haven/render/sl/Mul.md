@@ -1,5 +1,7 @@
 # Mul
 
+This file documents the responsibilities and members of `Mul`.
+
 ## Meta
 
 - Source: [Mul.java](../../../../../src/haven/render/sl/Mul.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Represents a multiplication expression.
+Represents a multiplication expression.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [terms](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [output(Output out)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `terms`
+#### `public final Expression[] terms`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+#### `public Mul(Expression... terms)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

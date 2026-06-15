@@ -1,5 +1,7 @@
 # WeakList
 
+This file documents the responsibilities and members of `WeakList`.
+
 ## Meta
 
 - Source: [WeakList.java](../../../src/haven/WeakList.java)
@@ -8,110 +10,78 @@
 
 ## Role
 
-- Provides a weak list.
+Provides a weak list.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [cleanq](#member-1)
-- [head](#member-2)
-- [n](#member-9)
-- [p](#member-10)
-- [l](#member-11)
-
-#### Methods
-
-- [clean()](#member-3)
-- [iterator()](#member-4)
-- [add2(T e)](#member-5)
-- [add(T e)](#member-6)
-- [clear()](#member-7)
-- [size()](#member-8)
-- [Entry(E e, WeakList<E> l)](#member-12)
-- [link()](#member-13)
-- [unlink()](#member-14)
-- [remove()](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cleanq`
+### Entry
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `head`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final ReferenceQueue<T> cleanq = new ReferenceQueue<T>()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `n`
+#### `private Entry<T> head = null`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `p`
+#### `private Entry<E> n, p`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `l`
+#### `private Entry<E> n, p`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `clean()`
+#### `private WeakList<E> l`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `iterator()`
+### Methods
+
+#### `private void clean()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `add2(T e)`
+#### `public Iterator<T> iterator()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `add(T e)`
+#### `public Entry<T> add2(T e)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `clear()`
+#### `public boolean add(T e)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `size()`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `Entry(E e, WeakList<E> l)`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `link()`
+#### `private Entry(E e, WeakList<E> l)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `unlink()`
+#### `private void link()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `remove()`
+#### `private void unlink()`
+
+- Description: TODO
+
+#### `public void remove()`
 
 - Description: TODO

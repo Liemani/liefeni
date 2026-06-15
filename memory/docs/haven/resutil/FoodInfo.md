@@ -1,5 +1,7 @@
 # FoodInfo
 
+This file documents the responsibilities and members of `FoodInfo`.
+
 ## Meta
 
 - Source: [FoodInfo.java](../../../../src/haven/resutil/FoodInfo.java)
@@ -8,116 +10,94 @@
 
 ## Role
 
-- Represents food information metadata.
+Represents food information metadata.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [end](#member-1)
-- [glut](#member-2)
-- [sev](#member-3)
-- [cons](#member-4)
-- [evs](#member-5)
-- [efs](#member-6)
-- [types](#member-7)
-- [imgsz](#member-8)
-- [ev](#member-9)
-- [img](#member-10)
-- [a](#member-11)
-- [info](#member-13)
-- [p](#member-14)
-
-#### Methods
-
-- [Event(Resource res, double a)](#member-12)
-- [Effect(List<ItemInfo> info, double p)](#member-15)
-- [layout(Layout l)](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `end`
+### Effect
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `glut`
+### Event
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sev`
+## Members
+
+### Constants
+
+#### `public static final Coord imgsz = new Coord(Text.std.height(), Text.std.height())`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cons`
+### Fields
+
+#### `public final double end, glut, sev, cons`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `evs`
+#### `public final double end, glut, sev, cons`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `efs`
+#### `public final double end, glut, sev, cons`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `types`
+#### `public final double end, glut, sev, cons`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `imgsz`
+#### `public final Event[] evs`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `ev`
+#### `public final Effect[] efs`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `img`
+#### `public final int[] types`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `a`
+#### `public final BAttrWnd.FoodMeter.Event ev`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `info`
+#### `public final BufferedImage img`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `p`
+#### `public final double a`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-12"></a>
-##### `Event(Resource res, double a)`
+#### `public final List<ItemInfo> info`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `Effect(List<ItemInfo> info, double p)`
+#### `public final double p`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `layout(Layout l)`
+### Methods
+
+#### `public FoodInfo(Owner owner, double end, double glut, double cons, double sev, Event[] evs, Effect[] efs, int[] types)`
+
+- Description: TODO
+
+#### `public FoodInfo(Owner owner, double end, double glut, double cons, Event[] evs, Effect[] efs, int[] types)`
+
+- Description: TODO
+
+#### `public Event(Resource res, double a)`
+
+- Description: TODO
+
+#### `public Effect(List<ItemInfo> info, double p)`
+
+- Description: TODO
+
+#### `public void layout(Layout l)`
 
 - Description: TODO

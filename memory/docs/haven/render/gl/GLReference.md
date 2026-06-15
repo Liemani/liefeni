@@ -1,5 +1,7 @@
 # GLReference
 
+This file documents the responsibilities and members of `GLReference`.
+
 ## Meta
 
 - Source: [GLReference.java](../../../../../src/haven/render/gl/GLReference.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Represents a GL reference.
+Represents a GL reference.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [get(Object ro, Class<T> type)](#member-1)
+### Methods
 
-### Member Reference
+#### `public GLReference(T ob)`
 
-#### Methods
+- Description: TODO
 
-<a id="member-1"></a>
-##### `get(Object ro, Class<T> type)`
+#### `public static <T extends Disposable> T get(Object ro, Class<T> type)`
 
 - Description: TODO

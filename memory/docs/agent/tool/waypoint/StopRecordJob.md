@@ -1,5 +1,7 @@
 # StopRecordJob
 
+This file documents the responsibilities and members of `StopRecordJob`.
+
 ## Meta
 
 - Source: [StopRecordJob.java](../../../../../src/agent/tool/waypoint/StopRecordJob.java)
@@ -8,63 +10,50 @@
 
 ## Role
 
-- Provides a waypoint tool job entry point.
+Provides a waypoint tool job entry point.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Methods
-
-- [run(AgentContext ctx, String[] args)](#member-1)
-- [_ensureEndNodeAsync(EndNodeHandler handler)](#member-2)
-- [_createEndNodeAsync(EndNodeHandler handler)](#member-3)
-- [_inputEndNodeName()](#member-4)
-- [_saveEdgeAsync(RecordingSession session, WpNode endNode)](#member-5)
-- [_appendSavedEdge(SaveEdgeResult result)](#member-6)
-- [void onResolved(WpNode endNode);](#member-7)
-- [info()](#member-8)
-
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, String[] args)`
+### EndNodeHandler
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `_ensureEndNodeAsync(EndNodeHandler handler)`
+## Members
+
+### Constants
+
+### Fields
+
+### Methods
+
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `_createEndNodeAsync(EndNodeHandler handler)`
+#### `private static void _ensureEndNodeAsync(EndNodeHandler handler)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `_inputEndNodeName()`
+#### `private static void _createEndNodeAsync(EndNodeHandler handler)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `_saveEdgeAsync(RecordingSession session, WpNode endNode)`
+#### `private static String _inputEndNodeName()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `_appendSavedEdge(SaveEdgeResult result)`
+#### `private static void _saveEdgeAsync(RecordingSession session, WpNode endNode)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `void onResolved(WpNode endNode);`
+#### `private static void _appendSavedEdge(SaveEdgeResult result)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `info()`
+#### `void onResolved(WpNode endNode)`
+
+- Description: TODO
+
+#### `public static String info()`
 
 - Description: TODO

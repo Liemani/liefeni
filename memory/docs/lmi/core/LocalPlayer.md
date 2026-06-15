@@ -1,5 +1,7 @@
 # LocalPlayer
 
+This file documents the responsibilities and members of `LocalPlayer`.
+
 ## Meta
 
 - Source: [LocalPlayer.java](../../../../src/lmi/core/LocalPlayer.java)
@@ -8,111 +10,76 @@
 
 ## Role
 
-- Provides cached access to the local player state.
+Provides cached access to the local player state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [gob()](#member-1)
-- [position()](#member-2)
-- [a()](#member-3)
-- [velocity()](#member-4)
-- [hasPose(String poseName)](#member-5)
-- [currentGrid()](#member-6)
-- [_requireMeterValues(haven.IMeter meterWidget)](#member-7)
-- [hardHitPoint()](#member-8)
-- [softHitPoint()](#member-9)
-- [stamina()](#member-10)
-- [energy()](#member-11)
-- [distance(Gob gob)](#member-12)
-- [distance(Coord coord)](#member-13)
-- [_isCursorChanged(String cursor)](#member-14)
-- [_sendClickMessage(Coord coord)](#member-15)
-- [_sendCancelActionMessage()](#member-16)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `gob()`
+#### `public static Gob gob()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `position()`
+#### `public static Coord position()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `a()`
+#### `public static double a()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `velocity()`
+#### `public static double velocity()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `hasPose(String poseName)`
+#### `public static boolean hasPose(String poseName)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `currentGrid()`
+#### `public static MCache.Grid currentGrid()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `_requireMeterValues(haven.IMeter meterWidget)`
+#### `private static java.util.List<haven.LayerMeter.Meter> _requireMeterValues(haven.IMeter meterWidget)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `hardHitPoint()`
+#### `public static double hardHitPoint()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `softHitPoint()`
+#### `public static double softHitPoint()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `stamina()`
+#### `public static double stamina()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `energy()`
+#### `public static double energy()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `distance(Gob gob)`
+#### `public static double distance(Gob gob)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `distance(Coord coord)`
+#### `public static double distance(Coord coord)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `_isCursorChanged(String cursor)`
+#### `private static boolean _isCursorChanged(String cursor)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `_sendClickMessage(Coord coord)`
+#### `private static void _sendClickMessage(Coord coord)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `_sendCancelActionMessage()`
+#### `private static void _sendCancelActionMessage()`
 
 - Description: TODO

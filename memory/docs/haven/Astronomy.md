@@ -1,5 +1,7 @@
 # Astronomy
 
+This file documents the responsibilities and members of `Astronomy`.
+
 ## Meta
 
 - Source: [Astronomy.java](../../../src/haven/Astronomy.java)
@@ -8,81 +10,60 @@
 
 ## Role
 
-- Provides world time and astronomy helpers.
+Provides world time and astronomy helpers.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [dt](#member-1)
-- [mp](#member-2)
-- [yt](#member-3)
-- [sp](#member-4)
-- [sd](#member-5)
-- [years](#member-6)
-- [ym](#member-7)
-- [md](#member-8)
-- [night](#member-9)
-- [mc](#member-10)
-- [is](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `dt`
+#### `public final double dt, mp, yt, sp, sd`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `mp`
+#### `public final double dt, mp, yt, sp, sd`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `yt`
+#### `public final double dt, mp, yt, sp, sd`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sp`
+#### `public final double dt, mp, yt, sp, sd`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sd`
+#### `public final double dt, mp, yt, sp, sd`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `years`
+#### `public final double years, ym, md`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ym`
+#### `public final double years, ym, md`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `md`
+#### `public final double years, ym, md`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `night`
+#### `public final boolean night`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mc`
+#### `public final Color mc`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `is`
+#### `public final int is`
+
+- Description: TODO
+
+### Methods
+
+#### `public Astronomy(double dt, double mp, double yt, boolean night, Color mc, int is, double sp, double sd, double years, double ym, double md)`
 
 - Description: TODO

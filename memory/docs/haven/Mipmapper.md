@@ -1,5 +1,7 @@
 # Mipmapper
 
+This file documents the responsibilities and members of `Mipmapper`.
+
 ## Meta
 
 - Source: [Mipmapper.java](../../../src/haven/Mipmapper.java)
@@ -8,68 +10,50 @@
 
 ## Role
 
-- Generates mipmaps.
+Generates mipmaps.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [avg](#member-4)
-- [rnd](#member-5)
-- [cnt](#member-6)
-- [dav](#member-7)
-- [lanczos](#member-8)
-
-#### Methods
-
-- [public abstract byte[] gen4(Coord dim, byte[] data, VectorFormat fmt);](#member-1)
-- [public abstract byte[] gen3(Coord dim, byte[] data, VectorFormat fmt);](#member-2)
-- [nextsz(Coord dim)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-4"></a>
-##### `avg`
+### Mipmapper3
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `rnd`
+## Members
+
+### Constants
+
+#### `public static final Mipmapper3 avg = new Mipmapper3()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `cnt`
+#### `public static final Mipmapper rnd = new Mipmapper()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `dav`
+#### `public static final Mipmapper cnt = new Mipmapper()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `lanczos`
+#### `public static final Mipmapper dav = new Mipmapper()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-1"></a>
-##### `public abstract byte[] gen4(Coord dim, byte[] data, VectorFormat fmt);`
+#### `public static final Mipmapper lanczos = new Mipmapper()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public abstract byte[] gen3(Coord dim, byte[] data, VectorFormat fmt);`
+### Fields
+
+### Methods
+
+#### `public abstract byte[] gen4(Coord dim, byte[] data, VectorFormat fmt)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `nextsz(Coord dim)`
+#### `public abstract byte[] gen3(Coord dim, byte[] data, VectorFormat fmt)`
+
+- Description: TODO
+
+#### `public static Coord nextsz(Coord dim)`
 
 - Description: TODO

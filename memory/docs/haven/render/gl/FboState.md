@@ -1,5 +1,7 @@
 # FboState
 
+This file documents the responsibilities and members of `FboState`.
+
 ## Meta
 
 - Source: [FboState.java](../../../../../src/haven/render/gl/FboState.java)
@@ -8,169 +10,112 @@
 
 ## Role
 
-- Represents FBO render state.
+Represents FBO render state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [NIL_CONF](#member-1)
-- [BLEND_ALL](#member-2)
-- [BLEND_NONE](#member-3)
-- [MASK_NONE](#member-4)
-
-#### Fields
-
-- [env](#member-5)
-- [fbo](#member-6)
-- [dbufs](#member-7)
-- [blend](#member-8)
-- [blendbufs](#member-9)
-- [colormask](#member-10)
-- [slot](#member-23)
-
-#### Methods
-
-- [applydbufs(BGL gl)](#member-11)
-- [glblendfunc(BlendMode.Function fn)](#member-12)
-- [glblendfac(BlendMode.Factor fac)](#member-13)
-- [applyconf(BGL gl)](#member-14)
-- [apply(BGL gl)](#member-15)
-- [unapply(BGL gl)](#member-16)
-- [applyto(BGL gl, GLState to)](#member-17)
-- [compatiblep(GLFrameBuffer fbo, Attachment[] color, Attachment depth)](#member-18)
-- [find(GLEnvironment env, Attachment[] color, Attachment depth)](#member-19)
-- [forfvals(GLEnvironment env, Object depthp, Object[] fvalsp, FragTarget[] conf)](#member-20)
-- [make(GLEnvironment env, Object depth, Object[] fvals, FragTarget[] conf)](#member-21)
-- [set(BGL gl, Applier st, Object depth, Object[] fvals, FragTarget[] conf)](#member-22)
-- [slotidx()](#member-24)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `NIL_CONF`
+#### `public static final FragTarget NIL_CONF = new FragTarget(null)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `BLEND_ALL`
+#### `public static final boolean[] BLEND_ALL = new boolean[0], BLEND_NONE = new boolean[0]`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `BLEND_NONE`
+#### `public static final boolean[] BLEND_ALL = new boolean[0], BLEND_NONE = new boolean[0]`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `MASK_NONE`
+#### `public static final boolean[] MASK_NONE = new boolean[0]`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-5"></a>
-##### `env`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `fbo`
+#### `public final GLEnvironment env`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `dbufs`
+#### `public final GLFrameBuffer fbo`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `blend`
+#### `public final int[] dbufs`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `blendbufs`
+#### `public final BlendMode blend`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `colormask`
+#### `public final boolean[] blendbufs`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `slot`
+#### `public final boolean[] colormask`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-11"></a>
-##### `applydbufs(BGL gl)`
+#### `public static int slot = slotidx(FboState.class)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `glblendfunc(BlendMode.Function fn)`
+### Methods
+
+#### `public FboState(GLEnvironment env, GLFrameBuffer fbo, int[] dbufs, FragTarget[] conf)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `glblendfac(BlendMode.Factor fac)`
+#### `public void applydbufs(BGL gl)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `applyconf(BGL gl)`
+#### `public static int glblendfunc(BlendMode.Function fn)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `apply(BGL gl)`
+#### `public static int glblendfac(BlendMode.Factor fac)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `unapply(BGL gl)`
+#### `public void applyconf(BGL gl)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `applyto(BGL gl, GLState to)`
+#### `public void apply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `compatiblep(GLFrameBuffer fbo, Attachment[] color, Attachment depth)`
+#### `public void unapply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `find(GLEnvironment env, Attachment[] color, Attachment depth)`
+#### `public void applyto(BGL gl, GLState to)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `forfvals(GLEnvironment env, Object depthp, Object[] fvalsp, FragTarget[] conf)`
+#### `private static boolean compatiblep(GLFrameBuffer fbo, Attachment[] color, Attachment depth)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `make(GLEnvironment env, Object depth, Object[] fvals, FragTarget[] conf)`
+#### `private static GLFrameBuffer find(GLEnvironment env, Attachment[] color, Attachment depth)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `set(BGL gl, Applier st, Object depth, Object[] fvals, FragTarget[] conf)`
+#### `private static FboState forfvals(GLEnvironment env, Object depthp, Object[] fvalsp, FragTarget[] conf)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `slotidx()`
+#### `public static FboState make(GLEnvironment env, Object depth, Object[] fvals, FragTarget[] conf)`
+
+- Description: TODO
+
+#### `public static void set(BGL gl, Applier st, Object depth, Object[] fvals, FragTarget[] conf)`
+
+- Description: TODO
+
+#### `public int slotidx()`
 
 - Description: TODO

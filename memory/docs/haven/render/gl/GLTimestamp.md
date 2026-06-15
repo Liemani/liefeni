@@ -1,5 +1,7 @@
 # GLTimestamp
 
+This file documents the responsibilities and members of `GLTimestamp`.
+
 ## Meta
 
 - Source: [GLTimestamp.java](../../../../../src/haven/render/gl/GLTimestamp.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a GL timestamp.
+Represents a GL timestamp.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [callback](#member-1)
-- [id](#member-2)
-
-#### Methods
-
-- [create(GL gl)](#member-3)
-- [check(GL gl)](#member-4)
-- [abort()](#member-5)
-- [delete(GL gl)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `callback`
+#### `public final Consumer<Long> callback`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `id`
+#### `private int id`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `create(GL gl)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `check(GL gl)`
+#### `public GLTimestamp(GLEnvironment env, Consumer<Long> callback)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `abort()`
+#### `public void create(GL gl)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `delete(GL gl)`
+#### `public boolean check(GL gl)`
+
+- Description: TODO
+
+#### `public void abort()`
+
+- Description: TODO
+
+#### `public void delete(GL gl)`
 
 - Description: TODO

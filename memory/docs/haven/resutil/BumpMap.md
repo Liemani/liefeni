@@ -1,5 +1,7 @@
 # BumpMap
 
+This file documents the responsibilities and members of `BumpMap`.
+
 ## Meta
 
 - Source: [BumpMap.java](../../../../src/haven/resutil/BumpMap.java)
@@ -8,158 +10,138 @@
 
 ## Role
 
-- Represents a bump map helper.
+Represents a bump map helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [tan](#member-2)
-- [bit](#member-3)
-- [ctex](#member-4)
-- [tex](#member-5)
-- [shader](#member-6)
-- [otex](#member-7)
-- [tanc](#member-9)
-- [bitc](#member-10)
-- [shaders](#member-12)
-- [ltan](#member-15)
-- [lbit](#member-16)
-
-#### Methods
-
-- [Shader(boolean otex)](#member-8)
-- [modify(final ProgramContext prog)](#member-11)
-- [shader()](#member-13)
-- [apply(Pipe buf)](#member-14)
-- [cons(Material.Buffer buf, Object... args)](#member-17)
-- [Tangents(FloatBuffer data)](#member-18)
-- [Tangents(Resource res, Message buf, int nv)](#member-19)
-- [BiTangents(FloatBuffer data)](#member-20)
-- [BiTangents(Resource res, Message buf, int nv)](#member-21)
-- [cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)](#member-22)
-- [cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)](#member-23)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $bump
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tan`
+### BiTangents
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `bit`
+### BitDecode
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ctex`
+### Shader
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `tex`
+### TanDecode
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `shader`
+### Tangents
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `otex`
+## Members
+
+### Constants
+
+#### `public static final Slot<BumpMap> slot = new Slot<BumpMap>(Slot.Type.DRAW, BumpMap.class)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tanc`
+#### `public static final Attribute tan = new Attribute(VEC3, "tan")`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `bitc`
+#### `public static final Attribute bit = new Attribute(VEC3, "bit")`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `shaders`
+#### `private static final Uniform ctex = new Uniform(SAMPLER2D, p -> p.get(slot).tex, slot)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `ltan`
+#### `public static final AutoVarying tanc = new AutoVarying(VEC3)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `lbit`
+#### `public static final AutoVarying bitc = new AutoVarying(VEC3)`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `Shader(boolean otex)`
+#### `private static final Shader[] shaders =`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `modify(final ProgramContext prog)`
+#### `public static final MeshBuf.LayerID<MeshBuf.Vec3Layer> ltan = new MeshBuf.V3LayerID(tan)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `shader()`
+#### `public static final MeshBuf.LayerID<MeshBuf.Vec3Layer> lbit = new MeshBuf.V3LayerID(bit)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `apply(Pipe buf)`
+### Fields
+
+#### `public final Sampler2D tex`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `private final ShaderMacro shader`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `Tangents(FloatBuffer data)`
+#### `public final boolean otex`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `Tangents(Resource res, Message buf, int nv)`
+### Methods
+
+#### `public BumpMap(Sampler2D tex, boolean otex)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `BiTangents(FloatBuffer data)`
+#### `public BumpMap(Sampler2D tex)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `BiTangents(Resource res, Message buf, int nv)`
+#### `private Shader(boolean otex)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+#### `public void modify(final ProgramContext prog)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `public Tangents(FloatBuffer data)`
+
+- Description: TODO
+
+#### `public Tangents(Resource res, Message buf, int nv)`
+
+- Description: TODO
+
+#### `public BiTangents(FloatBuffer data)`
+
+- Description: TODO
+
+#### `public BiTangents(Resource res, Message buf, int nv)`
+
+- Description: TODO
+
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+
+- Description: TODO
+
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
 
 - Description: TODO

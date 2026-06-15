@@ -1,5 +1,7 @@
 # DropTarget
 
+This file documents the responsibilities and members of `DropTarget`.
+
 ## Meta
 
 - Source: [DropTarget.java](../../../src/haven/DropTarget.java)
@@ -8,158 +10,104 @@
 
 ## Role
 
-- Defines a UI drop target.
+Defines a UI drop target.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [thing](#member-5)
-- [root](#member-12)
-- [hovering](#member-13)
-- [tgt](#member-14)
-
-#### Methods
-
-- [dropthing(Coord cc, Object thing)](#member-1)
-- [drophover(Coord cc, boolean hovering, Object thing)](#member-2)
-- [dropthing(Drop ev)](#member-3)
-- [drophover(Hover ev)](#member-4)
-- [DropEvent(Coord c, Object thing)](#member-6)
-- [DropEvent(DropEvent from, Coord c)](#member-7)
-- [Drop(Coord c, Object thing)](#member-8)
-- [Drop(Drop from, Coord c)](#member-9)
-- [derive(Coord c)](#member-10)
-- [shandle(Widget w)](#member-11)
-- [Hover(Coord c, Object thing)](#member-15)
-- [Hover(Hover from, Coord c)](#member-16)
-- [derive(Coord c)](#member-17)
-- [hovering(boolean h)](#member-18)
-- [accept(DropTarget tgt)](#member-19)
-- [propagation(Widget from)](#member-20)
-- [shandle(Widget w)](#member-21)
-- [dropthing(Widget wdg, Coord c, Object thing)](#member-22)
-- [drophover(Widget wdg, Coord c, Object thing)](#member-23)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-5"></a>
-##### `thing`
+#### `public final Object thing`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `root`
+#### `public final Hover root`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `hovering`
+#### `public boolean hovering`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `tgt`
+#### `public DropTarget tgt`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-1"></a>
-##### `dropthing(Coord cc, Object thing)`
-
-- Description: TODO
-
-<a id="member-2"></a>
-##### `drophover(Coord cc, boolean hovering, Object thing)`
+#### `public default boolean dropthing(Coord cc, Object thing)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dropthing(Drop ev)`
+#### `public default boolean drophover(Coord cc, boolean hovering, Object thing)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `drophover(Hover ev)`
+#### `public default boolean dropthing(Drop ev)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `DropEvent(Coord c, Object thing)`
+#### `public default boolean drophover(Hover ev)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `DropEvent(DropEvent from, Coord c)`
+#### `public DropEvent(Coord c, Object thing)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Drop(Coord c, Object thing)`
+#### `public DropEvent(DropEvent from, Coord c)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `Drop(Drop from, Coord c)`
+#### `public Drop(Coord c, Object thing)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `derive(Coord c)`
+#### `public Drop(Drop from, Coord c)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `shandle(Widget w)`
+#### `public Drop derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `Hover(Coord c, Object thing)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `Hover(Hover from, Coord c)`
+#### `public Hover(Coord c, Object thing)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `derive(Coord c)`
+#### `public Hover(Hover from, Coord c)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `hovering(boolean h)`
+#### `public Hover derive(Coord c)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `accept(DropTarget tgt)`
+#### `public Hover hovering(boolean h)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `propagation(Widget from)`
+#### `public boolean accept(DropTarget tgt)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `shandle(Widget w)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `dropthing(Widget wdg, Coord c, Object thing)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `drophover(Widget wdg, Coord c, Object thing)`
+#### `public static boolean dropthing(Widget wdg, Coord c, Object thing)`
+
+- Description: TODO
+
+#### `public static boolean drophover(Widget wdg, Coord c, Object thing)`
 
 - Description: TODO

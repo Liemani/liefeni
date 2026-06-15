@@ -1,5 +1,7 @@
 # WaypointSyncManager
 
+This file documents the responsibilities and members of `WaypointSyncManager`.
+
 ## Meta
 
 - Source: [WaypointSyncManager.java](../../../../../src/lmi/waypoint/persistence/WaypointSyncManager.java)
@@ -8,44 +10,32 @@
 
 ## Role
 
-- Queues DB completions for delivery on the draw/render boundary.
+Queues DB completions for delivery on the draw/render boundary.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [completions](#member-1)
-
-#### Methods
-
-- [enqueue(Runnable completion)](#member-2)
-- [drain()](#member-3)
-- [clear()](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `completions`
+#### `private static final ConcurrentLinkedQueue<Runnable> completions = new ConcurrentLinkedQueue<>()`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `enqueue(Runnable completion)`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `drain()`
+#### `private WaypointSyncManager()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `clear()`
+#### `public static void enqueue(Runnable completion)`
+
+- Description: TODO
+
+#### `public static void drain()`
+
+- Description: TODO
+
+#### `public static void clear()`
 
 - Description: TODO

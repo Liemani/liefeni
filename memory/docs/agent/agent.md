@@ -1,5 +1,7 @@
 # agent
 
+This file documents the responsibilities and members of `agent`.
+
 ## Meta
 
 - Source: [agent.java](../../../src/agent/agent.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Provides a package-level registry entry for the corresponding agent category.
+Provides a package-level registry entry for the corresponding agent category.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [name()](#member-1)
-- [info()](#member-2)
-- [icon()](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `icon()`
+#### `public static String icon()`
 
 - Description: TODO

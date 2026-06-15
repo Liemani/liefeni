@@ -1,5 +1,7 @@
 # DescribeMapViewCenterEffect
 
+This file documents the responsibilities and members of `DescribeMapViewCenterEffect`.
+
 ## Meta
 
 - Source: [DescribeMapViewCenterEffect.java](../../../../src/agent/debug/DescribeMapViewCenterEffect.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Provides a debug effect for inspecting the current MapView center and grid metadata.
+Provides a debug effect for inspecting the current MapView center and grid metadata.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [execute()](#member-1)
-- [name()](#member-2)
-- [info()](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `execute()`
+#### `public void execute()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

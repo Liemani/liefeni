@@ -1,5 +1,7 @@
 # BaseColor
 
+This file documents the responsibilities and members of `BaseColor`.
+
 ## Meta
 
 - Source: [BaseColor.java](../../../../src/haven/render/BaseColor.java)
@@ -8,68 +10,60 @@
 
 ## Role
 
-- Represents a base color state.
+Represents a base color state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [u_color](#member-2)
-- [color](#member-3)
-- [shader](#member-5)
-
-#### Methods
-
-- [color()](#member-4)
-- [shader()](#member-6)
-- [apply(Pipe p)](#member-7)
-- [toString()](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<BaseColor> slot = new Slot<>(Slot.Type.DRAW, BaseColor.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u_color`
+#### `public static final Uniform u_color = new Uniform(VEC4, "basecolor", p -> p.get(slot).color, slot)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `color`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `shader`
+### Fields
+
+#### `public final FColor color`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `color()`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `shader()`
+#### `public BaseColor(FColor color)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(Pipe p)`
+#### `public BaseColor(float r, float g, float b, float a)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `toString()`
+#### `public BaseColor(Color color)`
+
+- Description: TODO
+
+#### `public BaseColor(int r, int g, int b, int a)`
+
+- Description: TODO
+
+#### `public Color color()`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

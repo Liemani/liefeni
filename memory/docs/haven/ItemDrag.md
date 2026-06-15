@@ -1,5 +1,7 @@
 # ItemDrag
 
+This file documents the responsibilities and members of `ItemDrag`.
+
 ## Meta
 
 - Source: [ItemDrag.java](../../../src/haven/ItemDrag.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Handles item dragging state.
+Handles item dragging state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [doff](#member-1)
-
-#### Methods
-
-- [added()](#member-2)
-- [drawmain(GOut g, GSprite spr)](#member-3)
-- [mousedown(MouseDownEvent ev)](#member-4)
-- [mousemove(MouseMoveEvent ev)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `doff`
+#### `public Coord doff`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `added()`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `drawmain(GOut g, GSprite spr)`
+#### `public ItemDrag(Coord dc, GItem item)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void drawmain(GOut g, GSprite spr)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO

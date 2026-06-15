@@ -1,5 +1,7 @@
 # SaveBatchResult
 
+This file documents the responsibilities and members of `SaveBatchResult`.
+
 ## Meta
 
 - Source: [SaveBatchResult.java](../../../../../src/lmi/waypoint/persistence/SaveBatchResult.java)
@@ -8,4 +10,16 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
+
+## Members
+
+### Constants
+
+### Fields
+
+### Methods
+
+#### `public SaveBatchResult()`
+
+- Description: TODO

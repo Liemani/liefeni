@@ -1,5 +1,7 @@
 # RemoteUI
 
+This file documents the responsibilities and members of `RemoteUI`.
+
 ## Meta
 
 - Source: [RemoteUI.java](../../../src/haven/RemoteUI.java)
@@ -8,80 +10,62 @@
 
 ## Role
 
-- Bridges the remote UI and client widgets.
+Bridges the remote UI and client widgets.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [sess](#member-1)
-- [ret](#member-3)
-
-#### Methods
-
-- [rcvmsg(int id, String name, Object... args)](#member-2)
-- [Return(Session ret)](#member-4)
-- [sendua(String key, String val)](#member-5)
-- [sendua(UI ui)](#member-6)
-- [ret(Session sess)](#member-7)
-- [public UI.Runner run(UI ui) throws InterruptedException](#member-8)
-- [init(UI ui)](#member-9)
-- [title()](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `sess`
+### Return
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ret`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Session sess`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-2"></a>
-##### `rcvmsg(int id, String name, Object... args)`
+#### `public final Session ret`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `Return(Session ret)`
+### Methods
+
+#### `public RemoteUI(Session sess)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sendua(String key, String val)`
+#### `public void rcvmsg(int id, String name, Object... args)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `sendua(UI ui)`
+#### `public Return(Session ret)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ret(Session sess)`
+#### `private void sendua(String key, String val)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public UI.Runner run(UI ui) throws InterruptedException`
+#### `private void sendua(UI ui)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `init(UI ui)`
+#### `public void ret(Session sess)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `title()`
+#### `public UI.Runner run(UI ui) throws InterruptedException`
+
+- Description: TODO
+
+#### `public void init(UI ui)`
+
+- Description: TODO
+
+#### `public String title()`
 
 - Description: TODO

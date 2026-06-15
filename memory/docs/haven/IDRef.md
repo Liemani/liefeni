@@ -1,5 +1,7 @@
 # IDRef
 
+This file documents the responsibilities and members of `IDRef`.
+
 ## Meta
 
 - Source: [IDRef.java](../../../src/haven/IDRef.java)
@@ -8,74 +10,58 @@
 
 ## Role
 
-- Represents an identifier reference.
+Represents an identifier reference.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [map](#member-1)
-- [queue](#member-2)
-- [nextseq](#member-3)
-- [val](#member-4)
-- [seq](#member-5)
-- [val](#member-6)
-
-#### Methods
-
-- [WRef(IDRef ref, Object val)](#member-7)
-- [intern(Object x)](#member-8)
-- [toString()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `map`
+### WRef
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `queue`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private static Map<Object, WRef> map = new HashMap<Object, WRef>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `nextseq`
+#### `private static ReferenceQueue<IDRef> queue = new ReferenceQueue<IDRef>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `val`
+#### `private static int nextseq = 0`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `seq`
+#### `private final Object val`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `val`
+#### `private final int seq`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `WRef(IDRef ref, Object val)`
+#### `private final Object val`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `intern(Object x)`
+### Methods
+
+#### `private IDRef(Object val)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `toString()`
+#### `private WRef(IDRef ref, Object val)`
+
+- Description: TODO
+
+#### `public static IDRef intern(Object x)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

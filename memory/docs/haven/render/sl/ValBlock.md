@@ -1,5 +1,7 @@
 # ValBlock
 
+This file documents the responsibilities and members of `ValBlock`.
+
 ## Meta
 
 - Source: [ValBlock.java](../../../../../src/haven/render/sl/ValBlock.java)
@@ -8,314 +10,222 @@
 
 ## Role
 
-- Represents a value block.
+Represents a value block.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [processing](#member-1)
-- [values](#member-2)
-- [ext](#member-3)
-- [lock](#member-4)
-- [type](#member-5)
-- [name](#member-6)
-- [used](#member-7)
-- [tgt](#member-8)
-- [init](#member-9)
-- [deps](#member-10)
-- [sdeps](#member-11)
-- [mods](#member-12)
-- [forced](#member-13)
-- [values](#member-27)
-- [deps](#member-28)
-- [sdeps](#member-29)
-- [state](#member-30)
-- [modexpr](#member-33)
-
-#### Methods
-
-- [Value(Type type, Symbol name)](#member-14)
-- [Value(Type type)](#member-15)
-- [mod(UnaryOperator<Expression> macro, int order)](#member-16)
-- [public abstract Expression root();](#member-17)
-- [modexpr(Expression expr)](#member-18)
-- [cons1()](#member-19)
-- [cons2(Block blk)](#member-20)
-- [ref()](#member-21)
-- [depref()](#member-22)
-- [force()](#member-23)
-- [depend(Value dep)](#member-24)
-- [softdep(Value dep)](#member-25)
-- [toString()](#member-26)
-- [protected abstract void cons1();](#member-31)
-- [protected abstract void cons2(Block blk);](#member-32)
-- [GValue(Type type, Symbol name)](#member-34)
-- [GValue(Type type)](#member-35)
-- [cons1()](#member-36)
-- [cons2(Block blk)](#member-37)
-- [addmods(Block blk)](#member-38)
-- [root()](#member-39)
-- [depend1(Value dep)](#member-40)
-- [depend(Value dep)](#member-41)
-- [softdep1(Value dep)](#member-42)
-- [softdep(Value dep)](#member-43)
-- [depend(Value dep)](#member-44)
-- [softdep(Value dep)](#member-45)
-- [use(Value val)](#member-46)
-- [add(List<Value> buf, List<Value> closed, Value val)](#member-47)
-- [cons(Block blk)](#member-48)
-- [ext(Object id, Supplier<T> f)](#member-49)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `processing`
+### GValue
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `values`
+### Group
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ext`
+### Value
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `lock`
+## Members
+
+### Constants
+
+#### `private static final ThreadLocal<Value> processing = new ThreadLocal<Value>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `type`
+### Fields
+
+#### `private final Collection<Value> values = new LinkedList<Value>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `name`
+#### `private final Map<Object, Value> ext = new IdentityHashMap<Object, Value>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `used`
+#### `private boolean lock = false`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `tgt`
+#### `public final Type type`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `init`
+#### `public final Symbol name`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `deps`
+#### `public boolean used`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `sdeps`
+#### `public LValue tgt`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `mods`
+#### `protected Expression init`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `forced`
+#### `private final Collection<Value> deps = new LinkedList<Value>()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `values`
+#### `private final Collection<Value> sdeps = new LinkedList<Value>()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `deps`
+#### `private final OrderList<UnaryOperator<Expression>> mods = new OrderList<UnaryOperator<Expression>>()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `sdeps`
+#### `private boolean forced`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `state`
+#### `private final Collection<GValue> values = new LinkedList<GValue>()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `modexpr`
+#### `private final Collection<Value> deps = new LinkedList<Value>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-14"></a>
-##### `Value(Type type, Symbol name)`
+#### `private final Collection<Value> sdeps = new LinkedList<Value>()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `Value(Type type)`
+#### `private int state = 0`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `mod(UnaryOperator<Expression> macro, int order)`
+#### `public Expression modexpr`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `public abstract Expression root();`
+### Methods
+
+#### `public Value(Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `modexpr(Expression expr)`
+#### `public Value(Type type)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `cons1()`
+#### `public void mod(UnaryOperator<Expression> macro, int order)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `cons2(Block blk)`
+#### `public abstract Expression root()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `ref()`
+#### `public Expression modexpr(Expression expr)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `depref()`
+#### `protected void cons1()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `force()`
+#### `protected void cons2(Block blk)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `depend(Value dep)`
+#### `public Expression ref()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `softdep(Value dep)`
+#### `public Expression depref()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `toString()`
+#### `public void force()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `protected abstract void cons1();`
+#### `public void depend(Value dep)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `protected abstract void cons2(Block blk);`
+#### `public void softdep(Value dep)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `GValue(Type type, Symbol name)`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `GValue(Type type)`
+#### `protected abstract void cons1()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `cons1()`
+#### `protected abstract void cons2(Block blk)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `cons2(Block blk)`
+#### `public GValue(Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `addmods(Block blk)`
+#### `public GValue(Type type)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `root()`
+#### `protected void cons1()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `depend1(Value dep)`
+#### `protected void cons2(Block blk)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `depend(Value dep)`
+#### `public void addmods(Block blk)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `softdep1(Value dep)`
+#### `public final Expression root()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `softdep(Value dep)`
+#### `private void depend1(Value dep)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `depend(Value dep)`
+#### `public void depend(Value dep)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `softdep(Value dep)`
+#### `private void softdep1(Value dep)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `use(Value val)`
+#### `public void softdep(Value dep)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `add(List<Value> buf, List<Value> closed, Value val)`
+#### `public void depend(Value dep)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `cons(Block blk)`
+#### `public void softdep(Value dep)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `ext(Object id, Supplier<T> f)`
+#### `private void use(Value val)`
+
+- Description: TODO
+
+#### `private void add(List<Value> buf, List<Value> closed, Value val)`
+
+- Description: TODO
+
+#### `public void cons(Block blk)`
+
+- Description: TODO
+
+#### `public <T extends Value> T ext(Object id, Supplier<T> f)`
 
 - Description: TODO

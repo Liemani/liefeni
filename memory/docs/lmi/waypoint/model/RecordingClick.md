@@ -1,5 +1,7 @@
 # RecordingClick
 
+This file documents the responsibilities and members of `RecordingClick`.
+
 ## Meta
 
 - Source: [RecordingClick.java](../../../../../src/lmi/waypoint/model/RecordingClick.java)
@@ -8,63 +10,48 @@
 
 ## Role
 
-- Provides the `RecordingClick` functionality.
+Provides the `RecordingClick` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [index](#member-1)
-- [x](#member-2)
-- [y](#member-3)
-- [mouseButton](#member-4)
-- [gobId](#member-5)
-- [meshId](#member-6)
-- [gobResname](#member-7)
-- [isPortal](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `index`
+#### `public final int index`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `x`
+#### `public final int x`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `y`
+#### `public final int y`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `mouseButton`
+#### `public final int mouseButton`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `gobId`
+#### `public final Long gobId`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `meshId`
+#### `public final Integer meshId`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `gobResname`
+#### `public final String gobResname`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `isPortal`
+#### `public boolean isPortal`
+
+- Description: TODO
+
+### Methods
+
+#### `public RecordingClick(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname)`
 
 - Description: TODO

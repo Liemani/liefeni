@@ -1,5 +1,7 @@
 # WaypointWriteRequest
 
+This file documents the responsibilities and members of `WaypointWriteRequest`.
+
 ## Meta
 
 - Source: [WaypointWriteRequest.java](../../../../../src/lmi/waypoint/persistence/WaypointWriteRequest.java)
@@ -8,10 +10,12 @@
 
 ## Role
 
-- Defines a unit of work for waypoint persistence.
+Defines a unit of work for waypoint persistence.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-### Member Reference
+### Fields
+
+### Methods

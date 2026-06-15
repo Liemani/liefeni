@@ -1,5 +1,7 @@
 # Ortho2D
 
+This file documents the responsibilities and members of `Ortho2D`.
+
 ## Meta
 
 - Source: [Ortho2D.java](../../../../src/haven/render/Ortho2D.java)
@@ -8,98 +10,72 @@
 
 ## Role
 
-- Represents an orthographic 2D projection.
+Represents an orthographic 2D projection.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [l](#member-1)
-- [u](#member-2)
-- [r](#member-3)
-- [b](#member-4)
-- [k](#member-5)
-- [m](#member-6)
-- [pos](#member-7)
-- [kv](#member-8)
-- [mv](#member-9)
-- [shader](#member-10)
-
-#### Methods
-
-- [shader()](#member-11)
-- [apply(Pipe p)](#member-12)
-- [toString()](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `l`
+#### `public static final Attribute pos = new Attribute(VEC2, "opos2d").primary()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u`
+#### `private static final Uniform kv = new Uniform(VEC2, "k2d", p -> ((Ortho2D)p.get(States.vxf)).k, States.vxf)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `r`
+#### `private static final Uniform mv = new Uniform(VEC2, "m2d", p -> ((Ortho2D)p.get(States.vxf)).m, States.vxf)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `b`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `k`
+### Fields
+
+#### `public final float l, u, r, b`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `m`
+#### `public final float l, u, r, b`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `pos`
+#### `public final float l, u, r, b`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `kv`
+#### `public final float l, u, r, b`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `mv`
+#### `private final float[] k, m`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `shader`
+#### `private final float[] k, m`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-11"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-12"></a>
-##### `apply(Pipe p)`
+#### `public Ortho2D(float l, float u, float r, float b)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `toString()`
+#### `public Ortho2D(Area area)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

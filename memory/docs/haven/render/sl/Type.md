@@ -1,5 +1,7 @@
 # Type
 
+This file documents the responsibilities and members of `Type`.
+
 ## Meta
 
 - Source: [Type.java](../../../../../src/haven/render/sl/Type.java)
@@ -8,349 +10,238 @@
 
 ## Role
 
-- Represents a shader type.
+Represents a shader type.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [VOID](#member-6)
-- [INT](#member-7)
-- [UINT](#member-8)
-- [FLOAT](#member-9)
-- [VEC2](#member-10)
-- [VEC3](#member-11)
-- [VEC4](#member-12)
-- [IVEC2](#member-13)
-- [IVEC3](#member-14)
-- [IVEC4](#member-15)
-- [UVEC2](#member-16)
-- [UVEC3](#member-17)
-- [UVEC4](#member-18)
-- [MAT3](#member-19)
-- [MAT4](#member-20)
-- [SAMPLER1D](#member-21)
-- [SAMPLER1DARRAY](#member-22)
-- [SAMPLER2D](#member-23)
-- [SAMPLER2DARRAY](#member-24)
-- [SAMPLER2DMS](#member-25)
-- [SAMPLER2DMSARRAY](#member-26)
-- [SAMPLER3D](#member-27)
-- [SAMPLERCUBE](#member-28)
-- [SAMPLERCUBEARRAY](#member-29)
-- [SAMPLERBUFFER](#member-30)
-- [ISAMPLER1D](#member-31)
-- [ISAMPLER1DARRAY](#member-32)
-- [ISAMPLER2D](#member-33)
-- [ISAMPLER2DARRAY](#member-34)
-- [ISAMPLER2DMS](#member-35)
-- [ISAMPLER2DMSARRAY](#member-36)
-- [ISAMPLER3D](#member-37)
-- [ISAMPLERCUBE](#member-38)
-- [ISAMPLERCUBEARRAY](#member-39)
-- [ISAMPLERBUFFER](#member-40)
-- [USAMPLER1D](#member-41)
-- [USAMPLER1DARRAY](#member-42)
-- [USAMPLER2D](#member-43)
-- [USAMPLER2DARRAY](#member-44)
-- [USAMPLER2DMS](#member-45)
-- [USAMPLER2DMSARRAY](#member-46)
-- [USAMPLER3D](#member-47)
-- [USAMPLERCUBE](#member-48)
-- [USAMPLERCUBEARRAY](#member-49)
-- [USAMPLERBUFFER](#member-50)
-- [SAMPLER2DSHADOW](#member-51)
-- [SAMPLERCUBESHADOW](#member-52)
-
-#### Fields
-
-- [name](#member-1)
-
-#### Methods
-
-- [Simple(String name)](#member-2)
-- [name(Context ctx)](#member-3)
-- [toString()](#member-4)
-- [Sampler(String name)](#member-5)
-- [public abstract String name(Context ctx);](#member-53)
-- [use(Context ctx)](#member-54)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-6"></a>
-##### `VOID`
+### Sampler
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `INT`
+### Simple
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `UINT`
+## Members
+
+### Constants
+
+#### `public static final Type VOID = new Simple("void")`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `FLOAT`
+#### `public static final Type INT = new Simple("int")`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `VEC2`
+#### `public static final Type UINT = new Simple("uint")`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `VEC3`
+#### `public static final Type FLOAT = new Simple("float")`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `VEC4`
+#### `public static final Type VEC2 = new Simple("vec2")`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `IVEC2`
+#### `public static final Type VEC3 = new Simple("vec3")`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `IVEC3`
+#### `public static final Type VEC4 = new Simple("vec4")`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `IVEC4`
+#### `public static final Type IVEC2 = new Simple("ivec2")`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `UVEC2`
+#### `public static final Type IVEC3 = new Simple("ivec3")`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `UVEC3`
+#### `public static final Type IVEC4 = new Simple("ivec4")`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `UVEC4`
+#### `public static final Type UVEC2 = new Simple("uvec2")`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `MAT3`
+#### `public static final Type UVEC3 = new Simple("uvec3")`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `MAT4`
+#### `public static final Type UVEC4 = new Simple("uvec4")`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `SAMPLER1D`
+#### `public static final Type MAT3 = new Simple("mat3")`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `SAMPLER1DARRAY`
+#### `public static final Type MAT4 = new Simple("mat4")`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `SAMPLER2D`
+#### `public static final Type SAMPLER1D = new Sampler("sampler1D")`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `SAMPLER2DARRAY`
+#### `public static final Type SAMPLER1DARRAY = new Sampler("sampler1DArray")`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `SAMPLER2DMS`
+#### `public static final Type SAMPLER2D = new Sampler("sampler2D")`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `SAMPLER2DMSARRAY`
+#### `public static final Type SAMPLER2DARRAY = new Sampler("sampler2DArray")`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `SAMPLER3D`
+#### `public static final Type SAMPLER2DMS = new Sampler("sampler2DMS")`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `SAMPLERCUBE`
+#### `public static final Type SAMPLER2DMSARRAY = new Sampler("sampler2DMSArray")`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `SAMPLERCUBEARRAY`
+#### `public static final Type SAMPLER3D = new Sampler("sampler3D")`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `SAMPLERBUFFER`
+#### `public static final Type SAMPLERCUBE = new Sampler("samplerCube")`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `ISAMPLER1D`
+#### `public static final Type SAMPLERCUBEARRAY = new Sampler("samplerCubeArray")`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `ISAMPLER1DARRAY`
+#### `public static final Type SAMPLERBUFFER = new Sampler("samplerBuffer")`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `ISAMPLER2D`
+#### `public static final Type ISAMPLER1D = new Sampler("isampler1D")`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `ISAMPLER2DARRAY`
+#### `public static final Type ISAMPLER1DARRAY = new Sampler("isampler1DArray")`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `ISAMPLER2DMS`
+#### `public static final Type ISAMPLER2D = new Sampler("isampler2D")`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `ISAMPLER2DMSARRAY`
+#### `public static final Type ISAMPLER2DARRAY = new Sampler("isampler2DArray")`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `ISAMPLER3D`
+#### `public static final Type ISAMPLER2DMS = new Sampler("isampler2DMS")`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `ISAMPLERCUBE`
+#### `public static final Type ISAMPLER2DMSARRAY = new Sampler("isampler2DMSArray")`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `ISAMPLERCUBEARRAY`
+#### `public static final Type ISAMPLER3D = new Sampler("isampler3D")`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `ISAMPLERBUFFER`
+#### `public static final Type ISAMPLERCUBE = new Sampler("isamplerCube")`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `USAMPLER1D`
+#### `public static final Type ISAMPLERCUBEARRAY = new Sampler("isamplerCubeArray")`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `USAMPLER1DARRAY`
+#### `public static final Type ISAMPLERBUFFER = new Sampler("isamplerBuffer")`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `USAMPLER2D`
+#### `public static final Type USAMPLER1D = new Sampler("usampler1D")`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `USAMPLER2DARRAY`
+#### `public static final Type USAMPLER1DARRAY = new Sampler("usampler1DArray")`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `USAMPLER2DMS`
+#### `public static final Type USAMPLER2D = new Sampler("usampler2D")`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `USAMPLER2DMSARRAY`
+#### `public static final Type USAMPLER2DARRAY = new Sampler("usampler2DArray")`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `USAMPLER3D`
+#### `public static final Type USAMPLER2DMS = new Sampler("usampler2DMS")`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `USAMPLERCUBE`
+#### `public static final Type USAMPLER2DMSARRAY = new Sampler("usampler2DMSArray")`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `USAMPLERCUBEARRAY`
+#### `public static final Type USAMPLER3D = new Sampler("usampler3D")`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `USAMPLERBUFFER`
+#### `public static final Type USAMPLERCUBE = new Sampler("usamplerCube")`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `SAMPLER2DSHADOW`
+#### `public static final Type USAMPLERCUBEARRAY = new Sampler("usamplerCubeArray")`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `SAMPLERCUBESHADOW`
+#### `public static final Type USAMPLERBUFFER = new Sampler("usamplerBuffer")`
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-1"></a>
-##### `name`
+#### `public static final Type SAMPLER2DSHADOW = new Sampler("sampler2DShadow")`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-2"></a>
-##### `Simple(String name)`
+#### `public static final Type SAMPLERCUBESHADOW = new Sampler("samplerCubeShadow")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `name(Context ctx)`
+### Fields
+
+#### `private final String name`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `toString()`
+### Methods
+
+#### `private Simple(String name)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `Sampler(String name)`
+#### `public String name(Context ctx)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `public abstract String name(Context ctx);`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `use(Context ctx)`
+#### `private Sampler(String name)`
+
+- Description: TODO
+
+#### `public abstract String name(Context ctx)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
 
 - Description: TODO

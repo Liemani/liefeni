@@ -1,5 +1,7 @@
 # InstancedAttribute
 
+This file documents the responsibilities and members of `InstancedAttribute`.
+
 ## Meta
 
 - Source: [InstancedAttribute.java](../../../../../src/haven/render/sl/InstancedAttribute.java)
@@ -8,33 +10,36 @@
 
 ## Role
 
-- Represents an instanced attribute.
+Represents an instanced attribute.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public abstract VectorFormat attrfmt();](#member-1)
-- [attrsize()](#member-2)
-- [public abstract void attrfill(ByteBuffer buf, int offset, Pipe state);](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public abstract VectorFormat attrfmt();`
+#### `public InstancedAttribute(Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `attrsize()`
+#### `public InstancedAttribute(Type type, String infix)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public abstract void attrfill(ByteBuffer buf, int offset, Pipe state);`
+#### `public InstancedAttribute(Type type)`
+
+- Description: TODO
+
+#### `public abstract VectorFormat attrfmt()`
+
+- Description: TODO
+
+#### `public int attrsize()`
+
+- Description: TODO
+
+#### `public abstract void attrfill(ByteBuffer buf, int offset, Pipe state)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Context
 
+This file documents the responsibilities and members of `Context`.
+
 ## Meta
 
 - Source: [Context.java](../../../../src/haven/rs/Context.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Represents a resource script context.
+Represents a resource script context.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public Environment env();](#member-1)
-- [getdefault()](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public Environment env();`
+#### `public Environment env()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `getdefault()`
+#### `public static Context getdefault()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Loader
 
+This file documents the responsibilities and members of `Loader`.
+
 ## Meta
 
 - Source: [Loader.java](../../../src/haven/Loader.java)
@@ -8,194 +10,134 @@
 
 ## Role
 
-- Loads resources or assets.
+Loads resources or assets.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [timeout](#member-1)
-- [maxthreads](#member-2)
-- [queue](#member-3)
-- [loading](#member-4)
-- [pool](#member-5)
-- [busy](#member-6)
-- [task](#member-7)
-- [capex](#member-8)
-- [runmon](#member-9)
-- [val](#member-10)
-- [exc](#member-11)
-- [curload](#member-12)
-- [running](#member-13)
-- [done](#member-14)
-- [cancelled](#member-15)
-- [restarted](#member-16)
-
-#### Methods
-
-- [Future(Supplier<T> task, boolean capex)](#member-17)
-- [run()](#member-18)
-- [cancel()](#member-19)
-- [restart()](#member-20)
-- [get()](#member-21)
-- [done()](#member-22)
-- [lastload()](#member-23)
-- [loop()](#member-24)
-- [check()](#member-25)
-- [defer(Supplier<T> task, boolean capex)](#member-26)
-- [defer(Supplier<T> task)](#member-27)
-- [defer(Runnable task, T result)](#member-28)
-- [stats()](#member-29)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `timeout`
+### Future
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `maxthreads`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final double timeout = 5.0`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `queue`
+#### `private final int maxthreads = 4`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `loading`
+#### `private final Queue<Future<?>> queue = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `pool`
+#### `private final Map<Future<?>, Waiting> loading = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `busy`
+#### `private final Collection<Thread> pool = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `task`
+#### `private final AtomicInteger busy = new AtomicInteger(0)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `capex`
+#### `public final Supplier<T> task`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `runmon`
+#### `private final boolean capex`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `val`
+#### `private final Object runmon = new Object()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `exc`
+#### `private T val`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `curload`
+#### `private Throwable exc`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `running`
+#### `private Loading curload = null`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `done`
+#### `private Thread running = null`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `cancelled`
+#### `private boolean done = false, cancelled = false, restarted = false`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `restarted`
+#### `private boolean done = false, cancelled = false, restarted = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-17"></a>
-##### `Future(Supplier<T> task, boolean capex)`
+#### `private boolean done = false, cancelled = false, restarted = false`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `run()`
+### Methods
+
+#### `private Future(Supplier<T> task, boolean capex)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `cancel()`
+#### `private void run()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `restart()`
+#### `public boolean cancel()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `get()`
+#### `public void restart()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `done()`
+#### `public T get()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `lastload()`
+#### `public boolean done()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `loop()`
+#### `public Loading lastload()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `check()`
+#### `private void loop()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `defer(Supplier<T> task, boolean capex)`
+#### `private void check()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `defer(Supplier<T> task)`
+#### `public <T> Future<T> defer(Supplier<T> task, boolean capex)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `defer(Runnable task, T result)`
+#### `public <T> Future<T> defer(Supplier<T> task)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `stats()`
+#### `public <T> Future<T> defer(Runnable task, T result)`
+
+- Description: TODO
+
+#### `public String stats()`
 
 - Description: TODO

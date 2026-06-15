@@ -1,5 +1,7 @@
 # TexState
 
+This file documents the responsibilities and members of `TexState`.
+
 ## Meta
 
 - Source: [TexState.java](../../../../../src/haven/render/gl/TexState.java)
@@ -8,74 +10,52 @@
 
 ## Role
 
-- Represents texture state.
+Represents texture state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bound](#member-1)
-- [active](#member-2)
-- [slot](#member-8)
-
-#### Methods
-
-- [apply(BGL gl)](#member-3)
-- [unapply(BGL gl)](#member-4)
-- [applyto(BGL gl, GLState to)](#member-5)
-- [act(BGL gl, Applier st, int unit)](#member-6)
-- [bind(BGL gl, Applier st, int unit, GLTexture tex)](#member-7)
-- [slotidx()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bound`
+#### `public final GLTexture[] bound`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `active`
+#### `public final int active`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `slot`
+#### `public static int slot = slotidx(TexState.class)`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `apply(BGL gl)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `unapply(BGL gl)`
+#### `public TexState(GLTexture[] bound, int active)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `applyto(BGL gl, GLState to)`
+#### `public void apply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `act(BGL gl, Applier st, int unit)`
+#### `public void unapply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `bind(BGL gl, Applier st, int unit, GLTexture tex)`
+#### `public void applyto(BGL gl, GLState to)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `slotidx()`
+#### `public static void act(BGL gl, Applier st, int unit)`
+
+- Description: TODO
+
+#### `public static void bind(BGL gl, Applier st, int unit, GLTexture tex)`
+
+- Description: TODO
+
+#### `public int slotidx()`
 
 - Description: TODO

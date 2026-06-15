@@ -1,5 +1,7 @@
 # HashedMap
 
+This file documents the responsibilities and members of `HashedMap`.
+
 ## Meta
 
 - Source: [HashedMap.java](../../../src/haven/HashedMap.java)
@@ -8,223 +10,162 @@
 
 ## Role
 
-- Provides a hashed map implementation.
+Provides a hashed map implementation.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [NULL](#member-1)
-
-#### Fields
-
-- [hash](#member-2)
-- [tab](#member-3)
-- [sz](#member-4)
-- [tab](#member-19)
-- [idx](#member-20)
-- [st](#member-21)
-- [es](#member-32)
-
-#### Methods
-
-- [nullkey(K key)](#member-5)
-- [keynull(Object k)](#member-6)
-- [nextidx(Object[] tab, int idx)](#member-7)
-- [hashidx(Object[] tab, K k)](#member-8)
-- [resize(int nsz)](#member-9)
-- [put(K key, V val)](#member-10)
-- [remove(Object[] tab, int idx)](#member-11)
-- [findidx(Object[] tab, Object key)](#member-12)
-- [remove(Object key)](#member-13)
-- [get(Object key)](#member-14)
-- [clear()](#member-15)
-- [size()](#member-16)
-- [isEmpty()](#member-17)
-- [containsKey(Object key)](#member-18)
-- [hasNext()](#member-22)
-- [next()](#member-23)
-- [remove()](#member-24)
-- [getKey()](#member-25)
-- [getValue()](#member-26)
-- [setValue(V val)](#member-27)
-- [EntrySet()](#member-28)
-- [iterator()](#member-29)
-- [size()](#member-30)
-- [clear()](#member-31)
-- [entrySet()](#member-33)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `NULL`
+### EntryIterator
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-2"></a>
-##### `hash`
+### EntrySet
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `tab`
+## Members
+
+### Constants
+
+#### `private static final Object NULL = new Object()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sz`
+### Fields
+
+#### `public final Hash<? super K> hash`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `tab`
+#### `private Object[] tab`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `idx`
+#### `private int sz`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `st`
+#### `private final Object[] tab = HashedMap.this.tab`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `es`
+#### `private int idx = -2, st = 0`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `nullkey(K key)`
+#### `private int idx = -2, st = 0`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `keynull(Object k)`
+#### `private Set<Entry<K, V>> es = null`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `nextidx(Object[] tab, int idx)`
+### Methods
+
+#### `public HashedMap(Hash<? super K> hash)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `hashidx(Object[] tab, K k)`
+#### `public HashedMap(Hash<? super K> hash, Map<? extends K, ? extends V> from)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `resize(int nsz)`
+#### `private Object nullkey(K key)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `put(K key, V val)`
+#### `private K keynull(Object k)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `remove(Object[] tab, int idx)`
+#### `private static int nextidx(Object[] tab, int idx)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `findidx(Object[] tab, Object key)`
+#### `private int hashidx(Object[] tab, K k)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `remove(Object key)`
+#### `private void resize(int nsz)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `get(Object key)`
+#### `public V put(K key, V val)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `clear()`
+#### `private void remove(Object[] tab, int idx)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `size()`
+#### `private int findidx(Object[] tab, Object key)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `isEmpty()`
+#### `public V remove(Object key)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `containsKey(Object key)`
+#### `public V get(Object key)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `hasNext()`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `next()`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `remove()`
+#### `public boolean isEmpty()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `getKey()`
+#### `public boolean containsKey(Object key)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `getValue()`
+#### `public boolean hasNext()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `setValue(V val)`
+#### `public Entry<K, V> next()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `EntrySet()`
+#### `public void remove()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `iterator()`
+#### `public K getKey()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `size()`
+#### `public V getValue()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `clear()`
+#### `public V setValue(V val)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `entrySet()`
+#### `private EntrySet()`
+
+- Description: TODO
+
+#### `public Iterator<Entry<K, V>> iterator()`
+
+- Description: TODO
+
+#### `public int size()`
+
+- Description: TODO
+
+#### `public void clear()`
+
+- Description: TODO
+
+#### `public Set<Entry<K, V>> entrySet()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # AutoVarying
 
+This file documents the responsibilities and members of `AutoVarying`.
+
 ## Meta
 
 - Source: [AutoVarying.java](../../../../../src/haven/render/sl/AutoVarying.java)
@@ -8,51 +10,54 @@
 
 ## Role
 
-- Represents an automatically varying shader value.
+Represents an automatically varying shader value.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Methods
-
-- [Value(ValBlock blk)](#member-1)
-- [cons2(Block blk)](#member-2)
-- [root(VertexContext vctx)](#member-3)
-- [make(ValBlock vals, final VertexContext vctx)](#member-4)
-- [value(final VertexContext ctx)](#member-5)
-- [use(Context ctx)](#member-6)
-
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `Value(ValBlock blk)`
+### Value
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cons2(Block blk)`
+## Members
+
+### Constants
+
+### Fields
+
+### Methods
+
+#### `public AutoVarying(Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `root(VertexContext vctx)`
+#### `public AutoVarying(Type type, String prefix)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `make(ValBlock vals, final VertexContext vctx)`
+#### `public AutoVarying(Type type)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `value(final VertexContext ctx)`
+#### `public Value(ValBlock blk)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `use(Context ctx)`
+#### `protected void cons2(Block blk)`
+
+- Description: TODO
+
+#### `protected Expression root(VertexContext vctx)`
+
+- Description: TODO
+
+#### `protected Value make(ValBlock vals, final VertexContext vctx)`
+
+- Description: TODO
+
+#### `public ValBlock.Value value(final VertexContext ctx)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
 
 - Description: TODO

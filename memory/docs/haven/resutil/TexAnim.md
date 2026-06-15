@@ -1,5 +1,7 @@
 # TexAnim
 
+This file documents the responsibilities and members of `TexAnim`.
+
 ## Meta
 
 - Source: [TexAnim.java](../../../../src/haven/resutil/TexAnim.java)
@@ -8,62 +10,50 @@
 
 ## Role
 
-- Represents texture animation support.
+Represents texture animation support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [ax](#member-2)
-- [cax](#member-4)
-- [shader](#member-5)
-
-#### Methods
-
-- [cons(Material.Buffer buf,Object... args)](#member-3)
-- [shader()](#member-6)
-- [apply(Pipe buf)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $texrot
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ax`
+## Members
+
+### Constants
+
+#### `public static final Slot<TexAnim> slot = new Slot<TexAnim>(Slot.Type.DRAW, TexAnim.class)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cax`
+#### `private static final Uniform cax = new Uniform(VEC2, p -> p.get(slot).ax, slot)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `shader`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-3"></a>
-##### `cons(Material.Buffer buf,Object... args)`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `shader()`
+#### `public final Coord3f ax`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(Pipe buf)`
+### Methods
+
+#### `public TexAnim(Coord3f ax)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf,Object... args)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
 
 - Description: TODO

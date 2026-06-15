@@ -1,5 +1,7 @@
 # GobHealth
 
+This file documents the responsibilities and members of `GobHealth`.
+
 ## Meta
 
 - Source: [GobHealth.java](../../../src/haven/GobHealth.java)
@@ -8,44 +10,38 @@
 
 ## Role
 
-- Tracks gob health or health display state.
+Tracks gob health or health display state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [hp](#member-1)
-- [fx](#member-2)
-
-#### Methods
-
-- [gobstate()](#member-3)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `hp`
+### $health
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fx`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final float hp`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `gobstate()`
+#### `public final Pipe.Op fx`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+### Methods
+
+#### `public GobHealth(Gob g, float hp)`
+
+- Description: TODO
+
+#### `public Pipe.Op gobstate()`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

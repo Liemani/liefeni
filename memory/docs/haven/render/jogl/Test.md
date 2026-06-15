@@ -1,5 +1,7 @@
 # Test
 
+This file documents the responsibilities and members of `Test`.
+
 ## Meta
 
 - Source: [Test.java](../../../../../src/haven/render/jogl/Test.java)
@@ -8,236 +10,170 @@
 
 ## Role
 
-- Provides a rendering backend test harness.
+Provides a rendering backend test harness.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [gay](#member-1)
-- [wnd](#member-2)
-- [env](#member-3)
-- [done](#member-4)
-- [base](#member-5)
-- [shape](#member-6)
-- [texsz](#member-9)
-- [texdat](#member-10)
-- [tex](#member-11)
-- [slot](#member-12)
-- [color](#member-13)
-- [fcolor](#member-14)
-- [shader](#member-15)
-- [slot](#member-18)
-- [texc](#member-19)
-- [usmp](#member-20)
-- [tex](#member-21)
-- [ftexc](#member-23)
-- [shader](#member-24)
-- [vc](#member-27)
-- [tbuf](#member-28)
-- [dbuf](#member-29)
-
-#### Methods
-
-- [run()](#member-7)
-- [main(String[] args)](#member-8)
-- [shader()](#member-16)
-- [apply(Pipe p)](#member-17)
-- [Tex2D(Texture2D.Sampler2D tex)](#member-22)
-- [shader()](#member-25)
-- [apply(Pipe p)](#member-26)
-- [display(Render g)](#member-30)
-- [display(GLAutoDrawable wnd)](#member-31)
-- [init(GLAutoDrawable wnd)](#member-32)
-- [dispose(GLAutoDrawable wnd)](#member-33)
-- [reshape(GLAutoDrawable wnd, int x, int y, int w, int h)](#member-34)
-- [keyPressed(KeyEvent ev)](#member-35)
-- [keyReleased(KeyEvent ev)](#member-36)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `gay`
+### Tex2D
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `wnd`
+### VertexColor
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `env`
+## Members
+
+### Constants
+
+#### `static final FColor gay = new FColor(1.0f, 0.0f, 0.5f)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `done`
+#### `static final Coord texsz`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `base`
+#### `static final byte[] texdat`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `shape`
+#### `static final Texture2D.Sampler2D tex`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `texsz`
+#### `static final Slot<VertexColor> slot = new Slot<>(Slot.Type.DRAW, VertexColor.class)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `texdat`
+#### `static final Attribute color = new Attribute(VEC4, "color")`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `tex`
+#### `static final AutoVarying fcolor = new AutoVarying(VEC4)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `slot`
+#### `static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `color`
+#### `static final Slot<Tex2D> slot = new Slot<>(Slot.Type.DRAW, Tex2D.class)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `fcolor`
+#### `static final Attribute texc = new Attribute(VEC2, "texc")`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `shader`
+#### `static final Uniform usmp = new Uniform(SAMPLER2D, "tex2d", p -> p.get(slot).tex, slot)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `slot`
+#### `static final AutoVarying ftexc = new AutoVarying(VEC2)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `texc`
+#### `static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `usmp`
+### Fields
+
+#### `GLWindow wnd`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `tex`
+#### `JOGLEnvironment env`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `ftexc`
+#### `volatile boolean done`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `shader`
+#### `Pipe base`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `vc`
+#### `Area shape`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `tbuf`
+#### `final Texture2D.Sampler2D tex`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `dbuf`
+#### `final VertexColor vc = new VertexColor()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `run()`
+#### `final Texture2D.Sampler2D tbuf = new Texture2D.Sampler2D(new Texture2D(512, 512, DataBuffer.Usage.STATIC, new VectorFormat(4, NumberFormat.UNORM8), null))`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `main(String[] args)`
+#### `final Texture2D dbuf = new Texture2D(512, 512, DataBuffer.Usage.STATIC, Texture.DEPTH, new VectorFormat(1, NumberFormat.FLOAT32), null)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `shader()`
+### Methods
+
+#### `Test()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `apply(Pipe p)`
+#### `void run()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `Tex2D(Texture2D.Sampler2D tex)`
+#### `public static void main(String[] args)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `shader()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `apply(Pipe p)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `display(Render g)`
+#### `Tex2D(Texture2D.Sampler2D tex)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `display(GLAutoDrawable wnd)`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `init(GLAutoDrawable wnd)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `dispose(GLAutoDrawable wnd)`
+#### `private void display(Render g)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `reshape(GLAutoDrawable wnd, int x, int y, int w, int h)`
+#### `public void display(GLAutoDrawable wnd)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `keyPressed(KeyEvent ev)`
+#### `public void init(GLAutoDrawable wnd)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `keyReleased(KeyEvent ev)`
+#### `public void dispose(GLAutoDrawable wnd)`
+
+- Description: TODO
+
+#### `public void reshape(GLAutoDrawable wnd, int x, int y, int w, int h)`
+
+- Description: TODO
+
+#### `public void keyPressed(KeyEvent ev)`
+
+- Description: TODO
+
+#### `public void keyReleased(KeyEvent ev)`
 
 - Description: TODO

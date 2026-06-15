@@ -1,5 +1,7 @@
 # JOGLPanel
 
+This file documents the responsibilities and members of `JOGLPanel`.
+
 ## Meta
 
 - Source: [JOGLPanel.java](../../../src/haven/JOGLPanel.java)
@@ -8,188 +10,134 @@
 
 ## Role
 
-- Hosts the JOGL-backed UI panel.
+Hosts the JOGL-backed UI panel.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [dumpbgl](#member-1)
-- [aswap](#member-2)
-- [env](#member-3)
-- [shape](#member-4)
-- [base](#member-5)
-- [wnd](#member-6)
-- [main](#member-7)
-- [availability](#member-8)
-- [errh](#member-13)
-- [awtrobot](#member-25)
-- [cmdmap](#member-27)
-
-#### Methods
-
-- [ProfileException(Throwable cause)](#member-9)
-- [mkcaps()](#member-10)
-- [iswap()](#member-11)
-- [initgl(GL gl)](#member-12)
-- [setenv(JOGLEnvironment env)](#member-14)
-- [redraw(GL gl)](#member-15)
-- [env()](#member-16)
-- [shape()](#member-17)
-- [basestate()](#member-18)
-- [glswap(haven.render.gl.GL gl)](#member-19)
-- [private void uglyjoglhack() throws InterruptedException](#member-20)
-- [renderloop()](#member-21)
-- [run()](#member-22)
-- [newui(UI.Runner fun)](#member-23)
-- [background(boolean bg)](#member-24)
-- [setmousepos(Coord c)](#member-26)
-- [findcmds()](#member-28)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `dumpbgl`
+### ProfileException
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `aswap`
+## Members
+
+### Constants
+
+#### `private static final boolean dumpbgl = true`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `env`
+### Fields
+
+#### `public boolean aswap`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `shape`
+#### `private JOGLEnvironment env = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `base`
+#### `private Area shape`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `wnd`
+#### `private Pipe base, wnd`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `main`
+#### `private Pipe base, wnd`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `availability`
+#### `private final Loop main = new Loop(this)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `errh`
+#### `public final String availability`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `awtrobot`
+#### `private final haven.error.ErrorHandler errh = haven.error.ErrorHandler.find()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `cmdmap`
+#### `private Robot awtrobot`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-9"></a>
-##### `ProfileException(Throwable cause)`
+#### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mkcaps()`
+### Methods
+
+#### `public ProfileException(Throwable cause)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `iswap()`
+#### `private static GLCapabilities mkcaps()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `initgl(GL gl)`
+#### `public JOGLPanel()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `setenv(JOGLEnvironment env)`
+#### `private boolean iswap()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `redraw(GL gl)`
+#### `private void initgl(GL gl)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `env()`
+#### `private void setenv(JOGLEnvironment env)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `shape()`
+#### `private void redraw(GL gl)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `basestate()`
+#### `public GLEnvironment env()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `glswap(haven.render.gl.GL gl)`
+#### `public Area shape()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `private void uglyjoglhack() throws InterruptedException`
+#### `public Pipe basestate()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `renderloop()`
+#### `public void glswap(haven.render.gl.GL gl)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `run()`
+#### `private void uglyjoglhack() throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `newui(UI.Runner fun)`
+#### `private void renderloop()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `background(boolean bg)`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `setmousepos(Coord c)`
+#### `public UI newui(UI.Runner fun)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `findcmds()`
+#### `public void background(boolean bg)`
+
+- Description: TODO
+
+#### `public void setmousepos(Coord c)`
+
+- Description: TODO
+
+#### `public Map<String, Console.Command> findcmds()`
 
 - Description: TODO

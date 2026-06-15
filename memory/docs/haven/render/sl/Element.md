@@ -1,5 +1,7 @@
 # Element
 
+This file documents the responsibilities and members of `Element`.
+
 ## Meta
 
 - Source: [Element.java](../../../../../src/haven/render/sl/Element.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Represents a shader AST element.
+Represents a shader AST element.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public abstract void walk(Walker w);](#member-1)
-- [output(Output out)](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public abstract void walk(Walker w);`
+#### `public abstract void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `output(Output out)`
+#### `public void output(Output out)`
 
 - Description: TODO

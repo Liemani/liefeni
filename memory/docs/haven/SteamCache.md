@@ -1,5 +1,7 @@
 # SteamCache
 
+This file documents the responsibilities and members of `SteamCache`.
+
 ## Meta
 
 - Source: [SteamCache.java](../../../src/haven/SteamCache.java)
@@ -8,44 +10,32 @@
 
 ## Role
 
-- Caches Steam resources.
+Caches Steam resources.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [api](#member-1)
-- [prefix](#member-2)
-
-#### Methods
-
-- [public InputStream fetch(String name) throws IOException](#member-3)
-- [public OutputStream store(String name) throws IOException](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `api`
+#### `private final Steam api`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `prefix`
+#### `private final String prefix`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `public InputStream fetch(String name) throws IOException`
+#### `public SteamCache(Steam api)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public OutputStream store(String name) throws IOException`
+#### `public InputStream fetch(String name) throws IOException`
+
+- Description: TODO
+
+#### `public OutputStream store(String name) throws IOException`
 
 - Description: TODO

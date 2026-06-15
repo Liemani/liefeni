@@ -1,5 +1,7 @@
 # GPUProfile
 
+This file documents the responsibilities and members of `GPUProfile`.
+
 ## Meta
 
 - Source: [GPUProfile.java](../../../src/haven/GPUProfile.java)
@@ -8,164 +10,126 @@
 
 ## Role
 
-- Provides GPU profiling support.
+Provides GPU profiling support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [waiting](#member-1)
-- [fno](#member-2)
-- [f](#member-3)
-- [t](#member-4)
-- [curp](#member-5)
-- [fin](#member-6)
-- [done](#member-7)
-- [frame](#member-16)
-- [waiting](#member-19)
-
-#### Methods
-
-- [Part(Object nm)](#member-8)
-- [f()](#member-9)
-- [t()](#member-10)
-- [protected abstract Frame frame();](#member-11)
-- [query(Render out, Consumer<Long> prev)](#member-12)
-- [part(Render out, Object nm)](#member-13)
-- [tfin()](#member-14)
-- [fin(Render out)](#member-15)
-- [FramePart(Object nm, Frame frame)](#member-17)
-- [frame()](#member-18)
-- [Frame(Render out)](#member-20)
-- [frame()](#member-21)
-- [fin(Render out)](#member-22)
-- [fin2()](#member-23)
-- [check()](#member-24)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `waiting`
+### Frame
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fno`
+### FramePart
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `f`
+### Part
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `t`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final Collection<Frame> waiting = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `curp`
+#### `private long fno = 1`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `fin`
+#### `private long f, t`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `done`
+#### `private long f, t`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `frame`
+#### `private Part curp`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `waiting`
+#### `private boolean fin`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `Part(Object nm)`
+#### `boolean done`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `f()`
+#### `private final Frame frame`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `t()`
+#### `private List<Part> waiting = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `protected abstract Frame frame();`
+### Methods
+
+#### `public GPUProfile(int hl)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `query(Render out, Consumer<Long> prev)`
+#### `public Part(Object nm)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `part(Render out, Object nm)`
+#### `public double f()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `tfin()`
+#### `public double t()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `fin(Render out)`
+#### `protected abstract Frame frame()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `FramePart(Object nm, Frame frame)`
+#### `void query(Render out, Consumer<Long> prev)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `frame()`
+#### `public Part part(Render out, Object nm)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `Frame(Render out)`
+#### `private Consumer<Long> tfin()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `frame()`
+#### `public void fin(Render out)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `fin(Render out)`
+#### `private FramePart(Object nm, Frame frame)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `fin2()`
+#### `protected Frame frame()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `check()`
+#### `public Frame(Render out)`
+
+- Description: TODO
+
+#### `protected Frame frame()`
+
+- Description: TODO
+
+#### `public void fin(Render out)`
+
+- Description: TODO
+
+#### `private void fin2()`
+
+- Description: TODO
+
+#### `public void check()`
 
 - Description: TODO

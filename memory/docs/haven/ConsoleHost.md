@@ -1,5 +1,7 @@
 # ConsoleHost
 
+This file documents the responsibilities and members of `ConsoleHost`.
+
 ## Meta
 
 - Source: [ConsoleHost.java](../../../src/haven/ConsoleHost.java)
@@ -8,122 +10,92 @@
 
 ## Role
 
-- Hosts console command execution.
+Hosts console command execution.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [cmdfoundry](#member-1)
-- [cmdline](#member-2)
-- [cmdtext](#member-3)
-- [cmdtextf](#member-4)
-- [history](#member-5)
-- [hpos](#member-6)
-- [hcurrent](#member-7)
-- [kg](#member-8)
-- [kb_histprev](#member-9)
-- [kb_histnext](#member-10)
-
-#### Methods
-
-- [done(ReadLine buf)](#member-11)
-- [cmdkey(KeyEvent ev)](#member-12)
-- [drawcmd(GOut g, Coord c)](#member-13)
-- [entercmd()](#member-14)
-- [cancelcmd()](#member-15)
-- [keydown(KeyDownEvent ev)](#member-16)
-- [public abstract void error(String msg);](#member-17)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cmdfoundry`
+#### `public static final KeyBinding kb_histprev = KeyBinding.get("history/prev", KeyMatch.forcode(KeyEvent.VK_UP, 0))`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cmdline`
+#### `public static final KeyBinding kb_histnext = KeyBinding.get("history/next", KeyMatch.forcode(KeyEvent.VK_DOWN, 0))`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cmdtext`
+### Fields
+
+#### `public static Text.Foundry cmdfoundry = new Text.Foundry(Text.mono, 12, new java.awt.Color(245, 222, 179))`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cmdtextf`
+#### `public ReadLine cmdline = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `history`
+#### `private Text.Line cmdtext = null`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `hpos`
+#### `private String cmdtextf = null`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `hcurrent`
+#### `private List<String> history = new ArrayList<String>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `kg`
+#### `private int hpos = history.size()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `kb_histprev`
+#### `private String hcurrent`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `kb_histnext`
+#### `private UI.Grab kg`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-11"></a>
-##### `done(ReadLine buf)`
-
-- Description: TODO
-
-<a id="member-12"></a>
-##### `cmdkey(KeyEvent ev)`
+#### `public void done(ReadLine buf)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `drawcmd(GOut g, Coord c)`
+#### `private boolean cmdkey(KeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `entercmd()`
+#### `public ConsoleHost(Coord sz)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `cancelcmd()`
+#### `public ConsoleHost()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public ConsoleHost(UI ui, Coord c, Coord sz)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `public abstract void error(String msg);`
+#### `public void drawcmd(GOut g, Coord c)`
+
+- Description: TODO
+
+#### `public void entercmd()`
+
+- Description: TODO
+
+#### `public void cancelcmd()`
+
+- Description: TODO
+
+#### `public boolean keydown(KeyDownEvent ev)`
+
+- Description: TODO
+
+#### `public abstract void error(String msg)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # LPostOp
 
+This file documents the responsibilities and members of `LPostOp`.
+
 ## Meta
 
 - Source: [LPostOp.java](../../../../../src/haven/render/sl/LPostOp.java)
@@ -8,68 +10,58 @@
 
 ## Role
 
-- Represents a logical post operation.
+Represents a logical post operation.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [op](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [public abstract String form();](#member-3)
-- [output(Output out)](#member-4)
-- [public static class Inc extends LPostOp](#member-5)
-- [public static class Inc extends LPostOp](#member-6)
-- [public static class Dec extends LPostOp](#member-7)
-- [public static class Dec extends LPostOp](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `op`
+### Dec
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-2"></a>
-##### `walk(Walker w)`
+### Inc
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public abstract String form();`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final LValue op`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `output(Output out)`
+### Methods
+
+#### `public LPostOp(LValue op)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public static class Inc extends LPostOp`
+#### `public void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public static class Inc extends LPostOp`
+#### `public abstract String form()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `public static class Dec extends LPostOp`
+#### `public void output(Output out)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public static class Dec extends LPostOp`
+#### `public static class Inc extends LPostOp`
+
+- Description: TODO
+
+#### `public static class Inc extends LPostOp`
+
+- Description: TODO
+
+#### `public static class Dec extends LPostOp`
+
+- Description: TODO
+
+#### `public static class Dec extends LPostOp`
 
 - Description: TODO

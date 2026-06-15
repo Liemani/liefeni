@@ -1,5 +1,7 @@
 # HackThread
 
+This file documents the responsibilities and members of `HackThread`.
+
 ## Meta
 
 - Source: [HackThread.java](../../../src/haven/HackThread.java)
@@ -8,50 +10,44 @@
 
 ## Role
 
-- Provides a thread wrapper for client hacks or tweaks.
+Provides a thread wrapper for client hacks or tweaks.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [ils](#member-2)
-
-#### Methods
-
-- [tg()](#member-1)
-- [addil(Runnable r)](#member-3)
-- [remil(Runnable r)](#member-4)
-- [interrupt()](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-2"></a>
-##### `ils`
+#### `private Set<Runnable> ils = new HashSet<Runnable>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-1"></a>
-##### `tg()`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `addil(Runnable r)`
+#### `public HackThread(ThreadGroup tg, Runnable target, String name)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `remil(Runnable r)`
+#### `public HackThread(Runnable target, String name)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `interrupt()`
+#### `public HackThread(String name)`
+
+- Description: TODO
+
+#### `public static ThreadGroup tg()`
+
+- Description: TODO
+
+#### `public void addil(Runnable r)`
+
+- Description: TODO
+
+#### `public void remil(Runnable r)`
+
+- Description: TODO
+
+#### `public void interrupt()`
 
 - Description: TODO

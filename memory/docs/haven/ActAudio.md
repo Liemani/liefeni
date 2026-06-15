@@ -1,5 +1,7 @@
 # ActAudio
 
+This file documents the responsibilities and members of `ActAudio`.
+
 ## Meta
 
 - Source: [ActAudio.java](../../../src/haven/ActAudio.java)
@@ -8,410 +10,310 @@
 
 ## Role
 
-- Handles action-triggered audio playback.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [audio](#member-1)
-- [pos](#member-2)
-- [amb](#member-3)
-- [global](#member-4)
-- [parent](#member-11)
-- [clips](#member-12)
-- [name](#member-18)
-- [volume](#member-19)
-- [volc](#member-20)
-- [mixer](#member-21)
-- [aui](#member-29)
-- [pos](#member-30)
-- [amb](#member-31)
-- [clip](#member-36)
-- [slots](#member-37)
-- [res](#member-44)
-- [bvol](#member-45)
-- [res](#member-48)
-- [clip](#member-49)
-- [active](#member-50)
-- [lastupd](#member-51)
-- [added](#member-52)
-- [hasvol](#member-53)
+Handles action-triggered audio playback.
 
-#### Methods
+## Nested Types
 
-- [shader()](#member-5)
-- [apply(Pipe st)](#member-6)
-- [public void add(CS clip);](#member-7)
-- [public void remove(CS clip);](#member-8)
-- [public void clear();](#member-9)
-- [public int size();](#member-10)
-- [Adapter(Channel parent)](#member-13)
-- [add(CS clip)](#member-14)
-- [remove(CS clip)](#member-15)
-- [clear()](#member-16)
-- [size()](#member-17)
-- [RootChannel(String name)](#member-22)
-- [mixer()](#member-23)
-- [setvolume(double volume)](#member-24)
-- [clear()](#member-25)
-- [add(CS clip)](#member-26)
-- [remove(CS clip)](#member-27)
-- [size()](#member-28)
-- [clear()](#member-32)
-- [stats()](#member-33)
-- [public boolean cycle(ActAudio list);](#member-34)
-- [spos(Pipe st)](#member-35)
-- [PosClip(VolAdjust clip)](#member-38)
-- [PosClip(CS clip)](#member-39)
-- [added(RenderTree.Slot slot)](#member-40)
-- [removed(RenderTree.Slot slot)](#member-41)
-- [ticker()](#member-42)
-- [autotick(double dt)](#member-43)
-- [Ambience(Resource res, double bvol)](#member-46)
-- [Ambience(Resource res)](#member-47)
-- [Glob(Resource res)](#member-54)
-- [hashCode()](#member-55)
-- [equals(Object other)](#member-56)
-- [curvol()](#member-57)
-- [cycle(ActAudio list)](#member-58)
-- [add(RenderList.Slot<Ambience> slot)](#member-59)
-- [remove(RenderList.Slot<Ambience> slot)](#member-60)
-- [added(RenderTree.Slot slot)](#member-61)
-- [removed(RenderTree.Slot slot)](#member-62)
-- [intern(T glob)](#member-63)
-- [cycle()](#member-64)
-- [clear()](#member-65)
+### Adapter
 
-### Member Reference
+- Description: TODO
+
+### Ambience
+
+- Description: TODO
+
+### Channel
+
+- Description: TODO
+
+### Glob
+
+- Description: TODO
+
+### Global
+
+- Description: TODO
 
-#### Fields
+### PosClip
 
-<a id="member-1"></a>
-##### `audio`
+- Description: TODO
+
+### Root
+
+- Description: TODO
+
+### RootChannel
+
+- Description: TODO
 
+## Members
+
+### Constants
+
+#### `public static final Slot<ActAudio> audio = new State.Slot<>(Slot.Type.SYS, ActAudio.class)`
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `pos`
+### Fields
 
+#### `public final Channel pos`
+
 - Description: TODO
 
-<a id="member-3"></a>
-##### `amb`
+#### `public final Channel amb`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `global`
+#### `private final Map<Global, Global> global = new HashMap<Global, Global>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `parent`
+#### `public final Channel parent`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `clips`
+#### `private Collection<CS> clips = new HashSet<CS>()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `name`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `volume`
+#### `public double volume`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `volc`
+#### `private Audio.VolAdjust volc = null`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `mixer`
+#### `private Audio.Mixer mixer = null`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `aui`
+#### `public final RootChannel aui = new RootChannel("aui")`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `pos`
+#### `public final RootChannel pos = new RootChannel("pos")`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `amb`
+#### `public final RootChannel amb = new RootChannel("amb")`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `clip`
+#### `private final VolAdjust clip`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `slots`
+#### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `res`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `bvol`
+#### `public final double bvol`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `res`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `clip`
+#### `private final VolAdjust clip`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `active`
+#### `private final Collection<RenderList.Slot<Ambience>> active = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `lastupd`
+#### `private double lastupd = Utils.rtime()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `added`
+#### `private boolean added = false, hasvol = false`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `hasvol`
+#### `private boolean added = false, hasvol = false`
 
 - Description: TODO
+
+### Methods
 
-#### Methods
+#### `public haven.render.sl.ShaderMacro shader()`
+
+- Description: TODO
 
-<a id="member-5"></a>
-##### `shader()`
+#### `public ActAudio(Root root)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `apply(Pipe st)`
+#### `public void apply(Pipe st)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `public void add(CS clip);`
+#### `public void add(CS clip)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public void remove(CS clip);`
+#### `public void remove(CS clip)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `public void clear();`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `public int size();`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `Adapter(Channel parent)`
+#### `public Adapter(Channel parent)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `add(CS clip)`
+#### `public void add(CS clip)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `remove(CS clip)`
+#### `public void remove(CS clip)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `clear()`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `size()`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `RootChannel(String name)`
+#### `private RootChannel(String name)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `mixer()`
+#### `public Audio.Mixer mixer()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `setvolume(double volume)`
+#### `public void setvolume(double volume)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `clear()`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `add(CS clip)`
+#### `public void add(CS clip)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `remove(CS clip)`
+#### `public void remove(CS clip)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `size()`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `clear()`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `stats()`
+#### `public String stats()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `public boolean cycle(ActAudio list);`
+#### `public boolean cycle(ActAudio list)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `spos(Pipe st)`
+#### `public static Coord3f spos(Pipe st)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `PosClip(VolAdjust clip)`
+#### `public PosClip(VolAdjust clip)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `PosClip(CS clip)`
+#### `public PosClip(CS clip)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `ticker()`
+#### `public TickList.Ticking ticker()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `autotick(double dt)`
+#### `public void autotick(double dt)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `Ambience(Resource res, double bvol)`
+#### `public Ambience(Resource res, double bvol)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `Ambience(Resource res)`
+#### `public Ambience(Resource res)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `Glob(Resource res)`
+#### `public Glob(Resource res)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `hashCode()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `equals(Object other)`
+#### `public boolean equals(Object other)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `curvol()`
+#### `private double curvol()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `cycle(ActAudio list)`
+#### `public boolean cycle(ActAudio list)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `add(RenderList.Slot<Ambience> slot)`
+#### `public void add(RenderList.Slot<Ambience> slot)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `remove(RenderList.Slot<Ambience> slot)`
+#### `public void remove(RenderList.Slot<Ambience> slot)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `intern(T glob)`
+#### `public <T extends Global> T intern(T glob)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `cycle()`
+#### `public void cycle()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `clear()`
+#### `public void clear()`
 
 - Description: TODO

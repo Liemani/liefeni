@@ -1,5 +1,7 @@
 # HelpWnd
 
+This file documents the responsibilities and members of `HelpWnd`.
+
 ## Meta
 
 - Source: [HelpWnd.java](../../../src/haven/HelpWnd.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Displays help content.
+Displays help content.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [fnd](#member-1)
-- [text](#member-2)
-
-#### Methods
-
-- [set(Indir<Resource> res)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `fnd`
+#### `public static final RichText.Foundry fnd = new RichText.Foundry().aa(true)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `text`
+### Fields
+
+#### `private final RichTextBox text`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `set(Indir<Resource> res)`
+#### `public HelpWnd(Indir<Resource> res)`
+
+- Description: TODO
+
+#### `public void set(Indir<Resource> res)`
 
 - Description: TODO

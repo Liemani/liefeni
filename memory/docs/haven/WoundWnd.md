@@ -1,5 +1,7 @@
 # WoundWnd
 
+This file documents the responsibilities and members of `WoundWnd`.
+
 ## Meta
 
 - Source: [WoundWnd.java](../../../src/haven/WoundWnd.java)
@@ -8,422 +10,322 @@
 
 ## Role
 
-- Displays the wound window.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [namef](#member-1)
-- [woundbox](#member-2)
-- [wounds](#member-3)
-- [wound](#member-4)
-- [doc](#member-9)
-- [glob](#member-14)
-- [id](#member-15)
-- [parentid](#member-16)
-- [res](#member-17)
-- [level](#member-18)
-- [rawinfo](#member-19)
-- [sortkey](#member-20)
-- [ctxr](#member-22)
-- [info](#member-25)
-- [id](#member-30)
-- [info](#member-31)
-- [wounds](#member-40)
-- [loading](#member-41)
-- [wcomp](#member-42)
-- [w](#member-48)
-- [qd](#member-49)
-- [nm](#member-50)
-- [dres](#member-51)
-- [dinfo](#member-52)
+Displays the wound window.
 
-#### Methods
+## Nested Types
 
-- [create(UI ui, Object[] args)](#member-5)
-- [qwdg(int h)](#member-6)
-- [qstr()](#member-7)
-- [qprio()](#member-8)
-- [WoundPagina(Owner owner, RichText.Document doc)](#member-10)
-- [WoundPagina(Owner owner, Resource.Pagina pag)](#member-11)
-- [layout(Layout l)](#member-12)
-- [order()](#member-13)
-- [Wound(Glob glob, int id, Indir<Resource> res, int parentid)](#member-21)
-- [context(Class<T> cl)](#member-23)
-- [resource()](#member-24)
-- [info()](#member-26)
-- [icon()](#member-27)
-- [name()](#member-28)
-- [public int woundid();](#member-29)
-- [WoundBox(int id)](#member-32)
-- [added()](#member-33)
-- [wound()](#member-34)
-- [tick(double dt)](#member-35)
-- [drawbg(GOut g)](#member-36)
-- [renderinfo(int width)](#member-37)
-- [woundid()](#member-38)
-- [create(UI ui, Object[] args)](#member-39)
-- [WoundList(Coord sz)](#member-43)
-- [items()](#member-44)
-- [makeitem(Wound w, int idx, Coord sz)](#member-45)
-- [treesort(List<Wound> from, int pid, int level)](#member-46)
-- [tick(double dt)](#member-47)
-- [Item(Coord sz, Wound w)](#member-53)
-- [getqdat(List<ItemInfo> info)](#member-54)
-- [update()](#member-55)
-- [drop(Coord cc, Coord ul)](#member-56)
-- [iteminteract(Coord cc, Coord ul)](#member-57)
-- [draw(GOut g)](#member-58)
-- [mousedown(MouseDownEvent ev)](#member-59)
-- [drawslot(GOut g, Wound w, int idx, Area area)](#member-60)
-- [unselect(int button)](#member-61)
-- [get(int id)](#member-62)
-- [add(Wound w)](#member-63)
-- [remove(int id)](#member-64)
-- [addchild(Widget child, Object... args)](#member-65)
-- [decwound(Object[] args, int a, int len)](#member-66)
-- [uimsg(String nm, Object... args)](#member-67)
+### $_
 
-### Member Reference
+- Description: TODO
+
+### $wound
+
+- Description: TODO
+
+### Info
+
+- Description: TODO
+
+### Item
+
+- Description: TODO
+
+### QuickInfo
+
+- Description: TODO
+
+### Wound
+
+- Description: TODO
+
+### WoundBox
+
+- Description: TODO
+
+### WoundList
+
+- Description: TODO
 
-#### Fields
+### WoundPagina
 
-<a id="member-1"></a>
-##### `namef`
+- Description: TODO
+
+## Members
+
+### Constants
+
+#### `public static final Text.Foundry namef = new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `woundbox`
+#### `private static final OwnerContext.ClassResolver<Wound> ctxr = new OwnerContext.ClassResolver<Wound>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `wounds`
+### Fields
 
+#### `public final Widget woundbox`
+
 - Description: TODO
 
-<a id="member-4"></a>
-##### `wound`
+#### `public final WoundList wounds`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `doc`
+#### `public Wound.Info wound`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `glob`
+#### `public final RichText.Document doc`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `id`
+#### `public final Glob glob`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `parentid`
+#### `public final int id, parentid`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `res`
+#### `public final int id, parentid`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `level`
+#### `public Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `rawinfo`
+#### `public int level`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `sortkey`
+#### `public ItemInfo.Raw rawinfo`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `ctxr`
+#### `private String sortkey = "\uffff"`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `info`
+#### `private List<ItemInfo> info`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `id`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `info`
+#### `private List<ItemInfo> info`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `wounds`
+#### `public List<Wound> wounds = new ArrayList<Wound>()`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `loading`
+#### `private boolean loading = false`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `wcomp`
+#### `private final Comparator<Wound> wcomp = new Comparator<Wound>()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `w`
+#### `public final Wound w`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `qd`
+#### `private Widget qd, nm`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `nm`
+#### `private Widget qd, nm`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `dres`
+#### `private Object dres, dinfo`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `dinfo`
+#### `private Object dres, dinfo`
 
 - Description: TODO
+
+### Methods
 
-#### Methods
+#### `public Widget create(UI ui, Object[] args)`
+
+- Description: TODO
 
-<a id="member-5"></a>
-##### `create(UI ui, Object[] args)`
+#### `public default Widget qwdg(int h)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `qwdg(int h)`
+#### `public default String qstr()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `qstr()`
+#### `public default int qprio()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `qprio()`
+#### `public WoundPagina(Owner owner, RichText.Document doc)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `WoundPagina(Owner owner, RichText.Document doc)`
+#### `public WoundPagina(Owner owner, Resource.Pagina pag)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `WoundPagina(Owner owner, Resource.Pagina pag)`
+#### `public void layout(Layout l)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `layout(Layout l)`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `order()`
+#### `private Wound(Glob glob, int id, Indir<Resource> res, int parentid)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `Wound(Glob glob, int id, Indir<Resource> res, int parentid)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `context(Class<T> cl)`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `resource()`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `info()`
+#### `public BufferedImage icon()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `icon()`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `name()`
+#### `public int woundid()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `public int woundid();`
+#### `public WoundBox(int id)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `WoundBox(int id)`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `added()`
+#### `public Wound wound()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `wound()`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `tick(double dt)`
+#### `public void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `drawbg(GOut g)`
+#### `public BufferedImage renderinfo(int width)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `renderinfo(int width)`
+#### `public int woundid()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `woundid()`
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `create(UI ui, Object[] args)`
+#### `private WoundList(Coord sz)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `WoundList(Coord sz)`
+#### `protected List<Wound> items()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `items()`
+#### `protected Widget makeitem(Wound w, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `makeitem(Wound w, int idx, Coord sz)`
+#### `private List<Wound> treesort(List<Wound> from, int pid, int level)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `treesort(List<Wound> from, int pid, int level)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `tick(double dt)`
+#### `public Item(Coord sz, Wound w)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `Item(Coord sz, Wound w)`
+#### `private QuickInfo getqdat(List<ItemInfo> info)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `getqdat(List<ItemInfo> info)`
+#### `private void update()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `update()`
+#### `public boolean drop(Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `drop(Coord cc, Coord ul)`
+#### `public boolean iteminteract(Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `iteminteract(Coord cc, Coord ul)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `draw(GOut g)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `protected void drawslot(GOut g, Wound w, int idx, Area area)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `drawslot(GOut g, Wound w, int idx, Area area)`
+#### `protected boolean unselect(int button)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `unselect(int button)`
+#### `public Wound get(int id)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `get(int id)`
+#### `public void add(Wound w)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `add(Wound w)`
+#### `public Wound remove(int id)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `remove(int id)`
+#### `public WoundWnd()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public void addchild(Widget child, Object... args)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `decwound(Object[] args, int a, int len)`
+#### `private void decwound(Object[] args, int a, int len)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `uimsg(String nm, Object... args)`
+#### `public void uimsg(String nm, Object... args)`
 
 - Description: TODO

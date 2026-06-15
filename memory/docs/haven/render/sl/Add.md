@@ -1,5 +1,7 @@
 # Add
 
+This file documents the responsibilities and members of `Add`.
+
 ## Meta
 
 - Source: [Add.java](../../../../../src/haven/render/sl/Add.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Represents an SL add expression.
+Represents an SL add expression.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [terms](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [output(Output out)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `terms`
+#### `public final Expression[] terms`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+#### `public Add(Expression... terms)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

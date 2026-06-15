@@ -1,5 +1,7 @@
 # CharSelector
 
+This file documents the responsibilities and members of `CharSelector`.
+
 ## Meta
 
 - Source: [CharSelector.java](../../../../src/haven/test/CharSelector.java)
@@ -8,68 +10,48 @@
 
 ## Role
 
-- Provides a character selection test helper.
+Provides a character selection test helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [cb](#member-1)
-- [chr](#member-2)
-- [chrlist](#member-3)
-
-#### Methods
-
-- [check()](#member-4)
-- [newwdg(int id, Widget w, Object... args)](#member-5)
-- [dstwdg(int id, Widget w)](#member-6)
-- [uimsg(int id, Widget w, String msg, Object... args)](#member-7)
-- [succeed()](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cb`
+#### `Runnable cb`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `chr`
+#### `String chr`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `chrlist`
+#### `Charlist chrlist`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `check()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `newwdg(int id, Widget w, Object... args)`
+#### `public CharSelector(TestClient c, String chr, Runnable cb)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `dstwdg(int id, Widget w)`
+#### `public void check()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `uimsg(int id, Widget w, String msg, Object... args)`
+#### `public void newwdg(int id, Widget w, Object... args)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `succeed()`
+#### `public void dstwdg(int id, Widget w)`
+
+- Description: TODO
+
+#### `public void uimsg(int id, Widget w, String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void succeed()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Clickable
 
+This file documents the responsibilities and members of `Clickable`.
+
 ## Meta
 
 - Source: [Clickable.java](../../../src/haven/Clickable.java)
@@ -8,50 +10,32 @@
 
 ## Role
 
-- Defines a clickable UI contract.
+Defines a clickable UI contract.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-
-#### Methods
-
-- [clickargs(ClickData cd)](#member-2)
-- [shader()](#member-3)
-- [apply(Pipe p)](#member-4)
-- [toString()](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<Clickable> slot = new Slot<Clickable>(Slot.Type.DRAW, Clickable.class)`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `clickargs(ClickData cd)`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `shader()`
+#### `public Object[] clickargs(ClickData cd)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `apply(Pipe p)`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `toString()`
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # SListWidget
 
+This file documents the responsibilities and members of `SListWidget`.
+
 ## Meta
 
 - Source: [SListWidget.java](../../../src/haven/SListWidget.java)
@@ -8,278 +10,210 @@
 
 ## Role
 
-- Represents a styled list widget base.
+Represents a styled list widget base.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [sel](#member-1)
-- [list](#member-6)
-- [item](#member-7)
-- [text](#member-16)
-- [img](#member-31)
-- [text](#member-33)
-- [res](#member-38)
-
-#### Methods
-
-- [protected abstract List<? extends I> items();](#member-2)
-- [protected abstract W makeitem(I item, int idx, Coord sz);](#member-3)
-- [public W makeitem(I item, int idx, Coord sz);](#member-4)
-- [change(I item)](#member-5)
-- [ItemWidget(SListWidget<I, ?> list, Coord sz, I item)](#member-8)
-- [mousedown(MouseDownEvent ev)](#member-9)
-- [TextItem(Coord sz)](#member-10)
-- [TextItem(int w)](#member-11)
-- [protected abstract String text();](#member-12)
-- [margin()](#member-13)
-- [foundry()](#member-14)
-- [valid(String text)](#member-15)
-- [drawtext(GOut g)](#member-17)
-- [draw(GOut g)](#member-18)
-- [dispose()](#member-19)
-- [invalidate()](#member-20)
-- [of(Coord sz, Text.Forge fnd, Supplier<String> text)](#member-21)
-- [of(Coord sz, Supplier<String> text)](#member-22)
-- [IconText(Coord sz)](#member-23)
-- [IconText(int w)](#member-24)
-- [protected abstract BufferedImage img();](#member-25)
-- [protected abstract String text();](#member-26)
-- [margin()](#member-27)
-- [foundry()](#member-28)
-- [valid(String text)](#member-29)
-- [filter()](#member-30)
-- [drawicon(GOut g)](#member-32)
-- [drawtext(GOut g)](#member-34)
-- [draw(GOut g)](#member-35)
-- [dispose()](#member-36)
-- [invalidate()](#member-37)
-- [FromRes(Coord sz, Indir<Resource> res)](#member-39)
-- [img()](#member-40)
-- [text()](#member-41)
-- [of(Coord sz, Indir<Resource> res)](#member-42)
-- [of(Coord sz, Supplier<BufferedImage> img, Supplier<String> text)](#member-43)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `sel`
+### FromRes
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `list`
+### IconText
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `item`
+### ItemFactory
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `text`
+### ItemWidget
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `img`
+### TextItem
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `text`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public I sel`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `res`
+#### `public final SListWidget<I, ?> list`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-2"></a>
-##### `protected abstract List<? extends I> items();`
+#### `public final I item`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `protected abstract W makeitem(I item, int idx, Coord sz);`
+#### `private Text.Slug text = null`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public W makeitem(I item, int idx, Coord sz);`
+#### `private Tex img = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `change(I item)`
+#### `private Text.Slug text = null`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ItemWidget(SListWidget<I, ?> list, Coord sz, I item)`
+#### `public final Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `mousedown(MouseDownEvent ev)`
+### Methods
+
+#### `public SListWidget(Coord sz)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `TextItem(Coord sz)`
+#### `protected abstract List<? extends I> items()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `TextItem(int w)`
+#### `protected abstract W makeitem(I item, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `protected abstract String text();`
+#### `public W makeitem(I item, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `margin()`
+#### `public void change(I item)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `foundry()`
+#### `public ItemWidget(SListWidget<I, ?> list, Coord sz, I item)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `valid(String text)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `drawtext(GOut g)`
+#### `public TextItem(Coord sz)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `draw(GOut g)`
+#### `public TextItem(int w)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `dispose()`
+#### `protected abstract String text()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `invalidate()`
+#### `protected int margin()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `of(Coord sz, Text.Forge fnd, Supplier<String> text)`
+#### `protected Text.Forge foundry()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `of(Coord sz, Supplier<String> text)`
+#### `protected boolean valid(String text)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `IconText(Coord sz)`
+#### `protected void drawtext(GOut g)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `IconText(int w)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `protected abstract BufferedImage img();`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `protected abstract String text();`
+#### `public void invalidate()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `margin()`
+#### `public static TextItem of(Coord sz, Text.Forge fnd, Supplier<String> text)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `foundry()`
+#### `public static TextItem of(Coord sz, Supplier<String> text)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `valid(String text)`
+#### `public IconText(Coord sz)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `filter()`
+#### `public IconText(int w)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `drawicon(GOut g)`
+#### `protected abstract BufferedImage img()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `drawtext(GOut g)`
+#### `protected abstract String text()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `draw(GOut g)`
+#### `protected int margin()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `dispose()`
+#### `protected Text.Forge foundry()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `invalidate()`
+#### `protected boolean valid(String text)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `FromRes(Coord sz, Indir<Resource> res)`
+#### `protected PUtils.Convolution filter()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `img()`
+#### `protected void drawicon(GOut g)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `text()`
+#### `protected void drawtext(GOut g)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `of(Coord sz, Indir<Resource> res)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `of(Coord sz, Supplier<BufferedImage> img, Supplier<String> text)`
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public void invalidate()`
+
+- Description: TODO
+
+#### `public FromRes(Coord sz, Indir<Resource> res)`
+
+- Description: TODO
+
+#### `public BufferedImage img()`
+
+- Description: TODO
+
+#### `public String text()`
+
+- Description: TODO
+
+#### `public static IconText of(Coord sz, Indir<Resource> res)`
+
+- Description: TODO
+
+#### `public static IconText of(Coord sz, Supplier<BufferedImage> img, Supplier<String> text)`
 
 - Description: TODO

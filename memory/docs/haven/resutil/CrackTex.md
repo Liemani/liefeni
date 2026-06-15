@@ -1,5 +1,7 @@
 # CrackTex
 
+This file documents the responsibilities and members of `CrackTex`.
+
 ## Meta
 
 - Source: [CrackTex.java](../../../../src/haven/resutil/CrackTex.java)
@@ -8,158 +10,118 @@
 
 ## Role
 
-- Represents a cracked texture helper.
+Represents a cracked texture helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [texsz](#member-2)
-- [imgs](#member-3)
-- [img](#member-4)
-- [color](#member-5)
-- [rot](#member-6)
-- [src](#member-7)
-- [decode](#member-8)
-- [data](#member-9)
-- [u_tex](#member-15)
-- [u_col](#member-16)
-- [u_rot](#member-17)
-- [shader](#member-18)
-- [instids](#member-21)
-
-#### Methods
-
-- [Decoder(Supplier<InputStream> src)](#member-10)
-- [decode(Texture3D tex, Environment env)](#member-11)
-- [fill(Texture.Image img, Environment env)](#member-12)
-- [done()](#member-13)
-- [loadtex(Supplier<InputStream> fp)](#member-14)
-- [shader()](#member-19)
-- [apply(Pipe buf)](#member-20)
-- [instancer()](#member-22)
-- [attribs()](#member-23)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### Decoder
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `texsz`
+## Members
+
+### Constants
+
+#### `public static final Slot<CrackTex> slot = new Slot<>(Slot.Type.DRAW, CrackTex.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `imgs`
+#### `public static final int texsz = 256`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `img`
+#### `public static final Sampler3D[] imgs`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `color`
+#### `private static final Uniform u_tex = new Uniform(SAMPLER3D, "cracktex", p -> p.get(slot).img, slot)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `rot`
+#### `private static final Uniform u_col = new Uniform(VEC3, "crackcol", p -> p.get(slot).color, slot)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `src`
+#### `private static final InstancedUniform u_rot = new InstancedUniform.Vec4("crackrot", p -> p.get(slot).rot, slot)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `decode`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `data`
+#### `private static final Map<Sampler3D, Instancer<CrackTex>> instids = new WeakHashMap<>()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `u_tex`
+### Fields
+
+#### `public final Sampler3D img`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `u_col`
+#### `public final Color color`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `u_rot`
+#### `public final float[] rot`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `shader`
+#### `public final Supplier<InputStream> src`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `instids`
+#### `private Defer.Future<FillBuffer[]> decode`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-10"></a>
-##### `Decoder(Supplier<InputStream> src)`
+#### `private FillBuffer[] data`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `decode(Texture3D tex, Environment env)`
+### Methods
+
+#### `public Decoder(Supplier<InputStream> src)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `fill(Texture.Image img, Environment env)`
+#### `private FillBuffer[] decode(Texture3D tex, Environment env)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `done()`
+#### `public FillBuffer fill(Texture.Image img, Environment env)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `loadtex(Supplier<InputStream> fp)`
+#### `public void done()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `shader()`
+#### `public static Sampler3D loadtex(Supplier<InputStream> fp)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `apply(Pipe buf)`
+#### `public CrackTex(Sampler3D img, Color color, Coord3f rax, float rang)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `instancer()`
+#### `public CrackTex(Sampler3D img, Color color)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `attribs()`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
+
+- Description: TODO
+
+#### `private Instancer<CrackTex> instancer()`
+
+- Description: TODO
+
+#### `public InstancedAttribute[] attribs()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # GLOffscreen
 
+This file documents the responsibilities and members of `GLOffscreen`.
+
 ## Meta
 
 - Source: [GLOffscreen.java](../../../../src/haven/rs/GLOffscreen.java)
@@ -8,98 +10,74 @@
 
 ## Role
 
-- Provides offscreen GL rendering support.
+Provides offscreen GL rendering support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [prof](#member-1)
-- [buf](#member-2)
-- [dmon](#member-3)
-- [benv](#member-4)
-- [penv](#member-5)
-- [defctx](#member-12)
-
-#### Methods
-
-- [back()](#member-6)
-- [submit(Render r)](#member-7)
-- [caps(GLProfile prof)](#member-8)
-- [redraw(GL3 gl)](#member-9)
-- [env()](#member-10)
-- [dispose()](#member-11)
-- [get()](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `prof`
+### ProxyEnv
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `buf`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final GLProfile prof`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dmon`
+#### `public final GLAutoDrawable buf`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `benv`
+#### `private final Object dmon = new Object()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `penv`
+#### `private JOGLEnvironment benv = null`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `defctx`
+#### `private final Environment penv`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `back()`
+#### `private static GLOffscreen defctx = null`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `submit(Render r)`
+### Methods
+
+#### `public GLOffscreen()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `caps(GLProfile prof)`
+#### `public Environment back()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `redraw(GL3 gl)`
+#### `public void submit(Render r)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `env()`
+#### `protected GLCapabilities caps(GLProfile prof)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `dispose()`
+#### `private void redraw(GL3 gl)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `get()`
+#### `public Environment env()`
+
+- Description: TODO
+
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public static GLOffscreen get()`
 
 - Description: TODO

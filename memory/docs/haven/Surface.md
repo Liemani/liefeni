@@ -1,5 +1,7 @@
 # Surface
 
+This file documents the responsibilities and members of `Surface`.
+
 ## Meta
 
 - Source: [Surface.java](../../../src/haven/Surface.java)
@@ -8,188 +10,146 @@
 
 ## Role
 
-- Represents a render surface.
+Represents a render surface.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [v](#member-1)
-- [f](#member-2)
-- [data](#member-3)
-- [vl](#member-4)
-- [fv](#member-5)
-- [tv](#member-6)
-- [vi](#member-9)
-- [ei](#member-10)
-- [ne](#member-11)
-- [v](#member-16)
-- [v1](#member-18)
-- [v2](#member-19)
-- [v3](#member-20)
-- [buf](#member-24)
-- [nrm](#member-28)
-
-#### Methods
-
-- [public T make(Surface s);](#member-7)
-- [data(DataID<T> id)](#member-8)
-- [Vertex(float x, float y, float z)](#member-12)
-- [Vertex(Coord3f c)](#member-13)
-- [s()](#member-14)
-- [modify(MeshBuf buf, MeshBuf.Vertex v)](#member-15)
-- [MeshVertex(MeshBuf buf, Vertex v)](#member-17)
-- [Face(Vertex v1, Vertex v2, Vertex v3)](#member-21)
-- [fin()](#member-22)
-- [clear()](#member-23)
-- [Normals()](#member-25)
-- [get(Vertex v)](#member-26)
-- [set(Vertex v, Coord3f n)](#member-27)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `v`
+### DataID
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `f`
+### Face
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `data`
+### MeshVertex
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `vl`
+### Normals
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `fv`
+### Vertex
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `tv`
+## Members
+
+### Constants
+
+#### `public static final DataID<Normals> nrm = new DataID<Normals>()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `vi`
+### Fields
+
+#### `private List<Vertex> v = new ArrayList<Vertex>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `ei`
+#### `private Collection<Face> f = new ArrayList<Face>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `ne`
+#### `private Map<DataID, Object> data = new HashMap<DataID, Object>()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `v`
+#### `public Vertex[] vl, fv, tv`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `v1`
+#### `public Vertex[] vl, fv, tv`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `v2`
+#### `public Vertex[] vl, fv, tv`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `v3`
+#### `public final int vi`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `buf`
+#### `public int ei, ne`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `nrm`
+#### `public int ei, ne`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `public T make(Surface s);`
+#### `public final Vertex v`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `data(DataID<T> id)`
+#### `public final Vertex v1, v2, v3`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `Vertex(float x, float y, float z)`
+#### `public final Vertex v1, v2, v3`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `Vertex(Coord3f c)`
+#### `public final Vertex v1, v2, v3`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `s()`
+#### `public final Coord3f[] buf = new Coord3f[vl.length]`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `modify(MeshBuf buf, MeshBuf.Vertex v)`
+### Methods
+
+#### `public T make(Surface s)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `MeshVertex(MeshBuf buf, Vertex v)`
+#### `public <T> T data(DataID<T> id)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `Face(Vertex v1, Vertex v2, Vertex v3)`
+#### `public Vertex(float x, float y, float z)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `fin()`
+#### `public Vertex(Coord3f c)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `clear()`
+#### `public Surface s()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `Normals()`
+#### `public void modify(MeshBuf buf, MeshBuf.Vertex v)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `get(Vertex v)`
+#### `public MeshVertex(MeshBuf buf, Vertex v)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `set(Vertex v, Coord3f n)`
+#### `public Face(Vertex v1, Vertex v2, Vertex v3)`
+
+- Description: TODO
+
+#### `public void fin()`
+
+- Description: TODO
+
+#### `public void clear()`
+
+- Description: TODO
+
+#### `private Normals()`
+
+- Description: TODO
+
+#### `public Coord3f get(Vertex v)`
+
+- Description: TODO
+
+#### `public void set(Vertex v, Coord3f n)`
 
 - Description: TODO

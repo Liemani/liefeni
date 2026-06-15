@@ -1,5 +1,7 @@
 # MapViewBridge
 
+This file documents the responsibilities and members of `MapViewBridge`.
+
 ## Meta
 
 - Source: [MapView.java](../../../../src/haven/MapView.java)
@@ -8,2316 +10,1541 @@
 
 ## Role
 
-- Serves as the main in-world map interaction surface.
-- Provides a place to own the current Haven `MapView` reference and map-view specific helpers.
-
-## Code Members
-
-### Member Index
-
-#### Constants
-
-- [MAXID](#member-220)
-
-#### Fields
-
-- [clickdb](#member-1)
-- [plgob](#member-2)
-- [cc](#member-3)
-- [glob](#member-4)
-- [view](#member-5)
-- [delayed](#member-6)
-- [delayed2](#member-7)
-- [camera](#member-8)
-- [placing](#member-9)
-- [grab](#member-10)
-- [selection](#member-11)
-- [camoff](#member-12)
-- [shake](#member-13)
-- [plobpgran](#member-14)
-- [plobagran](#member-15)
-- [camtypes](#member-16)
-- [view](#member-22)
-- [proj](#member-23)
-- [fr](#member-35)
-- [h](#member-36)
-- [ca](#member-37)
-- [cd](#member-38)
-- [curc](#member-39)
-- [elev](#member-40)
-- [telev](#member-41)
-- [angl](#member-42)
-- [tangl](#member-43)
-- [dragorig](#member-44)
-- [anglorig](#member-45)
-- [f0](#member-50)
-- [f1](#member-51)
-- [f2](#member-52)
-- [fl](#member-53)
-- [fa](#member-54)
-- [fb](#member-55)
-- [maxang](#member-60)
-- [mindist](#member-61)
-- [dist](#member-64)
-- [elev](#member-65)
-- [angl](#member-66)
-- [dragorig](#member-67)
-- [elevorig](#member-68)
-- [anglorig](#member-69)
-- [dist](#member-75)
-- [tdist](#member-76)
-- [elev](#member-77)
-- [telev](#member-78)
-- [angl](#member-79)
-- [tangl](#member-80)
-- [dragorig](#member-81)
-- [elevorig](#member-82)
-- [anglorig](#member-83)
-- [pi2](#member-84)
-- [cc](#member-85)
-- [exact](#member-91)
-- [dfield](#member-92)
-- [dist](#member-93)
-- [elev](#member-94)
-- [angl](#member-95)
-- [field](#member-96)
-- [dragorig](#member-97)
-- [anglorig](#member-98)
-- [cc](#member-99)
-- [jc](#member-100)
-- [kb_camleft](#member-107)
-- [kb_camright](#member-108)
-- [kb_camin](#member-109)
-- [kb_camout](#member-110)
-- [kb_camreset](#member-111)
-- [dragorig](#member-112)
-- [anglorig](#member-113)
-- [tangl](#member-114)
-- [tfield](#member-115)
-- [isometric](#member-116)
-- [pi2](#member-117)
-- [tf](#member-118)
-- [gobs](#member-133)
-- [oc](#member-134)
-- [adding](#member-135)
-- [current](#member-136)
-- [slot](#member-137)
-- [map](#member-144)
-- [area](#member-145)
-- [lastload](#member-146)
-- [cuts](#member-147)
-- [position](#member-148)
-- [lastload](#member-149)
-- [terrain](#member-158)
-- [main](#member-159)
-- [flavobjs](#member-160)
-- [id](#member-165)
-- [rc](#member-166)
-- [used](#member-167)
-- [base](#member-168)
-- [outl](#member-169)
-- [oltags](#member-175)
-- [ols](#member-176)
-- [gridmat](#member-178)
-- [grid](#member-179)
-- [gridlines](#member-184)
-- [cut](#member-186)
-- [clickmap](#member-189)
-- [grid](#member-190)
-- [smapcc](#member-196)
-- [slist](#member-197)
-- [smap](#member-198)
-- [lsmch](#member-199)
-- [amblight](#member-202)
-- [s_amblight](#member-203)
-- [gprefs](#member-205)
-- [zgrid](#member-206)
-- [maxlights](#member-207)
-- [lighting](#member-211)
-- [amblight_idx](#member-213)
-- [rweather](#member-214)
-- [clickbasic](#member-219)
-- [master](#member-221)
-- [doinst](#member-222)
-- [basic](#member-223)
-- [slots](#member-224)
-- [idmap](#member-225)
-- [curbasic](#member-226)
-- [back](#member-227)
-- [draw](#member-228)
-- [instancer](#member-229)
-- [nextid](#member-230)
-- [bk](#member-231)
-- [id](#member-232)
-- [idp](#member-233)
-- [state](#member-234)
-- [idx_bas](#member-238)
-- [idx_idp](#member-239)
-- [idx_back](#member-240)
-- [back](#member-241)
-- [clmaptree](#member-262)
-- [clmaplist](#member-263)
-- [clobjlist](#member-264)
-- [clickid](#member-265)
-- [clickloc](#member-266)
-- [clickdepth](#member-267)
-- [curclickbasic](#member-268)
-- [gobclfuzz](#member-271)
-- [text](#member-276)
-- [tm](#member-277)
-- [polownertf](#member-279)
-- [polowners](#member-280)
-- [camload](#member-290)
-- [lastload](#member-291)
-- [initload](#member-293)
-- [initdraw](#member-294)
-- [freerot](#member-301)
-- [adjust](#member-304)
-- [lastmc](#member-305)
-- [slot](#member-306)
-- [modflags](#member-313)
-- [olflash](#member-317)
-- [olftimer](#member-318)
-- [pc](#member-322)
-- [pc](#member-327)
-- [mapcl](#member-328)
-- [objcl](#member-329)
-- [dfl](#member-330)
-- [clickb](#member-336)
-- [camdrag](#member-341)
-- [kb_grid](#member-349)
-- [bk](#member-352)
-- [mv](#member-353)
-- [selol](#member-359)
-- [max](#member-360)
-- [sc](#member-361)
-- [modflags](#member-362)
-- [ol](#member-363)
-- [mgrab](#member-364)
-- [tt](#member-365)
-- [xl](#member-366)
-- [cmdmap](#member-376)
-
-#### Methods
-
-- [public void run(GOut g);](#member-17)
-- [boolean mmousedown(Coord mc, int button);](#member-18)
-- [boolean mmouseup(Coord mc, int button);](#member-19)
-- [boolean mmousewheel(Coord mc, int amount);](#member-20)
-- [void mmousemove(Coord mc);](#member-21)
-- [Camera()](#member-24)
-- [keydown(KeyDownEvent ev)](#member-25)
-- [click(Coord sc)](#member-26)
-- [drag(Coord sc)](#member-27)
-- [release()](#member-28)
-- [wheel(MouseWheelEvent ev)](#member-29)
-- [resized()](#member-30)
-- [apply(Pipe p)](#member-31)
-- [public abstract float angle();](#member-32)
-- [public abstract void tick(double dt);](#member-33)
-- [stats()](#member-34)
-- [FollowCam()](#member-46)
-- [resized()](#member-47)
-- [click(Coord c)](#member-48)
-- [drag(Coord c)](#member-49)
-- [field(float elev)](#member-56)
-- [dist(float elev)](#member-57)
-- [tick(double dt)](#member-58)
-- [angle()](#member-59)
-- [wheel(MouseWheelEvent ev)](#member-62)
-- [stats()](#member-63)
-- [tick(double dt)](#member-70)
-- [angle()](#member-71)
-- [click(Coord c)](#member-72)
-- [drag(Coord c)](#member-73)
-- [wheel(MouseWheelEvent ev)](#member-74)
-- [tick(double dt)](#member-86)
-- [angle()](#member-87)
-- [click(Coord c)](#member-88)
-- [drag(Coord c)](#member-89)
-- [wheel(MouseWheelEvent ev)](#member-90)
-- [tick2(double dt)](#member-101)
-- [tick(double dt)](#member-102)
-- [angle()](#member-103)
-- [click(Coord c)](#member-104)
-- [drag(Coord c)](#member-105)
-- [stats()](#member-106)
-- [SOrthoCam(String... args)](#member-119)
-- [tick2(double dt)](#member-120)
-- [click(Coord c)](#member-121)
-- [drag(Coord c)](#member-122)
-- [release()](#member-123)
-- [chfield(float nf)](#member-124)
-- [wheel(MouseWheelEvent ev)](#member-125)
-- [keydown(KeyDownEvent ev)](#member-126)
-- [create(UI ui, Object[] args)](#member-127)
-- [envdispose()](#member-128)
-- [dispose()](#member-129)
-- [visol(String tag)](#member-130)
-- [enol(String tag)](#member-131)
-- [disol(String tag)](#member-132)
-- [addgob(Gob ob)](#member-138)
-- [added(RenderTree.Slot slot)](#member-139)
-- [removed(RenderTree.Slot slot)](#member-140)
-- [added(Gob ob)](#member-141)
-- [removed(Gob ob)](#member-142)
-- [loading()](#member-143)
-- [Grid(boolean position)](#member-150)
-- [Grid()](#member-151)
-- [abstract T getcut(Coord cc);](#member-152)
-- [produce(T cut)](#member-153)
-- [tick()](#member-154)
-- [removed(RenderTree.Slot slot)](#member-155)
-- [tick()](#member-156)
-- [loading()](#member-157)
-- [Terrain()](#member-161)
-- [tick()](#member-162)
-- [added(RenderTree.Slot slot)](#member-163)
-- [loading()](#member-164)
-- [Overlay(OverlayInfo id)](#member-170)
-- [tick()](#member-171)
-- [added(RenderTree.Slot slot)](#member-172)
-- [loading()](#member-173)
-- [remove()](#member-174)
-- [oltick()](#member-177)
-- [GridLines()](#member-180)
-- [tick()](#member-181)
-- [added(RenderTree.Slot slot)](#member-182)
-- [remove()](#member-183)
-- [showgrid(boolean show)](#member-185)
-- [MapClick(MapMesh cut)](#member-187)
-- [toString()](#member-188)
-- [tick()](#member-191)
-- [added(RenderTree.Slot slot)](#member-192)
-- [loading()](#member-193)
-- [camstats()](#member-194)
-- [stats()](#member-195)
-- [updsmap(DirLight light)](#member-200)
-- [drawsmap(Render out)](#member-201)
-- [amblight()](#member-204)
-- [LightCompiler(GSettings gprefs)](#member-208)
-- [valid(GSettings prefs)](#member-209)
-- [compile(Object[][] params, Projection proj)](#member-210)
-- [lights()](#member-212)
-- [updweather()](#member-215)
-- [drawadd(RenderTree.Node extra)](#member-216)
-- [player()](#member-217)
-- [getcc()](#member-218)
-- [Clickslot(Slot<? extends Rendered> bk, int id)](#member-235)
-- [obj()](#member-236)
-- [state()](#member-237)
-- [IDState(GroupPipe back)](#member-242)
-- [group(int idx)](#member-243)
-- [gstate(int id)](#member-244)
-- [nstates()](#member-245)
-- [Clicklist(RenderList.Adapter master, boolean doinst)](#member-246)
-- [add(Slot<? extends Rendered> slot)](#member-247)
-- [remove(Slot<? extends Rendered> slot)](#member-248)
-- [update(Slot<? extends Rendered> slot)](#member-249)
-- [update(Pipe group, int[] statemask)](#member-250)
-- [lock()](#member-251)
-- [slots()](#member-252)
-- [add(RenderList<R> list, Class<? extends R> type)](#member-253)
-- [remove(RenderList<?> list)](#member-254)
-- [basic(Pipe.Op st)](#member-255)
-- [sz()](#member-256)
-- [draw(Render out)](#member-257)
-- [get(Render out, Coord c, Consumer<ClickData> cb)](#member-258)
-- [fuzzyget(Render out, Coord c, int rad, Consumer<ClickData> cb)](#member-259)
-- [dispose()](#member-260)
-- [stats()](#member-261)
-- [clickbasic(Coord sz)](#member-269)
-- [checkmapclick(Render out, Pipe.Op basic, Coord c, Consumer<Coord2d> cb)](#member-270)
-- [checkgobclick(Render out, Pipe.Op basic, Coord c, Consumer<ClickData> cb)](#member-272)
-- [delay(Delayed d)](#member-273)
-- [delay2(Delayed d)](#member-274)
-- [undelay(Collection<Delayed> list, GOut g)](#member-275)
-- [PolText(Text text, double tm)](#member-278)
-- [setpoltext(int id, String text)](#member-281)
-- [poldraw(GOut g)](#member-282)
-- [drawarrow(GOut g, double a)](#member-283)
-- [clipxf(Coord3f mc, boolean doclip)](#member-284)
-- [screenxf(Coord3f mc)](#member-285)
-- [screenxf(Coord2d mc)](#member-286)
-- [screenangle(Coord2d mc, boolean clip)](#member-287)
-- [partydraw(GOut g)](#member-288)
-- [maindraw(Render out)](#member-289)
-- [draw(GOut g)](#member-292)
-- [checkload()](#member-295)
-- [tick(double dt)](#member-296)
-- [resize(Coord sz)](#member-297)
-- [public void adjust(Plob plob, Coord pc, Coord2d mc, int modflags);](#member-298)
-- [rotate(Plob plob, MouseWheelEvent data, int modflags)](#member-299)
-- [rotate(Plob plob, int amount, int modflags)](#member-300)
-- [adjust(Plob plob, Coord pc, Coord2d mc, int modflags)](#member-302)
-- [rotate(Plob plob, MouseWheelEvent data, int modflags)](#member-303)
-- [Plob(Indir<Resource> res, Message sdt)](#member-307)
-- [mv()](#member-308)
-- [move(Coord2d c, double a)](#member-309)
-- [move(Coord2d c)](#member-310)
-- [move(double a)](#member-311)
-- [place()](#member-312)
-- [Adjust(Coord c, int modflags)](#member-314)
-- [hit(Coord pc, Coord2d mc)](#member-315)
-- [toString()](#member-316)
-- [unflashol()](#member-319)
-- [flashol(Collection<String> ols, double tm)](#member-320)
-- [uimsg(String msg, Object... args)](#member-321)
-- [Maptest(Coord c)](#member-323)
-- [run()](#member-324)
-- [protected abstract void hit(Coord pc, Coord2d mc);](#member-325)
-- [nohit(Coord pc)](#member-326)
-- [Hittest(Coord c)](#member-331)
-- [run()](#member-332)
-- [ckdone(int fl)](#member-333)
-- [protected abstract void hit(Coord pc, Coord2d mc, ClickData inf);](#member-334)
-- [nohit(Coord pc)](#member-335)
-- [Click(Coord c, int b)](#member-337)
-- [hit(Coord pc, Coord2d mc, ClickData inf)](#member-338)
-- [grab(Grabber grab)](#member-339)
-- [release(Grabber grab)](#member-340)
-- [mousedown(MouseDownEvent ev)](#member-342)
-- [mousemove(MouseMoveEvent ev)](#member-343)
-- [mouseup(MouseUpEvent ev)](#member-344)
-- [mousewheel(MouseWheelEvent ev)](#member-345)
-- [drop(final Coord cc, Coord ul)](#member-346)
-- [iteminteract(Coord cc, Coord ul)](#member-347)
-- [keydown(KeyDownEvent ev)](#member-348)
-- [globtype(GlobKeyEvent ev)](#member-350)
-- [tooltip(Coord c, Widget prev)](#member-351)
-- [GrabXL(Grabber bk)](#member-354)
-- [mmousedown(Coord cc, final int button)](#member-355)
-- [mmouseup(Coord cc, final int button)](#member-356)
-- [mmousewheel(Coord cc, final int amount)](#member-357)
-- [mmousemove(Coord cc)](#member-358)
-- [Selector(Coord max)](#member-367)
-- [mmousedown(Coord mc, int button)](#member-368)
-- [getec(Coord mc)](#member-369)
-- [mmouseup(Coord mc, int button)](#member-370)
-- [mmousewheel(Coord mc, int amount)](#member-371)
-- [mmousemove(Coord mc)](#member-372)
-- [destroy()](#member-373)
-- [makecam(Class<? extends Camera> ct, String... args)](#member-374)
-- [restorecam()](#member-375)
-- [findcmds()](#member-377)
-- [newSelector()](#member-378)
-- [destroySelector()](#member-379)
-- [isPlanningObject()](#member-380)
-- [public void waitPlanObject() throws InterruptedException](#member-381)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-220"></a>
-##### `MAXID`
-
-- Description: TODO
-
-#### Fields
-
-<a id="member-1"></a>
-##### `clickdb`
-
-- Description: TODO
-
-<a id="member-2"></a>
-##### `plgob`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `cc`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `glob`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `view`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `delayed`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `delayed2`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `camera`
-
-- Description: TODO
-
-<a id="member-9"></a>
-##### `placing`
-
-- Description: TODO
-
-<a id="member-10"></a>
-##### `grab`
-
-- Description: TODO
-
-<a id="member-11"></a>
-##### `selection`
-
-- Description: TODO
-
-<a id="member-12"></a>
-##### `camoff`
-
-- Description: TODO
-
-<a id="member-13"></a>
-##### `shake`
-
-- Description: TODO
-
-<a id="member-14"></a>
-##### `plobpgran`
-
-- Description: TODO
-
-<a id="member-15"></a>
-##### `plobagran`
-
-- Description: TODO
-
-<a id="member-16"></a>
-##### `camtypes`
-
-- Description: TODO
-
-<a id="member-22"></a>
-##### `view`
-
-- Description: TODO
-
-<a id="member-23"></a>
-##### `proj`
-
-- Description: TODO
-
-<a id="member-35"></a>
-##### `fr`
-
-- Description: TODO
-
-<a id="member-36"></a>
-##### `h`
-
+Serves as the main in-world map interaction surface.
+Provides a place to own the current Haven `MapView` reference and map-view specific helpers.
+
+## Members
+
+### Constants
+
+#### `private static final Map<String, Class<? extends Camera>> camtypes = new HashMap<String, Class<? extends Camera>>()`
+
+- Description: TODO
+
+#### `private static final float maxang = (float)(Math.PI / 2 - 0.1)`
+
+- Description: TODO
+
+#### `private static final float mindist = 50.0f`
+
+- Description: TODO
+
+#### `private static final Material gridmat = new Material(new BaseColor(255, 255, 255, 48), States.maskdepth, new MapMesh.OLOrder(null),`
+
+- Description: TODO
+
+#### `public static final Uniform amblight_idx = new Uniform(Type.INT, p ->`
+
+- Description: TODO
+
+#### `public static final Pipe.Op clickbasic = Pipe.Op.compose(new States.Depthtest(States.Depthtest.Test.LE),`
+
+- Description: TODO
+
+#### `private static final int MAXID = 0xffffff`
+
+- Description: TODO
+
+#### `static final int idx_bas = 0, idx_idp = 1, idx_back = 2`
+
+- Description: TODO
+
+#### `static final int idx_bas = 0, idx_idp = 1, idx_back = 2`
+
+- Description: TODO
+
+#### `static final int idx_bas = 0, idx_idp = 1, idx_back = 2`
+
+- Description: TODO
+
+#### `private static final Text.Furnace polownertf = new PUtils.BlurFurn(new Text.Foundry(Text.serif, 30).aa(true), 3, 1, Color.BLACK)`
+
 - Description: TODO
 
-<a id="member-37"></a>
-##### `ca`
+#### `public static final KeyBinding kb_grid = KeyBinding.get("grid", KeyMatch.forchar('G', KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `cd`
+#### `public static final OverlayInfo selol = new OverlayInfo()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `curc`
+### Fields
 
+#### `public static boolean clickdb = false`
+
+- Description: TODO
+
+#### `public long plgob = -1`
+
+- Description: TODO
+
+#### `public Coord2d cc`
+
+- Description: TODO
+
+#### `private final Glob glob`
+
+- Description: TODO
+
+#### `private int view = 2`
+
+- Description: TODO
+
+#### `private Collection<Delayed> delayed = new LinkedList<Delayed>()`
+
+- Description: TODO
+
+#### `private Collection<Delayed> delayed2 = new LinkedList<Delayed>()`
+
+- Description: TODO
+
+#### `public Camera camera = restorecam()`
+
+- Description: TODO
+
+#### `private Loader.Future<Plob> placing = null`
+
 - Description: TODO
 
-<a id="member-40"></a>
-##### `elev`
+#### `private Grabber grab`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `telev`
+#### `private Selector selection`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `angl`
+#### `private Coord3f camoff = new Coord3f(Coord3f.o)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `tangl`
+#### `public double shake = 0.0`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `dragorig`
+#### `public static double plobpgran = Utils.getprefd("plobpgran", 8)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `anglorig`
+#### `public static double plobagran = Utils.getprefd("plobagran", 12)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `f0`
+#### `protected haven.render.Camera view = new haven.render.Camera(Matrix4f.identity())`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `f1`
+#### `protected Projection proj = new Projection(Matrix4f.identity())`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `f2`
+#### `private final float fr = 0.0f, h = 10.0f`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `fl`
+#### `private final float fr = 0.0f, h = 10.0f`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `fa`
+#### `private float ca, cd`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `fb`
+#### `private float ca, cd`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `maxang`
+#### `private Coord3f curc = null`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `mindist`
+#### `private float elev, telev`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `dist`
+#### `private float elev, telev`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `elev`
+#### `private float angl, tangl`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `angl`
+#### `private float angl, tangl`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `dragorig`
+#### `private Coord dragorig = null`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `elevorig`
+#### `private float anglorig`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `anglorig`
+#### `private double f0 = 0.2, f1 = 0.5, f2 = 0.9`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `dist`
+#### `private double f0 = 0.2, f1 = 0.5, f2 = 0.9`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `tdist`
+#### `private double f0 = 0.2, f1 = 0.5, f2 = 0.9`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `elev`
+#### `private double fl = Math.sqrt(2)`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `telev`
+#### `private double fa = ((fl * (f1 - f0)) - (f2 - f0)) / (fl - 2)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `angl`
+#### `private double fb = ((f2 - f0) - (2 * (f1 - f0))) / (fl - 2)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `tangl`
+#### `private float dist = 50.0f`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `dragorig`
+#### `private float elev = (float)Math.PI / 4.0f`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `elevorig`
+#### `private float angl = 0.0f`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `anglorig`
+#### `private Coord dragorig = null`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `pi2`
+#### `private float elevorig, anglorig`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `cc`
+#### `private float elevorig, anglorig`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `exact`
+#### `private float dist = 50.0f, tdist = dist`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `dfield`
+#### `private float dist = 50.0f, tdist = dist`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `dist`
+#### `private float elev = (float)Math.PI / 4.0f, telev = elev`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `elev`
+#### `private float elev = (float)Math.PI / 4.0f, telev = elev`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `angl`
+#### `private float angl = 0.0f, tangl = angl`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `field`
+#### `private float angl = 0.0f, tangl = angl`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `dragorig`
+#### `private Coord dragorig = null`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `anglorig`
+#### `private float elevorig, anglorig`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `cc`
+#### `private float elevorig, anglorig`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `jc`
+#### `private final float pi2 = (float)(Math.PI * 2)`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `kb_camleft`
+#### `private Coord3f cc = null`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `kb_camright`
+#### `public boolean exact = true`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `kb_camin`
+#### `protected float dfield = (float)(100 * Math.sqrt(2))`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `kb_camout`
+#### `protected float dist = 500.0f`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `kb_camreset`
+#### `protected float elev = (float)Math.PI / 6.0f`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `dragorig`
+#### `protected float angl = -(float)Math.PI / 4.0f`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `anglorig`
+#### `protected float field = dfield`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `tangl`
+#### `private Coord dragorig = null`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `tfield`
+#### `private float anglorig`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `isometric`
+#### `protected Coord3f cc, jc`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `pi2`
+#### `protected Coord3f cc, jc`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `tf`
+#### `public static KeyBinding kb_camleft = KeyBinding.get("cam-left", KeyMatch.forcode(KeyEvent.VK_LEFT, 0))`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `gobs`
+#### `public static KeyBinding kb_camright = KeyBinding.get("cam-right", KeyMatch.forcode(KeyEvent.VK_RIGHT, 0))`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `oc`
+#### `public static KeyBinding kb_camin = KeyBinding.get("cam-in", KeyMatch.forcode(KeyEvent.VK_UP, 0))`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `adding`
+#### `public static KeyBinding kb_camout = KeyBinding.get("cam-out", KeyMatch.forcode(KeyEvent.VK_DOWN, 0))`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `current`
+#### `public static KeyBinding kb_camreset = KeyBinding.get("cam-reset", KeyMatch.forcode(KeyEvent.VK_HOME, 0))`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `slot`
+#### `private Coord dragorig = null`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `map`
+#### `private float anglorig`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `area`
+#### `private float tangl = angl`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `lastload`
+#### `private float tfield = field`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `cuts`
+#### `private boolean isometric = true`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `position`
+#### `private final float pi2 = (float)(Math.PI * 2)`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `lastload`
+#### `private double tf = 1.0`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `terrain`
+#### `private final Gobs gobs`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `main`
+#### `final OCache oc = glob.oc`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `flavobjs`
+#### `final Map<Gob, Loader.Future<?>> adding = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `id`
+#### `final Map<Gob, RenderTree.Slot> current = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-166"></a>
-##### `rc`
+#### `RenderTree.Slot slot`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `used`
+#### `final MCache map = glob.map`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `base`
+#### `Area area`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `outl`
+#### `Loading lastload = new Loading("Initializing map...")`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `oltags`
+#### `final Map<Coord, Pair<T, RenderTree.Slot>> cuts = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `ols`
+#### `final boolean position`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `gridmat`
+#### `Loading lastload = new Loading("Initializing map...")`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `grid`
+#### `public final Terrain terrain`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `gridlines`
+#### `final Grid main = new Grid<MapMesh>()`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `cut`
+#### `final Grid flavobjs = new Grid<RenderTree.Node>(false)`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `clickmap`
+#### `final OverlayInfo id`
 
 - Description: TODO
 
-<a id="member-190"></a>
-##### `grid`
+#### `int rc = 0`
 
 - Description: TODO
 
-<a id="member-196"></a>
-##### `smapcc`
+#### `boolean used`
 
 - Description: TODO
 
-<a id="member-197"></a>
-##### `slist`
+#### `final Grid base = new Grid<RenderTree.Node>()`
 
 - Description: TODO
 
-<a id="member-198"></a>
-##### `smap`
+#### `final Grid outl = new Grid<RenderTree.Node>()`
 
 - Description: TODO
 
-<a id="member-199"></a>
-##### `lsmch`
+#### `private final Map<String, Integer> oltags = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-202"></a>
-##### `amblight`
+#### `private final Map<OverlayInfo, Overlay> ols = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-203"></a>
-##### `s_amblight`
+#### `final Grid grid = new Grid<RenderTree.Node>()`
 
 - Description: TODO
 
-<a id="member-205"></a>
-##### `gprefs`
+#### `GridLines gridlines = null`
 
 - Description: TODO
 
-<a id="member-206"></a>
-##### `zgrid`
+#### `final MapMesh cut`
 
 - Description: TODO
 
-<a id="member-207"></a>
-##### `maxlights`
+#### `private final ClickMap clickmap`
 
 - Description: TODO
 
-<a id="member-211"></a>
-##### `lighting`
+#### `final Grid grid = new Grid<MapMesh>()`
 
 - Description: TODO
 
-<a id="member-213"></a>
-##### `amblight_idx`
+#### `private Coord3f smapcc = null`
 
 - Description: TODO
 
-<a id="member-214"></a>
-##### `rweather`
+#### `private ShadowMap.ShadowList slist = null`
 
 - Description: TODO
 
-<a id="member-219"></a>
-##### `clickbasic`
+#### `private ShadowMap smap = null`
 
 - Description: TODO
 
-<a id="member-221"></a>
-##### `master`
+#### `private double lsmch = 0`
 
 - Description: TODO
 
-<a id="member-222"></a>
-##### `doinst`
+#### `public DirLight amblight = null`
 
 - Description: TODO
 
-<a id="member-223"></a>
-##### `basic`
+#### `private RenderTree.Slot s_amblight = null`
 
 - Description: TODO
 
-<a id="member-224"></a>
-##### `slots`
+#### `public final GSettings gprefs`
 
 - Description: TODO
 
-<a id="member-225"></a>
-##### `idmap`
+#### `private final Lighting.LightGrid zgrid`
 
 - Description: TODO
 
-<a id="member-226"></a>
-##### `curbasic`
+#### `private final int maxlights`
 
 - Description: TODO
 
-<a id="member-227"></a>
-##### `back`
+#### `private LightCompiler lighting`
 
 - Description: TODO
 
-<a id="member-228"></a>
-##### `draw`
+#### `private final Map<RenderTree.Node, RenderTree.Slot> rweather = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-229"></a>
-##### `instancer`
+#### `private final RenderList.Adapter master`
 
 - Description: TODO
 
-<a id="member-230"></a>
-##### `nextid`
+#### `private final boolean doinst`
 
 - Description: TODO
 
-<a id="member-231"></a>
-##### `bk`
+#### `private final ProxyPipe basic = new ProxyPipe()`
 
 - Description: TODO
 
-<a id="member-232"></a>
-##### `id`
+#### `private final Map<Slot<? extends Rendered>, Clickslot> slots = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-233"></a>
-##### `idp`
+#### `private final Map<Integer, Clickslot> idmap = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-234"></a>
-##### `state`
+#### `private DefPipe curbasic = null`
 
 - Description: TODO
 
-<a id="member-238"></a>
-##### `idx_bas`
+#### `private RenderList<Rendered> back`
 
 - Description: TODO
 
-<a id="member-239"></a>
-##### `idx_idp`
+#### `private DrawList draw`
 
 - Description: TODO
 
-<a id="member-240"></a>
-##### `idx_back`
+#### `private InstanceList instancer`
 
 - Description: TODO
 
-<a id="member-241"></a>
-##### `back`
+#### `private int nextid = 1`
 
 - Description: TODO
 
-<a id="member-262"></a>
-##### `clmaptree`
+#### `public final Slot<? extends Rendered> bk`
 
 - Description: TODO
 
-<a id="member-263"></a>
-##### `clmaplist`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-264"></a>
-##### `clobjlist`
+#### `final Pipe idp`
 
 - Description: TODO
 
-<a id="member-265"></a>
-##### `clickid`
+#### `private GroupPipe state`
 
 - Description: TODO
 
-<a id="member-266"></a>
-##### `clickloc`
+#### `final GroupPipe back`
 
 - Description: TODO
 
-<a id="member-267"></a>
-##### `clickdepth`
+#### `private final RenderTree clmaptree = new RenderTree()`
 
 - Description: TODO
 
-<a id="member-268"></a>
-##### `curclickbasic`
+#### `private final Clicklist clmaplist = new Clicklist(clmaptree, false)`
 
 - Description: TODO
 
-<a id="member-271"></a>
-##### `gobclfuzz`
+#### `private final Clicklist clobjlist = new Clicklist(tree, true)`
 
 - Description: TODO
 
-<a id="member-276"></a>
-##### `text`
+#### `private FragID<Texture.Image<Texture2D>> clickid`
 
 - Description: TODO
 
-<a id="member-277"></a>
-##### `tm`
+#### `private ClickLocation<Texture.Image<Texture2D>> clickloc`
 
 - Description: TODO
 
-<a id="member-279"></a>
-##### `polownertf`
+#### `private DepthBuffer<Texture.Image<Texture2D>> clickdepth`
 
 - Description: TODO
 
-<a id="member-280"></a>
-##### `polowners`
+#### `private Pipe.Op curclickbasic`
 
 - Description: TODO
 
-<a id="member-290"></a>
-##### `camload`
+#### `private static int gobclfuzz = 3`
 
 - Description: TODO
 
-<a id="member-291"></a>
-##### `lastload`
+#### `Text text; double tm`
 
 - Description: TODO
 
-<a id="member-293"></a>
-##### `initload`
+#### `Text text; double tm`
 
 - Description: TODO
 
-<a id="member-294"></a>
-##### `initdraw`
+#### `private final Map<Integer, PolText> polowners = new HashMap<Integer, PolText>()`
 
 - Description: TODO
 
-<a id="member-301"></a>
-##### `freerot`
+#### `private Loading camload = null, lastload = null`
 
 - Description: TODO
 
-<a id="member-304"></a>
-##### `adjust`
+#### `private Loading camload = null, lastload = null`
 
 - Description: TODO
 
-<a id="member-305"></a>
-##### `lastmc`
+#### `private double initload = -2`
 
 - Description: TODO
 
-<a id="member-306"></a>
-##### `slot`
+#### `private boolean initdraw = false`
 
 - Description: TODO
 
-<a id="member-313"></a>
-##### `modflags`
+#### `boolean freerot = false`
 
 - Description: TODO
 
-<a id="member-317"></a>
-##### `olflash`
+#### `public PlobAdjust adjust = new StdPlace()`
 
 - Description: TODO
 
-<a id="member-318"></a>
-##### `olftimer`
+#### `Coord lastmc = null`
 
 - Description: TODO
 
-<a id="member-322"></a>
-##### `pc`
+#### `RenderTree.Slot slot`
 
 - Description: TODO
 
-<a id="member-327"></a>
-##### `pc`
+#### `int modflags`
 
 - Description: TODO
 
-<a id="member-328"></a>
-##### `mapcl`
+#### `private Collection<String> olflash = null`
 
 - Description: TODO
 
-<a id="member-329"></a>
-##### `objcl`
+#### `private double olftimer`
 
 - Description: TODO
 
-<a id="member-330"></a>
-##### `dfl`
+#### `private final Coord pc`
 
 - Description: TODO
 
-<a id="member-336"></a>
-##### `clickb`
+#### `private final Coord pc`
 
 - Description: TODO
 
-<a id="member-341"></a>
-##### `camdrag`
+#### `private Coord2d mapcl`
 
 - Description: TODO
 
-<a id="member-349"></a>
-##### `kb_grid`
+#### `private ClickData objcl`
 
 - Description: TODO
 
-<a id="member-352"></a>
-##### `bk`
+#### `private int dfl = 0`
 
 - Description: TODO
 
-<a id="member-353"></a>
-##### `mv`
+#### `int clickb`
 
 - Description: TODO
 
-<a id="member-359"></a>
-##### `selol`
+#### `private UI.Grab camdrag = null`
 
 - Description: TODO
 
-<a id="member-360"></a>
-##### `max`
+#### `private final Grabber bk`
 
 - Description: TODO
 
-<a id="member-361"></a>
-##### `sc`
+#### `public boolean mv = false`
 
 - Description: TODO
 
-<a id="member-362"></a>
-##### `modflags`
+#### `public final Coord max`
 
 - Description: TODO
 
-<a id="member-363"></a>
-##### `ol`
+#### `public Coord sc`
 
 - Description: TODO
 
-<a id="member-364"></a>
-##### `mgrab`
+#### `public int modflags`
 
 - Description: TODO
 
-<a id="member-365"></a>
-##### `tt`
+#### `private MCache.RectOverlay ol`
 
 - Description: TODO
 
-<a id="member-366"></a>
-##### `xl`
+#### `private UI.Grab mgrab`
 
 - Description: TODO
 
-<a id="member-376"></a>
-##### `cmdmap`
+#### `private Text tt`
 
 - Description: TODO
 
-#### Methods
+#### `final GrabXL xl = new GrabXL(this)`
 
-<a id="member-17"></a>
-##### `public void run(GOut g);`
+- Description: TODO
+
+#### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
+
+- Description: TODO
 
+### Methods
+
+#### `public void run(GOut g)`
+
 - Description: TODO
 
-<a id="member-18"></a>
-##### `boolean mmousedown(Coord mc, int button);`
+#### `boolean mmousedown(Coord mc, int button)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `boolean mmouseup(Coord mc, int button);`
+#### `boolean mmouseup(Coord mc, int button)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `boolean mmousewheel(Coord mc, int amount);`
+#### `boolean mmousewheel(Coord mc, int amount)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `void mmousemove(Coord mc);`
+#### `void mmousemove(Coord mc)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `Camera()`
+#### `public Camera()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `click(Coord sc)`
+#### `public boolean click(Coord sc)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `drag(Coord sc)`
+#### `public void drag(Coord sc)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `release()`
+#### `public void release()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `wheel(MouseWheelEvent ev)`
+#### `public boolean wheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `resized()`
+#### `public void resized()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `apply(Pipe p)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `public abstract float angle();`
+#### `public abstract float angle()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `public abstract void tick(double dt);`
+#### `public abstract void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `stats()`
+#### `public String stats()`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `FollowCam()`
+#### `public FollowCam()`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `resized()`
+#### `public void resized()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `click(Coord c)`
+#### `public boolean click(Coord c)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `drag(Coord c)`
+#### `public void drag(Coord c)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `field(float elev)`
+#### `private float field(float elev)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `dist(float elev)`
+#### `private float dist(float elev)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `angle()`
+#### `public float angle()`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `wheel(MouseWheelEvent ev)`
+#### `public boolean wheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `stats()`
+#### `public String stats()`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `angle()`
+#### `public float angle()`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `click(Coord c)`
+#### `public boolean click(Coord c)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `drag(Coord c)`
+#### `public void drag(Coord c)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `wheel(MouseWheelEvent ev)`
+#### `public boolean wheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `angle()`
+#### `public float angle()`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `click(Coord c)`
+#### `public boolean click(Coord c)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `drag(Coord c)`
+#### `public void drag(Coord c)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `wheel(MouseWheelEvent ev)`
+#### `public boolean wheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `tick2(double dt)`
+#### `public void tick2(double dt)`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `angle()`
+#### `public float angle()`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `click(Coord c)`
+#### `public boolean click(Coord c)`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `drag(Coord c)`
+#### `public void drag(Coord c)`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `stats()`
+#### `public String stats()`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `SOrthoCam(String... args)`
+#### `public SOrthoCam(String... args)`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `tick2(double dt)`
+#### `public void tick2(double dt)`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `click(Coord c)`
+#### `public boolean click(Coord c)`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `drag(Coord c)`
+#### `public void drag(Coord c)`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `release()`
+#### `public void release()`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `chfield(float nf)`
+#### `private void chfield(float nf)`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `wheel(MouseWheelEvent ev)`
+#### `public boolean wheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `create(UI ui, Object[] args)`
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `envdispose()`
+#### `public MapView(Coord sz, Glob glob, Coord2d cc, long plgob)`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `dispose()`
+#### `protected void envdispose()`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `visol(String tag)`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `enol(String tag)`
+#### `public boolean visol(String tag)`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `disol(String tag)`
+#### `public void enol(String tag)`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `addgob(Gob ob)`
+#### `public void disol(String tag)`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `added(RenderTree.Slot slot)`
+#### `private void addgob(Gob ob)`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `added(Gob ob)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `removed(Gob ob)`
+#### `public void added(Gob ob)`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `loading()`
+#### `public void removed(Gob ob)`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `Grid(boolean position)`
+#### `public Loading loading()`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `Grid()`
+#### `Grid(boolean position)`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `abstract T getcut(Coord cc);`
+#### `Grid()`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `produce(T cut)`
+#### `abstract T getcut(Coord cc)`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `tick()`
+#### `RenderTree.Node produce(T cut)`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `void tick()`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `tick()`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `loading()`
+#### `void tick()`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `Terrain()`
+#### `public Loading loading()`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `tick()`
+#### `private Terrain()`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `added(RenderTree.Slot slot)`
+#### `void tick()`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `loading()`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `Overlay(OverlayInfo id)`
+#### `public Loading loading()`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `tick()`
+#### `private Overlay(OverlayInfo id)`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `added(RenderTree.Slot slot)`
+#### `void tick()`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `loading()`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `remove()`
+#### `public Loading loading()`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `oltick()`
+#### `public void remove()`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `GridLines()`
+#### `private void oltick()`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `tick()`
+#### `private GridLines()`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `added(RenderTree.Slot slot)`
+#### `void tick()`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `remove()`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `showgrid(boolean show)`
+#### `public void remove()`
 
 - Description: TODO
 
-<a id="member-187"></a>
-##### `MapClick(MapMesh cut)`
+#### `public void showgrid(boolean show)`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `toString()`
+#### `MapClick(MapMesh cut)`
 
 - Description: TODO
 
-<a id="member-191"></a>
-##### `tick()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-192"></a>
-##### `added(RenderTree.Slot slot)`
+#### `void tick()`
 
 - Description: TODO
 
-<a id="member-193"></a>
-##### `loading()`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-194"></a>
-##### `camstats()`
+#### `public Loading loading()`
 
 - Description: TODO
 
-<a id="member-195"></a>
-##### `stats()`
+#### `public String camstats()`
 
 - Description: TODO
 
-<a id="member-200"></a>
-##### `updsmap(DirLight light)`
+#### `public String stats()`
 
 - Description: TODO
 
-<a id="member-201"></a>
-##### `drawsmap(Render out)`
+#### `private void updsmap(DirLight light)`
 
 - Description: TODO
 
-<a id="member-204"></a>
-##### `amblight()`
+#### `private void drawsmap(Render out)`
 
 - Description: TODO
 
-<a id="member-208"></a>
-##### `LightCompiler(GSettings gprefs)`
+#### `private void amblight()`
 
 - Description: TODO
 
-<a id="member-209"></a>
-##### `valid(GSettings prefs)`
+#### `public LightCompiler(GSettings gprefs)`
 
 - Description: TODO
 
-<a id="member-210"></a>
-##### `compile(Object[][] params, Projection proj)`
+#### `public boolean valid(GSettings prefs)`
 
 - Description: TODO
 
-<a id="member-212"></a>
-##### `lights()`
+#### `public Pipe.Op compile(Object[][] params, Projection proj)`
 
 - Description: TODO
 
-<a id="member-215"></a>
-##### `updweather()`
+#### `protected void lights()`
 
 - Description: TODO
 
-<a id="member-216"></a>
-##### `drawadd(RenderTree.Node extra)`
+#### `private void updweather()`
 
 - Description: TODO
 
-<a id="member-217"></a>
-##### `player()`
+#### `public RenderTree.Slot drawadd(RenderTree.Node extra)`
 
 - Description: TODO
 
-<a id="member-218"></a>
-##### `getcc()`
+#### `public Gob player()`
 
 - Description: TODO
 
-<a id="member-235"></a>
-##### `Clickslot(Slot<? extends Rendered> bk, int id)`
+#### `public Coord3f getcc()`
 
 - Description: TODO
 
-<a id="member-236"></a>
-##### `obj()`
+#### `public Clickslot(Slot<? extends Rendered> bk, int id)`
 
 - Description: TODO
 
-<a id="member-237"></a>
-##### `state()`
+#### `public Rendered obj()`
 
 - Description: TODO
 
-<a id="member-242"></a>
-##### `IDState(GroupPipe back)`
+#### `public GroupPipe state()`
 
 - Description: TODO
 
-<a id="member-243"></a>
-##### `group(int idx)`
+#### `IDState(GroupPipe back)`
 
 - Description: TODO
 
-<a id="member-244"></a>
-##### `gstate(int id)`
+#### `public Pipe group(int idx)`
 
 - Description: TODO
 
-<a id="member-245"></a>
-##### `nstates()`
+#### `public int gstate(int id)`
 
 - Description: TODO
 
-<a id="member-246"></a>
-##### `Clicklist(RenderList.Adapter master, boolean doinst)`
+#### `public int nstates()`
 
 - Description: TODO
 
-<a id="member-247"></a>
-##### `add(Slot<? extends Rendered> slot)`
+#### `public Clicklist(RenderList.Adapter master, boolean doinst)`
 
 - Description: TODO
 
-<a id="member-248"></a>
-##### `remove(Slot<? extends Rendered> slot)`
+#### `public void add(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-249"></a>
-##### `update(Slot<? extends Rendered> slot)`
+#### `public void remove(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-250"></a>
-##### `update(Pipe group, int[] statemask)`
+#### `public void update(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-251"></a>
-##### `lock()`
+#### `public void update(Pipe group, int[] statemask)`
 
 - Description: TODO
 
-<a id="member-252"></a>
-##### `slots()`
+#### `public Locked lock()`
 
 - Description: TODO
 
-<a id="member-253"></a>
-##### `add(RenderList<R> list, Class<? extends R> type)`
+#### `public Iterable<? extends Slot<?>> slots()`
 
 - Description: TODO
 
-<a id="member-254"></a>
-##### `remove(RenderList<?> list)`
+#### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
 
 - Description: TODO
 
-<a id="member-255"></a>
-##### `basic(Pipe.Op st)`
+#### `public void remove(RenderList<?> list)`
 
 - Description: TODO
 
-<a id="member-256"></a>
-##### `sz()`
+#### `public void basic(Pipe.Op st)`
 
 - Description: TODO
 
-<a id="member-257"></a>
-##### `draw(Render out)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-258"></a>
-##### `get(Render out, Coord c, Consumer<ClickData> cb)`
+#### `public void draw(Render out)`
 
 - Description: TODO
 
-<a id="member-259"></a>
-##### `fuzzyget(Render out, Coord c, int rad, Consumer<ClickData> cb)`
+#### `public void get(Render out, Coord c, Consumer<ClickData> cb)`
 
 - Description: TODO
 
-<a id="member-260"></a>
-##### `dispose()`
+#### `public void fuzzyget(Render out, Coord c, int rad, Consumer<ClickData> cb)`
 
 - Description: TODO
 
-<a id="member-261"></a>
-##### `stats()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-269"></a>
-##### `clickbasic(Coord sz)`
+#### `public String stats()`
 
 - Description: TODO
 
-<a id="member-270"></a>
-##### `checkmapclick(Render out, Pipe.Op basic, Coord c, Consumer<Coord2d> cb)`
+#### `private Pipe.Op clickbasic(Coord sz)`
 
 - Description: TODO
 
-<a id="member-272"></a>
-##### `checkgobclick(Render out, Pipe.Op basic, Coord c, Consumer<ClickData> cb)`
+#### `private void checkmapclick(Render out, Pipe.Op basic, Coord c, Consumer<Coord2d> cb)`
 
 - Description: TODO
 
-<a id="member-273"></a>
-##### `delay(Delayed d)`
+#### `private void checkgobclick(Render out, Pipe.Op basic, Coord c, Consumer<ClickData> cb)`
 
 - Description: TODO
 
-<a id="member-274"></a>
-##### `delay2(Delayed d)`
+#### `public void delay(Delayed d)`
 
 - Description: TODO
 
-<a id="member-275"></a>
-##### `undelay(Collection<Delayed> list, GOut g)`
+#### `public void delay2(Delayed d)`
 
 - Description: TODO
 
-<a id="member-278"></a>
-##### `PolText(Text text, double tm)`
+#### `protected void undelay(Collection<Delayed> list, GOut g)`
 
 - Description: TODO
 
-<a id="member-281"></a>
-##### `setpoltext(int id, String text)`
+#### `PolText(Text text, double tm)`
 
 - Description: TODO
 
-<a id="member-282"></a>
-##### `poldraw(GOut g)`
+#### `public void setpoltext(int id, String text)`
 
 - Description: TODO
 
-<a id="member-283"></a>
-##### `drawarrow(GOut g, double a)`
+#### `private void poldraw(GOut g)`
 
 - Description: TODO
 
-<a id="member-284"></a>
-##### `clipxf(Coord3f mc, boolean doclip)`
+#### `private void drawarrow(GOut g, double a)`
 
 - Description: TODO
 
-<a id="member-285"></a>
-##### `screenxf(Coord3f mc)`
+#### `public HomoCoord4f clipxf(Coord3f mc, boolean doclip)`
 
 - Description: TODO
 
-<a id="member-286"></a>
-##### `screenxf(Coord2d mc)`
+#### `public Coord3f screenxf(Coord3f mc)`
 
 - Description: TODO
 
-<a id="member-287"></a>
-##### `screenangle(Coord2d mc, boolean clip)`
+#### `public Coord3f screenxf(Coord2d mc)`
 
 - Description: TODO
 
-<a id="member-288"></a>
-##### `partydraw(GOut g)`
+#### `public double screenangle(Coord2d mc, boolean clip)`
 
 - Description: TODO
 
-<a id="member-289"></a>
-##### `maindraw(Render out)`
+#### `private void partydraw(GOut g)`
 
 - Description: TODO
 
-<a id="member-292"></a>
-##### `draw(GOut g)`
+#### `protected void maindraw(Render out)`
 
 - Description: TODO
 
-<a id="member-295"></a>
-##### `checkload()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-296"></a>
-##### `tick(double dt)`
+#### `private void checkload()`
 
 - Description: TODO
 
-<a id="member-297"></a>
-##### `resize(Coord sz)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-298"></a>
-##### `public void adjust(Plob plob, Coord pc, Coord2d mc, int modflags);`
+#### `public void resize(Coord sz)`
 
 - Description: TODO
 
-<a id="member-299"></a>
-##### `rotate(Plob plob, MouseWheelEvent data, int modflags)`
+#### `public void adjust(Plob plob, Coord pc, Coord2d mc, int modflags)`
 
 - Description: TODO
 
-<a id="member-300"></a>
-##### `rotate(Plob plob, int amount, int modflags)`
+#### `public default boolean rotate(Plob plob, MouseWheelEvent data, int modflags)`
 
 - Description: TODO
 
-<a id="member-302"></a>
-##### `adjust(Plob plob, Coord pc, Coord2d mc, int modflags)`
+#### `@Deprecated public default boolean rotate(Plob plob, int amount, int modflags)`
 
 - Description: TODO
 
-<a id="member-303"></a>
-##### `rotate(Plob plob, MouseWheelEvent data, int modflags)`
+#### `public void adjust(Plob plob, Coord pc, Coord2d mc, int modflags)`
 
 - Description: TODO
 
-<a id="member-307"></a>
-##### `Plob(Indir<Resource> res, Message sdt)`
+#### `public boolean rotate(Plob plob, MouseWheelEvent data, int modflags)`
 
 - Description: TODO
 
-<a id="member-308"></a>
-##### `mv()`
+#### `private Plob(Indir<Resource> res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-309"></a>
-##### `move(Coord2d c, double a)`
+#### `public MapView mv()`
 
 - Description: TODO
 
-<a id="member-310"></a>
-##### `move(Coord2d c)`
+#### `public void move(Coord2d c, double a)`
 
 - Description: TODO
 
-<a id="member-311"></a>
-##### `move(double a)`
+#### `public void move(Coord2d c)`
 
 - Description: TODO
 
-<a id="member-312"></a>
-##### `place()`
+#### `public void move(double a)`
 
 - Description: TODO
 
-<a id="member-314"></a>
-##### `Adjust(Coord c, int modflags)`
+#### `void place()`
 
 - Description: TODO
 
-<a id="member-315"></a>
-##### `hit(Coord pc, Coord2d mc)`
+#### `Adjust(Coord c, int modflags)`
 
 - Description: TODO
 
-<a id="member-316"></a>
-##### `toString()`
+#### `public void hit(Coord pc, Coord2d mc)`
 
 - Description: TODO
 
-<a id="member-319"></a>
-##### `unflashol()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-320"></a>
-##### `flashol(Collection<String> ols, double tm)`
+#### `private void unflashol()`
 
 - Description: TODO
 
-<a id="member-321"></a>
-##### `uimsg(String msg, Object... args)`
+#### `private void flashol(Collection<String> ols, double tm)`
 
 - Description: TODO
 
-<a id="member-323"></a>
-##### `Maptest(Coord c)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-324"></a>
-##### `run()`
+#### `public Maptest(Coord c)`
 
 - Description: TODO
 
-<a id="member-325"></a>
-##### `protected abstract void hit(Coord pc, Coord2d mc);`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-326"></a>
-##### `nohit(Coord pc)`
+#### `protected abstract void hit(Coord pc, Coord2d mc)`
 
 - Description: TODO
 
-<a id="member-331"></a>
-##### `Hittest(Coord c)`
+#### `protected void nohit(Coord pc)`
 
 - Description: TODO
 
-<a id="member-332"></a>
-##### `run()`
+#### `public Hittest(Coord c)`
 
 - Description: TODO
 
-<a id="member-333"></a>
-##### `ckdone(int fl)`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-334"></a>
-##### `protected abstract void hit(Coord pc, Coord2d mc, ClickData inf);`
+#### `private void ckdone(int fl)`
 
 - Description: TODO
 
-<a id="member-335"></a>
-##### `nohit(Coord pc)`
+#### `protected abstract void hit(Coord pc, Coord2d mc, ClickData inf)`
 
 - Description: TODO
 
-<a id="member-337"></a>
-##### `Click(Coord c, int b)`
+#### `protected void nohit(Coord pc)`
 
 - Description: TODO
 
-<a id="member-338"></a>
-##### `hit(Coord pc, Coord2d mc, ClickData inf)`
+#### `private Click(Coord c, int b)`
 
 - Description: TODO
 
-<a id="member-339"></a>
-##### `grab(Grabber grab)`
+#### `protected void hit(Coord pc, Coord2d mc, ClickData inf)`
 
 - Description: TODO
 
-<a id="member-340"></a>
-##### `release(Grabber grab)`
+#### `public void grab(Grabber grab)`
 
 - Description: TODO
 
-<a id="member-342"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void release(Grabber grab)`
 
 - Description: TODO
 
-<a id="member-343"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-344"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO
 
-<a id="member-345"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-346"></a>
-##### `drop(final Coord cc, Coord ul)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-347"></a>
-##### `iteminteract(Coord cc, Coord ul)`
+#### `public boolean drop(final Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-348"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public boolean iteminteract(Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-350"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-351"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-354"></a>
-##### `GrabXL(Grabber bk)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-355"></a>
-##### `mmousedown(Coord cc, final int button)`
+#### `public GrabXL(Grabber bk)`
 
 - Description: TODO
 
-<a id="member-356"></a>
-##### `mmouseup(Coord cc, final int button)`
+#### `public boolean mmousedown(Coord cc, final int button)`
 
 - Description: TODO
 
-<a id="member-357"></a>
-##### `mmousewheel(Coord cc, final int amount)`
+#### `public boolean mmouseup(Coord cc, final int button)`
 
 - Description: TODO
 
-<a id="member-358"></a>
-##### `mmousemove(Coord cc)`
+#### `public boolean mmousewheel(Coord cc, final int amount)`
 
 - Description: TODO
 
-<a id="member-367"></a>
-##### `Selector(Coord max)`
+#### `public void mmousemove(Coord cc)`
 
 - Description: TODO
 
-<a id="member-368"></a>
-##### `mmousedown(Coord mc, int button)`
+#### `public Selector(Coord max)`
 
 - Description: TODO
 
-<a id="member-369"></a>
-##### `getec(Coord mc)`
+#### `public boolean mmousedown(Coord mc, int button)`
 
 - Description: TODO
 
-<a id="member-370"></a>
-##### `mmouseup(Coord mc, int button)`
+#### `public Coord getec(Coord mc)`
 
 - Description: TODO
 
-<a id="member-371"></a>
-##### `mmousewheel(Coord mc, int amount)`
+#### `public boolean mmouseup(Coord mc, int button)`
 
 - Description: TODO
 
-<a id="member-372"></a>
-##### `mmousemove(Coord mc)`
+#### `public boolean mmousewheel(Coord mc, int amount)`
 
 - Description: TODO
 
-<a id="member-373"></a>
-##### `destroy()`
+#### `public void mmousemove(Coord mc)`
 
 - Description: TODO
 
-<a id="member-374"></a>
-##### `makecam(Class<? extends Camera> ct, String... args)`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-375"></a>
-##### `restorecam()`
+#### `private Camera makecam(Class<? extends Camera> ct, String... args)`
 
 - Description: TODO
 
-<a id="member-377"></a>
-##### `findcmds()`
+#### `private Camera restorecam()`
 
 - Description: TODO
 
-<a id="member-378"></a>
-##### `newSelector()`
+#### `public Map<String, Console.Command> findcmds()`
 
 - Description: TODO
 
-<a id="member-379"></a>
-##### `destroySelector()`
+#### `public void newSelector()`
 
 - Description: TODO
 
-<a id="member-380"></a>
-##### `isPlanningObject()`
+#### `public void destroySelector()`
 
 - Description: TODO
 
-<a id="member-381"></a>
-##### `public void waitPlanObject() throws InterruptedException`
+#### `public boolean isPlanningObject()`
 
-- Description: TODO## Rules
+- Description: TODO
 
-- `MapView` reference ownership should live in the bridge layer, not in `AppContext`.
-- map-view reads and map-view message sending should stay in one interaction area.
-- bridge helpers should keep raw Haven access narrow and hand structured results to runtime/waypoint code.
+#### `public void waitPlanObject() throws InterruptedException`
+
+- Description: TODO

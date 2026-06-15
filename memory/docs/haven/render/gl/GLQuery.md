@@ -1,5 +1,7 @@
 # GLQuery
 
+This file documents the responsibilities and members of `GLQuery`.
+
 ## Meta
 
 - Source: [GLQuery.java](../../../../../src/haven/render/gl/GLQuery.java)
@@ -8,33 +10,28 @@
 
 ## Role
 
-- Represents a GL query.
+Represents a GL query.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public abstract boolean check(GL gl);](#member-1)
-- [public abstract void abort();](#member-2)
-- [abortcreate()](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public abstract boolean check(GL gl);`
+#### `public GLQuery(GLEnvironment env)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public abstract void abort();`
+#### `public abstract boolean check(GL gl)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `abortcreate()`
+#### `public abstract void abort()`
+
+- Description: TODO
+
+#### `public void abortcreate()`
 
 - Description: TODO

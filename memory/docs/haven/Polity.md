@@ -1,5 +1,7 @@
 # Polity
 
+This file documents the responsibilities and members of `Polity`.
+
 ## Meta
 
 - Source: [Polity.java](../../../src/haven/Polity.java)
@@ -8,242 +10,182 @@
 
 ## Role
 
-- Represents polity or faction state.
+Represents polity or faction state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [cap](#member-1)
-- [name](#member-2)
-- [auth](#member-3)
-- [acap](#member-4)
-- [adrain](#member-5)
-- [aseq](#member-6)
-- [offline](#member-7)
-- [memb](#member-8)
-- [idmap](#member-9)
-- [mw](#member-10)
-- [unk](#member-11)
-- [self](#member-12)
-- [id](#member-13)
-- [id](#member-25)
-- [nmf](#member-27)
-- [membf](#member-28)
-- [aseq](#member-30)
-- [rauth](#member-31)
-
-#### Methods
-
-- [Member(Integer id)](#member-14)
-- [draw(GOut g)](#member-15)
-- [MemberList(Coord sz)](#member-16)
-- [MemberList(int w, int h)](#member-17)
-- [allitems()](#member-18)
-- [itemname(Member m)](#member-19)
-- [searchmatch(Member m, String txt)](#member-20)
-- [makeitem(Member m, int idx, Coord sz)](#member-21)
-- [drawbg(GOut g)](#member-22)
-- [drawslot(GOut g, Member m, int idx, Area area)](#member-23)
-- [change(Member pm)](#member-24)
-- [MemberWidget(Coord sz, Integer id)](#member-26)
-- [AuthMeter(Coord sz)](#member-29)
-- [draw(GOut g)](#member-32)
-- [tooltip(Coord c, Widget prev)](#member-33)
-- [parsememb(Object[] args)](#member-34)
-- [uimsg(String msg, Object... args)](#member-35)
-- [addchild(Widget child, Object... args)](#member-36)
-- [cdestroy(Widget w)](#member-37)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cap`
+### AuthMeter
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name`
+### Member
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `auth`
+### MemberList
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `acap`
+### MemberWidget
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `adrain`
+## Members
+
+### Constants
+
+#### `public static final Text unk = Text.render("???")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `aseq`
+#### `public static final Text self = Text.render("You", new Color(192, 192, 255))`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `offline`
+#### `public static final Text.Foundry nmf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(14))).aa(true)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `memb`
+#### `public static final Text.Foundry membf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(12))).aa(true)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `idmap`
+### Fields
+
+#### `public final String cap, name`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mw`
+#### `public final String cap, name`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `unk`
+#### `public int auth, acap, adrain, aseq`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `self`
+#### `public int auth, acap, adrain, aseq`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `id`
+#### `public int auth, acap, adrain, aseq`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `id`
+#### `public int auth, acap, adrain, aseq`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `nmf`
+#### `public boolean offline`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `membf`
+#### `public final List<Member> memb = new ArrayList<Member>()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `aseq`
+#### `public final Map<Integer, Member> idmap = new HashMap<Integer, Member>()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `rauth`
+#### `protected Widget mw`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-14"></a>
-##### `Member(Integer id)`
+#### `public final Integer id`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `draw(GOut g)`
+#### `public final Integer id`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `MemberList(Coord sz)`
+#### `private int aseq = -1`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `MemberList(int w, int h)`
+#### `private Tex rauth = null`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `allitems()`
+### Methods
+
+#### `public Member(Integer id)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `itemname(Member m)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `searchmatch(Member m, String txt)`
+#### `public MemberList(Coord sz)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `makeitem(Member m, int idx, Coord sz)`
+#### `public MemberList(int w, int h)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `drawbg(GOut g)`
+#### `public List<Member> allitems()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `drawslot(GOut g, Member m, int idx, Area area)`
+#### `public String itemname(Member m)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `change(Member pm)`
+#### `public boolean searchmatch(Member m, String txt)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `MemberWidget(Coord sz, Integer id)`
+#### `protected Widget makeitem(Member m, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `AuthMeter(Coord sz)`
+#### `protected void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `draw(GOut g)`
+#### `protected void drawslot(GOut g, Member m, int idx, Area area)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public void change(Member pm)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `parsememb(Object[] args)`
+#### `public MemberWidget(Coord sz, Integer id)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public Polity(String cap, String name)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public AuthMeter(Coord sz)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `cdestroy(Widget w)`
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public Object tooltip(Coord c, Widget prev)`
+
+- Description: TODO
+
+#### `protected Member parsememb(Object[] args)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void addchild(Widget child, Object... args)`
+
+- Description: TODO
+
+#### `public void cdestroy(Widget w)`
 
 - Description: TODO

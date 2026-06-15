@@ -1,5 +1,7 @@
 # PrintWidgetTreeJob
 
+This file documents the responsibilities and members of `PrintWidgetTreeJob`.
+
 ## Meta
 
 - Source: [PrintWidgetTreeJob.java](../../../../../src/agent/debug/tool/PrintWidgetTreeJob.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Provides a debug job for inspecting or measuring runtime state.
+Provides a debug job for inspecting or measuring runtime state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [run(AgentContext ctx, String[] args)](#member-1)
-- [iterateWidget(haven.Widget widget, int indentCount)](#member-2)
-- [info()](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, String[] args)`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `iterateWidget(haven.Widget widget, int indentCount)`
+#### `private void iterateWidget(haven.Widget widget, int indentCount)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

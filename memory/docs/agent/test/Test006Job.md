@@ -1,5 +1,7 @@
 # Test006Job
 
+This file documents the responsibilities and members of `Test006Job`.
+
 ## Meta
 
 - Source: [Test006Job.java](../../../../src/agent/test/Test006Job.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Provides a manual test or validation job entry point.
+Provides a manual test or validation job entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [run(AgentContext ctx, String[] args)](#member-1)
-- [info()](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, String[] args)`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

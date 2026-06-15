@@ -1,5 +1,7 @@
 # DesktopBrowser
 
+This file documents the responsibilities and members of `DesktopBrowser`.
+
 ## Meta
 
 - Source: [DesktopBrowser.java](../../../src/haven/DesktopBrowser.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Opens browser content through the desktop.
+Opens browser content through the desktop.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [desktop](#member-1)
-
-#### Methods
-
-- [create()](#member-2)
-- [show(URL url)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `desktop`
+#### `private final Desktop desktop`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `create()`
+#### `private DesktopBrowser(Desktop desktop)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `show(URL url)`
+#### `public static DesktopBrowser create()`
+
+- Description: TODO
+
+#### `public void show(URL url)`
 
 - Description: TODO

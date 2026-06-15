@@ -1,5 +1,7 @@
 # IButton
 
+This file documents the responsibilities and members of `IButton`.
+
 ## Meta
 
 - Source: [IButton.java](../../../src/haven/IButton.java)
@@ -8,128 +10,110 @@
 
 ## Role
 
-- Represents an image button widget.
+Represents an image button widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [up](#member-1)
-- [down](#member-2)
-- [hover](#member-3)
-- [h](#member-4)
-- [a](#member-5)
-- [action](#member-6)
-- [d](#member-7)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-8)
-- [action(Runnable action)](#member-9)
-- [draw(BufferedImage buf)](#member-10)
-- [checkhit(Coord c)](#member-11)
-- [click()](#member-12)
-- [gkeytype(GlobKeyEvent ev)](#member-13)
-- [depress()](#member-14)
-- [unpress()](#member-15)
-- [mousedown(MouseDownEvent ev)](#member-16)
-- [mouseup(MouseUpEvent ev)](#member-17)
-- [mousemove(MouseMoveEvent ev)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `up`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `down`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final BufferedImage up, down, hover`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `hover`
+#### `public final BufferedImage up, down, hover`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `h`
+#### `public final BufferedImage up, down, hover`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `a`
+#### `public boolean h = false, a = false`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `action`
+#### `public boolean h = false, a = false`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `d`
+#### `public Runnable action = null`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `create(UI ui, Object[] args)`
+#### `private UI.Grab d = null`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `action(Runnable action)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `draw(BufferedImage buf)`
+#### `public IButton(BufferedImage up, BufferedImage down, BufferedImage hover, Runnable action)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `checkhit(Coord c)`
+#### `public IButton(BufferedImage up, BufferedImage down, BufferedImage hover)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `click()`
+#### `public IButton(BufferedImage up, BufferedImage down)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `gkeytype(GlobKeyEvent ev)`
+#### `public IButton(String base, String up, String down, String hover, Runnable action)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `depress()`
+#### `public IButton(String base, String up, String down, String hover)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `unpress()`
+#### `public IButton action(Runnable action)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void draw(BufferedImage buf)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void click()`
+
+- Description: TODO
+
+#### `public boolean gkeytype(GlobKeyEvent ev)`
+
+- Description: TODO
+
+#### `protected void depress()`
+
+- Description: TODO
+
+#### `protected void unpress()`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public boolean mouseup(MouseUpEvent ev)`
+
+- Description: TODO
+
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO

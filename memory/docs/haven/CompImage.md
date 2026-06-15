@@ -1,5 +1,7 @@
 # CompImage
 
+This file documents the responsibilities and members of `CompImage`.
+
 ## Meta
 
 - Source: [CompImage.java](../../../src/haven/CompImage.java)
@@ -8,128 +10,98 @@
 
 ## Role
 
-- Represents a composed image.
+Represents a composed image.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [sz](#member-1)
-- [cont](#member-2)
-- [nil](#member-5)
-- [img](#member-6)
-- [c](#member-7)
-
-#### Methods
-
-- [public void draw(Graphics g, Coord c);](#member-3)
-- [public Coord sz();](#member-4)
-- [Placed(Image img, Coord c)](#member-8)
-- [add(Image img, Coord c)](#member-9)
-- [mk(final BufferedImage img)](#member-10)
-- [add(final BufferedImage img, Coord c)](#member-11)
-- [mk(final CompImage img)](#member-12)
-- [add(final CompImage img, Coord c)](#member-13)
-- [compose(Graphics on, Coord off)](#member-14)
-- [compose()](#member-15)
-- [table(Coord base, Image[][] cells, Object cs, int rs, int[] cj)](#member-16)
-- [transpose(Image[][] cells)](#member-17)
-- [transpose(Collection<Image[]> rows)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `sz`
+### Image
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cont`
+### Placed
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `nil`
+## Members
+
+### Constants
+
+#### `public static final Image nil = new Image()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `img`
+### Fields
+
+#### `public Coord sz`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `c`
+#### `private final Collection<Placed> cont = new LinkedList<Placed>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `public void draw(Graphics g, Coord c);`
+#### `Image img; Coord c`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public Coord sz();`
+#### `Image img; Coord c`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Placed(Image img, Coord c)`
+### Methods
+
+#### `public void draw(Graphics g, Coord c)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `add(Image img, Coord c)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mk(final BufferedImage img)`
+#### `Placed(Image img, Coord c)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `add(final BufferedImage img, Coord c)`
+#### `public CompImage()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `mk(final CompImage img)`
+#### `public CompImage add(Image img, Coord c)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `add(final CompImage img, Coord c)`
+#### `public static Image mk(final BufferedImage img)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `compose(Graphics on, Coord off)`
+#### `public CompImage add(final BufferedImage img, Coord c)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `compose()`
+#### `public static Image mk(final CompImage img)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `table(Coord base, Image[][] cells, Object cs, int rs, int[] cj)`
+#### `public CompImage add(final CompImage img, Coord c)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `transpose(Image[][] cells)`
+#### `private void compose(Graphics on, Coord off)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `transpose(Collection<Image[]> rows)`
+#### `public BufferedImage compose()`
+
+- Description: TODO
+
+#### `public CompImage table(Coord base, Image[][] cells, Object cs, int rs, int[] cj)`
+
+- Description: TODO
+
+#### `public static Image[][] transpose(Image[][] cells)`
+
+- Description: TODO
+
+#### `public static Image[][] transpose(Collection<Image[]> rows)`
 
 - Description: TODO

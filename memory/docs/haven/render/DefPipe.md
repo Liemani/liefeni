@@ -1,5 +1,7 @@
 # DefPipe
 
+This file documents the responsibilities and members of `DefPipe`.
+
 ## Meta
 
 - Source: [DefPipe.java](../../../../src/haven/render/DefPipe.java)
@@ -8,44 +10,28 @@
 
 ## Role
 
-- Represents a default render pipe.
+Represents a default render pipe.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [mask](#member-1)
-- [ret0](#member-3)
-
-#### Methods
-
-- [put(Slot<? super T> slot, T state)](#member-2)
-- [maskdiff(DefPipe that)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mask`
+#### `public boolean[] mask =`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ret0`
+#### `private static int[] ret0 = new int[0]`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `put(Slot<? super T> slot, T state)`
+#### `public <T extends State> void put(Slot<? super T> slot, T state)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `maskdiff(DefPipe that)`
+#### `public int[] maskdiff(DefPipe that)`
 
 - Description: TODO

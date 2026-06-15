@@ -1,5 +1,7 @@
 # WrappedJOGL
 
+This file documents the responsibilities and members of `WrappedJOGL`.
+
 ## Meta
 
 - Source: [WrappedJOGL.java](../../../../../src/haven/render/jogl/WrappedJOGL.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Wraps JOGL rendering integration.
+Wraps JOGL rendering integration.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public GL getGL();](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public GL getGL();`
+#### `public GL getGL()`
 
 - Description: TODO

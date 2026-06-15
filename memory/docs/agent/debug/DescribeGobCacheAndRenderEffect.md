@@ -1,5 +1,7 @@
 # DescribeGobCacheAndRenderEffect
 
+This file documents the responsibilities and members of `DescribeGobCacheAndRenderEffect`.
+
 ## Meta
 
 - Source: [DescribeGobCacheAndRenderEffect.java](../../../../src/agent/debug/DescribeGobCacheAndRenderEffect.java)
@@ -8,51 +10,36 @@
 
 ## Role
 
-- Provides a debug effect for inspecting or mutating runtime state.
+Provides a debug effect for inspecting or mutating runtime state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [execute()](#member-1)
-- [name()](#member-2)
-- [info()](#member-3)
-- [_ocacheGobCount(OCache oc)](#member-4)
-- [_field(Object object, String fieldName)](#member-5)
-- [_mapField(Object object, String fieldName)](#member-6)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `execute()`
+#### `public void execute()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `_ocacheGobCount(OCache oc)`
+#### `private static int _ocacheGobCount(OCache oc)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `_field(Object object, String fieldName)`
+#### `private static Object _field(Object object, String fieldName)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `_mapField(Object object, String fieldName)`
+#### `private static Map<?, ?> _mapField(Object object, String fieldName)`
 
 - Description: TODO

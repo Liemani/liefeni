@@ -1,5 +1,7 @@
 # Window
 
+This file documents the responsibilities and members of `Window`.
+
 ## Meta
 
 - Source: [Window.java](../../../src/haven/Window.java)
@@ -8,794 +10,582 @@
 
 ## Role
 
-- Represents a generic window widget.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [bgblend](#member-1)
-- [cblend](#member-2)
-- [bg](#member-3)
-- [bgl](#member-4)
-- [bgr](#member-5)
-- [cl](#member-6)
-- [cm](#member-7)
-- [cr](#member-8)
-- [tm](#member-9)
-- [tr](#member-10)
-- [lm](#member-11)
-- [lb](#member-12)
-- [rm](#member-13)
-- [bl](#member-14)
-- [bm](#member-15)
-- [br](#member-16)
-- [sizer](#member-17)
-- [tlm](#member-18)
-- [brm](#member-19)
-- [cpo](#member-20)
-- [capo](#member-21)
-- [capio](#member-22)
-- [dlmrgn](#member-23)
-- [dsmrgn](#member-24)
-- [ctex](#member-25)
-- [cf](#member-26)
-- [ncf](#member-27)
-- [wbox](#member-28)
-- [cbtni](#member-29)
-- [deco](#member-30)
-- [cap](#member-31)
-- [gbuf](#member-32)
-- [gout](#member-33)
-- [gbasic](#member-34)
-- [dm](#member-35)
-- [doff](#member-36)
-- [large](#member-37)
-- [cf](#member-47)
-- [ncf](#member-48)
-- [lg](#member-49)
-- [cbtn](#member-50)
-- [dragsize](#member-51)
-- [cfocus](#member-52)
-- [aa](#member-53)
-- [ca](#member-54)
-- [cptl](#member-55)
-- [cpsz](#member-56)
-- [cmw](#member-57)
-- [cap](#member-58)
-- [szdrag](#member-68)
-- [szdragc](#member-69)
-- [trans](#member-98)
-- [anim](#member-99)
-- [animst](#member-100)
-- [niltrans](#member-112)
-- [s](#member-113)
-- [rev](#member-114)
-- [a](#member-115)
-- [na](#member-116)
-- [minfac](#member-122)
-- [time](#member-123)
-- [trans](#member-126)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-38)
-- [makedeco()](#member-39)
-- [added()](#member-40)
-- [chcap(String cap)](#member-41)
-- [chdeco(Deco deco)](#member-42)
-- [Deco()](#member-43)
-- [public abstract void iresize(Coord isz);](#member-44)
-- [public abstract Area contarea();](#member-45)
-- [mousedown(MouseDownEvent ev)](#member-46)
-- [DefaultDeco(boolean lg)](#member-59)
-- [DefaultDeco()](#member-60)
-- [dragsize(boolean v)](#member-61)
-- [iresize(Coord isz)](#member-62)
-- [contarea()](#member-63)
-- [cdraw(GOut g)](#member-64)
-- [drawbg(GOut g)](#member-65)
-- [drawframe(GOut g)](#member-66)
-- [draw(GOut g)](#member-67)
-- [mousedown(MouseDownEvent ev)](#member-70)
-- [mousemove(MouseMoveEvent ev)](#member-71)
-- [mouseup(MouseUpEvent ev)](#member-72)
-- [checkhit(Coord c)](#member-73)
-- [cdraw(GOut g)](#member-74)
-- [gbasic()](#member-75)
-- [drawbuf(GOut g)](#member-76)
-- [drawfin(GOut g, Tex buf)](#member-77)
-- [draw(GOut og)](#member-78)
-- [contentsz()](#member-79)
-- [ca()](#member-80)
-- [csz()](#member-81)
-- [resize2(Coord sz)](#member-82)
-- [resize(Coord sz)](#member-83)
-- [uimsg(String msg, Object... args)](#member-84)
-- [xlate(Coord c, boolean in)](#member-85)
-- [drag(Coord off)](#member-86)
-- [checkhit(Coord c)](#member-87)
-- [mousedown(MouseDownEvent ev)](#member-88)
-- [mouseup(MouseUpEvent ev)](#member-89)
-- [mousemove(MouseMoveEvent ev)](#member-90)
-- [handle(Event ev)](#member-91)
-- [keydown(KeyDownEvent ev)](#member-92)
-- [reqclose()](#member-93)
-- [public boolean tick(double dt);](#member-94)
-- [public void draw(GOut g, Tex tex);](#member-95)
-- [public S show(Window wnd, H hiding);](#member-96)
-- [public H hide(Window wnd, S showing);](#member-97)
-- [tick(double dt)](#member-101)
-- [show0(Transition<?, H> trans, Animation h)](#member-102)
-- [hide0(Transition<S, ?> trans, Animation s)](#member-103)
-- [settrans(Transition<?, ?> trans)](#member-104)
-- [visible()](#member-105)
-- [initanim()](#member-106)
-- [show()](#member-107)
-- [hide()](#member-108)
-- [reqdestroy()](#member-109)
-- [tick(double dt)](#member-110)
-- [draw(GOut g, Tex tex)](#member-111)
-- [NormAnim(double t, double fromn, boolean rev)](#member-117)
-- [NormAnim(double t, NormAnim from, boolean rev)](#member-118)
-- [NormAnim(double t)](#member-119)
-- [tick(double dt)](#member-120)
-- [stick(double a)](#member-121)
-- [FadeAnim(boolean hide, FadeAnim from)](#member-124)
-- [draw(GOut g, Tex tex)](#member-125)
-- [deftrans()](#member-127)
-- [main(String[] args)](#member-128)
-- [isTitle(String text)](#member-129)
+Represents a generic window widget.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### $_
 
-<a id="member-1"></a>
-##### `bgblend`
+- Description: TODO
+
+### Animation
+
+- Description: TODO
+
+### Deco
+
+- Description: TODO
+
+### DefaultDeco
+
+- Description: TODO
+
+### DragDeco
+
+- Description: TODO
+
+### FadeAnim
+
+- Description: TODO
+
+### NilAnim
+
+- Description: TODO
+
+### NormAnim
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cblend`
+### Transition
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `bg`
+## Members
 
+### Constants
+
+#### `public static final Pipe.Op bgblend = FragColor.blend.nil`
+
+- Description: TODO
+
+#### `public static final Pipe.Op cblend = FragColor.blend(new BlendMode(BlendMode.Function.ADD, BlendMode.Factor.SRC_ALPHA, BlendMode.Factor.INV_SRC_ALPHA,`
+
+- Description: TODO
+
+#### `public static final Tex bg = Resource.loadtex("gfx/hud/wnd/lg/bg")`
+
+- Description: TODO
+
+#### `public static final Tex bgl = Resource.loadtex("gfx/hud/wnd/lg/bgl")`
+
+- Description: TODO
+
+#### `public static final Tex bgr = Resource.loadtex("gfx/hud/wnd/lg/bgr")`
+
+- Description: TODO
+
+#### `public static final Tex cl = Resource.loadtex("gfx/hud/wnd/lg/cl")`
+
 - Description: TODO
 
-<a id="member-4"></a>
-##### `bgl`
+#### `public static final TexI cm = new TexI(Resource.loadsimg("gfx/hud/wnd/lg/cm"))`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `bgr`
+#### `public static final Tex cr = Resource.loadtex("gfx/hud/wnd/lg/cr")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `cl`
+#### `public static final Tex tm = Resource.loadtex("gfx/hud/wnd/lg/tm")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cm`
+#### `public static final Tex tr = Resource.loadtex("gfx/hud/wnd/lg/tr")`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `cr`
+#### `public static final Tex lm = Resource.loadtex("gfx/hud/wnd/lg/lm")`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tm`
+#### `public static final Tex lb = Resource.loadtex("gfx/hud/wnd/lg/lb")`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `tr`
+#### `public static final Tex rm = Resource.loadtex("gfx/hud/wnd/lg/rm")`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `lm`
+#### `public static final Tex bl = Resource.loadtex("gfx/hud/wnd/lg/bl")`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `lb`
+#### `public static final Tex bm = Resource.loadtex("gfx/hud/wnd/lg/bm")`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `rm`
+#### `public static final Tex br = Resource.loadtex("gfx/hud/wnd/lg/br")`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `bl`
+#### `public static final Tex sizer = Resource.loadtex("gfx/hud/wnd/sizer")`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `bm`
+#### `public static final Coord tlm = UI.scale(18, 30)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `br`
+#### `public static final Coord brm = UI.scale(13, 22)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `sizer`
+#### `public static final Coord cpo = UI.rscale(36, 16.4)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `tlm`
+#### `public static final int capo = 7, capio = 2`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `brm`
+#### `public static final int capo = 7, capio = 2`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `cpo`
+#### `public static final Coord dlmrgn = UI.scale(23, 14)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `capo`
+#### `public static final Coord dsmrgn = UI.scale(9, 9)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `capio`
+#### `public static final BufferedImage ctex = Resource.loadsimg("gfx/hud/fonttex")`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `dlmrgn`
+#### `@Deprecated public static final Text.Furnace cf = DefaultDeco.cf`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `dsmrgn`
+#### `@Deprecated public static final Text.Furnace ncf = DefaultDeco.ncf`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `ctex`
+#### `public static final IBox wbox = new IBox.Scaled("gfx/hud/wnd", "tl", "tr", "bl", "br", "extvl", "extvr", "extht", "exthb")`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `cf`
+#### `private static final BufferedImage[] cbtni = new BufferedImage[]`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `ncf`
+#### `public static final Text.Forge cf = new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 15).aa(true), ctex),`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `wbox`
+#### `public static final Text.Forge ncf = new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 15).aa(true), ctex),`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `cbtni`
+#### `public static final Transition<?, ?> niltrans = new Transition<Animation, Animation>()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `deco`
+#### `public static final double minfac = 0.1`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `cap`
+#### `public static final double time = 0.1`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `gbuf`
+#### `public static final Transition<?, ?> trans = new Transition<FadeAnim, FadeAnim>()`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-33"></a>
-##### `gout`
+#### `public Deco deco`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `gbasic`
+#### `public String cap`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `dm`
+#### `public TexRaw gbuf = null`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `doff`
+#### `private FragColor gout`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `large`
+#### `private Pipe.Op gbasic`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `cf`
+#### `private UI.Grab dm = null`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `ncf`
+#### `private Coord doff`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `lg`
+#### `public boolean large = false`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `cbtn`
+#### `public final boolean lg`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `dragsize`
+#### `public final IButton cbtn`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `cfocus`
+#### `public boolean dragsize, cfocus`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `aa`
+#### `public boolean dragsize, cfocus`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `ca`
+#### `public Area aa, ca`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `cptl`
+#### `public Area aa, ca`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `cpsz`
+#### `public Coord cptl = Coord.z, cpsz = Coord.z`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `cmw`
+#### `public Coord cptl = Coord.z, cpsz = Coord.z`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `cap`
+#### `public int cmw`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `szdrag`
+#### `public Text cap = null`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `szdragc`
+#### `private UI.Grab szdrag`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `trans`
+#### `private Coord szdragc`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `anim`
+#### `private Transition<?, ?> trans = null`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `animst`
+#### `private Animation anim = null`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `niltrans`
+#### `private String animst = null`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `s`
+#### `public final double s`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `rev`
+#### `public final boolean rev`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `a`
+#### `public double a = 0.0, na = 0.0`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `na`
+#### `public double a = 0.0, na = 0.0`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `minfac`
+### Methods
 
+#### `public Widget create(UI ui, Object[] args)`
+
 - Description: TODO
 
-<a id="member-123"></a>
-##### `time`
+#### `private Window(Coord sz, String cap, boolean lg, Deco deco, boolean defdeco)`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `trans`
+#### `public Window(Coord sz, String cap, boolean lg, Deco deco)`
 
 - Description: TODO
 
-#### Methods
+#### `public Window(Coord sz, String cap, boolean lg)`
+
+- Description: TODO
 
-<a id="member-38"></a>
-##### `create(UI ui, Object[] args)`
+#### `public Window(Coord sz, String cap)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `makedeco()`
+#### `protected Deco makedeco()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `added()`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `chcap(String cap)`
+#### `public void chcap(String cap)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `chdeco(Deco deco)`
+#### `public void chdeco(Deco deco)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `Deco()`
+#### `public Deco()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `public abstract void iresize(Coord isz);`
+#### `public abstract void iresize(Coord isz)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `public abstract Area contarea();`
+#### `public abstract Area contarea()`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `DefaultDeco(boolean lg)`
+#### `public DefaultDeco(boolean lg)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `DefaultDeco()`
+#### `public DefaultDeco()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `dragsize(boolean v)`
+#### `public DefaultDeco dragsize(boolean v)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `iresize(Coord isz)`
+#### `public void iresize(Coord isz)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `contarea()`
+#### `public Area contarea()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `cdraw(GOut g)`
+#### `protected void cdraw(GOut g)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `drawbg(GOut g)`
+#### `protected void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `drawframe(GOut g)`
+#### `protected void drawframe(GOut g)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `checkhit(Coord c)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `cdraw(GOut g)`
+#### `public void cdraw(GOut g)`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `gbasic()`
+#### `public Pipe.Op gbasic()`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `drawbuf(GOut g)`
+#### `protected void drawbuf(GOut g)`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `drawfin(GOut g, Tex buf)`
+#### `protected void drawfin(GOut g, Tex buf)`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `draw(GOut og)`
+#### `public void draw(GOut og)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `contentsz()`
+#### `public Coord contentsz()`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `ca()`
+#### `public Area ca()`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `csz()`
+#### `public Coord csz()`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `resize2(Coord sz)`
+#### `private void resize2(Coord sz)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `resize(Coord sz)`
+#### `public void resize(Coord sz)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `xlate(Coord c, boolean in)`
+#### `public Coord xlate(Coord c, boolean in)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `drag(Coord off)`
+#### `public void drag(Coord off)`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `checkhit(Coord c)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `handle(Event ev)`
+#### `public boolean handle(Event ev)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `reqclose()`
+#### `public void reqclose()`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `public boolean tick(double dt);`
+#### `public boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `public void draw(GOut g, Tex tex);`
+#### `public void draw(GOut g, Tex tex)`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `public S show(Window wnd, H hiding);`
+#### `public S show(Window wnd, H hiding)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `public H hide(Window wnd, S showing);`
+#### `public H hide(Window wnd, S showing)`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `show0(Transition<?, H> trans, Animation h)`
+#### `private <H extends Animation> Animation show0(Transition<?, H> trans, Animation h)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `hide0(Transition<S, ?> trans, Animation s)`
+#### `private <S extends Animation> Animation hide0(Transition<S, ?> trans, Animation s)`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `settrans(Transition<?, ?> trans)`
+#### `public void settrans(Transition<?, ?> trans)`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `visible()`
+#### `public boolean visible()`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `initanim()`
+#### `private void initanim()`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `show()`
+#### `public void show()`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `hide()`
+#### `public void hide()`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `reqdestroy()`
+#### `public void reqdestroy()`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `tick(double dt)`
+#### `public boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `draw(GOut g, Tex tex)`
+#### `public void draw(GOut g, Tex tex)`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `NormAnim(double t, double fromn, boolean rev)`
+#### `public NormAnim(double t, double fromn, boolean rev)`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `NormAnim(double t, NormAnim from, boolean rev)`
+#### `public NormAnim(double t, NormAnim from, boolean rev)`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `NormAnim(double t)`
+#### `public NormAnim(double t)`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `tick(double dt)`
+#### `public boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `stick(double a)`
+#### `public void stick(double a)`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `FadeAnim(boolean hide, FadeAnim from)`
+#### `public FadeAnim(boolean hide, FadeAnim from)`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `draw(GOut g, Tex tex)`
+#### `public void draw(GOut g, Tex tex)`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `deftrans()`
+#### `protected Transition<?, ?> deftrans()`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `main(String[] args)`
+#### `public static void main(String[] args)`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `isTitle(String text)`
+#### `public boolean isTitle(String text)`
 
 - Description: TODO

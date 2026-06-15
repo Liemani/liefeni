@@ -1,5 +1,7 @@
 # ProxyFrame
 
+This file documents the responsibilities and members of `ProxyFrame`.
+
 ## Meta
 
 - Source: [ProxyFrame.java](../../../src/haven/ProxyFrame.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Displays a proxy frame widget.
+Displays a proxy frame widget.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [ch](#member-1)
-- [color](#member-2)
-
-#### Methods
-
-- [drawframe(GOut g)](#member-3)
-- [uimsg(String msg, Object... args)](#member-4)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `ch`
+#### `public final T ch`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `color`
+#### `public Color color = Color.WHITE`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `drawframe(GOut g)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public ProxyFrame(T child, boolean resize)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public void drawframe(GOut g)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO

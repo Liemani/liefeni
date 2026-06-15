@@ -1,5 +1,7 @@
 # Img
 
+This file documents the responsibilities and members of `Img`.
+
 ## Meta
 
 - Source: [Img.java](../../../src/haven/Img.java)
@@ -8,80 +10,62 @@
 
 ## Role
 
-- Displays an image widget.
+Displays an image widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [img](#member-1)
-- [rimg](#member-2)
-- [hit](#member-3)
-- [opaque](#member-4)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-5)
-- [setimg(Tex img)](#member-6)
-- [draw(GOut g)](#member-7)
-- [uimsg(String name, Object... args)](#member-8)
-- [checkhit(Coord c)](#member-9)
-- [mousedown(MouseDownEvent ev)](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `img`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rimg`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private Tex img`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `hit`
+#### `private BufferedImage rimg`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `opaque`
+#### `public boolean hit = false, opaque = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `create(UI ui, Object[] args)`
+#### `public boolean hit = false, opaque = false`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `setimg(Tex img)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `draw(GOut g)`
+#### `public void setimg(Tex img)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `uimsg(String name, Object... args)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `checkhit(Coord c)`
+#### `public Img(Tex img)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void uimsg(String name, Object... args)`
+
+- Description: TODO
+
+#### `public boolean checkhit(Coord c)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO

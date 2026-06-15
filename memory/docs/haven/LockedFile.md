@@ -1,5 +1,7 @@
 # LockedFile
 
+This file documents the responsibilities and members of `LockedFile`.
+
 ## Meta
 
 - Source: [LockedFile.java](../../../src/haven/LockedFile.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a locked file resource.
+Represents a locked file resource.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [f](#member-1)
-- [l](#member-2)
-
-#### Methods
-
-- [public void release() throws IOException](#member-3)
-- [public void close() throws IOException](#member-4)
-- [public static LockedFile lock(Path path, long pos, long len, boolean shared) throws IOException](#member-5)
-- [public static LockedFile lock(Path path) throws IOException](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `f`
+#### `public FileChannel f`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `l`
+#### `public FileLock l`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `public void release() throws IOException`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `public void close() throws IOException`
+#### `private LockedFile(FileChannel f, FileLock l)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public static LockedFile lock(Path path, long pos, long len, boolean shared) throws IOException`
+#### `public void release() throws IOException`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public static LockedFile lock(Path path) throws IOException`
+#### `public void close() throws IOException`
+
+- Description: TODO
+
+#### `public static LockedFile lock(Path path, long pos, long len, boolean shared) throws IOException`
+
+- Description: TODO
+
+#### `public static LockedFile lock(Path path) throws IOException`
 
 - Description: TODO

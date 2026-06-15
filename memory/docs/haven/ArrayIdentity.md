@@ -1,5 +1,7 @@
 # ArrayIdentity
 
+This file documents the responsibilities and members of `ArrayIdentity`.
+
 ## Meta
 
 - Source: [ArrayIdentity.java](../../../src/haven/ArrayIdentity.java)
@@ -8,68 +10,50 @@
 
 ## Role
 
-- Provides identity-based array helpers.
+Provides identity-based array helpers.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [set](#member-1)
-- [cleanq](#member-2)
-
-#### Methods
-
-- [Entry(T[] arr)](#member-3)
-- [equals(Object x)](#member-4)
-- [hashCode()](#member-5)
-- [clean()](#member-6)
-- [getcanon(Entry<T> e)](#member-7)
-- [intern(T[] arr)](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `set`
+### Entry
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cleanq`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private static HashMap<Entry<?>, Entry<?>> set = new HashMap<Entry<?>, Entry<?>>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `Entry(T[] arr)`
+#### `private static ReferenceQueue<Object> cleanq = new ReferenceQueue<Object>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `equals(Object x)`
+### Methods
+
+#### `private Entry(T[] arr)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `hashCode()`
+#### `public boolean equals(Object x)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `clean()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `getcanon(Entry<T> e)`
+#### `private static void clean()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `intern(T[] arr)`
+#### `private static <T> Entry<T> getcanon(Entry<T> e)`
+
+- Description: TODO
+
+#### `public static <T> T[] intern(T[] arr)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # RuntimeEventManager
 
+This file documents the responsibilities and members of `RuntimeEventManager`.
+
 ## Meta
 
 - Source: [RuntimeEventManager.java](../../../../src/lmi/lifecycle/RuntimeEventManager.java)
@@ -8,98 +10,74 @@
 
 ## Role
 
-- Dispatches deferred runtime work on a background loop.
+Dispatches deferred runtime work on a background loop.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [lock](#member-1)
-- [handlers](#member-2)
-- [waypointRefreshHandler](#member-3)
-- [thread](#member-4)
-- [running](#member-5)
-
-#### Methods
-
-- [init()](#member-6)
-- [clear()](#member-7)
-- [registerWaypointRefreshHandler()](#member-8)
-- [unregisterWaypointRefreshHandler()](#member-9)
-- [shutdown()](#member-10)
-- [_addHandler(RuntimeEventHandler handler)](#member-11)
-- [_loop()](#member-12)
-- [boolean handle();](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `lock`
+### RuntimeEventHandler
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `handlers`
+## Members
+
+### Constants
+
+#### `private static final Object lock = new Object()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `waypointRefreshHandler`
+#### `private static final ArrayList<RuntimeEventHandler> handlers = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `thread`
+#### `private static final RuntimeEventHandler waypointRefreshHandler = new RuntimeEventHandler()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `running`
+### Fields
+
+#### `private static Thread thread`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `init()`
+#### `private static boolean running = false`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `clear()`
+### Methods
+
+#### `private RuntimeEventManager()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `registerWaypointRefreshHandler()`
+#### `public static void init()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `unregisterWaypointRefreshHandler()`
+#### `public static void clear()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `shutdown()`
+#### `public static void registerWaypointRefreshHandler()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `_addHandler(RuntimeEventHandler handler)`
+#### `public static void unregisterWaypointRefreshHandler()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `_loop()`
+#### `public static void shutdown()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `boolean handle();`
+#### `private static void _addHandler(RuntimeEventHandler handler)`
+
+- Description: TODO
+
+#### `private static void _loop()`
+
+- Description: TODO
+
+#### `boolean handle()`
 
 - Description: TODO

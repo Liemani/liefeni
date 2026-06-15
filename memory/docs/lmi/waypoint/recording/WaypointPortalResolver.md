@@ -1,5 +1,7 @@
 # WaypointPortalResolver
 
+This file documents the responsibilities and members of `WaypointPortalResolver`.
+
 ## Meta
 
 - Source: [WaypointPortalResolver.java](../../../../../src/lmi/waypoint/recording/WaypointPortalResolver.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Turns raw runtime data into a structured waypoint runtime object.
+Turns raw runtime data into a structured waypoint runtime object.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [closestCounterpartGob(String entryPortalResname)](#member-1)
+### Methods
 
-### Member Reference
+#### `private WaypointPortalResolver()`
 
-#### Methods
+- Description: TODO
 
-<a id="member-1"></a>
-##### `closestCounterpartGob(String entryPortalResname)`
+#### `public static Gob closestCounterpartGob(String entryPortalResname)`
 
 - Description: TODO

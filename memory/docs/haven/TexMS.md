@@ -1,5 +1,7 @@
 # TexMS
 
+This file documents the responsibilities and members of `TexMS`.
+
 ## Meta
 
 - Source: [TexMS.java](../../../src/haven/TexMS.java)
@@ -8,110 +10,86 @@
 
 ## Role
 
-- Represents a multisampled texture.
+Represents a multisampled texture.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [texc](#member-1)
-- [fmt](#member-2)
-- [data](#member-3)
-- [texcoord](#member-5)
-- [mstex](#member-6)
-- [samples](#member-7)
-- [shaders](#member-10)
-- [data](#member-12)
-- [st](#member-14)
-
-#### Methods
-
-- [sz()](#member-4)
-- [Resolve(int samples)](#member-8)
-- [modify(ProgramContext prog)](#member-9)
-- [get(int samples)](#member-11)
-- [Draw(Sampler2DMS data)](#member-13)
-- [render(GOut g, float[] gc, float[] tc)](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `texc`
+### Draw
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fmt`
+### Resolve
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `data`
+## Members
+
+### Constants
+
+#### `public static final Attribute texc = new Attribute(VEC2, "mstexc")`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `texcoord`
+#### `public static final VertexArray.Layout fmt = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 16),`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `mstex`
+#### `public static final AutoVarying texcoord = new AutoVarying(VEC2, "s_mstex")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `samples`
+#### `public static final Uniform mstex = new Uniform(SAMPLER2DMS, p -> ((Draw)p.get(RUtils.adhoc)).data, RUtils.adhoc)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `shaders`
+#### `private static final Map<Integer, Resolve> shaders = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `data`
+### Fields
+
+#### `public final Sampler2DMS data`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `st`
+#### `public final int samples`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `sz()`
+#### `public final Sampler2DMS data`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Resolve(int samples)`
+#### `private Draw st = null`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `modify(ProgramContext prog)`
+### Methods
+
+#### `public TexMS(Sampler2DMS data)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `get(int samples)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `Draw(Sampler2DMS data)`
+#### `private Resolve(int samples)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `render(GOut g, float[] gc, float[] tc)`
+#### `public void modify(ProgramContext prog)`
+
+- Description: TODO
+
+#### `public static Resolve get(int samples)`
+
+- Description: TODO
+
+#### `public Draw(Sampler2DMS data)`
+
+- Description: TODO
+
+#### `public void render(GOut g, float[] gc, float[] tc)`
 
 - Description: TODO

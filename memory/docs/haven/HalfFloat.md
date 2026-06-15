@@ -1,5 +1,7 @@
 # HalfFloat
 
+This file documents the responsibilities and members of `HalfFloat`.
+
 ## Meta
 
 - Source: [HalfFloat.java](../../../src/haven/HalfFloat.java)
@@ -8,116 +10,80 @@
 
 ## Role
 
-- Provides half-float helpers.
+Provides half-float helpers.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bits](#member-1)
-
-#### Methods
-
-- [decode(short bits)](#member-2)
-- [of(float val)](#member-3)
-- [of(double val)](#member-4)
-- [equals(HalfFloat that)](#member-5)
-- [equals(Object that)](#member-6)
-- [hashCode()](#member-7)
-- [floatValue()](#member-8)
-- [byteValue()](#member-9)
-- [shortValue()](#member-10)
-- [intValue()](#member-11)
-- [longValue()](#member-12)
-- [doubleValue()](#member-13)
-- [toString()](#member-14)
-- [bits(short bits)](#member-15)
-- [bits(float f)](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bits`
+#### `public final short bits`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `decode(short bits)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `of(float val)`
+#### `public HalfFloat(short bits)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `of(double val)`
+#### `public static HalfFloat decode(short bits)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equals(HalfFloat that)`
+#### `public static HalfFloat of(float val)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `equals(Object that)`
+#### `public static HalfFloat of(double val)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `hashCode()`
+#### `public boolean equals(HalfFloat that)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `floatValue()`
+#### `public boolean equals(Object that)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `byteValue()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `shortValue()`
+#### `public float floatValue()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `intValue()`
+#### `public byte byteValue()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `longValue()`
+#### `public short shortValue()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `doubleValue()`
+#### `public int intValue()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `toString()`
+#### `public long longValue()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `bits(short bits)`
+#### `public double doubleValue()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `bits(float f)`
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public static float bits(short bits)`
+
+- Description: TODO
+
+#### `public static short bits(float f)`
 
 - Description: TODO

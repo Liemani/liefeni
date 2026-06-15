@@ -1,5 +1,7 @@
 # ErrorGui
 
+This file documents the responsibilities and members of `ErrorGui`.
+
 ## Meta
 
 - Source: [ErrorGui.java](../../../../src/haven/error/ErrorGui.java)
@@ -8,116 +10,80 @@
 
 ## Role
 
-- Displays the error GUI.
+Displays the error GUI.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [status](#member-1)
-- [info](#member-2)
-- [details](#member-3)
-- [closebtn](#member-4)
-- [detbtn](#member-5)
-- [exbox](#member-6)
-- [infoc](#member-7)
-- [exboxc](#member-8)
-- [reporter](#member-9)
-- [done](#member-10)
-
-#### Methods
-
-- [goterror(Throwable t)](#member-11)
-- [connecting()](#member-12)
-- [sending()](#member-13)
-- [done(final String ctype, final String info)](#member-14)
-- [senderror(Exception e)](#member-15)
-- [public abstract void errorsent();](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `status`
+#### `private JLabel status`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info`
+#### `private JEditorPane info`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `details`
+#### `private JPanel details`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `closebtn`
+#### `private JButton closebtn, detbtn`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `detbtn`
+#### `private JButton closebtn, detbtn`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `exbox`
+#### `private JTextArea exbox`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `infoc`
+#### `private JScrollPane infoc, exboxc`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `exboxc`
+#### `private JScrollPane infoc, exboxc`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `reporter`
+#### `private Thread reporter`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `done`
+#### `private boolean done`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-11"></a>
-##### `goterror(Throwable t)`
-
-- Description: TODO
-
-<a id="member-12"></a>
-##### `connecting()`
+#### `public ErrorGui(java.awt.Frame parent)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `sending()`
+#### `public boolean goterror(Throwable t)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `done(final String ctype, final String info)`
+#### `public void connecting()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `senderror(Exception e)`
+#### `public void sending()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `public abstract void errorsent();`
+#### `public void done(final String ctype, final String info)`
+
+- Description: TODO
+
+#### `public void senderror(Exception e)`
+
+- Description: TODO
+
+#### `public abstract void errorsent()`
 
 - Description: TODO

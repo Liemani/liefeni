@@ -1,5 +1,7 @@
 # CheckBox
 
+This file documents the responsibilities and members of `CheckBox`.
+
 ## Meta
 
 - Source: [CheckBox.java](../../../src/haven/CheckBox.java)
@@ -8,86 +10,70 @@
 
 ## Role
 
-- Displays a checkbox widget.
+Displays a checkbox widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [lbox](#member-1)
-- [lmark](#member-2)
-- [sbox](#member-3)
-- [smark](#member-4)
-- [box](#member-5)
-- [mark](#member-6)
-- [loff](#member-7)
-- [lbl](#member-8)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-9)
-- [draw(GOut g)](#member-10)
-- [mousedown(MouseDownEvent ev)](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `lbox`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `lmark`
+## Members
+
+### Constants
+
+#### `public static final Tex lbox = Resource.loadtex("gfx/hud/chkbox")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sbox`
+#### `public static final Tex lmark = Resource.loadtex("gfx/hud/chkmark")`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `smark`
+#### `public static final Tex sbox = Resource.loadtex("gfx/hud/chkboxs")`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `box`
+#### `public static final Tex smark = Resource.loadtex("gfx/hud/chkmarks")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `mark`
+### Fields
+
+#### `public final Tex box, mark`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `loff`
+#### `public final Tex box, mark`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `lbl`
+#### `public final Coord loff`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-9"></a>
-##### `create(UI ui, Object[] args)`
+#### `Text lbl`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public CheckBox(String lbl, boolean lg)`
+
+- Description: TODO
+
+#### `public CheckBox(String lbl)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO

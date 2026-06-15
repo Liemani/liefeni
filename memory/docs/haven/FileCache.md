@@ -1,5 +1,7 @@
 # FileCache
 
+This file documents the responsibilities and members of `FileCache`.
+
 ## Meta
 
 - Source: [FileCache.java](../../../src/haven/FileCache.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Caches files on disk.
+Caches files on disk.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [base](#member-1)
-
-#### Methods
-
-- [foruser()](#member-2)
-- [forres(String nm)](#member-3)
-- [public OutputStream store(String name) throws IOException](#member-4)
-- [public InputStream fetch(String name) throws IOException](#member-5)
-- [toString()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `base`
+#### `private final Path base`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `foruser()`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `forres(String nm)`
+#### `public FileCache(Path base)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public OutputStream store(String name) throws IOException`
+#### `public static FileCache foruser()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public InputStream fetch(String name) throws IOException`
+#### `private Path forres(String nm)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `toString()`
+#### `public OutputStream store(String name) throws IOException`
+
+- Description: TODO
+
+#### `public InputStream fetch(String name) throws IOException`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

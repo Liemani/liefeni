@@ -1,5 +1,7 @@
 # State
 
+This file documents the responsibilities and members of `State`.
+
 ## Meta
 
 - Source: [State.java](../../../../src/haven/render/State.java)
@@ -8,158 +10,130 @@
 
 ## Role
 
-- Represents a render state.
+Represents a render state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slots](#member-1)
-- [type](#member-2)
-- [id](#member-3)
-- [scl](#member-4)
-- [depid](#member-5)
-- [instanced](#member-6)
-- [idlist](#member-7)
-- [nil](#member-14)
-- [mkinstanced](#member-16)
-- [slot](#member-21)
-
-#### Methods
-
-- [Slots(Slot<?>[] idlist)](#member-8)
-- [Slot(Type type, Class<T> scl)](#member-9)
-- [instanced(Instancable<T> inst)](#member-10)
-- [byid(int id)](#member-11)
-- [toString()](#member-12)
-- [numslots()](#member-13)
-- [public T inststate(T uinst, InstanceBatch batch);](#member-15)
-- [dummy()](#member-17)
-- [public Instancer<T> instid(T uinst);](#member-18)
-- [dummy()](#member-19)
-- [public abstract ShaderMacro shader();](#member-20)
-- [StandAlone(Slot.Type type)](#member-22)
-- [apply(Pipe p)](#member-23)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slots`
+### Instancable
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `type`
+### Instancer
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `id`
+### Slot
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `scl`
+### Slots
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `depid`
+### StandAlone
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `instanced`
+### Type
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `idlist`
+## Members
+
+### Constants
+
+#### `public static final ShaderMacro mkinstanced = prog ->`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `nil`
+### Fields
+
+#### `static Slots slots = new Slots(new Slot<?>[0])`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `mkinstanced`
+#### `public final Type type`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `slot`
+#### `public final int id`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `Slots(Slot<?>[] idlist)`
+#### `public final Class<T> scl`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `Slot(Type type, Class<T> scl)`
+#### `private int depid = -1`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `instanced(Instancable<T> inst)`
+#### `public Instancable<T> instanced`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `byid(int id)`
+#### `public final Slot<?>[] idlist`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `toString()`
+#### `public final Pipe.Op nil = p -> p.put(this, null)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `numslots()`
+#### `public final Slot<StandAlone> slot`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `public T inststate(T uinst, InstanceBatch batch);`
+### Methods
+
+#### `public Slots(Slot<?>[] idlist)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `dummy()`
+#### `public Slot(Type type, Class<T> scl)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `public Instancer<T> instid(T uinst);`
+#### `public Slot<T> instanced(Instancable<T> inst)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `dummy()`
+#### `public static Slot<?> byid(int id)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `public abstract ShaderMacro shader();`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `StandAlone(Slot.Type type)`
+#### `public static int numslots()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `apply(Pipe p)`
+#### `public T inststate(T uinst, InstanceBatch batch)`
+
+- Description: TODO
+
+#### `public static <S extends State> Instancer<S> dummy()`
+
+- Description: TODO
+
+#### `public Instancer<T> instid(T uinst)`
+
+- Description: TODO
+
+#### `public static <S extends State> Instancable<S> dummy()`
+
+- Description: TODO
+
+#### `public abstract ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public StandAlone(Slot.Type type)`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # ZMessage
 
+This file documents the responsibilities and members of `ZMessage`.
+
 ## Meta
 
 - Source: [ZMessage.java](../../../src/haven/ZMessage.java)
@@ -8,80 +10,56 @@
 
 ## Role
 
-- Represents a z-order or layered message.
+Represents a z-order or layered message.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [zi](#member-1)
-- [zo](#member-2)
-- [eof](#member-3)
-- [bk](#member-4)
-
-#### Methods
-
-- [underflow(int hint)](#member-5)
-- [flush(boolean sync, boolean finish)](#member-6)
-- [flush()](#member-7)
-- [overflow(int min)](#member-8)
-- [finish()](#member-9)
-- [public void close() throws IOException](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `zi`
+#### `private transient Inflater zi = null`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `zo`
+#### `private transient Deflater zo = null`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `eof`
+#### `private boolean eof`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `bk`
+#### `private final transient Message bk`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `underflow(int hint)`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `flush(boolean sync, boolean finish)`
+#### `public ZMessage(Message from)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `flush()`
+#### `public boolean underflow(int hint)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `overflow(int min)`
+#### `private void flush(boolean sync, boolean finish)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `finish()`
+#### `public void flush()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `public void close() throws IOException`
+#### `public void overflow(int min)`
+
+- Description: TODO
+
+#### `public void finish()`
+
+- Description: TODO
+
+#### `public void close() throws IOException`
 
 - Description: TODO

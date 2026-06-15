@@ -1,5 +1,7 @@
 # WaypointSceneBuilder
 
+This file documents the responsibilities and members of `WaypointSceneBuilder`.
+
 ## Meta
 
 - Source: [WaypointSceneBuilder.java](../../../../../src/lmi/waypoint/runtime/WaypointSceneBuilder.java)
@@ -8,62 +10,54 @@
 
 ## Role
 
-- Builds a draw-ready or runtime-ready waypoint object.
+Builds a draw-ready or runtime-ready waypoint object.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [scene](#member-5)
-- [selectedManagedNodes](#member-6)
-
-#### Methods
-
-- [public static BuildResult build(](#member-1)
-- [private static void _appendResidentEdge(](#member-2)
-- [_classifyNode(long gridId, WaypointGridBounds bounds)](#member-3)
-- [_resolvedNode(WaypointGridBounds bounds, ManagedWpNode node)](#member-4)
-- [BuildResult(WaypointScene scene, Array<ManagedWpNode> selectedManagedNodes)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-5"></a>
-##### `scene`
+### BuildResult
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `selectedManagedNodes`
+### NodeVisibility
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-1"></a>
-##### `public static BuildResult build(`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-2"></a>
-##### `private static void _appendResidentEdge(`
+#### `public final WaypointScene scene`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `_classifyNode(long gridId, WaypointGridBounds bounds)`
+#### `public final Array<ManagedWpNode> selectedManagedNodes`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `_resolvedNode(WaypointGridBounds bounds, ManagedWpNode node)`
+### Methods
+
+#### `private WaypointSceneBuilder()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `BuildResult(WaypointScene scene, Array<ManagedWpNode> selectedManagedNodes)`
+#### `public static BuildResult build(`
+
+- Description: TODO
+
+#### `private static void _appendResidentEdge(`
+
+- Description: TODO
+
+#### `private static NodeVisibility _classifyNode(long gridId, WaypointGridBounds bounds)`
+
+- Description: TODO
+
+#### `private static ResolvedNode _resolvedNode(WaypointGridBounds bounds, ManagedWpNode node)`
+
+- Description: TODO
+
+#### `BuildResult(WaypointScene scene, Array<ManagedWpNode> selectedManagedNodes)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Following
 
+This file documents the responsibilities and members of `Following`.
+
 ## Meta
 
 - Source: [Following.java](../../../src/haven/Following.java)
@@ -8,128 +10,98 @@
 
 ## Role
 
-- Represents follow behavior or state.
+Represents follow behavior or state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [tgt](#member-1)
-- [xfres](#member-2)
-- [xfname](#member-3)
-- [lastv](#member-6)
-- [tgt](#member-9)
-- [xf](#member-10)
-- [xf](#member-13)
-- [lpxf](#member-14)
-- [lbxf](#member-15)
-- [bxf](#member-16)
-
-#### Methods
-
-- [followingTarget()](#member-4)
-- [getc()](#member-5)
-- [getv()](#member-7)
-- [tgt()](#member-8)
-- [XfResolver(Gob tgt)](#member-11)
-- [run()](#member-12)
-- [xf()](#member-17)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `tgt`
+### $follow
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `xfres`
+### XfResolver
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `xfname`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final long tgt`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `lastv`
+#### `public final Indir<Resource> xfres`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tgt`
+#### `public final String xfname`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `xf`
+#### `private double lastv = 0.0`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `xf`
+#### `final Gob tgt`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `lpxf`
+#### `Supplier<? extends Pipe.Op> xf = null`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `lbxf`
+#### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `bxf`
+#### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `followingTarget()`
+#### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `getc()`
+#### `private XfResolver bxf = null`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `getv()`
+### Methods
+
+#### `public Following(Gob gob, long tgt, Indir<Resource> xfres, String xfname)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `tgt()`
+#### `public Gob followingTarget()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `XfResolver(Gob tgt)`
+#### `public Coord3f getc()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `run()`
+#### `public double getv()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `xf()`
+#### `public Gob tgt()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+#### `XfResolver(Gob tgt)`
+
+- Description: TODO
+
+#### `public void run()`
+
+- Description: TODO
+
+#### `public Pipe.Op xf()`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

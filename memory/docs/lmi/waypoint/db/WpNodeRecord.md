@@ -1,5 +1,7 @@
 # WpNodeRecord
 
+This file documents the responsibilities and members of `WpNodeRecord`.
+
 ## Meta
 
 - Source: [WpNodeRecord.java](../../../../../src/lmi/waypoint/db/WpNodeRecord.java)
@@ -8,51 +10,40 @@
 
 ## Role
 
-- Represents a low-level waypoint persistence record.
+Represents a low-level waypoint persistence record.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [graphId](#member-2)
-- [gridId](#member-3)
-- [localX](#member-4)
-- [localY](#member-5)
-- [name](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `public final long id`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `name`
+#### `public final String name`
+
+- Description: TODO
+
+### Methods
+
+#### `public WpNodeRecord(long id, long graphId, long gridId, int localX, int localY, String name)`
 
 - Description: TODO

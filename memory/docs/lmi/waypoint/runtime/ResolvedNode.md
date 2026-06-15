@@ -1,5 +1,7 @@
 # ResolvedNode
 
+This file documents the responsibilities and members of `ResolvedNode`.
+
 ## Meta
 
 - Source: [ResolvedNode.java](../../../../../src/lmi/waypoint/runtime/ResolvedNode.java)
@@ -8,57 +10,44 @@
 
 ## Role
 
-- Represents a waypoint node value or runtime cache entry.
+Represents a waypoint node value or runtime cache entry.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [name](#member-2)
-- [graphId](#member-3)
-- [gridId](#member-4)
-- [localX](#member-5)
-- [localY](#member-6)
-- [world](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `public final long id`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `world`
+#### `public final Coord world`
+
+- Description: TODO
+
+### Methods
+
+#### `public ResolvedNode(long id, String name, long graphId, long gridId, int localX, int localY, Coord world)`
 
 - Description: TODO

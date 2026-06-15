@@ -1,5 +1,7 @@
 # ChatInputMonitor
 
+This file documents the responsibilities and members of `ChatInputMonitor`.
+
 ## Meta
 
 - Source: [ChatInputMonitor.java](../../../../src/lmi/runtime/ChatInputMonitor.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Observes a narrow slice of runtime state for automation.
+Observes a narrow slice of runtime state for automation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [lock](#member-1)
-- [waitingAreaChat](#member-2)
-- [capturedAreaChat](#member-3)
-
-#### Methods
-
-- [clear()](#member-4)
-- [waitAreaChat()](#member-5)
-- [capture(Widget sender, String msg, Object... args)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `lock`
+#### `private static final Object lock = new Object()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `waitingAreaChat`
+### Fields
+
+#### `private static boolean waitingAreaChat = false`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `capturedAreaChat`
+#### `private static String capturedAreaChat = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `clear()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `waitAreaChat()`
+#### `private ChatInputMonitor()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `capture(Widget sender, String msg, Object... args)`
+#### `public static void clear()`
+
+- Description: TODO
+
+#### `public static String waitAreaChat()`
+
+- Description: TODO
+
+#### `public static void capture(Widget sender, String msg, Object... args)`
 
 - Description: TODO

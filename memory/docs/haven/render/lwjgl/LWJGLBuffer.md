@@ -1,5 +1,7 @@
 # LWJGLBuffer
 
+This file documents the responsibilities and members of `LWJGLBuffer`.
+
 ## Meta
 
 - Source: [LWJGLBuffer.java](../../../../../src/haven/render/lwjgl/LWJGLBuffer.java)
@@ -8,109 +10,78 @@
 
 ## Role
 
-- Represents an LWJGL buffer.
+Represents an LWJGL buffer.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [LEAK_CHECK](#member-1)
-
-#### Fields
-
-- [data](#member-2)
-- [clean](#member-3)
-- [init](#member-4)
-- [data](#member-5)
-- [fin](#member-6)
-- [clean](#member-7)
-
-#### Methods
-
-- [Cleanup(LWJGLBuffer ob)](#member-8)
-- [clean()](#member-9)
-- [dispose()](#member-10)
-- [data()](#member-11)
-- [create(GL gl)](#member-12)
-- [delete(GL gl)](#member-13)
-- [leakcheck()](#member-14)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `LEAK_CHECK`
+### Cleanup
 
 - Description: TODO
 
-#### Fields
+## Members
 
-<a id="member-2"></a>
-##### `data`
+### Constants
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `clean`
+#### `public static final boolean LEAK_CHECK = false`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `init`
+### Fields
+
+#### `private ByteBuffer data`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `data`
+#### `private final Cleanup clean`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `fin`
+#### `private final Throwable init = LEAK_CHECK ? new Throwable() : null`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `clean`
+#### `private final ByteBuffer data`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `Cleanup(LWJGLBuffer ob)`
+#### `private final Runnable fin`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `clean()`
+#### `private boolean clean`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `dispose()`
+### Methods
+
+#### `Cleanup(LWJGLBuffer ob)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `data()`
+#### `public void clean()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `create(GL gl)`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `delete(GL gl)`
+#### `public LWJGLBuffer(LWJGLEnvironment env, int sz)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `leakcheck()`
+#### `public ByteBuffer data()`
+
+- Description: TODO
+
+#### `public void create(GL gl)`
+
+- Description: TODO
+
+#### `protected void delete(GL gl)`
+
+- Description: TODO
+
+#### `protected boolean leakcheck()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Varying
 
+This file documents the responsibilities and members of `Varying`.
+
 ## Meta
 
 - Source: [Varying.java](../../../../../src/haven/render/sl/Varying.java)
@@ -8,44 +10,42 @@
 
 ## Role
 
-- Represents a shader varying.
+Represents a shader varying.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [ipol](#member-1)
-
-#### Methods
-
-- [ipol(Context ctx)](#member-2)
-- [output(Output out)](#member-3)
-- [use(Context ctx)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `ipol`
+### Def
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-2"></a>
-##### `ipol(Context ctx)`
+### Interpol
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public Interpol ipol = Interpol.NORMAL`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `use(Context ctx)`
+### Methods
+
+#### `protected Interpol ipol(Context ctx)`
+
+- Description: TODO
+
+#### `public Varying(Type type, Symbol name)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
 
 - Description: TODO

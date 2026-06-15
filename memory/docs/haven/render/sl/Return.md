@@ -1,5 +1,7 @@
 # Return
 
+This file documents the responsibilities and members of `Return`.
+
 ## Meta
 
 - Source: [Return.java](../../../../../src/haven/render/sl/Return.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Represents a return statement.
+Represents a return statement.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [rv](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [output(Output out)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `rv`
+#### `public final Expression rv`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+#### `public Return(Expression rv)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

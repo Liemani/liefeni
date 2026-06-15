@@ -1,5 +1,7 @@
 # WebBrowser
 
+This file documents the responsibilities and members of `WebBrowser`.
+
 ## Meta
 
 - Source: [WebBrowser.java](../../../src/haven/WebBrowser.java)
@@ -8,50 +10,42 @@
 
 ## Role
 
-- Opens web content in a browser.
+Opens web content in a browser.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [self](#member-1)
-
-#### Methods
-
-- [public abstract void show(URL url);](#member-2)
-- [BrowserException(String msg)](#member-3)
-- [BrowserException(Throwable cause)](#member-4)
-- [sshow(URL url)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `self`
+### BrowserException
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-2"></a>
-##### `public abstract void show(URL url);`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-3"></a>
-##### `BrowserException(String msg)`
+#### `public static WebBrowser self`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `BrowserException(Throwable cause)`
+### Methods
+
+#### `public WebBrowser()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sshow(URL url)`
+#### `public abstract void show(URL url)`
+
+- Description: TODO
+
+#### `public BrowserException(String msg)`
+
+- Description: TODO
+
+#### `public BrowserException(Throwable cause)`
+
+- Description: TODO
+
+#### `public static void sshow(URL url)`
 
 - Description: TODO

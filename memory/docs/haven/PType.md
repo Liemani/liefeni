@@ -1,5 +1,7 @@
 # PType
 
+This file documents the responsibilities and members of `PType`.
+
 ## Meta
 
 - Source: [PType.java](../../../src/haven/PType.java)
@@ -8,295 +10,210 @@
 
 ## Role
 
-- Defines protocol or packet types.
+Defines protocol or packet types.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [STR](#member-1)
-- [NUM](#member-2)
-- [INT](#member-3)
-- [UINT](#member-4)
-- [FLOAT](#member-5)
-- [DOUBLE](#member-6)
-- [BOOL](#member-7)
-- [BYTES](#member-8)
-- [IRES](#member-9)
-- [RES](#member-10)
-- [OBJS](#member-11)
-- [LIST](#member-12)
-- [MAP](#member-13)
-- [COORD](#member-14)
-- [FCOORD](#member-15)
-- [COLOR](#member-16)
-- [FCOLOR](#member-17)
-- [UNIQID](#member-18)
-
-#### Fields
-
-- [expected](#member-22)
-- [got](#member-23)
-- [args](#member-26)
-- [idx](#member-27)
-- [name](#member-31)
-- [variants](#member-32)
-- [name](#member-35)
-- [fun](#member-36)
-- [cl](#member-39)
-- [bk](#member-42)
-- [xf](#member-43)
-
-#### Methods
-
-- [public Maybe<T> opt(Object val);](#member-19)
-- [of(Object val)](#member-20)
-- [is(Object val)](#member-21)
-- [ValueFormatException(String expected, Object got)](#member-24)
-- [getMessage()](#member-25)
-- [MissingArgumentException(Object[] args, int idx)](#member-28)
-- [getMessage()](#member-29)
-- [opt(Object[] arr, int idx)](#member-30)
-- [Or(String name, PType<T>... variants)](#member-33)
-- [opt(Object val)](#member-34)
-- [OFunction(String name, Function<Object, Maybe<T>> fun)](#member-37)
-- [opt(Object val)](#member-38)
-- [Cast(Class<T> cl)](#member-40)
-- [opt(Object val)](#member-41)
-- [MapValue(PType<P> bk, Function<P, R> xf)](#member-44)
-- [opt(Object val)](#member-45)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `STR`
+### Cast
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `NUM`
+### MapValue
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `INT`
+### OFunction
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `UINT`
+### Or
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `FLOAT`
+## Members
+
+### Constants
+
+#### `public static final PType<String> STR = new Cast<>(String.class)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `DOUBLE`
+#### `public static final PType<Number> NUM = new Cast<>(Number.class)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `BOOL`
+#### `public static final PType<Integer> INT = new MapValue<>(NUM, Number::intValue)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `BYTES`
+#### `public static final PType<Long> UINT = new MapValue<>(INT, Utils::uint32)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `IRES`
+#### `public static final PType<Float> FLOAT = new MapValue<>(NUM, Number::floatValue)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `RES`
+#### `public static final PType<Double> DOUBLE = new MapValue<>(NUM, Number::doubleValue)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `OBJS`
+#### `public static final PType<Boolean> BOOL = new Or<>("bool", new Cast<>(Boolean.class), new MapValue<>(INT, v -> v != 0))`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `LIST`
+#### `public static final PType<byte[]> BYTES = new Cast<>(byte[].class)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `MAP`
+#### `public static final PType<Indir<Resource>> IRES = new Or<>("ires",`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `COORD`
+#### `public static final PType<Resource> RES = new Or<>("res", new Cast<>(Resource.class),`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `FCOORD`
+#### `public static final PType<Object[]> OBJS = new Or<>("object-array", new Cast<>(Object[].class),`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `COLOR`
+#### `public static final PType<List<?>> LIST = new Or<>("object-list", new MapValue<>(new Cast<List>(List.class), l -> (List<?>)l),`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `FCOLOR`
+#### `public static final PType<Map<?, ?>> MAP = new MapValue<>(new Cast<>(Map.class), m -> (Map<?, ?>)m)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `UNIQID`
+#### `public static final PType<Coord> COORD = new Cast<>(Coord.class)`
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-22"></a>
-##### `expected`
+#### `public static final PType<Coord2d> FCOORD = new Cast<>(Coord2d.class)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `got`
+#### `public static final PType<java.awt.Color> COLOR = new Cast<>(java.awt.Color.class)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `args`
+#### `public static final PType<FColor> FCOLOR = new Or<>("fcolor", new Cast<>(FColor.class),`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `idx`
+#### `public static final PType<UID> UNIQID = new Cast<>(UID.class)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `name`
+### Fields
+
+#### `public final String expected`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `variants`
+#### `public final Object got`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `name`
+#### `public final Object[] args`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `fun`
+#### `public final int idx`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `cl`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `bk`
+#### `private final Collection<PType<T>> variants`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `xf`
+#### `public final String name`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-19"></a>
-##### `public Maybe<T> opt(Object val);`
+#### `public final Function<Object, Maybe<T>> fun`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `of(Object val)`
+#### `public final Class<T> cl`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `is(Object val)`
+#### `public final PType<P> bk`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `ValueFormatException(String expected, Object got)`
+#### `public final Function<P, R> xf`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `getMessage()`
+### Methods
+
+#### `public Maybe<T> opt(Object val)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `MissingArgumentException(Object[] args, int idx)`
+#### `public default T of(Object val)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `getMessage()`
+#### `public default boolean is(Object val)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `opt(Object[] arr, int idx)`
+#### `public ValueFormatException(String expected, Object got)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `Or(String name, PType<T>... variants)`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `opt(Object val)`
+#### `public MissingArgumentException(Object[] args, int idx)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `OFunction(String name, Function<Object, Maybe<T>> fun)`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `opt(Object val)`
+#### `public default Maybe<T> opt(Object[] arr, int idx)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `Cast(Class<T> cl)`
+#### `public Or(String name, PType<T>... variants)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `opt(Object val)`
+#### `public Maybe<T> opt(Object val)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `MapValue(PType<P> bk, Function<P, R> xf)`
+#### `public OFunction(String name, Function<Object, Maybe<T>> fun)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `opt(Object val)`
+#### `public Maybe<T> opt(Object val)`
+
+- Description: TODO
+
+#### `public Cast(Class<T> cl)`
+
+- Description: TODO
+
+#### `public Maybe<T> opt(Object val)`
+
+- Description: TODO
+
+#### `public MapValue(PType<P> bk, Function<P, R> xf)`
+
+- Description: TODO
+
+#### `public Maybe<R> opt(Object val)`
 
 - Description: TODO

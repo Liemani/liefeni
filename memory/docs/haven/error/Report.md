@@ -1,5 +1,7 @@
 # Report
 
+This file documents the responsibilities and members of `Report`.
+
 ## Meta
 
 - Source: [Report.java](../../../../src/haven/error/Report.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents an error report.
+Represents an error report.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [reported](#member-1)
-- [t](#member-2)
-- [time](#member-3)
-- [props](#member-4)
-
-#### Methods
-
-- [synchronized void join() throws InterruptedException](#member-5)
-- [done()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `reported`
+#### `private boolean reported = false`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `t`
+#### `public final Throwable t`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `time`
+#### `public final long time`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `props`
+#### `public final Map<String, Object> props = new HashMap<String, Object>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `synchronized void join() throws InterruptedException`
+#### `public Report(Throwable t)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `done()`
+#### `synchronized void join() throws InterruptedException`
+
+- Description: TODO
+
+#### `synchronized void done()`
 
 - Description: TODO

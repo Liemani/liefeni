@@ -1,5 +1,7 @@
 # ColorTex
 
+This file documents the responsibilities and members of `ColorTex`.
+
 ## Meta
 
 - Source: [ColorTex.java](../../../../src/haven/render/ColorTex.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a color texture.
+Represents a color texture.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [texc](#member-2)
-- [data](#member-3)
-- [shader](#member-4)
-
-#### Methods
-
-- [shader()](#member-5)
-- [apply(Pipe p)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<ColorTex> slot = new Slot<>(Slot.Type.DRAW, ColorTex.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `texc`
+#### `public static final Attribute texc = Tex2D.texc`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `data`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `shader`
+### Fields
+
+#### `public final Texture2D.Sampler2D data`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `shader()`
+#### `public ColorTex(Texture2D.Sampler2D data)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `apply(Pipe p)`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
 
 - Description: TODO

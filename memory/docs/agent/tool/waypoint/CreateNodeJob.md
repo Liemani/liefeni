@@ -1,5 +1,7 @@
 # CreateNodeJob
 
+This file documents the responsibilities and members of `CreateNodeJob`.
+
 ## Meta
 
 - Source: [CreateNodeJob.java](../../../../../src/agent/tool/waypoint/CreateNodeJob.java)
@@ -8,39 +10,28 @@
 
 ## Role
 
-- Provides a waypoint tool job entry point.
+Provides a waypoint tool job entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [run(AgentContext ctx, String[] args)](#member-1)
-- [_createNodeAtCurrentPositionAsync(String nodeName)](#member-2)
-- [_inputNodeName()](#member-3)
-- [info()](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `run(AgentContext ctx, String[] args)`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `_createNodeAtCurrentPositionAsync(String nodeName)`
+#### `private static void _createNodeAtCurrentPositionAsync(String nodeName)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `_inputNodeName()`
+#### `private static String _inputNodeName()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

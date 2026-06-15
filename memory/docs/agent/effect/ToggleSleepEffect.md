@@ -1,5 +1,7 @@
 # ToggleSleepEffect
 
+This file documents the responsibilities and members of `ToggleSleepEffect`.
+
 ## Meta
 
 - Source: [ToggleSleepEffect.java](../../../../src/agent/effect/ToggleSleepEffect.java)
@@ -8,39 +10,28 @@
 
 ## Role
 
-- Provides an immediate action entry point.
+Provides an immediate action entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [execute()](#member-1)
-- [name()](#member-2)
-- [info()](#member-3)
-- [sortkey()](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `execute()`
+#### `public void execute()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sortkey()`
+#### `public static String sortkey()`
 
 - Description: TODO

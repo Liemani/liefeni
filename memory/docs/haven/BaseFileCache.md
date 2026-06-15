@@ -1,5 +1,7 @@
 # BaseFileCache
 
+This file documents the responsibilities and members of `BaseFileCache`.
+
 ## Meta
 
 - Source: [BaseFileCache.java](../../../src/haven/BaseFileCache.java)
@@ -8,110 +10,76 @@
 
 ## Role
 
-- Provides the base file cache implementation.
+Provides the base file cache implementation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [id](#member-1)
-- [base](#member-2)
-- [current](#member-5)
-
-#### Methods
-
-- [findroot()](#member-3)
-- [public static Path findbase(URI id) throws IOException](#member-4)
-- [public static BaseFileCache get(URI id) throws IOException](#member-6)
-- [mkurn(String id)](#member-7)
-- [public static BaseFileCache get(String id) throws IOException](#member-8)
-- [create()](#member-9)
-- [mangle(String el)](#member-10)
-- [forres(String nm)](#member-11)
-- [public InputStream fetch(String name) throws IOException](#member-12)
-- [public OutputStream store(String name) throws IOException](#member-13)
-- [public void remove(String name) throws IOException](#member-14)
-- [toString()](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `private static final Map<URI, BaseFileCache> current = new CacheMap<>()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `base`
+### Fields
+
+#### `public final URI id`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `current`
+#### `private final Path base`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `findroot()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `public static Path findbase(URI id) throws IOException`
+#### `public static Path findroot()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public static BaseFileCache get(URI id) throws IOException`
+#### `public static Path findbase(URI id) throws IOException`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `mkurn(String id)`
+#### `public BaseFileCache(URI id) throws IOException`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public static BaseFileCache get(String id) throws IOException`
+#### `public static BaseFileCache get(URI id) throws IOException`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `create()`
+#### `private static URI mkurn(String id)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mangle(String el)`
+#### `public static BaseFileCache get(String id) throws IOException`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `forres(String nm)`
+#### `public static BaseFileCache create()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `public InputStream fetch(String name) throws IOException`
+#### `private String mangle(String el)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `public OutputStream store(String name) throws IOException`
+#### `private Path forres(String nm)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `public void remove(String name) throws IOException`
+#### `public InputStream fetch(String name) throws IOException`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `toString()`
+#### `public OutputStream store(String name) throws IOException`
+
+- Description: TODO
+
+#### `public void remove(String name) throws IOException`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

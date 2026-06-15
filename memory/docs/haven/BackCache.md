@@ -1,5 +1,7 @@
 # BackCache
 
+This file documents the responsibilities and members of `BackCache`.
+
 ## Meta
 
 - Source: [BackCache.java](../../../src/haven/BackCache.java)
@@ -8,86 +10,70 @@
 
 ## Role
 
-- Caches resources or data in the background.
+Caches resources or data in the background.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [load](#member-1)
-- [store](#member-2)
-- [dispose](#member-3)
-- [cache](#member-4)
-- [size](#member-5)
-
-#### Methods
-
-- [Cache(int size)](#member-6)
-- [removeEldestEntry(Map.Entry<K, V> eldest)](#member-7)
-- [cached(K key)](#member-8)
-- [get(K key)](#member-9)
-- [put(K key, V val)](#member-10)
-- [remove(K key)](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `load`
+### Cache
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `store`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Function<K, V> load`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dispose`
+#### `public final BiConsumer<K, V> store`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cache`
+#### `public final BiConsumer<K, V> dispose`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `size`
+#### `private final Map<K, V> cache`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `Cache(int size)`
+#### `private final int size`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `removeEldestEntry(Map.Entry<K, V> eldest)`
+### Methods
+
+#### `public BackCache(int size, Function<K, V> load, BiConsumer<K, V> store, BiConsumer<K, V> dispose)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `cached(K key)`
+#### `public BackCache(int size, Function<K, V> load, BiConsumer<K, V> store)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `get(K key)`
+#### `private Cache(int size)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `put(K key, V val)`
+#### `protected boolean removeEldestEntry(Map.Entry<K, V> eldest)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `remove(K key)`
+#### `public boolean cached(K key)`
+
+- Description: TODO
+
+#### `public V get(K key)`
+
+- Description: TODO
+
+#### `public void put(K key, V val)`
+
+- Description: TODO
+
+#### `public void remove(K key)`
 
 - Description: TODO

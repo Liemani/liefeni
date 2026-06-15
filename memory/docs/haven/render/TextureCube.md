@@ -1,5 +1,7 @@
 # TextureCube
 
+This file documents the responsibilities and members of `TextureCube`.
+
 ## Meta
 
 - Source: [TextureCube.java](../../../../src/haven/render/TextureCube.java)
@@ -8,104 +10,98 @@
 
 ## Role
 
-- Represents a cube texture.
+Represents a cube texture.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [w](#member-1)
-- [h](#member-2)
-- [pot](#member-3)
-- [face](#member-5)
-
-#### Methods
-
-- [sz()](#member-4)
-- [CubeImage(TextureCube tex, int w, int h, Face face, int level)](#member-6)
-- [equals(CubeImage that)](#member-7)
-- [equals(Object that)](#member-8)
-- [toString()](#member-9)
-- [image(Face face, int level)](#member-10)
-- [images()](#member-11)
-- [SamplerCube(TextureCube tex)](#member-12)
-- [sampler()](#member-13)
-- [toString()](#member-14)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `w`
+### CubeImage
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `h`
+### Face
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `pot`
+### SamplerCube
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `face`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final int w, h`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `sz()`
+#### `public final int w, h`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `CubeImage(TextureCube tex, int w, int h, Face face, int level)`
+#### `private final boolean pot`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `equals(CubeImage that)`
+#### `public final Face face`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `equals(Object that)`
+### Methods
+
+#### `public TextureCube(int w, int h, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `toString()`
+#### `public TextureCube(int w, int h, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `image(Face face, int level)`
+#### `public TextureCube(Coord dim, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `images()`
+#### `public TextureCube(Coord dim, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `SamplerCube(TextureCube tex)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `sampler()`
+#### `public CubeImage(TextureCube tex, int w, int h, Face face, int level)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `toString()`
+#### `public boolean equals(CubeImage that)`
+
+- Description: TODO
+
+#### `public boolean equals(Object that)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public CubeImage image(Face face, int level)`
+
+- Description: TODO
+
+#### `public Collection<CubeImage> images()`
+
+- Description: TODO
+
+#### `public SamplerCube(TextureCube tex)`
+
+- Description: TODO
+
+#### `public SamplerCube sampler()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

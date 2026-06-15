@@ -1,5 +1,7 @@
 # ErrorHandler
 
+This file documents the responsibilities and members of `ErrorHandler`.
+
 ## Meta
 
 - Source: [ErrorHandler.java](../../../../src/haven/error/ErrorHandler.java)
@@ -8,122 +10,94 @@
 
 ## Role
 
-- Handles runtime errors.
+Handles runtime errors.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [errordest](#member-1)
-- [sysprops](#member-2)
-- [initial](#member-3)
-- [props](#member-4)
-- [reporter](#member-5)
-- [errors](#member-9)
-- [status](#member-10)
-
-#### Methods
-
-- [find()](#member-6)
-- [setprop(String key, Object val)](#member-7)
-- [lsetprop(String key, Object val)](#member-8)
-- [Reporter(ErrorStatus status)](#member-11)
-- [run()](#member-12)
-- [private void doreport(Report r) throws IOException](#member-13)
-- [report(Thread th, Throwable t)](#member-14)
-- [defprops()](#member-15)
-- [sethandler(ErrorStatus handler)](#member-16)
-- [uncaughtException(Thread t, Throwable e)](#member-17)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `errordest`
+### Reporter
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `sysprops`
+## Members
+
+### Constants
+
+#### `private static final String[] sysprops =`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `initial`
+### Fields
+
+#### `private final URL errordest`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `props`
+#### `private final ThreadGroup initial`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `reporter`
+#### `private Map<String, Object> props = new HashMap<String, Object>()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `errors`
+#### `private Reporter reporter`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `status`
+#### `private Queue<Report> errors = new LinkedList<Report>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `find()`
+#### `private ErrorStatus status`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `setprop(String key, Object val)`
+### Methods
+
+#### `public static ErrorHandler find()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `lsetprop(String key, Object val)`
+#### `public static void setprop(String key, Object val)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `Reporter(ErrorStatus status)`
+#### `public void lsetprop(String key, Object val)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `run()`
+#### `public Reporter(ErrorStatus status)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `private void doreport(Report r) throws IOException`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `report(Thread th, Throwable t)`
+#### `private void doreport(Report r) throws IOException`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `defprops()`
+#### `public void report(Thread th, Throwable t)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `sethandler(ErrorStatus handler)`
+#### `private void defprops()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `uncaughtException(Thread t, Throwable e)`
+#### `public ErrorHandler(ErrorStatus ui, URL errordest)`
+
+- Description: TODO
+
+#### `public ErrorHandler(URL errordest)`
+
+- Description: TODO
+
+#### `public void sethandler(ErrorStatus handler)`
+
+- Description: TODO
+
+#### `public void uncaughtException(Thread t, Throwable e)`
 
 - Description: TODO

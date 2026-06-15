@@ -1,5 +1,7 @@
 # FromResource
 
+This file documents the responsibilities and members of `FromResource`.
+
 ## Meta
 
 - Source: [FromResource.java](../../../src/haven/FromResource.java)
@@ -8,44 +10,28 @@
 
 ## Role
 
-- Loads content from a resource.
+Loads content from a resource.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [false](#member-4)
-
-#### Methods
-
-- [public String name();](#member-1)
-- [public int version();](#member-2)
-- [public boolean override() default false;](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-4"></a>
-##### `false`
+#### `public boolean override() default false`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-1"></a>
-##### `public String name();`
-
-- Description: TODO
-
-<a id="member-2"></a>
-##### `public int version();`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public boolean override() default false;`
+#### `public int version()`
+
+- Description: TODO
+
+#### `public boolean override() default false`
 
 - Description: TODO

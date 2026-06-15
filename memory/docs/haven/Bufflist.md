@@ -1,5 +1,7 @@
 # Bufflist
 
+This file documents the responsibilities and members of `Bufflist`.
+
 ## Meta
 
 - Source: [Bufflist.java](../../../src/haven/Bufflist.java)
@@ -8,62 +10,50 @@
 
 ## Role
 
-- Displays a list of buffs.
+Displays a list of buffs.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [margin](#member-1)
-- [num](#member-2)
-
-#### Methods
-
-- [public void move(Coord c, double off);](#member-3)
-- [arrange(Widget imm)](#member-4)
-- [addchild(Widget child, Object... args)](#member-5)
-- [cdestroy(Widget ch)](#member-6)
-- [draw(GOut g)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `margin`
+### Managed
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `num`
+## Members
+
+### Constants
+
+#### `public static final int margin = UI.scale(2)`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `public void move(Coord c, double off);`
+#### `public static final int num = 5`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `arrange(Widget imm)`
+### Fields
+
+### Methods
+
+#### `public void move(Coord c, double off)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public Bufflist()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `cdestroy(Widget ch)`
+#### `private void arrange(Widget imm)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `draw(GOut g)`
+#### `public void addchild(Widget child, Object... args)`
+
+- Description: TODO
+
+#### `public void cdestroy(Widget ch)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
 
 - Description: TODO

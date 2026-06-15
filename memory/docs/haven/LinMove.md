@@ -1,5 +1,7 @@
 # LinMove
 
+This file documents the responsibilities and members of `LinMove`.
+
 ## Meta
 
 - Source: [LinMove.java](../../../src/haven/LinMove.java)
@@ -8,103 +10,78 @@
 
 ## Role
 
-- Represents linear movement behavior.
+Represents linear movement behavior.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [MAXOVER](#member-1)
-
-#### Fields
-
-- [s](#member-2)
-- [v](#member-3)
-- [t](#member-4)
-- [lt](#member-5)
-- [e](#member-6)
-- [ts](#member-7)
-
-#### Methods
-
-- [getc()](#member-8)
-- [getv()](#member-9)
-- [ctick(double dt)](#member-10)
-- [sett(double t)](#member-11)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-12)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-13)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `MAXOVER`
+### $linbeg
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-2"></a>
-##### `s`
+### $linstep
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `v`
+## Members
+
+### Constants
+
+#### `public static final double MAXOVER = 0.5`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `t`
+### Fields
+
+#### `public Coord2d s, v`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `lt`
+#### `public Coord2d s, v`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `e`
+#### `public double t, lt, e`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ts`
+#### `public double t, lt, e`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `getc()`
+#### `public double t, lt, e`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `getv()`
+#### `public boolean ts = false`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `ctick(double dt)`
+### Methods
+
+#### `public LinMove(Gob gob, Coord2d s, Coord2d v)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `sett(double t)`
+#### `public Coord3f getc()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+#### `public double getv()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+#### `public void ctick(double dt)`
+
+- Description: TODO
+
+#### `public void sett(double t)`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

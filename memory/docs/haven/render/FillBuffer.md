@@ -1,5 +1,7 @@
 # FillBuffer
 
+This file documents the responsibilities and members of `FillBuffer`.
+
 ## Meta
 
 - Source: [FillBuffer.java](../../../../src/haven/render/FillBuffer.java)
@@ -8,39 +10,28 @@
 
 ## Role
 
-- Represents a fill buffer.
+Represents a fill buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public int size();](#member-1)
-- [public boolean compatible(Environment env);](#member-2)
-- [public ByteBuffer push();](#member-3)
-- [public void pull(ByteBuffer buf);](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public int size();`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public boolean compatible(Environment env);`
+#### `public boolean compatible(Environment env)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public ByteBuffer push();`
+#### `public ByteBuffer push()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public void pull(ByteBuffer buf);`
+#### `public void pull(ByteBuffer buf)`
 
 - Description: TODO

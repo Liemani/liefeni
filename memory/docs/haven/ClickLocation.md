@@ -1,5 +1,7 @@
 # ClickLocation
 
+This file documents the responsibilities and members of `ClickLocation`.
+
 ## Meta
 
 - Source: [ClickLocation.java](../../../src/haven/ClickLocation.java)
@@ -8,80 +10,62 @@
 
 ## Role
 
-- Describes where a click occurred.
+Describes where a click occurred.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [tex](#member-1)
-- [fragloc](#member-2)
-- [vertex](#member-3)
-- [image](#member-4)
-- [vertloc](#member-6)
-- [shader](#member-8)
-
-#### Methods
-
-- [apply(Pipe p)](#member-5)
-- [fragloc(FragmentContext fctx)](#member-7)
-- [shader()](#member-9)
-- [LocData(FloatBuffer data)](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `tex`
+### LocData
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fragloc`
+## Members
+
+### Constants
+
+#### `public static final Slot<ClickLocation> tex = new Slot<>(Slot.Type.SYS, ClickLocation.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `vertex`
+#### `public static final FragData fragloc = new FragData(Type.VEC2, "fragloc", p -> p.get(tex).image, tex)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `image`
+#### `public static final Attribute vertex = new Attribute(VEC2, "location")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `vertloc`
+#### `public static final AutoVarying vertloc = new AutoVarying(VEC2)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `shader`
+#### `private static final ShaderMacro shader = prog -> fragloc(prog.fctx).force()`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-5"></a>
-##### `apply(Pipe p)`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `fragloc(FragmentContext fctx)`
+#### `public final T image`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `shader()`
+### Methods
+
+#### `public ClickLocation(T image)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `LocData(FloatBuffer data)`
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public static Value fragloc(FragmentContext fctx)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public LocData(FloatBuffer data)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # SpriteLink
 
+This file documents the responsibilities and members of `SpriteLink`.
+
 ## Meta
 
 - Source: [SpriteLink.java](../../../src/haven/SpriteLink.java)
@@ -8,92 +10,74 @@
 
 ## Role
 
-- Links sprite resources or instances.
+Links sprite resources or instances.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [f](#member-1)
-- [sfact](#member-2)
-- [tag](#member-3)
-- [sub](#member-4)
-- [def](#member-5)
-- [res](#member-8)
-
-#### Methods
-
-- [ByTile(Resource res, Message buf, Map<Integer, Factory> refs)](#member-6)
-- [create(Owner owner, Resource res, Message sdt)](#member-7)
-- [ByRes(Resource res, Message buf, Map<Integer, Factory> refs)](#member-9)
-- [create(Owner owner, Resource res, Message sdt)](#member-10)
-- [toString()](#member-11)
-- [init()](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `f`
+### ByRes
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `sfact`
+### ByTile
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `tag`
+## Members
+
+### Constants
+
+#### `public static final Factory sfact = new Factory()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sub`
+### Fields
+
+#### `public final Factory f`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `def`
+#### `private final String[] tag`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `res`
+#### `private final Factory[] sub`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `ByTile(Resource res, Message buf, Map<Integer, Factory> refs)`
+#### `private final Factory def`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `create(Owner owner, Resource res, Message sdt)`
+#### `private final Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `ByRes(Resource res, Message buf, Map<Integer, Factory> refs)`
+### Methods
+
+#### `private ByTile(Resource res, Message buf, Map<Integer, Factory> refs)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `create(Owner owner, Resource res, Message sdt)`
+#### `public Sprite create(Owner owner, Resource res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `toString()`
+#### `private ByRes(Resource res, Message buf, Map<Integer, Factory> refs)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `init()`
+#### `public Sprite create(Owner owner, Resource res, Message sdt)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public SpriteLink(Resource res, Message buf)`
+
+- Description: TODO
+
+#### `public void init()`
 
 - Description: TODO

@@ -38,13 +38,13 @@
 
 ## 자주 보는 파일
 
-- `src/lmi/LmiLifecycle.java`
-- `src/lmi/AppContext.java`
-- `src/lmi/Hook.java`
-- `src/lmi/Agent.java`
-- `src/lmi/AgentRegistry.java`
-- `src/lmi/MenuGridProxy.java`
-- `src/lmi/WaitManager.java`
+- `src/lmi/lifecycle/LmiLifecycle.java`
+- `src/lmi/core/AppContext.java`
+- `src/lmi/bridge/Hook.java`
+- `src/lmi/runtime/Agent.java`
+- `src/lmi/runtime/AgentRegistry.java`
+- `src/lmi/bridge/MenuGridProxy.java`
+- `src/lmi/runtime/WaitManager.java`
 - `src/lmi/waypoint/WaypointManager.java`
 - `src/lmi/waypoint/persistence/WaypointStore.java`
 - `src/lmi/waypoint/persistence/WaypointDatabase.java`

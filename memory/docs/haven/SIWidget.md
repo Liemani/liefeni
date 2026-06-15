@@ -1,5 +1,7 @@
 # SIWidget
 
+This file documents the responsibilities and members of `SIWidget`.
+
 ## Meta
 
 - Source: [SIWidget.java](../../../src/haven/SIWidget.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a styled widget interface.
+Represents a styled widget interface.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [surf](#member-1)
-
-#### Methods
-
-- [protected abstract void draw(BufferedImage buf);](#member-2)
-- [draw()](#member-3)
-- [draw(GOut g)](#member-4)
-- [redraw()](#member-5)
-- [dispose()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `surf`
+#### `private Tex surf = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `protected abstract void draw(BufferedImage buf);`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `draw()`
+#### `public SIWidget(Coord sz)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `draw(GOut g)`
+#### `protected abstract void draw(BufferedImage buf)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `redraw()`
+#### `public BufferedImage draw()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `dispose()`
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public void redraw()`
+
+- Description: TODO
+
+#### `public void dispose()`
 
 - Description: TODO

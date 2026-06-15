@@ -1,5 +1,7 @@
 # GLFrameBuffer
 
+This file documents the responsibilities and members of `GLFrameBuffer`.
+
 ## Meta
 
 - Source: [GLFrameBuffer.java](../../../../../src/haven/render/gl/GLFrameBuffer.java)
@@ -8,188 +10,142 @@
 
 ## Role
 
-- Represents a GL framebuffer.
+Represents a GL framebuffer.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [color](#member-1)
-- [depth](#member-2)
-- [sz](#member-3)
-- [id](#member-4)
-- [sz](#member-12)
-- [cfmt](#member-13)
-- [dfmt](#member-14)
-- [tex](#member-16)
-- [level](#member-20)
-- [w](#member-21)
-- [h](#member-22)
-
-#### Methods
-
-- [create(GL gl)](#member-5)
-- [delete(GL gl)](#member-6)
-- [glid()](#member-7)
-- [register(GLTexture tex)](#member-8)
-- [register()](#member-9)
-- [unregister(GLTexture tex)](#member-10)
-- [dispose()](#member-11)
-- [FormatException(String message, GLFrameBuffer fbo)](#member-15)
-- [Attachment(GLTexture tex)](#member-17)
-- [public abstract void attach(BGL gl, GLFrameBuffer fbo, int point);](#member-18)
-- [public abstract Coord sz();](#member-19)
-- [Attach2D(GLTexture.Tex2D tex, Texture.Image<Texture2D> img)](#member-23)
-- [attach(BGL gl, GLFrameBuffer fbo, int point)](#member-24)
-- [sz()](#member-25)
-- [hashCode()](#member-26)
-- [equals(Object o)](#member-27)
-- [prepimg(GLEnvironment env, Texture.Image<?> img)](#member-28)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `color`
+### Attach2D
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `depth`
+### Attachment
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sz`
+### FormatException
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `id`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Attachment[] color`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `sz`
+#### `public final Attachment depth`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `cfmt`
+#### `public final Coord sz`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `dfmt`
+#### `private int id`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `tex`
+#### `public final Coord sz`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `level`
+#### `public final VectorFormat[] cfmt`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `w`
+#### `public final VectorFormat dfmt`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `h`
+#### `public final GLTexture tex`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `create(GL gl)`
+#### `public final int level, w, h`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `delete(GL gl)`
+#### `public final int level, w, h`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `glid()`
+#### `public final int level, w, h`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `register(GLTexture tex)`
+### Methods
+
+#### `public GLFrameBuffer(GLEnvironment env, Attachment[] color, Attachment depth)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `register()`
+#### `public void create(GL gl)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `unregister(GLTexture tex)`
+#### `protected void delete(GL gl)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `dispose()`
+#### `public int glid()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `FormatException(String message, GLFrameBuffer fbo)`
+#### `private void register(GLTexture tex)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `Attachment(GLTexture tex)`
+#### `private void register()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `public abstract void attach(BGL gl, GLFrameBuffer fbo, int point);`
+#### `private void unregister(GLTexture tex)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `public abstract Coord sz();`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `Attach2D(GLTexture.Tex2D tex, Texture.Image<Texture2D> img)`
+#### `public FormatException(String message, GLFrameBuffer fbo)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `attach(BGL gl, GLFrameBuffer fbo, int point)`
+#### `public Attachment(GLTexture tex)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `sz()`
+#### `public abstract void attach(BGL gl, GLFrameBuffer fbo, int point)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `hashCode()`
+#### `public abstract Coord sz()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `equals(Object o)`
+#### `public Attach2D(GLTexture.Tex2D tex, Texture.Image<Texture2D> img)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `prepimg(GLEnvironment env, Texture.Image<?> img)`
+#### `public void attach(BGL gl, GLFrameBuffer fbo, int point)`
+
+- Description: TODO
+
+#### `public Coord sz()`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public static Attachment prepimg(GLEnvironment env, Texture.Image<?> img)`
 
 - Description: TODO

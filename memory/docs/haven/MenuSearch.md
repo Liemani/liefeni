@@ -1,5 +1,7 @@
 # MenuSearch
 
+This file documents the responsibilities and members of `MenuSearch`.
+
 ## Meta
 
 - Source: [MenuSearch.java](../../../src/haven/MenuSearch.java)
@@ -8,134 +10,102 @@
 
 ## Role
 
-- Supports menu search.
+Supports menu search.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [menu](#member-1)
-- [rls](#member-2)
-- [sbox](#member-3)
-- [root](#member-4)
-- [cur](#member-5)
-- [filtered](#member-6)
-- [recons](#member-7)
-- [btn](#member-8)
-- [elf](#member-10)
-- [elh](#member-11)
-
-#### Methods
-
-- [Result(PagButton btn)](#member-9)
-- [Results(Coord sz)](#member-12)
-- [items()](#member-13)
-- [makeitem(Result el, int idx, Coord sz)](#member-14)
-- [refilter()](#member-15)
-- [updlist()](#member-16)
-- [setroot(Pagina nr)](#member-17)
-- [tick(double dt)](#member-18)
-- [keydown(KeyDownEvent ev)](#member-19)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `menu`
+### Result
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rls`
+### Results
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sbox`
+## Members
+
+### Constants
+
+#### `private static final Text.Foundry elf = CharWnd.attrf`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `root`
+#### `private static final int elh = elf.height() + UI.scale(2)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `cur`
+### Fields
+
+#### `public final MenuGrid menu`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `filtered`
+#### `public final Results rls`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `recons`
+#### `public final TextEntry sbox`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `btn`
+#### `private Pagina root`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `elf`
+#### `private List<Result> cur = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `elh`
+#### `private List<Result> filtered = Collections.emptyList()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-9"></a>
-##### `Result(PagButton btn)`
+#### `private boolean recons = false`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `Results(Coord sz)`
+#### `public final PagButton btn`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `items()`
+### Methods
+
+#### `private Result(PagButton btn)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `makeitem(Result el, int idx, Coord sz)`
+#### `private Results(Coord sz)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `refilter()`
+#### `protected List<Result> items()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `updlist()`
+#### `protected Widget makeitem(Result el, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `setroot(Pagina nr)`
+#### `public MenuSearch(MenuGrid menu)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `tick(double dt)`
+#### `private void refilter()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `private void updlist()`
+
+- Description: TODO
+
+#### `public void setroot(Pagina nr)`
+
+- Description: TODO
+
+#### `public void tick(double dt)`
+
+- Description: TODO
+
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO

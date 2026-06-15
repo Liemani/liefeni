@@ -1,5 +1,7 @@
 # Context
 
+This file documents the responsibilities and members of `Context`.
+
 ## Meta
 
 - Source: [Context.java](../../../../../src/haven/render/sl/Context.java)
@@ -8,74 +10,48 @@
 
 ## Role
 
-- Represents a resource script context.
+Represents a resource script context.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [symtab](#member-1)
-- [rsymtab](#member-2)
-- [symgen](#member-3)
-- [typedefs](#member-4)
-- [vardefs](#member-5)
-- [fundefs](#member-6)
-- [exts](#member-7)
-
-#### Methods
-
-- [walk(Walker w)](#member-8)
-- [output(Output out)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `symtab`
+#### `public final Map<Symbol, String> symtab = new HashMap<Symbol, String>()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rsymtab`
+#### `public final Map<String, Symbol> rsymtab = new HashMap<String, Symbol>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `symgen`
+#### `public int symgen = 1`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `typedefs`
+#### `public List<Toplevel> typedefs = new LinkedList<Toplevel>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `vardefs`
+#### `public List<Toplevel> vardefs = new LinkedList<Toplevel>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `fundefs`
+#### `public List<Toplevel> fundefs = new LinkedList<Toplevel>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `exts`
+#### `public Set<String> exts = new HashSet<String>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-8"></a>
-##### `walk(Walker w)`
+#### `public void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `output(Output out)`
+#### `public void output(Output out)`
 
 - Description: TODO

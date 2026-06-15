@@ -1,5 +1,7 @@
 # Walker
 
+This file documents the responsibilities and members of `Walker`.
+
 ## Meta
 
 - Source: [Walker.java](../../../../../src/haven/render/sl/Walker.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Traverses shader AST nodes.
+Traverses shader AST nodes.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public void el(Element e);](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public void el(Element e);`
+#### `public void el(Element e)`
 
 - Description: TODO

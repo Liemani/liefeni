@@ -1,5 +1,7 @@
 # RadioGroup
 
+This file documents the responsibilities and members of `RadioGroup`.
+
 ## Meta
 
 - Source: [RadioGroup.java](../../../src/haven/RadioGroup.java)
@@ -8,110 +10,82 @@
 
 ## Role
 
-- Manages a radio button group.
+Manages a radio button group.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [parent](#member-1)
-- [btns](#member-2)
-- [map](#member-3)
-- [rmap](#member-4)
-- [checked](#member-5)
-
-#### Methods
-
-- [RadioButton(String lbl)](#member-6)
-- [mousedown(MouseDownEvent ev)](#member-7)
-- [changed(boolean val)](#member-8)
-- [add(String lbl, Coord c)](#member-9)
-- [check(int index)](#member-10)
-- [check(String lbl)](#member-11)
-- [check(RadioButton rb)](#member-12)
-- [hide()](#member-13)
-- [show()](#member-14)
-- [changed(int btn, String lbl)](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `parent`
+### RadioButton
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `btns`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private Widget parent`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `map`
+#### `private ArrayList<RadioButton> btns`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `rmap`
+#### `private HashMap<String, RadioButton> map`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `checked`
+#### `private HashMap<RadioButton, String> rmap`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `RadioButton(String lbl)`
+#### `private RadioButton checked`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `mousedown(MouseDownEvent ev)`
+### Methods
+
+#### `public RadioGroup(Widget parent)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `changed(boolean val)`
+#### `RadioButton(String lbl)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `add(String lbl, Coord c)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `check(int index)`
+#### `public void changed(boolean val)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `check(String lbl)`
+#### `public RadioButton add(String lbl, Coord c)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `check(RadioButton rb)`
+#### `public void check(int index)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `hide()`
+#### `public void check(String lbl)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `show()`
+#### `public void check(RadioButton rb)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `changed(int btn, String lbl)`
+#### `public void hide()`
+
+- Description: TODO
+
+#### `public void show()`
+
+- Description: TODO
+
+#### `public void changed(int btn, String lbl)`
 
 - Description: TODO

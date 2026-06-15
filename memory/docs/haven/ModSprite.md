@@ -1,5 +1,7 @@
 # ModSprite
 
+This file documents the responsibilities and members of `ModSprite`.
+
 ## Meta
 
 - Source: [ModSprite.java](../../../src/haven/ModSprite.java)
@@ -8,752 +10,570 @@
 
 ## Role
 
-- Represents a modified sprite wrapper.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [rmods](#member-1)
-- [curcons](#member-2)
-- [noparts](#member-3)
-- [notickers](#member-4)
-- [noeqtgts](#member-5)
-- [nomods](#member-6)
-- [gob](#member-7)
-- [flags](#member-8)
-- [resdata](#member-9)
-- [slots](#member-10)
-- [imods](#member-11)
-- [parts](#member-12)
-- [tickers](#member-13)
-- [eqtgts](#member-14)
-- [omods](#member-15)
-- [lastupd](#member-16)
-- [fact](#member-17)
-- [obj](#member-26)
-- [wraps](#member-27)
-- [state](#member-28)
-- [dynstate](#member-29)
-- [info](#member-30)
-- [mods](#member-35)
-- [parts](#member-36)
-- [tickers](#member-37)
-- [eqtgts](#member-38)
-- [res](#member-44)
-- [mods](#member-45)
-- [smods](#member-46)
-- [rdcache](#member-50)
-- [meshes](#member-73)
-- [main](#member-77)
-- [rlinks](#member-78)
-- [parts](#member-79)
-- [ctxr](#member-82)
-- [descs](#member-87)
-- [anims](#member-88)
-- [ids](#member-89)
-- [rigid](#member-96)
-- [morphed](#member-97)
-- [unboned](#member-98)
-- [bonedb](#member-99)
-- [ipollen](#member-100)
-- [initids](#member-101)
-- [spr](#member-102)
-- [skel](#member-103)
-- [pose](#member-104)
-- [descs](#member-105)
-- [mods](#member-106)
-- [ids](#member-107)
-- [stat](#member-108)
-- [oldpose](#member-109)
-- [ipold](#member-110)
-- [ctxr](#member-116)
-
-#### Methods
-
-- [public void operate(ModSprite spr);](#member-18)
-- [public void operate(Cons cons);](#member-19)
-- [order()](#member-20)
-- [age()](#member-21)
-- [decdata(Message sdt)](#member-22)
-- [of(Consumer<Cons> mod, int order)](#member-23)
-- [tick(double dt)](#member-24)
-- [gtick(Render g)](#member-25)
-- [Part(RenderTree.Node obj, NodeWrap... wraps)](#member-31)
-- [unwrap()](#member-32)
-- [make()](#member-33)
-- [info()](#member-34)
-- [spr()](#member-39)
-- [add(Mod mod)](#member-40)
-- [add(Part part)](#member-41)
-- [process()](#member-42)
-- [parts()](#member-43)
-- [ResData(Resource res)](#member-47)
-- [ModMaker()](#member-48)
-- [public void operate(ResData dat);](#member-49)
-- [resdata(Resource res)](#member-51)
-- [decflags(Message sdt)](#member-52)
-- [decdata(Message sdt)](#member-53)
-- [init()](#member-54)
-- [imod(Mod mod)](#member-55)
-- [imod(Class<T> cl)](#member-56)
-- [cons()](#member-57)
-- [curcons()](#member-58)
-- [modifiers(Cons cons)](#member-59)
-- [update()](#member-60)
-- [update(Message sdt)](#member-61)
-- [omods(Collection<Mod> buf, Gob gob)](#member-62)
-- [getomods()](#member-63)
-- [attrupdate()](#member-64)
-- [tick(double dt)](#member-65)
-- [gtick(Render g)](#member-66)
-- [age()](#member-67)
-- [parts(RenderTree.Slot slot)](#member-68)
-- [added(RenderTree.Slot slot)](#member-69)
-- [removed(RenderTree.Slot slot)](#member-70)
-- [eqpoint(String nm, Message dat)](#member-71)
-- [toString()](#member-72)
-- [Meshes(FastMesh.MeshRes[] meshes)](#member-74)
-- [operate(Cons cons)](#member-75)
-- [operate(ResData dat)](#member-76)
-- [RenderLinks(ModSprite spr, RenderLink.Res[] rlinks)](#member-80)
-- [operate(Cons cons)](#member-81)
-- [context(Class<T> cl)](#member-83)
-- [mkrandoom()](#member-84)
-- [order()](#member-85)
-- [operate(ResData dat)](#member-86)
-- [Animation(MeshAnim.Res[] descs)](#member-90)
-- [operate(Cons cons)](#member-91)
-- [tick(double ddt)](#member-92)
-- [age()](#member-93)
-- [order()](#member-94)
-- [operate(ResData dat)](#member-95)
-- [Poser(ModSprite spr, Skeleton skel, Skeleton.ResPose[] descs)](#member-111)
-- [rebuild()](#member-112)
-- [operate(Cons cons)](#member-113)
-- [tick(double ddt)](#member-114)
-- [eqpoint(String nm, Message dat)](#member-115)
-- [context(Class<T> cl)](#member-117)
-- [getloc()](#member-118)
-- [getv()](#member-119)
-- [age()](#member-120)
-- [order()](#member-121)
-- [operate(ResData dat)](#member-122)
+Represents a modified sprite wrapper.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### $res
 
-<a id="member-1"></a>
-##### `rmods`
+- Description: TODO
+
+### Animation
+
+- Description: TODO
+
+### Cons
+
+- Description: TODO
+
+### Meshes
+
+- Description: TODO
+
+### Mod
+
+- Description: TODO
+
+### ModMaker
+
+- Description: TODO
+
+### Part
+
+- Description: TODO
+
+### Poser
+
+- Description: TODO
+
+### RMod
+
+- Description: TODO
+
+### RenderLinks
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `curcons`
+### ResData
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `noparts`
+### SMod
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `notickers`
+### Ticker
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `noeqtgts`
+## Members
 
+### Constants
+
+#### `public static final Collection<RMod> rmods = new ArrayList<>()`
+
+- Description: TODO
+
+#### `private static final ThreadLocal<Cons> curcons = new ThreadLocal<Cons>()`
+
+- Description: TODO
+
+#### `private static final RenderTree.Node[] noparts =`
+
+- Description: TODO
+
+#### `private static final Ticker[] notickers =`
+
+- Description: TODO
+
+#### `private static final EquipTarget[] noeqtgts =`
+
+- Description: TODO
+
+#### `private static final Mod[] nomods =`
+
+- Description: TODO
+
+#### `public static final Factory fact = new Factory()`
+
 - Description: TODO
 
-<a id="member-6"></a>
-##### `nomods`
+#### `private static final Map<Resource, ResData> rdcache = new WeakHashMap<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `gob`
+#### `private static final OwnerContext.ClassResolver<ModSprite> ctxr = new OwnerContext.ClassResolver<ModSprite>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `flags`
+#### `public static final float ipollen = 0.3f`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `resdata`
+#### `private static final Map<Skeleton.ResPose, PoseMod> initids = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `slots`
+#### `private static final OwnerContext.ClassResolver<Poser> ctxr = new OwnerContext.ClassResolver<Poser>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `imods`
+### Fields
 
+#### `public final Gob gob`
+
+- Description: TODO
+
+#### `public int flags = 0`
+
 - Description: TODO
 
-<a id="member-12"></a>
-##### `parts`
+#### `protected final ResData resdata`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `tickers`
+#### `protected final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `eqtgts`
+#### `protected ArrayList<Mod> imods = null`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `omods`
+#### `protected RenderTree.Node[] parts = noparts`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `lastupd`
+#### `protected Ticker[] tickers = notickers`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `fact`
+#### `protected EquipTarget[] eqtgts = noeqtgts`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `obj`
+#### `private Mod[] omods = nomods`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `wraps`
+#### `private int lastupd`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `state`
+#### `public RenderTree.Node obj`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `dynstate`
+#### `public LinkedList<NodeWrap> wraps = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `info`
+#### `public LinkedList<Pipe.Op> state = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `mods`
+#### `public LinkedList<Supplier<? extends Pipe.Op>> dynstate = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `parts`
+#### `public Collection<Resource.Metadata> info = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `tickers`
+#### `public Collection<Mod> mods = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `eqtgts`
+#### `public Collection<Part> parts = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `res`
+#### `public Collection<Ticker> tickers = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `mods`
+#### `public Collection<EquipTarget> eqtgts = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `smods`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `rdcache`
+#### `public final Collection<Mod> mods = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `meshes`
+#### `public final Collection<SMod> smods = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `main`
+#### `public final FastMesh.MeshRes[] meshes`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `rlinks`
+#### `public final ModSprite main`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `parts`
+#### `public final RenderLink.Res[] rlinks`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `ctxr`
+#### `public final RenderTree.Node[] parts`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `descs`
+#### `public final MeshAnim.Res[] descs`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `anims`
+#### `public MeshAnim.Animation[] anims =`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `ids`
+#### `private Map<MeshAnim.Res, MeshAnim.Animation> ids = Collections.emptyMap()`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `rigid`
+#### `rigid = new BaseColor(FColor.GREEN),`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `morphed`
+#### `morphed = new BaseColor(FColor.RED),`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `unboned`
+#### `unboned = new BaseColor(FColor.YELLOW)`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `bonedb`
+#### `public static boolean bonedb = false`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `ipollen`
+#### `public final ModSprite spr`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `initids`
+#### `public final Skeleton skel`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `spr`
+#### `public final Pose pose`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `skel`
+#### `public final Skeleton.ResPose[] descs`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `pose`
+#### `public PoseMod[] mods =`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `descs`
+#### `private Map<Skeleton.ResPose, PoseMod> ids = initids`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `mods`
+#### `private boolean stat = false`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `ids`
+#### `private Pose oldpose`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `stat`
+#### `private float ipold`
 
 - Description: TODO
+
+### Methods
 
-<a id="member-109"></a>
-##### `oldpose`
+#### `public void operate(ModSprite spr)`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `ipold`
+#### `public void operate(Cons cons)`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `ctxr`
+#### `public default int order()`
 
 - Description: TODO
 
-#### Methods
+#### `public default void age()`
+
+- Description: TODO
 
-<a id="member-18"></a>
-##### `public void operate(ModSprite spr);`
+#### `public default boolean decdata(Message sdt)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `public void operate(Cons cons);`
+#### `public static Mod of(Consumer<Cons> mod, int order)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `order()`
+#### `public default boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `age()`
+#### `public default void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `decdata(Message sdt)`
+#### `public Part(RenderTree.Node obj, NodeWrap... wraps)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `of(Consumer<Cons> mod, int order)`
+#### `public void unwrap()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `tick(double dt)`
+#### `public RenderTree.Node make()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `gtick(Render g)`
+#### `public Map<?, ?> info()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `Part(RenderTree.Node obj, NodeWrap... wraps)`
+#### `public ModSprite spr()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `unwrap()`
+#### `public void add(Mod mod)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `make()`
+#### `public void add(Part part)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `info()`
+#### `public void process()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `spr()`
+#### `public RenderTree.Node[] parts()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `add(Mod mod)`
+#### `public ResData(Resource res)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `add(Part part)`
+#### `public ModMaker()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `process()`
+#### `public void operate(ResData dat)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `parts()`
+#### `protected ResData resdata(Resource res)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `ResData(Resource res)`
+#### `public static int decflags(Message sdt)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `ModMaker()`
+#### `protected void decdata(Message sdt)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `public void operate(ResData dat);`
+#### `protected ModSprite(boolean dummy, Owner owner, Resource res)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `resdata(Resource res)`
+#### `public ModSprite(Owner owner, Resource res)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `decflags(Message sdt)`
+#### `public ModSprite(Owner owner, Resource res, int flags)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `decdata(Message sdt)`
+#### `public ModSprite(Owner owner, Resource res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `init()`
+#### `protected void init()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `imod(Mod mod)`
+#### `public void imod(Mod mod)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `imod(Class<T> cl)`
+#### `public <T> T imod(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `cons()`
+#### `protected Cons cons()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `curcons()`
+#### `public static Cons curcons()`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `modifiers(Cons cons)`
+#### `protected void modifiers(Cons cons)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `update()`
+#### `protected void update()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `update(Message sdt)`
+#### `public void update(Message sdt)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `omods(Collection<Mod> buf, Gob gob)`
+#### `protected void omods(Collection<Mod> buf, Gob gob)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `getomods()`
+#### `private Mod[] getomods()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `attrupdate()`
+#### `private void attrupdate()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `tick(double dt)`
+#### `public boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `gtick(Render g)`
+#### `public void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `age()`
+#### `public void age()`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `parts(RenderTree.Slot slot)`
+#### `private void parts(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `eqpoint(String nm, Message dat)`
+#### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `Meshes(FastMesh.MeshRes[] meshes)`
+#### `public Meshes(FastMesh.MeshRes[] meshes)`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `operate(Cons cons)`
+#### `public void operate(Cons cons)`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `operate(ResData dat)`
+#### `public void operate(ResData dat)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `RenderLinks(ModSprite spr, RenderLink.Res[] rlinks)`
+#### `public RenderLinks(ModSprite spr, RenderLink.Res[] rlinks)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `operate(Cons cons)`
+#### `public void operate(Cons cons)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `context(Class<T> cl)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `mkrandoom()`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `order()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `operate(ResData dat)`
+#### `public void operate(ResData dat)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `Animation(MeshAnim.Res[] descs)`
+#### `public Animation(MeshAnim.Res[] descs)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `operate(Cons cons)`
+#### `public void operate(Cons cons)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `tick(double ddt)`
+#### `public boolean tick(double ddt)`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `age()`
+#### `public void age()`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `order()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `operate(ResData dat)`
+#### `public void operate(ResData dat)`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `Poser(ModSprite spr, Skeleton skel, Skeleton.ResPose[] descs)`
+#### `public Poser(ModSprite spr, Skeleton skel, Skeleton.ResPose[] descs)`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `rebuild()`
+#### `private void rebuild()`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `operate(Cons cons)`
+#### `public void operate(Cons cons)`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `tick(double ddt)`
+#### `public boolean tick(double ddt)`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `eqpoint(String nm, Message dat)`
+#### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `context(Class<T> cl)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `getloc()`
+#### `public Collection<Location.Chain> getloc()`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `getv()`
+#### `public double getv()`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `age()`
+#### `public void age()`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `order()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `operate(ResData dat)`
+#### `public void operate(ResData dat)`
 
 - Description: TODO

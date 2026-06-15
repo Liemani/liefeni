@@ -1,5 +1,7 @@
 # Profile
 
+This file documents the responsibilities and members of `Profile`.
+
 ## Meta
 
 - Source: [Profile.java](../../../src/haven/Profile.java)
@@ -8,128 +10,94 @@
 
 ## Role
 
-- Represents a profile or profiling target.
+Represents a profile or profiling target.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [hist](#member-1)
-- [i](#member-2)
-- [nm](#member-3)
-- [ch](#member-4)
-- [units](#member-11)
-
-#### Methods
-
-- [Part(Object nm)](#member-5)
-- [public abstract double f();](#member-6)
-- [public abstract double t();](#member-7)
-- [d()](#member-8)
-- [add(Part sub)](#member-9)
-- [sub()](#member-10)
-- [dump(PrintStream out, int indent)](#member-12)
-- [dump(PrintStream out)](#member-13)
-- [toString()](#member-14)
-- [add(Part frame)](#member-15)
-- [last()](#member-16)
-- [copy()](#member-17)
-- [dump(PrintStream out)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `hist`
+### Part
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `i`
+## Members
+
+### Constants
+
+#### `private static final String[] units =`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `nm`
+### Fields
+
+#### `public final Part[] hist`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ch`
+#### `protected int i = 0`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `units`
+#### `public final Object nm`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `Part(Object nm)`
+#### `private List<Part> ch = null`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public abstract double f();`
+### Methods
+
+#### `public Part(Object nm)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `public abstract double t();`
+#### `public abstract double f()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `d()`
+#### `public abstract double t()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `add(Part sub)`
+#### `public double d()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `sub()`
+#### `public void add(Part sub)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `dump(PrintStream out, int indent)`
+#### `public List<Part> sub()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `dump(PrintStream out)`
+#### `private void dump(PrintStream out, int indent)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `toString()`
+#### `public void dump(PrintStream out)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `add(Part frame)`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `last()`
+#### `public void add(Part frame)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `copy()`
+#### `public Profile(int hl)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `dump(PrintStream out)`
+#### `public Part last()`
+
+- Description: TODO
+
+#### `public Profile copy()`
+
+- Description: TODO
+
+#### `public void dump(PrintStream out)`
 
 - Description: TODO

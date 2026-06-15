@@ -1,5 +1,7 @@
 # Array
 
+This file documents the responsibilities and members of `Array`.
+
 ## Meta
 
 - Source: [Array.java](../../../../src/lmi/core/Array.java)
@@ -8,87 +10,68 @@
 
 ## Role
 
-- Provides small array helper routines.
+Provides small array helper routines.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [isEmpty()](#member-1)
-- [count()](#member-2)
-- [subscript(int index)](#member-3)
-- [first()](#member-4)
-- [last()](#member-5)
-- [append(E element)](#member-6)
-- [removeFirst()](#member-7)
-- [removeAllWhere(Predicate<E> predicate)](#member-8)
-- [containsWhere(Predicate<E> predicate)](#member-9)
-- [removeLast()](#member-10)
-- [removeAll()](#member-11)
-- [compactMap(UnaryOperator<E> transform)](#member-12)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `isEmpty()`
+#### `public Array()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `count()`
+#### `public Array(int capacity)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `subscript(int index)`
+#### `public boolean isEmpty()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `first()`
+#### `public int count()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `last()`
+#### `public E subscript(int index)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `append(E element)`
+#### `public E first()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `removeFirst()`
+#### `public E last()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `removeAllWhere(Predicate<E> predicate)`
+#### `public void append(E element)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `containsWhere(Predicate<E> predicate)`
+#### `public E removeFirst()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `removeLast()`
+#### `public void removeAllWhere(Predicate<E> predicate)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `removeAll()`
+#### `public boolean containsWhere(Predicate<E> predicate)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `compactMap(UnaryOperator<E> transform)`
+#### `public E removeLast()`
+
+- Description: TODO
+
+#### `public void removeAll()`
+
+- Description: TODO
+
+#### `public Array<E> compactMap(UnaryOperator<E> transform)`
 
 - Description: TODO

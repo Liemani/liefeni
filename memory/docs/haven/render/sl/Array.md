@@ -1,5 +1,7 @@
 # Array
 
+This file documents the responsibilities and members of `Array`.
+
 ## Meta
 
 - Source: [Array.java](../../../../../src/haven/render/sl/Array.java)
@@ -8,56 +10,44 @@
 
 ## Role
 
-- Provides the `Array` render-side functionality.
+Provides the `Array` render-side functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [el](#member-1)
-- [sz](#member-2)
-
-#### Methods
-
-- [name(Context ctx)](#member-3)
-- [use(Context ctx)](#member-4)
-- [hashCode()](#member-5)
-- [equals(Object o)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `el`
+#### `public final Type el`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `sz`
+#### `public final int sz`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `name(Context ctx)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `use(Context ctx)`
+#### `public Array(Type el, int sz)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `hashCode()`
+#### `public Array(Type el)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `equals(Object o)`
+#### `public String name(Context ctx)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
 
 - Description: TODO

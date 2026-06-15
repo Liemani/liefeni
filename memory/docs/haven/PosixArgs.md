@@ -1,5 +1,7 @@
 # PosixArgs
 
+This file documents the responsibilities and members of `PosixArgs`.
+
 ## Meta
 
 - Source: [PosixArgs.java](../../../src/haven/PosixArgs.java)
@@ -8,74 +10,58 @@
 
 ## Role
 
-- Parses POSIX-style arguments.
+Parses POSIX-style arguments.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [parsed](#member-1)
-- [rest](#member-2)
-- [arg](#member-3)
-- [ch](#member-4)
-- [arg](#member-5)
-
-#### Methods
-
-- [Arg(char ch, String arg)](#member-6)
-- [getopt(String[] argv, int start, String desc)](#member-7)
-- [getopt(String[] argv, String desc)](#member-8)
-- [parsed()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `parsed`
+### Arg
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rest`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private List<Arg> parsed`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `arg`
+#### `public String[] rest`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ch`
+#### `public String arg = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `arg`
+#### `private char ch`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `Arg(char ch, String arg)`
+#### `private String arg`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `getopt(String[] argv, int start, String desc)`
+### Methods
+
+#### `private Arg(char ch, String arg)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `getopt(String[] argv, String desc)`
+#### `private PosixArgs()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `parsed()`
+#### `public static PosixArgs getopt(String[] argv, int start, String desc)`
+
+- Description: TODO
+
+#### `public static PosixArgs getopt(String[] argv, String desc)`
+
+- Description: TODO
+
+#### `public Iterable<Character> parsed()`
 
 - Description: TODO

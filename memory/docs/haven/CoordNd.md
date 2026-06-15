@@ -1,5 +1,7 @@
 # CoordNd
 
+This file documents the responsibilities and members of `CoordNd`.
+
 ## Meta
 
 - Source: [CoordNd.java](../../../src/haven/CoordNd.java)
@@ -8,170 +10,120 @@
 
 ## Role
 
-- Provides N-dimensional coordinate helpers.
+Provides N-dimensional coordinate helpers.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [el](#member-1)
-- [o](#member-2)
-
-#### Methods
-
-- [el(int i)](#member-3)
-- [equals(Object o)](#member-4)
-- [hashCode()](#member-5)
-- [op(DoubleUnaryOperator op)](#member-6)
-- [op(DoubleBinaryOperator op, double[] b)](#member-7)
-- [add(CoordNd b)](#member-8)
-- [inv()](#member-9)
-- [sub(CoordNd b)](#member-10)
-- [mul(double f)](#member-11)
-- [mul(CoordNd b)](#member-12)
-- [div(double f)](#member-13)
-- [div(CoordNd b)](#member-14)
-- [mod(double b)](#member-15)
-- [mod(CoordNd b)](#member-16)
-- [round()](#member-17)
-- [floor()](#member-18)
-- [ceil()](#member-19)
-- [dmul(CoordNd b)](#member-20)
-- [abs()](#member-21)
-- [norm(double l)](#member-22)
-- [norm()](#member-23)
-- [dist(CoordNd o)](#member-24)
-- [toString()](#member-25)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `el`
+#### `public static final CoordNd o = new CoordNd(0)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `o`
+### Fields
+
+#### `public final double[] el`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `el(int i)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `equals(Object o)`
+#### `public CoordNd(int n)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `hashCode()`
+#### `public CoordNd(double... el)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `op(DoubleUnaryOperator op)`
+#### `public double el(int i)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `op(DoubleBinaryOperator op, double[] b)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `add(CoordNd b)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `inv()`
+#### `private CoordNd op(DoubleUnaryOperator op)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `sub(CoordNd b)`
+#### `private CoordNd op(DoubleBinaryOperator op, double[] b)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mul(double f)`
+#### `public CoordNd add(CoordNd b)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `mul(CoordNd b)`
+#### `public CoordNd inv()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `div(double f)`
+#### `public CoordNd sub(CoordNd b)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `div(CoordNd b)`
+#### `public CoordNd mul(double f)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `mod(double b)`
+#### `public CoordNd mul(CoordNd b)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `mod(CoordNd b)`
+#### `public CoordNd div(double f)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `round()`
+#### `public CoordNd div(CoordNd b)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `floor()`
+#### `public CoordNd mod(double b)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `ceil()`
+#### `public CoordNd mod(CoordNd b)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `dmul(CoordNd b)`
+#### `public CoordNd round()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `abs()`
+#### `public CoordNd floor()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `norm(double l)`
+#### `public CoordNd ceil()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `norm()`
+#### `public double dmul(CoordNd b)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `dist(CoordNd o)`
+#### `public double abs()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `toString()`
+#### `public CoordNd norm(double l)`
+
+- Description: TODO
+
+#### `public CoordNd norm()`
+
+- Description: TODO
+
+#### `public double dist(CoordNd o)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

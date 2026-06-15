@@ -1,5 +1,7 @@
 # MapOverlay
 
+This file documents the responsibilities and members of `MapOverlay`.
+
 ## Meta
 
 - Source: [MapOverlay.java](../../../../src/lmi/draw/MapOverlay.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Renders a draw-time overlay for the corresponding subsystem.
+Renders a draw-time overlay for the corresponding subsystem.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [visible()](#member-1)
-- [zOrder()](#member-2)
-- [void draw(MapView mapView, GOut g);](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `visible()`
+#### `default boolean visible()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `zOrder()`
+#### `default int zOrder()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `void draw(MapView mapView, GOut g);`
+#### `void draw(MapView mapView, GOut g)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Vao0State
 
+This file documents the responsibilities and members of `Vao0State`.
+
 ## Meta
 
 - Source: [Vao0State.java](../../../../../src/haven/render/gl/Vao0State.java)
@@ -8,92 +10,64 @@
 
 ## Role
 
-- Represents VAO state.
+Represents VAO state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [env](#member-1)
-- [enable](#member-2)
-- [instanced](#member-3)
-- [ebo](#member-4)
-- [vao0](#member-5)
-- [nilen](#member-10)
-- [nilinst](#member-11)
-
-#### Methods
-
-- [apply(BGL gl)](#member-6)
-- [unapply(BGL gl)](#member-7)
-- [applyto(BGL gl, GLState sthat)](#member-8)
-- [apply(GLEnvironment env, BGL gl, Applier st, BGL.ID[] enable, boolean[] instanced)](#member-9)
-- [apply(GLEnvironment env, BGL gl, Applier st, GLBuffer ebo)](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `env`
+#### `private static final BGL.ID[] nilen =`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `enable`
+#### `private static final boolean[] nilinst =`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `instanced`
+### Fields
+
+#### `public final GLEnvironment env`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ebo`
+#### `public final BGL.ID[] enable`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `vao0`
+#### `public final boolean[] instanced`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `nilen`
+#### `public final GLBuffer ebo`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `nilinst`
+#### `private final GLVertexArray vao0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `apply(BGL gl)`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `unapply(BGL gl)`
+#### `public Vao0State(GLEnvironment env, BGL.ID[] enable, boolean[] instanced, GLBuffer ebo)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `applyto(BGL gl, GLState sthat)`
+#### `public void apply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `apply(GLEnvironment env, BGL gl, Applier st, BGL.ID[] enable, boolean[] instanced)`
+#### `public void unapply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `apply(GLEnvironment env, BGL gl, Applier st, GLBuffer ebo)`
+#### `public void applyto(BGL gl, GLState sthat)`
+
+- Description: TODO
+
+#### `public static void apply(GLEnvironment env, BGL gl, Applier st, BGL.ID[] enable, boolean[] instanced)`
+
+- Description: TODO
+
+#### `public static void apply(GLEnvironment env, BGL gl, Applier st, GLBuffer ebo)`
 
 - Description: TODO

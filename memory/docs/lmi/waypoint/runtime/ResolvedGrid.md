@@ -1,5 +1,7 @@
 # ResolvedGrid
 
+This file documents the responsibilities and members of `ResolvedGrid`.
+
 ## Meta
 
 - Source: [ResolvedGrid.java](../../../../../src/lmi/waypoint/runtime/ResolvedGrid.java)
@@ -8,39 +10,32 @@
 
 ## Role
 
-- Represents a grid-level waypoint runtime value.
+Represents a grid-level waypoint runtime value.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [mapGridId](#member-1)
-- [havenGridId](#member-2)
-- [mapSegmentId](#member-3)
-- [originWorld](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mapGridId`
+#### `public final long mapGridId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `havenGridId`
+#### `public final long havenGridId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `mapSegmentId`
+#### `public final long mapSegmentId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `originWorld`
+#### `public final Coord originWorld`
+
+- Description: TODO
+
+### Methods
+
+#### `public ResolvedGrid(long mapGridId, long havenGridId, long mapSegmentId, Coord originWorld)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # StaticGSprite
 
+This file documents the responsibilities and members of `StaticGSprite`.
+
 ## Meta
 
 - Source: [StaticGSprite.java](../../../src/haven/StaticGSprite.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents a static game sprite.
+Represents a static game sprite.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [img](#member-1)
-- [fact](#member-2)
-
-#### Methods
-
-- [draw(GOut g)](#member-3)
-- [sz()](#member-4)
-- [image()](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `img`
+#### `public static final Factory fact = new Factory()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fact`
+### Fields
+
+#### `public final Resource.Image img`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `draw(GOut g)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `sz()`
+#### `public StaticGSprite(Owner owner, Resource.Image img)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `image()`
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public Coord sz()`
+
+- Description: TODO
+
+#### `public BufferedImage image()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # BMap
 
+This file documents the responsibilities and members of `BMap`.
+
 ## Meta
 
 - Source: [BMap.java](../../../src/haven/BMap.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Provides a base map abstraction.
+Provides a base map abstraction.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public BMap<V, K> reverse();](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public BMap<V, K> reverse();`
+#### `public BMap<V, K> reverse()`
 
 - Description: TODO

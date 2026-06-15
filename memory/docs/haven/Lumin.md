@@ -1,5 +1,7 @@
 # Lumin
 
+This file documents the responsibilities and members of `Lumin`.
+
 ## Meta
 
 - Source: [Lumin.java](../../../src/haven/Lumin.java)
@@ -8,44 +10,38 @@
 
 ## Role
 
-- Represents luminance-related helpers.
+Represents luminance-related helpers.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [off](#member-1)
-- [sz](#member-2)
-- [str](#member-3)
-
-#### Methods
-
-- [apply(Gob g, OCache.AttrDelta msg)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `off`
+### $lumin
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `sz`
+## Members
+
+### Constants
+
+### Fields
+
+#### `Coord off`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `str`
+#### `int sz, str`
 
 - Description: TODO
 
-#### Methods
+#### `int sz, str`
 
-<a id="member-4"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+- Description: TODO
+
+### Methods
+
+#### `public Lumin(Gob g, Coord off, int sz, int str)`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

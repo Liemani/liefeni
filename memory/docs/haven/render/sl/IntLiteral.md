@@ -1,5 +1,7 @@
 # IntLiteral
 
+This file documents the responsibilities and members of `IntLiteral`.
+
 ## Meta
 
 - Source: [IntLiteral.java](../../../../../src/haven/render/sl/IntLiteral.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents an int literal.
+Represents an int literal.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [z](#member-1)
-- [u](#member-2)
-- [n](#member-3)
-- [val](#member-4)
-
-#### Methods
-
-- [walk(Walker w)](#member-5)
-- [output(Output out)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `z`
+#### `public static final IntLiteral z = new IntLiteral(0)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u`
+#### `public static final IntLiteral u = new IntLiteral(1)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `n`
+#### `public static final IntLiteral n = new IntLiteral(-1)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `val`
+### Fields
+
+#### `public final int val`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `walk(Walker w)`
+#### `public IntLiteral(int val)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

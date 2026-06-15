@@ -1,5 +1,7 @@
 # IDSet
 
+This file documents the responsibilities and members of `IDSet`.
+
 ## Meta
 
 - Source: [IDSet.java](../../../src/haven/IDSet.java)
@@ -8,74 +10,54 @@
 
 ## Role
 
-- Represents a set of identifiers.
+Represents a set of identifiers.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [bk](#member-1)
-- [queue](#member-2)
-- [hash](#member-3)
-
-#### Methods
-
-- [WRef(T ob, ReferenceQueue<T> queue)](#member-4)
-- [equals(Object o)](#member-5)
-- [hashCode()](#member-6)
-- [clean()](#member-7)
-- [intern(T ob)](#member-8)
-- [size()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bk`
+### WRef
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `queue`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final HashMap<WRef<T>, WRef<T>> bk = new HashMap<WRef<T>, WRef<T>>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `hash`
+#### `private final ReferenceQueue<T> queue = new ReferenceQueue<T>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `WRef(T ob, ReferenceQueue<T> queue)`
+#### `private final int hash`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equals(Object o)`
+### Methods
+
+#### `private WRef(T ob, ReferenceQueue<T> queue)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `hashCode()`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `clean()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `intern(T ob)`
+#### `private void clean()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `size()`
+#### `public T intern(T ob)`
+
+- Description: TODO
+
+#### `public int size()`
 
 - Description: TODO

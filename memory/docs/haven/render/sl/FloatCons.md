@@ -1,5 +1,7 @@
 # FloatCons
 
+This file documents the responsibilities and members of `FloatCons`.
+
 ## Meta
 
 - Source: [FloatCons.java](../../../../../src/haven/render/sl/FloatCons.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Represents a float constructor.
+Represents a float constructor.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [init](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [output(Output out)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `init`
+#### `public final Expression init`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+#### `public FloatCons(Expression init)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

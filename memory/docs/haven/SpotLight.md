@@ -1,5 +1,7 @@
 # SpotLight
 
+This file documents the responsibilities and members of `SpotLight`.
+
 ## Meta
 
 - Source: [SpotLight.java](../../../src/haven/SpotLight.java)
@@ -8,39 +10,44 @@
 
 ## Role
 
-- Represents a spot light source.
+Represents a spot light source.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [dir](#member-1)
-- [exp](#member-2)
-- [cut](#member-3)
-- [defdir](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `dir`
+#### `private static final float[] defdir =`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `exp`
+### Fields
+
+#### `public float[] dir`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cut`
+#### `public float exp, cut`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `defdir`
+#### `public float exp, cut`
+
+- Description: TODO
+
+### Methods
+
+#### `public SpotLight(FColor col, Coord3f pos, Coord3f dir, float exp)`
+
+- Description: TODO
+
+#### `public SpotLight(Color col, Coord3f pos, Coord3f dir, float exp)`
+
+- Description: TODO
+
+#### `public SpotLight(FColor amb, FColor dif, FColor spc, Coord3f pos, Coord3f dir, float exp)`
+
+- Description: TODO
+
+#### `public SpotLight(Color amb, Color dif, Color spc, Coord3f pos, Coord3f dir, float exp)`
 
 - Description: TODO

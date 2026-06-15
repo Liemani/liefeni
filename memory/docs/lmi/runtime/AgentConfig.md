@@ -1,5 +1,7 @@
 # AgentConfig
 
+This file documents the responsibilities and members of `AgentConfig`.
+
 ## Meta
 
 - Source: [AgentConfig.java](../../../../src/lmi/runtime/AgentConfig.java)
@@ -8,73 +10,48 @@
 
 ## Role
 
-- Holds agent-level configuration and tunables.
+Holds agent-level configuration and tunables.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [FILE_PATH](#member-1)
-
-#### Fields
-
-- [props](#member-2)
-
-#### Methods
-
-- [setDrive(String key, boolean on)](#member-3)
-- [isDriveEnabled(String key)](#member-4)
-- [getDriveStatus(String key)](#member-5)
-- [getAllDrives()](#member-6)
-- [load()](#member-7)
-- [save()](#member-8)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `FILE_PATH`
+#### `private static final String FILE_PATH = "data/agent-config.properties"`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-2"></a>
-##### `props`
-
-- Description: TODO
-
-#### Methods
-
-<a id="member-3"></a>
-##### `setDrive(String key, boolean on)`
+#### `private final Properties props = new Properties()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `isDriveEnabled(String key)`
+### Methods
+
+#### `public AgentConfig()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `getDriveStatus(String key)`
+#### `public void setDrive(String key, boolean on)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `getAllDrives()`
+#### `public boolean isDriveEnabled(String key)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `load()`
+#### `public String getDriveStatus(String key)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `save()`
+#### `public java.util.Set<String> getAllDrives()`
+
+- Description: TODO
+
+#### `private void load()`
+
+- Description: TODO
+
+#### `private void save()`
 
 - Description: TODO

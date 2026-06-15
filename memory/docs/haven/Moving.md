@@ -1,5 +1,7 @@
 # Moving
 
+This file documents the responsibilities and members of `Moving`.
+
 ## Meta
 
 - Source: [Moving.java](../../../src/haven/Moving.java)
@@ -8,39 +10,32 @@
 
 ## Role
 
-- Represents movement behavior or state.
+Represents movement behavior or state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [move(Coord2d c)](#member-1)
-- [public abstract Coord3f getc();](#member-2)
-- [public abstract double getv();](#member-3)
-- [staticp()](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `move(Coord2d c)`
+#### `public Moving(Gob gob)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public abstract Coord3f getc();`
+#### `public void move(Coord2d c)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public abstract double getv();`
+#### `public abstract Coord3f getc()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `staticp()`
+#### `public abstract double getv()`
+
+- Description: TODO
+
+#### `public Object staticp()`
 
 - Description: TODO

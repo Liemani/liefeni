@@ -1,5 +1,7 @@
 # Tonemapper
 
+This file documents the responsibilities and members of `Tonemapper`.
+
 ## Meta
 
 - Source: [Tonemapper.java](../../../src/haven/Tonemapper.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Provides tonemapping support.
+Provides tonemapping support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [draw](#member-1)
-- [justgamma](#member-5)
-
-#### Methods
-
-- [run(GOut g, Texture2D.Sampler2D in)](#member-2)
-- [order()](#member-3)
-- [outformat(FrameFormat in)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `draw`
+#### `public static final State justgamma = new RUtils.AdHoc(prog ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `justgamma`
+### Fields
+
+#### `public final State draw`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `run(GOut g, Texture2D.Sampler2D in)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `order()`
+#### `public Tonemapper(State draw)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `outformat(FrameFormat in)`
+#### `public void run(GOut g, Texture2D.Sampler2D in)`
+
+- Description: TODO
+
+#### `public int order()`
+
+- Description: TODO
+
+#### `public FrameFormat outformat(FrameFormat in)`
 
 - Description: TODO

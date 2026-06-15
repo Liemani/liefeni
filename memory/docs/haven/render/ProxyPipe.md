@@ -1,5 +1,7 @@
 # ProxyPipe
 
+This file documents the responsibilities and members of `ProxyPipe`.
+
 ## Meta
 
 - Source: [ProxyPipe.java](../../../../src/haven/render/ProxyPipe.java)
@@ -8,56 +10,44 @@
 
 ## Role
 
-- Represents a proxy render pipe.
+Represents a proxy render pipe.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bk](#member-1)
-
-#### Methods
-
-- [get(Slot<T> slot)](#member-2)
-- [states()](#member-3)
-- [copy()](#member-4)
-- [update(Pipe np)](#member-5)
-- [dupdate(Pipe np)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bk`
+#### `private Pipe bk`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `get(Slot<T> slot)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `states()`
+#### `public ProxyPipe(Pipe bk)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `copy()`
+#### `public ProxyPipe()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `update(Pipe np)`
+#### `public <T extends State> T get(Slot<T> slot)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `dupdate(Pipe np)`
+#### `public State[] states()`
+
+- Description: TODO
+
+#### `public Pipe copy()`
+
+- Description: TODO
+
+#### `public Pipe update(Pipe np)`
+
+- Description: TODO
+
+#### `public int[] dupdate(Pipe np)`
 
 - Description: TODO

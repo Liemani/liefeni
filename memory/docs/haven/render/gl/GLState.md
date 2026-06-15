@@ -1,5 +1,7 @@
 # GLState
 
+This file documents the responsibilities and members of `GLState`.
+
 ## Meta
 
 - Source: [GLState.java](../../../../../src/haven/render/gl/GLState.java)
@@ -8,56 +10,36 @@
 
 ## Role
 
-- Represents a GL state.
+Represents a GL state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slots](#member-1)
-
-#### Methods
-
-- [slotidx(Class<? extends GLState> cl)](#member-2)
-- [public abstract void apply(BGL gl);](#member-3)
-- [public abstract void unapply(BGL gl);](#member-4)
-- [public abstract int slotidx();](#member-5)
-- [applyto(BGL gl, GLState to)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slots`
+#### `public static final Class<? extends GLState>[] slots = (Class<? extends GLState>[])new Class[]`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `slotidx(Class<? extends GLState> cl)`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `public abstract void apply(BGL gl);`
+#### `public static int slotidx(Class<? extends GLState> cl)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public abstract void unapply(BGL gl);`
+#### `public abstract void apply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public abstract int slotidx();`
+#### `public abstract void unapply(BGL gl)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `applyto(BGL gl, GLState to)`
+#### `public abstract int slotidx()`
+
+- Description: TODO
+
+#### `public void applyto(BGL gl, GLState to)`
 
 - Description: TODO

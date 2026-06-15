@@ -1,5 +1,7 @@
 # Light
 
+This file documents the responsibilities and members of `Light`.
+
 ## Meta
 
 - Source: [Light.java](../../../src/haven/Light.java)
@@ -8,386 +10,306 @@
 
 ## Role
 
-- Represents a light source.
+Represents a light source.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [amb](#member-1)
-- [dif](#member-2)
-- [spc](#member-3)
-- [prio](#member-4)
-- [defamb](#member-5)
-- [defdif](#member-6)
-- [defspc](#member-7)
-- [lights](#member-10)
-- [ll](#member-11)
-- [lighting](#member-21)
-- [vlight](#member-22)
-- [flight](#member-23)
-- [shader](#member-24)
-- [material](#member-25)
-- [defamb](#member-26)
-- [defdif](#member-27)
-- [defspc](#member-28)
-- [defemi](#member-29)
-- [slot](#member-38)
-- [shader](#member-40)
-- [celshade](#member-43)
-- [id](#member-45)
-- [amb](#member-46)
-- [dif](#member-47)
-- [spc](#member-48)
-- [hatt](#member-49)
-- [hexp](#member-50)
-- [ac](#member-51)
-- [al](#member-52)
-- [aq](#member-53)
-- [exp](#member-54)
-- [dir](#member-55)
-
-#### Methods
-
-- [prio(int prio)](#member-8)
-- [public abstract Object[] params(GroupPipe state);](#member-9)
-- [params()](#member-12)
-- [compile()](#member-13)
-- [add(RenderList.Slot<Light> light)](#member-14)
-- [remove(RenderList.Slot<Light> light)](#member-15)
-- [shader()](#member-16)
-- [apply(Pipe p)](#member-17)
-- [index(Light l)](#member-18)
-- [added(RenderTree.Slot slot)](#member-19)
-- [removed(RenderTree.Slot slot)](#member-20)
-- [PhongLight(boolean frag, FColor amb, FColor dif, FColor spc, FColor emi, float shine)](#member-30)
-- [PhongLight(boolean frag, Color amb, Color dif, Color spc, Color emi, float shine)](#member-31)
-- [PhongLight(boolean frag, FColor col)](#member-32)
-- [PhongLight(boolean frag)](#member-33)
-- [shader()](#member-34)
-- [apply(Pipe p)](#member-35)
-- [cons(Material.Buffer buf, Object... args)](#member-36)
-- [cons(Material.Buffer buf, Object... args)](#member-37)
-- [CelShade(boolean dif, boolean spc)](#member-39)
-- [shader()](#member-41)
-- [apply(Pipe p)](#member-42)
-- [cons(Material.Buffer buf, Object... args)](#member-44)
-- [cold(Message buf)](#member-56)
-- [cold2(Message buf)](#member-57)
-- [Res(Resource res, Message buf)](#member-58)
-- [make()](#member-59)
-- [init()](#member-60)
-- [layerid()](#member-61)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `amb`
+### $cel
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `dif`
+### $col
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `spc`
+### $light
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `prio`
+### CelShade
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `defamb`
+### LightList
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `defdif`
+### PhongLight
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `defspc`
+### Res
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `lights`
+## Members
+
+### Constants
+
+#### `private static final float[] defamb =`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `ll`
+#### `private static final float[] defdif =`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `lighting`
+#### `private static final float[] defspc =`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `vlight`
+#### `public static final State.Slot<LightList> lights = new State.Slot<>(State.Slot.Type.SYS, LightList.class)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `flight`
+#### `public static final State.Slot<PhongLight> lighting = new State.Slot<>(State.Slot.Type.DRAW, PhongLight.class)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `shader`
+#### `public static final ShaderMacro vlight = prog -> new Phong(prog.vctx, new Uniform.Data<>(p -> p.get(lighting).material, lighting))`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `material`
+#### `public static final ShaderMacro flight = prog -> new Phong(prog.fctx, new Uniform.Data<>(p -> p.get(lighting).material, lighting))`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `defamb`
+#### `public static final FColor defamb = new FColor(0.2f, 0.2f, 0.2f)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `defdif`
+#### `public static final FColor defdif = new FColor(0.8f, 0.8f, 0.8f)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `defspc`
+#### `public static final FColor defspc = new FColor(0.0f, 0.0f, 0.0f)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `defemi`
+#### `public static final FColor defemi = new FColor(0.0f, 0.0f, 0.0f)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `slot`
+#### `public static final Slot<CelShade> slot = new Slot<CelShade>(Slot.Type.DRAW, CelShade.class)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `shader`
+#### `public static final CelShade celshade = new CelShade(true, false)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `celshade`
+### Fields
+
+#### `public float[] amb, dif, spc`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `id`
+#### `public float[] amb, dif, spc`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `amb`
+#### `public float[] amb, dif, spc`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `dif`
+#### `public int prio`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `spc`
+#### `public final List<RenderList.Slot<Light>> ll = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `hatt`
+#### `private final ShaderMacro shader`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `hexp`
+#### `private final Object[] material`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `ac`
+#### `private final ShaderMacro shader`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `al`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `aq`
+#### `public final Color amb, dif, spc`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `exp`
+#### `public final Color amb, dif, spc`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `dir`
+#### `public final Color amb, dif, spc`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `prio(int prio)`
+#### `public boolean hatt, hexp`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `public abstract Object[] params(GroupPipe state);`
+#### `public boolean hatt, hexp`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `params()`
+#### `public float ac, al, aq, exp`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `compile()`
+#### `public float ac, al, aq, exp`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `add(RenderList.Slot<Light> light)`
+#### `public float ac, al, aq, exp`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `remove(RenderList.Slot<Light> light)`
+#### `public float ac, al, aq, exp`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `shader()`
+#### `public Coord3f dir`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `apply(Pipe p)`
+### Methods
+
+#### `public Light()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `index(Light l)`
+#### `public Light(FColor col)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public Light(Color col)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public Light(FColor amb, FColor dif, FColor spc)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `PhongLight(boolean frag, FColor amb, FColor dif, FColor spc, FColor emi, float shine)`
+#### `public Light(Color amb, Color dif, Color spc)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `PhongLight(boolean frag, Color amb, Color dif, Color spc, Color emi, float shine)`
+#### `public Light prio(int prio)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `PhongLight(boolean frag, FColor col)`
+#### `public abstract Object[] params(GroupPipe state)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `PhongLight(boolean frag)`
+#### `public Object[][] params()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `shader()`
+#### `public State compile()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `apply(Pipe p)`
+#### `public void add(RenderList.Slot<Light> light)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public void remove(RenderList.Slot<Light> light)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `CelShade(boolean dif, boolean spc)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `shader()`
+#### `public int index(Light l)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `apply(Pipe p)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `cold(Message buf)`
+#### `public PhongLight(boolean frag, FColor amb, FColor dif, FColor spc, FColor emi, float shine)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `cold2(Message buf)`
+#### `public PhongLight(boolean frag, Color amb, Color dif, Color spc, Color emi, float shine)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `Res(Resource res, Message buf)`
+#### `public PhongLight(boolean frag, FColor col)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `make()`
+#### `public PhongLight(boolean frag)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `init()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `layerid()`
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `public CelShade(boolean dif, boolean spc)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `private static Color cold(Message buf)`
+
+- Description: TODO
+
+#### `private static Color cold2(Message buf)`
+
+- Description: TODO
+
+#### `public Res(Resource res, Message buf)`
+
+- Description: TODO
+
+#### `public Light make()`
+
+- Description: TODO
+
+#### `public void init()`
+
+- Description: TODO
+
+#### `public Integer layerid()`
 
 - Description: TODO

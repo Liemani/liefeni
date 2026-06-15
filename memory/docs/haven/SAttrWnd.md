@@ -1,5 +1,7 @@
 # SAttrWnd
 
+This file documents the responsibilities and members of `SAttrWnd`.
+
 ## Meta
 
 - Source: [SAttrWnd.java](../../../src/haven/SAttrWnd.java)
@@ -8,230 +10,170 @@
 
 ## Role
 
-- Displays a skill or stat attribute window.
+Displays a skill or stat attribute window.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [attrs](#member-1)
-- [studyc](#member-2)
-- [chr](#member-3)
-- [scost](#member-4)
-- [rnm](#member-6)
-- [img](#member-7)
-- [bg](#member-8)
-- [tbv](#member-9)
-- [cost](#member-10)
-- [add](#member-11)
-- [sub](#member-12)
-- [ct](#member-13)
-- [cbv](#member-14)
-- [ccv](#member-15)
-- [study](#member-26)
-- [texp](#member-27)
-- [tw](#member-28)
-- [tenc](#member-29)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-5)
-- [SAttr(Glob glob, String attr, Color bg)](#member-16)
-- [tick(double dt)](#member-17)
-- [draw(GOut g)](#member-18)
-- [updcost()](#member-19)
-- [adj(int a)](#member-20)
-- [reset()](#member-21)
-- [mousewheel(MouseWheelEvent ev)](#member-22)
-- [explabel()](#member-23)
-- [enclabel()](#member-24)
-- [attached()](#member-25)
-- [StudyInfo(Coord sz, Widget study)](#member-30)
-- [upd()](#member-31)
-- [tick(double dt)](#member-32)
-- [buy()](#member-33)
-- [reset()](#member-34)
-- [addchild(Widget child, Object... args)](#member-35)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `attrs`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `studyc`
+### SAttr
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `chr`
+### StudyInfo
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `scost`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Collection<SAttr> attrs`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `rnm`
+#### `private final Coord studyc`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `img`
+#### `private CharWnd chr`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `bg`
+#### `private int scost`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tbv`
+#### `public final Text rnm`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `cost`
+#### `public final Tex img`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `add`
+#### `public final Color bg`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `sub`
+#### `public int tbv, cost`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `ct`
+#### `public int tbv, cost`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `cbv`
+#### `private final IButton add, sub`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `ccv`
+#### `private final IButton add, sub`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `study`
+#### `private Text ct`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `texp`
+#### `private int cbv, ccv`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `tw`
+#### `private int cbv, ccv`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `tenc`
+#### `public final Widget study`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `create(UI ui, Object[] args)`
+#### `public int texp, tw, tenc`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `SAttr(Glob glob, String attr, Color bg)`
+#### `public int texp, tw, tenc`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `tick(double dt)`
+#### `public int texp, tw, tenc`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `updcost()`
+#### `private SAttr(Glob glob, String attr, Color bg)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `adj(int a)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `reset()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `private void updcost()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `explabel()`
+#### `public void adj(int a)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `enclabel()`
+#### `public void reset()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `attached()`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `StudyInfo(Coord sz, Widget study)`
+#### `public RLabel<?> explabel()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `upd()`
+#### `public RLabel<?> enclabel()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `tick(double dt)`
+#### `protected void attached()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `buy()`
+#### `private StudyInfo(Coord sz, Widget study)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `reset()`
+#### `private void upd()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public void tick(double dt)`
+
+- Description: TODO
+
+#### `private void buy()`
+
+- Description: TODO
+
+#### `private void reset()`
+
+- Description: TODO
+
+#### `public SAttrWnd(Glob glob)`
+
+- Description: TODO
+
+#### `public void addchild(Widget child, Object... args)`
 
 - Description: TODO

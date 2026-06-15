@@ -1,5 +1,7 @@
 # Effect
 
+This file documents the responsibilities and members of `Effect`.
+
 ## Meta
 
 - Source: [Effect.java](../../../src/agent/Effect.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Defines the base contract for immediate actions.
+Defines the base contract for immediate actions.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public abstract void execute();](#member-1)
-- [info()](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public abstract void execute();`
+#### `public abstract void execute()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

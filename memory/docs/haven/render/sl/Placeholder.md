@@ -1,5 +1,7 @@
 # Placeholder
 
+This file documents the responsibilities and members of `Placeholder`.
+
 ## Meta
 
 - Source: [Placeholder.java](../../../../../src/haven/render/sl/Placeholder.java)
@@ -8,38 +10,32 @@
 
 ## Role
 
-- Represents a placeholder shader element.
+Represents a placeholder shader element.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [comment](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [output(Output out)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `comment`
+#### `public final String comment`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+#### `public Placeholder(String comment)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public Placeholder()`
+
+- Description: TODO
+
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

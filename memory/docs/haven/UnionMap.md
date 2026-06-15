@@ -1,5 +1,7 @@
 # UnionMap
 
+This file documents the responsibilities and members of `UnionMap`.
+
 ## Meta
 
 - Source: [UnionMap.java](../../../src/haven/UnionMap.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Provides a union map implementation.
+Provides a union map implementation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [parts](#member-1)
-
-#### Methods
-
-- [get(Object key)](#member-2)
-- [entrySet()](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `parts`
+#### `private final Collection<Map<? extends K, ? extends V>> parts`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `get(Object key)`
+#### `public UnionMap(Collection<Map<? extends K, ? extends V>> parts)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `entrySet()`
+#### `public V get(Object key)`
+
+- Description: TODO
+
+#### `public Set<Entry<K, V>> entrySet()`
 
 - Description: TODO

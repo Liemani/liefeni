@@ -1,5 +1,7 @@
 # RobotException
 
+This file documents the responsibilities and members of `RobotException`.
+
 ## Meta
 
 - Source: [RobotException.java](../../../../src/haven/test/RobotException.java)
@@ -8,21 +10,24 @@
 
 ## Role
 
-- Represents a robot test failure.
+Represents a robot test failure.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bot](#member-1)
+#### `public Robot bot`
 
-### Member Reference
+- Description: TODO
 
-#### Fields
+### Methods
 
-<a id="member-1"></a>
-##### `bot`
+#### `public RobotException(Robot bot, String msg, Throwable cause)`
+
+- Description: TODO
+
+#### `public RobotException(Robot bot, String msg)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # FColor
 
+This file documents the responsibilities and members of `FColor`.
+
 ## Meta
 
 - Source: [FColor.java](../../../src/haven/FColor.java)
@@ -8,193 +10,140 @@
 
 ## Role
 
-- Represents a float color value.
+Represents a float color value.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [BLACK](#member-1)
-- [WHITE](#member-2)
-- [RED](#member-3)
-- [GREEN](#member-4)
-- [BLUE](#member-5)
-- [YELLOW](#member-6)
-- [MAGENTA](#member-7)
-- [CYAN](#member-8)
-- [BLACK_T](#member-9)
-- [WHITE_T](#member-10)
-
-#### Fields
-
-- [r](#member-11)
-- [g](#member-12)
-- [b](#member-13)
-- [a](#member-14)
-
-#### Methods
-
-- [to3a()](#member-15)
-- [to4a()](#member-16)
-- [mul(FColor that)](#member-17)
-- [mul(float v)](#member-18)
-- [blend(FColor that)](#member-19)
-- [blend(FColor that, float B)](#member-20)
-- [preblend(FColor that)](#member-21)
-- [hashCode()](#member-22)
-- [equals(Object o)](#member-23)
-- [toString()](#member-24)
-- [lin2srgb()](#member-25)
-- [srgb2lin()](#member-26)
-- [lin2srgbf()](#member-27)
-- [srgb2linf()](#member-28)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `BLACK`
+#### `public static final FColor BLACK = new FColor(0, 0, 0)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `WHITE`
+#### `public static final FColor WHITE = new FColor(1, 1, 1)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `RED`
+#### `public static final FColor RED = new FColor(1, 0, 0)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `GREEN`
+#### `public static final FColor GREEN = new FColor(0, 1, 0)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `BLUE`
+#### `public static final FColor BLUE = new FColor(0, 0, 1)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `YELLOW`
+#### `public static final FColor YELLOW = new FColor(1, 1, 0)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `MAGENTA`
+#### `public static final FColor MAGENTA = new FColor(1, 0, 1)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `CYAN`
+#### `public static final FColor CYAN = new FColor(0, 1, 1)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `BLACK_T`
+#### `public static final FColor BLACK_T = new FColor(0, 0, 0, 0)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `WHITE_T`
+#### `public static final FColor WHITE_T = new FColor(1, 1, 1, 0)`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-11"></a>
-##### `r`
-
-- Description: TODO
-
-<a id="member-12"></a>
-##### `g`
+#### `public final float r, g, b, a`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `b`
+#### `public final float r, g, b, a`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `a`
+#### `public final float r, g, b, a`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-15"></a>
-##### `to3a()`
+#### `public final float r, g, b, a`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `to4a()`
+### Methods
+
+#### `public FColor(float r, float g, float b, float a)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `mul(FColor that)`
+#### `public FColor(float r, float g, float b)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `mul(float v)`
+#### `public FColor(Color c, float f)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `blend(FColor that)`
+#### `public FColor(Color c)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `blend(FColor that, float B)`
+#### `public float[] to3a()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `preblend(FColor that)`
+#### `public float[] to4a()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `hashCode()`
+#### `public FColor mul(FColor that)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `equals(Object o)`
+#### `public FColor mul(float v)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `toString()`
+#### `public FColor blend(FColor that)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `lin2srgb()`
+#### `public FColor blend(FColor that, float B)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `srgb2lin()`
+#### `public FColor preblend(FColor that)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `lin2srgbf()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `srgb2linf()`
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public FColor lin2srgb()`
+
+- Description: TODO
+
+#### `public FColor srgb2lin()`
+
+- Description: TODO
+
+#### `public FColor lin2srgbf()`
+
+- Description: TODO
+
+#### `public FColor srgb2linf()`
 
 - Description: TODO

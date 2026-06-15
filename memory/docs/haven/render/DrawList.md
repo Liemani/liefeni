@@ -1,5 +1,7 @@
 # DrawList
 
+This file documents the responsibilities and members of `DrawList`.
+
 ## Meta
 
 - Source: [DrawList.java](../../../../src/haven/render/DrawList.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Represents a draw list.
+Represents a draw list.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public void draw(Render out);](#member-1)
-- [stats()](#member-2)
-- [desc(Object desc)](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public void draw(Render out);`
+#### `public void draw(Render out)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `stats()`
+#### `public default String stats()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `desc(Object desc)`
+#### `public default DrawList desc(Object desc)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Defer
 
+This file documents the responsibilities and members of `Defer`.
+
 ## Meta
 
 - Source: [Defer.java](../../../src/haven/Defer.java)
@@ -8,278 +10,214 @@
 
 ## Role
 
-- Schedules deferred work.
+Schedules deferred work.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [groups](#member-1)
-- [queue](#member-2)
-- [pool](#member-3)
-- [maxthreads](#member-4)
-- [busy](#member-5)
-- [future](#member-10)
-- [task](#member-16)
-- [wq](#member-17)
-- [prio](#member-18)
-- [val](#member-19)
-- [state](#member-20)
-- [exc](#member-21)
-- [lastload](#member-22)
-- [running](#member-23)
-- [threadno](#member-34)
-
-#### Methods
-
-- [public T call() throws InterruptedException;](#member-6)
-- [CancelledException()](#member-7)
-- [CancelledException(Throwable cause)](#member-8)
-- [DeferredException(Throwable cause)](#member-9)
-- [NotDoneException(Future future)](#member-11)
-- [NotDoneException(Future future, Loading cause)](#member-12)
-- [getMessage()](#member-13)
-- [waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)](#member-14)
-- [boostprio(int prio)](#member-15)
-- [Future(Callable<T> task)](#member-24)
-- [cancel()](#member-25)
-- [chstate(String nst)](#member-26)
-- [run()](#member-27)
-- [get(int prio)](#member-28)
-- [get()](#member-29)
-- [done(int prio)](#member-30)
-- [done()](#member-31)
-- [priority()](#member-32)
-- [boostprio(int prio)](#member-33)
-- [Worker()](#member-35)
-- [run()](#member-36)
-- [defer(final Future<?> f)](#member-37)
-- [defer(Callable<T> task)](#member-38)
-- [getgroup()](#member-39)
-- [later(Callable<T> task)](#member-40)
-- [later(Runnable task, T result)](#member-41)
-- [stats()](#member-42)
-- [gstats()](#member-43)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `groups`
+### Callable
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `queue`
+### CancelledException
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `pool`
+### DeferredException
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `maxthreads`
+### Future
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `busy`
+### NotDoneException
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `future`
+### Worker
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `task`
+## Members
+
+### Constants
+
+#### `private static final Map<ThreadGroup, Defer> groups = new WeakHashMap<ThreadGroup, Defer>()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `wq`
+#### `private static final AtomicInteger threadno = new AtomicInteger(0)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `prio`
+### Fields
+
+#### `private final Queue<Future<?>> queue = new PrioQueue<Future<?>>()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `val`
+#### `private final Collection<Thread> pool = new LinkedList<Thread>()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `state`
+#### `private final int maxthreads = Math.max(2, Runtime.getRuntime().availableProcessors() - 1)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `exc`
+#### `private final AtomicInteger busy = new AtomicInteger(0)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `lastload`
+#### `public final transient Future future`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `running`
+#### `public final Callable<T> task`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `threadno`
+#### `private final Waitable.Queue wq = new Waitable.Queue()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `public T call() throws InterruptedException;`
+#### `private int prio = -1`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `CancelledException()`
+#### `private T val`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `CancelledException(Throwable cause)`
+#### `private volatile String state = ""`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `DeferredException(Throwable cause)`
+#### `private Throwable exc = null`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `NotDoneException(Future future)`
+#### `private Loading lastload = null`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `NotDoneException(Future future, Loading cause)`
+#### `private volatile Thread running = null`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `getMessage()`
+### Methods
+
+#### `public T call() throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
+#### `public CancelledException()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `boostprio(int prio)`
+#### `public CancelledException(Throwable cause)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `Future(Callable<T> task)`
+#### `public DeferredException(Throwable cause)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `cancel()`
+#### `public NotDoneException(Future future)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `chstate(String nst)`
+#### `public NotDoneException(Future future, Loading cause)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `run()`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `get(int prio)`
+#### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `get()`
+#### `public boolean boostprio(int prio)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `done(int prio)`
+#### `private Future(Callable<T> task)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `done()`
+#### `public void cancel()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `priority()`
+#### `private void chstate(String nst)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `boostprio(int prio)`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `Worker()`
+#### `public T get(int prio)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `run()`
+#### `public T get()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `defer(final Future<?> f)`
+#### `public boolean done(int prio)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `defer(Callable<T> task)`
+#### `public boolean done()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `getgroup()`
+#### `public int priority()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `later(Callable<T> task)`
+#### `public void boostprio(int prio)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `later(Runnable task, T result)`
+#### `private Worker()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `stats()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `gstats()`
+#### `public Defer(ThreadGroup parent)`
+
+- Description: TODO
+
+#### `private void defer(final Future<?> f)`
+
+- Description: TODO
+
+#### `public <T> Future<T> defer(Callable<T> task)`
+
+- Description: TODO
+
+#### `private static Defer getgroup()`
+
+- Description: TODO
+
+#### `public static <T> Future<T> later(Callable<T> task)`
+
+- Description: TODO
+
+#### `public static <T> Future<T> later(Runnable task, T result)`
+
+- Description: TODO
+
+#### `public String stats()`
+
+- Description: TODO
+
+#### `public static String gstats()`
 
 - Description: TODO

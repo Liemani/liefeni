@@ -1,5 +1,7 @@
 # Mat3Cons
 
+This file documents the responsibilities and members of `Mat3Cons`.
+
 ## Meta
 
 - Source: [Mat3Cons.java](../../../../../src/haven/render/sl/Mat3Cons.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Represents a mat3 constructor.
+Represents a mat3 constructor.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [els](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [output(Output out)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `els`
+#### `public final Expression[] els`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+#### `public Mat3Cons(Expression... els)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

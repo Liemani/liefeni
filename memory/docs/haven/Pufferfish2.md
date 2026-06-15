@@ -1,5 +1,7 @@
 # Pufferfish2
 
+This file documents the responsibilities and members of `Pufferfish2`.
+
 ## Meta
 
 - Source: [Pufferfish2.java](../../../src/haven/Pufferfish2.java)
@@ -8,199 +10,134 @@
 
 ## Role
 
-- Provides a bitset or packing helper.
+Provides a bitset or packing helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [ENCODING](#member-1)
-- [IV](#member-2)
-- [DIGEST](#member-3)
-- [DIGEST_LENGTH](#member-4)
-- [SBOX_N](#member-5)
-
-#### Fields
-
-- [cost_t](#member-9)
-- [cost_m](#member-10)
-- [log2_sbox_sz](#member-11)
-- [sbox_sz](#member-12)
-- [S](#member-13)
-- [P](#member-14)
-- [L](#member-15)
-- [R](#member-16)
-- [salt_u64](#member-17)
-
-#### Methods
-
-- [b2l(byte[] buf)](#member-6)
-- [l2b(long[] buf)](#member-7)
-- [HMAC(byte[] key, byte[] data)](#member-8)
-- [HASH_SBOX(byte[] x)](#member-18)
-- [F(long x)](#member-19)
-- [ENCIPHER()](#member-20)
-- [EXPANDSTATE(long[] buf, long a, long b, int c, int d)](#member-21)
-- [EXPANDSTATE_NULL(long[] buf, int a, int b)](#member-22)
-- [ENCRYPT_P()](#member-23)
-- [ENCRYPT_S()](#member-24)
-- [REKEY(byte[] key)](#member-25)
-- [Instance(int cost_t, int cost_m)](#member-26)
-- [hash(byte[] key_r, byte[] salt_r)](#member-27)
-- [hash(byte[] key, byte[] salt, int t, int m)](#member-28)
-- [main(String[] args)](#member-29)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `ENCODING`
+### Instance
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `IV`
+## Members
+
+### Constants
+
+#### `private static final Utils.BinAscii ENCODING = new Utils.Base64("./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", '\0')`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `DIGEST`
+#### `private static final long[] IV =`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `DIGEST_LENGTH`
+#### `private static final Digest.Algorithm DIGEST = Digest.SHA512`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `SBOX_N`
+#### `private static final int DIGEST_LENGTH = DIGEST.diglen()`
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-9"></a>
-##### `cost_t`
+#### `private static final int SBOX_N = 4`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `cost_m`
+### Fields
+
+#### `private final int cost_t, cost_m`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `log2_sbox_sz`
+#### `private final int cost_t, cost_m`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `sbox_sz`
+#### `private final int log2_sbox_sz, sbox_sz`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `S`
+#### `private final int log2_sbox_sz, sbox_sz`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `P`
+#### `private final long[][] S`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `L`
+#### `private final long[] P = new long[18]`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `R`
+#### `private long L = 0, R = 0`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `salt_u64`
+#### `private long L = 0, R = 0`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `b2l(byte[] buf)`
+#### `private long[] salt_u64`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `l2b(long[] buf)`
+### Methods
+
+#### `private static long[] b2l(byte[] buf)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `HMAC(byte[] key, byte[] data)`
+#### `private static byte[] l2b(long[] buf)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `HASH_SBOX(byte[] x)`
+#### `private static byte[] HMAC(byte[] key, byte[] data)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `F(long x)`
+#### `private byte[] HASH_SBOX(byte[] x)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `ENCIPHER()`
+#### `private long F(long x)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `EXPANDSTATE(long[] buf, long a, long b, int c, int d)`
+#### `private void ENCIPHER()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `EXPANDSTATE_NULL(long[] buf, int a, int b)`
+#### `private void EXPANDSTATE(long[] buf, long a, long b, int c, int d)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `ENCRYPT_P()`
+#### `private void EXPANDSTATE_NULL(long[] buf, int a, int b)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `ENCRYPT_S()`
+#### `private void ENCRYPT_P()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `REKEY(byte[] key)`
+#### `private void ENCRYPT_S()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `Instance(int cost_t, int cost_m)`
+#### `private void REKEY(byte[] key)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `hash(byte[] key_r, byte[] salt_r)`
+#### `public Instance(int cost_t, int cost_m)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `hash(byte[] key, byte[] salt, int t, int m)`
+#### `public byte[] hash(byte[] key_r, byte[] salt_r)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `main(String[] args)`
+#### `public static byte[] hash(byte[] key, byte[] salt, int t, int m)`
+
+- Description: TODO
+
+#### `public static void main(String[] args)`
 
 - Description: TODO

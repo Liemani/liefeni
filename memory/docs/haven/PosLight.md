@@ -1,5 +1,7 @@
 # PosLight
 
+This file documents the responsibilities and members of `PosLight`.
+
 ## Meta
 
 - Source: [PosLight.java](../../../src/haven/PosLight.java)
@@ -8,74 +10,64 @@
 
 ## Role
 
-- Represents a positional light source.
+Represents a positional light source.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [pos](#member-1)
-- [ac](#member-2)
-- [al](#member-3)
-- [aq](#member-4)
-- [at](#member-5)
-- [atoverride](#member-8)
-
-#### Methods
-
-- [move(Coord3f pos)](#member-6)
-- [att(float c, float l, float q)](#member-7)
-- [params(GroupPipe state)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `pos`
+#### `public float[] pos`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ac`
+#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `al`
+#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `aq`
+#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `at`
+#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `atoverride`
+#### `public static float atoverride = 0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `move(Coord3f pos)`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `att(float c, float l, float q)`
+#### `public PosLight(FColor col, Coord3f pos)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `params(GroupPipe state)`
+#### `public PosLight(Color col, Coord3f pos)`
+
+- Description: TODO
+
+#### `public PosLight(FColor amb, FColor dif, FColor spc, Coord3f pos)`
+
+- Description: TODO
+
+#### `public PosLight(Color amb, Color dif, Color spc, Coord3f pos)`
+
+- Description: TODO
+
+#### `public void move(Coord3f pos)`
+
+- Description: TODO
+
+#### `public void att(float c, float l, float q)`
+
+- Description: TODO
+
+#### `public Object[] params(GroupPipe state)`
 
 - Description: TODO

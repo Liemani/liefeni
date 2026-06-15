@@ -1,5 +1,7 @@
 # StaticSprite
 
+This file documents the responsibilities and members of `StaticSprite`.
+
 ## Meta
 
 - Source: [StaticSprite.java](../../../src/haven/StaticSprite.java)
@@ -8,50 +10,44 @@
 
 ## Role
 
-- Represents a static sprite.
+Represents a static sprite.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [parts](#member-1)
-- [fact](#member-2)
-
-#### Methods
-
-- [lsparts(Owner owner, Resource res, Message sdt)](#member-3)
-- [lsparts(Resource res, Message sdt)](#member-4)
-- [added(RenderTree.Slot slot)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `parts`
+#### `public static final Factory fact = new Factory()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fact`
+### Fields
+
+#### `public final RenderTree.Node[] parts`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `lsparts(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `lsparts(Resource res, Message sdt)`
+#### `public StaticSprite(Owner owner, Resource res, RenderTree.Node[] parts)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public StaticSprite(Owner owner, Resource res, RenderTree.Node part)`
+
+- Description: TODO
+
+#### `public StaticSprite(Owner owner, Resource res, Message sdt)`
+
+- Description: TODO
+
+#### `public static RenderTree.Node[] lsparts(Owner owner, Resource res, Message sdt)`
+
+- Description: TODO
+
+#### `public static RenderTree.Node[] lsparts(Resource res, Message sdt)`
+
+- Description: TODO
+
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO

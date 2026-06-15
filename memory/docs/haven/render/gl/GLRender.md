@@ -1,5 +1,7 @@
 # GLRender
 
+This file documents the responsibilities and members of `GLRender`.
+
 ## Meta
 
 - Source: [GLRender.java](../../../../../src/haven/render/gl/GLRender.java)
@@ -8,170 +10,116 @@
 
 ## Role
 
-- Provides GL render support.
+Provides GL render support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [env](#member-1)
-- [gl](#member-2)
-- [state](#member-3)
-- [init](#member-4)
-- [seq](#member-5)
-- [disposed](#member-6)
-
-#### Methods
-
-- [env()](#member-7)
-- [gl()](#member-8)
-- [glmode(Model.Mode mode)](#member-9)
-- [glattribfmt(NumberFormat fmt)](#member-10)
-- [glattribnorm(NumberFormat fmt)](#member-11)
-- [glindexfmt(NumberFormat fmt)](#member-12)
-- [glsamplertarget(Type type)](#member-13)
-- [submit(Render gsub)](#member-14)
-- [draw(Pipe pipe, Model data)](#member-15)
-- [clear(Pipe pipe, FragData buf, FColor val)](#member-16)
-- [clear(Pipe pipe, double val)](#member-17)
-- [update(T buf, DataBuffer.Filler<? super T> fill)](#member-18)
-- [update(T buf, DataBuffer.PartFiller<? super T> fill, int from, int to)](#member-19)
-- [pget(Pipe pipe, FragData buf, Area area, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)](#member-20)
-- [pget(Texture.Image img, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)](#member-21)
-- [timestamp(Consumer<Long> callback)](#member-22)
-- [fence(Runnable callback)](#member-23)
-- [submit(BGL.Request req)](#member-24)
-- [dispose()](#member-25)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `env`
+#### `public final GLEnvironment env`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `gl`
+#### `BufferBGL gl = null`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `state`
+#### `final Applier state`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `init`
+#### `Applier init = null`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `seq`
+#### `private final GLEnvironment.Sequence seq`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `disposed`
+#### `private final AtomicBoolean disposed = new AtomicBoolean(false)`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `env()`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `gl()`
+#### `GLRender(GLEnvironment env)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `glmode(Model.Mode mode)`
+#### `public GLEnvironment env()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `glattribfmt(NumberFormat fmt)`
+#### `BGL gl()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `glattribnorm(NumberFormat fmt)`
+#### `public static int glmode(Model.Mode mode)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `glindexfmt(NumberFormat fmt)`
+#### `public static int glattribfmt(NumberFormat fmt)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `glsamplertarget(Type type)`
+#### `public static boolean glattribnorm(NumberFormat fmt)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `submit(Render gsub)`
+#### `public static int glindexfmt(NumberFormat fmt)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `draw(Pipe pipe, Model data)`
+#### `public static int glsamplertarget(Type type)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `clear(Pipe pipe, FragData buf, FColor val)`
+#### `public void submit(Render gsub)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `clear(Pipe pipe, double val)`
+#### `public void draw(Pipe pipe, Model data)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `update(T buf, DataBuffer.Filler<? super T> fill)`
+#### `public void clear(Pipe pipe, FragData buf, FColor val)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `update(T buf, DataBuffer.PartFiller<? super T> fill, int from, int to)`
+#### `public void clear(Pipe pipe, double val)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `pget(Pipe pipe, FragData buf, Area area, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
+#### `public <T extends DataBuffer> void update(T buf, DataBuffer.Filler<? super T> fill)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `pget(Texture.Image img, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
+#### `public <T extends DataBuffer> void update(T buf, DataBuffer.PartFiller<? super T> fill, int from, int to)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `timestamp(Consumer<Long> callback)`
+#### `public void pget(Pipe pipe, FragData buf, Area area, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `fence(Runnable callback)`
+#### `public void pget(Texture.Image img, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `submit(BGL.Request req)`
+#### `public void timestamp(Consumer<Long> callback)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `dispose()`
+#### `public void fence(Runnable callback)`
+
+- Description: TODO
+
+#### `public void submit(BGL.Request req)`
+
+- Description: TODO
+
+#### `public void dispose()`
 
 - Description: TODO

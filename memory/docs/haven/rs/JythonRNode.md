@@ -1,5 +1,7 @@
 # JythonRNode
 
+This file documents the responsibilities and members of `JythonRNode`.
+
 ## Meta
 
 - Source: [JythonRNode.java](../../../../src/haven/rs/JythonRNode.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Represents a Jython-backed resource node.
+Represents a Jython-backed resource node.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [added(RenderTree.Slot slot)](#member-1)
-- [removed(RenderTree.Slot slot)](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO

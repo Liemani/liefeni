@@ -1,5 +1,7 @@
 # Expression
 
+This file documents the responsibilities and members of `Expression`.
+
 ## Meta
 
 - Source: [Expression.java](../../../../../src/haven/render/sl/Expression.java)
@@ -8,10 +10,12 @@
 
 ## Role
 
-- Represents a shader expression.
+Represents a shader expression.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-### Member Reference
+### Fields
+
+### Methods

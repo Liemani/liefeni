@@ -1,5 +1,7 @@
 # DepthBuffer
 
+This file documents the responsibilities and members of `DepthBuffer`.
+
 ## Meta
 
 - Source: [DepthBuffer.java](../../../../src/haven/render/DepthBuffer.java)
@@ -8,68 +10,48 @@
 
 ## Role
 
-- Represents a depth buffer.
+Represents a depth buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [defdepth](#member-2)
-- [image](#member-3)
-
-#### Methods
-
-- [shader()](#member-4)
-- [apply(Pipe p)](#member-5)
-- [hashCode()](#member-6)
-- [equals(Object o)](#member-7)
-- [toString()](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<DepthBuffer> slot = new Slot<>(Slot.Type.SYS, DepthBuffer.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `defdepth`
+#### `public static final Object defdepth = new Object()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `image`
+### Fields
+
+#### `public final T image`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `apply(Pipe p)`
+#### `public DepthBuffer(T image)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `hashCode()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `equals(Object o)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `toString()`
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

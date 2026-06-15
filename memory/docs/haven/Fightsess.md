@@ -1,5 +1,7 @@
 # Fightsess
 
+This file documents the responsibilities and members of `Fightsess`.
+
 ## Meta
 
 - Source: [Fightsess.java](../../../src/haven/Fightsess.java)
@@ -8,398 +10,286 @@
 
 ## Role
 
-- Represents fight session state.
+Represents fight session state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [off](#member-1)
-- [cdframe](#member-2)
-- [actframe](#member-3)
-- [actframeo](#member-4)
-- [indframe](#member-5)
-- [indframeo](#member-6)
-- [indbframe](#member-7)
-- [indbframeo](#member-8)
-- [useframe](#member-9)
-- [useframeo](#member-10)
-- [actpitch](#member-11)
-- [actions](#member-12)
-- [use](#member-13)
-- [useb](#member-14)
-- [pcc](#member-15)
-- [pho](#member-16)
-- [fv](#member-17)
-- [res](#member-18)
-- [cs](#member-19)
-- [ct](#member-20)
-- [spr](#member-26)
-- [slot](#member-27)
-- [used](#member-28)
-- [tgtfx](#member-31)
-- [curfx](#member-32)
-- [ipf](#member-36)
-- [ip](#member-37)
-- [oip](#member-38)
-- [cmc](#member-40)
-- [usec1](#member-41)
-- [usec2](#member-42)
-- [lastact1](#member-43)
-- [lastact2](#member-44)
-- [lastacttip1](#member-45)
-- [lastacttip2](#member-46)
-- [curtgtfx](#member-47)
-- [prevtt](#member-49)
-- [acttip](#member-50)
-- [keytips](#member-51)
-- [kb_acts](#member-54)
-- [kb_relcycle](#member-55)
-- [n](#member-56)
-- [holdgrab](#member-59)
-- [held](#member-60)
-
-#### Methods
-
-- [Action(Indir<Resource> res)](#member-21)
-- [create(UI ui, Object[] args)](#member-22)
-- [added()](#member-23)
-- [presize()](#member-24)
-- [updatepos()](#member-25)
-- [Effect(Sprite spr)](#member-29)
-- [added(RenderTree.Slot slot)](#member-30)
-- [fxon(long gobid, Resource fx, Effect cur)](#member-33)
-- [tick(double dt)](#member-34)
-- [destroy()](#member-35)
-- [actc(int i)](#member-39)
-- [draw(GOut g)](#member-48)
-- [tooltip(Coord c, Widget prev)](#member-52)
-- [uimsg(String msg, Object... args)](#member-53)
-- [Release(int n)](#member-57)
-- [run()](#member-58)
-- [globtype(GlobKeyEvent ev)](#member-61)
-- [keydown(KeyDownEvent ev)](#member-62)
-- [keyup(KeyUpEvent ev)](#member-63)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `off`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cdframe`
+### Action
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `actframe`
+### Effect
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `actframeo`
+### Release
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `indframe`
+## Members
+
+### Constants
+
+#### `private static final Coord off = new Coord(UI.scale(32), UI.scale(32))`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `indframeo`
+#### `public static final Tex cdframe = Resource.loadtex("gfx/hud/combat/cool")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `indbframe`
+#### `public static final Tex actframe = Buff.frame`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `indbframeo`
+#### `public static final Coord actframeo = Buff.imgoff`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `useframe`
+#### `public static final Tex indframe = Resource.loadtex("gfx/hud/combat/indframe")`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `useframeo`
+#### `public static final Coord indframeo = (indframe.sz().sub(off)).div(2)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `actpitch`
+#### `public static final Tex indbframe = Resource.loadtex("gfx/hud/combat/indbframe")`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `actions`
+#### `public static final Coord indbframeo = (indframe.sz().sub(off)).div(2)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `use`
+#### `public static final Tex useframe = Resource.loadtex("gfx/hud/combat/lastframe")`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `useb`
+#### `public static final Coord useframeo = (useframe.sz().sub(off)).div(2)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `pcc`
+#### `public static final int actpitch = UI.scale(50)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `pho`
+#### `private static final Resource tgtfx = Resource.local().loadwait("gfx/hud/combat/trgtarw")`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `fv`
+#### `private static final Text.Furnace ipf = new PUtils.BlurFurn(new Text.Foundry(Text.serif, 18, new Color(128, 128, 255)).aa(true), 1, 1, new Color(48, 48, 96))`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `res`
+#### `private static final Coord cmc = UI.scale(new Coord(0, 67))`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `cs`
+#### `private static final Coord usec1 = UI.scale(new Coord(-65, 67))`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `ct`
+#### `private static final Coord usec2 = UI.scale(new Coord(65, 67))`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `spr`
+#### `public static final String[] keytips =`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `slot`
+#### `public static final KeyBinding[] kb_acts =`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `used`
+#### `public static final KeyBinding kb_relcycle = KeyBinding.get("fgt-cycle", KeyMatch.forcode(KeyEvent.VK_TAB, KeyMatch.C), KeyMatch.S)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `tgtfx`
+### Fields
+
+#### `public final Action[] actions`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `curfx`
+#### `public int use = -1, useb = -1`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `ipf`
+#### `public int use = -1, useb = -1`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `ip`
+#### `public Coord pcc`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `oip`
+#### `public int pho`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `cmc`
+#### `private Fightview fv`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `usec1`
+#### `public final Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `usec2`
+#### `public double cs, ct`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `lastact1`
+#### `public double cs, ct`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `lastact2`
+#### `Sprite spr`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `lastacttip1`
+#### `RenderTree.Slot slot`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `lastacttip2`
+#### `boolean used = true`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `curtgtfx`
+#### `private final Collection<Effect> curfx = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `prevtt`
+#### `private final Indir<Text> ip = Utils.transform(() -> fv.current.ip , v -> ipf.render("IP: " + v))`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `acttip`
+#### `private final Indir<Text> oip = Utils.transform(() -> fv.current.oip, v -> ipf.render("IP: " + v))`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `keytips`
+#### `private Indir<Resource> lastact1 = null, lastact2 = null`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `kb_acts`
+#### `private Indir<Resource> lastact1 = null, lastact2 = null`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `kb_relcycle`
+#### `private Text lastacttip1 = null, lastacttip2 = null`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `n`
+#### `private Text lastacttip1 = null, lastacttip2 = null`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `holdgrab`
+#### `private Effect curtgtfx`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `held`
+#### `private Widget prevtt = null`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-21"></a>
-##### `Action(Indir<Resource> res)`
+#### `private Text acttip = null`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `create(UI ui, Object[] args)`
+#### `final int n`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `added()`
+#### `private UI.Grab holdgrab = null`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `presize()`
+#### `private int held = -1`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `updatepos()`
+### Methods
+
+#### `public Action(Indir<Resource> res)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `Effect(Sprite spr)`
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public Fightsess(int nact)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `fxon(long gobid, Resource fx, Effect cur)`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `tick(double dt)`
+#### `public void presize()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `destroy()`
+#### `private void updatepos()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `actc(int i)`
+#### `Effect(Sprite spr)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `draw(GOut g)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `private Effect fxon(long gobid, Resource fx, Effect cur)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `Release(int n)`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `run()`
+#### `private static Coord actc(int i)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `keyup(KeyUpEvent ev)`
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `Release(int n)`
+
+- Description: TODO
+
+#### `public void run()`
+
+- Description: TODO
+
+#### `public boolean globtype(GlobKeyEvent ev)`
+
+- Description: TODO
+
+#### `public boolean keydown(KeyDownEvent ev)`
+
+- Description: TODO
+
+#### `public boolean keyup(KeyUpEvent ev)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # DumpBot
 
+This file documents the responsibilities and members of `DumpBot`.
+
 ## Meta
 
 - Source: [DumpBot.java](../../../../src/haven/test/DumpBot.java)
@@ -8,33 +10,28 @@
 
 ## Role
 
-- Provides a bot-style test helper.
+Provides a bot-style test helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [newwdg(int id, Widget w, Object... args)](#member-1)
-- [dstwdg(int id, Widget w)](#member-2)
-- [uimsg(int id, Widget w, String msg, Object... args)](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `newwdg(int id, Widget w, Object... args)`
+#### `public DumpBot(TestClient c)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `dstwdg(int id, Widget w)`
+#### `public void newwdg(int id, Widget w, Object... args)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `uimsg(int id, Widget w, String msg, Object... args)`
+#### `public void dstwdg(int id, Widget w)`
+
+- Description: TODO
+
+#### `public void uimsg(int id, Widget w, String msg, Object... args)`
 
 - Description: TODO

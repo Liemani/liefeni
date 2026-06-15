@@ -1,5 +1,7 @@
 # Uniform
 
+This file documents the responsibilities and members of `Uniform`.
+
 ## Meta
 
 - Source: [Uniform.java](../../../../../src/haven/render/sl/Uniform.java)
@@ -8,68 +10,66 @@
 
 ## Role
 
-- Represents a shader uniform.
+Represents a shader uniform.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [value](#member-1)
-- [deps](#member-2)
-- [value](#member-6)
-- [deps](#member-7)
-
-#### Methods
-
-- [output(Output out)](#member-3)
-- [use(Context ctx)](#member-4)
-- [toString()](#member-5)
-- [Data(Function<Pipe, T> value, State.Slot<?>... deps)](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `value`
+### Data
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `deps`
+### Def
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `value`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Function<Pipe, Object> value`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `deps`
+#### `public final Collection<State.Slot<?>> deps`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public final Function<Pipe, T> value`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `use(Context ctx)`
+#### `public final State.Slot<?>[] deps`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `toString()`
+### Methods
+
+#### `public Uniform(Type type, Symbol name, Function<Pipe, Object> value, State.Slot<?>... deps)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Data(Function<Pipe, T> value, State.Slot<?>... deps)`
+#### `public Uniform(Type type, String infix, Function<Pipe, Object> value, State.Slot<?>... deps)`
+
+- Description: TODO
+
+#### `public Uniform(Type type, Function<Pipe, Object> value, State.Slot<?>... deps)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public Data(Function<Pipe, T> value, State.Slot<?>... deps)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Equipory
 
+This file documents the responsibilities and members of `Equipory`.
+
 ## Meta
 
 - Source: [Equipory.java](../../../src/haven/Equipory.java)
@@ -8,164 +10,122 @@
 
 ## Role
 
-- Displays the equipment UI.
+Displays the equipment UI.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [bgi](#member-1)
-- [yo](#member-2)
-- [sh](#member-3)
-- [bg](#member-4)
-- [rx](#member-5)
-- [bgc](#member-6)
-- [ecoords](#member-7)
-- [ebgs](#member-8)
-- [etts](#member-9)
-- [isz](#member-10)
-- [wmap](#member-11)
-- [ava](#member-12)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-13)
-- [added()](#member-14)
-- [public int slots();](#member-15)
-- [addchild(Widget child, Object... args)](#member-16)
-- [cdestroy(Widget w)](#member-17)
-- [uimsg(String msg, Object... args)](#member-18)
-- [epat(Coord c)](#member-19)
-- [drop(Coord cc, Coord ul)](#member-20)
-- [drawslots(GOut g)](#member-21)
-- [tooltip(Coord c, Widget prev)](#member-22)
-- [draw(GOut g)](#member-23)
-- [iteminteract(Coord cc, Coord ul)](#member-24)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bgi`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `yo`
+### SlotInfo
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sh`
+## Members
+
+### Constants
+
+#### `private static final Resource.Image bgi = Resource.loadrimg("gfx/hud/equip/bg")`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `bg`
+#### `private static final int yo = Inventory.sqsz.y, sh = 11`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `rx`
+#### `private static final int yo = Inventory.sqsz.y, sh = 11`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `bgc`
+#### `private static final Tex bg = new TexI(PUtils.uiscale(bgi.img, Coord.of((sh * yo * bgi.sz.x) / bgi.sz.y, sh * yo)))`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ecoords`
+#### `private static final int rx = invsq.sz().x + bg.sz().x`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ebgs`
+#### `public static final Coord bgc = new Coord(invsq.sz().x, 0)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `etts`
+#### `public static final Coord ecoords[] =`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `isz`
+#### `public static final Tex[] ebgs = new Tex[ecoords.length]`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `wmap`
+#### `public static final Text[] etts = new Text[ecoords.length]`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ava`
+### Fields
+
+#### `static Coord isz`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-13"></a>
-##### `create(UI ui, Object[] args)`
+#### `Map<GItem, Collection<WItem>> wmap = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `added()`
+#### `private final Avaview ava`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `public int slots();`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `addchild(Widget child, Object... args)`
+#### `protected void added()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `cdestroy(Widget w)`
+#### `public Equipory(long gobid)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public int slots()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `epat(Coord c)`
+#### `public void addchild(Widget child, Object... args)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `drop(Coord cc, Coord ul)`
+#### `public void cdestroy(Widget w)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `drawslots(GOut g)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public int epat(Coord c)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `draw(GOut g)`
+#### `public boolean drop(Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `iteminteract(Coord cc, Coord ul)`
+#### `public void drawslots(GOut g)`
+
+- Description: TODO
+
+#### `public Object tooltip(Coord c, Widget prev)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public boolean iteminteract(Coord cc, Coord ul)`
 
 - Description: TODO

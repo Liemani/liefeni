@@ -1,5 +1,7 @@
 # WItem
 
+This file documents the responsibilities and members of `WItem`.
+
 ## Meta
 
 - Source: [WItem.java](../../../src/haven/WItem.java)
@@ -8,206 +10,154 @@
 
 ## Role
 
-- Represents an inventory widget item.
+Represents an inventory widget item.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [missing](#member-1)
-- [item](#member-2)
-- [cspr](#member-3)
-- [csdt](#member-4)
-- [info](#member-6)
-- [tex](#member-7)
-- [hoverstart](#member-14)
-- [shorttip](#member-15)
-- [longtip](#member-16)
-- [ttinfo](#member-17)
-- [rstate](#member-20)
-- [itemols](#member-21)
-- [itemmeter](#member-22)
-- [lspr](#member-24)
-- [lcont](#member-25)
-
-#### Methods
-
-- [drawmain(GOut g, GSprite spr)](#member-5)
-- [ItemTip(List<ItemInfo> info, BufferedImage img)](#member-8)
-- [item()](#member-9)
-- [info()](#member-10)
-- [get()](#member-11)
-- [ShortTip(List<ItemInfo> info)](#member-12)
-- [LongTip(List<ItemInfo> info)](#member-13)
-- [tooltip(Coord c, Widget prev)](#member-18)
-- [info()](#member-19)
-- [contparent()](#member-23)
-- [tick(double dt)](#member-26)
-- [draw(GOut g)](#member-27)
-- [mousedown(MouseDownEvent ev)](#member-28)
-- [drop(Coord cc, Coord ul)](#member-29)
-- [iteminteract(Coord cc, Coord ul)](#member-30)
-- [mousehover(MouseHoverEvent ev, boolean on)](#member-31)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `missing`
+### ItemTip
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `item`
+### LongTip
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cspr`
+### ShortTip
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `csdt`
+## Members
+
+### Constants
+
+#### `public static final Resource missing = Resource.local().loadwait("gfx/invobjs/missing")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `info`
+### Fields
+
+#### `public final GItem item`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `tex`
+#### `private Resource cspr = null`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `hoverstart`
+#### `private Message csdt = Message.nil`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `shorttip`
+#### `private final List<ItemInfo> info`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `longtip`
+#### `private final TexI tex`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `ttinfo`
+#### `private double hoverstart`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `rstate`
+#### `private ItemTip shorttip = null, longtip = null`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `itemols`
+#### `private ItemTip shorttip = null, longtip = null`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `itemmeter`
+#### `private List<ItemInfo> ttinfo = null`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `lspr`
+#### `public final AttrCache<Pipe.Op> rstate = new AttrCache<>(this::info, GItem.RStateInfo.combine)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `lcont`
+#### `public final AttrCache<GItem.InfoOverlay<?>[]> itemols = new AttrCache<>(this::info, info ->`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `drawmain(GOut g, GSprite spr)`
+#### `public final AttrCache<Double> itemmeter = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ItemTip(List<ItemInfo> info, BufferedImage img)`
+#### `private GSprite lspr = null`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `item()`
+#### `private Widget lcont = null`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `info()`
+### Methods
+
+#### `public WItem(GItem item)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `get()`
+#### `public void drawmain(GOut g, GSprite spr)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ShortTip(List<ItemInfo> info)`
+#### `public ItemTip(List<ItemInfo> info, BufferedImage img)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `LongTip(List<ItemInfo> info)`
+#### `public GItem item()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `info()`
+#### `public Tex get()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `contparent()`
+#### `public ShortTip(List<ItemInfo> info)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `tick(double dt)`
+#### `public LongTip(List<ItemInfo> info)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `draw(GOut g)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `private List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `drop(Coord cc, Coord ul)`
+#### `private Widget contparent()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `iteminteract(Coord cc, Coord ul)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `mousehover(MouseHoverEvent ev, boolean on)`
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public boolean drop(Coord cc, Coord ul)`
+
+- Description: TODO
+
+#### `public boolean iteminteract(Coord cc, Coord ul)`
+
+- Description: TODO
+
+#### `public boolean mousehover(MouseHoverEvent ev, boolean on)`
 
 - Description: TODO

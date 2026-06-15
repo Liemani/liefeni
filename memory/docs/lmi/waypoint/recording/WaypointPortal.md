@@ -1,5 +1,7 @@
 # WaypointPortal
 
+This file documents the responsibilities and members of `WaypointPortal`.
+
 ## Meta
 
 - Source: [WaypointPortal.java](../../../../../src/lmi/waypoint/recording/WaypointPortal.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents a portal-related waypoint concept.
+Represents a portal-related waypoint concept.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [counterpartMap](#member-1)
-
-#### Methods
-
-- [counterpartResnames(String resname)](#member-2)
-- [isPortalResname(String resname)](#member-3)
-- [pair(String a, String b)](#member-4)
-- [counterpart(String resname)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `counterpartMap`
+#### `private static final Map<String, List<String>> counterpartMap = new HashMap<>()`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `counterpartResnames(String resname)`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `isPortalResname(String resname)`
+#### `private WaypointPortal()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `pair(String a, String b)`
+#### `public static List<String> counterpartResnames(String resname)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `counterpart(String resname)`
+#### `public static boolean isPortalResname(String resname)`
+
+- Description: TODO
+
+#### `private static void pair(String a, String b)`
+
+- Description: TODO
+
+#### `private static List<String> counterpart(String resname)`
 
 - Description: TODO

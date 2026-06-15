@@ -1,5 +1,7 @@
 # Camera
 
+This file documents the responsibilities and members of `Camera`.
+
 ## Meta
 
 - Source: [Camera.java](../../../../src/haven/render/Camera.java)
@@ -8,74 +10,52 @@
 
 ## Role
 
-- Represents a render camera.
+Represents a render camera.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [defdir](#member-1)
-- [pbase](#member-7)
-
-#### Methods
-
-- [apply(Pipe p)](#member-2)
-- [makedir(Matrix4f d, Coord3f base, Coord3f dir)](#member-3)
-- [dir(Coord3f base, Coord3f dir)](#member-4)
-- [makepointed(Matrix4f d, Coord3f base, float dist, float e, float a)](#member-5)
-- [pointed(Coord3f base, float dist, float e, float a)](#member-6)
-- [makeplaced(Location.Chain loc)](#member-8)
-- [placed(Location.Chain loc)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `defdir`
+#### `public static final Coord3f defdir = new Coord3f(0, 0, -1)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `pbase`
+#### `private static final Matrix4f pbase = makerot(new Matrix4f(), new Coord3f(0.0f, 0.0f, 1.0f), (float)(Math.PI / 2))`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `apply(Pipe p)`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `makedir(Matrix4f d, Coord3f base, Coord3f dir)`
+#### `public Camera(Matrix4f xf)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `dir(Coord3f base, Coord3f dir)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `makepointed(Matrix4f d, Coord3f base, float dist, float e, float a)`
+#### `public static Matrix4f makedir(Matrix4f d, Coord3f base, Coord3f dir)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `pointed(Coord3f base, float dist, float e, float a)`
+#### `public static Camera dir(Coord3f base, Coord3f dir)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `makeplaced(Location.Chain loc)`
+#### `public static Matrix4f makepointed(Matrix4f d, Coord3f base, float dist, float e, float a)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `placed(Location.Chain loc)`
+#### `public static Camera pointed(Coord3f base, float dist, float e, float a)`
+
+- Description: TODO
+
+#### `public static Matrix4f makeplaced(Location.Chain loc)`
+
+- Description: TODO
+
+#### `public static Camera placed(Location.Chain loc)`
 
 - Description: TODO

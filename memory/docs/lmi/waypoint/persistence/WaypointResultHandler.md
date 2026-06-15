@@ -1,5 +1,7 @@
 # WaypointResultHandler
 
+This file documents the responsibilities and members of `WaypointResultHandler`.
+
 ## Meta
 
 - Source: [WaypointResultHandler.java](../../../../../src/lmi/waypoint/persistence/WaypointResultHandler.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Provides the `WaypointResultHandler` functionality.
+Provides the `WaypointResultHandler` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [void onSuccess(R result);](#member-1)
-- [void onFailure(Exception error);](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `void onSuccess(R result);`
+#### `void onSuccess(R result)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `void onFailure(Exception error);`
+#### `void onFailure(Exception error)`
 
 - Description: TODO

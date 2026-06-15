@@ -1,5 +1,7 @@
 # AWidget
 
+This file documents the responsibilities and members of `AWidget`.
+
 ## Meta
 
 - Source: [AWidget.java](../../../src/haven/AWidget.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Defines a widget base class used across Haven UI.
+Defines a widget base class used across Haven UI.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [addchild(Widget child, Object... args)](#member-1)
+### Methods
 
-### Member Reference
+#### `public AWidget()`
 
-#### Methods
+- Description: TODO
 
-<a id="member-1"></a>
-##### `addchild(Widget child, Object... args)`
+#### `public void addchild(Widget child, Object... args)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # LayerMeter
 
+This file documents the responsibilities and members of `LayerMeter`.
+
 ## Meta
 
 - Source: [LayerMeter.java](../../../src/haven/LayerMeter.java)
@@ -8,128 +10,94 @@
 
 ## Role
 
-- Displays layered meter UI.
+Displays layered meter UI.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [rawinfo](#member-1)
-- [info](#member-2)
-- [meters](#member-3)
-- [a](#member-4)
-- [c](#member-5)
-- [ctxr](#member-11)
-- [hoverstart](#member-14)
-- [shorttip](#member-15)
-- [longtip](#member-16)
-
-#### Methods
-
-- [Meter(double a, Color c)](#member-6)
-- [set(List<Meter> meters)](#member-7)
-- [set(double a, Color c)](#member-8)
-- [av(Object arg)](#member-9)
-- [decmeters(Object[] args, int s)](#member-10)
-- [context(Class<T> cl)](#member-12)
-- [info()](#member-13)
-- [tooltip(Coord c, Widget prev)](#member-17)
-- [uimsg(String msg, Object... args)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `rawinfo`
+### Meter
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info`
+## Members
+
+### Constants
+
+#### `private static final OwnerContext.ClassResolver<LayerMeter> ctxr = new OwnerContext.ClassResolver<LayerMeter>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `meters`
+### Fields
+
+#### `protected ItemInfo.Raw rawinfo = null`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `a`
+#### `protected List<ItemInfo> info = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `c`
+#### `protected List<Meter> meters = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `ctxr`
+#### `public final double a`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `hoverstart`
+#### `public final Color c`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `shorttip`
+#### `private double hoverstart`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `longtip`
+#### `private Tex shorttip, longtip`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `Meter(double a, Color c)`
+#### `private Tex shorttip, longtip`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `set(List<Meter> meters)`
+### Methods
+
+#### `public LayerMeter(Coord sz)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `set(double a, Color c)`
+#### `public Meter(double a, Color c)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `av(Object arg)`
+#### `public void set(List<Meter> meters)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `decmeters(Object[] args, int s)`
+#### `public void set(double a, Color c)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `context(Class<T> cl)`
+#### `private static double av(Object arg)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `info()`
+#### `public static List<Meter> decmeters(Object[] args, int s)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public List<ItemInfo> info()`
+
+- Description: TODO
+
+#### `public Object tooltip(Coord c, Widget prev)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO

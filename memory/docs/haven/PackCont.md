@@ -1,5 +1,7 @@
 # PackCont
 
+This file documents the responsibilities and members of `PackCont`.
+
 ## Meta
 
 - Source: [PackCont.java](../../../src/haven/PackCont.java)
@@ -8,164 +10,130 @@
 
 ## Role
 
-- Provides pack container support.
+Provides pack container support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [packpar](#member-1)
-- [packed](#member-2)
-- [order](#member-10)
-- [margin](#member-11)
-
-#### Methods
-
-- [packpar(boolean packpar)](#member-3)
-- [add(T child)](#member-4)
-- [cdestroy(Widget ch)](#member-5)
-- [cresize(Widget ch)](#member-6)
-- [pack()](#member-7)
-- [repack0()](#member-8)
-- [protected abstract void repack();](#member-9)
-- [margin(int margin)](#member-12)
-- [protected abstract Coord pad(int p);](#member-13)
-- [last(T child, int pad)](#member-14)
-- [insert(T child, int p, int pad)](#member-15)
-- [after(T child, Widget after, int pad)](#member-16)
-- [before(T child, Widget after, int pad)](#member-17)
-- [cdestroy(Widget ch)](#member-18)
-- [addchild(Widget child, Object... args)](#member-19)
-- [pad(int p)](#member-20)
-- [repack()](#member-21)
-- [pad(int p)](#member-22)
-- [repack()](#member-23)
-- [create(UI ui, Object[] args)](#member-24)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `packpar`
+### $linpack
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `packed`
+### HPack
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `order`
+### LinPack
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `margin`
+### VPack
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-3"></a>
-##### `packpar(boolean packpar)`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-4"></a>
-##### `add(T child)`
+#### `public boolean packpar`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `cdestroy(Widget ch)`
+#### `private boolean packed = false`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `cresize(Widget ch)`
+#### `public final List<Widget> order = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `pack()`
+#### `public int margin = 0`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `repack0()`
+### Methods
+
+#### `public PackCont()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `protected abstract void repack();`
+#### `public PackCont packpar(boolean packpar)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `margin(int margin)`
+#### `public <T extends Widget> T add(T child)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `protected abstract Coord pad(int p);`
+#### `public void cdestroy(Widget ch)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `last(T child, int pad)`
+#### `public void cresize(Widget ch)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `insert(T child, int p, int pad)`
+#### `public void pack()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `after(T child, Widget after, int pad)`
+#### `private void repack0()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `before(T child, Widget after, int pad)`
+#### `protected abstract void repack()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `cdestroy(Widget ch)`
+#### `public LinPack margin(int margin)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `addchild(Widget child, Object... args)`
+#### `protected abstract Coord pad(int p)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `pad(int p)`
+#### `public <T extends Widget> T last(T child, int pad)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `repack()`
+#### `public <T extends Widget> T insert(T child, int p, int pad)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `pad(int p)`
+#### `public <T extends Widget> T after(T child, Widget after, int pad)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `repack()`
+#### `public <T extends Widget> T before(T child, Widget after, int pad)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `create(UI ui, Object[] args)`
+#### `public void cdestroy(Widget ch)`
+
+- Description: TODO
+
+#### `public void addchild(Widget child, Object... args)`
+
+- Description: TODO
+
+#### `protected Coord pad(int p)`
+
+- Description: TODO
+
+#### `protected void repack()`
+
+- Description: TODO
+
+#### `protected Coord pad(int p)`
+
+- Description: TODO
+
+#### `protected void repack()`
+
+- Description: TODO
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO

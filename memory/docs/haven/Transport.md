@@ -1,5 +1,7 @@
 # Transport
 
+This file documents the responsibilities and members of `Transport`.
+
 ## Meta
 
 - Source: [Transport.java](../../../src/haven/Transport.java)
@@ -8,182 +10,120 @@
 
 ## Role
 
-- Represents transport or movement state.
+Represents transport or movement state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [out](#member-9)
-- [epoch](#member-10)
-- [in](#member-17)
-- [cbs](#member-18)
-- [closed](#member-19)
-
-#### Methods
-
-- [public void close();](#member-1)
-- [public void queuemsg(PMessage pmsg);](#member-2)
-- [public void send(PMessage msg);](#member-3)
-- [public Transport add(Callback cb);](#member-4)
-- [closed()](#member-5)
-- [handle(PMessage msg)](#member-6)
-- [handle(OCache.ObjDelta delta)](#member-7)
-- [mapdata(Message msg)](#member-8)
-- [Recorder(Writer out)](#member-11)
-- [printf(String format, Object... args)](#member-12)
-- [closed()](#member-13)
-- [handle(PMessage msg)](#member-14)
-- [handle(OCache.ObjDelta msg)](#member-15)
-- [mapdata(Message msg)](#member-16)
-- [Playback(Reader in)](#member-20)
-- [add(Callback cb)](#member-21)
-- [close()](#member-22)
-- [queuemsg(PMessage  pmsg)](#member-23)
-- [send(PMessage msg)](#member-24)
-- [split(String text)](#member-25)
-- [play()](#member-26)
-- [start()](#member-27)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-9"></a>
-##### `out`
+#### `public final Writer out`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `epoch`
+#### `private final double epoch`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `in`
+#### `public final BufferedReader in`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `cbs`
+#### `private final Collection<Callback> cbs = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `closed`
+#### `private boolean closed = false`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-1"></a>
-##### `public void close();`
-
-- Description: TODO
-
-<a id="member-2"></a>
-##### `public void queuemsg(PMessage pmsg);`
+#### `public void close()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public void send(PMessage msg);`
+#### `public void queuemsg(PMessage pmsg)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public Transport add(Callback cb);`
+#### `public void send(PMessage msg)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `closed()`
+#### `public Transport add(Callback cb)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `handle(PMessage msg)`
+#### `public default void closed()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `handle(OCache.ObjDelta delta)`
+#### `public default void handle(PMessage msg)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `mapdata(Message msg)`
+#### `public default void handle(OCache.ObjDelta delta)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `Recorder(Writer out)`
+#### `public default void mapdata(Message msg)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `printf(String format, Object... args)`
+#### `public Recorder(Writer out)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `closed()`
+#### `private void printf(String format, Object... args)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `handle(PMessage msg)`
+#### `public void closed()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `handle(OCache.ObjDelta msg)`
+#### `public void handle(PMessage msg)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `mapdata(Message msg)`
+#### `public void handle(OCache.ObjDelta msg)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `Playback(Reader in)`
+#### `public void mapdata(Message msg)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `add(Callback cb)`
+#### `public Playback(Reader in)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `close()`
+#### `public Playback add(Callback cb)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `queuemsg(PMessage  pmsg)`
+#### `public void close()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `send(PMessage msg)`
+#### `public void queuemsg(PMessage pmsg)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `split(String text)`
+#### `public void send(PMessage msg)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `play()`
+#### `private String[] split(String text)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `start()`
+#### `private void play()`
+
+- Description: TODO
+
+#### `public void start()`
 
 - Description: TODO

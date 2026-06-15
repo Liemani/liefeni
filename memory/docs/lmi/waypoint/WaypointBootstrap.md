@@ -1,5 +1,7 @@
 # WaypointBootstrap
 
+This file documents the responsibilities and members of `WaypointBootstrap`.
+
 ## Meta
 
 - Source: [WaypointBootstrap.java](../../../../src/lmi/waypoint/WaypointBootstrap.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Bootstraps waypoint runtime and persistence initialization.
+Bootstraps waypoint runtime and persistence initialization.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [initialized](#member-1)
-
-#### Methods
-
-- [init()](#member-2)
-- [initialized()](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `initialized`
+#### `private static boolean initialized`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `init()`
+#### `private WaypointBootstrap()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `initialized()`
+#### `public static synchronized void init()`
+
+- Description: TODO
+
+#### `public static synchronized boolean initialized()`
 
 - Description: TODO

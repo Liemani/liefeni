@@ -1,5 +1,7 @@
 # LmiOverlay
 
+This file documents the responsibilities and members of `LmiOverlay`.
+
 ## Meta
 
 - Source: [LmiOverlay.java](../../../../src/lmi/draw/LmiOverlay.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Renders a draw-time overlay for the corresponding subsystem.
+Renders a draw-time overlay for the corresponding subsystem.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [draw(MapView mapView, GOut g)](#member-1)
+### Methods
 
-### Member Reference
+#### `private LmiOverlay()`
 
-#### Methods
+- Description: TODO
 
-<a id="member-1"></a>
-##### `draw(MapView mapView, GOut g)`
+#### `public static void draw(MapView mapView, GOut g)`
 
 - Description: TODO

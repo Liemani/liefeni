@@ -1,5 +1,7 @@
 # LmiLifecycle
 
+This file documents the responsibilities and members of `LmiLifecycle`.
+
 ## Meta
 
 - Source: [LmiLifecycle.java](../../../../src/lmi/lifecycle/LmiLifecycle.java)
@@ -8,110 +10,76 @@
 
 ## Role
 
-- Owns process, session, world, and widget lifecycle entry points.
+Owns process, session, world, and widget lifecycle entry points.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [isProcessInitialized](#member-1)
-- [isWorldEntered](#member-2)
-- [isWidgetsEntered](#member-3)
-
-#### Methods
-
-- [initProcess()](#member-4)
-- [enterSession(Session session)](#member-5)
-- [leaveSession(Session session)](#member-6)
-- [setRootWidget(RootWidget rootWidget)](#member-7)
-- [setGameUI(GameUI gameUI)](#member-8)
-- [setMenuGrid(haven.MenuGrid menuGrid)](#member-9)
-- [setMapView(MapView mapView)](#member-10)
-- [enterWorld(MapView mapView)](#member-11)
-- [leaveWorld()](#member-12)
-- [syncWidgets()](#member-13)
-- [leaveWidgets()](#member-14)
-- [_widgetsReady()](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `isProcessInitialized`
+#### `private static boolean isProcessInitialized`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `isWorldEntered`
+#### `private static boolean isWorldEntered`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `isWidgetsEntered`
+#### `private static boolean isWidgetsEntered`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `initProcess()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `enterSession(Session session)`
+#### `private LmiLifecycle()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `leaveSession(Session session)`
+#### `public static synchronized void initProcess()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `setRootWidget(RootWidget rootWidget)`
+#### `public static synchronized void enterSession(Session session)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `setGameUI(GameUI gameUI)`
+#### `public static synchronized void leaveSession(Session session)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `setMenuGrid(haven.MenuGrid menuGrid)`
+#### `public static synchronized void setRootWidget(RootWidget rootWidget)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `setMapView(MapView mapView)`
+#### `public static synchronized void setGameUI(GameUI gameUI)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `enterWorld(MapView mapView)`
+#### `public static synchronized void setMenuGrid(haven.MenuGrid menuGrid)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `leaveWorld()`
+#### `public static synchronized void setMapView(MapView mapView)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `syncWidgets()`
+#### `public static synchronized void enterWorld(MapView mapView)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `leaveWidgets()`
+#### `public static synchronized void leaveWorld()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `_widgetsReady()`
+#### `public static synchronized void syncWidgets()`
+
+- Description: TODO
+
+#### `public static synchronized void leaveWidgets()`
+
+- Description: TODO
+
+#### `private static boolean _widgetsReady()`
 
 - Description: TODO

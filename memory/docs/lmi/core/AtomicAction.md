@@ -1,5 +1,7 @@
 # AtomicAction
 
+This file documents the responsibilities and members of `AtomicAction`.
+
 ## Meta
 
 - Source: [AtomicAction.java](../../../../src/lmi/core/AtomicAction.java)
@@ -8,87 +10,64 @@
 
 ## Role
 
-- Encapsulates a short, indivisible action.
+Encapsulates a short, indivisible action.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [interact(long gobId, Coord gobPosition)](#member-1)
-- [enter(long doorId, Coord doorPosition, int meshId)](#member-2)
-- [go(Coord coord)](#member-3)
-- [forceGo(Coord coord)](#member-4)
-- [lift(long gobId, Coord gobPosition)](#member-5)
-- [forceLift(long gobId, Coord gobPosition)](#member-6)
-- [put(Coord coord)](#member-7)
-- [forcePut(Coord coord)](#member-8)
-- [go(Coord coord, boolean force, AgentContext ctx)](#member-9)
-- [lift(long gobId, Coord gobPosition, AgentContext ctx)](#member-10)
-- [put(Coord coord, AgentContext ctx)](#member-11)
-- [_gob(long gobId)](#member-12)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `interact(long gobId, Coord gobPosition)`
+#### `private AtomicAction()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `enter(long doorId, Coord doorPosition, int meshId)`
+#### `public static void interact(long gobId, Coord gobPosition)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `go(Coord coord)`
+#### `public static void enter(long doorId, Coord doorPosition, int meshId)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `forceGo(Coord coord)`
+#### `public static void go(Coord coord)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `lift(long gobId, Coord gobPosition)`
+#### `public static void forceGo(Coord coord)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `forceLift(long gobId, Coord gobPosition)`
+#### `public static void lift(long gobId, Coord gobPosition)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `put(Coord coord)`
+#### `public static void forceLift(long gobId, Coord gobPosition)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `forcePut(Coord coord)`
+#### `public static void put(Coord coord)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `go(Coord coord, boolean force, AgentContext ctx)`
+#### `public static void forcePut(Coord coord)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `lift(long gobId, Coord gobPosition, AgentContext ctx)`
+#### `public static boolean go(Coord coord, boolean force, AgentContext ctx)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `put(Coord coord, AgentContext ctx)`
+#### `public static boolean lift(long gobId, Coord gobPosition, AgentContext ctx)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `_gob(long gobId)`
+#### `public static boolean put(Coord coord, AgentContext ctx)`
+
+- Description: TODO
+
+#### `private static Gob _gob(long gobId)`
 
 - Description: TODO

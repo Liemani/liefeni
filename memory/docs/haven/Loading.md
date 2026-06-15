@@ -1,5 +1,7 @@
 # Loading
 
+This file documents the responsibilities and members of `Loading`.
+
 ## Meta
 
 - Source: [Loading.java](../../../src/haven/Loading.java)
@@ -8,98 +10,94 @@
 
 ## Role
 
-- Represents loading state or loading widget.
+Represents loading state or loading widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [rec](#member-1)
-- [event](#member-3)
-
-#### Methods
-
-- [getMessage()](#member-2)
-- [UnwaitableEvent(String message, Loading event)](#member-4)
-- [UnwaitableEvent(Loading event)](#member-5)
-- [waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)](#member-6)
-- [boostprio(int prio)](#member-7)
-- [private void queuewait() throws InterruptedException](#member-8)
-- [public void waitfor() throws InterruptedException](#member-9)
-- [public static <T> T waitforint(Indir<T> x) throws InterruptedException](#member-10)
-- [waitfor(Indir<T> x)](#member-11)
-- [or(Supplier<T> x, T def)](#member-12)
-- [or(Supplier<T> x, Supplier<T> def)](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `rec`
+### UnwaitableEvent
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `event`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Loading rec`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-2"></a>
-##### `getMessage()`
+#### `public final Loading event`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `UnwaitableEvent(String message, Loading event)`
+### Methods
+
+#### `public Loading()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `UnwaitableEvent(Loading event)`
+#### `public Loading(String msg)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
+#### `public Loading(Throwable cause)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `boostprio(int prio)`
+#### `public Loading(String msg, Throwable cause)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `private void queuewait() throws InterruptedException`
+#### `public Loading(Loading rec)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `public void waitfor() throws InterruptedException`
+#### `public Loading(String msg, Loading rec)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `public static <T> T waitforint(Indir<T> x) throws InterruptedException`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `waitfor(Indir<T> x)`
+#### `public UnwaitableEvent(String message, Loading event)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `or(Supplier<T> x, T def)`
+#### `public UnwaitableEvent(Loading event)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `or(Supplier<T> x, Supplier<T> def)`
+#### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
+
+- Description: TODO
+
+#### `public boolean boostprio(int prio)`
+
+- Description: TODO
+
+#### `private void queuewait() throws InterruptedException`
+
+- Description: TODO
+
+#### `public void waitfor() throws InterruptedException`
+
+- Description: TODO
+
+#### `public static <T> T waitforint(Indir<T> x) throws InterruptedException`
+
+- Description: TODO
+
+#### `public static <T> T waitfor(Indir<T> x)`
+
+- Description: TODO
+
+#### `public static <T> T or(Supplier<T> x, T def)`
+
+- Description: TODO
+
+#### `public static <T> T or(Supplier<T> x, Supplier<T> def)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # CountingInputStream
 
+This file documents the responsibilities and members of `CountingInputStream`.
+
 ## Meta
 
 - Source: [CountingInputStream.java](../../../src/haven/CountingInputStream.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Counts bytes while reading an input stream.
+Counts bytes while reading an input stream.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bk](#member-1)
-- [pos](#member-2)
-
-#### Methods
-
-- [update(long num)](#member-3)
-- [public long skip(long len) throws IOException](#member-4)
-- [public int read(byte[] buf, int off, int len) throws IOException](#member-5)
-- [public int read() throws IOException](#member-6)
-- [public void close() throws IOException](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bk`
+#### `public final InputStream bk`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `pos`
+#### `public long pos = 0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `update(long num)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `public long skip(long len) throws IOException`
+#### `public CountingInputStream(InputStream bk)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public int read(byte[] buf, int off, int len) throws IOException`
+#### `protected void update(long num)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public int read() throws IOException`
+#### `public long skip(long len) throws IOException`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `public void close() throws IOException`
+#### `public int read(byte[] buf, int off, int len) throws IOException`
+
+- Description: TODO
+
+#### `public int read() throws IOException`
+
+- Description: TODO
+
+#### `public void close() throws IOException`
 
 - Description: TODO

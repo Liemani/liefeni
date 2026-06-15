@@ -1,5 +1,7 @@
 # Struct
 
+This file documents the responsibilities and members of `Struct`.
+
 ## Meta
 
 - Source: [Struct.java](../../../../../src/haven/render/sl/Struct.java)
@@ -8,134 +10,114 @@
 
 ## Role
 
-- Represents a shader struct.
+Represents a shader struct.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [name](#member-1)
-- [fields](#member-2)
-- [type](#member-3)
-- [name](#member-4)
-- [els](#member-10)
-
-#### Methods
-
-- [Field(Type type, String name)](#member-5)
-- [make(Symbol name, Object... args)](#member-6)
-- [name(Context ctx)](#member-7)
-- [hashCode()](#member-8)
-- [equals(Object o)](#member-9)
-- [Constructor(Expression... els)](#member-11)
-- [walk(Walker w)](#member-12)
-- [output(Output out)](#member-13)
-- [construct(Expression... els)](#member-14)
-- [walk(Walker w)](#member-15)
-- [output(Output out)](#member-16)
-- [type()](#member-17)
-- [defined(Context ctx)](#member-18)
-- [use(Context ctx)](#member-19)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `name`
+### Constructor
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fields`
+### Definition
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `type`
+### Field
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `name`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Symbol name`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `els`
+#### `public final List<Field> fields`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `Field(Type type, String name)`
+#### `public final Type type`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `make(Symbol name, Object... args)`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `name(Context ctx)`
+#### `public final Expression[] els`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `hashCode()`
+### Methods
+
+#### `public Field(Type type, String name)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `equals(Object o)`
+#### `private Struct(Symbol name, List<Field> fields)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `Constructor(Expression... els)`
+#### `public Struct(Symbol name, Field... fields)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `walk(Walker w)`
+#### `public Struct(Symbol name)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `output(Output out)`
+#### `public static Struct make(Symbol name, Object... args)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `construct(Expression... els)`
+#### `public String name(Context ctx)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `walk(Walker w)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `output(Output out)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `type()`
+#### `public Constructor(Expression... els)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `defined(Context ctx)`
+#### `public void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `use(Context ctx)`
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public Constructor construct(Expression... els)`
+
+- Description: TODO
+
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public Struct type()`
+
+- Description: TODO
+
+#### `public boolean defined(Context ctx)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
 
 - Description: TODO

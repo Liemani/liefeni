@@ -1,5 +1,7 @@
 # Gob
 
+This file documents the responsibilities and members of `Gob`.
+
 ## Meta
 
 - Source: [Gob.java](../../../src/haven/Gob.java)
@@ -8,1262 +10,906 @@
 
 ## Role
 
-- Represents an object in the world.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [rc](#member-1)
-- [a](#member-2)
-- [virtual](#member-3)
-- [clprio](#member-4)
-- [id](#member-5)
-- [removed](#member-6)
-- [glob](#member-7)
-- [attr](#member-8)
-- [ols](#member-9)
-- [slots](#member-10)
-- [updateseq](#member-11)
-- [lastolid](#member-12)
-- [setupmods](#member-13)
-- [deferred](#member-14)
-- [deferral](#member-15)
-- [id](#member-16)
-- [gob](#member-17)
-- [sm](#member-18)
-- [spr](#member-19)
-- [delign](#member-20)
-- [old](#member-21)
-- [slots](#member-22)
-- [added](#member-23)
-- [ctxr](#member-37)
-- [map](#member-45)
-- [surf](#member-46)
-- [obst](#member-52)
-- [cc](#member-53)
-- [ca](#member-54)
-- [seq](#member-55)
-- [z](#member-56)
-- [max](#member-62)
-- [min](#member-63)
-- [k](#member-64)
-- [c](#member-65)
-- [r](#member-66)
-- [seq](#member-67)
-- [cc](#member-68)
-- [ca](#member-69)
-- [points](#member-77)
-- [c](#member-78)
-- [r](#member-79)
-- [seq](#member-80)
-- [cc](#member-81)
-- [ca](#member-82)
-- [gob](#member-117)
-- [mods](#member-122)
-- [curstate](#member-127)
-- [updwait](#member-132)
-- [gob](#member-135)
-- [updseq](#member-136)
-- [ctxr](#member-140)
-- [slots](#member-144)
-- [cur](#member-145)
-- [flw](#member-147)
-- [tilestate](#member-148)
-- [mods](#member-149)
-- [oc](#member-150)
-- [rc](#member-151)
-- [rot](#member-152)
-- [gndst](#member-156)
-- [placed](#member-166)
-
-#### Methods
-
-- [Overlay(Gob gob, int id, Sprite.Mill<?> sm)](#member-24)
-- [Overlay(Gob gob, Sprite.Mill<?> sm)](#member-25)
-- [Overlay(Gob gob, int id, Indir<Resource> res, Message sdt)](#member-26)
-- [Overlay(Gob gob, Sprite spr)](#member-27)
-- [init()](#member-28)
-- [add0()](#member-29)
-- [remove0()](#member-30)
-- [remove(boolean async)](#member-31)
-- [remove()](#member-32)
-- [removed()](#member-33)
-- [tick(double dt)](#member-34)
-- [added(RenderTree.Slot slot)](#member-35)
-- [removed(RenderTree.Slot slot)](#member-36)
-- [context(Class<T> cl)](#member-38)
-- [mkrandoom()](#member-39)
-- [gobstate()](#member-40)
-- [placestate()](#member-41)
-- [public Coord3f getc(Coord2d rc, double ra);](#member-42)
-- [public Matrix4f getr(Coord2d rc, double ra);](#member-43)
-- [public Placer placer();](#member-44)
-- [DefaultPlace(MCache map, MCache.SurfaceID surf)](#member-47)
-- [getc(Coord2d rc, double ra)](#member-48)
-- [getr(Coord2d rc, double ra)](#member-49)
-- [InclinePlace(MCache map, MCache.SurfaceID surf)](#member-50)
-- [getr(Coord2d rc, double ra)](#member-51)
-- [BasePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] obst)](#member-57)
-- [BasePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)](#member-58)
-- [BasePlace(MCache map, MCache.SurfaceID surf, Resource res)](#member-59)
-- [getz(Coord2d rc, double ra)](#member-60)
-- [getc(Coord2d rc, double ra)](#member-61)
-- [LinePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points, Coord2d k)](#member-70)
-- [LinePlace(MCache map, MCache.SurfaceID surf, Resource res, String id, Coord2d k)](#member-71)
-- [LinePlace(MCache map, MCache.SurfaceID surf, Resource res, Coord2d k)](#member-72)
-- [recalc(Coord2d rc, double ra)](#member-73)
-- [check(Coord2d rc, double ra)](#member-74)
-- [getc(Coord2d rc, double ra)](#member-75)
-- [getr(Coord2d rc, double ra)](#member-76)
-- [flatten(Coord2d[][] points)](#member-83)
-- [PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[] points)](#member-84)
-- [PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points)](#member-85)
-- [PlanePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)](#member-86)
-- [PlanePlace(MCache map, MCache.SurfaceID surf, Resource res)](#member-87)
-- [recalc(Coord2d rc, double ra)](#member-88)
-- [check(Coord2d rc, double ra)](#member-89)
-- [getc(Coord2d rc, double ra)](#member-90)
-- [getr(Coord2d rc, double ra)](#member-91)
-- [ctick(double dt)](#member-92)
-- [gtick(Render g)](#member-93)
-- [removed()](#member-94)
-- [deferred()](#member-95)
-- [defer(Runnable task)](#member-96)
-- [olidcmp(int a, int b)](#member-97)
-- [addol(Overlay ol, boolean async)](#member-98)
-- [addol(Overlay ol)](#member-99)
-- [addol(Sprite ol)](#member-100)
-- [addol(Indir<Resource> res, Message sdt)](#member-101)
-- [addol(Sprite.Mill<?> ol)](#member-102)
-- [addolsync(Sprite.Mill<S> sm)](#member-103)
-- [findol(int id)](#member-104)
-- [dispose()](#member-105)
-- [move(Coord2d c, double a)](#member-106)
-- [placer()](#member-107)
-- [getc()](#member-108)
-- [getrc()](#member-109)
-- [getmapstate(Coord3f pc)](#member-110)
-- [attrclass(Class<? extends GAttrib> cl)](#member-111)
-- [getattr(Class<C> c)](#member-112)
-- [setattr(Class<? extends GAttrib> ac, GAttrib a)](#member-113)
-- [setattr(GAttrib a)](#member-114)
-- [delattr(Class<? extends GAttrib> c)](#member-115)
-- [eqpoint(String nm, Message dat)](#member-116)
-- [GobClick(Gob gob)](#member-118)
-- [clickargs(ClickData cd)](#member-119)
-- [toString()](#member-120)
-- [obstate(Pipe buf)](#member-121)
-- [GobState()](#member-123)
-- [apply(Pipe buf)](#member-124)
-- [equals(GobState that)](#member-125)
-- [equals(Object o)](#member-126)
-- [curstate()](#member-128)
-- [updstate()](#member-129)
-- [added(RenderTree.Slot slot)](#member-130)
-- [removed(RenderTree.Slot slot)](#member-131)
-- [updated()](#member-133)
-- [updwait(Runnable callback, Consumer<Waitable.Waiting> reg)](#member-134)
-- [DataLoading(Gob gob, String message)](#member-137)
-- [waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)](#member-138)
-- [mkrandoom()](#member-139)
-- [context(Class<T> cl)](#member-141)
-- [getv()](#member-142)
-- [getloc()](#member-143)
-- [Placed()](#member-146)
-- [Placement()](#member-153)
-- [equals(Placement that)](#member-154)
-- [equals(Object o)](#member-155)
-- [apply(Pipe buf)](#member-157)
-- [placement()](#member-158)
-- [autotick(double dt)](#member-159)
-- [update(Placement np)](#member-160)
-- [added(RenderTree.Slot slot)](#member-161)
-- [removed(RenderTree.Slot slot)](#member-162)
-- [curplace()](#member-163)
-- [getc()](#member-164)
-- [ticker()](#member-165)
-- [toString()](#member-167)
-- [position()](#member-168)
-- [velocity()](#member-169)
-- [id()](#member-170)
-- [isDirectingEast()](#member-171)
-- [isDirectingSouth()](#member-172)
-- [isDirectingWest()](#member-173)
-- [isDirectingNorth()](#member-174)
-- [attributeMap()](#member-175)
-- [resource()](#member-176)
-- [resourceName()](#member-177)
-- [resourceBasename()](#member-178)
-- [isResourceNameEndsWith(String suffix)](#member-179)
-- [buddyName()](#member-180)
-- [buddyGroup()](#member-181)
-- [isAt(Coord coord)](#member-182)
-- [isAt(Coord2d coord)](#member-183)
-- [isMoving()](#member-184)
-- [isStop()](#member-185)
-- [distance(Coord coord)](#member-186)
-- [distance(Gob gob)](#member-187)
-- [baseResName()](#member-188)
-- [poseResNames()](#member-189)
-- [equResNames()](#member-190)
-- [modResNames()](#member-191)
-- [resNames()](#member-192)
-- [poseNames()](#member-193)
-- [hasPose(String pose)](#member-194)
-- [followingTarget()](#member-195)
-- [isFollowing(Gob gob)](#member-196)
-- [isLifting()](#member-197)
-- [isLifting(Gob gob)](#member-198)
-- [waitMove(Coord destination)](#member-199)
-- [waitMove()](#member-200)
-- [waitBuild()](#member-201)
-- [waitLift(Gob gob)](#member-202)
-- [waitPut()](#member-203)
-- [isLog()](#member-204)
-- [isTrunk()](#member-205)
-- [isContainer()](#member-206)
-- [debugDescription()](#member-207)
+Represents an object in the world.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### BasePlace
 
-<a id="member-1"></a>
-##### `rc`
+- Description: TODO
+
+### DataLoading
+
+- Description: TODO
+
+### DefaultPlace
+
+- Description: TODO
+
+### GobClick
+
+- Description: TODO
+
+### GobState
+
+- Description: TODO
+
+### InclinePlace
+
+- Description: TODO
+
+### LinePlace
+
+- Description: TODO
+
+### Overlay
+
+- Description: TODO
+
+### Placed
+
+- Description: TODO
 
+### Placement
+
+- Description: TODO
+
+### Placer
+
+- Description: TODO
+
+### Placing
+
+- Description: TODO
+
+### PlanePlace
+
+- Description: TODO
+
+### SetupMod
+
+- Description: TODO
+
+## Members
+
+### Constants
+
+#### `private static final ClassResolver<Overlay> ctxr = new ClassResolver<Overlay>()`
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `a`
+#### `private static final ClassResolver<Gob> ctxr = new ClassResolver<Gob>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `virtual`
+### Fields
 
+#### `public Coord2d rc`
+
+- Description: TODO
+
+#### `public double a`
+
 - Description: TODO
 
-<a id="member-4"></a>
-##### `clprio`
+#### `public boolean virtual = false`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `id`
+#### `int clprio = 0`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `removed`
+#### `public long id`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `glob`
+#### `public boolean removed = false`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `attr`
+#### `public final Glob glob`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `ols`
+#### `Map<Class<? extends GAttrib>, GAttrib> attr = new HashMap<Class<? extends GAttrib>, GAttrib>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `slots`
+#### `public final Collection<Overlay> ols = new ArrayList<Overlay>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `updateseq`
+#### `public final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `lastolid`
+#### `public int updateseq = 0, lastolid = 0`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `setupmods`
+#### `public int updateseq = 0, lastolid = 0`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `deferred`
+#### `private final Collection<SetupMod> setupmods = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `deferral`
+#### `private final LinkedList<Runnable> deferred = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `id`
+#### `private Loader.Future<?> deferral = null`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `gob`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `sm`
+#### `public final Gob gob`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `spr`
+#### `public final Sprite.Mill<?> sm`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `delign`
+#### `public Sprite spr`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `old`
+#### `public boolean delign = false, old = false`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `slots`
+#### `public boolean delign = false, old = false`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `added`
+#### `private Collection<RenderTree.Slot> slots = null`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `ctxr`
+#### `private boolean added = false`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `map`
+#### `public final MCache map`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `surf`
+#### `public final MCache.SurfaceID surf`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `obst`
+#### `public final Coord2d[][] obst`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `cc`
+#### `private Coord2d cc`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `ca`
+#### `private double ca`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `seq`
+#### `private int seq = -1`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `z`
+#### `private float z`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `max`
+#### `public final double max, min`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `min`
+#### `public final double max, min`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `k`
+#### `public final Coord2d k`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `c`
+#### `private Coord3f c`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `r`
+#### `private Matrix4f r = Matrix4f.id`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `seq`
+#### `private int seq = -1`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `cc`
+#### `private Coord2d cc`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `ca`
+#### `private double ca`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `points`
+#### `public final Coord2d[] points`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `c`
+#### `private Coord3f c`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `r`
+#### `private Matrix4f r = Matrix4f.id`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `seq`
+#### `private int seq = -1`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `cc`
+#### `private Coord2d cc`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `ca`
+#### `private double ca`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `gob`
+#### `public final Gob gob`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `mods`
+#### `final Pipe.Op mods`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `curstate`
+#### `private GobState curstate = null`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `updwait`
+#### `private Waitable.Queue updwait = null`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `gob`
+#### `public final transient Gob gob`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `updseq`
+#### `public final int updseq`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `ctxr`
+#### `private final Collection<RenderTree.Slot> slots = new java.util.concurrent.CopyOnWriteArrayList<>()`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `slots`
+#### `private Placement cur`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `cur`
+#### `final Pipe.Op flw, tilestate, mods`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `flw`
+#### `final Pipe.Op flw, tilestate, mods`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `tilestate`
+#### `final Pipe.Op flw, tilestate, mods`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `mods`
+#### `final Coord3f oc, rc`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `oc`
+#### `final Coord3f oc, rc`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `rc`
+#### `final Matrix4f rot`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `rot`
+#### `Pipe.Op gndst = null`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `gndst`
+#### `public final Placed placed = new Placed()`
 
 - Description: TODO
+
+### Methods
 
-<a id="member-166"></a>
-##### `placed`
+#### `public Overlay(Gob gob, int id, Sprite.Mill<?> sm)`
 
 - Description: TODO
 
-#### Methods
+#### `public Overlay(Gob gob, Sprite.Mill<?> sm)`
+
+- Description: TODO
 
-<a id="member-24"></a>
-##### `Overlay(Gob gob, int id, Sprite.Mill<?> sm)`
+#### `public Overlay(Gob gob, int id, Indir<Resource> res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `Overlay(Gob gob, Sprite.Mill<?> sm)`
+#### `public Overlay(Gob gob, Sprite spr)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `Overlay(Gob gob, int id, Indir<Resource> res, Message sdt)`
+#### `private void init()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `Overlay(Gob gob, Sprite spr)`
+#### `private void add0()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `init()`
+#### `private void remove0()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `add0()`
+#### `public void remove(boolean async)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `remove0()`
+#### `public void remove()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `remove(boolean async)`
+#### `protected void removed()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `remove()`
+#### `public boolean tick(double dt)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `removed()`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `tick(double dt)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `context(Class<T> cl)`
+#### `public default Pipe.Op gobstate()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `mkrandoom()`
+#### `public default Pipe.Op placestate()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `gobstate()`
+#### `public Coord3f getc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `placestate()`
+#### `public Matrix4f getr(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `public Coord3f getc(Coord2d rc, double ra);`
+#### `public Placer placer()`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `public Matrix4f getr(Coord2d rc, double ra);`
+#### `public DefaultPlace(MCache map, MCache.SurfaceID surf)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `public Placer placer();`
+#### `public Coord3f getc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `DefaultPlace(MCache map, MCache.SurfaceID surf)`
+#### `public Matrix4f getr(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `getc(Coord2d rc, double ra)`
+#### `public InclinePlace(MCache map, MCache.SurfaceID surf)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `getr(Coord2d rc, double ra)`
+#### `public Matrix4f getr(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `InclinePlace(MCache map, MCache.SurfaceID surf)`
+#### `public BasePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] obst)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `getr(Coord2d rc, double ra)`
+#### `public BasePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `BasePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] obst)`
+#### `public BasePlace(MCache map, MCache.SurfaceID surf, Resource res)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `BasePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)`
+#### `private float getz(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `BasePlace(MCache map, MCache.SurfaceID surf, Resource res)`
+#### `public Coord3f getc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `getz(Coord2d rc, double ra)`
+#### `public LinePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points, Coord2d k)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `getc(Coord2d rc, double ra)`
+#### `public LinePlace(MCache map, MCache.SurfaceID surf, Resource res, String id, Coord2d k)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `LinePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points, Coord2d k)`
+#### `public LinePlace(MCache map, MCache.SurfaceID surf, Resource res, Coord2d k)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `LinePlace(MCache map, MCache.SurfaceID surf, Resource res, String id, Coord2d k)`
+#### `private void recalc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `LinePlace(MCache map, MCache.SurfaceID surf, Resource res, Coord2d k)`
+#### `private void check(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `recalc(Coord2d rc, double ra)`
+#### `public Coord3f getc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `check(Coord2d rc, double ra)`
+#### `public Matrix4f getr(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `getc(Coord2d rc, double ra)`
+#### `public static Coord2d[] flatten(Coord2d[][] points)`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `getr(Coord2d rc, double ra)`
+#### `public PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[] points)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `flatten(Coord2d[][] points)`
+#### `public PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[] points)`
+#### `public PlanePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points)`
+#### `public PlanePlace(MCache map, MCache.SurfaceID surf, Resource res)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `PlanePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)`
+#### `private void recalc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `PlanePlace(MCache map, MCache.SurfaceID surf, Resource res)`
+#### `private void check(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `recalc(Coord2d rc, double ra)`
+#### `public Coord3f getc(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `check(Coord2d rc, double ra)`
+#### `public Matrix4f getr(Coord2d rc, double ra)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `getc(Coord2d rc, double ra)`
+#### `public Gob(Glob glob, Coord2d c, long id)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `getr(Coord2d rc, double ra)`
+#### `public Gob(Glob glob, Coord2d c)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `ctick(double dt)`
+#### `public void ctick(double dt)`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `gtick(Render g)`
+#### `public void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `removed()`
+#### `void removed()`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `deferred()`
+#### `private void deferred()`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `defer(Runnable task)`
+#### `public void defer(Runnable task)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `olidcmp(int a, int b)`
+#### `public static int olidcmp(int a, int b)`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `addol(Overlay ol, boolean async)`
+#### `public void addol(Overlay ol, boolean async)`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `addol(Overlay ol)`
+#### `public void addol(Overlay ol)`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `addol(Sprite ol)`
+#### `public void addol(Sprite ol)`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `addol(Indir<Resource> res, Message sdt)`
+#### `public void addol(Indir<Resource> res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `addol(Sprite.Mill<?> ol)`
+#### `public void addol(Sprite.Mill<?> ol)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `addolsync(Sprite.Mill<S> sm)`
+#### `public <S extends Sprite> S addolsync(Sprite.Mill<S> sm)`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `findol(int id)`
+#### `public Overlay findol(int id)`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `dispose()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `move(Coord2d c, double a)`
+#### `public void move(Coord2d c, double a)`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `placer()`
+#### `public Placer placer()`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `getc()`
+#### `public Coord3f getc()`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `getrc()`
+#### `public Coord3f getrc()`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `getmapstate(Coord3f pc)`
+#### `protected Pipe.Op getmapstate(Coord3f pc)`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `attrclass(Class<? extends GAttrib> cl)`
+#### `private Class<? extends GAttrib> attrclass(Class<? extends GAttrib> cl)`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `getattr(Class<C> c)`
+#### `public <C extends GAttrib> C getattr(Class<C> c)`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `setattr(Class<? extends GAttrib> ac, GAttrib a)`
+#### `private void setattr(Class<? extends GAttrib> ac, GAttrib a)`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `setattr(GAttrib a)`
+#### `public void setattr(GAttrib a)`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `delattr(Class<? extends GAttrib> c)`
+#### `public void delattr(Class<? extends GAttrib> c)`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `eqpoint(String nm, Message dat)`
+#### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat)`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `GobClick(Gob gob)`
+#### `public GobClick(Gob gob)`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `clickargs(ClickData cd)`
+#### `public Object[] clickargs(ClickData cd)`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `obstate(Pipe buf)`
+#### `protected void obstate(Pipe buf)`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `GobState()`
+#### `private GobState()`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `apply(Pipe buf)`
+#### `public void apply(Pipe buf)`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `equals(GobState that)`
+#### `public boolean equals(GobState that)`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `equals(Object o)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `curstate()`
+#### `private GobState curstate()`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `updstate()`
+#### `private void updstate()`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `updated()`
+#### `void updated()`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `updwait(Runnable callback, Consumer<Waitable.Waiting> reg)`
+#### `public void updwait(Runnable callback, Consumer<Waitable.Waiting> reg)`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `DataLoading(Gob gob, String message)`
+#### `public DataLoading(Gob gob, String message)`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
+#### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `mkrandoom()`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `context(Class<T> cl)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `getv()`
+#### `public double getv()`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `getloc()`
+#### `public Collection<Location.Chain> getloc()`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `Placed()`
+#### `private Placed()`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `Placement()`
+#### `Placement()`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `equals(Placement that)`
+#### `public boolean equals(Placement that)`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `equals(Object o)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `apply(Pipe buf)`
+#### `public void apply(Pipe buf)`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `placement()`
+#### `public Pipe.Op placement()`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `autotick(double dt)`
+#### `public void autotick(double dt)`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `update(Placement np)`
+#### `private void update(Placement np)`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `added(RenderTree.Slot slot)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `curplace()`
+#### `public Pipe.Op curplace()`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `getc()`
+#### `public Coord3f getc()`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `ticker()`
+#### `public TickList.Ticking ticker()`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `position()`
+#### `public Coord position()`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `velocity()`
+#### `public double velocity()`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `id()`
+#### `public int id()`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `isDirectingEast()`
+#### `public boolean isDirectingEast()`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `isDirectingSouth()`
+#### `public boolean isDirectingSouth()`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `isDirectingWest()`
+#### `public boolean isDirectingWest()`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `isDirectingNorth()`
+#### `public boolean isDirectingNorth()`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `attributeMap()`
+#### `public Map<Class<? extends GAttrib>, GAttrib> attributeMap()`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `resource()`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `resourceName()`
+#### `public String resourceName()`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `resourceBasename()`
+#### `public String resourceBasename()`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `isResourceNameEndsWith(String suffix)`
+#### `public boolean isResourceNameEndsWith(String suffix)`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `buddyName()`
+#### `public String buddyName()`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `buddyGroup()`
+#### `public Integer buddyGroup()`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `isAt(Coord coord)`
+#### `public boolean isAt(Coord coord)`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `isAt(Coord2d coord)`
+#### `public boolean isAt(Coord2d coord)`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `isMoving()`
+#### `public boolean isMoving()`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `isStop()`
+#### `public boolean isStop()`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `distance(Coord coord)`
+#### `public double distance(Coord coord)`
 
 - Description: TODO
 
-<a id="member-187"></a>
-##### `distance(Gob gob)`
+#### `public double distance(Gob gob)`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `baseResName()`
+#### `public String baseResName()`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `poseResNames()`
+#### `public Stream<String> poseResNames()`
 
 - Description: TODO
 
-<a id="member-190"></a>
-##### `equResNames()`
+#### `public Stream<String> equResNames()`
 
 - Description: TODO
 
-<a id="member-191"></a>
-##### `modResNames()`
+#### `public Stream<String> modResNames()`
 
 - Description: TODO
 
-<a id="member-192"></a>
-##### `resNames()`
+#### `public Stream<String> resNames()`
 
 - Description: TODO
 
-<a id="member-193"></a>
-##### `poseNames()`
+#### `public Stream<String> poseNames()`
 
 - Description: TODO
 
-<a id="member-194"></a>
-##### `hasPose(String pose)`
+#### `public boolean hasPose(String pose)`
 
 - Description: TODO
 
-<a id="member-195"></a>
-##### `followingTarget()`
+#### `public Gob followingTarget()`
 
 - Description: TODO
 
-<a id="member-196"></a>
-##### `isFollowing(Gob gob)`
+#### `public boolean isFollowing(Gob gob)`
 
 - Description: TODO
 
-<a id="member-197"></a>
-##### `isLifting()`
+#### `public boolean isLifting()`
 
 - Description: TODO
 
-<a id="member-198"></a>
-##### `isLifting(Gob gob)`
+#### `public boolean isLifting(Gob gob)`
 
 - Description: TODO
 
-<a id="member-199"></a>
-##### `waitMove(Coord destination)`
+#### `public void waitMove(Coord destination)`
 
 - Description: TODO
 
-<a id="member-200"></a>
-##### `waitMove()`
+#### `public void waitMove()`
 
 - Description: TODO
 
-<a id="member-201"></a>
-##### `waitBuild()`
+#### `public void waitBuild()`
 
 - Description: TODO
 
-<a id="member-202"></a>
-##### `waitLift(Gob gob)`
+#### `public void waitLift(Gob gob)`
 
 - Description: TODO
 
-<a id="member-203"></a>
-##### `waitPut()`
+#### `public void waitPut()`
 
 - Description: TODO
 
-<a id="member-204"></a>
-##### `isLog()`
+#### `public boolean isLog()`
 
 - Description: TODO
 
-<a id="member-205"></a>
-##### `isTrunk()`
+#### `public boolean isTrunk()`
 
 - Description: TODO
 
-<a id="member-206"></a>
-##### `isContainer()`
+#### `public boolean isContainer()`
 
 - Description: TODO
 
-<a id="member-207"></a>
-##### `debugDescription()`
+#### `public String debugDescription()`
 
 - Description: TODO

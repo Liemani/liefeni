@@ -1,5 +1,7 @@
 # Abortable
 
+This file documents the responsibilities and members of `Abortable`.
+
 ## Meta
 
 - Source: [Abortable.java](../../../../src/haven/render/Abortable.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Defines an abortable render operation.
+Defines an abortable render operation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public void abort();](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public void abort();`
+#### `public void abort()`
 
 - Description: TODO

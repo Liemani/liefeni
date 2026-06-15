@@ -1,5 +1,7 @@
 # LockDebugList
 
+This file documents the responsibilities and members of `LockDebugList`.
+
 ## Meta
 
 - Source: [LockDebugList.java](../../../src/haven/LockDebugList.java)
@@ -8,110 +10,76 @@
 
 ## Role
 
-- Provides a debug list for lock tracking.
+Provides a debug list for lock tracking.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [back](#member-1)
-- [monitor](#member-2)
-
-#### Methods
-
-- [check()](#member-3)
-- [monitor(Object monitor)](#member-4)
-- [get(int i)](#member-5)
-- [size()](#member-6)
-- [iterator()](#member-7)
-- [listIterator()](#member-8)
-- [listIterator(int i)](#member-9)
-- [add(E el)](#member-10)
-- [add(int i, E el)](#member-11)
-- [set(int i, E el)](#member-12)
-- [clear()](#member-13)
-- [remove(int i)](#member-14)
-- [remove(Object el)](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `back`
+#### `public final List<E> back`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `monitor`
+#### `private Object monitor = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `check()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `monitor(Object monitor)`
+#### `public LockDebugList(List<E> back)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `get(int i)`
+#### `public void check()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `size()`
+#### `public LockDebugList<E> monitor(Object monitor)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `iterator()`
+#### `public E get(int i)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `listIterator()`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `listIterator(int i)`
+#### `public Iterator<E> iterator()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `add(E el)`
+#### `public ListIterator<E> listIterator()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `add(int i, E el)`
+#### `public ListIterator<E> listIterator(int i)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `set(int i, E el)`
+#### `public boolean add(E el)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `clear()`
+#### `public void add(int i, E el)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `remove(int i)`
+#### `public E set(int i, E el)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `remove(Object el)`
+#### `public void clear()`
+
+- Description: TODO
+
+#### `public E remove(int i)`
+
+- Description: TODO
+
+#### `public boolean remove(Object el)`
 
 - Description: TODO

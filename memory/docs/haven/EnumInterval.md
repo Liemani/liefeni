@@ -1,5 +1,7 @@
 # EnumInterval
 
+This file documents the responsibilities and members of `EnumInterval`.
+
 ## Meta
 
 - Source: [EnumInterval.java](../../../src/haven/EnumInterval.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Represents an interval over enum-like values.
+Represents an interval over enum-like values.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [cl](#member-1)
-- [lo](#member-2)
-- [hi](#member-3)
-
-#### Methods
-
-- [size()](#member-4)
-- [get(int i)](#member-5)
-- [indexOf(Object o)](#member-6)
-- [contains(Object o)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cl`
+#### `private final Class<? extends E> cl`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `lo`
+#### `private final E lo, hi`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `hi`
+#### `private final E lo, hi`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `size()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `get(int i)`
+#### `public EnumInterval(E lo, E hi)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `indexOf(Object o)`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `contains(Object o)`
+#### `public E get(int i)`
+
+- Description: TODO
+
+#### `public int indexOf(Object o)`
+
+- Description: TODO
+
+#### `public boolean contains(Object o)`
 
 - Description: TODO

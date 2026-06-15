@@ -1,5 +1,7 @@
 # DefaultCollection
 
+This file documents the responsibilities and members of `DefaultCollection`.
+
 ## Meta
 
 - Source: [DefaultCollection.java](../../../src/haven/DefaultCollection.java)
@@ -8,87 +10,60 @@
 
 ## Role
 
-- Provides a collection with default value behavior.
+Provides a collection with default value behavior.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [size()](#member-1)
-- [isEmpty()](#member-2)
-- [clear()](#member-3)
-- [remove(Object el)](#member-4)
-- [add(E el)](#member-5)
-- [contains(Object o)](#member-6)
-- [retainAll(Collection<?> c)](#member-7)
-- [removeAll(Collection<?> c)](#member-8)
-- [addAll(Collection<? extends E> c)](#member-9)
-- [containsAll(Collection<?> c)](#member-10)
-- [toArray(T[] buf)](#member-11)
-- [toArray()](#member-12)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `size()`
+#### `public default int size()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `isEmpty()`
+#### `public default boolean isEmpty()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `clear()`
+#### `public default void clear()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `remove(Object el)`
+#### `public default boolean remove(Object el)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `add(E el)`
+#### `public default boolean add(E el)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `contains(Object o)`
+#### `public default boolean contains(Object o)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `retainAll(Collection<?> c)`
+#### `public default boolean retainAll(Collection<?> c)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `removeAll(Collection<?> c)`
+#### `public default boolean removeAll(Collection<?> c)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `addAll(Collection<? extends E> c)`
+#### `public default boolean addAll(Collection<? extends E> c)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `containsAll(Collection<?> c)`
+#### `public default boolean containsAll(Collection<?> c)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `toArray(T[] buf)`
+#### `public default <T> T[] toArray(T[] buf)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `toArray()`
+#### `public default Object[] toArray()`
 
 - Description: TODO

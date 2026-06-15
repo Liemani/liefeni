@@ -1,5 +1,7 @@
 # MiscLib
 
+This file documents the responsibilities and members of `MiscLib`.
+
 ## Meta
 
 - Source: [MiscLib.java](../../../../../src/haven/render/sl/MiscLib.java)
@@ -8,74 +10,48 @@
 
 ## Role
 
-- Provides shader miscellaneous library support.
+Provides shader miscellaneous library support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [vqrot](#member-1)
-- [colblend](#member-3)
-- [olblend](#member-4)
-- [cpblend](#member-5)
-- [rgb2hsv](#member-6)
-- [hsv2rgb](#member-7)
-- [lin2srgb](#member-8)
-- [srgb2lin](#member-9)
-
-#### Methods
-
-- [rotasq(Coord3f axis, float angle)](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `vqrot`
+#### `public static final Function vqrot = new Function.Def(VEC3)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `colblend`
+#### `public static final Function colblend = new Function.Def(VEC4)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `olblend`
+#### `public static final Function olblend = new Function.Def(VEC4)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `cpblend`
+#### `public static final Function cpblend = new Function.Def(VEC4)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `rgb2hsv`
+#### `public static final Function rgb2hsv = new Function.Def(VEC3, "rgb2hsv")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `hsv2rgb`
+#### `public static final Function hsv2rgb = new Function.Def(VEC3, "hsv2rgb")`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `lin2srgb`
+#### `public static final Function lin2srgb = new Function.Def(VEC4, "lin2srgb")`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `srgb2lin`
+#### `public static final Function srgb2lin = new Function.Def(VEC4, "srgb2lin")`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `rotasq(Coord3f axis, float angle)`
+### Methods
+
+#### `public static float[] rotasq(Coord3f axis, float angle)`
 
 - Description: TODO

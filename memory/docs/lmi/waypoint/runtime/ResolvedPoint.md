@@ -1,5 +1,7 @@
 # ResolvedPoint
 
+This file documents the responsibilities and members of `ResolvedPoint`.
+
 ## Meta
 
 - Source: [ResolvedPoint.java](../../../../../src/lmi/waypoint/runtime/ResolvedPoint.java)
@@ -8,63 +10,48 @@
 
 ## Role
 
-- Represents a waypoint point value or runtime cache entry.
+Represents a waypoint point value or runtime cache entry.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [segmentId](#member-1)
-- [gridId](#member-2)
-- [step](#member-3)
-- [localX](#member-4)
-- [localY](#member-5)
-- [mouseButton](#member-6)
-- [meshId](#member-7)
-- [world](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `segmentId`
+#### `public final long segmentId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `step`
+#### `public final int step`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `mouseButton`
+#### `public final int mouseButton`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `meshId`
+#### `public final Integer meshId`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `world`
+#### `public final Coord world`
+
+- Description: TODO
+
+### Methods
+
+#### `public ResolvedPoint(long segmentId, long gridId, int step, int localX, int localY,`
 
 - Description: TODO

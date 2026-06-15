@@ -1,5 +1,7 @@
 # ShadowMap
 
+This file documents the responsibilities and members of `ShadowMap`.
+
 ## Meta
 
 - Source: [ShadowMap.java](../../../src/haven/ShadowMap.java)
@@ -8,368 +10,270 @@
 
 ## Role
 
-- Represents shadow map state.
+Represents shadow map state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [smap](#member-1)
-- [maskshadow](#member-2)
-- [lbuf](#member-3)
-- [lsamp](#member-4)
-- [lproj](#member-5)
-- [basic](#member-6)
-- [light](#member-7)
-- [lcam](#member-8)
-- [curbasic](#member-9)
-- [texbias](#member-10)
-- [shadowbasic](#member-13)
-- [master](#member-14)
-- [basic](#member-15)
-- [slots](#member-16)
-- [back](#member-17)
-- [curbasic](#member-18)
-- [idx_bas](#member-20)
-- [idx_back](#member-21)
-- [bk](#member-22)
-- [txf](#member-45)
-- [sl](#member-46)
-- [map](#member-47)
-- [stc](#member-48)
-- [shcalc](#member-49)
-- [id](#member-50)
-- [interned](#member-55)
-- [shader](#member-57)
-
-#### Methods
-
-- [cons(Material.Buffer buf, Object... args)](#member-11)
-- [dispose()](#member-12)
-- [ShadowList(RenderList.Adapter master)](#member-19)
-- [Shadowslot(Slot<? extends Rendered> bk)](#member-23)
-- [obj()](#member-24)
-- [state()](#member-25)
-- [group(int idx)](#member-26)
-- [gstate(int id)](#member-27)
-- [nstates()](#member-28)
-- [add(Slot<? extends Rendered> slot)](#member-29)
-- [remove(Slot<? extends Rendered> slot)](#member-30)
-- [update(Slot<? extends Rendered> slot)](#member-31)
-- [update(Pipe group, int[] statemask)](#member-32)
-- [lock()](#member-33)
-- [slots()](#member-34)
-- [add(RenderList<R> list, Class<? extends R> type)](#member-35)
-- [remove(RenderList<?> list)](#member-36)
-- [basic(Pipe.Op st)](#member-37)
-- [draw(Render out)](#member-38)
-- [dispose()](#member-39)
-- [light(DirLight light)](#member-40)
-- [haspos()](#member-41)
-- [setpos(Coord3f base, Coord3f dir)](#member-42)
-- [update(Render out, ShadowList data)](#member-43)
-- [apply(Pipe buf)](#member-44)
-- [Shader(double xd, double yd, int res, double thr)](#member-51)
-- [modify(ProgramContext prog)](#member-52)
-- [hashCode()](#member-53)
-- [equals(Object that)](#member-54)
-- [get(double xd, double yd, int res, double thr)](#member-56)
-- [shader()](#member-58)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `smap`
+### $maskshadow
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `maskshadow`
+### Shader
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `lbuf`
+### ShadowList
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `lsamp`
+### Shadowslot
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `lproj`
+## Members
+
+### Constants
+
+#### `public static final Pipe.Op shadowbasic = Pipe.Op.compose(new States.Depthtest(States.Depthtest.Test.LE),`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `basic`
+#### `static final int idx_bas = 0, idx_back = 1`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `light`
+#### `static final int idx_bas = 0, idx_back = 1`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `lcam`
+#### `public static final Uniform txf = new Uniform(MAT4, p ->`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `curbasic`
+#### `public static final Uniform sl = new Uniform(INT, p ->`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `texbias`
+#### `public static final Uniform map = new Uniform(SAMPLER2D, p -> p.get(smap).lsamp, smap)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `shadowbasic`
+#### `public static final AutoVarying stc = new AutoVarying(VEC4)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `master`
+#### `private static final WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `basic`
+### Fields
+
+#### `public final static Slot<ShadowMap> smap = new Slot<ShadowMap>(Slot.Type.DRAW, ShadowMap.class)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `slots`
+#### `public final static State.StandAlone maskshadow = new State.StandAlone(Slot.Type.GEOM)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `back`
+#### `public final Texture2D lbuf`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `curbasic`
+#### `public final Texture2D.Sampler2D lsamp`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `idx_bas`
+#### `private final Projection lproj`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `idx_back`
+#### `private final Pipe.Op basic`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `bk`
+#### `private DirLight light`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `txf`
+#### `private Camera lcam`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `sl`
+#### `private Pipe.Op curbasic`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `map`
+#### `private final static Matrix4f texbias = new Matrix4f(0.5f, 0.0f, 0.0f, 0.5f,`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `stc`
+#### `private final RenderList.Adapter master`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `shcalc`
+#### `private final ProxyPipe basic = new ProxyPipe()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `id`
+#### `private final Map<Slot<? extends Rendered>, Shadowslot> slots = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `interned`
+#### `private DrawList back = null`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `shader`
+#### `private DefPipe curbasic = null`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-11"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public final Slot<? extends Rendered> bk`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `dispose()`
+#### `public final Function.Def shcalc`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `ShadowList(RenderList.Adapter master)`
+#### `private final Object id`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `Shadowslot(Slot<? extends Rendered> bk)`
+#### `public final Shader shader`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `obj()`
+### Methods
+
+#### `public void cons(Material.Buffer buf, Object... args)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `state()`
+#### `public ShadowMap(Coord res, float size, float depth, float dthr)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `group(int idx)`
+#### `private ShadowMap(ShadowMap that)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `gstate(int id)`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `nstates()`
+#### `public ShadowList(RenderList.Adapter master)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `add(Slot<? extends Rendered> slot)`
+#### `public Shadowslot(Slot<? extends Rendered> bk)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `remove(Slot<? extends Rendered> slot)`
+#### `public Rendered obj()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `update(Slot<? extends Rendered> slot)`
+#### `public GroupPipe state()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `update(Pipe group, int[] statemask)`
+#### `public Pipe group(int idx)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `lock()`
+#### `public int gstate(int id)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `slots()`
+#### `public int nstates()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `add(RenderList<R> list, Class<? extends R> type)`
+#### `public void add(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `remove(RenderList<?> list)`
+#### `public void remove(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `basic(Pipe.Op st)`
+#### `public void update(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `draw(Render out)`
+#### `public void update(Pipe group, int[] statemask)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `dispose()`
+#### `public Locked lock()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `light(DirLight light)`
+#### `public Iterable<? extends Slot<?>> slots()`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `haspos()`
+#### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `setpos(Coord3f base, Coord3f dir)`
+#### `public void remove(RenderList<?> list)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `update(Render out, ShadowList data)`
+#### `public void basic(Pipe.Op st)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `apply(Pipe buf)`
+#### `public void draw(Render out)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `Shader(double xd, double yd, int res, double thr)`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `modify(ProgramContext prog)`
+#### `public ShadowMap light(DirLight light)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `hashCode()`
+#### `public boolean haspos()`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `equals(Object that)`
+#### `public ShadowMap setpos(Coord3f base, Coord3f dir)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `get(double xd, double yd, int res, double thr)`
+#### `public void update(Render out, ShadowList data)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `shader()`
+#### `public void apply(Pipe buf)`
+
+- Description: TODO
+
+#### `private Shader(double xd, double yd, int res, double thr)`
+
+- Description: TODO
+
+#### `public void modify(ProgramContext prog)`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object that)`
+
+- Description: TODO
+
+#### `public static Shader get(double xd, double yd, int res, double thr)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
 
 - Description: TODO

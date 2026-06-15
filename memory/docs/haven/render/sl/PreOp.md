@@ -1,5 +1,7 @@
 # PreOp
 
+This file documents the responsibilities and members of `PreOp`.
+
 ## Meta
 
 - Source: [PreOp.java](../../../../../src/haven/render/sl/PreOp.java)
@@ -8,56 +10,46 @@
 
 ## Role
 
-- Represents a pre-operation expression.
+Represents a pre-operation expression.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [op](#member-1)
-
-#### Methods
-
-- [walk(Walker w)](#member-2)
-- [public abstract String form();](#member-3)
-- [output(Output out)](#member-4)
-- [public static class Neg extends PreOp](#member-5)
-- [public static class Neg extends PreOp](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `op`
+### Neg
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-2"></a>
-##### `walk(Walker w)`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-3"></a>
-##### `public abstract String form();`
+#### `public final Expression op`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `output(Output out)`
+### Methods
+
+#### `public PreOp(Expression op)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public static class Neg extends PreOp`
+#### `public void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public static class Neg extends PreOp`
+#### `public abstract String form()`
+
+- Description: TODO
+
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public static class Neg extends PreOp`
+
+- Description: TODO
+
+#### `public static class Neg extends PreOp`
 
 - Description: TODO

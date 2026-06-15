@@ -1,5 +1,7 @@
 # PortalMonitor
 
+This file documents the responsibilities and members of `PortalMonitor`.
+
 ## Meta
 
 - Source: [PortalMonitor.java](../../../../src/lmi/runtime/PortalMonitor.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Observes a narrow slice of runtime state for automation.
+Observes a narrow slice of runtime state for automation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [lock](#member-1)
-- [enteredGeneration](#member-2)
-
-#### Methods
-
-- [clear()](#member-3)
-- [generation()](#member-4)
-- [waitNextEnter(long previousGeneration)](#member-5)
-- [notifyDidEnterPortal()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `lock`
+#### `private static final Object lock = new Object()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `enteredGeneration`
+### Fields
+
+#### `private static long enteredGeneration = 0L`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `clear()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `generation()`
+#### `private PortalMonitor()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `waitNextEnter(long previousGeneration)`
+#### `public static void clear()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `notifyDidEnterPortal()`
+#### `public static long generation()`
+
+- Description: TODO
+
+#### `public static void waitNextEnter(long previousGeneration)`
+
+- Description: TODO
+
+#### `public static void notifyDidEnterPortal()`
 
 - Description: TODO

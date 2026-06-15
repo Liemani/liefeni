@@ -1,5 +1,7 @@
 # Makewindow
 
+This file documents the responsibilities and members of `Makewindow`.
+
 ## Meta
 
 - Source: [Makewindow.java](../../../src/haven/Makewindow.java)
@@ -8,470 +10,342 @@
 
 ## Role
 
-- Displays the crafting/make window.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [qmodl](#member-1)
-- [tooll](#member-2)
-- [boff](#member-3)
-- [rcpnm](#member-4)
-- [inputs](#member-5)
-- [outputs](#member-6)
-- [qmod](#member-7)
-- [tools](#member-8)
-- [xoff](#member-9)
-- [qmy](#member-10)
-- [outy](#member-11)
-- [ctxr](#member-13)
-- [res](#member-14)
-- [sdt](#member-15)
-- [num](#member-16)
-- [spr](#member-17)
-- [rawinfo](#member-18)
-- [info](#member-19)
-- [opt](#member-23)
-- [info](#member-25)
-- [tex](#member-26)
-- [rnd](#member-32)
-- [kb_make](#member-38)
-- [kb_makeall](#member-39)
-- [qmodsz](#member-41)
-- [qmicons](#member-42)
-- [spec](#member-44)
-- [opt](#member-45)
-- [num](#member-46)
-- [rstate](#member-50)
-- [hoverstart](#member-53)
-- [stip](#member-54)
-- [ltip](#member-55)
-- [idx](#member-58)
-- [using](#member-59)
-- [rpag](#member-60)
-- [cc](#member-61)
-- [qmx](#member-69)
-- [toolx](#member-70)
-- [text](#member-72)
+Displays the crafting/make window.
 
-#### Methods
+## Nested Types
 
-- [create(UI ui, Object[] args)](#member-12)
-- [Spec(Indir<Resource> res, Message sdt, int num, Object[] info)](#member-20)
-- [sprite()](#member-21)
-- [draw(GOut g)](#member-22)
-- [opt()](#member-24)
-- [SpecTip(List<ItemInfo> info, BufferedImage img)](#member-27)
-- [info()](#member-28)
-- [get()](#member-29)
-- [shorttip()](#member-30)
-- [longtip()](#member-31)
-- [mkrandoom()](#member-33)
-- [getres()](#member-34)
-- [context(Class<T> cl)](#member-35)
-- [info()](#member-36)
-- [resource()](#member-37)
-- [uimsg(String msg, Object... args)](#member-40)
-- [qmicon(Indir<Resource> qm)](#member-43)
-- [SpecWidget(Spec spec)](#member-47)
-- [info()](#member-48)
-- [drawbg(GOut g)](#member-49)
-- [drawicon(GOut g)](#member-51)
-- [draw(GOut g)](#member-52)
-- [tooltip(Coord c, Widget prev)](#member-56)
-- [tick(double dt)](#member-57)
-- [Input(Spec spec, int idx)](#member-62)
-- [drawbg(GOut g)](#member-63)
-- [mousedown(MouseDownEvent ev)](#member-64)
-- [tick(double dt)](#member-65)
-- [recipes(List<MenuGrid.Pagina> pag)](#member-66)
-- [using(int a)](#member-67)
-- [draw(GOut g)](#member-68)
-- [tooltip(Coord mc, Widget prev)](#member-71)
-- [Optional(Owner owner)](#member-73)
-- [tipimg()](#member-74)
-- [shortvar()](#member-75)
+### $_
 
-### Member Reference
+- Description: TODO
+
+### Input
+
+- Description: TODO
+
+### Optional
+
+- Description: TODO
+
+### Spec
+
+- Description: TODO
 
-#### Fields
+### SpecTip
 
-<a id="member-1"></a>
-##### `qmodl`
+- Description: TODO
+
+### SpecWidget
+
+- Description: TODO
+
+## Members
 
+### Constants
+
+#### `public static final Text qmodl = Text.render("Quality:")`
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tooll`
+#### `public static final Text tooll = Text.render("Tools:")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `boff`
+#### `public static final Coord boff = UI.scale(new Coord(7, 9))`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `rcpnm`
+#### `private static final OwnerContext.ClassResolver<Makewindow> ctxr = new OwnerContext.ClassResolver<Makewindow>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `inputs`
+#### `public static final KeyBinding kb_make = KeyBinding.get("make/one", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, 0))`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `outputs`
+#### `public static final KeyBinding kb_makeall = KeyBinding.get("make/all", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `qmod`
+#### `public static final Coord qmodsz = UI.scale(20, 20)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `tools`
+#### `private static final Map<Indir<Resource>, Tex> qmicons = new WeakHashMap<>()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `xoff`
+#### `public static final Text text = RichText.render("$i`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-10"></a>
-##### `qmy`
+#### `public String rcpnm`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `outy`
+#### `public List<Input> inputs = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `ctxr`
+#### `public List<SpecWidget> outputs = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `res`
+#### `public List<Indir<Resource>> qmod = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `sdt`
+#### `public List<Indir<Resource>> tools = new ArrayList<>();`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `num`
+#### `private final int xoff = UI.scale(45), qmy = UI.scale(38), outy = UI.scale(65)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `spr`
+#### `private final int xoff = UI.scale(45), qmy = UI.scale(38), outy = UI.scale(65)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `rawinfo`
+#### `private final int xoff = UI.scale(45), qmy = UI.scale(38), outy = UI.scale(65)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `info`
+#### `public Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `opt`
+#### `public MessageBuf sdt`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `info`
+#### `public int num`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `tex`
+#### `private GSprite spr`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `rnd`
+#### `private Object[] rawinfo`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `kb_make`
+#### `private List<ItemInfo> info`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `kb_makeall`
+#### `private int opt = 0`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `qmodsz`
+#### `private final List<ItemInfo> info`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `qmicons`
+#### `private final TexI tex`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `spec`
+#### `private Random rnd = null`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `opt`
+#### `public final Spec spec`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `num`
+#### `public final boolean opt`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `rstate`
+#### `public Tex num`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `hoverstart`
+#### `public final ItemInfo.AttrCache<Pipe.Op> rstate = new ItemInfo.AttrCache<>(this::info, GItem.RStateInfo.combine)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `stip`
+#### `private double hoverstart`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `ltip`
+#### `Object stip, ltip`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `idx`
+#### `Object stip, ltip`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `using`
+#### `public final int idx`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `rpag`
+#### `public int using = 0`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `cc`
+#### `private List<MenuGrid.Pagina> rpag = null`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `qmx`
+#### `private Coord cc = null`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `toolx`
+#### `private int qmx, toolx`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `text`
+#### `private int qmx, toolx`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
+
+- Description: TODO
 
-<a id="member-12"></a>
-##### `create(UI ui, Object[] args)`
+#### `public Spec(Indir<Resource> res, Message sdt, int num, Object[] info)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `Spec(Indir<Resource> res, Message sdt, int num, Object[] info)`
+#### `public GSprite sprite()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `sprite()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `draw(GOut g)`
+#### `public boolean opt()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `opt()`
+#### `public SpecTip(List<ItemInfo> info, BufferedImage img)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `SpecTip(List<ItemInfo> info, BufferedImage img)`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `info()`
+#### `public Tex get()`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `get()`
+#### `public SpecTip shorttip()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `shorttip()`
+#### `public SpecTip longtip()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `longtip()`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `mkrandoom()`
+#### `public Resource getres()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `getres()`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `context(Class<T> cl)`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `info()`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `resource()`
+#### `public Makewindow(String rcpnm)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `qmicon(Indir<Resource> qm)`
+#### `private static Tex qmicon(Indir<Resource> qm)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `SpecWidget(Spec spec)`
+#### `public SpecWidget(Spec spec)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `info()`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `drawbg(GOut g)`
+#### `public void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `drawicon(GOut g)`
+#### `public void drawicon(GOut g)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `Input(Spec spec, int idx)`
+#### `public Input(Spec spec, int idx)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `drawbg(GOut g)`
+#### `public void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `recipes(List<MenuGrid.Pagina> pag)`
+#### `public void recipes(List<MenuGrid.Pagina> pag)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `using(int a)`
+#### `public void using(int a)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `tooltip(Coord mc, Widget prev)`
+#### `public Object tooltip(Coord mc, Widget prev)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `Optional(Owner owner)`
+#### `public Optional(Owner owner)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `tipimg()`
+#### `public BufferedImage tipimg()`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `shortvar()`
+#### `public Tip shortvar()`
 
 - Description: TODO

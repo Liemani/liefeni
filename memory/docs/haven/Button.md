@@ -1,5 +1,7 @@
 # Button
 
+This file documents the responsibilities and members of `Button`.
+
 ## Meta
 
 - Source: [Button.java](../../../src/haven/Button.java)
@@ -8,254 +10,206 @@
 
 ## Role
 
-- Displays a clickable button widget.
+Displays a clickable button widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [bl](#member-1)
-- [br](#member-2)
-- [bt](#member-3)
-- [bb](#member-4)
-- [dt](#member-5)
-- [ut](#member-6)
-- [bm](#member-7)
-- [hs](#member-8)
-- [hl](#member-9)
-- [click](#member-10)
-- [clbtdown](#member-11)
-- [clbtup](#member-12)
-- [margin](#member-13)
-- [lg](#member-14)
-- [text](#member-15)
-- [cont](#member-16)
-- [action](#member-17)
-- [tf](#member-18)
-- [nf](#member-19)
-- [a](#member-20)
-- [dis](#member-21)
-- [d](#member-22)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-23)
-- [create(UI ui, Object[] args)](#member-24)
-- [wrapped(int w, String text)](#member-25)
-- [largep(int w)](#member-26)
-- [action(Runnable action)](#member-27)
-- [draw(BufferedImage img)](#member-28)
-- [change(String text, Color col)](#member-29)
-- [change(String text)](#member-30)
-- [disable(boolean dis)](#member-31)
-- [click()](#member-32)
-- [gkeytype(GlobKeyEvent ev)](#member-33)
-- [uimsg(String msg, Object... args)](#member-34)
-- [mousemove(MouseMoveEvent ev)](#member-35)
-- [depress()](#member-36)
-- [unpress()](#member-37)
-- [mousedown(MouseDownEvent ev)](#member-38)
-- [mouseup(MouseUpEvent ev)](#member-39)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bl`
+### $Btn
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `br`
+### $LTBtn
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `bt`
+## Members
+
+### Constants
+
+#### `public static final BufferedImage bl = Resource.loadsimg("gfx/hud/buttons/tbtn/left")`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `bb`
+#### `public static final BufferedImage br = Resource.loadsimg("gfx/hud/buttons/tbtn/right")`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `dt`
+#### `public static final BufferedImage bt = Resource.loadsimg("gfx/hud/buttons/tbtn/top")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ut`
+#### `public static final BufferedImage bb = Resource.loadsimg("gfx/hud/buttons/tbtn/bottom")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `bm`
+#### `public static final BufferedImage dt = Resource.loadsimg("gfx/hud/buttons/tbtn/dtex")`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `hs`
+#### `public static final BufferedImage ut = Resource.loadsimg("gfx/hud/buttons/tbtn/utex")`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `hl`
+#### `public static final BufferedImage bm = Resource.loadsimg("gfx/hud/buttons/tbtn/mid")`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `click`
+#### `public static final int hs = bl.getHeight(), hl = bm.getHeight()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `clbtdown`
+#### `public static final int hs = bl.getHeight(), hl = bm.getHeight()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `clbtup`
+#### `public static final Resource click = Loading.waitfor(Resource.local().load("sfx/hud/btn"))`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `margin`
+#### `public static final Audio.Clip clbtdown = Loading.waitfor(Resource.local().load("sfx/hud/lbtn")).layer(Resource.audio, "down")`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `lg`
+#### `public static final Audio.Clip clbtup = Loading.waitfor(Resource.local().load("sfx/hud/lbtn")).layer(Resource.audio, "up")`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `text`
+#### `public static final int margin = UI.scale(10)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `cont`
+### Fields
+
+#### `public boolean lg`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `action`
+#### `public Text text`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `tf`
+#### `public BufferedImage cont`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `nf`
+#### `public Runnable action = null`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `a`
+#### `static Text.Foundry tf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(12f))).aa(true)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `dis`
+#### `static Text.Furnace nf = new PUtils.BlurFurn(new PUtils.TexFurn(tf, Window.ctex), UI.rscale(0.75), UI.rscale(0.75), new Color(80, 40, 0))`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `d`
+#### `private boolean a = false, dis = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-23"></a>
-##### `create(UI ui, Object[] args)`
+#### `private boolean a = false, dis = false`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `create(UI ui, Object[] args)`
+#### `private UI.Grab d = null`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `wrapped(int w, String text)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `largep(int w)`
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `action(Runnable action)`
+#### `public static Button wrapped(int w, String text)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `draw(BufferedImage img)`
+#### `private static boolean largep(int w)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `change(String text, Color col)`
+#### `private Button(int w, boolean lg)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `change(String text)`
+#### `public Button(int w, String text, boolean lg, Runnable action)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `disable(boolean dis)`
+#### `public Button(int w, String text, boolean lg)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `click()`
+#### `public Button(int w, String text, Runnable action)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `gkeytype(GlobKeyEvent ev)`
+#### `public Button(int w, String text)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public Button(int w, Text text)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public Button(int w, BufferedImage cont)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `depress()`
+#### `public Button action(Runnable action)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `unpress()`
+#### `public void draw(BufferedImage img)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void change(String text, Color col)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public void change(String text)`
+
+- Description: TODO
+
+#### `public void disable(boolean dis)`
+
+- Description: TODO
+
+#### `public void click()`
+
+- Description: TODO
+
+#### `public boolean gkeytype(GlobKeyEvent ev)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void mousemove(MouseMoveEvent ev)`
+
+- Description: TODO
+
+#### `protected void depress()`
+
+- Description: TODO
+
+#### `protected void unpress()`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO

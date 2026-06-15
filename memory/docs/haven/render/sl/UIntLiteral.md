@@ -1,5 +1,7 @@
 # UIntLiteral
 
+This file documents the responsibilities and members of `UIntLiteral`.
+
 ## Meta
 
 - Source: [UIntLiteral.java](../../../../../src/haven/render/sl/UIntLiteral.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents an unsigned int literal.
+Represents an unsigned int literal.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [z](#member-1)
-- [u](#member-2)
-- [val](#member-3)
-
-#### Methods
-
-- [walk(Walker w)](#member-4)
-- [output(Output out)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `z`
+#### `public static final UIntLiteral z = new UIntLiteral(0)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u`
+#### `public static final UIntLiteral u = new UIntLiteral(1)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `val`
+### Fields
+
+#### `public final int val`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `walk(Walker w)`
+#### `public UIntLiteral(int val)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

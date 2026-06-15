@@ -1,5 +1,7 @@
 # TickList
 
+This file documents the responsibilities and members of `TickList`.
+
 ## Meta
 
 - Source: [TickList.java](../../../../src/haven/render/TickList.java)
@@ -8,152 +10,118 @@
 
 ## Role
 
-- Represents a ticking list.
+Represents a ticking list.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [cur](#member-1)
-- [tick](#member-2)
-- [mon](#member-3)
-- [rc](#member-4)
-- [users](#member-5)
-- [slot](#member-18)
-- [mon](#member-19)
-
-#### Methods
-
-- [Entry(Ticking tick, Object mon)](#member-6)
-- [get(TickNode user)](#member-7)
-- [put(TickNode user)](#member-8)
-- [autotick(double dt)](#member-9)
-- [autogtick(Render g)](#member-10)
-- [public Ticking ticker();](#member-11)
-- [add(Slot<? extends TickNode> slot)](#member-12)
-- [remove(Slot<? extends TickNode> slot)](#member-13)
-- [update(Slot<? extends TickNode> slot)](#member-14)
-- [update(Pipe group, int[] statemask)](#member-15)
-- [tick(double dt)](#member-16)
-- [gtick(Render g)](#member-17)
-- [Monitor(Object mon)](#member-20)
-- [shader()](#member-21)
-- [apply(Pipe p)](#member-22)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cur`
+### Entry
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tick`
+### Monitor
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `mon`
+### TickNode
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `rc`
+### Ticking
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `users`
+## Members
+
+### Constants
+
+#### `public static final Slot<Monitor> slot = new Slot<>(Slot.Type.SYS, Monitor.class)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `slot`
+### Fields
+
+#### `private final Map<Ticking, Entry> cur = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `mon`
+#### `final Ticking tick`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `Entry(Ticking tick, Object mon)`
+#### `final Object mon`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `get(TickNode user)`
+#### `int rc = 0`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `put(TickNode user)`
+#### `Object users = null`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `autotick(double dt)`
+#### `public final Object mon`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `autogtick(Render g)`
+### Methods
+
+#### `public Entry(Ticking tick, Object mon)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `public Ticking ticker();`
+#### `public void get(TickNode user)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `add(Slot<? extends TickNode> slot)`
+#### `public boolean put(TickNode user)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `remove(Slot<? extends TickNode> slot)`
+#### `public default void autotick(double dt)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `update(Slot<? extends TickNode> slot)`
+#### `public default void autogtick(Render g)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `update(Pipe group, int[] statemask)`
+#### `public Ticking ticker()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `tick(double dt)`
+#### `public void add(Slot<? extends TickNode> slot)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `gtick(Render g)`
+#### `public void remove(Slot<? extends TickNode> slot)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `Monitor(Object mon)`
+#### `public void update(Slot<? extends TickNode> slot)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `shader()`
+#### `public void update(Pipe group, int[] statemask)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `apply(Pipe p)`
+#### `public void tick(double dt)`
+
+- Description: TODO
+
+#### `public void gtick(Render g)`
+
+- Description: TODO
+
+#### `public Monitor(Object mon)`
+
+- Description: TODO
+
+#### `public haven.render.sl.ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # SimpleHandler
 
+This file documents the responsibilities and members of `SimpleHandler`.
+
 ## Meta
 
 - Source: [SimpleHandler.java](../../../../src/haven/error/SimpleHandler.java)
@@ -8,32 +10,24 @@
 
 ## Role
 
-- Provides a simple error handling implementation.
+Provides a simple error handling implementation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [dump](#member-1)
-
-#### Methods
-
-- [uncaughtException(Thread t, Throwable e)](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `dump`
+#### `private final boolean dump`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `uncaughtException(Thread t, Throwable e)`
+#### `public SimpleHandler(String name, boolean dump)`
+
+- Description: TODO
+
+#### `public void uncaughtException(Thread t, Throwable e)`
 
 - Description: TODO

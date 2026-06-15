@@ -1,5 +1,7 @@
 # Frame
 
+This file documents the responsibilities and members of `Frame`.
+
 ## Meta
 
 - Source: [Frame.java](../../../src/haven/Frame.java)
@@ -8,98 +10,72 @@
 
 ## Role
 
-- Represents a framed widget or UI helper.
+Represents a framed widget or UI helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [box](#member-1)
-
-#### Methods
-
-- [around(Widget parent, Area area, IBox box)](#member-2)
-- [around(Widget parent, Area area)](#member-3)
-- [around(Widget parent, Iterable<? extends Widget> wl)](#member-4)
-- [around(Widget parent, Widget... ch)](#member-5)
-- [with(Widget child, boolean resize)](#member-6)
-- [inner()](#member-7)
-- [xlate(Coord c, boolean in)](#member-8)
-- [getpos(String nm)](#member-9)
-- [drawframe(GOut g)](#member-10)
-- [draw(GOut g)](#member-11)
-- [checkhit(Coord c)](#member-12)
-- [addin(T child)](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `box`
+#### `public final IBox box`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `around(Widget parent, Area area, IBox box)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `around(Widget parent, Area area)`
+#### `public Frame(Coord sz, boolean inner, IBox box)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `around(Widget parent, Iterable<? extends Widget> wl)`
+#### `public Frame(Coord sz, boolean inner)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `around(Widget parent, Widget... ch)`
+#### `public static Frame around(Widget parent, Area area, IBox box)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `with(Widget child, boolean resize)`
+#### `public static Frame around(Widget parent, Area area)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `inner()`
+#### `public static Frame around(Widget parent, Iterable<? extends Widget> wl)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `xlate(Coord c, boolean in)`
+#### `public static Frame around(Widget parent, Widget... ch)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `getpos(String nm)`
+#### `public static Frame with(Widget child, boolean resize)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `drawframe(GOut g)`
+#### `public Coord inner()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `draw(GOut g)`
+#### `public Coord xlate(Coord c, boolean in)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `checkhit(Coord c)`
+#### `public Position getpos(String nm)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `addin(T child)`
+#### `public void drawframe(GOut g)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public boolean checkhit(Coord c)`
+
+- Description: TODO
+
+#### `public <T extends Widget> T addin(T child)`
 
 - Description: TODO

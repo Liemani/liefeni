@@ -1,5 +1,7 @@
 # UVec2Cons
 
+This file documents the responsibilities and members of `UVec2Cons`.
+
 ## Meta
 
 - Source: [UVec2Cons.java](../../../../../src/haven/render/sl/UVec2Cons.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents an unsigned vec2 constructor.
+Represents an unsigned vec2 constructor.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [z](#member-1)
-- [u](#member-2)
-- [els](#member-3)
-
-#### Methods
-
-- [walk(Walker w)](#member-4)
-- [output(Output out)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `z`
+#### `public static final UVec2Cons z = new UVec2Cons(IntLiteral.z, IntLiteral.z)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u`
+#### `public static final UVec2Cons u = new UVec2Cons(IntLiteral.u, IntLiteral.u)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `els`
+### Fields
+
+#### `public final Expression[] els`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `walk(Walker w)`
+#### `public UVec2Cons(Expression... els)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

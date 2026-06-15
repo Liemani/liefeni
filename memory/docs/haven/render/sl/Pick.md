@@ -1,5 +1,7 @@
 # Pick
 
+This file documents the responsibilities and members of `Pick`.
+
 ## Meta
 
 - Source: [Pick.java](../../../../../src/haven/render/sl/Pick.java)
@@ -8,50 +10,40 @@
 
 ## Role
 
-- Represents a pick expression.
+Represents a pick expression.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [valid](#member-1)
-- [val](#member-2)
-- [el](#member-3)
-
-#### Methods
-
-- [walk(Walker w)](#member-4)
-- [output(Output out)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `valid`
+#### `public static final String valid = "xyzwrgbastpq"`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `val`
+### Fields
+
+#### `public final Expression val`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `el`
+#### `public final char[] el`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `walk(Walker w)`
+#### `public Pick(Expression val, char[] el)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `output(Output out)`
+#### `public Pick(Expression val, String el)`
+
+- Description: TODO
+
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

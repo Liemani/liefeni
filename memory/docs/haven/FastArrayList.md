@@ -1,5 +1,7 @@
 # FastArrayList
 
+This file documents the responsibilities and members of `FastArrayList`.
+
 ## Meta
 
 - Source: [FastArrayList.java](../../../src/haven/FastArrayList.java)
@@ -8,98 +10,72 @@
 
 ## Role
 
-- Provides a fast array list implementation.
+Provides a fast array list implementation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bk](#member-1)
-- [n](#member-2)
-
-#### Methods
-
-- [ensure(int sz)](#member-3)
-- [size()](#member-4)
-- [get(int i)](#member-5)
-- [add(E e)](#member-6)
-- [set(int i, E el)](#member-7)
-- [add(int i, E el)](#member-8)
-- [remove(int i)](#member-9)
-- [clear()](#member-10)
-- [iterator()](#member-11)
-- [listIterator()](#member-12)
-- [listIterator(int start)](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bk`
+#### `private Object[] bk = null`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `n`
+#### `private int n = 0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `ensure(int sz)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `size()`
+#### `public FastArrayList()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `get(int i)`
+#### `public FastArrayList(int sz)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `add(E e)`
+#### `private Object[] ensure(int sz)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `set(int i, E el)`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `add(int i, E el)`
+#### `public E get(int i)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `remove(int i)`
+#### `public boolean add(E e)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `clear()`
+#### `public E set(int i, E el)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `iterator()`
+#### `public void add(int i, E el)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `listIterator()`
+#### `public E remove(int i)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `listIterator(int start)`
+#### `public void clear()`
+
+- Description: TODO
+
+#### `public Iterator<E> iterator()`
+
+- Description: TODO
+
+#### `public ListIterator<E> listIterator()`
+
+- Description: TODO
+
+#### `public ListIterator<E> listIterator(int start)`
 
 - Description: TODO

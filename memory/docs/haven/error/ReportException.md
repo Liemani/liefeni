@@ -1,5 +1,7 @@
 # ReportException
 
+This file documents the responsibilities and members of `ReportException`.
+
 ## Meta
 
 - Source: [ReportException.java](../../../../src/haven/error/ReportException.java)
@@ -8,4 +10,16 @@
 
 ## Role
 
-- Represents an exception suitable for reporting.
+Represents an exception suitable for reporting.
+
+## Members
+
+### Constants
+
+### Fields
+
+### Methods
+
+#### `public ReportException(String message)`
+
+- Description: TODO

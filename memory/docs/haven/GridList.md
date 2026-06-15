@@ -1,5 +1,7 @@
 # GridList
 
+This file documents the responsibilities and members of `GridList`.
+
 ## Meta
 
 - Source: [GridList.java](../../../src/haven/GridList.java)
@@ -8,200 +10,142 @@
 
 ## Role
 
-- Displays a grid-style list widget.
+Displays a grid-style list widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [dcatf](#member-1)
-- [catf](#member-2)
-- [sb](#member-3)
-- [sel](#member-4)
-- [gmarg](#member-5)
-- [groups](#member-6)
-- [itemsz](#member-7)
-- [marg](#member-8)
-- [name](#member-9)
-- [items](#member-10)
-- [sy](#member-11)
-- [ey](#member-12)
-- [rname](#member-13)
-- [itemtooltip](#member-29)
-
-#### Methods
-
-- [Group(Coord itemsz, Coord marg, String name, List<T> items)](#member-14)
-- [update(List<T> items)](#member-15)
-- [rname()](#member-16)
-- [update()](#member-17)
-- [resize(Coord sz)](#member-18)
-- [drawbg(GOut g)](#member-19)
-- [drawsel(GOut g)](#member-20)
-- [protected abstract void drawitem(GOut g, T item);](#member-21)
-- [adjx(int col, int iw, int rw, int ww)](#member-22)
-- [draw(GOut g)](#member-23)
-- [mousewheel(MouseWheelEvent ev)](#member-24)
-- [itemat(Coord c)](#member-25)
-- [change(T item)](#member-26)
-- [itemclick(T item, int button)](#member-27)
-- [mousedown(MouseDownEvent ev)](#member-28)
-- [tooltip(Coord c, Widget prev)](#member-30)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `dcatf`
+### Group
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `catf`
+## Members
+
+### Constants
+
+#### `public static final Text.Furnace dcatf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 18).aa(true), Window.ctex), 2, 1, new Color(96, 48, 0))`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sb`
+### Fields
+
+#### `public final Text.Furnace catf`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sel`
+#### `public final Scrollbar sb`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `gmarg`
+#### `public T sel = null`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `groups`
+#### `public int gmarg = 10`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `itemsz`
+#### `private final List<Group> groups = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `marg`
+#### `public final Coord itemsz, marg`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `name`
+#### `public final Coord itemsz, marg`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `items`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `sy`
+#### `public List<T> items`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ey`
+#### `private int sy, ey`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `rname`
+#### `private int sy, ey`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `itemtooltip`
+#### `private Text rname`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-14"></a>
-##### `Group(Coord itemsz, Coord marg, String name, List<T> items)`
+#### `public java.util.function.Function<T, Object> itemtooltip = null`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `update(List<T> items)`
+### Methods
+
+#### `public Group(Coord itemsz, Coord marg, String name, List<T> items)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `rname()`
+#### `public void update(List<T> items)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `update()`
+#### `public Text rname()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `resize(Coord sz)`
+#### `public GridList(Coord sz)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `drawbg(GOut g)`
+#### `protected void update()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `drawsel(GOut g)`
+#### `public void resize(Coord sz)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `protected abstract void drawitem(GOut g, T item);`
+#### `protected void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `adjx(int col, int iw, int rw, int ww)`
+#### `protected void drawsel(GOut g)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `draw(GOut g)`
+#### `protected abstract void drawitem(GOut g, T item)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `private static int adjx(int col, int iw, int rw, int ww)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `itemat(Coord c)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `change(T item)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `itemclick(T item, int button)`
+#### `public T itemat(Coord c)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void change(T item)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `protected void itemclick(T item, int button)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO

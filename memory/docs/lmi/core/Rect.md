@@ -1,5 +1,7 @@
 # Rect
 
+This file documents the responsibilities and members of `Rect`.
+
 ## Meta
 
 - Source: [Rect.java](../../../../src/lmi/core/Rect.java)
@@ -8,104 +10,84 @@
 
 ## Role
 
-- Defines rectangular geometry helpers.
+Defines rectangular geometry helpers.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [origin](#member-1)
-- [size](#member-2)
-
-#### Methods
-
-- [init(Coord coord1, Coord coord2)](#member-3)
-- [width()](#member-4)
-- [height()](#member-5)
-- [minX()](#member-6)
-- [midX()](#member-7)
-- [maxX()](#member-8)
-- [minY()](#member-9)
-- [midY()](#member-10)
-- [maxY()](#member-11)
-- [assignExtendToTile()](#member-12)
-- [contains(Coord coord)](#member-13)
-- [toString()](#member-14)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `origin`
+#### `public Coord origin`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `size`
+#### `public Coord size`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `init(Coord coord1, Coord coord2)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `width()`
+#### `public void init(Coord coord1, Coord coord2)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `height()`
+#### `public Rect()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `minX()`
+#### `public Rect(Coord coord1, Coord coord2)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `midX()`
+#### `public Rect(Coord[] coordArray)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `maxX()`
+#### `public Rect(Rect rect)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `minY()`
+#### `public int width()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `midY()`
+#### `public int height()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `maxY()`
+#### `public int minX()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `assignExtendToTile()`
+#### `public int midX()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `contains(Coord coord)`
+#### `public int maxX()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `toString()`
+#### `public int minY()`
+
+- Description: TODO
+
+#### `public int midY()`
+
+- Description: TODO
+
+#### `public int maxY()`
+
+- Description: TODO
+
+#### `public Rect assignExtendToTile()`
+
+- Description: TODO
+
+#### `public boolean contains(Coord coord)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

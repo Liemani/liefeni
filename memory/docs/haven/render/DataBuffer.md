@@ -1,5 +1,7 @@
 # DataBuffer
 
+This file documents the responsibilities and members of `DataBuffer`.
+
 ## Meta
 
 - Source: [DataBuffer.java](../../../../src/haven/render/DataBuffer.java)
@@ -8,99 +10,68 @@
 
 ## Role
 
-- Represents a data buffer.
+Represents a data buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public int size();](#member-1)
-- [public FillBuffer fill(T buf, Environment env);](#member-2)
-- [done()](#member-3)
-- [of(ByteBuffer data)](#member-4)
-- [of(ShortBuffer data)](#member-5)
-- [of(IntBuffer data)](#member-6)
-- [of(FloatBuffer data)](#member-7)
-- [of(byte[] data)](#member-8)
-- [of(short[] data)](#member-9)
-- [of(int[] data)](#member-10)
-- [of(float[] data)](#member-11)
-- [zero()](#member-12)
-- [public FillBuffer fill(T buf, Environment env, int from, int to);](#member-13)
-- [fill(T buf, Environment env)](#member-14)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public int size();`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public FillBuffer fill(T buf, Environment env);`
+#### `public FillBuffer fill(T buf, Environment env)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `done()`
+#### `public default void done()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `of(ByteBuffer data)`
+#### `public static Filler<DataBuffer> of(ByteBuffer data)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `of(ShortBuffer data)`
+#### `public static Filler<DataBuffer> of(ShortBuffer data)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `of(IntBuffer data)`
+#### `public static Filler<DataBuffer> of(IntBuffer data)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `of(FloatBuffer data)`
+#### `public static Filler<DataBuffer> of(FloatBuffer data)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `of(byte[] data)`
+#### `public static Filler<DataBuffer> of(byte[] data)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `of(short[] data)`
+#### `public static Filler<DataBuffer> of(short[] data)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `of(int[] data)`
+#### `public static Filler<DataBuffer> of(int[] data)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `of(float[] data)`
+#### `public static Filler<DataBuffer> of(float[] data)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `zero()`
+#### `public static Filler<DataBuffer> zero()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `public FillBuffer fill(T buf, Environment env, int from, int to);`
+#### `public FillBuffer fill(T buf, Environment env, int from, int to)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `fill(T buf, Environment env)`
+#### `public default FillBuffer fill(T buf, Environment env)`
 
 - Description: TODO

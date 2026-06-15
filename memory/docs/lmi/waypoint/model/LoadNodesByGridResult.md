@@ -1,5 +1,7 @@
 # LoadNodesByGridResult
 
+This file documents the responsibilities and members of `LoadNodesByGridResult`.
+
 ## Meta
 
 - Source: [LoadNodesByGridResult.java](../../../../../src/lmi/waypoint/model/LoadNodesByGridResult.java)
@@ -8,27 +10,24 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [gridId](#member-1)
-- [nodes](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `nodes`
+#### `public final Array<WpNode> nodes`
+
+- Description: TODO
+
+### Methods
+
+#### `public LoadNodesByGridResult(long gridId, Array<WpNode> nodes)`
 
 - Description: TODO

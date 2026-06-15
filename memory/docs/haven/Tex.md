@@ -1,5 +1,7 @@
 # Tex
 
+This file documents the responsibilities and members of `Tex`.
+
 ## Meta
 
 - Source: [Tex.java](../../../src/haven/Tex.java)
@@ -8,74 +10,48 @@
 
 ## Role
 
-- Represents a texture.
+Represents a texture.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [nil](#member-9)
-
-#### Methods
-
-- [public Coord sz();](#member-1)
-- [public void render(GOut g, float[] gc, float[] tc);](#member-2)
-- [render(GOut g, Coord dul, Coord dbr, Coord tul, Coord tbr)](#member-3)
-- [render(GOut g, Coord c)](#member-4)
-- [crender(GOut g, Coord c, Coord dsz, Coord cul, Coord cbr)](#member-5)
-- [crender(GOut g, Coord c, Coord ul, Coord br)](#member-6)
-- [nextp2(int in)](#member-7)
-- [dispose()](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-9"></a>
-##### `nil`
+#### `public static final Tex nil = new Tex()`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-1"></a>
-##### `public Coord sz();`
+### Methods
 
-- Description: TODO
-
-<a id="member-2"></a>
-##### `public void render(GOut g, float[] gc, float[] tc);`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `render(GOut g, Coord dul, Coord dbr, Coord tul, Coord tbr)`
+#### `public void render(GOut g, float[] gc, float[] tc)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `render(GOut g, Coord c)`
+#### `public default void render(GOut g, Coord dul, Coord dbr, Coord tul, Coord tbr)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `crender(GOut g, Coord c, Coord dsz, Coord cul, Coord cbr)`
+#### `public default void render(GOut g, Coord c)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `crender(GOut g, Coord c, Coord ul, Coord br)`
+#### `public default void crender(GOut g, Coord c, Coord dsz, Coord cul, Coord cbr)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `nextp2(int in)`
+#### `public default void crender(GOut g, Coord c, Coord ul, Coord br)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `dispose()`
+#### `public static int nextp2(int in)`
+
+- Description: TODO
+
+#### `public default void dispose()`
 
 - Description: TODO

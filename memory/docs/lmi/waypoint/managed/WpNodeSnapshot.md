@@ -1,5 +1,7 @@
 # WpNodeSnapshot
 
+This file documents the responsibilities and members of `WpNodeSnapshot`.
+
 ## Meta
 
 - Source: [WpNodeSnapshot.java](../../../../../src/lmi/waypoint/managed/WpNodeSnapshot.java)
@@ -8,57 +10,44 @@
 
 ## Role
 
-- Captures a snapshot of a managed waypoint node.
+Captures a snapshot of a managed waypoint node.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [version](#member-2)
-- [graphId](#member-3)
-- [gridId](#member-4)
-- [localX](#member-5)
-- [localY](#member-6)
-- [name](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `public final long id`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `version`
+#### `public final long version`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `name`
+#### `public final String name`
+
+- Description: TODO
+
+### Methods
+
+#### `public WpNodeSnapshot(long id, long version, long graphId, long gridId, int localX, int localY, String name)`
 
 - Description: TODO

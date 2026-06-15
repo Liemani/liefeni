@@ -1,5 +1,7 @@
 # LoadNodesByGraphResult
 
+This file documents the responsibilities and members of `LoadNodesByGraphResult`.
+
 ## Meta
 
 - Source: [LoadNodesByGraphResult.java](../../../../../src/lmi/waypoint/model/LoadNodesByGraphResult.java)
@@ -8,27 +10,24 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [graphId](#member-1)
-- [nodes](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `nodes`
+#### `public final Array<WpNode> nodes`
+
+- Description: TODO
+
+### Methods
+
+#### `public LoadNodesByGraphResult(long graphId, Array<WpNode> nodes)`
 
 - Description: TODO

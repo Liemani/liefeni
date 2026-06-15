@@ -1,5 +1,7 @@
 # Texture3D
 
+This file documents the responsibilities and members of `Texture3D`.
+
 ## Meta
 
 - Source: [Texture3D.java](../../../../src/haven/render/Texture3D.java)
@@ -8,74 +10,62 @@
 
 ## Role
 
-- Represents a 3D texture.
+Represents a 3D texture.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [w](#member-1)
-- [h](#member-2)
-- [d](#member-3)
-- [pot](#member-4)
-
-#### Methods
-
-- [image(int level)](#member-5)
-- [images()](#member-6)
-- [Sampler3D(Texture3D tex)](#member-7)
-- [sampler()](#member-8)
-- [toString()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `w`
+### Sampler3D
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `h`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final int w, h, d`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `d`
+#### `public final int w, h, d`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `pot`
+#### `public final int w, h, d`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `image(int level)`
+#### `private final boolean pot`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `images()`
+### Methods
+
+#### `public Texture3D(int w, int h, int d, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `Sampler3D(Texture3D tex)`
+#### `public Texture3D(int w, int h, int d, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `sampler()`
+#### `public Image<Texture3D> image(int level)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `toString()`
+#### `public Collection<Image<Texture3D>> images()`
+
+- Description: TODO
+
+#### `public Sampler3D(Texture3D tex)`
+
+- Description: TODO
+
+#### `public Sampler3D sampler()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

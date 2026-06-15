@@ -1,5 +1,7 @@
 # ICheckBox
 
+This file documents the responsibilities and members of `ICheckBox`.
+
 ## Meta
 
 - Source: [ICheckBox.java](../../../src/haven/ICheckBox.java)
@@ -8,86 +10,86 @@
 
 ## Role
 
-- Represents an image checkbox widget.
+Represents an image checkbox widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [up](#member-1)
-- [down](#member-2)
-- [hoverup](#member-3)
-- [hoverdown](#member-4)
-- [img](#member-5)
-- [h](#member-6)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-7)
-- [draw(GOut g)](#member-8)
-- [checkhit(Coord c)](#member-9)
-- [mousedown(MouseDownEvent ev)](#member-10)
-- [mousemove(MouseMoveEvent ev)](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `up`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `down`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Tex up, down, hoverup, hoverdown`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `hoverup`
+#### `public final Tex up, down, hoverup, hoverdown`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `hoverdown`
+#### `public final Tex up, down, hoverup, hoverdown`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `img`
+#### `public final Tex up, down, hoverup, hoverdown`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `h`
+#### `private final BufferedImage img`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `create(UI ui, Object[] args)`
+#### `public boolean h`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `checkhit(Coord c)`
+#### `public ICheckBox(Tex up, Tex down, Tex hoverup, Tex hoverdown)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public ICheckBox(Tex up, Tex down, Tex hover)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public ICheckBox(Tex up, Tex down)`
+
+- Description: TODO
+
+#### `public ICheckBox(String base, String up, String down, String hoverup, String hoverdown)`
+
+- Description: TODO
+
+#### `public ICheckBox(String base, String up, String down, String hover)`
+
+- Description: TODO
+
+#### `public ICheckBox(String base, String up, String down)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public boolean checkhit(Coord c)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO

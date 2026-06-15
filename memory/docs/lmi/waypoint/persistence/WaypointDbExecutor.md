@@ -1,5 +1,7 @@
 # WaypointDbExecutor
 
+This file documents the responsibilities and members of `WaypointDbExecutor`.
+
 ## Meta
 
 - Source: [WaypointDbExecutor.java](../../../../../src/lmi/waypoint/persistence/WaypointDbExecutor.java)
@@ -8,116 +10,86 @@
 
 ## Role
 
-- Serializes waypoint DB work onto the dedicated worker thread.
+Serializes waypoint DB work onto the dedicated worker thread.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [lock](#member-1)
-- [queue](#member-2)
-- [thread](#member-3)
-- [initialized](#member-4)
-- [connection](#member-5)
-- [request](#member-13)
-- [handler](#member-14)
-
-#### Methods
-
-- [init()](#member-6)
-- [public static <R extends WaypointResult> void submitRead(](#member-7)
-- [public static <R extends WaypointResult> void submitWrite(](#member-8)
-- [clear()](#member-9)
-- [runLoop()](#member-10)
-- [private static Connection connection() throws Exception](#member-11)
-- [closeConnection()](#member-12)
-- [Task(WaypointRequest<R> request, WaypointResultHandler<R> handler)](#member-15)
-- [execute(Connection conn)](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `lock`
+### Task
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `queue`
+## Members
+
+### Constants
+
+#### `private static final Object lock = new Object()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `thread`
+#### `private static final BlockingQueue<Task<?>> queue = new LinkedBlockingQueue<>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `initialized`
+### Fields
+
+#### `private static Thread thread`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `connection`
+#### `private static boolean initialized`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `request`
+#### `private static Connection connection`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `handler`
+#### `private final WaypointRequest<R> request`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `init()`
+#### `private final WaypointResultHandler<R> handler`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `public static <R extends WaypointResult> void submitRead(`
+### Methods
+
+#### `private WaypointDbExecutor()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public static <R extends WaypointResult> void submitWrite(`
+#### `public static void init()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `clear()`
+#### `public static <R extends WaypointResult> void submitRead(`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `runLoop()`
+#### `public static <R extends WaypointResult> void submitWrite(`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `private static Connection connection() throws Exception`
+#### `public static void clear()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `closeConnection()`
+#### `private static void runLoop()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `Task(WaypointRequest<R> request, WaypointResultHandler<R> handler)`
+#### `private static Connection connection() throws Exception`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `execute(Connection conn)`
+#### `private static void closeConnection()`
+
+- Description: TODO
+
+#### `private Task(WaypointRequest<R> request, WaypointResultHandler<R> handler)`
+
+- Description: TODO
+
+#### `private void execute(Connection conn)`
 
 - Description: TODO

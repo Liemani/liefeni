@@ -1,5 +1,7 @@
 # RenderedNormals
 
+This file documents the responsibilities and members of `RenderedNormals`.
+
 ## Meta
 
 - Source: [RenderedNormals.java](../../../src/haven/RenderedNormals.java)
@@ -8,128 +10,98 @@
 
 ## Role
 
-- Represents rendered normal data.
+Represents rendered normal data.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [fragnorm](#member-2)
-- [img](#member-3)
-- [shader](#member-5)
-- [tex](#member-8)
-- [state](#member-9)
-- [refcount](#member-10)
-- [mask](#member-17)
-
-#### Methods
-
-- [equals(Object o)](#member-4)
-- [shader()](#member-6)
-- [apply(Pipe p)](#member-7)
-- [apply(Pipe p)](#member-11)
-- [dispose()](#member-12)
-- [prerender(Render out)](#member-13)
-- [postrender(Render out)](#member-14)
-- [get(Pipe state)](#member-15)
-- [put(Pipe state)](#member-16)
-- [cons(Material.Buffer buf, Object... args)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $maskcol
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fragnorm`
+### Canon
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `img`
+## Members
+
+### Constants
+
+#### `public static final Slot<RenderedNormals> slot = new Slot<>(Slot.Type.SYS, RenderedNormals.class)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `shader`
+#### `public static final FragData fragnorm = new FragData(Type.VEC3, "fragnorm", p -> ((p.get(States.maskdepth.slot) == null) ? p.get(slot).img : null), slot, States.maskdepth.slot)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `tex`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `state`
+### Fields
+
+#### `public final Texture.Image<?> img`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `refcount`
+#### `public Texture2D tex = null`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `mask`
+#### `private RenderedNormals state`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `equals(Object o)`
+#### `private int refcount = 0`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `shader()`
+#### `final Pipe.Op mask = p -> p.put(slot, null)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(Pipe p)`
+### Methods
+
+#### `public RenderedNormals(Texture.Image<?> img)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `apply(Pipe p)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `dispose()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `prerender(Render out)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `postrender(Render out)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `get(Pipe state)`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `put(Pipe state)`
+#### `public void prerender(Render out)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public void postrender(Render out)`
+
+- Description: TODO
+
+#### `public static Canon get(Pipe state)`
+
+- Description: TODO
+
+#### `public static void put(Pipe state)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
 
 - Description: TODO

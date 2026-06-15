@@ -1,5 +1,7 @@
 # If
 
+This file documents the responsibilities and members of `If`.
+
 ## Meta
 
 - Source: [If.java](../../../../../src/haven/render/sl/If.java)
@@ -8,50 +10,40 @@
 
 ## Role
 
-- Represents a shader if-statement.
+Represents a shader if-statement.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [cond](#member-1)
-- [t](#member-2)
-- [f](#member-3)
-
-#### Methods
-
-- [walk(Walker w)](#member-4)
-- [output(Output out)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cond`
+#### `public final Expression cond`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `t`
+#### `public final Statement t, f`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `f`
+#### `public final Statement t, f`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `walk(Walker w)`
+#### `public If(Expression cond, Statement t, Statement f)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `output(Output out)`
+#### `public If(Expression cond, Statement t)`
+
+- Description: TODO
+
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

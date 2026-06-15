@@ -1,5 +1,7 @@
 # Profdisp
 
+This file documents the responsibilities and members of `Profdisp`.
+
 ## Meta
 
 - Source: [Profdisp.java](../../../src/haven/Profdisp.java)
@@ -8,146 +10,106 @@
 
 ## Role
 
-- Displays profile data.
+Displays profile data.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [markimg](#member-1)
-- [cols](#member-2)
-- [h](#member-3)
-- [prof](#member-4)
-- [mt](#member-5)
-- [dscale](#member-6)
-- [sscl](#member-7)
-- [mark](#member-8)
-- [tex](#member-9)
-- [btex](#member-10)
-- [units](#member-14)
-- [display](#member-15)
-
-#### Methods
-
-- [Buffer()](#member-11)
-- [draw(ByteBuffer buf, double scale)](#member-12)
-- [update(Render r, double scale)](#member-13)
-- [draw(GOut g)](#member-16)
-- [tick(double dt)](#member-17)
-- [gtick(Render g)](#member-18)
-- [keydown(KeyDownEvent ev)](#member-19)
-- [mousedown(MouseDownEvent ev)](#member-20)
-- [tooltip(Coord c, Widget prev)](#member-21)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `markimg`
+### Buffer
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cols`
+## Members
+
+### Constants
+
+#### `public static final Resource.Image markimg = Resource.loadrimg("gfx/hud/arwmark")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `h`
+#### `public static final Color[] cols = Utils.vgapal`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `prof`
+#### `private static final int h = UI.scale(80)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `mt`
+#### `private static final String[] units =`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `dscale`
+### Fields
+
+#### `public final Profile prof`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `sscl`
+#### `public double mt = 0.05`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `mark`
+#### `private double dscale = 0`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tex`
+#### `private Tex sscl = null`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `btex`
+#### `private int[] mark = new int[0]`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `units`
+#### `public final Tex tex`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `display`
+#### `private final Texture2D btex`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-11"></a>
-##### `Buffer()`
+#### `private Buffer display`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `draw(ByteBuffer buf, double scale)`
+### Methods
+
+#### `public Profdisp(Profile prof)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `update(Render r, double scale)`
+#### `public Buffer()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `draw(GOut g)`
+#### `private void draw(ByteBuffer buf, double scale)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `tick(double dt)`
+#### `public void update(Render r, double scale)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `gtick(Render g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public boolean keydown(KeyDownEvent ev)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public String tooltip(Coord c, Widget prev)`
 
 - Description: TODO

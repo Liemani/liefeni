@@ -1,5 +1,7 @@
 # SIterator
 
+This file documents the responsibilities and members of `SIterator`.
+
 ## Meta
 
 - Source: [SIterator.java](../../../src/haven/SIterator.java)
@@ -8,62 +10,40 @@
 
 ## Role
 
-- Provides a specialized iterator.
+Provides a specialized iterator.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [st](#member-1)
-- [n](#member-2)
-
-#### Methods
-
-- [public abstract T snext() throws NoSuchElementException;](#member-3)
-- [ref()](#member-4)
-- [hasNext()](#member-5)
-- [next()](#member-6)
-- [remove()](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `st`
+#### `private int st = 0`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `n`
+#### `private T n`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `public abstract T snext() throws NoSuchElementException;`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `ref()`
+#### `public abstract T snext() throws NoSuchElementException`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `hasNext()`
+#### `private void ref()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `next()`
+#### `public boolean hasNext()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `remove()`
+#### `public T next()`
+
+- Description: TODO
+
+#### `public void remove()`
 
 - Description: TODO

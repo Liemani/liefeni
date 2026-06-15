@@ -1,5 +1,7 @@
 # DirLight
 
+This file documents the responsibilities and members of `DirLight`.
+
 ## Meta
 
 - Source: [DirLight.java](../../../src/haven/DirLight.java)
@@ -8,32 +10,36 @@
 
 ## Role
 
-- Represents a directional light source.
+Represents a directional light source.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [dir](#member-1)
-
-#### Methods
-
-- [params(GroupPipe state)](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `dir`
+#### `public float[] dir`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `params(GroupPipe state)`
+#### `public DirLight(FColor col, Coord3f dir)`
+
+- Description: TODO
+
+#### `public DirLight(Color col, Coord3f dir)`
+
+- Description: TODO
+
+#### `public DirLight(FColor amb, FColor dif, FColor spc, Coord3f dir)`
+
+- Description: TODO
+
+#### `public DirLight(Color amb, Color dif, Color spc, Coord3f dir)`
+
+- Description: TODO
+
+#### `public Object[] params(GroupPipe state)`
 
 - Description: TODO

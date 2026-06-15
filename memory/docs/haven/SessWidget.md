@@ -1,5 +1,7 @@
 # SessWidget
 
+This file documents the responsibilities and members of `SessWidget`.
+
 ## Meta
 
 - Source: [SessWidget.java](../../../src/haven/SessWidget.java)
@@ -8,74 +10,62 @@
 
 ## Role
 
-- Represents a widget tied to session state.
+Represents a widget tied to session state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [conn](#member-1)
-- [rep](#member-2)
-- [sess](#member-4)
-- [error](#member-5)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-3)
-- [Result(Session sess, Connection.SessionError error)](#member-6)
-- [tick(double dt)](#member-7)
-- [uimsg(String name, Object... args)](#member-8)
-- [destroy()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `conn`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rep`
+### Result
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sess`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final Defer.Future<Result> conn`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `error`
+#### `private boolean rep = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `create(UI ui, Object[] args)`
+#### `final Session sess`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `Result(Session sess, Connection.SessionError error)`
+#### `final Connection.SessionError error`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `tick(double dt)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `uimsg(String name, Object... args)`
+#### `Result(Session sess, Connection.SessionError error)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `destroy()`
+#### `public SessWidget(final String addr, final int port, Session.User acct, boolean encrypt, final byte[] cookie, final Object... args)`
+
+- Description: TODO
+
+#### `public void tick(double dt)`
+
+- Description: TODO
+
+#### `public void uimsg(String name, Object... args)`
+
+- Description: TODO
+
+#### `public void destroy()`
 
 - Description: TODO

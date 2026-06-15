@@ -1,5 +1,7 @@
 # ProgramContext
 
+This file documents the responsibilities and members of `ProgramContext`.
+
 ## Meta
 
 - Source: [ProgramContext.java](../../../../../src/haven/render/sl/ProgramContext.java)
@@ -8,98 +10,68 @@
 
 ## Role
 
-- Represents shader program context.
+Represents shader program context.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [vctx](#member-1)
-- [fctx](#member-2)
-- [uniforms](#member-3)
-- [attribs](#member-4)
-- [fragdata](#member-5)
-- [symtab](#member-6)
-- [rsymtab](#member-7)
-- [symgen](#member-8)
-- [dump](#member-9)
-- [instanced](#member-10)
-- [mods](#member-11)
-
-#### Methods
-
-- [module(Object mod)](#member-12)
-- [getmod(Class<T> cl)](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `vctx`
+#### `public final VertexContext vctx`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fctx`
+#### `public final FragmentContext fctx`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `uniforms`
+#### `public final Set<Uniform> uniforms = new HashSet<Uniform>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `attribs`
+#### `public final Set<Attribute> attribs = new HashSet<Attribute>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `fragdata`
+#### `public final List<FragData> fragdata = new ArrayList<FragData>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `symtab`
+#### `public final Map<Symbol, String> symtab = new HashMap<Symbol, String>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `rsymtab`
+#### `public final Map<String, Symbol> rsymtab = new HashMap<String, Symbol>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `symgen`
+#### `public int symgen = 1`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `dump`
+#### `public boolean dump = false`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `instanced`
+#### `public boolean instanced = false`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mods`
+#### `private final Collection<Object> mods = new LinkedList<Object>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-12"></a>
-##### `module(Object mod)`
+#### `public ProgramContext()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `getmod(Class<T> cl)`
+#### `public void module(Object mod)`
+
+- Description: TODO
+
+#### `public <T> T getmod(Class<T> cl)`
 
 - Description: TODO

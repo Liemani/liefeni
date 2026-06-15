@@ -1,5 +1,7 @@
 # FragmentContext
 
+This file documents the responsibilities and members of `FragmentContext`.
+
 ## Meta
 
 - Source: [FragmentContext.java](../../../../../src/haven/render/sl/FragmentContext.java)
@@ -8,68 +10,48 @@
 
 ## Role
 
-- Represents fragment shader context.
+Represents fragment shader context.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [main](#member-1)
-- [mainvals](#member-2)
-- [uniform](#member-3)
-- [code](#member-4)
-- [gl_PointCoord](#member-5)
-- [ptc](#member-6)
-
-#### Methods
-
-- [mainmod(Consumer<Block> macro, int order)](#member-7)
-- [construct(java.io.Writer out)](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `main`
+#### `public static final Variable gl_PointCoord = new Variable.Implicit(new Array(Type.VEC4), new Symbol.Fix("gl_PointCoord"))`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `mainvals`
+#### `public static final Expression ptc = gl_PointCoord.ref()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `uniform`
+### Fields
+
+#### `public final Function.Def main = new Function.Def(Type.VOID, new Symbol.Fix("main"))`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `code`
+#### `public final ValBlock mainvals = new ValBlock()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `gl_PointCoord`
+#### `public final ValBlock uniform = new ValBlock()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ptc`
+#### `private final OrderList<Consumer<Block>> code = new OrderList<>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `mainmod(Consumer<Block> macro, int order)`
+#### `public FragmentContext(ProgramContext prog)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `construct(java.io.Writer out)`
+#### `public void mainmod(Consumer<Block> macro, int order)`
+
+- Description: TODO
+
+#### `public void construct(java.io.Writer out)`
 
 - Description: TODO

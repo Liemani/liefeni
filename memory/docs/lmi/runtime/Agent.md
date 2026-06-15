@@ -1,5 +1,7 @@
 # Agent
 
+This file documents the responsibilities and members of `Agent`.
+
 ## Meta
 
 - Source: [Agent.java](../../../../src/lmi/runtime/Agent.java)
@@ -8,128 +10,94 @@
 
 ## Role
 
-- Represents the automation worker and its job execution loop.
+Represents the automation worker and its job execution loop.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [instance](#member-1)
-- [jobRequests](#member-2)
-- [config](#member-3)
-- [context](#member-4)
-- [sleeping](#member-5)
-- [job](#member-15)
-- [args](#member-16)
-- [context](#member-17)
-
-#### Methods
-
-- [getInstance()](#member-6)
-- [pushJob(Job job, String[] args)](#member-7)
-- [enqueueJob(Job job, String[] args)](#member-8)
-- [stopAll()](#member-9)
-- [setSleep(boolean sleep)](#member-10)
-- [isSleeping()](#member-11)
-- [getConfig()](#member-12)
-- [run()](#member-13)
-- [checkDrivesAndInterrupt()](#member-14)
-- [JobRequest(Job job, String[] args, AgentContext context)](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `instance`
+### JobRequest
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `jobRequests`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private static Agent instance`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `config`
+#### `private final Deque<JobRequest> jobRequests = new ArrayDeque<>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `context`
+#### `private final AgentConfig config = new AgentConfig()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sleeping`
+#### `private AgentContext context = null; // Optional tracking`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `job`
+#### `private boolean sleeping = false`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `args`
+#### `private final Job job`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `context`
+#### `private final String[] args`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `getInstance()`
+#### `private final AgentContext context`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `pushJob(Job job, String[] args)`
+### Methods
+
+#### `private Agent()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `enqueueJob(Job job, String[] args)`
+#### `public static synchronized Agent getInstance()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `stopAll()`
+#### `public void pushJob(Job job, String[] args)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `setSleep(boolean sleep)`
+#### `public void enqueueJob(Job job, String[] args)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `isSleeping()`
+#### `public void stopAll()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `getConfig()`
+#### `public void setSleep(boolean sleep)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `run()`
+#### `public boolean isSleeping()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `checkDrivesAndInterrupt()`
+#### `public AgentConfig getConfig()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `JobRequest(Job job, String[] args, AgentContext context)`
+#### `public void run()`
+
+- Description: TODO
+
+#### `private void checkDrivesAndInterrupt()`
+
+- Description: TODO
+
+#### `private JobRequest(Job job, String[] args, AgentContext context)`
 
 - Description: TODO

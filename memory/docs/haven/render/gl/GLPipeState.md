@@ -1,5 +1,7 @@
 # GLPipeState
 
+This file documents the responsibilities and members of `GLPipeState`.
+
 ## Meta
 
 - Source: [GLPipeState.java](../../../../../src/haven/render/gl/GLPipeState.java)
@@ -8,92 +10,64 @@
 
 ## Role
 
-- Represents GL pipe state.
+Represents GL pipe state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [viewport](#member-4)
-- [scissor](#member-5)
-- [facecull](#member-6)
-- [depthtest](#member-7)
-- [maskdepth](#member-8)
-- [linewidth](#member-9)
-- [depthbias](#member-10)
-- [all](#member-11)
-- [matching](#member-12)
-
-#### Methods
-
-- [public abstract void apply(GLEnvironment env, BGL gl, T from, T to);](#member-2)
-- [apply(GLEnvironment env, BGL gl, T to)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final GLPipeState<Viewport> viewport = new GLPipeState<Viewport>(States.viewport)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `viewport`
+#### `public static final GLPipeState<Scissor> scissor = new GLPipeState<Scissor>(States.scissor)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `scissor`
+#### `public static final GLPipeState<Facecull> facecull = new GLPipeState<Facecull>(States.facecull)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `facecull`
+#### `public static final GLPipeState<Depthtest> depthtest = new GLPipeState<Depthtest>(States.depthtest)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `depthtest`
+#### `public static final GLPipeState<State> maskdepth = new GLPipeState<State>(States.maskdepth.slot)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `maskdepth`
+#### `public static final GLPipeState<LineWidth> linewidth = new GLPipeState<LineWidth>(States.linewidth)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `linewidth`
+#### `public static final GLPipeState<DepthBias> depthbias = new GLPipeState<DepthBias>(States.depthbias)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `depthbias`
+#### `public static final GLPipeState<?>[] all =`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `all`
+#### `public static final GLPipeState<?>[] matching`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `matching`
+### Fields
+
+#### `public State.Slot<? extends T> slot`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `public abstract void apply(GLEnvironment env, BGL gl, T from, T to);`
+#### `public abstract void apply(GLEnvironment env, BGL gl, T from, T to)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `apply(GLEnvironment env, BGL gl, T to)`
+#### `public void apply(GLEnvironment env, BGL gl, T to)`
+
+- Description: TODO
+
+#### `public GLPipeState(State.Slot<? extends T> slot)`
 
 - Description: TODO

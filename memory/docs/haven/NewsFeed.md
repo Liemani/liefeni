@@ -1,5 +1,7 @@
 # NewsFeed
 
+This file documents the responsibilities and members of `NewsFeed`.
+
 ## Meta
 
 - Source: [NewsFeed.java](../../../src/haven/NewsFeed.java)
@@ -8,223 +10,166 @@
 
 ## Role
 
-- Displays a news feed.
+Displays a news feed.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [ATOM](#member-3)
-
-#### Fields
-
-- [feed](#member-1)
-- [timefmt](#member-2)
-- [entries](#member-4)
-- [hand](#member-7)
-- [list](#member-8)
-- [entry](#member-9)
-- [size](#member-14)
-- [cpconf](#member-18)
-- [data](#member-19)
-- [contents](#member-25)
-- [unseen](#member-27)
-- [seen](#member-28)
-
-#### Methods
-
-- [items()](#member-5)
-- [makeitem(Entry ent, int idx, Coord sz)](#member-6)
-- [LinkText(int w, NewsFeed list, Entry entry)](#member-10)
-- [text()](#member-11)
-- [getcurs(CursorQuery ev)](#member-12)
-- [mousedown(MouseDownEvent ev)](#member-13)
-- [Display(NewsFeed list, Entry ent)](#member-15)
-- [els(Element el, String ns, String tag)](#member-16)
-- [el(Element el, String ns, String tag)](#member-17)
-- [Entry(Element data)](#member-20)
-- [id()](#member-21)
-- [href()](#member-22)
-- [name()](#member-23)
-- [time()](#member-24)
-- [contents()](#member-26)
-- [Filtered(List<Entry> fetched)](#member-29)
-- [see(Collection<Entry> add)](#member-30)
-- [save()](#member-31)
-- [public static List<Entry> fetch() throws IOException](#member-32)
-- [public static void main(String... args) throws IOException](#member-33)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-3"></a>
-##### `ATOM`
+### Display
 
 - Description: TODO
 
-#### Fields
-
-<a id="member-1"></a>
-##### `feed`
+### Entry
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `timefmt`
+### Filtered
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `entries`
+### LinkText
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `hand`
+## Members
+
+### Constants
+
+#### `public static final Config.Variable<URI> feed = Config.Services.var("newsfeed", "")`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `list`
+#### `public static final DateTimeFormatter timefmt = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `entry`
+#### `public static final String ATOM = "http://www.w3.org/2005/Atom"`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `size`
+#### `public static final Resource hand = Resource.local().loadwait("gfx/hud/curs/hand")`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `cpconf`
+#### `public static final Coord size = UI.scale(300, 35)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `data`
+#### `public static final DocumentBuilderFactory cpconf = DocumentBuilderFactory.newInstance()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `contents`
+### Fields
+
+#### `private final Filtered entries`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `unseen`
+#### `public final NewsFeed list`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `seen`
+#### `public final Entry entry`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `items()`
+#### `public final Element data`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `makeitem(Entry ent, int idx, Coord sz)`
+#### `private DocumentFragment contents = null`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `LinkText(int w, NewsFeed list, Entry entry)`
+#### `public final List<Entry> unseen = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `text()`
+#### `public final List<Entry> seen = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `getcurs(CursorQuery ev)`
+### Methods
+
+#### `public NewsFeed(int h, Filtered entries)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public List<Entry> items()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `Display(NewsFeed list, Entry ent)`
+#### `public Widget makeitem(Entry ent, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `els(Element el, String ns, String tag)`
+#### `public LinkText(int w, NewsFeed list, Entry entry)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `el(Element el, String ns, String tag)`
+#### `public String text()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `Entry(Element data)`
+#### `public boolean getcurs(CursorQuery ev)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `id()`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `href()`
+#### `public Display(NewsFeed list, Entry ent)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `name()`
+#### `public static Iterable<Element> els(Element el, String ns, String tag)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `time()`
+#### `public static Element el(Element el, String ns, String tag)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `contents()`
+#### `public Entry(Element data)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `Filtered(List<Entry> fetched)`
+#### `public String id()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `see(Collection<Entry> add)`
+#### `public URI href()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `save()`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `public static List<Entry> fetch() throws IOException`
+#### `public Instant time()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `public static void main(String... args) throws IOException`
+#### `public DocumentFragment contents()`
+
+- Description: TODO
+
+#### `public Filtered(List<Entry> fetched)`
+
+- Description: TODO
+
+#### `public Filtered see(Collection<Entry> add)`
+
+- Description: TODO
+
+#### `public Filtered save()`
+
+- Description: TODO
+
+#### `public static List<Entry> fetch() throws IOException`
+
+- Description: TODO
+
+#### `public static void main(String... args) throws IOException`
 
 - Description: TODO

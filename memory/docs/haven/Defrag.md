@@ -1,5 +1,7 @@
 # Defrag
 
+This file documents the responsibilities and members of `Defrag`.
+
 ## Meta
 
 - Source: [Defrag.java](../../../src/haven/Defrag.java)
@@ -8,80 +10,56 @@
 
 ## Role
 
-- Provides file or cache defragmentation support.
+Provides file or cache defragmentation support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [blob](#member-1)
-- [len](#member-2)
-- [last](#member-3)
-- [ms1](#member-4)
-- [ms2](#member-5)
-
-#### Methods
-
-- [addm(int m1, int m2)](#member-6)
-- [add(byte[] blob, int boff, int blen, int off)](#member-7)
-- [add(byte[] blob, int off)](#member-8)
-- [done()](#member-9)
-- [msg()](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `blob`
+#### `byte[] blob`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `len`
+#### `int len`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `last`
+#### `long last = 0`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ms1`
+#### `final int[] ms1 = new int[20], ms2 = new int[20]`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `ms2`
+#### `final int[] ms1 = new int[20], ms2 = new int[20]`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `addm(int m1, int m2)`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `add(byte[] blob, int boff, int blen, int off)`
+#### `public Defrag(int len)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `add(byte[] blob, int off)`
+#### `private void addm(int m1, int m2)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `done()`
+#### `public void add(byte[] blob, int boff, int blen, int off)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `msg()`
+#### `public void add(byte[] blob, int off)`
+
+- Description: TODO
+
+#### `public boolean done()`
+
+- Description: TODO
+
+#### `public Message msg()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # SaveEdgeResult
 
+This file documents the responsibilities and members of `SaveEdgeResult`.
+
 ## Meta
 
 - Source: [SaveEdgeResult.java](../../../../../src/lmi/waypoint/model/SaveEdgeResult.java)
@@ -8,74 +10,52 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [saved](#member-1)
-- [edgeId](#member-2)
-- [pointCount](#member-3)
-- [edge](#member-4)
-- [segments](#member-5)
-- [points](#member-6)
-- [errorMessage](#member-7)
-
-#### Methods
-
-- [saved(long edgeId, int pointCount, WpEdge edge, Array<WpSegment> segments, Array<WpPoint> points)](#member-8)
-- [failed(String errorMessage)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `saved`
+#### `public final boolean saved`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `edgeId`
+#### `public final Long edgeId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `pointCount`
+#### `public final Integer pointCount`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `edge`
+#### `public final WpEdge edge`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `segments`
+#### `public final Array<WpSegment> segments`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `points`
+#### `public final Array<WpPoint> points`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `errorMessage`
+#### `public final String errorMessage`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-8"></a>
-##### `saved(long edgeId, int pointCount, WpEdge edge, Array<WpSegment> segments, Array<WpPoint> points)`
+#### `private SaveEdgeResult(boolean saved, Long edgeId, Integer pointCount, WpEdge edge,`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `failed(String errorMessage)`
+#### `public static SaveEdgeResult saved(long edgeId, int pointCount, WpEdge edge, Array<WpSegment> segments, Array<WpPoint> points)`
+
+- Description: TODO
+
+#### `public static SaveEdgeResult failed(String errorMessage)`
 
 - Description: TODO

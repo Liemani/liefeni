@@ -1,5 +1,7 @@
 # Finalizer
 
+This file documents the responsibilities and members of `Finalizer`.
+
 ## Meta
 
 - Source: [Finalizer.java](../../../src/haven/Finalizer.java)
@@ -8,374 +10,290 @@
 
 ## Role
 
-- Handles finalization helpers.
+Handles finalization helpers.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [CHECK_CYCLES](#member-1)
-- [queue](#member-2)
-- [ctx](#member-3)
-- [th](#member-4)
-- [list](#member-5)
-- [n](#member-6)
-- [action](#member-9)
-- [linked](#member-10)
-- [next](#member-11)
-- [prev](#member-12)
-- [groups](#member-21)
-- [refs](#member-24)
-- [id](#member-25)
-- [desc](#member-26)
-- [ref](#member-27)
-- [leaking](#member-38)
-- [desc](#member-39)
-- [fin](#member-40)
-- [cls](#member-41)
-- [create](#member-42)
-- [clean](#member-43)
-- [tgt](#member-51)
-- [ob](#member-55)
-- [clean](#member-56)
-
-#### Methods
-
-- [public void clean();](#member-7)
-- [public String format();](#member-8)
-- [Ref(Object x, Cleaner action)](#member-13)
-- [add()](#member-14)
-- [remove()](#member-15)
-- [run()](#member-16)
-- [clear()](#member-17)
-- [run()](#member-18)
-- [ckrun()](#member-19)
-- [add(Object x, Cleaner action)](#member-20)
-- [get()](#member-22)
-- [finalize(Object x, Cleaner action)](#member-23)
-- [Entry(Ref ref)](#member-28)
-- [equals(Entry that)](#member-29)
-- [equals(Object that)](#member-30)
-- [hashCode()](#member-31)
-- [Snapshot(Finalizer from)](#member-32)
-- [weaken()](#member-33)
-- [summary()](#member-34)
-- [delta(Snapshot prev)](#member-35)
-- [snapshot()](#member-36)
-- [checkcycle(Object ref, Object root)](#member-37)
-- [LeakCheck(Object guarded, String desc)](#member-44)
-- [LeakCheck(Object guarded)](#member-45)
-- [clean()](#member-46)
-- [dispose()](#member-47)
-- [format()](#member-48)
-- [leakcheck(Object guarded, String desc)](#member-49)
-- [leakcheck(Object guarded)](#member-50)
-- [Disposer(Disposable tgt)](#member-52)
-- [clean()](#member-53)
-- [format()](#member-54)
-- [Reference(T ob)](#member-57)
-- [get()](#member-58)
-- [dispose()](#member-59)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `CHECK_CYCLES`
+### Cleaner
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `queue`
+### Disposer
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ctx`
+### Entry
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `th`
+### Formattable
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `list`
+### LeakCheck
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `n`
+### Ref
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `action`
+### Reference
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `linked`
+### Snapshot
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `next`
+## Members
+
+### Constants
+
+#### `private static final Map<ThreadGroup, Finalizer> groups = new WeakHashMap<>()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `prev`
+### Fields
+
+#### `private static boolean CHECK_CYCLES = false`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `groups`
+#### `private final ReferenceQueue<Object> queue = new ReferenceQueue<>()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `refs`
+#### `private Function<Runnable, Thread> ctx`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `id`
+#### `private Thread th`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `desc`
+#### `private Ref list`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `ref`
+#### `private int n`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `leaking`
+#### `final Cleaner action`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `desc`
+#### `boolean linked`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `fin`
+#### `Ref next, prev`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `cls`
+#### `Ref next, prev`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `create`
+#### `private final Collection<Entry> refs`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `clean`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `tgt`
+#### `public final String desc`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `ob`
+#### `private Ref ref`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `clean`
+#### `private static boolean leaking = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `public void clean();`
+#### `public final String desc`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `public String format();`
+#### `private final Runnable fin`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `Ref(Object x, Cleaner action)`
+#### `private final Class<?> cls`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `add()`
+#### `private final Throwable create`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `remove()`
+#### `private boolean clean = false`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `run()`
+#### `public final Disposable tgt`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `clear()`
+#### `public final T ob`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `run()`
+#### `private final Runnable clean`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `ckrun()`
+### Methods
+
+#### `public Finalizer(Function<Runnable, Thread> ctx)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `add(Object x, Cleaner action)`
+#### `public Finalizer()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `get()`
+#### `public void clean()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `finalize(Object x, Cleaner action)`
+#### `public String format()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `Entry(Ref ref)`
+#### `Ref(Object x, Cleaner action)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `equals(Entry that)`
+#### `private void add()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `equals(Object that)`
+#### `private void remove()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `hashCode()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `Snapshot(Finalizer from)`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `weaken()`
+#### `private void run()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `summary()`
+#### `private void ckrun()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `delta(Snapshot prev)`
+#### `public Runnable add(Object x, Cleaner action)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `snapshot()`
+#### `public static Finalizer get()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `checkcycle(Object ref, Object root)`
+#### `public static Runnable finalize(Object x, Cleaner action)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `LeakCheck(Object guarded, String desc)`
+#### `private Entry(Ref ref)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `LeakCheck(Object guarded)`
+#### `public boolean equals(Entry that)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `clean()`
+#### `public boolean equals(Object that)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `dispose()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `format()`
+#### `private Snapshot(Finalizer from)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `leakcheck(Object guarded, String desc)`
+#### `public Snapshot weaken()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `leakcheck(Object guarded)`
+#### `public String summary()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `Disposer(Disposable tgt)`
+#### `public String delta(Snapshot prev)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `clean()`
+#### `public Snapshot snapshot()`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `format()`
+#### `private static void checkcycle(Object ref, Object root)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `Reference(T ob)`
+#### `public LeakCheck(Object guarded, String desc)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `get()`
+#### `public LeakCheck(Object guarded)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `dispose()`
+#### `public void clean()`
+
+- Description: TODO
+
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public String format()`
+
+- Description: TODO
+
+#### `public static Disposable leakcheck(Object guarded, String desc)`
+
+- Description: TODO
+
+#### `public static Disposable leakcheck(Object guarded)`
+
+- Description: TODO
+
+#### `public Disposer(Disposable tgt)`
+
+- Description: TODO
+
+#### `public void clean()`
+
+- Description: TODO
+
+#### `public String format()`
+
+- Description: TODO
+
+#### `public Reference(T ob)`
+
+- Description: TODO
+
+#### `public T get()`
+
+- Description: TODO
+
+#### `public void dispose()`
 
 - Description: TODO

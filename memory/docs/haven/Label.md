@@ -1,5 +1,7 @@
 # Label
 
+This file documents the responsibilities and members of `Label`.
+
 ## Meta
 
 - Source: [Label.java](../../../src/haven/Label.java)
@@ -8,80 +10,74 @@
 
 ## Role
 
-- Displays a text label widget.
+Displays a text label widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [f](#member-1)
-- [text](#member-2)
-- [texts](#member-3)
-- [col](#member-4)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-5)
-- [draw(GOut g)](#member-6)
-- [settext(String text)](#member-7)
-- [setcolor(Color color)](#member-8)
-- [dispose()](#member-9)
-- [uimsg(String msg, Object... args)](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `f`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `text`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Text.Foundry f`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `texts`
+#### `public Text text`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `col`
+#### `public String texts`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `create(UI ui, Object[] args)`
+#### `public Color col = Color.WHITE`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `settext(String text)`
+#### `public Label(String text, int w, Text.Foundry f)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `setcolor(Color color)`
+#### `public Label(String text, Text.Foundry f)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `dispose()`
+#### `public Label(String text, int w)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public Label(String text)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public void settext(String text)`
+
+- Description: TODO
+
+#### `public void setcolor(Color color)`
+
+- Description: TODO
+
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO

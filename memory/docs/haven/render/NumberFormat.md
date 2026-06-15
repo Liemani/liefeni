@@ -1,5 +1,7 @@
 # NumberFormat
 
+This file documents the responsibilities and members of `NumberFormat`.
+
 ## Meta
 
 - Source: [NumberFormat.java](../../../../src/haven/render/NumberFormat.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Represents number formatting support.
+Represents number formatting support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [size](#member-1)
+#### `public final int size`
 
-### Member Reference
+- Description: TODO
 
-#### Fields
+### Methods
 
-<a id="member-1"></a>
-##### `size`
+#### `NumberFormat(int size)`
 
 - Description: TODO

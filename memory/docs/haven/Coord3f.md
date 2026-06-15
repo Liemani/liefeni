@@ -1,5 +1,7 @@
 # Coord3f
 
+This file documents the responsibilities and members of `Coord3f`.
+
 ## Meta
 
 - Source: [Coord3f.java](../../../src/haven/Coord3f.java)
@@ -8,260 +10,184 @@
 
 ## Role
 
-- Provides 3D floating-point coordinates.
+Provides 3D floating-point coordinates.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [x](#member-1)
-- [y](#member-2)
-- [z](#member-3)
-- [o](#member-4)
-- [xu](#member-5)
-- [yu](#member-6)
-- [zu](#member-7)
-
-#### Methods
-
-- [of(float x, float y, float z)](#member-8)
-- [of(Coord3f c)](#member-9)
-- [of(HomoCoord4f c)](#member-10)
-- [of(Coord c)](#member-11)
-- [equals(Coord3f o)](#member-12)
-- [equals(Object o)](#member-13)
-- [add(float ax, float ay, float az)](#member-14)
-- [add(Coord3f b)](#member-15)
-- [sadd(float e, float a, float r)](#member-16)
-- [neg()](#member-17)
-- [sub(float ax, float ay, float az)](#member-18)
-- [sub(Coord3f b)](#member-19)
-- [mul(float f)](#member-20)
-- [mul(float X, float Y, float Z)](#member-21)
-- [mul(Coord3f b)](#member-22)
-- [div(float f)](#member-23)
-- [div(float X, float Y, float Z)](#member-24)
-- [div(Coord3f b)](#member-25)
-- [inv()](#member-26)
-- [invy()](#member-27)
-- [dmul(float X, float Y, float Z)](#member-28)
-- [dmul(Coord3f b)](#member-29)
-- [cmul(float X, float Y, float Z)](#member-30)
-- [cmul(Coord3f b)](#member-31)
-- [rot(Coord3f p, float a)](#member-32)
-- [abs()](#member-33)
-- [norm()](#member-34)
-- [dist(Coord3f o)](#member-35)
-- [xyangle(Coord3f o)](#member-36)
-- [to3a()](#member-37)
-- [to4a(float w)](#member-38)
-- [round2()](#member-39)
-- [toString()](#member-40)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `x`
+#### `public float x, y, z`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `y`
+#### `public float x, y, z`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `z`
+#### `public float x, y, z`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `o`
+#### `public static Coord3f o = new Coord3f(0, 0, 0)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `xu`
+#### `public static Coord3f xu = of(1, 0, 0)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `yu`
+#### `public static Coord3f yu = of(0, 1, 0)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `zu`
+#### `public static Coord3f zu = of(0, 0, 1)`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-8"></a>
-##### `of(float x, float y, float z)`
-
-- Description: TODO
-
-<a id="member-9"></a>
-##### `of(Coord3f c)`
+#### `public Coord3f(float x, float y, float z)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `of(HomoCoord4f c)`
+#### `public Coord3f(Coord3f c)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `of(Coord c)`
+#### `public Coord3f(Coord c)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `equals(Coord3f o)`
+#### `public static Coord3f of(float x, float y, float z)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `equals(Object o)`
+#### `public static Coord3f of(Coord3f c)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `add(float ax, float ay, float az)`
+#### `public static Coord3f of(HomoCoord4f c)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `add(Coord3f b)`
+#### `public static Coord3f of(Coord c)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `sadd(float e, float a, float r)`
+#### `public boolean equals(Coord3f o)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `neg()`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `sub(float ax, float ay, float az)`
+#### `public Coord3f add(float ax, float ay, float az)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `sub(Coord3f b)`
+#### `public Coord3f add(Coord3f b)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `mul(float f)`
+#### `public Coord3f sadd(float e, float a, float r)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `mul(float X, float Y, float Z)`
+#### `public Coord3f neg()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `mul(Coord3f b)`
+#### `public Coord3f sub(float ax, float ay, float az)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `div(float f)`
+#### `public Coord3f sub(Coord3f b)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `div(float X, float Y, float Z)`
+#### `public Coord3f mul(float f)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `div(Coord3f b)`
+#### `public Coord3f mul(float X, float Y, float Z)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `inv()`
+#### `public Coord3f mul(Coord3f b)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `invy()`
+#### `public Coord3f div(float f)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `dmul(float X, float Y, float Z)`
+#### `public Coord3f div(float X, float Y, float Z)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `dmul(Coord3f b)`
+#### `public Coord3f div(Coord3f b)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `cmul(float X, float Y, float Z)`
+#### `public Coord3f inv()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `cmul(Coord3f b)`
+#### `public Coord3f invy()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `rot(Coord3f p, float a)`
+#### `public float dmul(float X, float Y, float Z)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `abs()`
+#### `public float dmul(Coord3f b)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `norm()`
+#### `public Coord3f cmul(float X, float Y, float Z)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `dist(Coord3f o)`
+#### `public Coord3f cmul(Coord3f b)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `xyangle(Coord3f o)`
+#### `public Coord3f rot(Coord3f p, float a)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `to3a()`
+#### `public float abs()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `to4a(float w)`
+#### `public Coord3f norm()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `round2()`
+#### `public float dist(Coord3f o)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `toString()`
+#### `public float xyangle(Coord3f o)`
+
+- Description: TODO
+
+#### `public float[] to3a()`
+
+- Description: TODO
+
+#### `public float[] to4a(float w)`
+
+- Description: TODO
+
+#### `public Coord round2()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

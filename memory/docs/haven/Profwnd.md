@@ -1,5 +1,7 @@
 # Profwnd
 
+This file documents the responsibilities and members of `Profwnd`.
+
 ## Meta
 
 - Source: [Profwnd.java](../../../src/haven/Profwnd.java)
@@ -8,50 +10,40 @@
 
 ## Role
 
-- Displays a profiling window.
+Displays a profiling window.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [prof](#member-1)
-- [live](#member-2)
-
-#### Methods
-
-- [reqclose()](#member-3)
-- [capture()](#member-4)
-- [keydown(KeyDownEvent ev)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `prof`
+#### `private final Profile prof`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `live`
+#### `private final boolean live`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `reqclose()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `capture()`
+#### `public Profwnd(Profile prof, String title, boolean live)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public Profwnd(Profile prof, String title)`
+
+- Description: TODO
+
+#### `public void reqclose()`
+
+- Description: TODO
+
+#### `private void capture()`
+
+- Description: TODO
+
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO

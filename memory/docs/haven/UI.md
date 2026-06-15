@@ -1,5 +1,7 @@
 # UI
 
+This file documents the responsibilities and members of `UI`.
+
 ## Meta
 
 - Source: [UI.java](../../../src/haven/UI.java)
@@ -8,1352 +10,998 @@
 
 ## Role
 
-- Coordinates the client UI event loop.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [MOD_SHIFT](#member-1)
-- [MOD_CTRL](#member-2)
-- [MOD_META](#member-3)
-- [MOD_SUPER](#member-4)
-- [root](#member-5)
-- [grabs](#member-6)
-- [widgets](#member-7)
-- [rwidgets](#member-8)
-- [env](#member-9)
-- [rcvr](#member-10)
-- [mc](#member-11)
-- [lcc](#member-12)
-- [sess](#member-13)
-- [modshift](#member-14)
-- [modctrl](#member-15)
-- [modmeta](#member-16)
-- [modsuper](#member-17)
-- [lasttip](#member-18)
-- [lastevent](#member-19)
-- [lasttick](#member-20)
-- [mouseon](#member-21)
-- [cons](#member-22)
-- [afterdraws](#member-23)
-- [uictx](#member-24)
-- [gprefs](#member-25)
-- [gprefsdirty](#member-26)
-- [audio](#member-27)
-- [loader](#member-28)
-- [queue](#member-29)
-- [scalef](#member-30)
-- [back](#member-35)
-- [mname](#member-45)
-- [args](#member-46)
-- [mname](#member-49)
-- [args](#member-50)
-- [nextid](#member-52)
-- [id](#member-53)
-- [deps](#member-54)
-- [bars](#member-55)
-- [next](#member-56)
-- [wait](#member-57)
-- [action](#member-58)
-- [cmd](#member-63)
-- [cmdjitter](#member-66)
-- [cmddump](#member-67)
-- [score](#member-68)
-- [inflight](#member-69)
-- [or_deps](#member-84)
-- [or_bars](#member-85)
-- [id](#member-87)
-- [typenm](#member-88)
-- [cargs](#member-89)
-- [type](#member-90)
-- [wdg](#member-93)
-- [shadowchildren](#member-98)
-- [shadowparents](#member-99)
-- [id](#member-100)
-- [parent](#member-101)
-- [pargs](#member-102)
-- [owner](#member-110)
-- [etype](#member-111)
-- [handler](#member-112)
-- [wdg](#member-117)
-- [wdg](#member-120)
-- [bk](#member-121)
-- [id](#member-131)
-- [id](#member-137)
-- [msg](#member-138)
-- [args](#member-139)
-- [nosfx](#member-153)
-- [msg](#member-154)
-- [color](#member-155)
-- [sfx](#member-156)
-- [color](#member-164)
-- [sfx](#member-165)
-- [sfx](#member-169)
-- [msg](#member-173)
-- [prevtt](#member-192)
-- [lastmsgsfx](#member-201)
-- [maxscale](#member-219)
-- [uiscale](#member-221)
-
-#### Methods
-
-- [public void rcvmsg(int widget, String msg, Object... args);](#member-31)
-- [public Runner run(UI ui) throws InterruptedException;](#member-32)
-- [init(UI ui)](#member-33)
-- [title()](#member-34)
-- [Proxy(Runner back)](#member-36)
-- [public Runner run(UI ui) throws InterruptedException](#member-37)
-- [init(UI ui)](#member-38)
-- [title()](#member-39)
-- [void setmousepos(Coord c);](#member-40)
-- [public void draw(GOut g);](#member-41)
-- [setgprefs(GSettings prefs)](#member-42)
-- [findcmds(Map<String, Command> map, Widget wdg)](#member-43)
-- [findcmds()](#member-44)
-- [UIException(String message, String mname, Object... args)](#member-47)
-- [printStackTrace(java.io.PrintStream out)](#member-48)
-- [UIWarning(String message, String mname, Object... args)](#member-51)
-- [Command(Runnable action)](#member-59)
-- [dep(int id, boolean bar)](#member-60)
-- [fl(String id, Collection<?> l)](#member-61)
-- [toString()](#member-62)
-- [CommandException(Command cmd, Throwable cause)](#member-64)
-- [getMessage()](#member-65)
-- [CommandQueue()](#member-70)
-- [run(Command cmd)](#member-71)
-- [execute(Command cmd)](#member-72)
-- [submit(Command cmd)](#member-73)
-- [finish(Command cmd)](#member-74)
-- [drain()](#member-75)
-- [setreceiver(Receiver rcvr)](#member-76)
-- [bind(Widget w, int id)](#member-77)
-- [getwidget(int id)](#member-78)
-- [widgetid(Widget wdg)](#member-79)
-- [drawafter(AfterDraw ad)](#member-80)
-- [tick()](#member-81)
-- [gtick(Render out)](#member-82)
-- [draw(GOut g)](#member-83)
-- [submitcmd(Command cmd)](#member-86)
-- [NewWidget(int id, Widget.Factory type, Object... cargs)](#member-91)
-- [NewWidget(int id, String type, Object... cargs)](#member-92)
-- [run()](#member-94)
-- [toString()](#member-95)
-- [newwidget(int id, Widget.Factory type, Object... cargs)](#member-96)
-- [public void newwidget(int id, String type, Object... cargs) throws InterruptedException](#member-97)
-- [AddWidget(int id, int parent, Object... pargs)](#member-103)
-- [run()](#member-104)
-- [toString()](#member-105)
-- [addwidget(int id, int parent, Object... pargs)](#member-106)
-- [wdgbarrier(Collection<Integer> deps, Collection<Integer> bars)](#member-107)
-- [newwidgetp(int id, Widget.Factory type, int parent, Object[] pargs, Object... cargs)](#member-108)
-- [public void newwidgetp(int id, String type, int parent, Object[] pargs, Object... cargs) throws InterruptedException](#member-109)
-- [Grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)](#member-113)
-- [remove()](#member-114)
-- [check(Event ev)](#member-115)
-- [grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)](#member-116)
-- [WidgetGrab(Widget wdg)](#member-118)
-- [handle(Event ev)](#member-119)
-- [PointerGrab(Widget wdg, EventHandler<? super E> bk)](#member-122)
-- [handle(E ev)](#member-123)
-- [grabmouse(Widget wdg)](#member-124)
-- [grabkeys(Widget wdg)](#member-125)
-- [removeid(Widget wdg)](#member-126)
-- [removed(Widget wdg)](#member-127)
-- [destroy(Widget wdg)](#member-128)
-- [dispatch(Widget to, Event ev)](#member-129)
-- [dispatchq(Widget to, E ev)](#member-130)
-- [DstWidget(int id)](#member-132)
-- [run()](#member-133)
-- [toString()](#member-134)
-- [destroy(int id)](#member-135)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-136)
-- [UiMessage(int id, String msg, Object[] args)](#member-140)
-- [run()](#member-141)
-- [toString()](#member-142)
-- [uimsg(int id, String msg, Object... args)](#member-143)
-- [public String message();](#member-144)
-- [color()](#member-145)
-- [sfx()](#member-146)
-- [handle(Widget w)](#member-147)
-- [handler(Widget w)](#member-148)
-- [msg(Notice msg)](#member-149)
-- [msg(NoticeEvent ev)](#member-150)
-- [FactMaker()](#member-151)
-- [public Notice format(OwnerContext owner, Object... args);](#member-152)
-- [SimpleMessage(String msg, Color color, Audio.Clip sfx)](#member-157)
-- [SimpleMessage(String msg)](#member-158)
-- [message()](#member-159)
-- [color()](#member-160)
-- [sfx()](#member-161)
-- [defcolor()](#member-162)
-- [defsfx()](#member-163)
-- [ErrorMessage(String msg)](#member-166)
-- [defcolor()](#member-167)
-- [defsfx()](#member-168)
-- [InfoMessage(String msg)](#member-170)
-- [InfoMessage(String msg, Color color, Audio.Clip sfx)](#member-171)
-- [defsfx()](#member-172)
-- [NoticeEvent(Notice msg)](#member-174)
-- [propagation(Widget from)](#member-175)
-- [shandle(Widget w)](#member-176)
-- [msg(Notice msg)](#member-177)
-- [msg(String msg, Color color, Audio.Clip sfx)](#member-178)
-- [error(String msg)](#member-179)
-- [msg(String msg)](#member-180)
-- [setmods(InputEvent ev)](#member-181)
-- [c(Collection<Grab> g)](#member-182)
-- [keydown(KeyEvent ev)](#member-183)
-- [keyup(KeyEvent ev)](#member-184)
-- [mousedown(MouseEvent ev, Coord c, int button)](#member-185)
-- [mouseup(MouseEvent ev, Coord c, int button)](#member-186)
-- [mousemove(MouseEvent ev, Coord c)](#member-187)
-- [mousehover(Coord c)](#member-188)
-- [setmousepos(Coord c)](#member-189)
-- [mousewheel(MouseEvent ev, Coord c, int ia, double sa)](#member-190)
-- [getcurs(Coord c)](#member-191)
-- [tooltip(Coord c)](#member-193)
-- [modflags(InputEvent ev)](#member-194)
-- [modflags()](#member-195)
-- [getenv()](#member-196)
-- [destroy()](#member-197)
-- [sfx(Audio.CS clip)](#member-198)
-- [sfx(Audio.Clip clip)](#member-199)
-- [sfx(Resource clip)](#member-200)
-- [sfxrl(Audio.Clip clip)](#member-202)
-- [pool()](#member-203)
-- [scale(double v)](#member-204)
-- [scale(float v)](#member-205)
-- [scale(int v)](#member-206)
-- [rscale(double v)](#member-207)
-- [scale(Coord v)](#member-208)
-- [scale(int x, int y)](#member-209)
-- [rscale(double x, double y)](#member-210)
-- [scale(Coord2d v)](#member-211)
-- [scale(Font f, float size)](#member-212)
-- [scale(T tex)](#member-213)
-- [scale(ScaledTex<T> tex)](#member-214)
-- [unscale(double v)](#member-215)
-- [unscale(float v)](#member-216)
-- [unscale(int v)](#member-217)
-- [unscale(Coord v)](#member-218)
-- [maxscale()](#member-220)
-- [loadscale()](#member-222)
+Coordinates the client UI event loop.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### AddWidget
 
-<a id="member-1"></a>
-##### `MOD_SHIFT`
+- Description: TODO
+
+### AfterDraw
+
+- Description: TODO
+
+### Command
+
+- Description: TODO
+
+### CommandException
+
+- Description: TODO
+
+### CommandQueue
+
+- Description: TODO
+
+### Context
+
+- Description: TODO
+
+### Cursor
+
+- Description: TODO
+
+### DstWidget
+
+- Description: TODO
+
+### ErrorMessage
+
+- Description: TODO
+
+### Grab
+
+- Description: TODO
+
+### InfoMessage
+
+- Description: TODO
+
+### NewWidget
+
+- Description: TODO
+
+### Notice
+
+- Description: TODO
 
+### NoticeEvent
+
+- Description: TODO
+
+### PointerGrab
+
+- Description: TODO
+
+### Receiver
+
+- Description: TODO
+
+### Runner
+
+- Description: TODO
+
+### SimpleMessage
+
+- Description: TODO
+
+### UIException
+
+- Description: TODO
+
+### UIWarning
+
+- Description: TODO
+
+### UiMessage
+
+- Description: TODO
+
+### WidgetConsole
+
+- Description: TODO
+
+### WidgetGrab
+
+- Description: TODO
+
+## Members
+
+### Constants
+
+#### `private static final double scalef`
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `MOD_CTRL`
+#### `private static final java.util.concurrent.atomic.AtomicInteger nextid = new java.util.concurrent.atomic.AtomicInteger(0)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `MOD_META`
+#### `private static final boolean cmdjitter = false`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `MOD_SUPER`
+#### `private static final boolean cmddump = false`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `root`
+#### `public static final Audio.Clip nosfx = () -> null`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `grabs`
+#### `public static final Color color = new Color(192, 0, 0)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `widgets`
+#### `public static final Audio.Clip sfx = Audio.resclip(Resource.local().loadwait("sfx/error"))`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `rwidgets`
+#### `public static final Audio.Clip sfx = Audio.resclip(Resource.local().loadwait("sfx/msg"))`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `env`
+#### `public static final Config.Variable<Double> uiscale = Config.Variable.propf("haven.uiscale", null)`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-10"></a>
-##### `rcvr`
+#### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mc`
+#### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `lcc`
+#### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `sess`
+#### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `modshift`
+#### `public RootWidget root`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `modctrl`
+#### `private final List<Grab> grabs = new CopyOnWriteArrayList<Grab>()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `modmeta`
+#### `private final Map<Integer, Widget> widgets = new TreeMap<Integer, Widget>()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `modsuper`
+#### `private final Map<Widget, Integer> rwidgets = new HashMap<Widget, Integer>()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `lasttip`
+#### `Environment env`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `lastevent`
+#### `Receiver rcvr`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `lasttick`
+#### `public Coord mc = Coord.z, lcc = Coord.z`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `mouseon`
+#### `public Coord mc = Coord.z, lcc = Coord.z`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `cons`
+#### `public Session sess`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `afterdraws`
+#### `public boolean modshift, modctrl, modmeta, modsuper`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `uictx`
+#### `public boolean modshift, modctrl, modmeta, modsuper`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `gprefs`
+#### `public boolean modshift, modctrl, modmeta, modsuper`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `gprefsdirty`
+#### `public boolean modshift, modctrl, modmeta, modsuper`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `audio`
+#### `public Object lasttip`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `loader`
+#### `public double lastevent, lasttick`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `queue`
+#### `public double lastevent, lasttick`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `scalef`
+#### `public Widget mouseon`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `back`
+#### `public Console cons = new WidgetConsole()`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `mname`
+#### `private Collection<AfterDraw> afterdraws = new LinkedList<AfterDraw>()`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `args`
+#### `private final Context uictx`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `mname`
+#### `public GSettings gprefs = GSettings.load(true)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `args`
+#### `private boolean gprefsdirty = false`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `nextid`
+#### `public final ActAudio.Root audio = new ActAudio.Root()`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `id`
+#### `public final Loader loader`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `deps`
+#### `public final CommandQueue queue = new CommandQueue()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `bars`
+#### `public final Runner back`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `next`
+#### `public String mname`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `wait`
+#### `public Object[] args`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `action`
+#### `public String mname`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `cmd`
+#### `public Object[] args`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `cmdjitter`
+#### `public final int id = nextid.getAndIncrement()`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `cmddump`
+#### `public final Collection<Integer> deps = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `score`
+#### `public final Collection<Integer> bars = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `inflight`
+#### `public final Collection<Command> next = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `or_deps`
+#### `public final Collection<Command> wait = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `or_bars`
+#### `public final Runnable action`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `id`
+#### `public final Command cmd`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `typenm`
+#### `private final Map<Integer, Command> score = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `cargs`
+#### `private int inflight = 0`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `type`
+#### `private Collection<Integer> or_deps = null, or_bars = null`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `wdg`
+#### `private Collection<Integer> or_deps = null, or_bars = null`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `shadowchildren`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `shadowparents`
+#### `public final String typenm`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `id`
+#### `public final Object[] cargs`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `parent`
+#### `private transient Widget.Factory type`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `pargs`
+#### `private transient Widget wdg = null`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `owner`
+#### `private final MultiMap<Integer, Integer> shadowchildren = new HashMultiMap<>()`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `etype`
+#### `private final Map<Integer, Integer> shadowparents = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `handler`
+#### `public final int id, parent`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `wdg`
+#### `public final int id, parent`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `wdg`
+#### `public final Object[] pargs`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `bk`
+#### `public final Widget owner`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `id`
+#### `public final Class<E> etype`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `id`
+#### `public final EventHandler<? super E> handler`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `msg`
+#### `public final Widget wdg`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `args`
+#### `public final Widget wdg`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `nosfx`
+#### `public final EventHandler<? super E> bk`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `msg`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `color`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `sfx`
+#### `public final String msg`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `color`
+#### `public final Object[] args`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `sfx`
+#### `public String msg`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `sfx`
+#### `public Color color`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `msg`
+#### `public Audio.Clip sfx`
 
 - Description: TODO
 
-<a id="member-192"></a>
-##### `prevtt`
+#### `public final Notice msg`
 
 - Description: TODO
 
-<a id="member-201"></a>
-##### `lastmsgsfx`
+#### `private Widget prevtt = null`
 
 - Description: TODO
 
-<a id="member-219"></a>
-##### `maxscale`
+#### `public final Map<Audio.Clip, Double> lastmsgsfx = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-221"></a>
-##### `uiscale`
+#### `private static double maxscale = -1`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public void rcvmsg(int widget, String msg, Object... args)`
+
+- Description: TODO
 
-<a id="member-31"></a>
-##### `public void rcvmsg(int widget, String msg, Object... args);`
+#### `public Runner run(UI ui) throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `public Runner run(UI ui) throws InterruptedException;`
+#### `public default void init(UI ui)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `init(UI ui)`
+#### `public default String title()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `title()`
+#### `public Proxy(Runner back)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `Proxy(Runner back)`
+#### `public Runner run(UI ui) throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `public Runner run(UI ui) throws InterruptedException`
+#### `public void init(UI ui)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `init(UI ui)`
+#### `public String title()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `title()`
+#### `void setmousepos(Coord c)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `void setmousepos(Coord c);`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `public void draw(GOut g);`
+#### `public void setgprefs(GSettings prefs)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `setgprefs(GSettings prefs)`
+#### `private void findcmds(Map<String, Command> map, Widget wdg)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `findcmds(Map<String, Command> map, Widget wdg)`
+#### `public Map<String, Command> findcmds()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `findcmds()`
+#### `public UIException(String message, String mname, Object... args)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `UIException(String message, String mname, Object... args)`
+#### `public void printStackTrace(java.io.PrintStream out)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `printStackTrace(java.io.PrintStream out)`
+#### `public UIWarning(String message, String mname, Object... args)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `UIWarning(String message, String mname, Object... args)`
+#### `public UI(Context uictx, Coord sz, Runner fun)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `Command(Runnable action)`
+#### `public Command(Runnable action)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `dep(int id, boolean bar)`
+#### `public Command dep(int id, boolean bar)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `fl(String id, Collection<?> l)`
+#### `private String fl(String id, Collection<?> l)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `CommandException(Command cmd, Throwable cause)`
+#### `public CommandException(Command cmd, Throwable cause)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `getMessage()`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `CommandQueue()`
+#### `private CommandQueue()`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `run(Command cmd)`
+#### `private void run(Command cmd)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `execute(Command cmd)`
+#### `private void execute(Command cmd)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `submit(Command cmd)`
+#### `public void submit(Command cmd)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `finish(Command cmd)`
+#### `public void finish(Command cmd)`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `drain()`
+#### `public void drain()`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `setreceiver(Receiver rcvr)`
+#### `public void setreceiver(Receiver rcvr)`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `bind(Widget w, int id)`
+#### `public void bind(Widget w, int id)`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `getwidget(int id)`
+#### `public Widget getwidget(int id)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `widgetid(Widget wdg)`
+#### `public int widgetid(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `drawafter(AfterDraw ad)`
+#### `public void drawafter(AfterDraw ad)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `tick()`
+#### `public void tick()`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `gtick(Render out)`
+#### `public void gtick(Render out)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `submitcmd(Command cmd)`
+#### `private void submitcmd(Command cmd)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `NewWidget(int id, Widget.Factory type, Object... cargs)`
+#### `private NewWidget(int id, Widget.Factory type, Object... cargs)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `NewWidget(int id, String type, Object... cargs)`
+#### `private NewWidget(int id, String type, Object... cargs)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `run()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `newwidget(int id, Widget.Factory type, Object... cargs)`
+#### `public void newwidget(int id, Widget.Factory type, Object... cargs)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `public void newwidget(int id, String type, Object... cargs) throws InterruptedException`
+#### `public void newwidget(int id, String type, Object... cargs) throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `AddWidget(int id, int parent, Object... pargs)`
+#### `private AddWidget(int id, int parent, Object... pargs)`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `run()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `addwidget(int id, int parent, Object... pargs)`
+#### `public void addwidget(int id, int parent, Object... pargs)`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `wdgbarrier(Collection<Integer> deps, Collection<Integer> bars)`
+#### `public void wdgbarrier(Collection<Integer> deps, Collection<Integer> bars)`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `newwidgetp(int id, Widget.Factory type, int parent, Object[] pargs, Object... cargs)`
+#### `public void newwidgetp(int id, Widget.Factory type, int parent, Object[] pargs, Object... cargs)`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `public void newwidgetp(int id, String type, int parent, Object[] pargs, Object... cargs) throws InterruptedException`
+#### `public void newwidgetp(int id, String type, int parent, Object[] pargs, Object... cargs) throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `Grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)`
+#### `private Grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `remove()`
+#### `public void remove()`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `check(Event ev)`
+#### `private boolean check(Event ev)`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)`
+#### `public <E extends Event> Grab<E> grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `WidgetGrab(Widget wdg)`
+#### `public WidgetGrab(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `handle(Event ev)`
+#### `public boolean handle(Event ev)`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `PointerGrab(Widget wdg, EventHandler<? super E> bk)`
+#### `public PointerGrab(Widget wdg, EventHandler<? super E> bk)`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `handle(E ev)`
+#### `public boolean handle(E ev)`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `grabmouse(Widget wdg)`
+#### `public Grab grabmouse(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `grabkeys(Widget wdg)`
+#### `public Grab grabkeys(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `removeid(Widget wdg)`
+#### `private void removeid(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `removed(Widget wdg)`
+#### `public void removed(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `destroy(Widget wdg)`
+#### `public void destroy(Widget wdg)`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `dispatch(Widget to, Event ev)`
+#### `public boolean dispatch(Widget to, Event ev)`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `dispatchq(Widget to, E ev)`
+#### `public <E extends Event> E dispatchq(Widget to, E ev)`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `DstWidget(int id)`
+#### `private DstWidget(int id)`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `run()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `destroy(int id)`
+#### `public void destroy(int id)`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `UiMessage(int id, String msg, Object[] args)`
+#### `private UiMessage(int id, String msg, Object[] args)`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `run()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `uimsg(int id, String msg, Object... args)`
+#### `public void uimsg(int id, String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `public String message();`
+#### `public String message()`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `color()`
+#### `public default Color color()`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `sfx()`
+#### `public default Audio.Clip sfx()`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `handle(Widget w)`
+#### `public default boolean handle(Widget w)`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `handler(Widget w)`
+#### `public default boolean handler(Widget w)`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `msg(Notice msg)`
+#### `public default boolean msg(Notice msg)`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `msg(NoticeEvent ev)`
+#### `public default boolean msg(NoticeEvent ev)`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `FactMaker()`
+#### `public FactMaker()`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `public Notice format(OwnerContext owner, Object... args);`
+#### `public Notice format(OwnerContext owner, Object... args)`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `SimpleMessage(String msg, Color color, Audio.Clip sfx)`
+#### `public SimpleMessage(String msg, Color color, Audio.Clip sfx)`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `SimpleMessage(String msg)`
+#### `public SimpleMessage(String msg)`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `message()`
+#### `public String message()`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `color()`
+#### `public Color color()`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `sfx()`
+#### `public Audio.Clip sfx()`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `defcolor()`
+#### `protected Color defcolor()`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `defsfx()`
+#### `protected Audio.Clip defsfx()`
 
 - Description: TODO
 
-<a id="member-166"></a>
-##### `ErrorMessage(String msg)`
+#### `public ErrorMessage(String msg)`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `defcolor()`
+#### `protected Color defcolor()`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `defsfx()`
+#### `protected Audio.Clip defsfx()`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `InfoMessage(String msg)`
+#### `public InfoMessage(String msg)`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `InfoMessage(String msg, Color color, Audio.Clip sfx)`
+#### `public InfoMessage(String msg, Color color, Audio.Clip sfx)`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `defsfx()`
+#### `protected Audio.Clip defsfx()`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `NoticeEvent(Notice msg)`
+#### `public NoticeEvent(Notice msg)`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `propagation(Widget from)`
+#### `protected boolean propagation(Widget from)`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `shandle(Widget w)`
+#### `protected boolean shandle(Widget w)`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `msg(Notice msg)`
+#### `public void msg(Notice msg)`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `msg(String msg, Color color, Audio.Clip sfx)`
+#### `public void msg(String msg, Color color, Audio.Clip sfx)`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `error(String msg)`
+#### `public void error(String msg)`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `msg(String msg)`
+#### `public void msg(String msg)`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `setmods(InputEvent ev)`
+#### `private void setmods(InputEvent ev)`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `c(Collection<Grab> g)`
+#### `private Grab[] c(Collection<Grab> g)`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `keydown(KeyEvent ev)`
+#### `public void keydown(KeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `keyup(KeyEvent ev)`
+#### `public void keyup(KeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `mousedown(MouseEvent ev, Coord c, int button)`
+#### `public void mousedown(MouseEvent ev, Coord c, int button)`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `mouseup(MouseEvent ev, Coord c, int button)`
+#### `public void mouseup(MouseEvent ev, Coord c, int button)`
 
 - Description: TODO
 
-<a id="member-187"></a>
-##### `mousemove(MouseEvent ev, Coord c)`
+#### `public void mousemove(MouseEvent ev, Coord c)`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `mousehover(Coord c)`
+#### `public void mousehover(Coord c)`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `setmousepos(Coord c)`
+#### `public void setmousepos(Coord c)`
 
 - Description: TODO
 
-<a id="member-190"></a>
-##### `mousewheel(MouseEvent ev, Coord c, int ia, double sa)`
+#### `public void mousewheel(MouseEvent ev, Coord c, int ia, double sa)`
 
 - Description: TODO
 
-<a id="member-191"></a>
-##### `getcurs(Coord c)`
+#### `public Object getcurs(Coord c)`
 
 - Description: TODO
 
-<a id="member-193"></a>
-##### `tooltip(Coord c)`
+#### `public Object tooltip(Coord c)`
 
 - Description: TODO
 
-<a id="member-194"></a>
-##### `modflags(InputEvent ev)`
+#### `public static int modflags(InputEvent ev)`
 
 - Description: TODO
 
-<a id="member-195"></a>
-##### `modflags()`
+#### `public int modflags()`
 
 - Description: TODO
 
-<a id="member-196"></a>
-##### `getenv()`
+#### `public Environment getenv()`
 
 - Description: TODO
 
-<a id="member-197"></a>
-##### `destroy()`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-198"></a>
-##### `sfx(Audio.CS clip)`
+#### `public void sfx(Audio.CS clip)`
 
 - Description: TODO
 
-<a id="member-199"></a>
-##### `sfx(Audio.Clip clip)`
+#### `public void sfx(Audio.Clip clip)`
 
 - Description: TODO
 
-<a id="member-200"></a>
-##### `sfx(Resource clip)`
+#### `public void sfx(Resource clip)`
 
 - Description: TODO
 
-<a id="member-202"></a>
-##### `sfxrl(Audio.Clip clip)`
+#### `public void sfxrl(Audio.Clip clip)`
 
 - Description: TODO
 
-<a id="member-203"></a>
-##### `pool()`
+#### `public Resource.Pool pool()`
 
 - Description: TODO
 
-<a id="member-204"></a>
-##### `scale(double v)`
+#### `public static double scale(double v)`
 
 - Description: TODO
 
-<a id="member-205"></a>
-##### `scale(float v)`
+#### `public static float scale(float v)`
 
 - Description: TODO
 
-<a id="member-206"></a>
-##### `scale(int v)`
+#### `public static int scale(int v)`
 
 - Description: TODO
 
-<a id="member-207"></a>
-##### `rscale(double v)`
+#### `public static int rscale(double v)`
 
 - Description: TODO
 
-<a id="member-208"></a>
-##### `scale(Coord v)`
+#### `public static Coord scale(Coord v)`
 
 - Description: TODO
 
-<a id="member-209"></a>
-##### `scale(int x, int y)`
+#### `public static Coord scale(int x, int y)`
 
 - Description: TODO
 
-<a id="member-210"></a>
-##### `rscale(double x, double y)`
+#### `public static Coord rscale(double x, double y)`
 
 - Description: TODO
 
-<a id="member-211"></a>
-##### `scale(Coord2d v)`
+#### `public static Coord2d scale(Coord2d v)`
 
 - Description: TODO
 
-<a id="member-212"></a>
-##### `scale(Font f, float size)`
+#### `static public Font scale(Font f, float size)`
 
 - Description: TODO
 
-<a id="member-213"></a>
-##### `scale(T tex)`
+#### `public static <T extends Tex> ScaledTex<T> scale(T tex)`
 
 - Description: TODO
 
-<a id="member-214"></a>
-##### `scale(ScaledTex<T> tex)`
+#### `public static <T extends Tex> ScaledTex<T> scale(ScaledTex<T> tex)`
 
 - Description: TODO
 
-<a id="member-215"></a>
-##### `unscale(double v)`
+#### `public static double unscale(double v)`
 
 - Description: TODO
 
-<a id="member-216"></a>
-##### `unscale(float v)`
+#### `public static float unscale(float v)`
 
 - Description: TODO
 
-<a id="member-217"></a>
-##### `unscale(int v)`
+#### `public static int unscale(int v)`
 
 - Description: TODO
 
-<a id="member-218"></a>
-##### `unscale(Coord v)`
+#### `public static Coord unscale(Coord v)`
 
 - Description: TODO
 
-<a id="member-220"></a>
-##### `maxscale()`
+#### `public static double maxscale()`
 
 - Description: TODO
 
-<a id="member-222"></a>
-##### `loadscale()`
+#### `private static double loadscale()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # HeapBuffer
 
+This file documents the responsibilities and members of `HeapBuffer`.
+
 ## Meta
 
 - Source: [HeapBuffer.java](../../../../../src/haven/render/gl/HeapBuffer.java)
@@ -8,32 +10,24 @@
 
 ## Role
 
-- Represents a heap-backed buffer.
+Represents a heap-backed buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [mem](#member-1)
-
-#### Methods
-
-- [dispose()](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mem`
+#### `public SysBuffer mem`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `dispose()`
+#### `public <T extends DataBuffer> HeapBuffer(GLEnvironment env, T obj, DataBuffer.Filler<? super T> init)`
+
+- Description: TODO
+
+#### `public void dispose()`
 
 - Description: TODO

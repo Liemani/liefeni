@@ -1,5 +1,7 @@
 # BlendMode
 
+This file documents the responsibilities and members of `BlendMode`.
+
 ## Meta
 
 - Source: [BlendMode.java](../../../../src/haven/render/BlendMode.java)
@@ -8,80 +10,86 @@
 
 ## Role
 
-- Represents a blending mode.
+Represents a blending mode.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [cfn](#member-1)
-- [afn](#member-2)
-- [csrc](#member-3)
-- [cdst](#member-4)
-- [asrc](#member-5)
-- [adst](#member-6)
-- [color](#member-7)
-
-#### Methods
-
-- [hashCode()](#member-8)
-- [equals(Object o)](#member-9)
-- [toString()](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `cfn`
+### Factor
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `afn`
+### Function
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `csrc`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Function cfn, afn`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cdst`
+#### `public final Function cfn, afn`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `asrc`
+#### `public final Factor csrc, cdst, asrc, adst`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `adst`
+#### `public final Factor csrc, cdst, asrc, adst`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `color`
+#### `public final Factor csrc, cdst, asrc, adst`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `hashCode()`
+#### `public final Factor csrc, cdst, asrc, adst`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `equals(Object o)`
+#### `public final FColor color`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `toString()`
+### Methods
+
+#### `public BlendMode(Function cfn, Factor csrc, Factor cdst, Function afn, Factor asrc, Factor adst, FColor color)`
+
+- Description: TODO
+
+#### `public BlendMode(Function cfn, Factor csrc, Factor cdst, Function afn, Factor asrc, Factor adst)`
+
+- Description: TODO
+
+#### `public BlendMode(Factor csrc, Factor cdst, Factor asrc, Factor adst)`
+
+- Description: TODO
+
+#### `public BlendMode(Function fn, Factor src, Factor dst)`
+
+- Description: TODO
+
+#### `public BlendMode(Factor src, Factor dst)`
+
+- Description: TODO
+
+#### `public BlendMode()`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

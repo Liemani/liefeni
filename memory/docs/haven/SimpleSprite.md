@@ -1,5 +1,7 @@
 # SimpleSprite
 
+This file documents the responsibilities and members of `SimpleSprite`.
+
 ## Meta
 
 - Source: [SimpleSprite.java](../../../src/haven/SimpleSprite.java)
@@ -8,62 +10,56 @@
 
 ## Role
 
-- Represents a simple sprite.
+Represents a simple sprite.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [img](#member-1)
-- [cc](#member-2)
-
-#### Methods
-
-- [draw(GOut g, Coord cc)](#member-3)
-- [draw(Graphics g, Coord cc)](#member-4)
-- [ul()](#member-5)
-- [lr()](#member-6)
-- [checkhit(Coord c)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `img`
+#### `public final Resource.Image img`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cc`
+#### `public final Coord cc`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `draw(GOut g, Coord cc)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `draw(Graphics g, Coord cc)`
+#### `public SimpleSprite(Resource.Image img, Coord cc)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `ul()`
+#### `public SimpleSprite(Resource res, int id, Coord cc)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `lr()`
+#### `public SimpleSprite(Resource res, int id)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `checkhit(Coord c)`
+#### `public SimpleSprite(Resource res)`
+
+- Description: TODO
+
+#### `public final void draw(GOut g, Coord cc)`
+
+- Description: TODO
+
+#### `public final void draw(Graphics g, Coord cc)`
+
+- Description: TODO
+
+#### `public final Coord ul()`
+
+- Description: TODO
+
+#### `public final Coord lr()`
+
+- Description: TODO
+
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO

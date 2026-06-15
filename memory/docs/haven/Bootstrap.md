@@ -1,5 +1,7 @@
 # Bootstrap
 
+This file documents the responsibilities and members of `Bootstrap`.
+
 ## Meta
 
 - Source: [Bootstrap.java](../../../src/haven/Bootstrap.java)
@@ -8,212 +10,154 @@
 
 ## Role
 
-- Bootstraps Haven startup state.
+Bootstraps Haven startup state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [authuser](#member-1)
-- [authserv](#member-2)
-- [gameserv](#member-3)
-- [gameport](#member-4)
-- [authck](#member-5)
-- [authtoken](#member-6)
-- [servargs](#member-7)
-- [replay](#member-8)
-- [useinitauth](#member-9)
-- [server](#member-10)
-- [confname](#member-11)
-- [msgs](#member-12)
-- [inituser](#member-13)
-- [initcookie](#member-14)
-- [inittoken](#member-15)
-- [id](#member-16)
-- [name](#member-17)
-- [args](#member-18)
-
-#### Methods
-
-- [Message(int id, String name, Object... args)](#member-19)
-- [setinitcookie(String username, byte[] cookie)](#member-20)
-- [setinittoken(String username, byte[] token)](#member-21)
-- [getpref(String name, String def)](#member-22)
-- [setpref(String name, String val)](#member-23)
-- [getprefb(String name, String confname, byte[] def, boolean zerovalid)](#member-24)
-- [mangleuser(String user)](#member-25)
-- [gettoken(String user, String confname)](#member-26)
-- [rottokens(String user, String confname, boolean creat, boolean rm)](#member-27)
-- [settoken(String user, String confname, byte[] token)](#member-28)
-- [private Message getmsg() throws InterruptedException](#member-29)
-- [preferhost(List<InetSocketAddress> hosts, SocketAddress prev)](#member-30)
-- [public UI.Runner run(UI ui) throws InterruptedException](#member-31)
-- [rcvmsg(int widget, String msg, Object... args)](#member-32)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `authuser`
+### Message
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `authserv`
+## Members
+
+### Constants
+
+#### `public static final Config.Variable<String> authuser = Config.Variable.prop("haven.authuser", null)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `gameserv`
+#### `public static final Config.Variable<NamedSocketAddress> authserv = Config.Variable.proph("haven.server", AuthClient.DEFPORT, new NamedSocketAddress("localhost", AuthClient.DEFPORT))`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `gameport`
+#### `public static final Config.Variable<NamedSocketAddress> gameserv = Config.Variable.proph("haven.gameserv", 1870, null)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `authck`
+#### `public static final Config.Variable<Integer> gameport = Config.Variable.propi("haven.gameport", 1870)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `authtoken`
+#### `public static final Config.Variable<byte[]> authck = Config.Variable.propb("haven.authck", null)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `servargs`
+#### `public static final Config.Variable<byte[]> authtoken = Config.Variable.propb("haven.inittoken", null)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `replay`
+#### `public static final Config.Variable<String[]> servargs = Config.Variable.def(() -> null)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `useinitauth`
+#### `public static final Config.Variable<java.nio.file.Path> replay = Config.Variable.def(() -> null)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `server`
+### Fields
+
+#### `public static boolean useinitauth = true`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `confname`
+#### `public final NamedSocketAddress server`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `msgs`
+#### `public final String confname`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `inituser`
+#### `Queue<Message> msgs = new LinkedList<Message>()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `initcookie`
+#### `String inituser = null`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `inittoken`
+#### `byte[] initcookie = null`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `id`
+#### `byte[] inittoken = null`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `name`
+#### `int id`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `args`
+#### `String name`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-19"></a>
-##### `Message(int id, String name, Object... args)`
+#### `Object[] args`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `setinitcookie(String username, byte[] cookie)`
+### Methods
+
+#### `public Message(int id, String name, Object... args)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `setinittoken(String username, byte[] token)`
+#### `public Bootstrap(NamedSocketAddress server)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `getpref(String name, String def)`
+#### `public Bootstrap()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `setpref(String name, String val)`
+#### `public void setinitcookie(String username, byte[] cookie)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `getprefb(String name, String confname, byte[] def, boolean zerovalid)`
+#### `public void setinittoken(String username, byte[] token)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `mangleuser(String user)`
+#### `private String getpref(String name, String def)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `gettoken(String user, String confname)`
+#### `private void setpref(String name, String val)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `rottokens(String user, String confname, boolean creat, boolean rm)`
+#### `private static byte[] getprefb(String name, String confname, byte[] def, boolean zerovalid)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `settoken(String user, String confname, byte[] token)`
+#### `private static String mangleuser(String user)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `private Message getmsg() throws InterruptedException`
+#### `public static byte[] gettoken(String user, String confname)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `preferhost(List<InetSocketAddress> hosts, SocketAddress prev)`
+#### `public static void rottokens(String user, String confname, boolean creat, boolean rm)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `public UI.Runner run(UI ui) throws InterruptedException`
+#### `public static void settoken(String user, String confname, byte[] token)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `rcvmsg(int widget, String msg, Object... args)`
+#### `private Message getmsg() throws InterruptedException`
+
+- Description: TODO
+
+#### `private static void preferhost(List<InetSocketAddress> hosts, SocketAddress prev)`
+
+- Description: TODO
+
+#### `public UI.Runner run(UI ui) throws InterruptedException`
+
+- Description: TODO
+
+#### `public void rcvmsg(int widget, String msg, Object... args)`
 
 - Description: TODO

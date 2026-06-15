@@ -1,5 +1,7 @@
 # PoseMorph
 
+This file documents the responsibilities and members of `PoseMorph`.
+
 ## Meta
 
 - Source: [PoseMorph.java](../../../src/haven/PoseMorph.java)
@@ -8,236 +10,186 @@
 
 ## Role
 
-- Represents pose morphing support.
+Represents pose morphing support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [pose](#member-2)
-- [bperm](#member-3)
-- [last](#member-7)
-- [lastseq](#member-8)
-- [vba](#member-10)
-- [vbw](#member-11)
-- [nb](#member-12)
-- [bo](#member-13)
-- [skanp](#member-14)
-- [skand](#member-15)
-- [interned](#member-22)
-- [offs](#member-24)
-- [shader](#member-25)
-- [names](#member-29)
-
-#### Methods
-
-- [mkperm(Skeleton skel, BoneData bd)](#member-4)
-- [boned(FastMesh mesh)](#member-5)
-- [boneidp(FastMesh mesh)](#member-6)
-- [state()](#member-9)
-- [Shader(int nb)](#member-16)
-- [skan(boolean pos)](#member-17)
-- [morph(ValBlock.Value val, MeshMorph.MorphType type, VertexContext vctx)](#member-18)
-- [modify(ProgramContext prog)](#member-19)
-- [hashCode()](#member-20)
-- [equals(Object that)](#member-21)
-- [get(int nb)](#member-23)
-- [Morphed(float[][] offs)](#member-26)
-- [shader()](#member-27)
-- [apply(Pipe p)](#member-28)
-- [BoneData(int apv, IntBuffer data, String[] names)](#member-30)
-- [WeightData(int apv, FloatBuffer data)](#member-31)
-- [read(Collection<VertexBuf.AttribData> dst, Message buf, int nv, int mba, NumberFormat fmt)](#member-32)
-- [cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)](#member-33)
-- [cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)](#member-34)
-- [sortweights(FloatBuffer bw, IntBuffer ba, int mba)](#member-35)
-- [normweights(FloatBuffer bw, IntBuffer ba, int mba)](#member-36)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $Res
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `pose`
+### BoneData
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `bperm`
+### Morphed
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `last`
+### Old$Res
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `lastseq`
+### Shader
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `vba`
+### WeightData
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `vbw`
+## Members
+
+### Constants
+
+#### `public static final State.Slot<Morphed> slot = new State.Slot<>(State.Slot.Type.GEOM, Morphed.class)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `nb`
+#### `public static final Attribute vba = new Attribute(IVEC4, "vba")`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `bo`
+#### `public static final Attribute vbw = new Attribute(VEC4, "vbw")`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `skanp`
+#### `private static final WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `skand`
+### Fields
+
+#### `public final Pose pose`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `interned`
+#### `private final int[] bperm`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `offs`
+#### `private Morphed last`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `shader`
+#### `private int lastseq`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `names`
+#### `final int nb`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `mkperm(Skeleton skel, BoneData bd)`
+#### `final Uniform bo`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `boned(FastMesh mesh)`
+#### `final Function skanp, skand`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `boneidp(FastMesh mesh)`
+#### `final Function skanp, skand`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `state()`
+#### `public final float[][] offs`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `Shader(int nb)`
+#### `private final ShaderMacro shader`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `skan(boolean pos)`
+#### `public final String[] names`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `morph(ValBlock.Value val, MeshMorph.MorphType type, VertexContext vctx)`
+### Methods
+
+#### `private static int[] mkperm(Skeleton skel, BoneData bd)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `modify(ProgramContext prog)`
+#### `public PoseMorph(Pose pose, FastMesh mesh)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `hashCode()`
+#### `public static boolean boned(FastMesh mesh)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `equals(Object that)`
+#### `public static String boneidp(FastMesh mesh)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `get(int nb)`
+#### `public Morphed state()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `Morphed(float[][] offs)`
+#### `Shader(int nb)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `shader()`
+#### `Function skan(boolean pos)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `apply(Pipe p)`
+#### `public void morph(ValBlock.Value val, MeshMorph.MorphType type, VertexContext vctx)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `BoneData(int apv, IntBuffer data, String[] names)`
+#### `public void modify(ProgramContext prog)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `WeightData(int apv, FloatBuffer data)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `read(Collection<VertexBuf.AttribData> dst, Message buf, int nv, int mba, NumberFormat fmt)`
+#### `public boolean equals(Object that)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+#### `public static Shader get(int nb)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+#### `public Morphed(float[][] offs)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `sortweights(FloatBuffer bw, IntBuffer ba, int mba)`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `normweights(FloatBuffer bw, IntBuffer ba, int mba)`
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public BoneData(int apv, IntBuffer data, String[] names)`
+
+- Description: TODO
+
+#### `public WeightData(int apv, FloatBuffer data)`
+
+- Description: TODO
+
+#### `private static void read(Collection<VertexBuf.AttribData> dst, Message buf, int nv, int mba, NumberFormat fmt)`
+
+- Description: TODO
+
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+
+- Description: TODO
+
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+
+- Description: TODO
+
+#### `public static void sortweights(FloatBuffer bw, IntBuffer ba, int mba)`
+
+- Description: TODO
+
+#### `public static void normweights(FloatBuffer bw, IntBuffer ba, int mba)`
 
 - Description: TODO

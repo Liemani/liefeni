@@ -1,5 +1,7 @@
 # HashBMap
 
+This file documents the responsibilities and members of `HashBMap`.
+
 ## Meta
 
 - Source: [HashBMap.java](../../../src/haven/HashBMap.java)
@@ -8,80 +10,60 @@
 
 ## Role
 
-- Provides a hashed bidirectional map.
+Provides a hashed bidirectional map.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [fmap](#member-1)
-- [rmap](#member-2)
-- [rev](#member-3)
-- [entries](#member-5)
-
-#### Methods
-
-- [containsKey(Object k)](#member-4)
-- [entrySet()](#member-6)
-- [get(Object k)](#member-7)
-- [put(K k, V v)](#member-8)
-- [remove(Object k)](#member-9)
-- [reverse()](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `fmap`
+#### `private final Map<K, V> fmap`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rmap`
+#### `private final Map<V, K> rmap`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `rev`
+#### `private final BMap<V, K> rev`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `entries`
+#### `private Set<Entry<K, V>> entries = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `containsKey(Object k)`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `entrySet()`
+#### `private HashBMap(Map<K, V> f, Map<V, K> r, BMap<V, K> rev)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `get(Object k)`
+#### `public HashBMap()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `put(K k, V v)`
+#### `public boolean containsKey(Object k)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `remove(Object k)`
+#### `public Set<Entry<K, V>> entrySet()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `reverse()`
+#### `public V get(Object k)`
+
+- Description: TODO
+
+#### `public V put(K k, V v)`
+
+- Description: TODO
+
+#### `public V remove(Object k)`
+
+- Description: TODO
+
+#### `public BMap<V, K> reverse()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # LoadEdgesByGraphResult
 
+This file documents the responsibilities and members of `LoadEdgesByGraphResult`.
+
 ## Meta
 
 - Source: [LoadEdgesByGraphResult.java](../../../../../src/lmi/waypoint/model/LoadEdgesByGraphResult.java)
@@ -8,27 +10,24 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [graphId](#member-1)
-- [edges](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `edges`
+#### `public final Array<WpEdge> edges`
+
+- Description: TODO
+
+### Methods
+
+#### `public LoadEdgesByGraphResult(long graphId, Array<WpEdge> edges)`
 
 - Description: TODO

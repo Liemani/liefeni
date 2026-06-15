@@ -1,5 +1,7 @@
 # VaoState
 
+This file documents the responsibilities and members of `VaoState`.
+
 ## Meta
 
 - Source: [VaoState.java](../../../../../src/haven/render/gl/VaoState.java)
@@ -8,32 +10,20 @@
 
 ## Role
 
-- Represents VAO state.
+Represents VAO state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [slot](#member-1)
-
-#### Methods
-
-- [slotidx()](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static int slot = slotidx(VaoState.class)`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `slotidx()`
+#### `public int slotidx()`
 
 - Description: TODO

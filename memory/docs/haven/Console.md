@@ -1,5 +1,7 @@
 # Console
 
+This file documents the responsibilities and members of `Console`.
+
 ## Meta
 
 - Source: [Console.java](../../../src/haven/Console.java)
@@ -8,116 +10,90 @@
 
 ## Role
 
-- Provides a console command surface.
+Provides a console command surface.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [scommands](#member-1)
-- [commands](#member-2)
-- [dirs](#member-3)
-- [host](#member-4)
-- [out](#member-5)
-
-#### Methods
-
-- [public void run(Console cons, String[] args) throws Exception;](#member-6)
-- [public Map<String, Command> findcmds();](#member-7)
-- [setscmd(String name, Command cmd)](#member-8)
-- [setcmd(String name, Command cmd)](#member-9)
-- [findcmds()](#member-10)
-- [add(Directory dir)](#member-11)
-- [findcmd(String name)](#member-12)
-- [public void run(Host host, String[] args) throws Exception](#member-13)
-- [public void run(Host host, String cmdl) throws Exception](#member-14)
-- [host()](#member-15)
-- [clearout()](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `scommands`
+### Command
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `commands`
+### Directory
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dirs`
+### Host
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `host`
+## Members
+
+### Constants
+
+#### `private static final Map<String, Command> scommands = new TreeMap<String, Command>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `out`
+### Fields
+
+#### `private final Map<String, Command> commands = new TreeMap<String, Command>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `public void run(Console cons, String[] args) throws Exception;`
+#### `private final Collection<Directory> dirs = new LinkedList<Directory>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `public Map<String, Command> findcmds();`
+#### `private final ThreadLocal<Host> host = new ThreadLocal<>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `setscmd(String name, Command cmd)`
+#### `public PrintWriter out`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `setcmd(String name, Command cmd)`
+### Methods
+
+#### `public void run(Console cons, String[] args) throws Exception`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `findcmds()`
+#### `public Map<String, Command> findcmds()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `add(Directory dir)`
+#### `public static void setscmd(String name, Command cmd)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `findcmd(String name)`
+#### `public void setcmd(String name, Command cmd)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `public void run(Host host, String[] args) throws Exception`
+#### `public Map<String, Command> findcmds()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `public void run(Host host, String cmdl) throws Exception`
+#### `public void add(Directory dir)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `host()`
+#### `public Command findcmd(String name)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `clearout()`
+#### `public void run(Host host, String[] args) throws Exception`
+
+- Description: TODO
+
+#### `public void run(Host host, String cmdl) throws Exception`
+
+- Description: TODO
+
+#### `public Host host()`
+
+- Description: TODO
+
+#### `public void clearout()`
 
 - Description: TODO

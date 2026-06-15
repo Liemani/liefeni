@@ -1,5 +1,7 @@
 # FragData
 
+This file documents the responsibilities and members of `FragData`.
+
 ## Meta
 
 - Source: [FragData.java](../../../../../src/haven/render/sl/FragData.java)
@@ -8,86 +10,74 @@
 
 ## Role
 
-- Represents fragment shader data.
+Represents fragment shader data.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [value](#member-1)
-- [deps](#member-2)
-- [primary](#member-3)
-- [defid](#member-6)
-
-#### Methods
-
-- [primary()](#member-4)
-- [toString()](#member-5)
-- [process(PostProc proc)](#member-7)
-- [ppid()](#member-8)
-- [var()](#member-9)
-- [output(Output out)](#member-10)
-- [use(Context ctx)](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `value`
+### Def
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `deps`
+## Members
+
+### Constants
+
+#### `private static final Object defid = new PostProc.AutoID("fragdata", 15000)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `primary`
+### Fields
+
+#### `public final Function<Pipe, Object> value`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `defid`
+#### `public final Collection<State.Slot<?>> deps`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `primary()`
+#### `public boolean primary = false`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `toString()`
+### Methods
+
+#### `public FragData(Type type, Symbol name, Function<Pipe, Object> value, State.Slot<?>... deps)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `process(PostProc proc)`
+#### `public FragData(Type type, String infix, Function<Pipe, Object> value, State.Slot<?>... deps)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ppid()`
+#### `public FragData(Type type, Function<Pipe, Object> value, State.Slot<?>... deps)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `var()`
+#### `public FragData primary()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `output(Output out)`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `use(Context ctx)`
+#### `public void process(PostProc proc)`
+
+- Description: TODO
+
+#### `public Object ppid()`
+
+- Description: TODO
+
+#### `private FragData var()`
+
+- Description: TODO
+
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
 
 - Description: TODO

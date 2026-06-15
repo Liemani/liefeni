@@ -1,5 +1,7 @@
 # RMessage
 
+This file documents the responsibilities and members of `RMessage`.
+
 ## Meta
 
 - Source: [RMessage.java](../../../src/haven/RMessage.java)
@@ -8,110 +10,88 @@
 
 ## Role
 
-- Represents a received network message.
+Represents a received network message.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [RMSG_NEWWDG](#member-1)
-- [RMSG_WDGMSG](#member-2)
-- [RMSG_DSTWDG](#member-3)
-- [RMSG_MAPIV](#member-4)
-- [RMSG_GLOBLOB](#member-5)
-- [RMSG_RESID](#member-6)
-- [RMSG_SESSKEY](#member-7)
-- [RMSG_FRAGMENT](#member-8)
-- [RMSG_ADDWDG](#member-9)
-- [RMSG_WDGBAR](#member-10)
-- [RMSG_USERAGENT](#member-11)
-
-#### Fields
-
-- [first](#member-12)
-- [last](#member-13)
-- [retx](#member-14)
-- [seq](#member-15)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `RMSG_NEWWDG`
+#### `public static final int RMSG_NEWWDG = 0`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `RMSG_WDGMSG`
+#### `public static final int RMSG_WDGMSG = 1`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `RMSG_DSTWDG`
+#### `public static final int RMSG_DSTWDG = 2`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `RMSG_MAPIV`
+#### `public static final int RMSG_MAPIV = 3`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `RMSG_GLOBLOB`
+#### `public static final int RMSG_GLOBLOB = 4`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `RMSG_RESID`
+#### `public static final int RMSG_RESID = 6`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `RMSG_SESSKEY`
+#### `public static final int RMSG_SESSKEY = 13`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `RMSG_FRAGMENT`
+#### `public static final int RMSG_FRAGMENT = 14`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `RMSG_ADDWDG`
+#### `public static final int RMSG_ADDWDG = 15`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `RMSG_WDGBAR`
+#### `public static final int RMSG_WDGBAR = 16`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `RMSG_USERAGENT`
+#### `public static final int RMSG_USERAGENT = 17`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-12"></a>
-##### `first`
-
-- Description: TODO
-
-<a id="member-13"></a>
-##### `last`
+#### `public double first = 0, last = 0`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `retx`
+#### `public double first = 0, last = 0`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `seq`
+#### `public int retx = 0`
+
+- Description: TODO
+
+#### `public int seq`
+
+- Description: TODO
+
+### Methods
+
+#### `public RMessage(int type, byte[] blob, int off, int len)`
+
+- Description: TODO
+
+#### `public RMessage(int type, byte[] blob)`
+
+- Description: TODO
+
+#### `public RMessage(int type)`
+
+- Description: TODO
+
+#### `public RMessage(PMessage msg)`
 
 - Description: TODO

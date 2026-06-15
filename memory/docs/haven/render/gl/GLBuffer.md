@@ -1,5 +1,7 @@
 # GLBuffer
 
+This file documents the responsibilities and members of `GLBuffer`.
+
 ## Meta
 
 - Source: [GLBuffer.java](../../../../../src/haven/render/gl/GLBuffer.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a GL buffer.
+Represents a GL buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [id](#member-1)
-- [state](#member-2)
-
-#### Methods
-
-- [create(GL gl)](#member-3)
-- [delete(GL gl)](#member-4)
-- [glid()](#member-5)
-- [toString()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+#### `private int id, state = 0`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `state`
+#### `private int id, state = 0`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `create(GL gl)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `delete(GL gl)`
+#### `public GLBuffer(GLEnvironment env)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `glid()`
+#### `public void create(GL gl)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `toString()`
+#### `protected void delete(GL gl)`
+
+- Description: TODO
+
+#### `public int glid()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

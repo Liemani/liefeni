@@ -1,5 +1,7 @@
 # GLProgram
 
+This file documents the responsibilities and members of `GLProgram`.
+
 ## Meta
 
 - Source: [GLProgram.java](../../../../../src/haven/render/gl/GLProgram.java)
@@ -8,506 +10,382 @@
 
 ## Role
 
-- Represents a GL program.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [dumpall](#member-1)
-- [env](#member-2)
-- [vsrc](#member-3)
-- [fsrc](#member-4)
-- [uniforms](#member-5)
-- [fragdata](#member-6)
-- [umap](#member-7)
-- [fmap](#member-8)
-- [attribs](#member-9)
-- [samplerids](#member-10)
-- [samplers](#member-11)
-- [locked](#member-12)
-- [unifnms](#member-13)
-- [amap](#member-14)
-- [fragnms](#member-15)
-- [glp](#member-16)
-- [disposed](#member-17)
-- [type](#member-20)
-- [text](#member-21)
-- [info](#member-22)
-- [type](#member-25)
-- [text](#member-26)
-- [id](#member-27)
-- [program](#member-32)
-- [type](#member-34)
-- [symbol](#member-35)
-- [info](#member-37)
-- [name](#member-40)
-- [id](#member-41)
-- [name](#member-45)
-- [id](#member-46)
-- [shaders](#member-49)
-- [id](#member-50)
-- [sub](#member-57)
-- [sampler](#member-58)
-- [umap](#member-63)
-- [vsrc](#member-74)
-- [fsrc](#member-75)
-- [id](#member-76)
-- [fragnms](#member-77)
-- [attrnms](#member-78)
-- [attrlocs](#member-79)
+Represents a GL program.
 
-#### Methods
+## Nested Types
 
-- [attrsize(Attribute attr)](#member-18)
-- [build(GLEnvironment env, Collection<ShaderMacro> mods)](#member-19)
-- [ShaderException(String msg, ShaderOb shader, String info)](#member-23)
-- [toString()](#member-24)
-- [ShaderOb(GLEnvironment env, int type, String text)](#member-28)
-- [create(GL gl)](#member-29)
-- [delete(GL gl)](#member-30)
-- [glid()](#member-31)
-- [ProgramException(String msg, GLProgram program)](#member-33)
-- [UnknownExternException(String msg, GLProgram program, String type, String symbol)](#member-36)
-- [LinkException(String msg, GLProgram program, String info)](#member-38)
-- [toString()](#member-39)
-- [AttrID(String name, int id)](#member-42)
-- [glid()](#member-43)
-- [toString()](#member-44)
-- [VarID(String name)](#member-47)
-- [public abstract int glid();](#member-48)
-- [ProgOb(GLEnvironment env, ShaderOb... shaders)](#member-51)
-- [uniresolve(Type type, String name)](#member-52)
-- [create(GL gl)](#member-53)
-- [delete(GL gl)](#member-54)
-- [dispose()](#member-55)
-- [glid()](#member-56)
-- [UniformID(String name)](#member-59)
-- [run(GL gl)](#member-60)
-- [glid()](#member-61)
-- [toString()](#member-62)
-- [cuniform(Uniform var)](#member-64)
-- [glid()](#member-65)
-- [apply(BGL gl, GLProgram from, GLProgram to)](#member-66)
-- [cattrib(Attribute var)](#member-67)
-- [attrib(Attribute var)](#member-68)
-- [cuniform(Uniform var)](#member-69)
-- [uniform(Uniform var)](#member-70)
-- [dispose()](#member-71)
-- [lock()](#member-72)
-- [unlock()](#member-73)
-- [Dump(GLProgram prog)](#member-80)
-- [dump()](#member-81)
+### AttrID
 
-### Member Reference
+- Description: TODO
+
+### Dump
+
+- Description: TODO
+
+### LinkException
+
+- Description: TODO
+
+### ProgOb
+
+- Description: TODO
+
+### ProgramException
+
+- Description: TODO
+
+### ShaderException
+
+- Description: TODO
 
-#### Fields
+### ShaderOb
 
-<a id="member-1"></a>
-##### `dumpall`
+- Description: TODO
+
+### UniformID
+
+- Description: TODO
+
+### UnknownExternException
+
+- Description: TODO
+
+### VarID
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `env`
+## Members
 
+### Constants
+
+### Fields
+
+#### `public static boolean dumpall = false`
+
+- Description: TODO
+
+#### `public final GLEnvironment env`
+
 - Description: TODO
 
-<a id="member-3"></a>
-##### `vsrc`
+#### `public final String vsrc, fsrc`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `fsrc`
+#### `public final String vsrc, fsrc`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `uniforms`
+#### `public final Uniform[] uniforms`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `fragdata`
+#### `public final FragData[] fragdata`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `umap`
+#### `public final int[][] umap`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `fmap`
+#### `public final boolean[] fmap`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `attribs`
+#### `public final Attribute[] attribs`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `samplerids`
+#### `public final Map<Uniform, Integer> samplerids`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `samplers`
+#### `public final Uniform[] samplers`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `locked`
+#### `public final AtomicInteger locked = new AtomicInteger(0)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `unifnms`
+#### `private final Map<Uniform, String> unifnms`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `amap`
+#### `private final Map<Attribute, AttrID> amap`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `fragnms`
+#### `private final String[] fragnms`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `glp`
+#### `private ProgOb glp`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `disposed`
+#### `boolean disposed = false`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `type`
+#### `public final int type`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `text`
+#### `public final String text`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `info`
+#### `public final String info`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `type`
+#### `public final int type`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `text`
+#### `public final String text`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `id`
+#### `private int id`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `program`
+#### `public final Dump program`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `type`
+#### `public final String type, symbol`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `symbol`
+#### `public final String type, symbol`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `info`
+#### `public final String info`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `name`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `id`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `name`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `id`
+#### `protected int id = -1`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `shaders`
+#### `public final ShaderOb[] shaders`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `id`
+#### `private int id`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `sub`
+#### `public UniformID[] sub = null`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `sampler`
+#### `public int sampler = -1`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `umap`
+#### `private final transient Map<Uniform, UniformID> umap = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `vsrc`
+#### `public final String vsrc, fsrc`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `fsrc`
+#### `public final String vsrc, fsrc`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `id`
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `fragnms`
+#### `public final String[] fragnms, attrnms`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `attrnms`
+#### `public final String[] fragnms, attrnms`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `attrlocs`
+#### `public final int[] attrlocs`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public GLProgram(GLEnvironment env, ProgramContext ctx)`
+
+- Description: TODO
 
-<a id="member-18"></a>
-##### `attrsize(Attribute attr)`
+#### `public static int attrsize(Attribute attr)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `build(GLEnvironment env, Collection<ShaderMacro> mods)`
+#### `public static GLProgram build(GLEnvironment env, Collection<ShaderMacro> mods)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `ShaderException(String msg, ShaderOb shader, String info)`
+#### `public ShaderException(String msg, ShaderOb shader, String info)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `ShaderOb(GLEnvironment env, int type, String text)`
+#### `public ShaderOb(GLEnvironment env, int type, String text)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `create(GL gl)`
+#### `public void create(GL gl)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `delete(GL gl)`
+#### `protected void delete(GL gl)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `glid()`
+#### `public int glid()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `ProgramException(String msg, GLProgram program)`
+#### `public ProgramException(String msg, GLProgram program)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `UnknownExternException(String msg, GLProgram program, String type, String symbol)`
+#### `public UnknownExternException(String msg, GLProgram program, String type, String symbol)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `LinkException(String msg, GLProgram program, String info)`
+#### `public LinkException(String msg, GLProgram program, String info)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `AttrID(String name, int id)`
+#### `private AttrID(String name, int id)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `glid()`
+#### `public int glid()`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `VarID(String name)`
+#### `private VarID(String name)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `public abstract int glid();`
+#### `public abstract int glid()`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `ProgOb(GLEnvironment env, ShaderOb... shaders)`
+#### `public ProgOb(GLEnvironment env, ShaderOb... shaders)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `uniresolve(Type type, String name)`
+#### `private UniformID uniresolve(Type type, String name)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `create(GL gl)`
+#### `public void create(GL gl)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `delete(GL gl)`
+#### `protected void delete(GL gl)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `dispose()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `glid()`
+#### `public int glid()`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `UniformID(String name)`
+#### `private UniformID(String name)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `run(GL gl)`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `glid()`
+#### `public int glid()`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `cuniform(Uniform var)`
+#### `public UniformID cuniform(Uniform var)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `glid()`
+#### `public ProgOb glid()`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `apply(BGL gl, GLProgram from, GLProgram to)`
+#### `public static void apply(BGL gl, GLProgram from, GLProgram to)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `cattrib(Attribute var)`
+#### `public AttrID cattrib(Attribute var)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `attrib(Attribute var)`
+#### `public AttrID attrib(Attribute var)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `cuniform(Uniform var)`
+#### `public ProgOb.UniformID cuniform(Uniform var)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `uniform(Uniform var)`
+#### `public ProgOb.UniformID uniform(Uniform var)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `dispose()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `lock()`
+#### `public void lock()`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `unlock()`
+#### `public void unlock()`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `Dump(GLProgram prog)`
+#### `public Dump(GLProgram prog)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `dump()`
+#### `public Dump dump()`
 
 - Description: TODO

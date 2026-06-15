@@ -1,5 +1,7 @@
 # Buff
 
+This file documents the responsibilities and members of `Buff`.
+
 ## Meta
 
 - Source: [Buff.java](../../../src/haven/Buff.java)
@@ -8,254 +10,186 @@
 
 ## Role
 
-- Represents a buff or status effect widget or data type.
+Represents a buff or status effect widget or data type.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [nfnd](#member-1)
-- [frame](#member-2)
-- [cframe](#member-3)
-- [ameter](#member-4)
-- [imgoff](#member-5)
-- [ameterx1](#member-6)
-- [ameterx2](#member-7)
-- [textw](#member-8)
-- [res](#member-9)
-- [a](#member-10)
-- [dest](#member-11)
-- [rawinfo](#member-12)
-- [info](#member-13)
-- [ctxr](#member-16)
-- [ameteri](#member-24)
-- [nmeteri](#member-25)
-- [cmeteri](#member-26)
-- [hoverstart](#member-30)
-- [shorttip](#member-31)
-- [longtip](#member-32)
-- [ttinfo](#member-33)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-14)
-- [resource()](#member-15)
-- [context(Class<T> cl)](#member-17)
-- [info()](#member-18)
-- [public double ameter();](#member-19)
-- [AMeterTip(Owner owner)](#member-20)
-- [layout(Layout l)](#member-21)
-- [order()](#member-22)
-- [shortvar()](#member-23)
-- [draw(GOut g)](#member-27)
-- [shorttip()](#member-28)
-- [longtip()](#member-29)
-- [tooltip(Coord c, Widget prev)](#member-34)
-- [reqdestroy()](#member-35)
-- [move(Coord c, double off)](#member-36)
-- [move(Coord c)](#member-37)
-- [uimsg(String msg, Object... args)](#member-38)
-- [mousedown(MouseDownEvent ev)](#member-39)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `nfnd`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `frame`
+### AMeterInfo
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cframe`
+### AMeterTip
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ameter`
+## Members
+
+### Constants
+
+#### `public static final Text.Foundry nfnd = new Text.Foundry(Text.dfont, 10)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `imgoff`
+#### `public static final Tex frame = Resource.loadtex("gfx/hud/buffs/frame")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ameterx1`
+#### `public static final Tex cframe = Resource.loadtex("gfx/hud/buffs/cframe")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ameterx2`
+#### `public static final Tex ameter = Resource.loadtex("gfx/hud/buffs/cframe-m")`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `textw`
+#### `public static final Coord imgoff = UI.scale(3, 3)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `res`
+#### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `a`
+#### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `dest`
+#### `public static final int textw = UI.scale(200)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `rawinfo`
+#### `private static final OwnerContext.ClassResolver<Buff> ctxr = new OwnerContext.ClassResolver<Buff>()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `info`
+### Fields
+
+#### `public Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `ctxr`
+#### `protected int a = 255`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `ameteri`
+#### `protected boolean dest = false`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `nmeteri`
+#### `private ItemInfo.Raw rawinfo = null`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `cmeteri`
+#### `private List<ItemInfo> info = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `hoverstart`
+#### `private final AttrCache<Double> ameteri = new AttrCache<>(this::info, AttrCache.map1(AMeterInfo.class, minf -> minf::ameter))`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `shorttip`
+#### `private final AttrCache<Tex> nmeteri = new AttrCache<>(this::info, AttrCache.map1s(GItem.NumberInfo.class, ninf -> new TexI(GItem.NumberInfo.numrender(ninf.itemnum(), ninf.numcolor()))))`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `longtip`
+#### `private final AttrCache<Double> cmeteri = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `ttinfo`
+#### `private double hoverstart`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-14"></a>
-##### `create(UI ui, Object[] args)`
+#### `private Tex shorttip, longtip`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `resource()`
+#### `private Tex shorttip, longtip`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `context(Class<T> cl)`
+#### `private List<ItemInfo> ttinfo = null`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `info()`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `public double ameter();`
+#### `public Buff(Indir<Resource> res)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `AMeterTip(Owner owner)`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `layout(Layout l)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `order()`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `shortvar()`
+#### `public double ameter()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `draw(GOut g)`
+#### `public AMeterTip(Owner owner)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `shorttip()`
+#### `public void layout(Layout l)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `longtip()`
+#### `public int order()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public Tip shortvar()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `reqdestroy()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `move(Coord c, double off)`
+#### `private BufferedImage shorttip()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `move(Coord c)`
+#### `private BufferedImage longtip()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void reqdestroy()`
+
+- Description: TODO
+
+#### `public void move(Coord c, double off)`
+
+- Description: TODO
+
+#### `public void move(Coord c)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO

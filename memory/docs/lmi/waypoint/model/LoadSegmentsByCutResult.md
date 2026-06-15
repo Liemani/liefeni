@@ -1,5 +1,7 @@
 # LoadSegmentsByCutResult
 
+This file documents the responsibilities and members of `LoadSegmentsByCutResult`.
+
 ## Meta
 
 - Source: [LoadSegmentsByCutResult.java](../../../../../src/lmi/waypoint/model/LoadSegmentsByCutResult.java)
@@ -8,33 +10,28 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [graphId](#member-1)
-- [gridId](#member-2)
-- [segments](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `segments`
+#### `public final Array<WpSegment> segments`
+
+- Description: TODO
+
+### Methods
+
+#### `public LoadSegmentsByCutResult(long graphId, long gridId, Array<WpSegment> segments)`
 
 - Description: TODO

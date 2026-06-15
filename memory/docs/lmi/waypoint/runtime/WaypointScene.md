@@ -1,5 +1,7 @@
 # WaypointScene
 
+This file documents the responsibilities and members of `WaypointScene`.
+
 ## Meta
 
 - Source: [WaypointScene.java](../../../../../src/lmi/waypoint/runtime/WaypointScene.java)
@@ -8,51 +10,40 @@
 
 ## Role
 
-- Represents draw-ready waypoint scene data.
+Represents draw-ready waypoint scene data.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bounds](#member-1)
-- [drawableLines](#member-2)
-- [drawableNodes](#member-3)
-- [hiddenNodes](#member-4)
-- [drawablePoints](#member-5)
-- [hiddenPoints](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bounds`
+#### `public final WaypointGridBounds bounds`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `drawableLines`
+#### `public final Array<ResolvedLine> drawableLines = new Array<>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `drawableNodes`
+#### `public final Array<ResolvedNode> drawableNodes = new Array<>()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `hiddenNodes`
+#### `public final Array<ResolvedNode> hiddenNodes = new Array<>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `drawablePoints`
+#### `public final Array<ResolvedPoint> drawablePoints = new Array<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `hiddenPoints`
+#### `public final Array<ResolvedPoint> hiddenPoints = new Array<>()`
+
+- Description: TODO
+
+### Methods
+
+#### `public WaypointScene(WaypointGridBounds bounds)`
 
 - Description: TODO

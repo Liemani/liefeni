@@ -1,5 +1,7 @@
 # OrderList
 
+This file documents the responsibilities and members of `OrderList`.
+
 ## Meta
 
 - Source: [OrderList.java](../../../../../src/haven/render/sl/OrderList.java)
@@ -8,74 +10,54 @@
 
 ## Role
 
-- Represents an ordered list of shader items.
+Represents an ordered list of shader items.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [bk](#member-1)
-- [sorted](#member-2)
-- [e](#member-3)
-- [o](#member-4)
-
-#### Methods
-
-- [Element(E e, int o)](#member-5)
-- [compareTo(Element b)](#member-6)
-- [add(E e, int o)](#member-7)
-- [size()](#member-8)
-- [iterator()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bk`
+### Element
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `sorted`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final List<Element> bk = new ArrayList<Element>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `e`
+#### `private boolean sorted`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `o`
+#### `final E e`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `Element(E e, int o)`
+#### `final int o`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `compareTo(Element b)`
+### Methods
+
+#### `Element(E e, int o)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `add(E e, int o)`
+#### `public int compareTo(Element b)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `size()`
+#### `public boolean add(E e, int o)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `iterator()`
+#### `public int size()`
+
+- Description: TODO
+
+#### `public Iterator<E> iterator()`
 
 - Description: TODO

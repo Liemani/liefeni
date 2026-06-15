@@ -1,5 +1,7 @@
 # CachedFunction
 
+This file documents the responsibilities and members of `CachedFunction`.
+
 ## Meta
 
 - Source: [CachedFunction.java](../../../src/haven/CachedFunction.java)
@@ -8,62 +10,54 @@
 
 ## Role
 
-- Caches the result of a function.
+Caches the result of a function.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [back](#member-1)
-- [dispose](#member-2)
-- [cache](#member-3)
-- [size](#member-4)
-
-#### Methods
-
-- [Cache(int size)](#member-5)
-- [removeEldestEntry(Map.Entry<P, R> eldest)](#member-6)
-- [apply(P param)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `back`
+### Cache
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `dispose`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final Function<P, R> back`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cache`
+#### `public final Consumer<? super R> dispose`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `size`
+#### `private final Map<P, R> cache`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `Cache(int size)`
+#### `private final int size`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `removeEldestEntry(Map.Entry<P, R> eldest)`
+### Methods
+
+#### `public CachedFunction(int size, Function<P, R> back, Consumer<? super R> dispose)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(P param)`
+#### `public CachedFunction(int size, Function<P, R> back)`
+
+- Description: TODO
+
+#### `public Cache(int size)`
+
+- Description: TODO
+
+#### `protected boolean removeEldestEntry(Map.Entry<P, R> eldest)`
+
+- Description: TODO
+
+#### `public R apply(P param)`
 
 - Description: TODO

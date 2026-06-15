@@ -1,5 +1,7 @@
 # WaypointGridBounds
 
+This file documents the responsibilities and members of `WaypointGridBounds`.
+
 ## Meta
 
 - Source: [WaypointGridBounds.java](../../../../../src/lmi/waypoint/runtime/WaypointGridBounds.java)
@@ -8,92 +10,64 @@
 
 ## Role
 
-- Defines a spatial bound used by waypoint runtime or drawing.
+Defines a spatial bound used by waypoint runtime or drawing.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [centerGrid](#member-1)
-- [loadArea](#member-2)
-- [renderArea](#member-3)
-- [loadGridIds](#member-4)
-- [renderGridIds](#member-5)
-- [gridOrigins](#member-6)
-
-#### Methods
-
-- [empty()](#member-7)
-- [aroundWorld(Coord world)](#member-8)
-- [loadGridIds()](#member-9)
-- [loadContainsGridId(long gridId)](#member-10)
-- [renderContainsGridId(long gridId)](#member-11)
-- [worldOfGridLocal(long gridId, int localX, int localY)](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `centerGrid`
+#### `public final Coord centerGrid`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `loadArea`
+#### `public final Area loadArea`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `renderArea`
+#### `public final Area renderArea`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `loadGridIds`
+#### `private final Set<Long> loadGridIds`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `renderGridIds`
+#### `private final Set<Long> renderGridIds`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `gridOrigins`
+#### `private final Map<Long, Coord> gridOrigins`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `empty()`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `aroundWorld(Coord world)`
+#### `private WaypointGridBounds(`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `loadGridIds()`
+#### `public static WaypointGridBounds empty()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `loadContainsGridId(long gridId)`
+#### `public static WaypointGridBounds aroundWorld(Coord world)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `renderContainsGridId(long gridId)`
+#### `public Set<Long> loadGridIds()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `worldOfGridLocal(long gridId, int localX, int localY)`
+#### `public boolean loadContainsGridId(long gridId)`
+
+- Description: TODO
+
+#### `public boolean renderContainsGridId(long gridId)`
+
+- Description: TODO
+
+#### `public Coord worldOfGridLocal(long gridId, int localX, int localY)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # RandomSource
 
+This file documents the responsibilities and members of `RandomSource`.
+
 ## Meta
 
 - Source: [RandomSource.java](../../../src/haven/RandomSource.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Provides a random source.
+Provides a random source.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public Random mkrandoom();](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public Random mkrandoom();`
+#### `public Random mkrandoom()`
 
 - Description: TODO

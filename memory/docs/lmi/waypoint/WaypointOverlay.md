@@ -1,5 +1,7 @@
 # WaypointOverlay
 
+This file documents the responsibilities and members of `WaypointOverlay`.
+
 ## Meta
 
 - Source: [WaypointOverlay.java](../../../../src/lmi/waypoint/WaypointOverlay.java)
@@ -8,109 +10,72 @@
 
 ## Role
 
-- Renders waypoint-specific overlay information.
+Renders waypoint-specific overlay information.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [INSTANCE](#member-1)
-- [POINT_COLOR](#member-2)
-- [LINE_COLOR](#member-3)
-- [NODE_COLOR](#member-4)
-- [NODE_LABEL_COLOR](#member-5)
-- [TEST_COLOR](#member-6)
-
-#### Fields
-
-- [testEnabled](#member-7)
-
-#### Methods
-
-- [instance()](#member-8)
-- [toggleTest()](#member-9)
-- [draw(MapView mapView, GOut g)](#member-10)
-- [debugScreen(MapView mapView, Coord world)](#member-11)
-- [_drawTestOverlay(MapView mapView, GOut g)](#member-12)
-- [_screen(MapView mapView, Coord world)](#member-13)
-- [_project(MapView mapView, Coord world)](#member-14)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `INSTANCE`
+#### `private static final WaypointOverlay INSTANCE = new WaypointOverlay()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `POINT_COLOR`
+#### `private static final Color POINT_COLOR = new Color(205, 205, 205, 170)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `LINE_COLOR`
+#### `private static final Color LINE_COLOR = new Color(190, 190, 190, 165)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `NODE_COLOR`
+#### `private static final Color NODE_COLOR = new Color(80, 220, 120, 220)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `NODE_LABEL_COLOR`
+#### `private static final Color NODE_LABEL_COLOR = new Color(255, 220, 80, 240)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `TEST_COLOR`
+#### `private static final Color TEST_COLOR = new Color(255, 80, 80, 220)`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-7"></a>
-##### `testEnabled`
-
-- Description: TODO
-
-#### Methods
-
-<a id="member-8"></a>
-##### `instance()`
+#### `private static boolean testEnabled`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `toggleTest()`
+### Methods
+
+#### `private WaypointOverlay()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `draw(MapView mapView, GOut g)`
+#### `public static WaypointOverlay instance()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `debugScreen(MapView mapView, Coord world)`
+#### `public static boolean toggleTest()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `_drawTestOverlay(MapView mapView, GOut g)`
+#### `public void draw(MapView mapView, GOut g)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `_screen(MapView mapView, Coord world)`
+#### `public static Coord debugScreen(MapView mapView, Coord world)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `_project(MapView mapView, Coord world)`
+#### `private static void _drawTestOverlay(MapView mapView, GOut g)`
+
+- Description: TODO
+
+#### `private static Coord _screen(MapView mapView, Coord world)`
+
+- Description: TODO
+
+#### `private static Coord _project(MapView mapView, Coord world)`
 
 - Description: TODO

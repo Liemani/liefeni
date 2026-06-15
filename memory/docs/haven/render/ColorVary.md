@@ -1,5 +1,7 @@
 # ColorVary
 
+This file documents the responsibilities and members of `ColorVary`.
+
 ## Meta
 
 - Source: [ColorVary.java](../../../../src/haven/render/ColorVary.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Represents a varying color state.
+Represents a varying color state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [color](#member-2)
-- [st](#member-3)
-- [fcolor](#member-4)
-- [shader](#member-5)
-
-#### Methods
-
-- [shader()](#member-6)
-- [apply(Pipe p)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<ColorVary> slot = new Slot<>(Slot.Type.DRAW, ColorVary.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `color`
+#### `public static final Attribute color = new Attribute(VEC4, "vcolor")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `st`
+#### `public static final ColorVary st = new ColorVary()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `fcolor`
+#### `static final AutoVarying fcolor = new AutoVarying(VEC4)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `shader`
+#### `static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-6"></a>
-##### `shader()`
+### Methods
+
+#### `private ColorVary()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(Pipe p)`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
 
 - Description: TODO

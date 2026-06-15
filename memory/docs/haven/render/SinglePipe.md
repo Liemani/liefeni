@@ -1,5 +1,7 @@
 # SinglePipe
 
+This file documents the responsibilities and members of `SinglePipe`.
+
 ## Meta
 
 - Source: [SinglePipe.java](../../../../src/haven/render/SinglePipe.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents a single render pipe.
+Represents a single render pipe.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [slot](#member-1)
-- [value](#member-2)
-
-#### Methods
-
-- [get(Slot<G> slot)](#member-3)
-- [copy()](#member-4)
-- [states()](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public final Slot<T> slot`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `value`
+#### `public final T value`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `get(Slot<G> slot)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `copy()`
+#### `public SinglePipe(Slot<T> slot, T value)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `states()`
+#### `public <G extends State> G get(Slot<G> slot)`
+
+- Description: TODO
+
+#### `public Pipe copy()`
+
+- Description: TODO
+
+#### `public State[] states()`
 
 - Description: TODO

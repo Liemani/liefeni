@@ -1,5 +1,7 @@
 # Attribute
 
+This file documents the responsibilities and members of `Attribute`.
+
 ## Meta
 
 - Source: [Attribute.java](../../../../../src/haven/render/sl/Attribute.java)
@@ -8,44 +10,46 @@
 
 ## Role
 
-- Represents a shader attribute.
+Represents a shader attribute.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [primary](#member-1)
-
-#### Methods
-
-- [primary()](#member-2)
-- [output(Output out)](#member-3)
-- [use(Context ctx)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `primary`
+### Def
 
 - Description: TODO
 
-#### Methods
+## Members
 
-<a id="member-2"></a>
-##### `primary()`
+### Constants
 
-- Description: TODO
+### Fields
 
-<a id="member-3"></a>
-##### `output(Output out)`
+#### `public boolean primary = false`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `use(Context ctx)`
+### Methods
+
+#### `public Attribute(Type type, Symbol name)`
+
+- Description: TODO
+
+#### `public Attribute(Type type, String infix)`
+
+- Description: TODO
+
+#### `public Attribute(Type type)`
+
+- Description: TODO
+
+#### `public Attribute primary()`
+
+- Description: TODO
+
+#### `public void output(Output out)`
+
+- Description: TODO
+
+#### `public void use(Context ctx)`
 
 - Description: TODO

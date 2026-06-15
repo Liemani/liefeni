@@ -1,5 +1,7 @@
 # RecordingSession
 
+This file documents the responsibilities and members of `RecordingSession`.
+
 ## Meta
 
 - Source: [RecordingSession.java](../../../../../src/lmi/waypoint/model/RecordingSession.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Provides the `RecordingSession` functionality.
+Provides the `RecordingSession` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [startNodeId](#member-1)
-- [segments](#member-2)
-- [startedAtMillis](#member-3)
-- [pendingPortalTransition](#member-4)
-
-#### Methods
-
-- [pointCount()](#member-5)
-- [currentSegment()](#member-6)
-- [lastClick()](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `startNodeId`
+#### `public final long startNodeId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `segments`
+#### `public final List<RecordingSegment> segments = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `startedAtMillis`
+#### `public final long startedAtMillis`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `pendingPortalTransition`
+#### `public PendingPortalTransition pendingPortalTransition`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `pointCount()`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `currentSegment()`
+#### `public RecordingSession(long startNodeId, long baseGraphId, long baseGridId, int baseLocalX, int baseLocalY)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `lastClick()`
+#### `public int pointCount()`
+
+- Description: TODO
+
+#### `public RecordingSegment currentSegment()`
+
+- Description: TODO
+
+#### `public RecordingClick lastClick()`
 
 - Description: TODO

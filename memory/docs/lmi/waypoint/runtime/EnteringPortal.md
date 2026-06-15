@@ -1,5 +1,7 @@
 # EnteringPortal
 
+This file documents the responsibilities and members of `EnteringPortal`.
+
 ## Meta
 
 - Source: [EnteringPortal.java](../../../../../src/lmi/waypoint/runtime/EnteringPortal.java)
@@ -8,45 +10,36 @@
 
 ## Role
 
-- Represents a portal-related waypoint concept.
+Represents a portal-related waypoint concept.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [graphId](#member-1)
-- [gridId](#member-2)
-- [localX](#member-3)
-- [localY](#member-4)
-- [resname](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `graphId`
+#### `public final long graphId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `resname`
+#### `public final String resname`
+
+- Description: TODO
+
+### Methods
+
+#### `public EnteringPortal(long graphId, long gridId, int localX, int localY, String resname)`
 
 - Description: TODO

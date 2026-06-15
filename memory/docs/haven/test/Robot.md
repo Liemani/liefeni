@@ -1,5 +1,7 @@
 # Robot
 
+This file documents the responsibilities and members of `Robot`.
+
 ## Meta
 
 - Source: [Robot.java](../../../../src/haven/test/Robot.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Provides a robot test helper.
+Provides a robot test helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [c](#member-1)
-
-#### Methods
-
-- [destroy()](#member-2)
-- [newwdg(int id, Widget w, Object... args)](#member-3)
-- [dstwdg(int id, Widget w)](#member-4)
-- [uimsg(int id, Widget w, String msg, Object... args)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `c`
+#### `public TestClient c`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `destroy()`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `newwdg(int id, Widget w, Object... args)`
+#### `public Robot(TestClient cl)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `dstwdg(int id, Widget w)`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `uimsg(int id, Widget w, String msg, Object... args)`
+#### `public void newwdg(int id, Widget w, Object... args)`
+
+- Description: TODO
+
+#### `public void dstwdg(int id, Widget w)`
+
+- Description: TODO
+
+#### `public void uimsg(int id, Widget w, String msg, Object... args)`
 
 - Description: TODO

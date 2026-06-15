@@ -1,5 +1,7 @@
 # LMIException
 
+This file documents the responsibilities and members of `LMIException`.
+
 ## Meta
 
 - Source: [LMIException.java](../../../../src/lmi/core/LMIException.java)
@@ -8,32 +10,24 @@
 
 ## Role
 
-- Represents LMI-specific failure conditions.
+Represents LMI-specific failure conditions.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [reason](#member-1)
-
-#### Methods
-
-- [toString()](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `reason`
+#### `public ExceptionReason reason`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `toString()`
+#### `public LMIException(ExceptionReason reason)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

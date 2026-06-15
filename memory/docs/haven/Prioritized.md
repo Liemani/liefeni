@@ -1,5 +1,7 @@
 # Prioritized
 
+This file documents the responsibilities and members of `Prioritized`.
+
 ## Meta
 
 - Source: [Prioritized.java](../../../src/haven/Prioritized.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Marks a value as prioritized.
+Marks a value as prioritized.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public int priority();](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public int priority();`
+#### `public int priority()`
 
 - Description: TODO

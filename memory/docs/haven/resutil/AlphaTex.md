@@ -1,5 +1,7 @@
 # AlphaTex
 
+This file documents the responsibilities and members of `AlphaTex`.
+
 ## Meta
 
 - Source: [AlphaTex.java](../../../../src/haven/resutil/AlphaTex.java)
@@ -8,110 +10,80 @@
 
 ## Role
 
-- Represents an alpha texture helper.
+Represents an alpha texture helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [clipc](#member-2)
-- [lclip](#member-3)
-- [ctex](#member-4)
-- [cclip](#member-5)
-- [tex](#member-6)
-- [cthr](#member-7)
-- [fc](#member-8)
-- [main](#member-10)
-- [clip](#member-11)
-- [shnc](#member-12)
-- [shwc](#member-13)
-
-#### Methods
-
-- [value(FragmentContext fctx)](#member-9)
-- [shader()](#member-14)
-- [apply(Pipe buf)](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<AlphaTex> slot = new Slot<AlphaTex>(Slot.Type.GEOM, AlphaTex.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `clipc`
+#### `public static final Attribute clipc = new Attribute(VEC2, "clipc")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `lclip`
+#### `public static final MeshBuf.LayerID<MeshBuf.Vec2Layer> lclip = new MeshBuf.V2LayerID(clipc)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ctex`
+#### `private static final Uniform ctex = new Uniform(SAMPLER2D, p -> p.get(slot).tex, slot)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `cclip`
+#### `private static final Uniform cclip = new Uniform(FLOAT, p -> p.get(slot).cthr, slot)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `tex`
+#### `private static final AutoVarying fc = new AutoVarying(VEC2)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cthr`
+#### `private static final ShaderMacro main = prog ->`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `fc`
+#### `private static final ShaderMacro clip = prog ->`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `main`
+#### `private static final ShaderMacro shnc = main`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `clip`
+#### `private static final ShaderMacro shwc = ShaderMacro.compose(main, clip)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `shnc`
+### Fields
+
+#### `public final Sampler2D tex`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `shwc`
+#### `public final float cthr`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-9"></a>
-##### `value(FragmentContext fctx)`
-
-- Description: TODO
-
-<a id="member-14"></a>
-##### `shader()`
+#### `public AlphaTex(Sampler2D tex, float clip)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `apply(Pipe buf)`
+#### `public AlphaTex(Sampler2D tex)`
+
+- Description: TODO
+
+#### `private static Value value(FragmentContext fctx)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
 
 - Description: TODO

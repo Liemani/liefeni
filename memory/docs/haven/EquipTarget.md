@@ -1,5 +1,7 @@
 # EquipTarget
 
+This file documents the responsibilities and members of `EquipTarget`.
+
 ## Meta
 
 - Source: [EquipTarget.java](../../../src/haven/EquipTarget.java)
@@ -8,74 +10,48 @@
 
 ## Role
 
-- Defines an equipment target contract.
+Defines an equipment target contract.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [nil](#member-1)
-- [tgt](#member-3)
-- [nm](#member-4)
-- [ctx](#member-5)
-
-#### Methods
-
-- [public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat);](#member-2)
-- [NoSuchTarget(EquipTarget tgt, String nm, Object ctx)](#member-6)
-- [getMessage()](#member-7)
-- [eqpoint(EquipTarget tgt, String nm, Message dat, Object ctx)](#member-8)
-- [eqpoint(EquipTarget tgt, String nm, Message dat)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `nil`
+#### `public final Supplier<Pipe.Op> nil = () -> Pipe.Op.nil`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `tgt`
+#### `public final String tgt, nm, ctx`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `nm`
+#### `public final String tgt, nm, ctx`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `ctx`
+#### `public final String tgt, nm, ctx`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat);`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `NoSuchTarget(EquipTarget tgt, String nm, Object ctx)`
+#### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `getMessage()`
+#### `public NoSuchTarget(EquipTarget tgt, String nm, Object ctx)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `eqpoint(EquipTarget tgt, String nm, Message dat, Object ctx)`
+#### `public String getMessage()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `eqpoint(EquipTarget tgt, String nm, Message dat)`
+#### `public static Supplier<? extends Pipe.Op> eqpoint(EquipTarget tgt, String nm, Message dat, Object ctx)`
+
+- Description: TODO
+
+#### `public static Supplier<? extends Pipe.Op> eqpoint(EquipTarget tgt, String nm, Message dat)`
 
 - Description: TODO

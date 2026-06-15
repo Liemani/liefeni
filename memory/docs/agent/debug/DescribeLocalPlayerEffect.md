@@ -1,5 +1,7 @@
 # DescribeLocalPlayerEffect
 
+This file documents the responsibilities and members of `DescribeLocalPlayerEffect`.
+
 ## Meta
 
 - Source: [DescribeLocalPlayerEffect.java](../../../../src/agent/debug/DescribeLocalPlayerEffect.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Provides a debug effect for inspecting or mutating runtime state.
+Provides a debug effect for inspecting or mutating runtime state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [execute()](#member-1)
-- [info()](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `execute()`
+#### `public void execute()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

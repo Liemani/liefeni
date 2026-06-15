@@ -1,5 +1,7 @@
 # InstanceList
 
+This file documents the responsibilities and members of `InstanceList`.
+
 ## Meta
 
 - Source: [InstanceList.java](../../../../src/haven/render/InstanceList.java)
@@ -8,596 +10,426 @@
 
 ## Role
 
-- Represents a list of instances.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [clients](#member-1)
-- [master](#member-2)
-- [instreg](#member-3)
-- [bypassed](#member-4)
-- [invalid](#member-5)
-- [uslotmap](#member-6)
-- [islotmap](#member-7)
-- [ipipemap](#member-8)
-- [upipemap](#member-9)
-- [dirty](#member-10)
-- [nbypass](#member-11)
-- [ninvalid](#member-12)
-- [nuinst](#member-13)
-- [nbatches](#member-14)
-- [ninst](#member-15)
-- [_stcounts](#member-16)
-- [instid](#member-21)
-- [ust](#member-22)
-- [instids](#member-23)
-- [instidmap](#member-24)
-- [mask](#member-31)
-- [key](#member-36)
-- [rend](#member-37)
-- [ist](#member-38)
-- [ust](#member-39)
-- [insts](#member-40)
-- [ni](#member-41)
-- [backdirty](#member-42)
-- [selfdirty](#member-43)
-- [slot](#member-44)
-- [rpipes](#member-45)
-- [idx](#member-46)
-- [state](#member-64)
-- [key](#member-73)
-- [slot](#member-74)
-- [rpipes](#member-75)
-
-#### Methods
-
-- [stcounts(int n)](#member-17)
-- [uinststate(GroupPipe st, int ls)](#member-18)
-- [instid0(Pipe buf, State.Slot<T> slot)](#member-19)
-- [instids(GroupPipe st, int ls)](#member-20)
-- [InstKey(Slot<? extends Rendered> slot)](#member-25)
-- [valid()](#member-26)
-- [hashCode()](#member-27)
-- [equals(InstKey that)](#member-28)
-- [equals(Object x)](#member-29)
-- [toString()](#member-30)
-- [inststate0(State.Slot<T> slot, GroupPipe from, InstancedSlot batch)](#member-32)
-- [InstanceState(GroupPipe from, InstancedSlot batch)](#member-33)
-- [compare(InstanceState x, InstanceState y)](#member-34)
-- [toString()](#member-35)
-- [Instance(Slot<? extends Rendered> slot)](#member-47)
-- [register()](#member-48)
-- [unregister()](#member-49)
-- [update(Pipe group, int[] mask)](#member-50)
-- [InstancedSlot(InstKey key, Slot<? extends Rendered>[] slots)](#member-51)
-- [register()](#member-52)
-- [unregister()](#member-53)
-- [iupdate(int idx)](#member-54)
-- [itrim(int idx)](#member-55)
-- [add(Slot<? extends Rendered> ns, InstancedSlot replace)](#member-56)
-- [remove(Instance inst)](#member-57)
-- [dispose()](#member-58)
-- [update(Slot<? extends Rendered> ns)](#member-59)
-- [group(int idx)](#member-60)
-- [gstate(int id)](#member-61)
-- [nstates()](#member-62)
-- [obj()](#member-63)
-- [state()](#member-65)
-- [batchstates()](#member-66)
-- [batchstate(State.Slot<T> slot)](#member-67)
-- [instances()](#member-68)
-- [inststate(int idx)](#member-69)
-- [instupdate()](#member-70)
-- [update(State.Slot<? super T> slot, T state)](#member-71)
-- [commit(Render g)](#member-72)
-- [Sole(InstKey key, Slot<? extends Rendered> slot)](#member-76)
-- [register()](#member-77)
-- [unregister()](#member-78)
-- [update(Pipe group, int[] mask)](#member-79)
-- [cladd(Slot<? extends Rendered> slot)](#member-80)
-- [clremove(Slot<? extends Rendered> slot)](#member-81)
-- [clupdate(Slot<? extends Rendered> slot)](#member-82)
-- [clupdate(Pipe group, int[] mask)](#member-83)
-- [add0(Slot<? extends Rendered> slot, InstKey key, boolean prevsole, InstancedSlot previnst)](#member-84)
-- [add(Slot<? extends Rendered> slot)](#member-85)
-- [remove0(InstancedSlot b, InstancedSlot.Instance inst, boolean unreg)](#member-86)
-- [remove(Slot<? extends Rendered> slot)](#member-87)
-- [update(Slot<? extends Rendered> slot)](#member-88)
-- [update(Pipe group, int[] mask)](#member-89)
-- [commit(Render g)](#member-90)
-- [lock()](#member-91)
-- [slots()](#member-92)
-- [add(RenderList<R> list, Class<? extends R> type)](#member-93)
-- [remove(RenderList<?> list)](#member-94)
-- [dispose()](#member-95)
-- [stats()](#member-96)
+Represents a list of instances.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### InstKey
 
-<a id="member-1"></a>
-##### `clients`
+- Description: TODO
+
+### Instance
+
+- Description: TODO
+
+### InstanceState
+
+- Description: TODO
+
+### InstancedSlot
+
+- Description: TODO
+
+### Sole
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `master`
+### StateSum
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `instreg`
+## Members
 
+### Constants
+
+### Fields
+
+#### `private final List<RenderList<Rendered>> clients = new ArrayList<>()`
+
+- Description: TODO
+
+#### `private final Adapter master`
+
 - Description: TODO
 
-<a id="member-4"></a>
-##### `bypassed`
+#### `private final Map<InstKey, Object> instreg = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `invalid`
+#### `private final Map<Slot<? extends Rendered>, Object> bypassed = new IdentityHashMap<>(), invalid = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `uslotmap`
+#### `private final Map<Slot<? extends Rendered>, Object> bypassed = new IdentityHashMap<>(), invalid = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `islotmap`
+#### `private final Map<Slot<? extends Rendered>, InstKey> uslotmap = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ipipemap`
+#### `private final Map<Slot<? extends Rendered>, InstancedSlot.Instance> islotmap = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `upipemap`
+#### `private final Map<Pipe, Object> ipipemap = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `dirty`
+#### `private final Map<Pipe, Object> upipemap = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `nbypass`
+#### `private final Set<InstancedSlot> dirty = new HashSet<>()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ninvalid`
+#### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `nuinst`
+#### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `nbatches`
+#### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `ninst`
+#### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `_stcounts`
+#### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `instid`
+#### `private static int[][][] _stcounts =`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `ust`
+#### `final Object instid`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `instids`
+#### `final Pipe[] ust`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `instidmap`
+#### `final Instancer[] instids`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `mask`
+#### `final int[] instidmap`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `key`
+#### `final int[] mask`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `rend`
+#### `final InstKey key`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `ist`
+#### `final Instanced rend`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `ust`
+#### `final InstanceState ist`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `insts`
+#### `final GroupPipe ust`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `ni`
+#### `Instance[] insts`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `backdirty`
+#### `int ni`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `selfdirty`
+#### `boolean backdirty, selfdirty`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `slot`
+#### `boolean backdirty, selfdirty`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `rpipes`
+#### `final Slot<? extends Rendered> slot`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `idx`
+#### `final Pipe[] rpipes`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `state`
+#### `int idx`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `key`
+#### `private GroupPipe state = null`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `slot`
+#### `final InstKey key`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `rpipes`
+#### `final Slot<? extends Rendered> slot`
 
 - Description: TODO
 
-#### Methods
+#### `final Pipe[] rpipes`
+
+- Description: TODO
+
+### Methods
+
+#### `private static int[][] stcounts(int n)`
+
+- Description: TODO
 
-<a id="member-17"></a>
-##### `stcounts(int n)`
+#### `private static Pipe[] uinststate(GroupPipe st, int ls)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `uinststate(GroupPipe st, int ls)`
+#### `private static <T extends State> Instancer<T> instid0(Pipe buf, State.Slot<T> slot)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `instid0(Pipe buf, State.Slot<T> slot)`
+#### `private static Instancer[] instids(GroupPipe st, int ls)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `instids(GroupPipe st, int ls)`
+#### `InstKey(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `InstKey(Slot<? extends Rendered> slot)`
+#### `boolean valid()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `valid()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `hashCode()`
+#### `private boolean equals(InstKey that)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `equals(InstKey that)`
+#### `public boolean equals(Object x)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `equals(Object x)`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `toString()`
+#### `private <T extends State> void inststate0(State.Slot<T> slot, GroupPipe from, InstancedSlot batch)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `inststate0(State.Slot<T> slot, GroupPipe from, InstancedSlot batch)`
+#### `InstanceState(GroupPipe from, InstancedSlot batch)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `InstanceState(GroupPipe from, InstancedSlot batch)`
+#### `public static int compare(InstanceState x, InstanceState y)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `compare(InstanceState x, InstanceState y)`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `toString()`
+#### `Instance(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `Instance(Slot<? extends Rendered> slot)`
+#### `void register()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `register()`
+#### `void unregister()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `unregister()`
+#### `void update(Pipe group, int[] mask)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `update(Pipe group, int[] mask)`
+#### `InstancedSlot(InstKey key, Slot<? extends Rendered>[] slots)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `InstancedSlot(InstKey key, Slot<? extends Rendered>[] slots)`
+#### `void register()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `register()`
+#### `void unregister()`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `unregister()`
+#### `private void iupdate(int idx)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `iupdate(int idx)`
+#### `private void itrim(int idx)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `itrim(int idx)`
+#### `Instance add(Slot<? extends Rendered> ns, InstancedSlot replace)`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `add(Slot<? extends Rendered> ns, InstancedSlot replace)`
+#### `Instance remove(Instance inst)`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `remove(Instance inst)`
+#### `void dispose()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `dispose()`
+#### `void update(Slot<? extends Rendered> ns)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `update(Slot<? extends Rendered> ns)`
+#### `public Pipe group(int idx)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `group(int idx)`
+#### `public int gstate(int id)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `gstate(int id)`
+#### `public int nstates()`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `nstates()`
+#### `public Rendered obj()`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `obj()`
+#### `public GroupPipe state()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `state()`
+#### `public State.Slot<?>[] batchstates()`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `batchstates()`
+#### `public <T extends State> T batchstate(State.Slot<T> slot)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `batchstate(State.Slot<T> slot)`
+#### `public int instances()`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `instances()`
+#### `public Pipe inststate(int idx)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `inststate(int idx)`
+#### `public void instupdate()`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `instupdate()`
+#### `public <T extends State> void update(State.Slot<? super T> slot, T state)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `update(State.Slot<? super T> slot, T state)`
+#### `private void commit(Render g)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `commit(Render g)`
+#### `Sole(InstKey key, Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `Sole(InstKey key, Slot<? extends Rendered> slot)`
+#### `void register()`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `register()`
+#### `void unregister()`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `unregister()`
+#### `void update(Pipe group, int[] mask)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `update(Pipe group, int[] mask)`
+#### `private void cladd(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `cladd(Slot<? extends Rendered> slot)`
+#### `private void clremove(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `clremove(Slot<? extends Rendered> slot)`
+#### `private void clupdate(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `clupdate(Slot<? extends Rendered> slot)`
+#### `private void clupdate(Pipe group, int[] mask)`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `clupdate(Pipe group, int[] mask)`
+#### `public InstanceList(Adapter master)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `add0(Slot<? extends Rendered> slot, InstKey key, boolean prevsole, InstancedSlot previnst)`
+#### `private void add0(Slot<? extends Rendered> slot, InstKey key, boolean prevsole, InstancedSlot previnst)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `add(Slot<? extends Rendered> slot)`
+#### `public void add(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `remove0(InstancedSlot b, InstancedSlot.Instance inst, boolean unreg)`
+#### `private void remove0(InstancedSlot b, InstancedSlot.Instance inst, boolean unreg)`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `remove(Slot<? extends Rendered> slot)`
+#### `public void remove(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `update(Slot<? extends Rendered> slot)`
+#### `public void update(Slot<? extends Rendered> slot)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `update(Pipe group, int[] mask)`
+#### `public void update(Pipe group, int[] mask)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `commit(Render g)`
+#### `public void commit(Render g)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `lock()`
+#### `public Locked lock()`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `slots()`
+#### `public Iterable<Slot<?>> slots()`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `add(RenderList<R> list, Class<? extends R> type)`
+#### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `remove(RenderList<?> list)`
+#### `public void remove(RenderList<?> list)`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `dispose()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `stats()`
+#### `public String stats()`
 
 - Description: TODO

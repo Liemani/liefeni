@@ -1,5 +1,7 @@
 # WaitManager
 
+This file documents the responsibilities and members of `WaitManager`.
+
 ## Meta
 
 - Source: [WaitManager.java](../../../../src/lmi/runtime/WaitManager.java)
@@ -8,86 +10,56 @@
 
 ## Role
 
-- Coordinates subsystem state and routes work through the appropriate boundary.
+Coordinates subsystem state and routes work through the appropriate boundary.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [_lastSentSeq](#member-1)
-- [_lastAckedSeq](#member-2)
-- [lock](#member-3)
-
-#### Methods
-
-- [init()](#member-4)
-- [isAcked(int seq)](#member-5)
-- [updateSentSeq(int seq)](#member-6)
-- [waitACK()](#member-7)
-- [waitResponse()](#member-8)
-- [updateAckedSeq(int seq)](#member-9)
-- [sleepPolling()](#member-10)
-- [sleep(long timeout)](#member-11)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `_lastSentSeq`
+#### `private static final Object lock = new Object()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `_lastAckedSeq`
+### Fields
+
+#### `private static volatile int _lastSentSeq = -1`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `lock`
+#### `private static volatile int _lastAckedSeq = -1`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `init()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `isAcked(int seq)`
+#### `public static void init()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `updateSentSeq(int seq)`
+#### `private static boolean isAcked(int seq)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `waitACK()`
+#### `public static void updateSentSeq(int seq)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `waitResponse()`
+#### `public static void waitACK()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `updateAckedSeq(int seq)`
+#### `public static void waitResponse()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `sleepPolling()`
+#### `public static void updateAckedSeq(int seq)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `sleep(long timeout)`
+#### `public static void sleepPolling()`
+
+- Description: TODO
+
+#### `public static void sleep(long timeout)`
 
 - Description: TODO

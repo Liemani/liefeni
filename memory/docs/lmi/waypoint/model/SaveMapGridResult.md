@@ -1,5 +1,7 @@
 # SaveMapGridResult
 
+This file documents the responsibilities and members of `SaveMapGridResult`.
+
 ## Meta
 
 - Source: [SaveMapGridResult.java](../../../../../src/lmi/waypoint/model/SaveMapGridResult.java)
@@ -8,45 +10,36 @@
 
 ## Role
 
-- Carries a typed result payload for waypoint work.
+Carries a typed result payload for waypoint work.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [mapGridId](#member-1)
-- [mapSegmentId](#member-2)
-- [havenGridId](#member-3)
-- [localX](#member-4)
-- [localY](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `mapGridId`
+#### `public final long mapGridId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `mapSegmentId`
+#### `public final long mapSegmentId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `havenGridId`
+#### `public final long havenGridId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localY`
+#### `public final int localY`
+
+- Description: TODO
+
+### Methods
+
+#### `public SaveMapGridResult(long mapGridId, long mapSegmentId, long havenGridId, int localX, int localY)`
 
 - Description: TODO

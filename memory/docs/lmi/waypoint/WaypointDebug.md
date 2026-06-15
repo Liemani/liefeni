@@ -1,5 +1,7 @@
 # WaypointDebug
 
+This file documents the responsibilities and members of `WaypointDebug`.
+
 ## Meta
 
 - Source: [WaypointDebug.java](../../../../src/lmi/waypoint/WaypointDebug.java)
@@ -8,27 +10,24 @@
 
 ## Role
 
-- Hosts waypoint debugging helpers and debug-only entry points.
+Hosts waypoint debugging helpers and debug-only entry points.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [lines()](#member-1)
-- [_sceneSummary()](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `lines()`
+#### `private WaypointDebug()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `_sceneSummary()`
+#### `public static Array<String> lines()`
+
+- Description: TODO
+
+#### `private static String _sceneSummary()`
 
 - Description: TODO

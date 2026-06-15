@@ -1,5 +1,7 @@
 # FlowerMenu
 
+This file documents the responsibilities and members of `FlowerMenu`.
+
 ## Meta
 
 - Source: [FlowerMenu.java](../../../src/haven/FlowerMenu.java)
@@ -8,254 +10,194 @@
 
 ## Role
 
-- Displays the flower menu interaction widget.
+Displays the flower menu interaction widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [pink](#member-1)
-- [ptc](#member-2)
-- [ptf](#member-3)
-- [pbox](#member-4)
-- [pbg](#member-5)
-- [ph](#member-6)
-- [ppl](#member-7)
-- [opts](#member-8)
-- [mg](#member-9)
-- [kg](#member-10)
-- [name](#member-12)
-- [ta](#member-13)
-- [tr](#member-14)
-- [num](#member-15)
-- [text](#member-16)
-- [a](#member-17)
-- [chosen](#member-28)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-11)
-- [Petal(String name)](#member-18)
-- [move(Coord c)](#member-19)
-- [move(double a, double r)](#member-20)
-- [draw(GOut g)](#member-21)
-- [mousedown(MouseDownEvent ev)](#member-22)
-- [ta(Coord tc)](#member-23)
-- [ta(double a, double r)](#member-24)
-- [nxf(double a)](#member-25)
-- [Opening()](#member-26)
-- [ntick(double s)](#member-27)
-- [Chosen(Petal c)](#member-29)
-- [ntick(double s)](#member-30)
-- [Cancel()](#member-31)
-- [ntick(double s)](#member-32)
-- [organize(Petal[] opts)](#member-33)
-- [added()](#member-34)
-- [mousedown(MouseDownEvent ev)](#member-35)
-- [uimsg(String msg, Object... args)](#member-36)
-- [draw(GOut g)](#member-37)
-- [keydown(KeyDownEvent ev)](#member-38)
-- [choose(Petal option)](#member-39)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `pink`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ptc`
+### Cancel
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ptf`
+### Chosen
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `pbox`
+### Opening
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `pbg`
+### Petal
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ph`
+## Members
+
+### Constants
+
+#### `public static final Color pink = new Color(255, 0, 128)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ppl`
+#### `public static final Color ptc = Color.YELLOW`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `opts`
+#### `public static final Text.Foundry ptf = new Text.Foundry(Text.dfont, 12)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `mg`
+#### `public static final IBox pbox = Window.wbox`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `kg`
+#### `public static final Tex pbg = Window.bg`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `name`
+#### `public static final int ph = UI.scale(30), ppl = 8`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `ta`
+#### `public static final int ph = UI.scale(30), ppl = 8`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `tr`
+### Fields
+
+#### `public Petal[] opts`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `num`
+#### `private UI.Grab mg, kg`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `text`
+#### `private UI.Grab mg, kg`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `a`
+#### `public String name`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `chosen`
+#### `public double ta, tr`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-11"></a>
-##### `create(UI ui, Object[] args)`
+#### `public double ta, tr`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `Petal(String name)`
+#### `public int num`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `move(Coord c)`
+#### `private Text text`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `move(double a, double r)`
+#### `private double a = 1`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `draw(GOut g)`
+#### `Petal chosen`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `mousedown(MouseDownEvent ev)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `ta(Coord tc)`
+#### `public Petal(String name)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `ta(double a, double r)`
+#### `public void move(Coord c)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `nxf(double a)`
+#### `public void move(double a, double r)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `Opening()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `ntick(double s)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `Chosen(Petal c)`
+#### `public Area ta(Coord tc)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `ntick(double s)`
+#### `public Area ta(double a, double r)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `Cancel()`
+#### `private static double nxf(double a)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `ntick(double s)`
+#### `Opening()`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `organize(Petal[] opts)`
+#### `public void ntick(double s)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `added()`
+#### `Chosen(Petal c)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void ntick(double s)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `uimsg(String msg, Object... args)`
+#### `Cancel()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `draw(GOut g)`
+#### `public void ntick(double s)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `private void organize(Petal[] opts)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `choose(Petal option)`
+#### `public FlowerMenu(String... options)`
+
+- Description: TODO
+
+#### `protected void added()`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public boolean keydown(KeyDownEvent ev)`
+
+- Description: TODO
+
+#### `public void choose(Petal option)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Session
 
+This file documents the responsibilities and members of `Session`.
+
 ## Meta
 
 - Source: [Session.java](../../../src/haven/Session.java)
@@ -8,475 +10,338 @@
 
 ## Role
 
-- Represents the active game session.
-
-## Code Members
-
-### Member Index
-
-#### Constants
-
-- [PVER](#member-2)
-- [MSG_SESS](#member-3)
-- [MSG_REL](#member-4)
-- [MSG_ACK](#member-5)
-- [MSG_BEAT](#member-6)
-- [MSG_MAPREQ](#member-7)
-- [MSG_MAPDATA](#member-8)
-- [MSG_OBJDATA](#member-9)
-- [MSG_OBJACK](#member-10)
-- [MSG_CLOSE](#member-11)
-- [MSG_CRYPT](#member-12)
-- [SESSERR_AUTH](#member-13)
-- [SESSERR_BUSY](#member-14)
-- [SESSERR_CONN](#member-15)
-- [SESSERR_PVER](#member-16)
-- [SESSERR_EXPR](#member-17)
-- [SESSERR_MESG](#member-18)
-
-#### Fields
-
-- [record](#member-1)
-- [ackthresh](#member-19)
-- [conn](#member-20)
-- [connfailed](#member-21)
-- [connerror](#member-22)
-- [uimsgs](#member-23)
-- [user](#member-24)
-- [rescache](#member-25)
-- [glob](#member-26)
-- [sesskey](#member-27)
-- [closed](#member-28)
-- [name](#member-29)
-- [alias](#member-30)
-- [readname](#member-31)
-- [prsname](#member-32)
-- [msg](#member-41)
-- [resid](#member-43)
-- [res](#member-44)
-- [wq](#member-49)
-- [resid](#member-50)
-- [resnm](#member-51)
-- [resver](#member-52)
-- [ind](#member-53)
-- [prio](#member-54)
-- [res](#member-56)
-- [resmapper](#member-67)
-- [conncb](#member-69)
+Represents the active game session.
 
-#### Methods
+## Nested Types
 
-- [User(String name)](#member-33)
-- [alias(String val)](#member-34)
-- [readname(String val)](#member-35)
-- [prsname(String val)](#member-36)
-- [readname()](#member-37)
-- [prsname()](#member-38)
-- [reauth()](#member-39)
-- [copy()](#member-40)
-- [MessageException(String text, Message msg)](#member-42)
-- [LoadingIndir(CachedRes res)](#member-45)
-- [waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)](#member-46)
-- [boostprio(int prio)](#member-47)
-- [pool()](#member-48)
-- [CachedRes(int id)](#member-55)
-- [get()](#member-57)
-- [toString()](#member-58)
-- [reset()](#member-59)
-- [get()](#member-60)
-- [boostprio(int prio)](#member-61)
-- [set(String nm, int ver)](#member-62)
-- [cachedres(int id)](#member-63)
-- [getres(int id, int prio)](#member-64)
-- [getres(int id)](#member-65)
-- [dynres(UID uid)](#member-66)
-- [handlerel(PMessage msg)](#member-68)
-- [public static Session connect(SocketAddress server, User user, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException](#member-70)
-- [close()](#member-71)
-- [queuemsg(PMessage pmsg)](#member-72)
-- [postuimsg(PMessage msg)](#member-73)
-- [public PMessage getuimsg() throws InterruptedException](#member-74)
-- [sendmsg(PMessage msg)](#member-75)
+### CachedRes
 
-### Member Reference
+- Description: TODO
+
+### LoadingIndir
+
+- Description: TODO
+
+### MessageException
+
+- Description: TODO
+
+### Ref
 
-#### Constants
+- Description: TODO
 
-<a id="member-2"></a>
-##### `PVER`
+### User
 
 - Description: TODO
+
+## Members
 
-<a id="member-3"></a>
-##### `MSG_SESS`
+### Constants
 
+#### `public static final Config.Variable<java.nio.file.Path> record = Config.Variable.propp("haven.record", "")`
+
 - Description: TODO
 
-<a id="member-4"></a>
-##### `MSG_REL`
+#### `public static final int PVER = 30`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `MSG_ACK`
+#### `public static final int MSG_SESS = 0`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `MSG_BEAT`
+#### `public static final int MSG_REL = 1`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `MSG_MAPREQ`
+#### `public static final int MSG_ACK = 2`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `MSG_MAPDATA`
+#### `public static final int MSG_BEAT = 3`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `MSG_OBJDATA`
+#### `public static final int MSG_MAPREQ = 4`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `MSG_OBJACK`
+#### `public static final int MSG_MAPDATA = 5`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `MSG_CLOSE`
+#### `public static final int MSG_OBJDATA = 6`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `MSG_CRYPT`
+#### `public static final int MSG_OBJACK = 7`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `SESSERR_AUTH`
+#### `public static final int MSG_CLOSE = 8`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `SESSERR_BUSY`
+#### `public static final int MSG_CRYPT = 9`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `SESSERR_CONN`
+#### `public static final int SESSERR_AUTH = 1`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `SESSERR_PVER`
+#### `public static final int SESSERR_BUSY = 2`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `SESSERR_EXPR`
+#### `public static final int SESSERR_CONN = 3`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `SESSERR_MESG`
+#### `public static final int SESSERR_PVER = 4`
 
 - Description: TODO
+
+#### `public static final int SESSERR_EXPR = 5`
 
-#### Fields
+- Description: TODO
 
-<a id="member-1"></a>
-##### `record`
+#### `public static final int SESSERR_MESG = 6`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `ackthresh`
+#### `static final int ackthresh = 30`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-20"></a>
-##### `conn`
+#### `public final Transport conn`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `connfailed`
+#### `public int connfailed = 0`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `connerror`
+#### `public String connerror = null`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `uimsgs`
+#### `LinkedList<PMessage> uimsgs = new LinkedList<PMessage>()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `user`
+#### `public final User user`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `rescache`
+#### `final Map<Integer, CachedRes> rescache = new TreeMap<Integer, CachedRes>()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `glob`
+#### `public final Glob glob`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `sesskey`
+#### `public SignKey sesskey`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `closed`
+#### `private boolean closed = false`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `name`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `alias`
+#### `public String alias = null, readname = null, prsname = null`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `readname`
+#### `public String alias = null, readname = null, prsname = null`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `prsname`
+#### `public String alias = null, readname = null, prsname = null`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `msg`
+#### `public Message msg`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `resid`
+#### `public final int resid`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `res`
+#### `private transient final CachedRes res`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `wq`
+#### `private final Waitable.Queue wq = new Waitable.Queue()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `resid`
+#### `private final int resid`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `resnm`
+#### `private String resnm = null`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `resver`
+#### `private int resver`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `ind`
+#### `private Reference<Ref> ind`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `prio`
+#### `private int prio = -6`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `res`
+#### `private Resource res`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `resmapper`
+#### `public final Function<Object, Object> resmapper = new ResID.ResolveMapper(this)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `conncb`
+#### `private final Transport.Callback conncb = new Transport.Callback()`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public User(String name)`
+
+- Description: TODO
 
-<a id="member-33"></a>
-##### `User(String name)`
+#### `public User alias(String val)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `alias(String val)`
+#### `public User readname(String val)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `readname(String val)`
+#### `public User prsname(String val)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `prsname(String val)`
+#### `public String readname()`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `readname()`
+#### `public String prsname()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `prsname()`
+#### `public String reauth()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `reauth()`
+#### `public User copy()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `copy()`
+#### `public MessageException(String text, Message msg)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `MessageException(String text, Message msg)`
+#### `private LoadingIndir(CachedRes res)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `LoadingIndir(CachedRes res)`
+#### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
+#### `public boolean boostprio(int prio)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `boostprio(int prio)`
+#### `public Resource.Pool pool()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `pool()`
+#### `private CachedRes(int id)`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `CachedRes(int id)`
+#### `public Resource get()`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `get()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `toString()`
+#### `private void reset()`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `reset()`
+#### `private Ref get()`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `get()`
+#### `public void boostprio(int prio)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `boostprio(int prio)`
+#### `public void set(String nm, int ver)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `set(String nm, int ver)`
+#### `private CachedRes cachedres(int id)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `cachedres(int id)`
+#### `public Indir<Resource> getres(int id, int prio)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `getres(int id, int prio)`
+#### `public Indir<Resource> getres(int id)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `getres(int id)`
+#### `public Indir<Resource> dynres(UID uid)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `dynres(UID uid)`
+#### `private void handlerel(PMessage msg)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `handlerel(PMessage msg)`
+#### `public Session(Transport conn, User user)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `public static Session connect(SocketAddress server, User user, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException`
+#### `public static Session connect(SocketAddress server, User user, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `close()`
+#### `public void close()`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `queuemsg(PMessage pmsg)`
+#### `public void queuemsg(PMessage pmsg)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `postuimsg(PMessage msg)`
+#### `public void postuimsg(PMessage msg)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `public PMessage getuimsg() throws InterruptedException`
+#### `public PMessage getuimsg() throws InterruptedException`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `sendmsg(PMessage msg)`
+#### `public void sendmsg(PMessage msg)`
 
 - Description: TODO

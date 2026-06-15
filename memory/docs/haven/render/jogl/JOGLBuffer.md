@@ -1,5 +1,7 @@
 # JOGLBuffer
 
+This file documents the responsibilities and members of `JOGLBuffer`.
+
 ## Meta
 
 - Source: [JOGLBuffer.java](../../../../../src/haven/render/jogl/JOGLBuffer.java)
@@ -8,38 +10,32 @@
 
 ## Role
 
-- Represents a JOGL buffer.
+Represents a JOGL buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [data](#member-1)
-
-#### Methods
-
-- [data()](#member-2)
-- [dispose()](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `data`
+#### `public final ByteBuffer data`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `data()`
+#### `public JOGLBuffer(int sz)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dispose()`
+#### `public JOGLBuffer(ByteBuffer data)`
+
+- Description: TODO
+
+#### `public ByteBuffer data()`
+
+- Description: TODO
+
+#### `public void dispose()`
 
 - Description: TODO

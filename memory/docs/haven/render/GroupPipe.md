@@ -1,5 +1,7 @@
 # GroupPipe
 
+This file documents the responsibilities and members of `GroupPipe`.
+
 ## Meta
 
 - Source: [GroupPipe.java](../../../../src/haven/render/GroupPipe.java)
@@ -8,51 +10,36 @@
 
 ## Role
 
-- Represents a grouped render pipe.
+Represents a grouped render pipe.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public Pipe group(int g);](#member-1)
-- [public int gstate(int id);](#member-2)
-- [public int nstates();](#member-3)
-- [get(State.Slot<T> slot)](#member-4)
-- [copy()](#member-5)
-- [states()](#member-6)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public Pipe group(int g);`
+#### `public Pipe group(int g)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public int gstate(int id);`
+#### `public int gstate(int id)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public int nstates();`
+#### `public int nstates()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `get(State.Slot<T> slot)`
+#### `public default <T extends State> T get(State.Slot<T> slot)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `copy()`
+#### `public default Pipe copy()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `states()`
+#### `public default State[] states()`
 
 - Description: TODO

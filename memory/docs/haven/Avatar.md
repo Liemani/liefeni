@@ -1,5 +1,7 @@
 # Avatar
 
+This file documents the responsibilities and members of `Avatar`.
+
 ## Meta
 
 - Source: [Avatar.java](../../../src/haven/Avatar.java)
@@ -8,50 +10,42 @@
 
 ## Role
 
-- Represents a character avatar helper.
+Represents a character avatar helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [layers](#member-1)
-- [images](#member-2)
-
-#### Methods
-
-- [setlayers(List<Indir<Resource>> layers)](#member-3)
-- [images()](#member-4)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `layers`
+### $avatar
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `images`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public List<Indir<Resource>> layers = null`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `setlayers(List<Indir<Resource>> layers)`
+#### `private List<Resource.Image> images = null`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `images()`
+### Methods
+
+#### `public Avatar(Gob gob)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+#### `void setlayers(List<Indir<Resource>> layers)`
+
+- Description: TODO
+
+#### `public List<Resource.Image> images()`
+
+- Description: TODO
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

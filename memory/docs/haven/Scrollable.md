@@ -1,5 +1,7 @@
 # Scrollable
 
+This file documents the responsibilities and members of `Scrollable`.
+
 ## Meta
 
 - Source: [Scrollable.java](../../../src/haven/Scrollable.java)
@@ -8,39 +10,28 @@
 
 ## Role
 
-- Defines a scrollable contract.
+Defines a scrollable contract.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public int scrollmin();](#member-1)
-- [public int scrollmax();](#member-2)
-- [public int scrollval();](#member-3)
-- [public void scrollval(int val);](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public int scrollmin();`
+#### `public int scrollmin()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public int scrollmax();`
+#### `public int scrollmax()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public int scrollval();`
+#### `public int scrollval()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public void scrollval(int val);`
+#### `public void scrollval(int val)`
 
 - Description: TODO

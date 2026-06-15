@@ -1,5 +1,7 @@
 # VertexContext
 
+This file documents the responsibilities and members of `VertexContext`.
+
 ## Meta
 
 - Source: [VertexContext.java](../../../../../src/haven/render/sl/VertexContext.java)
@@ -8,98 +10,68 @@
 
 ## Role
 
-- Represents vertex shader context.
+Represents vertex shader context.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [main](#member-1)
-- [mainvals](#member-2)
-- [code](#member-3)
-- [gl_Position](#member-4)
-- [gl_PointSize](#member-5)
-- [gl_VertexID](#member-6)
-- [gl_InstanceID](#member-7)
-- [posv](#member-10)
-- [ptsz](#member-11)
-
-#### Methods
-
-- [vertid()](#member-8)
-- [instid()](#member-9)
-- [mainmod(Consumer<Block> macro, int order)](#member-12)
-- [construct(java.io.Writer out)](#member-13)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `main`
+#### `public static final Variable gl_Position = new Variable.Implicit(Type.VEC4, new Symbol.Fix("gl_Position"))`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `mainvals`
+#### `public static final Variable gl_PointSize = new Variable.Implicit(Type.FLOAT, new Symbol.Fix("gl_PointSize"))`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `code`
+#### `public static final Variable gl_VertexID = new Variable.Implicit(Type.INT, new Symbol.Fix("gl_VertexID"))`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `gl_Position`
+#### `public static final Variable gl_InstanceID = new Variable.Implicit(Type.INT, new Symbol.Fix("gl_InstanceID"))`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `gl_PointSize`
+### Fields
+
+#### `public final Function.Def main = new Function.Def(Type.VOID, new Symbol.Fix("main"))`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `gl_VertexID`
+#### `public final ValBlock mainvals = new ValBlock()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `gl_InstanceID`
+#### `private final OrderList<Consumer<Block>> code = new OrderList<>()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `posv`
+#### `public final ValBlock.Value posv = mainvals.new Value(Type.VEC4, new Symbol.Gen("posv"))`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `ptsz`
+#### `public final ValBlock.Value ptsz = mainvals.new Value(Type.FLOAT, new Symbol.Gen("ptsz"))`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-8"></a>
-##### `vertid()`
-
-- Description: TODO
-
-<a id="member-9"></a>
-##### `instid()`
+#### `public VertexContext(ProgramContext prog)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `mainmod(Consumer<Block> macro, int order)`
+#### `public Expression vertid()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `construct(java.io.Writer out)`
+#### `public Expression instid()`
+
+- Description: TODO
+
+#### `public void mainmod(Consumer<Block> macro, int order)`
+
+- Description: TODO
+
+#### `public void construct(java.io.Writer out)`
 
 - Description: TODO

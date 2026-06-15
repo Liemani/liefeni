@@ -1,5 +1,7 @@
 # MixColor
 
+This file documents the responsibilities and members of `MixColor`.
+
 ## Meta
 
 - Source: [MixColor.java](../../../../src/haven/render/MixColor.java)
@@ -8,74 +10,68 @@
 
 ## Role
 
-- Represents a mixed color state.
+Represents a mixed color state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [u_color](#member-2)
-- [color](#member-3)
-- [transfer](#member-4)
-- [shader](#member-5)
-- [instancer](#member-8)
-
-#### Methods
-
-- [shader()](#member-6)
-- [apply(Pipe p)](#member-7)
-- [attribs()](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<MixColor> slot = new Slot<>(Slot.Type.DRAW, MixColor.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u_color`
+#### `public static final InstancedUniform u_color = new InstancedUniform.Vec4("mixcolor", p -> p.get(slot).color, slot)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `color`
+#### `public static final AutoVarying transfer = new AutoVarying(Type.VEC4)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `transfer`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `shader`
+#### `private static final Instancer<MixColor> instancer = new Instancer<MixColor>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `instancer`
+### Fields
+
+#### `public final float[] color`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `apply(Pipe p)`
+#### `public MixColor(float[] color)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `attribs()`
+#### `public MixColor(FColor color)`
+
+- Description: TODO
+
+#### `public MixColor(float r, float g, float b, float a)`
+
+- Description: TODO
+
+#### `public MixColor(Color color)`
+
+- Description: TODO
+
+#### `public MixColor(int r, int g, int b, int a)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public InstancedAttribute[] attribs()`
 
 - Description: TODO

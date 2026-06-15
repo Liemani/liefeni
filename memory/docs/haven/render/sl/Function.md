@@ -1,5 +1,7 @@
 # Function
 
+This file documents the responsibilities and members of `Function`.
+
 ## Meta
 
 - Source: [Function.java](../../../../../src/haven/render/sl/Function.java)
@@ -8,458 +10,334 @@
 
 ## Role
 
-- Represents a shader function.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [name](#member-1)
-- [pars](#member-2)
-- [params](#member-3)
-- [type](#member-9)
-- [code](#member-10)
-- [fin](#member-11)
-- [type](#member-24)
-- [sin](#member-27)
-- [cos](#member-28)
-- [tan](#member-29)
-- [asin](#member-30)
-- [acos](#member-31)
-- [atan](#member-32)
-- [pow](#member-33)
-- [exp](#member-34)
-- [log](#member-35)
-- [exp2](#member-36)
-- [log2](#member-37)
-- [sqrt](#member-38)
-- [inversesqrt](#member-39)
-- [abs](#member-40)
-- [sign](#member-41)
-- [floor](#member-42)
-- [ceil](#member-43)
-- [fract](#member-44)
-- [mod](#member-45)
-- [min](#member-46)
-- [max](#member-47)
-- [clamp](#member-48)
-- [mix](#member-49)
-- [step](#member-50)
-- [smoothstep](#member-51)
-- [length](#member-52)
-- [distance](#member-53)
-- [dot](#member-54)
-- [cross](#member-55)
-- [normalize](#member-56)
-- [reflect](#member-57)
-- [transpose](#member-58)
-- [texture](#member-59)
-- [texture2D](#member-60)
-- [shadow2D](#member-61)
-- [texture3D](#member-62)
-- [textureCube](#member-63)
-- [texelFetch](#member-64)
-- [textureSize](#member-65)
-- [dir](#member-66)
+Represents a shader function.
 
-#### Methods
+## Nested Types
 
-- [Call(Expression... params)](#member-4)
-- [walk(Walker w)](#member-5)
-- [output(Output out)](#member-6)
-- [fun()](#member-7)
-- [call(Expression... params)](#member-8)
-- [Def(Type type, Symbol name)](#member-12)
-- [Def(Type type, String prefix)](#member-13)
-- [Def(Type type)](#member-14)
-- [walk(Walker w)](#member-15)
-- [output(Output out)](#member-16)
-- [fun()](#member-17)
-- [cons()](#member-18)
-- [define(final Context ctx)](#member-19)
-- [prototype(Output out)](#member-20)
-- [type(Expression... params)](#member-21)
-- [code(Statement stmt)](#member-22)
-- [code(Expression expr)](#member-23)
-- [Builtin(Type type, Symbol name, int nargs)](#member-25)
-- [type(Expression... params)](#member-26)
-- [Parameter(PDir dir, Type type, Symbol name)](#member-67)
-- [param(PDir dir, Type type, Symbol name)](#member-68)
-- [param(PDir dir, Type type, String prefix)](#member-69)
-- [param(PDir dir, Type type)](#member-70)
-- [param1(PDir dir, Type type)](#member-71)
-- [ckparams(Expression... params)](#member-72)
-- [public abstract Type type(Expression... params);](#member-73)
+### Builtin
 
-### Member Reference
+- Description: TODO
+
+### Call
+
+- Description: TODO
+
+### Def
+
+- Description: TODO
+
+### Definition
+
+- Description: TODO
 
-#### Fields
+### PDir
 
-<a id="member-1"></a>
-##### `name`
+- Description: TODO
+
+### Parameter
+
+- Description: TODO
+
+## Members
 
+### Constants
+
+#### `public static final Builtin sin = new Builtin(null, new Symbol.Fix("sin"), 1)`
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `pars`
+#### `public static final Builtin cos = new Builtin(null, new Symbol.Fix("cos"), 1)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `params`
+#### `public static final Builtin tan = new Builtin(null, new Symbol.Fix("tan"), 1)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `type`
+#### `public static final Builtin asin = new Builtin(null, new Symbol.Fix("asin"), 1)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `code`
+#### `public static final Builtin acos = new Builtin(null, new Symbol.Fix("acos"), 1)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `fin`
+#### `public static final Builtin atan = new Builtin(null, new Symbol.Fix("atan"), 1)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `type`
+#### `public static final Builtin pow = new Builtin(null, new Symbol.Fix("pow"), 2)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `sin`
+#### `public static final Builtin exp = new Builtin(null, new Symbol.Fix("exp"), 1)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `cos`
+#### `public static final Builtin log = new Builtin(null, new Symbol.Fix("log"), 1)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `tan`
+#### `public static final Builtin exp2 = new Builtin(null, new Symbol.Fix("exp2"), 1)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `asin`
+#### `public static final Builtin log2 = new Builtin(null, new Symbol.Fix("log2"), 1)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `acos`
+#### `public static final Builtin sqrt = new Builtin(null, new Symbol.Fix("sqrt"), 1)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `atan`
+#### `public static final Builtin inversesqrt = new Builtin(null, new Symbol.Fix("inversesqrt"), 1)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `pow`
+#### `public static final Builtin abs = new Builtin(null, new Symbol.Fix("abs"), 1)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `exp`
+#### `public static final Builtin sign = new Builtin(null, new Symbol.Fix("sign"), 1)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `log`
+#### `public static final Builtin floor = new Builtin(null, new Symbol.Fix("floor"), 1)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `exp2`
+#### `public static final Builtin ceil = new Builtin(null, new Symbol.Fix("ceil"), 1)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `log2`
+#### `public static final Builtin fract = new Builtin(null, new Symbol.Fix("fract"), 1)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `sqrt`
+#### `public static final Builtin mod = new Builtin(null, new Symbol.Fix("mod"), 2)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `inversesqrt`
+#### `public static final Builtin min = new Builtin(null, new Symbol.Fix("min"), 2)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `abs`
+#### `public static final Builtin max = new Builtin(null, new Symbol.Fix("max"), 2)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `sign`
+#### `public static final Builtin clamp = new Builtin(null, new Symbol.Fix("clamp"), 3)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `floor`
+#### `public static final Builtin mix = new Builtin(null, new Symbol.Fix("mix"), 3)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `ceil`
+#### `public static final Builtin step = new Builtin(null, new Symbol.Fix("step"), 2)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `fract`
+#### `public static final Builtin smoothstep = new Builtin(null, new Symbol.Fix("smoothstep"), 3)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `mod`
+#### `public static final Builtin length = new Builtin(Type.FLOAT, new Symbol.Fix("length"), 1)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `min`
+#### `public static final Builtin distance = new Builtin(Type.FLOAT, new Symbol.Fix("distance"), 2)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `max`
+#### `public static final Builtin dot = new Builtin(Type.FLOAT, new Symbol.Fix("dot"), 2)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `clamp`
+#### `public static final Builtin cross = new Builtin(Type.VEC3, new Symbol.Fix("cross"), 2)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `mix`
+#### `public static final Builtin normalize = new Builtin(null, new Symbol.Fix("normalize"), 1)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `step`
+#### `public static final Builtin reflect = new Builtin(null, new Symbol.Fix("reflect"), 2)`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `smoothstep`
+#### `public static final Builtin transpose = new Builtin(null, new Symbol.Fix("transpose"), 1)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `length`
+#### `public static final Builtin texture = new Builtin(Type.VEC4, new Symbol.Fix("texture"), 2)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `distance`
+#### `public static final Builtin texture2D = texture`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `dot`
+#### `public static final Builtin shadow2D = texture`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `cross`
+#### `public static final Builtin texture3D = texture`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `normalize`
+#### `public static final Builtin textureCube = texture`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `reflect`
+#### `public static final Builtin texelFetch = new Builtin(Type.VEC4, new Symbol.Fix("texelFetch"), 3)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `transpose`
+#### `public static final Builtin textureSize = new Builtin(null, new Symbol.Fix("textureSize"), 2)`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-59"></a>
-##### `texture`
+#### `public final Symbol name`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `texture2D`
+#### `public final List<Parameter> pars = new LinkedList<Parameter>()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `shadow2D`
+#### `private final Expression[] params`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `texture3D`
+#### `public final Type type`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `textureCube`
+#### `public final Block code`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `texelFetch`
+#### `private boolean fin = false`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `textureSize`
+#### `private final Type type`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `dir`
+#### `public final PDir dir`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public Function(Symbol name)`
+
+- Description: TODO
 
-<a id="member-4"></a>
-##### `Call(Expression... params)`
+#### `private Call(Expression... params)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `walk(Walker w)`
+#### `public void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `output(Output out)`
+#### `public void output(Output out)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `fun()`
+#### `public Function fun()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `call(Expression... params)`
+#### `public Expression call(Expression... params)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `Def(Type type, Symbol name)`
+#### `public Def(Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `Def(Type type, String prefix)`
+#### `public Def(Type type, String prefix)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `Def(Type type)`
+#### `public Def(Type type)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `walk(Walker w)`
+#### `public void walk(Walker w)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `output(Output out)`
+#### `public void output(Output out)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `fun()`
+#### `private Def fun()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `cons()`
+#### `protected void cons()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `define(final Context ctx)`
+#### `public void define(final Context ctx)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `prototype(Output out)`
+#### `public void prototype(Output out)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `type(Expression... params)`
+#### `public Type type(Expression... params)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `code(Statement stmt)`
+#### `public void code(Statement stmt)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `code(Expression expr)`
+#### `public void code(Expression expr)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `Builtin(Type type, Symbol name, int nargs)`
+#### `public Builtin(Type type, Symbol name, int nargs)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `type(Expression... params)`
+#### `public Type type(Expression... params)`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `Parameter(PDir dir, Type type, Symbol name)`
+#### `private Parameter(PDir dir, Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `param(PDir dir, Type type, Symbol name)`
+#### `public Parameter param(PDir dir, Type type, Symbol name)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `param(PDir dir, Type type, String prefix)`
+#### `public Parameter param(PDir dir, Type type, String prefix)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `param(PDir dir, Type type)`
+#### `public Parameter param(PDir dir, Type type)`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `param1(PDir dir, Type type)`
+#### `public Function param1(PDir dir, Type type)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `ckparams(Expression... params)`
+#### `void ckparams(Expression... params)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `public abstract Type type(Expression... params);`
+#### `public abstract Type type(Expression... params)`
 
 - Description: TODO

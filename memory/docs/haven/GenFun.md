@@ -1,5 +1,7 @@
 # GenFun
 
+This file documents the responsibilities and members of `GenFun`.
+
 ## Meta
 
 - Source: [GenFun.java](../../../src/haven/GenFun.java)
@@ -8,68 +10,58 @@
 
 ## Role
 
-- Provides generic function dispatch support.
+Provides generic function dispatch support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [iface](#member-1)
-- [call](#member-2)
-- [cache](#member-3)
-- [registry](#member-4)
-- [passthrough](#member-6)
-
-#### Methods
-
-- [register(Class<?> cl, T impl)](#member-5)
-- [MissingImplementationException(GenFun function, Object target)](#member-7)
-- [invoke(Object proxy, Method method, Object[] args)](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `iface`
+### Handler
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `call`
+### MissingImplementationException
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `cache`
+## Members
+
+### Constants
+
+#### `private static final InvocationHandler passthrough = new InvocationHandler()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `registry`
+### Fields
+
+#### `public final Class<T> iface`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `passthrough`
+#### `public final T call`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-5"></a>
-##### `register(Class<?> cl, T impl)`
+#### `private final Map<Class<?>, T> cache = new java.util.concurrent.ConcurrentHashMap<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `MissingImplementationException(GenFun function, Object target)`
+#### `private final Map<Class<?>, T> registry = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `invoke(Object proxy, Method method, Object[] args)`
+### Methods
+
+#### `public GenFun(Class<T> iface)`
+
+- Description: TODO
+
+#### `public GenFun<T> register(Class<?> cl, T impl)`
+
+- Description: TODO
+
+#### `public MissingImplementationException(GenFun function, Object target)`
+
+- Description: TODO
+
+#### `public Object invoke(Object proxy, Method method, Object[] args)`
 
 - Description: TODO

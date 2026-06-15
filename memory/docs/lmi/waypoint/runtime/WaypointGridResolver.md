@@ -1,5 +1,7 @@
 # WaypointGridResolver
 
+This file documents the responsibilities and members of `WaypointGridResolver`.
+
 ## Meta
 
 - Source: [WaypointGridResolver.java](../../../../../src/lmi/waypoint/runtime/WaypointGridResolver.java)
@@ -8,57 +10,41 @@
 
 ## Role
 
-- Resolves a Haven grid into waypoint runtime grid data.
-- Keeps the resolved grid cache keyed by Haven grid id.
+Resolves a Haven grid into waypoint runtime grid data.
+Keeps the resolved grid cache keyed by Haven grid id.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [resolvedByHavenGridId](#member-1)
-
-#### Methods
-
-- [clear()](#member-2)
-- [resolveGrid(Coord gc)](#member-3)
-- [resolvedGrid(long havenGridId)](#member-4)
-- [putResolvedGrid(long havenGridId, ResolvedGrid grid)](#member-5)
-- [mapFile()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `resolvedByHavenGridId`
+#### `private static final Map<Long, ResolvedGrid> resolvedByHavenGridId = new HashMap<>()`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-2"></a>
-##### `clear()`
+### Methods
 
-- Description: TODO
-
-<a id="member-3"></a>
-##### `resolveGrid(Coord gc)`
+#### `private WaypointGridResolver()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `resolvedGrid(long havenGridId)`
+#### `public static synchronized void clear()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `putResolvedGrid(long havenGridId, ResolvedGrid grid)`
+#### `public static synchronized ResolvedGrid resolveGrid(Coord gc)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `mapFile()`
+#### `static synchronized ResolvedGrid resolvedGrid(long havenGridId)`
+
+- Description: TODO
+
+#### `static synchronized void putResolvedGrid(long havenGridId, ResolvedGrid grid)`
+
+- Description: TODO
+
+#### `private static MapFile mapFile()`
 
 - Description: TODO

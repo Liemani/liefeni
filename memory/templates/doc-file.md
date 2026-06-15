@@ -12,18 +12,29 @@
 
 <이 파일의 핵심 책임을 한두 문장으로 간결하게 설명>
 
-## Code Members
+## Nested Types
 
-### Member Index
+<source file 에 nested type 이 있을 때만 이 섹션을 작성>
 
-- Constants
-  - [`<name>`](#member-<name>)
-- Fields
-  - [`<name>`](#member-<name>)
-- Methods
-  - [`<name>`](#member-<name>)
+### <nested type>
 
-### Member Reference
+<nested type의 핵심 역할을 한두 문장으로 설명>
+
+## Members
+
+### Constants
+
+#### `<signature>`
+
+- Description: <member 설명>
+
+### Fields
+
+#### `<signature>`
+
+- Description: <member 설명>
+
+### Methods
 
 #### `<signature>`
 

@@ -1,5 +1,7 @@
 # setting
 
+This file documents the responsibilities and members of `setting`.
+
 ## Meta
 
 - Source: [setting.java](../../../../src/agent/setting/setting.java)
@@ -8,39 +10,28 @@
 
 ## Role
 
-- Provides a settings menu entry.
+Provides a settings menu entry.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [name()](#member-1)
-- [info()](#member-2)
-- [icon()](#member-3)
-- [sortkey()](#member-4)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `icon()`
+#### `public static String icon()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sortkey()`
+#### `public static String sortkey()`
 
 - Description: TODO

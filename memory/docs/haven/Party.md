@@ -1,5 +1,7 @@
 # Party
 
+This file documents the responsibilities and members of `Party`.
+
 ## Meta
 
 - Source: [Party.java](../../../src/haven/Party.java)
@@ -8,116 +10,86 @@
 
 ## Role
 
-- Represents party state.
+Represents party state.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [memb](#member-1)
-- [leader](#member-2)
-- [id](#member-3)
-- [glob](#member-4)
-- [mseq](#member-5)
-- [gobid](#member-6)
-- [seq](#member-7)
-- [c](#member-8)
-- [ma](#member-9)
-- [oa](#member-10)
-- [col](#member-11)
-
-#### Methods
-
-- [Member(long gobid)](#member-12)
-- [getgob()](#member-13)
-- [getc()](#member-14)
-- [setc(Coord2d c)](#member-15)
-- [geta()](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `memb`
+### Member
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `leader`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public Map<Long, Member> memb = Collections.emptyMap()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `id`
+#### `public Member leader = null`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `glob`
+#### `public int id`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `mseq`
+#### `private final Glob glob`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `gobid`
+#### `private int mseq = 0`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `seq`
+#### `public final long gobid`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `c`
+#### `public final int seq`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `ma`
+#### `private Coord2d c = null`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `oa`
+#### `private double ma = Math.random() * Math.PI * 2`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `col`
+#### `private double oa = Double.NaN`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-12"></a>
-##### `Member(long gobid)`
+#### `public Color col = Color.BLACK`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `getgob()`
+### Methods
+
+#### `public Party(Glob glob)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `getc()`
+#### `public Member(long gobid)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `setc(Coord2d c)`
+#### `public Gob getgob()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `geta()`
+#### `public Coord2d getc()`
+
+- Description: TODO
+
+#### `void setc(Coord2d c)`
+
+- Description: TODO
+
+#### `public double geta()`
 
 - Description: TODO

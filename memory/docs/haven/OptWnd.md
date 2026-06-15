@@ -1,5 +1,7 @@
 # OptWnd
 
+This file documents the responsibilities and members of `OptWnd`.
+
 ## Meta
 
 - Source: [OptWnd.java](../../../src/haven/OptWnd.java)
@@ -8,284 +10,234 @@
 
 ## Role
 
-- Displays the options window.
+Displays the options window.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [main](#member-1)
-- [current](#member-2)
-- [tgt](#member-5)
-- [key](#member-6)
-- [back](#member-12)
-- [curcf](#member-13)
-- [prefs](#member-15)
-- [kbtt](#member-21)
-- [cmd](#member-24)
-- [msg](#member-31)
-- [curs](#member-32)
-- [mg](#member-33)
-- [kg](#member-34)
-- [cmd](#member-35)
-
-#### Methods
-
-- [chpanel(Panel p)](#member-3)
-- [cresize(Widget ch)](#member-4)
-- [PButton(int w, String title, int key, Panel tgt)](#member-7)
-- [click()](#member-8)
-- [keydown(KeyDownEvent ev)](#member-9)
-- [Panel()](#member-10)
-- [error(String msg)](#member-11)
-- [VideoPanel(Panel prev)](#member-14)
-- [CPanel(GSettings gprefs)](#member-16)
-- [draw(GOut g)](#member-17)
-- [resetcf()](#member-18)
-- [AudioPanel(Panel back)](#member-19)
-- [InterfacePanel(Panel back)](#member-20)
-- [addbtn(Widget cont, String nm, KeyBinding cmd, int y)](#member-22)
-- [BindingPanel(Panel back)](#member-23)
-- [SetButton(int w, KeyBinding cmd)](#member-25)
-- [set(KeyMatch key)](#member-26)
-- [draw(GOut g)](#member-27)
-- [mkmatch(KeyEvent ev)](#member-28)
-- [handle(KeyEvent ev)](#member-29)
-- [tooltip(Coord c, Widget prev)](#member-30)
-- [PointBind(int w)](#member-36)
-- [click()](#member-37)
-- [handle(KeyEvent ev)](#member-38)
-- [mousedown(MouseDownEvent ev)](#member-39)
-- [mouseup(MouseUpEvent ev)](#member-40)
-- [getcurs(CursorQuery ev)](#member-41)
-- [keydown(KeyDownEvent ev)](#member-42)
-- [wdgmsg(Widget sender, String msg, Object... args)](#member-43)
-- [show()](#member-44)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `main`
+### AudioPanel
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `current`
+### BindingPanel
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `tgt`
+### CPanel
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `key`
+### InterfacePanel
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `back`
+### PButton
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `curcf`
+### Panel
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `prefs`
+### PointBind
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `kbtt`
+### SetButton
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `cmd`
+### VideoPanel
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `msg`
+## Members
+
+### Constants
+
+#### `private static final Text kbtt = RichText.render("$col[255,255,0]`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `curs`
+#### `public static final String msg = "Bind other elements..."`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `mg`
+#### `public static final Resource curs = Resource.local().loadwait("gfx/hud/curs/wrench")`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `kg`
+### Fields
+
+#### `public final Panel main`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `cmd`
+#### `public Panel current`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `chpanel(Panel p)`
+#### `public final Panel tgt`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cresize(Widget ch)`
+#### `public final int key`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `PButton(int w, String title, int key, Panel tgt)`
+#### `private final Widget back`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `click()`
+#### `private CPanel curcf`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public GSettings prefs`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `Panel()`
+#### `public final KeyBinding cmd`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `error(String msg)`
+#### `private UI.Grab mg, kg`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `VideoPanel(Panel prev)`
+#### `private UI.Grab mg, kg`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `CPanel(GSettings gprefs)`
+#### `private KeyBinding cmd`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public void chpanel(Panel p)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `resetcf()`
+#### `public void cresize(Widget ch)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `AudioPanel(Panel back)`
+#### `public PButton(int w, String title, int key, Panel tgt)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `InterfacePanel(Panel back)`
+#### `public void click()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `addbtn(Widget cont, String nm, KeyBinding cmd, int y)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `BindingPanel(Panel back)`
+#### `public Panel()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `SetButton(int w, KeyBinding cmd)`
+#### `private void error(String msg)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `set(KeyMatch key)`
+#### `public VideoPanel(Panel prev)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `draw(GOut g)`
+#### `public CPanel(GSettings gprefs)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `mkmatch(KeyEvent ev)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `handle(KeyEvent ev)`
+#### `private void resetcf()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public AudioPanel(Panel back)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `PointBind(int w)`
+#### `public InterfacePanel(Panel back)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `click()`
+#### `private int addbtn(Widget cont, String nm, KeyBinding cmd, int y)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `handle(KeyEvent ev)`
+#### `public BindingPanel(Panel back)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public SetButton(int w, KeyBinding cmd)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public void set(KeyMatch key)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `getcurs(CursorQuery ev)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `protected KeyMatch mkmatch(KeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `wdgmsg(Widget sender, String msg, Object... args)`
+#### `protected boolean handle(KeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `show()`
+#### `public Object tooltip(Coord c, Widget prev)`
+
+- Description: TODO
+
+#### `public PointBind(int w)`
+
+- Description: TODO
+
+#### `public void click()`
+
+- Description: TODO
+
+#### `private boolean handle(KeyEvent ev)`
+
+- Description: TODO
+
+#### `public boolean mousedown(MouseDownEvent ev)`
+
+- Description: TODO
+
+#### `public boolean mouseup(MouseUpEvent ev)`
+
+- Description: TODO
+
+#### `public boolean getcurs(CursorQuery ev)`
+
+- Description: TODO
+
+#### `public boolean keydown(KeyDownEvent ev)`
+
+- Description: TODO
+
+#### `public OptWnd(boolean gopts)`
+
+- Description: TODO
+
+#### `public OptWnd()`
+
+- Description: TODO
+
+#### `public void wdgmsg(Widget sender, String msg, Object... args)`
+
+- Description: TODO
+
+#### `public void show()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # ClickData
 
+This file documents the responsibilities and members of `ClickData`.
+
 ## Meta
 
 - Source: [ClickData.java](../../../src/haven/ClickData.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Carries data for a click interaction.
+Carries data for a click interaction.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [ci](#member-1)
-- [slot](#member-2)
-
-#### Methods
-
-- [array()](#member-3)
-- [clickargs()](#member-4)
-- [toString()](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `ci`
+#### `public final Clickable ci`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `slot`
+#### `public final Slot slot`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `array()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `clickargs()`
+#### `public ClickData(Clickable ci, Slot slot)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `toString()`
+#### `public Object[] array()`
+
+- Description: TODO
+
+#### `public Object[] clickargs()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

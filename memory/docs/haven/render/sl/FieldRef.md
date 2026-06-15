@@ -1,5 +1,7 @@
 # FieldRef
 
+This file documents the responsibilities and members of `FieldRef`.
+
 ## Meta
 
 - Source: [FieldRef.java](../../../../../src/haven/render/sl/FieldRef.java)
@@ -8,44 +10,32 @@
 
 ## Role
 
-- Represents a field reference.
+Represents a field reference.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [val](#member-1)
-- [el](#member-2)
-
-#### Methods
-
-- [walk(Walker w)](#member-3)
-- [output(Output out)](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `val`
+#### `public final Expression val`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `el`
+#### `public final String el`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `walk(Walker w)`
+#### `public FieldRef(Expression val, String el)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

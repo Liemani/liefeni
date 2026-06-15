@@ -1,5 +1,7 @@
 # Locked
 
+This file documents the responsibilities and members of `Locked`.
+
 ## Meta
 
 - Source: [Locked.java](../../../src/haven/Locked.java)
@@ -8,44 +10,32 @@
 
 ## Role
 
-- Represents a locked value or state.
+Represents a locked value or state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [lk](#member-1)
-- [held](#member-2)
-
-#### Methods
-
-- [unlock()](#member-3)
-- [close()](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `lk`
+#### `private final Lock lk`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `held`
+#### `private boolean held`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `unlock()`
+#### `public Locked(Lock lk)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `close()`
+#### `public void unlock()`
+
+- Description: TODO
+
+#### `public void close()`
 
 - Description: TODO

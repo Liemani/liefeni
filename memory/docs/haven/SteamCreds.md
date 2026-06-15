@@ -1,5 +1,7 @@
 # SteamCreds
 
+This file documents the responsibilities and members of `SteamCreds`.
+
 ## Meta
 
 - Source: [SteamCreds.java](../../../src/haven/SteamCreds.java)
@@ -8,44 +10,32 @@
 
 ## Role
 
-- Holds Steam credentials.
+Holds Steam credentials.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [api](#member-1)
-- [name](#member-2)
-
-#### Methods
-
-- [name()](#member-3)
-- [public String tryauth(AuthClient cl) throws IOException](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `api`
+#### `private final Steam api`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `name`
+#### `private final String name`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `name()`
+#### `public SteamCreds() throws IOException`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public String tryauth(AuthClient cl) throws IOException`
+#### `public String name()`
+
+- Description: TODO
+
+#### `public String tryauth(AuthClient cl) throws IOException`
 
 - Description: TODO

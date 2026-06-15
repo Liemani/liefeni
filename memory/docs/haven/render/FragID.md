@@ -1,5 +1,7 @@
 # FragID
 
+This file documents the responsibilities and members of `FragID`.
+
 ## Meta
 
 - Source: [FragID.java](../../../../src/haven/render/FragID.java)
@@ -8,140 +10,102 @@
 
 ## Role
 
-- Represents a fragment identifier.
+Represents a fragment identifier.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [tex](#member-1)
-- [id](#member-2)
-- [fragid](#member-3)
-- [uid](#member-4)
-- [image](#member-5)
-- [val](#member-6)
-- [instancer](#member-12)
-- [transfer](#member-14)
-- [shader](#member-16)
-
-#### Methods
-
-- [ID(int val)](#member-7)
-- [shader()](#member-8)
-- [apply(Pipe p)](#member-9)
-- [hashCode()](#member-10)
-- [equals(Object o)](#member-11)
-- [attribs()](#member-13)
-- [fragid(FragmentContext fctx)](#member-15)
-- [shader()](#member-17)
-- [apply(Pipe p)](#member-18)
-- [hashCode()](#member-19)
-- [equals(Object o)](#member-20)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `tex`
+### ID
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `id`
+## Members
+
+### Constants
+
+#### `public static final Slot<FragID> tex = new Slot<>(Slot.Type.SYS, FragID.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `fragid`
+#### `public static final Slot<ID> id = new Slot<>(Slot.Type.DRAW, ID.class)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `uid`
+#### `public static final FragData fragid = new FragData(Type.INT, "fragid", p -> p.get(tex).image, tex)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `image`
+#### `private static final InstancedUniform uid = new InstancedUniform.Int("id", p ->`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `val`
+#### `static final Instancer<ID> instancer = new Instancer<ID>()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `instancer`
+#### `public static final AutoVarying transfer = new AutoVarying(Type.INT)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `transfer`
+#### `private static final ShaderMacro shader = prog -> fragid(prog.fctx).force()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `shader`
+### Fields
+
+#### `public final T image`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `ID(int val)`
+#### `public final int val`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `shader()`
+### Methods
+
+#### `public FragID(T image)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `apply(Pipe p)`
+#### `public ID(int val)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `hashCode()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `equals(Object o)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `attribs()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `fragid(FragmentContext fctx)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `shader()`
+#### `public InstancedAttribute[] attribs()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `apply(Pipe p)`
+#### `public static Value fragid(FragmentContext fctx)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `hashCode()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `equals(Object o)`
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public int hashCode()`
+
+- Description: TODO
+
+#### `public boolean equals(Object o)`
 
 - Description: TODO

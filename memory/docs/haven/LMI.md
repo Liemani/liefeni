@@ -1,5 +1,7 @@
 # LMI
 
+This file documents the responsibilities and members of `LMI`.
+
 ## Meta
 
 - Source: [LMI.java](../../../src/haven/LMI.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Provides the LMI package entry or bootstrap marker.
+Provides the LMI package entry or bootstrap marker.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [meterValues(IMeter meter)](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `meterValues(IMeter meter)`
+#### `public static List<LayerMeter.Meter> meterValues(IMeter meter)`
 
 - Description: TODO

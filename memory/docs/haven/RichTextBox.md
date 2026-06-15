@@ -1,5 +1,7 @@
 # RichTextBox
 
+This file documents the responsibilities and members of `RichTextBox`.
+
 ## Meta
 
 - Source: [RichTextBox.java](../../../src/haven/RichTextBox.java)
@@ -8,116 +10,92 @@
 
 ## Role
 
-- Displays rich text in a widget.
+Displays rich text in a widget.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [marg](#member-1)
-- [fnd](#member-2)
-- [bg](#member-3)
-- [render](#member-4)
-- [text](#member-5)
-- [sb](#member-6)
-
-#### Methods
-
-- [ckrender()](#member-7)
-- [tick(double dt)](#member-8)
-- [draw(GOut g)](#member-9)
-- [set(Indir<? extends RichText.Document> doc)](#member-10)
-- [set(RichText.Document doc)](#member-11)
-- [settext(Indir<String> text)](#member-12)
-- [settext(String text, Object... attrs)](#member-13)
-- [settext(String text)](#member-14)
-- [mousewheel(MouseWheelEvent ev)](#member-15)
-- [resize(Coord sz)](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `marg`
+#### `private static final int marg = UI.scale(10)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fnd`
+### Fields
+
+#### `public final RichText.Foundry fnd`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `bg`
+#### `public Color bg = Color.BLACK`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `render`
+#### `private Indir<? extends RichText.Document> render`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `text`
+#### `private RichText text`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `sb`
+#### `private Scrollbar sb`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-7"></a>
-##### `ckrender()`
-
-- Description: TODO
-
-<a id="member-8"></a>
-##### `tick(double dt)`
+#### `public RichTextBox(Coord sz, RichText.Foundry fnd, Indir<? extends RichText.Document> doc)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `draw(GOut g)`
+#### `public RichTextBox(Coord sz, Indir<? extends RichText.Document> doc)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `set(Indir<? extends RichText.Document> doc)`
+#### `public RichTextBox(Coord sz, String text, RichText.Foundry fnd)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `set(RichText.Document doc)`
+#### `public RichTextBox(Coord sz, String text, Object... attrs)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `settext(Indir<String> text)`
+#### `private void ckrender()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `settext(String text, Object... attrs)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `settext(String text)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public void set(Indir<? extends RichText.Document> doc)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `resize(Coord sz)`
+#### `public void set(RichText.Document doc)`
+
+- Description: TODO
+
+#### `public void settext(Indir<String> text)`
+
+- Description: TODO
+
+#### `public void settext(String text, Object... attrs)`
+
+- Description: TODO
+
+#### `public void settext(String text)`
+
+- Description: TODO
+
+#### `public boolean mousewheel(MouseWheelEvent ev)`
+
+- Description: TODO
+
+#### `public void resize(Coord sz)`
 
 - Description: TODO

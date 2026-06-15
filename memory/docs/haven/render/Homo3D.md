@@ -1,5 +1,7 @@
 # Homo3D
 
+This file documents the responsibilities and members of `Homo3D`.
+
 ## Meta
 
 - Source: [Homo3D.java](../../../../src/haven/render/Homo3D.java)
@@ -8,254 +10,172 @@
 
 ## Role
 
-- Provides homogeneous 3D math.
+Provides homogeneous 3D math.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [prj](#member-1)
-- [cam](#member-2)
-- [loc](#member-3)
-- [vertex](#member-4)
-- [normal](#member-5)
-- [u_prj](#member-6)
-- [u_cam](#member-7)
-- [u_wxf](#member-8)
-- [objv](#member-9)
-- [mapv](#member-10)
-- [eyev](#member-11)
-- [objn](#member-12)
-- [eyen](#member-13)
-- [shader](#member-25)
-- [state](#member-26)
-- [fragvert](#member-27)
-- [fragobjv](#member-28)
-- [fragmapv](#member-29)
-- [frageyev](#member-30)
-- [vertedir_id](#member-31)
-- [fragedir_id](#member-33)
-- [frageyen](#member-35)
-
-#### Methods
-
-- [prjxf(Pipe p)](#member-14)
-- [camxf(Pipe p)](#member-15)
-- [locxf(Pipe p)](#member-16)
-- [plocxf(Expression v)](#member-17)
-- [pcamxf(Expression v)](#member-18)
-- [pmvxf(Expression v)](#member-19)
-- [pprjxf(Expression v)](#member-20)
-- [nlocxf(Expression v)](#member-21)
-- [ncamxf(Expression v)](#member-22)
-- [nmvxf(Expression v)](#member-23)
-- [get(ProgramContext prog)](#member-24)
-- [vertedir(final VertexContext vctx)](#member-32)
-- [fragedir(final FragmentContext fctx)](#member-34)
-- [frageyen(FragmentContext fctx)](#member-36)
-- [obj2clip(Coord3f objc, Pipe state)](#member-37)
-- [obj2view(Coord3f objc, Pipe state, Area view)](#member-38)
-- [obj2view(Coord3f c, Pipe state)](#member-39)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `prj`
+#### `public static final Slot<Projection> prj = new Slot<>(Slot.Type.SYS, Projection.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cam`
+#### `public static final Slot<Camera> cam = new Slot<>(Slot.Type.SYS, Camera.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `loc`
+#### `public static final Slot<Location.Chain> loc = new Slot<>(Slot.Type.GEOM, Location.Chain.class)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `vertex`
+#### `public static final Attribute vertex = new Attribute(VEC3, "vertex").primary()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `normal`
+#### `public static final Attribute normal = new Attribute(VEC3, "normal")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `u_prj`
+#### `static final Uniform u_prj = new Uniform(MAT4, "proj", Homo3D::prjxf, prj)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `u_cam`
+#### `static final Uniform u_cam = new Uniform(MAT4, "cam", Homo3D::camxf, cam)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `u_wxf`
+#### `static final InstancedUniform u_wxf = new InstancedUniform.Mat4("wxf", Homo3D::locxf, loc)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `objv`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mapv`
+#### `public static final State state = new State()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `eyev`
+#### `public static final AutoVarying fragvert = new AutoVarying(VEC3, "s_vert")`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `objn`
+#### `public static final AutoVarying fragobjv = new AutoVarying(VEC3, "s_objv")`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `eyen`
+#### `public static final AutoVarying fragmapv = new AutoVarying(VEC3, "s_mapv")`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `shader`
+#### `public static final AutoVarying frageyev = new AutoVarying(VEC3, "s_eyev")`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `state`
+#### `private static final Object vertedir_id = new Object()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `fragvert`
+#### `private static final Object fragedir_id = new Object()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `fragobjv`
+#### `private static final AutoVarying frageyen = new AutoVarying(VEC3, "s_eyen")`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `fragmapv`
+### Fields
+
+#### `public final Value objv, mapv, eyev, objn, eyen`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `frageyev`
+#### `public final Value objv, mapv, eyev, objn, eyen`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `vertedir_id`
+#### `public final Value objv, mapv, eyev, objn, eyen`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `fragedir_id`
+#### `public final Value objv, mapv, eyev, objn, eyen`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `frageyen`
+#### `public final Value objv, mapv, eyev, objn, eyen`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-14"></a>
-##### `prjxf(Pipe p)`
-
-- Description: TODO
-
-<a id="member-15"></a>
-##### `camxf(Pipe p)`
+#### `public static Matrix4f prjxf(Pipe p)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `locxf(Pipe p)`
+#### `public static Matrix4f camxf(Pipe p)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `plocxf(Expression v)`
+#### `public static Matrix4f locxf(Pipe p)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `pcamxf(Expression v)`
+#### `public Homo3D(ProgramContext prog)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `pmvxf(Expression v)`
+#### `public Expression plocxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `pprjxf(Expression v)`
+#### `public Expression pcamxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `nlocxf(Expression v)`
+#### `public Expression pmvxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `ncamxf(Expression v)`
+#### `public Expression pprjxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `nmvxf(Expression v)`
+#### `public Expression nlocxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `get(ProgramContext prog)`
+#### `public Expression ncamxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `vertedir(final VertexContext vctx)`
+#### `public Expression nmvxf(Expression v)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `fragedir(final FragmentContext fctx)`
+#### `public static Homo3D get(ProgramContext prog)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `frageyen(FragmentContext fctx)`
+#### `public static Value vertedir(final VertexContext vctx)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `obj2clip(Coord3f objc, Pipe state)`
+#### `public static Value fragedir(final FragmentContext fctx)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `obj2view(Coord3f objc, Pipe state, Area view)`
+#### `public static Value frageyen(FragmentContext fctx)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `obj2view(Coord3f c, Pipe state)`
+#### `public static HomoCoord4f obj2clip(Coord3f objc, Pipe state)`
+
+- Description: TODO
+
+#### `public static Coord3f obj2view(Coord3f objc, Pipe state, Area view)`
+
+- Description: TODO
+
+#### `public static Coord3f obj2view(Coord3f c, Pipe state)`
 
 - Description: TODO

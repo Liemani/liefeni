@@ -1,5 +1,7 @@
 # Curiosity
 
+This file documents the responsibilities and members of `Curiosity`.
+
 ## Meta
 
 - Source: [Curiosity.java](../../../../src/haven/resutil/Curiosity.java)
@@ -8,92 +10,64 @@
 
 ## Role
 
-- Represents curiosity item info.
+Represents curiosity item info.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [better](#member-1)
-- [worse](#member-2)
-- [exp](#member-3)
-- [mw](#member-4)
-- [enc](#member-5)
-- [time](#member-6)
-- [ui](#member-7)
-- [units](#member-8)
-- [div](#member-9)
-
-#### Methods
-
-- [timefmt(int time)](#member-10)
-- [tipimg()](#member-11)
-- [olcol()](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `better`
+#### `public final Color better = new Color(0, 255, 0, 64), worse = new Color(255, 0, 0, 64)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `worse`
+#### `public final Color better = new Color(0, 255, 0, 64), worse = new Color(255, 0, 0, 64)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `exp`
+#### `public final int exp, mw, enc, time`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `mw`
+#### `public final int exp, mw, enc, time`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `enc`
+#### `public final int exp, mw, enc, time`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `time`
+#### `public final int exp, mw, enc, time`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ui`
+#### `public final UI ui`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `units`
+#### `static String[] units =`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `div`
+#### `static int[] div =`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-10"></a>
-##### `timefmt(int time)`
-
-- Description: TODO
-
-<a id="member-11"></a>
-##### `tipimg()`
+#### `public Curiosity(Owner owner, int exp, int mw, int enc, int time)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `olcol()`
+#### `static String timefmt(int time)`
+
+- Description: TODO
+
+#### `public BufferedImage tipimg()`
+
+- Description: TODO
+
+#### `public Color olcol()`
 
 - Description: TODO

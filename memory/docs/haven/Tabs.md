@@ -1,5 +1,7 @@
 # Tabs
 
+This file documents the responsibilities and members of `Tabs`.
+
 ## Meta
 
 - Source: [Tabs.java](../../../src/haven/Tabs.java)
@@ -8,134 +10,102 @@
 
 ## Role
 
-- Displays tabbed content.
+Displays tabbed content.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [parent](#member-1)
-- [c](#member-2)
-- [sz](#member-3)
-- [curtab](#member-4)
-- [tabs](#member-5)
-- [btn](#member-6)
-- [tab](#member-11)
-
-#### Methods
-
-- [Tab()](#member-7)
-- [destroy()](#member-8)
-- [showtab()](#member-9)
-- [add()](#member-10)
-- [TabButton(int w, String text, Tab tab)](#member-12)
-- [click()](#member-13)
-- [showtab(Tab tab)](#member-14)
-- [resize(Coord sz)](#member-15)
-- [contentsz()](#member-16)
-- [pack()](#member-17)
-- [indpack()](#member-18)
-- [changed(Tab from, Tab to)](#member-19)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `parent`
+### Tab
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `c`
+### TabButton
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sz`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public Widget parent`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `curtab`
+#### `public Coord c, sz`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `tabs`
+#### `public Coord c, sz`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `btn`
+#### `public Tab curtab = null`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `tab`
+#### `public Collection<Tab> tabs = new LinkedList<Tab>()`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `Tab()`
+#### `public TabButton btn`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `destroy()`
+#### `public final Tab tab`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `showtab()`
+### Methods
+
+#### `public Tabs(Coord c, Coord sz, Widget parent)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `add()`
+#### `public Tab()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `TabButton(int w, String text, Tab tab)`
+#### `public void destroy()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `click()`
+#### `public void showtab()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `showtab(Tab tab)`
+#### `public Tab add()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `resize(Coord sz)`
+#### `public TabButton(int w, String text, Tab tab)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `contentsz()`
+#### `public void click()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `pack()`
+#### `public void showtab(Tab tab)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `indpack()`
+#### `public void resize(Coord sz)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `changed(Tab from, Tab to)`
+#### `public Coord contentsz()`
+
+- Description: TODO
+
+#### `public void pack()`
+
+- Description: TODO
+
+#### `public void indpack()`
+
+- Description: TODO
+
+#### `public void changed(Tab from, Tab to)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # TexSI
 
+This file documents the responsibilities and members of `TexSI`.
+
 ## Meta
 
 - Source: [TexSI.java](../../../src/haven/TexSI.java)
@@ -8,50 +10,36 @@
 
 ## Role
 
-- Represents a subimage texture.
+Represents a subimage texture.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [parent](#member-1)
-- [ul](#member-2)
-- [br](#member-3)
-
-#### Methods
-
-- [sz()](#member-4)
-- [render(GOut g, float[] gc, float[] tc)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `parent`
+#### `public final Tex parent`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ul`
+#### `public final Coord ul, br`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `br`
+#### `public final Coord ul, br`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `sz()`
+#### `public TexSI(Tex parent, Coord ul, Coord br)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `render(GOut g, float[] gc, float[] tc)`
+#### `public Coord sz()`
+
+- Description: TODO
+
+#### `public void render(GOut g, float[] gc, float[] tc)`
 
 - Description: TODO

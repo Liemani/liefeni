@@ -1,5 +1,7 @@
 # ShaderContext
 
+This file documents the responsibilities and members of `ShaderContext`.
+
 ## Meta
 
 - Source: [ShaderContext.java](../../../../../src/haven/render/sl/ShaderContext.java)
@@ -8,21 +10,20 @@
 
 ## Role
 
-- Represents shader context state.
+Represents shader context state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [prog](#member-1)
+#### `public final ProgramContext prog`
 
-### Member Reference
+- Description: TODO
 
-#### Fields
+### Methods
 
-<a id="member-1"></a>
-##### `prog`
+#### `public ShaderContext(ProgramContext prog)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # MessageBuf
 
+This file documents the responsibilities and members of `MessageBuf`.
+
 ## Meta
 
 - Source: [MessageBuf.java](../../../src/haven/MessageBuf.java)
@@ -8,104 +10,88 @@
 
 ## Role
 
-- Buffers messages in memory.
+Buffers messages in memory.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [nil](#member-1)
-- [oh](#member-2)
-
-#### Methods
-
-- [underflow(int hint)](#member-3)
-- [overflow(int min)](#member-4)
-- [equals(Object o2)](#member-5)
-- [hashCode()](#member-6)
-- [rem()](#member-7)
-- [rewind()](#member-8)
-- [clone()](#member-9)
-- [size()](#member-10)
-- [fin()](#member-11)
-- [fin(byte[] buf, int off)](#member-12)
-- [fin(java.nio.ByteBuffer buf)](#member-13)
-- [toString()](#member-14)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `nil`
+#### `public static final MessageBuf nil = new MessageBuf()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `oh`
+### Fields
+
+#### `private final int oh`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `underflow(int hint)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `overflow(int min)`
+#### `public MessageBuf(byte[] blob, int off, int len)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equals(Object o2)`
+#### `public MessageBuf(byte[] blob)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `hashCode()`
+#### `public MessageBuf()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `rem()`
+#### `public MessageBuf(Message from, int len)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `rewind()`
+#### `public MessageBuf(Message from)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `clone()`
+#### `public boolean underflow(int hint)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `size()`
+#### `public void overflow(int min)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `fin()`
+#### `public boolean equals(Object o2)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `fin(byte[] buf, int off)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `fin(java.nio.ByteBuffer buf)`
+#### `public int rem()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `toString()`
+#### `public void rewind()`
+
+- Description: TODO
+
+#### `public MessageBuf clone()`
+
+- Description: TODO
+
+#### `public int size()`
+
+- Description: TODO
+
+#### `public byte[] fin()`
+
+- Description: TODO
+
+#### `public void fin(byte[] buf, int off)`
+
+- Description: TODO
+
+#### `public void fin(java.nio.ByteBuffer buf)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

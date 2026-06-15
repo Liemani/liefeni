@@ -1,5 +1,7 @@
 # Outlines
 
+This file documents the responsibilities and members of `Outlines`.
+
 ## Meta
 
 - Source: [Outlines.java](../../../src/haven/Outlines.java)
@@ -8,92 +10,70 @@
 
 ## Role
 
-- Provides outline rendering support.
+Provides outline rendering support.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [symmetric](#member-1)
-- [snrm](#member-2)
-- [sdep](#member-3)
-- [msnrm](#member-4)
-- [msdep](#member-5)
-- [shaders](#member-6)
-- [nrm](#member-7)
-- [depth](#member-8)
-
-#### Methods
-
-- [Draw(ShaderMacro code, Texture2D.Sampler2D nrm, Texture2D.Sampler2D depth)](#member-9)
-- [shader(final boolean symmetric, final boolean ms)](#member-10)
-- [added(RenderTree.Slot slot)](#member-11)
-- [removed(RenderTree.Slot slot)](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `symmetric`
+### Draw
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `snrm`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private boolean symmetric`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sdep`
+#### `private final static Uniform snrm = new Uniform(SAMPLER2D, p -> ((Draw)p.get(RUtils.adhoc)).nrm, RUtils.adhoc)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `msnrm`
+#### `private final static Uniform sdep = new Uniform(SAMPLER2D, p -> ((Draw)p.get(RUtils.adhoc)).depth, RUtils.adhoc)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `msdep`
+#### `private final static Uniform msnrm = new Uniform(SAMPLER2DMS, p -> ((Draw)p.get(RUtils.adhoc)).nrm, RUtils.adhoc)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `shaders`
+#### `private final static Uniform msdep = new Uniform(SAMPLER2DMS, p -> ((Draw)p.get(RUtils.adhoc)).depth, RUtils.adhoc)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `nrm`
+#### `private final static ShaderMacro[] shaders = new ShaderMacro[4]`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `depth`
+#### `final Texture2D.Sampler2D nrm, depth`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-9"></a>
-##### `Draw(ShaderMacro code, Texture2D.Sampler2D nrm, Texture2D.Sampler2D depth)`
+#### `final Texture2D.Sampler2D nrm, depth`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `shader(final boolean symmetric, final boolean ms)`
+### Methods
+
+#### `Draw(ShaderMacro code, Texture2D.Sampler2D nrm, Texture2D.Sampler2D depth)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `added(RenderTree.Slot slot)`
+#### `private static ShaderMacro shader(final boolean symmetric, final boolean ms)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `removed(RenderTree.Slot slot)`
+#### `public Outlines(boolean symmetric)`
+
+- Description: TODO
+
+#### `public void added(RenderTree.Slot slot)`
+
+- Description: TODO
+
+#### `public void removed(RenderTree.Slot slot)`
 
 - Description: TODO

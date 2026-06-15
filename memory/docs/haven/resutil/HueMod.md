@@ -1,5 +1,7 @@
 # HueMod
 
+This file documents the responsibilities and members of `HueMod`.
+
 ## Meta
 
 - Source: [HueMod.java](../../../../src/haven/resutil/HueMod.java)
@@ -8,74 +10,52 @@
 
 ## Role
 
-- Represents a hue modification helper.
+Represents a hue modification helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [tgthue](#member-2)
-- [huemod](#member-3)
-- [satmod](#member-4)
-- [cxf](#member-5)
-- [apply](#member-6)
-- [shader](#member-7)
-
-#### Methods
-
-- [shader()](#member-8)
-- [apply(Pipe buf)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<HueMod> slot = new Slot<>(Slot.Type.DRAW, HueMod.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tgthue`
+#### `private static final Uniform cxf = new Uniform(VEC3, p ->`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `huemod`
+#### `private static final Function apply = new Function.Def(VEC4)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `satmod`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `cxf`
+### Fields
+
+#### `final float tgthue, huemod, satmod`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `apply`
+#### `final float tgthue, huemod, satmod`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `shader`
+#### `final float tgthue, huemod, satmod`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-8"></a>
-##### `shader()`
+#### `public HueMod(float tgthue, float huemod, float satmod)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `apply(Pipe buf)`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
 
 - Description: TODO

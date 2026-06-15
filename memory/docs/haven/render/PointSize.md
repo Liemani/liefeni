@@ -1,5 +1,7 @@
 # PointSize
 
+This file documents the responsibilities and members of `PointSize`.
+
 ## Meta
 
 - Source: [PointSize.java](../../../../src/haven/render/PointSize.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents point size state.
+Represents point size state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [u_ptsz](#member-2)
-- [sz](#member-3)
-- [shader](#member-4)
-
-#### Methods
-
-- [shader()](#member-5)
-- [apply(Pipe p)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<State> slot = new Slot<>(Slot.Type.GEOM, State.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u_ptsz`
+#### `public static final Uniform u_ptsz = new Uniform(Type.FLOAT, "pointsize", p -> ((PointSize)p.get(slot)).sz, slot)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sz`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `shader`
+### Fields
+
+#### `public final float sz`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `shader()`
+#### `public PointSize(float sz)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `apply(Pipe p)`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
 
 - Description: TODO

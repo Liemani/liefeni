@@ -264,27 +264,27 @@ Haven minimap / map marker 저장 구조는 [map-icons.md](./map-icons.md)를 �
 
 ## 중요한 파일
 
-- `src/lmi/Agent.java`
+- `src/lmi/runtime/Agent.java`
   - JobRequest 실행, push/enqueue 스케줄링, stop/interruption
-- `src/lmi/AgentRegistry.java`
+- `src/lmi/runtime/AgentRegistry.java`
   - `agent/**` recursive scan, Job/Effect/폴더 메타데이터 등록
-- `src/lmi/AgentManager.java`
+- `src/lmi/runtime/AgentManager.java`
   - 콘솔 진입점에서 Job 실행 관리
-- `src/lmi/MenuGridProxy.java`
+- `src/lmi/bridge/MenuGridProxy.java`
   - registry 기반 메뉴 주입과 메타데이터 표시
-- `src/lmi/Hook.java`
+- `src/lmi/bridge/Hook.java`
   - Haven 이벤트를 LMI 실행 경로로 연결
-- `src/lmi/WaitManager.java`
+- `src/lmi/runtime/WaitManager.java`
   - ACK/응답 타이밍 동기화
-- `src/lmi/Api.java`
+- `src/lmi/bridge/Api.java`
   - Job에서 직접 사용하는 고수준 자동화 API
-- `src/lmi/AppContext.java`
+- `src/lmi/core/AppContext.java`
   - Haven 참조와 UI 접근 함수를 제공하는 전역 접근점
 - `src/lmi/AtomicAction.java`
   - 내부 최소 실행 단위를 모은 원자 동작 계층
 - `src/lmi/ChatInputMonitor.java`
   - area chat 입력 대기
-- `src/lmi/LmiLifecycle.java`
+- `src/lmi/lifecycle/LmiLifecycle.java`
   - process / session / world / widget lifecycle을 조정하는 진입점
 - `src/lmi/waypoint/persistence/WaypointStore.java`
   - waypoint 도메인이 사용하는 public facade

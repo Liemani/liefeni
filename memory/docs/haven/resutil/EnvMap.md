@@ -1,5 +1,7 @@
 # EnvMap
 
+This file documents the responsibilities and members of `EnvMap`.
+
 ## Meta
 
 - Source: [EnvMap.java](../../../../src/haven/resutil/EnvMap.java)
@@ -8,80 +10,62 @@
 
 ## Role
 
-- Represents an environment map helper.
+Represents an environment map helper.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [slot](#member-1)
-- [csky](#member-2)
-- [ccol](#member-3)
-- [icam](#member-4)
-- [sky](#member-5)
-- [col](#member-6)
-- [shader](#member-8)
-
-#### Methods
-
-- [cons(Material.Buffer buf, Object... args)](#member-7)
-- [shader()](#member-9)
-- [apply(Pipe buf)](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+### $envref
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `csky`
+## Members
+
+### Constants
+
+#### `public static final Slot<EnvMap> slot = new Slot<EnvMap>(Slot.Type.DRAW, EnvMap.class)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ccol`
+#### `private static final Uniform csky = new Uniform(SAMPLERCUBE, p -> p.get(slot).sky, slot)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `icam`
+#### `private static final Uniform ccol = new Uniform(VEC3, p -> p.get(slot).col, slot)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sky`
+#### `private static final Uniform icam = new Uniform(MAT3, p -> Homo3D.camxf(p).transpose().trim3(), Homo3D.cam)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `col`
+#### `private static final SamplerCube sky = WaterTile.sky`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `shader`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-7"></a>
-##### `cons(Material.Buffer buf, Object... args)`
-
-- Description: TODO
-
-<a id="member-9"></a>
-##### `shader()`
+#### `public final float[] col`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `apply(Pipe buf)`
+### Methods
+
+#### `public EnvMap(Color col)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
+
+- Description: TODO
+
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe buf)`
 
 - Description: TODO

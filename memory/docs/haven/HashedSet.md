@@ -1,5 +1,7 @@
 # HashedSet
 
+This file documents the responsibilities and members of `HashedSet`.
+
 ## Meta
 
 - Source: [HashedSet.java](../../../src/haven/HashedSet.java)
@@ -8,134 +10,96 @@
 
 ## Role
 
-- Provides a hashed set implementation.
+Provides a hashed set implementation.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [loadfac](#member-1)
-- [hash](#member-2)
-- [tab](#member-3)
-- [sz](#member-4)
-
-#### Methods
-
-- [clear()](#member-5)
-- [size()](#member-6)
-- [isEmpty()](#member-7)
-- [nextidx(Object[] tab, int idx)](#member-8)
-- [hashidx(Object[] tab, E el)](#member-9)
-- [findidx(Object[] tab, Object e)](#member-10)
-- [remove(Object[] tab, int idx)](#member-11)
-- [remove(Object el)](#member-12)
-- [ckshrink()](#member-13)
-- [resize(int nsz)](#member-14)
-- [add(E el)](#member-15)
-- [iterator()](#member-16)
-- [contains(Object el)](#member-17)
-- [find(E el)](#member-18)
-- [intern(E el)](#member-19)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `loadfac`
+#### `private static final double loadfac = 0.5`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `hash`
+### Fields
+
+#### `public final Hash<? super E> hash`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `tab`
+#### `private Object[] tab`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sz`
+#### `private int sz`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `clear()`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `size()`
+#### `public HashedSet(Hash<? super E> hash)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `isEmpty()`
+#### `public HashedSet(Hash<? super E> hash, Collection<? extends E> from)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `nextidx(Object[] tab, int idx)`
+#### `public void clear()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `hashidx(Object[] tab, E el)`
+#### `public int size()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `findidx(Object[] tab, Object e)`
+#### `public boolean isEmpty()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `remove(Object[] tab, int idx)`
+#### `private int nextidx(Object[] tab, int idx)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `remove(Object el)`
+#### `private int hashidx(Object[] tab, E el)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `ckshrink()`
+#### `private int findidx(Object[] tab, Object e)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `resize(int nsz)`
+#### `private void remove(Object[] tab, int idx)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `add(E el)`
+#### `public boolean remove(Object el)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `iterator()`
+#### `private void ckshrink()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `contains(Object el)`
+#### `private void resize(int nsz)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `find(E el)`
+#### `public boolean add(E el)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `intern(E el)`
+#### `public Iterator<E> iterator()`
+
+- Description: TODO
+
+#### `public boolean contains(Object el)`
+
+- Description: TODO
+
+#### `public E find(E el)`
+
+- Description: TODO
+
+#### `public E intern(E el)`
 
 - Description: TODO

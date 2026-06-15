@@ -1,5 +1,7 @@
 # ISBox
 
+This file documents the responsibilities and members of `ISBox`.
+
 ## Meta
 
 - Source: [ISBox.java](../../../src/haven/ISBox.java)
@@ -8,128 +10,94 @@
 
 ## Role
 
-- Represents an icon/text box widget.
+Represents an icon/text box widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [bgcol](#member-1)
-- [box](#member-2)
-- [defsz](#member-3)
-- [lf](#member-4)
-- [res](#member-5)
-- [label](#member-6)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-7)
-- [setlabel(int rem, int av, int bi)](#member-8)
-- [draw(GOut g)](#member-9)
-- [mousedown(MouseDownEvent ev)](#member-10)
-- [mousewheel(MouseWheelEvent ev)](#member-11)
-- [drop(Coord cc, Coord ul)](#member-12)
-- [iteminteract(Coord cc, Coord ul)](#member-13)
-- [uimsg(String msg, Object... args)](#member-14)
-- [text()](#member-15)
-- [count()](#member-16)
-- [capacity()](#member-17)
-- [transfer()](#member-18)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bgcol`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `box`
+## Members
+
+### Constants
+
+#### `public static final Color bgcol = new Color(43, 51, 44, 127)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `defsz`
+#### `public static final IBox box = new IBox.Scaled("gfx/hud/bosq", "tl", "tr", "bl", "br", "el", "er", "et", "eb")`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `lf`
+#### `public static final Coord defsz = UI.scale(145, 42)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `res`
+#### `public static final Text.Foundry lf = new Text.Foundry(Text.fraktur, 22, Color.WHITE).aa(true)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `label`
+### Fields
+
+#### `private final Indir<Resource> res`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `create(UI ui, Object[] args)`
+#### `private Text label`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `setlabel(int rem, int av, int bi)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `draw(GOut g)`
+#### `private void setlabel(int rem, int av, int bi)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public ISBox(Indir<Resource> res, int rem, int av, int bi)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `drop(Coord cc, Coord ul)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `iteminteract(Coord cc, Coord ul)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public boolean drop(Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `text()`
+#### `public boolean iteminteract(Coord cc, Coord ul)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `count()`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `capacity()`
+#### `public String text()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `transfer()`
+#### `public int count()`
+
+- Description: TODO
+
+#### `public int capacity()`
+
+- Description: TODO
+
+#### `public void transfer()`
 
 - Description: TODO

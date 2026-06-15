@@ -1,5 +1,7 @@
 # WaypointRequest
 
+This file documents the responsibilities and members of `WaypointRequest`.
+
 ## Meta
 
 - Source: [WaypointRequest.java](../../../../../src/lmi/waypoint/persistence/WaypointRequest.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Defines a unit of work for waypoint persistence.
+Defines a unit of work for waypoint persistence.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [R execute(Connection conn) throws Exception;](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `R execute(Connection conn) throws Exception;`
+#### `R execute(Connection conn) throws Exception`
 
 - Description: TODO

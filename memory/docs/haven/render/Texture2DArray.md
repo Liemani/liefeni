@@ -1,5 +1,7 @@
 # Texture2DArray
 
+This file documents the responsibilities and members of `Texture2DArray`.
+
 ## Meta
 
 - Source: [Texture2DArray.java](../../../../src/haven/render/Texture2DArray.java)
@@ -8,68 +10,58 @@
 
 ## Role
 
-- Represents a 2D texture array.
+Represents a 2D texture array.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [w](#member-1)
-- [h](#member-2)
-- [pot](#member-3)
-
-#### Methods
-
-- [image(int layer, int miplevel)](#member-4)
-- [images()](#member-5)
-- [Sampler2DArray(Texture2DArray tex)](#member-6)
-- [sampler()](#member-7)
-- [toString()](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `w`
+### Sampler2DArray
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `h`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final int w, h`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `pot`
+#### `public final int w, h`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `image(int layer, int miplevel)`
+#### `private final boolean pot`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `images()`
+### Methods
+
+#### `public Texture2DArray(int w, int h, int n, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `Sampler2DArray(Texture2DArray tex)`
+#### `public Texture2DArray(int w, int h, int n, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `sampler()`
+#### `public ArrayImage<Texture2DArray> image(int layer, int miplevel)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `toString()`
+#### `public Collection<ArrayImage<Texture2DArray>> images()`
+
+- Description: TODO
+
+#### `public Sampler2DArray(Texture2DArray tex)`
+
+- Description: TODO
+
+#### `public Sampler2DArray sampler()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

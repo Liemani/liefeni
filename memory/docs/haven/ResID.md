@@ -1,5 +1,7 @@
 # ResID
 
+This file documents the responsibilities and members of `ResID`.
+
 ## Meta
 
 - Source: [ResID.java](../../../src/haven/ResID.java)
@@ -8,122 +10,94 @@
 
 ## Role
 
-- Represents a resource identifier.
+Represents a resource identifier.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [id](#member-1)
-- [src](#member-2)
-- [rr](#member-15)
-
-#### Methods
-
-- [of(int id)](#member-3)
-- [src(Resource.Resolver src)](#member-4)
-- [get()](#member-5)
-- [intValue()](#member-6)
-- [byteValue()](#member-7)
-- [shortValue()](#member-8)
-- [longValue()](#member-9)
-- [floatValue()](#member-10)
-- [doubleValue()](#member-11)
-- [hashCode()](#member-12)
-- [equals(Object x)](#member-13)
-- [toString()](#member-14)
-- [ResolveMapper(Resource.Resolver rr)](#member-16)
-- [apply(Object obj)](#member-17)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `id`
+### ResolveMapper
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `src`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final int id`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `rr`
+#### `public final Resource.Resolver src`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `of(int id)`
+#### `public final Resource.Resolver rr`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `src(Resource.Resolver src)`
+### Methods
+
+#### `private ResID(int id, Resource.Resolver src)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `get()`
+#### `private ResID(int id)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `intValue()`
+#### `public static ResID of(int id)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `byteValue()`
+#### `public ResID src(Resource.Resolver src)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `shortValue()`
+#### `public Resource get()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `longValue()`
+#### `public int intValue()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `floatValue()`
+#### `public byte byteValue()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `doubleValue()`
+#### `public short shortValue()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `hashCode()`
+#### `public long longValue()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `equals(Object x)`
+#### `public float floatValue()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `toString()`
+#### `public double doubleValue()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `ResolveMapper(Resource.Resolver rr)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `apply(Object obj)`
+#### `public boolean equals(Object x)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public ResolveMapper(Resource.Resolver rr)`
+
+- Description: TODO
+
+#### `public Object apply(Object obj)`
 
 - Description: TODO

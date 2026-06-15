@@ -1,5 +1,7 @@
 # SaveBatch
 
+This file documents the responsibilities and members of `SaveBatch`.
+
 ## Meta
 
 - Source: [SaveBatch.java](../../../../../src/lmi/waypoint/managed/SaveBatch.java)
@@ -8,32 +10,24 @@
 
 ## Role
 
-- Groups waypoint writes into a single save batch.
+Groups waypoint writes into a single save batch.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [wpNodeSnapshots](#member-1)
-
-#### Methods
-
-- [isEmpty()](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `wpNodeSnapshots`
+#### `public final List<WpNodeSnapshot> wpNodeSnapshots`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `isEmpty()`
+#### `public SaveBatch(List<WpNodeSnapshot> wpNodeSnapshots)`
+
+- Description: TODO
+
+#### `public boolean isEmpty()`
 
 - Description: TODO

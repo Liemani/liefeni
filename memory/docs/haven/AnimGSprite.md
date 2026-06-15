@@ -1,5 +1,7 @@
 # AnimGSprite
 
+This file documents the responsibilities and members of `AnimGSprite`.
+
 ## Meta
 
 - Source: [AnimGSprite.java](../../../src/haven/AnimGSprite.java)
@@ -8,74 +10,52 @@
 
 ## Role
 
-- Represents an animated sprite backed by graphics resources.
+Represents an animated sprite backed by graphics resources.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [anim](#member-1)
-- [ref](#member-2)
-- [f](#member-3)
-- [ft](#member-4)
-- [fact](#member-5)
-
-#### Methods
-
-- [draw(GOut g)](#member-6)
-- [sz()](#member-7)
-- [image()](#member-8)
-- [tick(double dt)](#member-9)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `anim`
+#### `public static final Factory fact = new Factory()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `ref`
+### Fields
+
+#### `public final Resource.Anim anim`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `f`
+#### `public final Resource.Image ref`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ft`
+#### `private int f, ft`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `fact`
+#### `private int f, ft`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `draw(GOut g)`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `sz()`
+#### `public AnimGSprite(Owner owner, Resource.Anim anim)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `image()`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tick(double dt)`
+#### `public Coord sz()`
+
+- Description: TODO
+
+#### `public BufferedImage image()`
+
+- Description: TODO
+
+#### `public void tick(double dt)`
 
 - Description: TODO

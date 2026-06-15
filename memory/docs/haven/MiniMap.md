@@ -1,5 +1,7 @@
 # MiniMap
 
+This file documents the responsibilities and members of `MiniMap`.
+
 ## Meta
 
 - Source: [MiniMap.java](../../../src/haven/MiniMap.java)
@@ -8,1154 +10,834 @@
 
 ## Role
 
-- Displays the minimap.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [bg](#member-1)
-- [nomap](#member-2)
-- [plp](#member-3)
-- [file](#member-4)
-- [markers](#member-5)
-- [curloc](#member-6)
-- [sessloc](#member-7)
-- [iconconf](#member-8)
-- [icons](#member-9)
-- [setloc](#member-10)
-- [follow](#member-11)
-- [zoomlevel](#member-12)
-- [maglevel](#member-13)
-- [display](#member-14)
-- [dgext](#member-15)
-- [dtext](#member-16)
-- [dseg](#member-17)
-- [dlvl](#member-18)
-- [dmag](#member-19)
-- [dloc](#member-20)
-- [seg](#member-22)
-- [tc](#member-23)
-- [sess](#member-27)
-- [lastgrid](#member-28)
-- [lastloc](#member-29)
-- [mv](#member-32)
-- [seg](#member-35)
-- [tc](#member-36)
-- [o](#member-39)
-- [m](#member-40)
-- [loader](#member-41)
-- [load](#member-42)
-- [icon](#member-43)
-- [lseq](#member-44)
-- [iseq](#member-45)
-- [ctxr](#member-47)
-- [info](#member-54)
-- [mm](#member-56)
-- [seq](#member-57)
-- [icons](#member-58)
-- [mseq](#member-59)
-- [updater](#member-60)
-- [loading](#member-61)
-- [sesslocator](#member-71)
-- [cc](#member-75)
-- [f](#member-76)
-- [notifcol](#member-79)
-- [attr](#member-80)
-- [gob](#member-81)
-- [icon](#member-82)
-- [conf](#member-83)
-- [rc](#member-84)
-- [sc](#member-85)
-- [ang](#member-86)
-- [z](#member-87)
-- [stime](#member-88)
-- [ntime](#member-89)
-- [notify](#member-90)
-- [snotify](#member-91)
-- [markchecked](#member-92)
-- [mark](#member-98)
-- [res](#member-101)
-- [fg](#member-102)
-- [bg](#member-103)
-- [cc](#member-104)
-- [col](#member-105)
-- [name](#member-106)
-- [mm](#member-113)
-- [m](#member-114)
-- [sc](#member-115)
-- [tseq](#member-120)
-- [tooltip](#member-121)
-- [mm](#member-123)
-- [file](#member-124)
-- [seg](#member-125)
-- [sc](#member-126)
-- [mapext](#member-127)
-- [gref](#member-128)
-- [dc](#member-129)
-- [img](#member-130)
-- [nextimg](#member-131)
-- [src](#member-133)
-- [cgrid](#member-134)
-- [next](#member-135)
-- [img](#member-136)
-- [img_c](#member-139)
-- [olimg_c](#member-141)
-- [markers](#member-143)
-- [markerseq](#member-144)
-- [drag](#member-172)
-- [dragging](#member-173)
-- [dsc](#member-174)
-- [dmc](#member-175)
-- [dsloc](#member-177)
-- [dsicon](#member-178)
-- [dsmark](#member-179)
-- [lasttname](#member-185)
-- [lastobjid](#member-186)
-- [lasttip](#member-187)
-
-#### Methods
-
-- [attached()](#member-21)
-- [Location(Segment seg, Coord tc)](#member-24)
-- [toString()](#member-25)
-- [Location locate(MapFile file) throws Loading;](#member-26)
-- [SessionLocator(Session sess)](#member-30)
-- [locate(MapFile file)](#member-31)
-- [MapLocator(MapView mv)](#member-33)
-- [locate(MapFile file)](#member-34)
-- [SpecLocator(long seg, Coord tc)](#member-37)
-- [locate(MapFile file)](#member-38)
-- [MarkerIcon(Markers o, Marker m)](#member-46)
-- [context(Class<T> cl)](#member-48)
-- [create()](#member-49)
-- [ckload()](#member-50)
-- [update()](#member-51)
-- [icon()](#member-52)
-- [name()](#member-53)
-- [info()](#member-55)
-- [Markers(MiniMap mm)](#member-62)
-- [update0()](#member-63)
-- [update()](#member-64)
-- [get(Marker m)](#member-65)
-- [known()](#member-66)
-- [center(Location loc)](#member-67)
-- [resolve(Locator loc)](#member-68)
-- [xlate(Location loc)](#member-69)
-- [xlate(Coord sc)](#member-70)
-- [tick(double dt)](#member-72)
-- [center(Locator loc)](#member-73)
-- [follow(Locator loc)](#member-74)
-- [Scale2D(Coord cc, float f)](#member-77)
-- [apply(Pipe buf)](#member-78)
-- [DisplayIcon(GobIcon attr, GobIcon.Setting conf)](#member-93)
-- [update(Coord2d rc, double ang)](#member-94)
-- [dispupdate()](#member-95)
-- [draw(GOut g)](#member-96)
-- [force()](#member-97)
-- [MarkerID(Gob gob, Marker mark)](#member-99)
-- [find(OCache oc, Marker mark)](#member-100)
-- [Flag(OwnerContext owner, Color col, String name)](#member-107)
-- [name()](#member-108)
-- [image()](#member-109)
-- [draw(GOut g, Coord c)](#member-110)
-- [checkhit(Coord c)](#member-111)
-- [id()](#member-112)
-- [DisplayMarker(MiniMap mm, Marker marker)](#member-116)
-- [icon()](#member-117)
-- [dispupdate()](#member-118)
-- [draw(GOut g, Coord c)](#member-119)
-- [tooltip()](#member-122)
-- [DisplayGrid(MiniMap mm, Segment seg, Coord sc, int lvl, Indir<? extends DataGrid> gref)](#member-132)
-- [CachedImage(Function<DataGrid, Defer.Future<Tex>> src)](#member-137)
-- [get()](#member-138)
-- [img()](#member-140)
-- [olimg(String tag)](#member-142)
-- [markers(boolean remark)](#member-145)
-- [l2dscale(Coord c)](#member-146)
-- [d2lscale(Coord c)](#member-147)
-- [st2c(Coord tc)](#member-148)
-- [p2c(Coord2d pc)](#member-149)
-- [redisplay(Location loc)](#member-150)
-- [drawgrid(GOut g, Coord ul, DisplayGrid disp)](#member-151)
-- [drawmap(GOut g)](#member-152)
-- [drawmarkers(GOut g)](#member-153)
-- [findicons(Collection<? extends DisplayIcon> prev)](#member-154)
-- [drawicons(GOut g)](#member-155)
-- [remparty()](#member-156)
-- [drawparty(GOut g)](#member-157)
-- [drawparts(GOut g)](#member-158)
-- [draw(GOut g)](#member-159)
-- [hascomplete(DisplayGrid[] disp, Area dext, Coord c)](#member-160)
-- [allowzoomout()](#member-161)
-- [iconat(Coord c)](#member-162)
-- [gridat(Coord sc)](#member-163)
-- [findmarker(Marker rm)](#member-164)
-- [markerat(Coord tc)](#member-165)
-- [markobjs()](#member-166)
-- [filter(DisplayIcon icon)](#member-167)
-- [filter(DisplayMarker marker)](#member-168)
-- [clickloc(Location loc, int button, boolean press)](#member-169)
-- [clickicon(DisplayIcon icon, Location loc, int button, boolean press)](#member-170)
-- [clickmarker(DisplayMarker mark, Location loc, int button, boolean press)](#member-171)
-- [dragp(int button)](#member-176)
-- [mousedown(MouseDownEvent ev)](#member-180)
-- [mousemove(MouseMoveEvent ev)](#member-181)
-- [mouseup(MouseUpEvent ev)](#member-182)
-- [mousewheel(MouseWheelEvent ev)](#member-183)
-- [mousehover(MouseHoverEvent ev, boolean hovering)](#member-184)
-- [tooltip(Coord c, Widget prev)](#member-188)
-- [mvclick(MapView mv, Coord mc, Location loc, Gob gob, int button)](#member-189)
+Displays the minimap.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### CachedImage
 
-<a id="member-1"></a>
-##### `bg`
+- Description: TODO
+
+### DisplayGrid
+
+- Description: TODO
+
+### DisplayIcon
+
+- Description: TODO
+
+### DisplayMarker
+
+- Description: TODO
+
+### Flag
+
+- Description: TODO
+
+### Location
+
+- Description: TODO
+
+### Locator
+
+- Description: TODO
+
+### MapLocator
+
+- Description: TODO
+
+### MarkerID
+
+- Description: TODO
 
+### MarkerIcon
+
+- Description: TODO
+
+### Markers
+
+- Description: TODO
+
+### Scale2D
+
+- Description: TODO
+
+### SessionLocator
+
+- Description: TODO
+
+### SpecLocator
+
+- Description: TODO
+
+## Members
+
+### Constants
+
+#### `public static final Tex bg = Resource.loadtex("gfx/hud/mmap/ptex")`
+
 - Description: TODO
 
-<a id="member-2"></a>
-##### `nomap`
+#### `public static final Tex nomap = Resource.loadtex("gfx/hud/mmap/nomap")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `plp`
+#### `public static final Tex plp = ((TexI)Resource.loadtex("gfx/hud/mmap/plp")).filter(Texture.Filter.LINEAR)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `file`
+#### `private static final OwnerContext.ClassResolver<MarkerIcon> ctxr = new OwnerContext.ClassResolver<MarkerIcon>()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `markers`
+#### `public static final Color notifcol = new Color(255, 128, 0, 255)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `curloc`
+#### `public static final Resource res = Resource.local().loadwait("gfx/hud/mmap/flag")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `sessloc`
+#### `public static final Resource.Image fg = res.flayer(Resource.imgc, 0)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `iconconf`
+#### `public static final Resource.Image bg = res.flayer(Resource.imgc, 1)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `icons`
+#### `public static final Coord cc = UI.scale(res.flayer(Resource.negc).cc)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `setloc`
+### Fields
 
+#### `public final MapFile file`
+
+- Description: TODO
+
+#### `public Markers markers = new Markers(this)`
+
 - Description: TODO
 
-<a id="member-11"></a>
-##### `follow`
+#### `public Location curloc`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `zoomlevel`
+#### `public Location sessloc`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `maglevel`
+#### `public GobIcon.Settings iconconf`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `display`
+#### `public List<DisplayIcon> icons = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `dgext`
+#### `protected Locator setloc`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `dtext`
+#### `protected boolean follow`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `dseg`
+#### `protected int zoomlevel = 0, maglevel = 1 << Utils.clip((int)Math.round(Math.log(UI.scale(1.0)) / Math.log(2)), 0, 3)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `dlvl`
+#### `protected int zoomlevel = 0, maglevel = 1 << Utils.clip((int)Math.round(Math.log(UI.scale(1.0)) / Math.log(2)), 0, 3)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `dmag`
+#### `protected DisplayGrid[] display =`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `dloc`
+#### `protected Area dgext, dtext`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `seg`
+#### `protected Area dgext, dtext`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `tc`
+#### `protected Segment dseg`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `sess`
+#### `protected int dlvl, dmag`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `lastgrid`
+#### `protected int dlvl, dmag`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `lastloc`
+#### `protected Location dloc`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `mv`
+#### `public final Segment seg`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `seg`
+#### `public final Coord tc`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `tc`
+#### `public final Session sess`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `o`
+#### `private MCache.Grid lastgrid = null`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `m`
+#### `private Location lastloc`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `loader`
+#### `public final MapView mv`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `load`
+#### `public final long seg`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `icon`
+#### `public final Coord tc`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `lseq`
+#### `public final Markers o`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `iseq`
+#### `public final Marker m`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `ctxr`
+#### `private final Loader loader`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `info`
+#### `private Loader.Future<GobIcon.Icon> load`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `mm`
+#### `private GobIcon.Icon icon`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `seq`
+#### `private int lseq, iseq`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `icons`
+#### `private int lseq, iseq`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `mseq`
+#### `private List<ItemInfo> info = null`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `updater`
+#### `public final MiniMap mm`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `loading`
+#### `public int seq`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `sesslocator`
+#### `private final Map<Marker, MarkerIcon> icons = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `cc`
+#### `private volatile int mseq = -1`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `f`
+#### `private volatile Future<?> updater = null`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `notifcol`
+#### `private boolean loading`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `attr`
+#### `private Locator sesslocator`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `gob`
+#### `public final Coord cc`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `icon`
+#### `public final float f`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `conf`
+#### `public final GobIcon attr`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `rc`
+#### `public final Gob gob`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `sc`
+#### `public final GobIcon.Icon icon`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `ang`
+#### `public final GobIcon.Setting conf`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `z`
+#### `public Coord2d rc = null`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `stime`
+#### `public Coord sc = null`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `ntime`
+#### `public double ang = 0.0`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `notify`
+#### `public int z`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `snotify`
+#### `public double stime, ntime`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `markchecked`
+#### `public double stime, ntime`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `mark`
+#### `public boolean notify`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `res`
+#### `private Consumer<UI> snotify`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `fg`
+#### `private boolean markchecked`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `bg`
+#### `public final Marker mark`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `cc`
+#### `public final Color col`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `col`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `name`
+#### `public final MiniMap mm`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `mm`
+#### `public final Marker m`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `m`
+#### `public Coord sc = null`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `sc`
+#### `private int tseq = -1`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `tseq`
+#### `private BufferedImage tooltip = null`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `tooltip`
+#### `public final MiniMap mm`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `mm`
+#### `public final MapFile file`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `file`
+#### `public final Segment seg`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `seg`
+#### `public final Coord sc`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `sc`
+#### `public final Area mapext`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `mapext`
+#### `public final Indir<? extends DataGrid> gref`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `gref`
+#### `public Coord dc`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `dc`
+#### `private Tex img = null`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `img`
+#### `private Defer.Future<Tex> nextimg = null`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `nextimg`
+#### `final Function<DataGrid, Defer.Future<Tex>> src`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `src`
+#### `DataGrid cgrid`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `cgrid`
+#### `Defer.Future<Tex> next`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `next`
+#### `Tex img`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `img`
+#### `private CachedImage img_c`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `img_c`
+#### `private Map<String, CachedImage> olimg_c = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `olimg_c`
+#### `private Collection<DisplayMarker> markers = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `markers`
+#### `private int markerseq = -1`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `markerseq`
+#### `private UI.Grab drag`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `drag`
+#### `private boolean dragging`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `dragging`
+#### `private Coord dsc, dmc`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `dsc`
+#### `private Coord dsc, dmc`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `dmc`
+#### `private Location dsloc`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `dsloc`
+#### `private DisplayIcon dsicon`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `dsicon`
+#### `private DisplayMarker dsmark`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `dsmark`
+#### `private String lasttname = null`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `lasttname`
+#### `private Object lastobjid = null`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `lastobjid`
+#### `private Tex lasttip = null`
 
 - Description: TODO
+
+### Methods
 
-<a id="member-187"></a>
-##### `lasttip`
+#### `public MiniMap(Coord sz, MapFile file)`
 
 - Description: TODO
 
-#### Methods
+#### `public MiniMap(MapFile file)`
+
+- Description: TODO
 
-<a id="member-21"></a>
-##### `attached()`
+#### `protected void attached()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `Location(Segment seg, Coord tc)`
+#### `public Location(Segment seg, Coord tc)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `Location locate(MapFile file) throws Loading;`
+#### `Location locate(MapFile file) throws Loading`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `SessionLocator(Session sess)`
+#### `public SessionLocator(Session sess)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `locate(MapFile file)`
+#### `public Location locate(MapFile file)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `MapLocator(MapView mv)`
+#### `public MapLocator(MapView mv)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `locate(MapFile file)`
+#### `public Location locate(MapFile file)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `SpecLocator(long seg, Coord tc)`
+#### `public SpecLocator(long seg, Coord tc)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `locate(MapFile file)`
+#### `public Location locate(MapFile file)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `MarkerIcon(Markers o, Marker m)`
+#### `public MarkerIcon(Markers o, Marker m)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `context(Class<T> cl)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `create()`
+#### `private GobIcon.Icon create()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `ckload()`
+#### `private void ckload()`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `update()`
+#### `private void update()`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `icon()`
+#### `public GobIcon.Icon icon()`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `name()`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `info()`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `Markers(MiniMap mm)`
+#### `private Markers(MiniMap mm)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `update0()`
+#### `private void update0()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `update()`
+#### `private void update()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `get(Marker m)`
+#### `public MarkerIcon get(Marker m)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `known()`
+#### `public Collection<? extends MarkerIcon> known()`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `center(Location loc)`
+#### `public void center(Location loc)`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `resolve(Locator loc)`
+#### `public Location resolve(Locator loc)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `xlate(Location loc)`
+#### `public Coord xlate(Location loc)`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `xlate(Coord sc)`
+#### `public Location xlate(Coord sc)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `center(Locator loc)`
+#### `public void center(Locator loc)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `follow(Locator loc)`
+#### `public void follow(Locator loc)`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `Scale2D(Coord cc, float f)`
+#### `public Scale2D(Coord cc, float f)`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `apply(Pipe buf)`
+#### `public void apply(Pipe buf)`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `DisplayIcon(GobIcon attr, GobIcon.Setting conf)`
+#### `public DisplayIcon(GobIcon attr, GobIcon.Setting conf)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `update(Coord2d rc, double ang)`
+#### `public void update(Coord2d rc, double ang)`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `dispupdate()`
+#### `public void dispupdate()`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `force()`
+#### `public boolean force()`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `MarkerID(Gob gob, Marker mark)`
+#### `public MarkerID(Gob gob, Marker mark)`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `find(OCache oc, Marker mark)`
+#### `public static Gob find(OCache oc, Marker mark)`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `Flag(OwnerContext owner, Color col, String name)`
+#### `public Flag(OwnerContext owner, Color col, String name)`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `name()`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `image()`
+#### `public BufferedImage image()`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `draw(GOut g, Coord c)`
+#### `public void draw(GOut g, Coord c)`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `checkhit(Coord c)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `id()`
+#### `public Object[] id()`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `DisplayMarker(MiniMap mm, Marker marker)`
+#### `public DisplayMarker(MiniMap mm, Marker marker)`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `icon()`
+#### `public GobIcon.Icon icon()`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `dispupdate()`
+#### `public void dispupdate()`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `draw(GOut g, Coord c)`
+#### `public void draw(GOut g, Coord c)`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `tooltip()`
+#### `public BufferedImage tooltip()`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `DisplayGrid(MiniMap mm, Segment seg, Coord sc, int lvl, Indir<? extends DataGrid> gref)`
+#### `public DisplayGrid(MiniMap mm, Segment seg, Coord sc, int lvl, Indir<? extends DataGrid> gref)`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `CachedImage(Function<DataGrid, Defer.Future<Tex>> src)`
+#### `CachedImage(Function<DataGrid, Defer.Future<Tex>> src)`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `get()`
+#### `public Tex get()`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `img()`
+#### `public Tex img()`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `olimg(String tag)`
+#### `public Tex olimg(String tag)`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `markers(boolean remark)`
+#### `public Collection<DisplayMarker> markers(boolean remark)`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `l2dscale(Coord c)`
+#### `private Coord l2dscale(Coord c)`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `d2lscale(Coord c)`
+#### `private Coord d2lscale(Coord c)`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `st2c(Coord tc)`
+#### `public Coord st2c(Coord tc)`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `p2c(Coord2d pc)`
+#### `public Coord p2c(Coord2d pc)`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `redisplay(Location loc)`
+#### `private void redisplay(Location loc)`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `drawgrid(GOut g, Coord ul, DisplayGrid disp)`
+#### `public void drawgrid(GOut g, Coord ul, DisplayGrid disp)`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `drawmap(GOut g)`
+#### `public void drawmap(GOut g)`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `drawmarkers(GOut g)`
+#### `public void drawmarkers(GOut g)`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `findicons(Collection<? extends DisplayIcon> prev)`
+#### `public List<DisplayIcon> findicons(Collection<? extends DisplayIcon> prev)`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `drawicons(GOut g)`
+#### `public void drawicons(GOut g)`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `remparty()`
+#### `public void remparty()`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `drawparty(GOut g)`
+#### `public void drawparty(GOut g)`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `drawparts(GOut g)`
+#### `public void drawparts(GOut g)`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `hascomplete(DisplayGrid[] disp, Area dext, Coord c)`
+#### `private static boolean hascomplete(DisplayGrid[] disp, Area dext, Coord c)`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `allowzoomout()`
+#### `protected boolean allowzoomout()`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `iconat(Coord c)`
+#### `public DisplayIcon iconat(Coord c)`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `gridat(Coord sc)`
+#### `public DisplayGrid gridat(Coord sc)`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `findmarker(Marker rm)`
+#### `public DisplayMarker findmarker(Marker rm)`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `markerat(Coord tc)`
+#### `public DisplayMarker markerat(Coord tc)`
 
 - Description: TODO
 
-<a id="member-166"></a>
-##### `markobjs()`
+#### `public void markobjs()`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `filter(DisplayIcon icon)`
+#### `public boolean filter(DisplayIcon icon)`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `filter(DisplayMarker marker)`
+#### `public boolean filter(DisplayMarker marker)`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `clickloc(Location loc, int button, boolean press)`
+#### `public boolean clickloc(Location loc, int button, boolean press)`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
+#### `public boolean clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
+#### `public boolean clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `dragp(int button)`
+#### `public boolean dragp(int button)`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `mousehover(MouseHoverEvent ev, boolean hovering)`
+#### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `mvclick(MapView mv, Coord mc, Location loc, Gob gob, int button)`
+#### `public void mvclick(MapView mv, Coord mc, Location loc, Gob gob, int button)`
 
 - Description: TODO

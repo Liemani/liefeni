@@ -1,5 +1,7 @@
 # SysBuffer
 
+This file documents the responsibilities and members of `SysBuffer`.
+
 ## Meta
 
 - Source: [SysBuffer.java](../../../../../src/haven/render/gl/SysBuffer.java)
@@ -8,27 +10,20 @@
 
 ## Role
 
-- Represents a system-backed GL buffer.
+Represents a system-backed GL buffer.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public ByteBuffer data();](#member-1)
-- [close()](#member-2)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public ByteBuffer data();`
+#### `public ByteBuffer data()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `close()`
+#### `public default void close()`
 
 - Description: TODO

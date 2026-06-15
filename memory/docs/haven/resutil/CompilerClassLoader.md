@@ -1,5 +1,7 @@
 # CompilerClassLoader
 
+This file documents the responsibilities and members of `CompilerClassLoader`.
+
 ## Meta
 
 - Source: [CompilerClassLoader.java](../../../../src/haven/resutil/CompilerClassLoader.java)
@@ -8,32 +10,24 @@
 
 ## Role
 
-- Loads compiled resource classes.
+Loads compiled resource classes.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [useres](#member-1)
-
-#### Methods
-
-- [public Class<?> findClass(String name) throws ClassNotFoundException](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `useres`
+#### `private Indir<Resource>[] useres`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `public Class<?> findClass(String name) throws ClassNotFoundException`
+#### `public CompilerClassLoader(ClassLoader parent)`
+
+- Description: TODO
+
+#### `public Class<?> findClass(String name) throws ClassNotFoundException`
 
 - Description: TODO

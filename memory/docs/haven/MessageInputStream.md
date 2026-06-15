@@ -1,5 +1,7 @@
 # MessageInputStream
 
+This file documents the responsibilities and members of `MessageInputStream`.
+
 ## Meta
 
 - Source: [MessageInputStream.java](../../../src/haven/MessageInputStream.java)
@@ -8,38 +10,28 @@
 
 ## Role
 
-- Reads messages from an input stream.
+Reads messages from an input stream.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [bk](#member-1)
-
-#### Methods
-
-- [read()](#member-2)
-- [read(byte[] buf, int off, int len)](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `bk`
+#### `private final Message bk`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `read()`
+#### `public MessageInputStream(Message from)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `read(byte[] buf, int off, int len)`
+#### `public int read()`
+
+- Description: TODO
+
+#### `public int read(byte[] buf, int off, int len)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Patrol000Job
 
+This file documents the responsibilities and members of `Patrol000Job`.
+
 ## Meta
 
 - Source: [Patrol000Job.java](../../../../src/agent/test/Patrol000Job.java)
@@ -8,38 +10,24 @@
 
 ## Role
 
-- Provides a manual test or validation job entry point.
+Provides a manual test or validation job entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [_path](#member-1)
-
-#### Methods
-
-- [run(AgentContext ctx, String[] args)](#member-2)
-- [info()](#member-3)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `_path`
+#### `private Array<haven.Coord> _path = new Array<>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `run(AgentContext ctx, String[] args)`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # FloatLiteral
 
+This file documents the responsibilities and members of `FloatLiteral`.
+
 ## Meta
 
 - Source: [FloatLiteral.java](../../../../../src/haven/render/sl/FloatLiteral.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Represents a float literal.
+Represents a float literal.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [z](#member-1)
-- [u](#member-2)
-- [n](#member-3)
-- [val](#member-4)
-
-#### Methods
-
-- [walk(Walker w)](#member-5)
-- [output(Output out)](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `z`
+#### `public static final FloatLiteral z = new FloatLiteral(0)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u`
+#### `public static final FloatLiteral u = new FloatLiteral(1)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `n`
+#### `public static final FloatLiteral n = new FloatLiteral(-1)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `val`
+### Fields
+
+#### `public final double val`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `walk(Walker w)`
+#### `public FloatLiteral(double val)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `output(Output out)`
+#### `public void walk(Walker w)`
+
+- Description: TODO
+
+#### `public void output(Output out)`
 
 - Description: TODO

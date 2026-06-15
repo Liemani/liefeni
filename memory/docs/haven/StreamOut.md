@@ -1,5 +1,7 @@
 # StreamOut
 
+This file documents the responsibilities and members of `StreamOut`.
+
 ## Meta
 
 - Source: [StreamOut.java](../../../src/haven/StreamOut.java)
@@ -8,110 +10,80 @@
 
 ## Role
 
-- Writes stream content out.
+Writes stream content out.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [path](#member-1)
-- [rate](#member-2)
-- [out](#member-3)
-- [sz](#member-4)
-- [free](#member-5)
-- [obuf](#member-6)
-- [ot](#member-7)
-- [running](#member-8)
-
-#### Methods
-
-- [writeframe(ByteBuffer data)](#member-9)
-- [uoutput()](#member-10)
-- [routput(double rate)](#member-11)
-- [output()](#member-12)
-- [fin(ByteBuffer buf)](#member-13)
-- [accept(Render g, Pipe state)](#member-14)
-- [close()](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `path`
+#### `public static final Config.Variable<Path> path = Config.Variable.propp("haven.streamout", "")`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `rate`
+#### `public static final Config.Variable<Double> rate = Config.Variable.propf("haven.streamrate", null)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `out`
+### Fields
+
+#### `public final WritableByteChannel out`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sz`
+#### `public final Coord sz`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `free`
+#### `private final Queue<ByteBuffer> free = new LinkedList<>()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `obuf`
+#### `private ByteBuffer obuf = null`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `ot`
+#### `private Thread ot = null`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `running`
+#### `private boolean running = true`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-9"></a>
-##### `writeframe(ByteBuffer data)`
-
-- Description: TODO
-
-<a id="member-10"></a>
-##### `uoutput()`
+#### `public StreamOut(Coord sz, WritableByteChannel out)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `routput(double rate)`
+#### `public StreamOut(Coord sz, Path out) throws IOException`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `output()`
+#### `private void writeframe(ByteBuffer data)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `fin(ByteBuffer buf)`
+#### `private void uoutput()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `accept(Render g, Pipe state)`
+#### `private void routput(double rate)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `close()`
+#### `private void output()`
+
+- Description: TODO
+
+#### `private void fin(ByteBuffer buf)`
+
+- Description: TODO
+
+#### `public void accept(Render g, Pipe state)`
+
+- Description: TODO
+
+#### `public void close()`
 
 - Description: TODO

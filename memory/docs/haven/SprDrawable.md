@@ -1,5 +1,7 @@
 # SprDrawable
 
+This file documents the responsibilities and members of `SprDrawable`.
+
 ## Meta
 
 - Source: [SprDrawable.java](../../../src/haven/SprDrawable.java)
@@ -8,80 +10,60 @@
 
 ## Role
 
-- Binds sprite behavior to drawing.
+Binds sprite behavior to drawing.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [spr](#member-1)
-- [ctxr](#member-8)
-
-#### Methods
-
-- [added(RenderTree.Slot slot)](#member-2)
-- [dispose()](#member-3)
-- [ctick(double dt)](#member-4)
-- [gtick(Render g)](#member-5)
-- [getres()](#member-6)
-- [apply(Gob gob, Sprite.Mill<S> mk)](#member-7)
-- [context(Class<T> cl)](#member-9)
-- [mkrandoom()](#member-10)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `spr`
+#### `private static final ClassResolver<SprDrawable> ctxr = new ClassResolver<SprDrawable>()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `ctxr`
+### Fields
+
+#### `public final Sprite spr`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `added(RenderTree.Slot slot)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `dispose()`
+#### `public SprDrawable(Gob gob, Sprite.Mill<?> mk)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `ctick(double dt)`
+#### `public SprDrawable(Gob gob, Sprite spr)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `gtick(Render g)`
+#### `public void added(RenderTree.Slot slot)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `getres()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(Gob gob, Sprite.Mill<S> mk)`
+#### `public void ctick(double dt)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `context(Class<T> cl)`
+#### `public void gtick(Render g)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mkrandoom()`
+#### `public Resource getres()`
+
+- Description: TODO
+
+#### `public static <S extends Sprite> S apply(Gob gob, Sprite.Mill<S> mk)`
+
+- Description: TODO
+
+#### `public <T> T context(Class<T> cl)`
+
+- Description: TODO
+
+#### `public Random mkrandoom()`
 
 - Description: TODO

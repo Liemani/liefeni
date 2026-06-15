@@ -1,5 +1,7 @@
 # CurrentGridDebugOverlay
 
+This file documents the responsibilities and members of `CurrentGridDebugOverlay`.
+
 ## Meta
 
 - Source: [CurrentGridDebugOverlay.java](../../../../src/lmi/draw/CurrentGridDebugOverlay.java)
@@ -8,97 +10,64 @@
 
 ## Role
 
-- Renders a draw-time overlay for the corresponding subsystem.
+Renders a draw-time overlay for the corresponding subsystem.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [GRID_TILE_SIZE](#member-1)
-- [INSTANCE](#member-2)
-- [GRID_CORNER_COLOR](#member-3)
-- [GRID_LABEL_COLOR](#member-4)
-
-#### Fields
-
-- [enabled](#member-5)
-
-#### Methods
-
-- [instance()](#member-6)
-- [toggle()](#member-7)
-- [zOrder()](#member-8)
-- [visible()](#member-9)
-- [draw(MapView mapView, GOut g)](#member-10)
-- [drawGridCorner(MapView mapView, GOut g, String label, int worldX, int worldY, int labelDx, int labelDy)](#member-11)
-- [screen(MapView mapView, Coord world)](#member-12)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `GRID_TILE_SIZE`
+#### `private static final int GRID_TILE_SIZE = 100`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `INSTANCE`
+#### `private static final CurrentGridDebugOverlay INSTANCE = new CurrentGridDebugOverlay()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `GRID_CORNER_COLOR`
+#### `private static final Color GRID_CORNER_COLOR = new Color(255, 140, 90, 220)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `GRID_LABEL_COLOR`
+#### `private static final Color GRID_LABEL_COLOR = new Color(255, 230, 210, 240)`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-5"></a>
-##### `enabled`
-
-- Description: TODO
-
-#### Methods
-
-<a id="member-6"></a>
-##### `instance()`
+#### `private static boolean enabled = false`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `toggle()`
+### Methods
+
+#### `private CurrentGridDebugOverlay()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `zOrder()`
+#### `public static CurrentGridDebugOverlay instance()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `visible()`
+#### `public static boolean toggle()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `draw(MapView mapView, GOut g)`
+#### `public int zOrder()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `drawGridCorner(MapView mapView, GOut g, String label, int worldX, int worldY, int labelDx, int labelDy)`
+#### `public boolean visible()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `screen(MapView mapView, Coord world)`
+#### `public void draw(MapView mapView, GOut g)`
+
+- Description: TODO
+
+#### `private static void drawGridCorner(MapView mapView, GOut g, String label, int worldX, int worldY, int labelDx, int labelDy)`
+
+- Description: TODO
+
+#### `private static Coord screen(MapView mapView, Coord world)`
 
 - Description: TODO

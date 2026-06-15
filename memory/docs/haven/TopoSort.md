@@ -1,5 +1,7 @@
 # TopoSort
 
+This file documents the responsibilities and members of `TopoSort`.
+
 ## Meta
 
 - Source: [TopoSort.java](../../../src/haven/TopoSort.java)
@@ -8,164 +10,126 @@
 
 ## Role
 
-- Provides topological sorting.
+Provides topological sorting.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [hash](#member-1)
-- [nodes](#member-2)
-- [edges](#member-3)
-- [hash](#member-4)
-- [fwd](#member-5)
-- [rwd](#member-6)
-- [order](#member-18)
-
-#### Methods
-
-- [Graph(Hash<? super T> hash)](#member-7)
-- [Graph(Hash<? super T> hash, Graph<S> from)](#member-8)
-- [add(T from, T to)](#member-9)
-- [remove(T from, T to)](#member-10)
-- [removefrom(T from)](#member-11)
-- [removeto(T to)](#member-12)
-- [from(T from)](#member-13)
-- [to(T to)](#member-14)
-- [add(T before, T after)](#member-15)
-- [add(Iterable<? extends T> order)](#member-16)
-- [remove(T before, T after)](#member-17)
-- [sort()](#member-19)
-- [InconsistentOrder(String message)](#member-20)
-- [InconsistentOrder()](#member-21)
-- [pickbad()](#member-22)
-- [pick(Collection<T> from)](#member-23)
-- [findcycles()](#member-24)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `hash`
+### Graph
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `nodes`
+### InconsistentOrder
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `edges`
+## Members
+
+### Constants
+
+### Fields
+
+#### `protected final Hash<? super T> hash`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `hash`
+#### `protected final Set<T> nodes`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `fwd`
+#### `protected final Graph<T> edges`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `rwd`
+#### `public final Hash<? super T> hash`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `order`
+#### `public final Map<T, Set<T>> fwd`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-7"></a>
-##### `Graph(Hash<? super T> hash)`
+#### `public final Map<T, Set<T>> rwd`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `Graph(Hash<? super T> hash, Graph<S> from)`
+#### `protected List<T> order`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `add(T from, T to)`
+### Methods
+
+#### `public Graph(Hash<? super T> hash)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `remove(T from, T to)`
+#### `public <S extends T> Graph(Hash<? super T> hash, Graph<S> from)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `removefrom(T from)`
+#### `public void add(T from, T to)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `removeto(T to)`
+#### `public void remove(T from, T to)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `from(T from)`
+#### `public boolean removefrom(T from)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `to(T to)`
+#### `public boolean removeto(T to)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `add(T before, T after)`
+#### `public Collection<T> from(T from)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `add(Iterable<? extends T> order)`
+#### `public Collection<T> to(T to)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `remove(T before, T after)`
+#### `public TopoSort(Hash<? super T> hash)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `sort()`
+#### `public TopoSort()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `InconsistentOrder(String message)`
+#### `public TopoSort add(T before, T after)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `InconsistentOrder()`
+#### `public TopoSort add(Iterable<? extends T> order)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `pickbad()`
+#### `private void remove(T before, T after)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `pick(Collection<T> from)`
+#### `public List<T> sort()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `findcycles()`
+#### `public InconsistentOrder(String message)`
+
+- Description: TODO
+
+#### `public InconsistentOrder()`
+
+- Description: TODO
+
+#### `protected List<T> pickbad()`
+
+- Description: TODO
+
+#### `protected List<T> pick(Collection<T> from)`
+
+- Description: TODO
+
+#### `protected Collection<Collection<T>> findcycles()`
 
 - Description: TODO

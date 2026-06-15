@@ -1,5 +1,7 @@
 # PMessage
 
+This file documents the responsibilities and members of `PMessage`.
+
 ## Meta
 
 - Source: [PMessage.java](../../../src/haven/PMessage.java)
@@ -8,32 +10,44 @@
 
 ## Role
 
-- Represents a protocol message payload.
+Represents a protocol message payload.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [type](#member-1)
-
-#### Methods
-
-- [clone()](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `type`
+#### `public int type`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `clone()`
+#### `public PMessage(int type, byte[] blob, int off, int len)`
+
+- Description: TODO
+
+#### `public PMessage(int type, byte[] blob)`
+
+- Description: TODO
+
+#### `public PMessage(int type)`
+
+- Description: TODO
+
+#### `public PMessage(int type, Message msg, int len)`
+
+- Description: TODO
+
+#### `public PMessage(int type, Message msg)`
+
+- Description: TODO
+
+#### `public PMessage(PMessage msg)`
+
+- Description: TODO
+
+#### `public PMessage clone()`
 
 - Description: TODO

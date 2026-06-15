@@ -1,5 +1,7 @@
 # VertexColor
 
+This file documents the responsibilities and members of `VertexColor`.
+
 ## Meta
 
 - Source: [VertexColor.java](../../../../src/haven/render/VertexColor.java)
@@ -8,62 +10,40 @@
 
 ## Role
 
-- Represents vertex color state.
+Represents vertex color state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [color](#member-2)
-- [instance](#member-3)
-- [fcolor](#member-4)
-- [shader](#member-5)
-
-#### Methods
-
-- [shader()](#member-6)
-- [apply(Pipe p)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<VertexColor> slot = new Slot<>(Slot.Type.DRAW, VertexColor.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `color`
+#### `public static final Attribute color = new Attribute(VEC4, "color")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `instance`
+#### `public static final VertexColor instance = new VertexColor()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `fcolor`
+#### `private static final AutoVarying fcolor = new AutoVarying(VEC4)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `shader`
+#### `private static final ShaderMacro shader = prog ->`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-6"></a>
-##### `shader()`
+### Methods
+
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `apply(Pipe p)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO

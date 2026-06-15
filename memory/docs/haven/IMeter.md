@@ -1,5 +1,7 @@
 # IMeter
 
+This file documents the responsibilities and members of `IMeter`.
+
 ## Meta
 
 - Source: [IMeter.java](../../../src/haven/IMeter.java)
@@ -8,62 +10,50 @@
 
 ## Role
 
-- Represents a meter widget contract.
+Represents a meter widget contract.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [off](#member-1)
-- [fsz](#member-2)
-- [msz](#member-3)
-- [bg](#member-4)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-5)
-- [draw(GOut g)](#member-6)
-- [resourceName()](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `off`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `fsz`
+## Members
+
+### Constants
+
+#### `public static final Coord off = UI.scale(22, 7)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `msz`
+#### `public static final Coord fsz = UI.scale(101, 24)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `bg`
+#### `public static final Coord msz = UI.scale(75, 10)`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-5"></a>
-##### `create(UI ui, Object[] args)`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `draw(GOut g)`
+#### `public final Indir<Resource> bg`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `resourceName()`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
+
+- Description: TODO
+
+#### `public IMeter(Indir<Resource> bg, List<Meter> meters)`
+
+- Description: TODO
+
+#### `public void draw(GOut g)`
+
+- Description: TODO
+
+#### `public String resourceName()`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # FrameInfo
 
+This file documents the responsibilities and members of `FrameInfo`.
+
 ## Meta
 
 - Source: [FrameInfo.java](../../../../src/haven/render/FrameInfo.java)
@@ -8,62 +10,48 @@
 
 ## Role
 
-- Represents frame information.
+Represents frame information.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [slot](#member-1)
-- [u_time](#member-2)
-- [time](#member-3)
-
-#### Methods
-
-- [shader()](#member-4)
-- [apply(Pipe p)](#member-5)
-- [time()](#member-6)
-- [toString()](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `slot`
+#### `public static final Slot<FrameInfo> slot = new Slot<>(Slot.Type.SYS, FrameInfo.class)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `u_time`
+#### `public static final Uniform u_time = new Uniform(Type.FLOAT, "time", p ->`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `time`
+### Fields
+
+#### `public final double time`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-4"></a>
-##### `shader()`
-
-- Description: TODO
-
-<a id="member-5"></a>
-##### `apply(Pipe p)`
+#### `public FrameInfo(double time)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `time()`
+#### `public FrameInfo()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `toString()`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public static Expression time()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

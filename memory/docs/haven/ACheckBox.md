@@ -1,5 +1,7 @@
 # ACheckBox
 
+This file documents the responsibilities and members of `ACheckBox`.
+
 ## Meta
 
 - Source: [ACheckBox.java](../../../src/haven/ACheckBox.java)
@@ -8,110 +10,80 @@
 
 ## Role
 
-- Defines a check box widget variant.
+Defines a check box widget variant.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [a](#member-1)
-- [state](#member-2)
-- [changed](#member-5)
-- [set](#member-8)
-- [click](#member-11)
-
-#### Methods
-
-- [state(Supplier<Boolean> state)](#member-3)
-- [state()](#member-4)
-- [changed(Consumer<Boolean> changed)](#member-6)
-- [changed(boolean val)](#member-7)
-- [set(Consumer<Boolean> set)](#member-9)
-- [set(boolean a)](#member-10)
-- [click(Runnable click)](#member-12)
-- [click()](#member-13)
-- [gkeytype(GlobKeyEvent ev)](#member-14)
-- [uimsg(String msg, Object... args)](#member-15)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `a`
+#### `public boolean a = false`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `state`
+#### `public Supplier<Boolean> state = () -> this.a`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `changed`
+#### `public Consumer<Boolean> changed = a ->`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `set`
+#### `public Consumer<Boolean> set = a ->`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `click`
+#### `public Runnable click = () -> set(!state())`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `state(Supplier<Boolean> state)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `state()`
+#### `public ACheckBox()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `changed(Consumer<Boolean> changed)`
+#### `public ACheckBox(Coord sz)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `changed(boolean val)`
+#### `public ACheckBox state(Supplier<Boolean> state)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `set(Consumer<Boolean> set)`
+#### `public boolean state()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `set(boolean a)`
+#### `public ACheckBox changed(Consumer<Boolean> changed)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `click(Runnable click)`
+#### `public void changed(boolean val)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `click()`
+#### `public ACheckBox set(Consumer<Boolean> set)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `gkeytype(GlobKeyEvent ev)`
+#### `public void set(boolean a)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public ACheckBox click(Runnable click)`
+
+- Description: TODO
+
+#### `public void click()`
+
+- Description: TODO
+
+#### `public boolean gkeytype(GlobKeyEvent ev)`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO

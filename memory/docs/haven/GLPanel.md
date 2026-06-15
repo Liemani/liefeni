@@ -1,5 +1,7 @@
 # GLPanel
 
+This file documents the responsibilities and members of `GLPanel`.
+
 ## Meta
 
 - Source: [GLPanel.java](../../../src/haven/GLPanel.java)
@@ -8,356 +10,258 @@
 
 ## Role
 
-- Hosts the OpenGL-backed UI panel.
+Hosts the OpenGL-backed UI panel.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [gldebug](#member-5)
-- [p](#member-6)
-- [uprof](#member-7)
-- [rprof](#member-8)
-- [gprof](#member-9)
-- [bgmode](#member-10)
-- [fps](#member-11)
-- [framelag](#member-12)
-- [frameno](#member-13)
-- [uidle](#member-14)
-- [ridle](#member-15)
-- [lastrcycle](#member-16)
-- [ridletime](#member-17)
-- [lockedui](#member-18)
-- [ui](#member-19)
-- [ed](#member-20)
-- [uilock](#member-21)
-- [ttime](#member-24)
-- [prof](#member-29)
-- [prev](#member-30)
-- [frame](#member-31)
-- [curp](#member-32)
-- [prof](#member-35)
-- [label](#member-36)
-- [prevtooltip](#member-39)
-- [prevtooltex](#member-40)
-- [freetooltex](#member-41)
-- [cursmode](#member-44)
-- [lastcursor](#member-45)
-- [curshotspot](#member-46)
-- [prevfree](#member-48)
-- [framealloc](#member-49)
-- [streamout](#member-51)
-- [cmdmap](#member-55)
-
-#### Methods
-
-- [public GLEnvironment env();](#member-1)
-- [public Area shape();](#member-2)
-- [public Pipe basestate();](#member-3)
-- [public void glswap(GL gl);](#member-4)
-- [Loop(GLPanel p)](#member-22)
-- [framedur()](#member-23)
-- [BufferSwap(double ttime)](#member-25)
-- [run(GL gl)](#member-26)
-- [run(GL gl)](#member-27)
-- [run(GL gl)](#member-28)
-- [ProfileCycle(CPUProfile prof, ProfileCycle prev, GLRender out)](#member-33)
-- [run(GL gl)](#member-34)
-- [ProfilePart(ProfileCycle prof, String label)](#member-37)
-- [run(GL gl)](#member-38)
-- [drawtooltip(UI ui, GOut g)](#member-42)
-- [defaultcurs()](#member-43)
-- [drawcursor(UI ui, GOut g)](#member-47)
-- [drawstats(UI ui, GOut g, GLRender buf)](#member-50)
-- [display(UI ui, GLRender buf)](#member-52)
-- [public void run() throws InterruptedException](#member-53)
-- [newui(UI.Runner fun)](#member-54)
-- [findcmds()](#member-56)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-5"></a>
-##### `gldebug`
+### BufferSwap
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `p`
+### FrameCycle
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `uprof`
+### GLFinish
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `rprof`
+### ProfileCycle
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `gprof`
+### ProfilePart
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `bgmode`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public static boolean gldebug = false`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `fps`
+#### `public final GLPanel p`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `framelag`
+#### `public final CPUProfile uprof = new CPUProfile(300), rprof = new CPUProfile(300)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `frameno`
+#### `public final CPUProfile uprof = new CPUProfile(300), rprof = new CPUProfile(300)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `uidle`
+#### `public final GPUProfile gprof = new GPUProfile(300)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `ridle`
+#### `protected boolean bgmode = false`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `lastrcycle`
+#### `protected int fps`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `ridletime`
+#### `protected double framelag`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `lockedui`
+#### `protected volatile int frameno`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `ui`
+#### `protected double uidle = 0.0, ridle = 0.0`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `ed`
+#### `protected double uidle = 0.0, ridle = 0.0`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `uilock`
+#### `protected long lastrcycle = 0, ridletime = 0`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `ttime`
+#### `protected long lastrcycle = 0, ridletime = 0`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `prof`
+#### `protected UI lockedui, ui`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `prev`
+#### `protected UI lockedui, ui`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `frame`
+#### `private final Dispatcher ed`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `curp`
+#### `private final Object uilock = new Object()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `prof`
+#### `final double ttime`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `label`
+#### `final CPUProfile prof`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `prevtooltip`
+#### `ProfileCycle prev`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `prevtooltex`
+#### `CPUProfile.Frame frame`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `freetooltex`
+#### `Profile.Part curp`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `cursmode`
+#### `final ProfileCycle prof`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `lastcursor`
+#### `final String label`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `curshotspot`
+#### `private Object prevtooltip = null`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `prevfree`
+#### `private Indir<Tex> prevtooltex = null`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `framealloc`
+#### `private Disposable freetooltex = null`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `streamout`
+#### `private String cursmode = defaultcurs()`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `cmdmap`
+#### `private Object lastcursor = null`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-1"></a>
-##### `public GLEnvironment env();`
+#### `private Coord curshotspot = Coord.z`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public Area shape();`
+#### `private long prevfree = 0, framealloc = 0`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public Pipe basestate();`
+#### `private long prevfree = 0, framealloc = 0`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public void glswap(GL gl);`
+#### `private StreamOut streamout = null`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `Loop(GLPanel p)`
+#### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `framedur()`
+### Methods
+
+#### `public GLEnvironment env()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `BufferSwap(double ttime)`
+#### `public Area shape()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `run(GL gl)`
+#### `public Pipe basestate()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `run(GL gl)`
+#### `public void glswap(GL gl)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `run(GL gl)`
+#### `public Loop(GLPanel p)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `ProfileCycle(CPUProfile prof, ProfileCycle prev, GLRender out)`
+#### `private double framedur()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `run(GL gl)`
+#### `BufferSwap(double ttime)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `ProfilePart(ProfileCycle prof, String label)`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `run(GL gl)`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `drawtooltip(UI ui, GOut g)`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `defaultcurs()`
+#### `ProfileCycle(CPUProfile prof, ProfileCycle prev, GLRender out)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `drawcursor(UI ui, GOut g)`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `drawstats(UI ui, GOut g, GLRender buf)`
+#### `ProfilePart(ProfileCycle prof, String label)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `display(UI ui, GLRender buf)`
+#### `public void run(GL gl)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `public void run() throws InterruptedException`
+#### `private void drawtooltip(UI ui, GOut g)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `newui(UI.Runner fun)`
+#### `private static String defaultcurs()`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `findcmds()`
+#### `private void drawcursor(UI ui, GOut g)`
+
+- Description: TODO
+
+#### `private void drawstats(UI ui, GOut g, GLRender buf)`
+
+- Description: TODO
+
+#### `private void display(UI ui, GLRender buf)`
+
+- Description: TODO
+
+#### `public void run() throws InterruptedException`
+
+- Description: TODO
+
+#### `public UI newui(UI.Runner fun)`
+
+- Description: TODO
+
+#### `public Map<String, Console.Command> findcmds()`
 
 - Description: TODO

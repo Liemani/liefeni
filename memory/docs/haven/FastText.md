@@ -1,5 +1,7 @@
 # FastText
 
+This file documents the responsibilities and members of `FastText`.
+
 ## Meta
 
 - Source: [FastText.java](../../../src/haven/FastText.java)
@@ -8,92 +10,64 @@
 
 ## Role
 
-- Provides fast text rendering support.
+Provides fast text rendering support.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [vf](#member-1)
-- [font](#member-2)
-- [h](#member-3)
-- [meter](#member-4)
-- [ct](#member-5)
-- [sx](#member-6)
-- [cw](#member-7)
-
-#### Methods
-
-- [textw(String text)](#member-8)
-- [aprint(GOut g, Coord c, double ax, double ay, String text)](#member-9)
-- [print(GOut g, Coord c, String text)](#member-10)
-- [aprintf(GOut g, Coord c, double ax, double ay, String fmt, Object... args)](#member-11)
-- [printf(GOut g, Coord c, String fmt, Object... args)](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `vf`
+#### `public static final VertexArray.Layout vf = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.SINT16), 0, 0, 8),`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `font`
+#### `public static final Font font = UI.scale(Text.sans, 10)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `h`
+#### `public static final int h`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `meter`
+#### `public static final FontMetrics meter`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `ct`
+#### `private static final TexI ct`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `sx`
+#### `private static final int[] sx = new int[256], cw = new int[256]`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `cw`
+#### `private static final int[] sx = new int[256], cw = new int[256]`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-8"></a>
-##### `textw(String text)`
+### Methods
 
-- Description: TODO
-
-<a id="member-9"></a>
-##### `aprint(GOut g, Coord c, double ax, double ay, String text)`
+#### `private FastText()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `print(GOut g, Coord c, String text)`
+#### `public static int textw(String text)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `aprintf(GOut g, Coord c, double ax, double ay, String fmt, Object... args)`
+#### `public static void aprint(GOut g, Coord c, double ax, double ay, String text)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `printf(GOut g, Coord c, String fmt, Object... args)`
+#### `public static void print(GOut g, Coord c, String text)`
+
+- Description: TODO
+
+#### `public static void aprintf(GOut g, Coord c, double ax, double ay, String fmt, Object... args)`
+
+- Description: TODO
+
+#### `public static void printf(GOut g, Coord c, String fmt, Object... args)`
 
 - Description: TODO

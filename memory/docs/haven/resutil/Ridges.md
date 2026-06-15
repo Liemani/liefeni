@@ -1,5 +1,7 @@
 # Ridges
 
+This file documents the responsibilities and members of `Ridges`.
+
 ## Meta
 
 - Source: [Ridges.java](../../../../src/haven/resutil/Ridges.java)
@@ -8,415 +10,290 @@
 
 ## Role
 
-- Represents ridge rendering helpers.
-
-## Code Members
-
-### Member Index
-
-#### Constants
-
-- [EPSILON](#member-1)
-
-#### Fields
-
-- [id](#member-2)
-- [segh](#member-3)
-- [tilesz](#member-4)
-- [m](#member-5)
-- [ms](#member-6)
-- [breaks](#member-7)
-- [edges](#member-8)
-- [edgec](#member-9)
-- [edgeo](#member-10)
-- [gnd](#member-11)
-- [ridge](#member-12)
-- [rcx](#member-14)
-- [rcy](#member-15)
-- [rn](#member-16)
-- [ledge](#member-17)
-- [uedge](#member-18)
-- [rh](#member-19)
-- [tecs](#member-28)
-- [tccs](#member-29)
-- [srfi](#member-41)
-- [d1rfi](#member-43)
-- [d2rfi](#member-45)
-- [cg1rfi](#member-51)
-- [cg2rfi](#member-52)
-- [testcons](#member-55)
-- [mat](#member-56)
-- [texh](#member-57)
+Represents ridge rendering helpers.
 
-#### Methods
+## Nested Types
 
-- [public double breakz();](#member-13)
-- [RPart(Coord lc, Coord gc, Surface.Vertex[] v, float[] tcx, float[] tcy, int[] f, float[] rcx, float[] rcy, int[] rn, float[] rh, int[][] ledge, int[][] uedge)](#member-20)
-- [RPart(RPart... parts)](#member-21)
-- [mapridges(RPart[] parts, int[][] vmap)](#member-22)
-- [mapvertices(MPart[] mparts, int[][] vmap)](#member-23)
-- [eo(int x, int y, int e)](#member-24)
-- [eo(Coord c, int e)](#member-25)
-- [breaks()](#member-26)
-- [dc(float m, int d)](#member-27)
-- [edgelc(Coord tc, int e)](#member-30)
-- [makeedge(Coord tc, int e)](#member-31)
-- [ensureedge(Coord tc, int e)](#member-32)
-- [breaks(Coord tc)](#member-33)
-- [tczs(Coord tc)](#member-34)
-- [isend(boolean[] b)](#member-35)
-- [isdiag(boolean[] b)](#member-36)
-- [isdiag2(Coord tc, boolean[] b)](#member-37)
-- [mkfaces(Vertex[] va, int[] fa)](#member-38)
-- [connect(Coord tc, Vertex[] l, Vertex[] r)](#member-39)
-- [modelcap(Coord tc, int dir)](#member-40)
-- [modelstraight(Coord tc, int dir)](#member-42)
-- [modeldiag1(Coord tc, int dir)](#member-44)
-- [modeldiag2(Coord tc, int dir)](#member-46)
-- [zmatch(Coord3f[] cl, float z)](#member-47)
-- [colzmatch(Coord3f[] cl, float lo, float hi)](#member-48)
-- [mktcx(Vertex[] v, Coord pc)](#member-49)
-- [mktcy(Vertex[] v, Coord pc)](#member-50)
-- [modelcomplex(Coord tc, boolean[] breaks)](#member-53)
-- [model(Coord tc)](#member-54)
-- [TexCons(Pipe.Op mat, float texh)](#member-58)
-- [faces(MapMesh m, MPart mdesc)](#member-59)
-- [laygnd(Coord tc, Tiler.MCons cons)](#member-60)
-- [layridge(Coord tc, Tiler.MCons cons)](#member-61)
-- [getrdesc(Coord tc)](#member-62)
-- [clean()](#member-63)
-- [brokenp(MapSource map, Coord tc)](#member-64)
-- [edgeoff(MCache map, Coord tc, int edge, boolean hi)](#member-65)
+### RPart
 
-### Member Reference
+- Description: TODO
+
+### RidgeTile
 
-#### Constants
+- Description: TODO
 
-<a id="member-1"></a>
-##### `EPSILON`
+### TexCons
 
 - Description: TODO
+
+## Members
+
+### Constants
 
-#### Fields
+#### `private static final float EPSILON = 0.01f`
 
-<a id="member-2"></a>
-##### `id`
+- Description: TODO
 
+#### `public static final MapMesh.DataID<Ridges> id = MapMesh.makeid(Ridges.class)`
+
 - Description: TODO
 
-<a id="member-3"></a>
-##### `segh`
+#### `public static final double segh = 8`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `tilesz`
+#### `private static final Coord tilesz = MCache.tilesz2`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `m`
+#### `private static final Coord[] tecs =`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `ms`
+#### `private static final Coord[] tccs =`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `breaks`
+#### `private static final int[] srfi =`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `edges`
+#### `private static final int[] d1rfi =`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `edgec`
+#### `private static final int[] d2rfi =`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `edgeo`
+#### `private static final int[] cg1rfi =`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `gnd`
+#### `private static final int[] cg2rfi =`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `ridge`
+#### `static final Tiler.MCons testcons = new Tiler.MCons()`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-14"></a>
-##### `rcx`
+#### `public final MapMesh m`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `rcy`
+#### `private final MapMesh.MapSurface ms`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `rn`
+#### `private final boolean[] breaks`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `ledge`
+#### `private Vertex[][] edges, edgec`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `uedge`
+#### `private Vertex[][] edges, edgec`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `rh`
+#### `private float[] edgeo`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `tecs`
+#### `private final MPart[] gnd, ridge`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `tccs`
+#### `private final MPart[] gnd, ridge`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `srfi`
+#### `public float[] rcx, rcy`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `d1rfi`
+#### `public float[] rcx, rcy`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `d2rfi`
+#### `public int[] rn`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `cg1rfi`
+#### `public int[][] ledge, uedge`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `cg2rfi`
+#### `public int[][] ledge, uedge`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `testcons`
+#### `public float[] rh`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `mat`
+#### `public final Pipe.Op mat`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `texh`
+#### `public final float texh`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public double breakz()`
+
+- Description: TODO
 
-<a id="member-13"></a>
-##### `public double breakz();`
+#### `public RPart(Coord lc, Coord gc, Surface.Vertex[] v, float[] tcx, float[] tcy, int[] f, float[] rcx, float[] rcy, int[] rn, float[] rh, int[][] ledge, int[][] uedge)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `RPart(Coord lc, Coord gc, Surface.Vertex[] v, float[] tcx, float[] tcy, int[] f, float[] rcx, float[] rcy, int[] rn, float[] rh, int[][] ledge, int[][] uedge)`
+#### `public RPart(RPart... parts)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `RPart(RPart... parts)`
+#### `private void mapridges(RPart[] parts, int[][] vmap)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `mapridges(RPart[] parts, int[][] vmap)`
+#### `protected void mapvertices(MPart[] mparts, int[][] vmap)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `mapvertices(MPart[] mparts, int[][] vmap)`
+#### `private int eo(int x, int y, int e)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `eo(int x, int y, int e)`
+#### `private int eo(Coord c, int e)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `eo(Coord c, int e)`
+#### `private boolean[] breaks()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `breaks()`
+#### `private static Coord3f dc(float m, int d)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `dc(float m, int d)`
+#### `private boolean edgelc(Coord tc, int e)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `edgelc(Coord tc, int e)`
+#### `private Vertex[] makeedge(Coord tc, int e)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `makeedge(Coord tc, int e)`
+#### `private Vertex[] ensureedge(Coord tc, int e)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `ensureedge(Coord tc, int e)`
+#### `public Ridges(MapMesh m)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `breaks(Coord tc)`
+#### `public boolean[] breaks(Coord tc)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `tczs(Coord tc)`
+#### `private float[] tczs(Coord tc)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `isend(boolean[] b)`
+#### `private static int isend(boolean[] b)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `isdiag(boolean[] b)`
+#### `private static int isdiag(boolean[] b)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `isdiag2(Coord tc, boolean[] b)`
+#### `private int isdiag2(Coord tc, boolean[] b)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `mkfaces(Vertex[] va, int[] fa)`
+#### `private void mkfaces(Vertex[] va, int[] fa)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `connect(Coord tc, Vertex[] l, Vertex[] r)`
+#### `private RPart connect(Coord tc, Vertex[] l, Vertex[] r)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `modelcap(Coord tc, int dir)`
+#### `private void modelcap(Coord tc, int dir)`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `modelstraight(Coord tc, int dir)`
+#### `private void modelstraight(Coord tc, int dir)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `modeldiag1(Coord tc, int dir)`
+#### `private void modeldiag1(Coord tc, int dir)`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `modeldiag2(Coord tc, int dir)`
+#### `private void modeldiag2(Coord tc, int dir)`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `zmatch(Coord3f[] cl, float z)`
+#### `private static Coord3f zmatch(Coord3f[] cl, float z)`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `colzmatch(Coord3f[] cl, float lo, float hi)`
+#### `private Vertex[] colzmatch(Coord3f[] cl, float lo, float hi)`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `mktcx(Vertex[] v, Coord pc)`
+#### `private static float[] mktcx(Vertex[] v, Coord pc)`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `mktcy(Vertex[] v, Coord pc)`
+#### `private static float[] mktcy(Vertex[] v, Coord pc)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `modelcomplex(Coord tc, boolean[] breaks)`
+#### `private void modelcomplex(Coord tc, boolean[] breaks)`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `model(Coord tc)`
+#### `public boolean model(Coord tc)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `TexCons(Pipe.Op mat, float texh)`
+#### `public TexCons(Pipe.Op mat, float texh)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `faces(MapMesh m, MPart mdesc)`
+#### `public void faces(MapMesh m, MPart mdesc)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `laygnd(Coord tc, Tiler.MCons cons)`
+#### `public boolean laygnd(Coord tc, Tiler.MCons cons)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `layridge(Coord tc, Tiler.MCons cons)`
+#### `public boolean layridge(Coord tc, Tiler.MCons cons)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `getrdesc(Coord tc)`
+#### `public RPart getrdesc(Coord tc)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `clean()`
+#### `public boolean clean()`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `brokenp(MapSource map, Coord tc)`
+#### `public static boolean brokenp(MapSource map, Coord tc)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `edgeoff(MCache map, Coord tc, int edge, boolean hi)`
+#### `public static float edgeoff(MCache map, Coord tc, int edge, boolean hi)`
 
 - Description: TODO

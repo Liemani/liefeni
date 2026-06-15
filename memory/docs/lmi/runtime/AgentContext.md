@@ -1,5 +1,7 @@
 # AgentContext
 
+This file documents the responsibilities and members of `AgentContext`.
+
 ## Meta
 
 - Source: [AgentContext.java](../../../../src/lmi/runtime/AgentContext.java)
@@ -8,44 +10,28 @@
 
 ## Role
 
-- Holds runtime state for its corresponding subsystem.
+Holds runtime state for its corresponding subsystem.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [moveHistory](#member-1)
-
-#### Methods
-
-- [pushBreadcrumb(Coord pos)](#member-2)
-- [popBreadcrumb()](#member-3)
-- [hasBreadcrumbs()](#member-4)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `moveHistory`
+#### `private final Stack<Coord> moveHistory = new Stack<>()`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-2"></a>
-##### `pushBreadcrumb(Coord pos)`
-
-- Description: TODO
-
-<a id="member-3"></a>
-##### `popBreadcrumb()`
+#### `public void pushBreadcrumb(Coord pos)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `hasBreadcrumbs()`
+#### `public Coord popBreadcrumb()`
+
+- Description: TODO
+
+#### `public boolean hasBreadcrumbs()`
 
 - Description: TODO

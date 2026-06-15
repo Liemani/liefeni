@@ -1,5 +1,7 @@
 # ResolvedLine
 
+This file documents the responsibilities and members of `ResolvedLine`.
+
 ## Meta
 
 - Source: [ResolvedLine.java](../../../../../src/lmi/waypoint/runtime/ResolvedLine.java)
@@ -8,27 +10,24 @@
 
 ## Role
 
-- Provides the `ResolvedLine` functionality.
+Provides the `ResolvedLine` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [fromWorld](#member-1)
-- [toWorld](#member-2)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `fromWorld`
+#### `public final Coord fromWorld`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `toWorld`
+#### `public final Coord toWorld`
+
+- Description: TODO
+
+### Methods
+
+#### `public ResolvedLine(Coord fromWorld, Coord toWorld)`
 
 - Description: TODO

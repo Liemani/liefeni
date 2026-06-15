@@ -1,5 +1,7 @@
 # MultiClient
 
+This file documents the responsibilities and members of `MultiClient`.
+
 ## Meta
 
 - Source: [MultiClient.java](../../../../src/haven/test/MultiClient.java)
@@ -8,68 +10,48 @@
 
 ## Role
 
-- Provides a multi-client test harness.
+Provides a multi-client test harness.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [clients](#member-1)
-- [num](#member-2)
-- [delay](#member-3)
-- [started](#member-4)
-
-#### Methods
-
-- [run()](#member-5)
-- [stopall()](#member-6)
-- [usage()](#member-7)
-- [main(String[] args)](#member-8)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `clients`
+#### `public Collection<TestClient> clients = new HashSet<TestClient>()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `num`
+#### `public int num, delay`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `delay`
+#### `public int num, delay`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `started`
+#### `public int started`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `run()`
-
-- Description: TODO
-
-<a id="member-6"></a>
-##### `stopall()`
+#### `public MultiClient(int num, int delay)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `usage()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `main(String[] args)`
+#### `public void stopall()`
+
+- Description: TODO
+
+#### `public static void usage()`
+
+- Description: TODO
+
+#### `public static void main(String[] args)`
 
 - Description: TODO

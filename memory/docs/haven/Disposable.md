@@ -1,5 +1,7 @@
 # Disposable
 
+This file documents the responsibilities and members of `Disposable`.
+
 ## Meta
 
 - Source: [Disposable.java](../../../src/haven/Disposable.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Defines disposable resource behavior.
+Defines disposable resource behavior.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public void dispose();](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public void dispose();`
+#### `public void dispose()`
 
 - Description: TODO

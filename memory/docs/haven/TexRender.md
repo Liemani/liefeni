@@ -1,5 +1,7 @@
 # TexRender
 
+This file documents the responsibilities and members of `TexRender`.
+
 ## Meta
 
 - Source: [TexRender.java](../../../src/haven/TexRender.java)
@@ -8,188 +10,142 @@
 
 ## Role
 
-- Represents a rendered texture.
+Represents a rendered texture.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [vf_tex2d](#member-1)
-- [img](#member-2)
-- [centroid](#member-3)
-- [mktex](#member-6)
-- [mkcentroid](#member-7)
-- [slot](#member-8)
-- [tex](#member-9)
-- [nshader](#member-11)
-- [cshader](#member-12)
-- [draw](#member-16)
-- [slot](#member-17)
-- [tex](#member-18)
-- [shader](#member-20)
-- [clip](#member-24)
-- [noclip](#member-25)
-- [defclip](#member-27)
-
-#### Methods
-
-- [sz()](#member-4)
-- [dispose()](#member-5)
-- [TexDraw(TexRender tex)](#member-10)
-- [shader()](#member-13)
-- [apply(Pipe p)](#member-14)
-- [toString()](#member-15)
-- [TexClip(TexRender tex)](#member-19)
-- [shader()](#member-21)
-- [apply(Pipe p)](#member-22)
-- [toString()](#member-23)
-- [render(GOut g, float[] gc, float[] tc)](#member-26)
-- [cons(Material.Buffer buf, Object... args)](#member-28)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `vf_tex2d`
+### $tex
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `img`
+### TexClip
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `centroid`
+### TexDraw
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `mktex`
+## Members
+
+### Constants
+
+#### `public static final VertexArray.Layout vf_tex2d = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 16),`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `mkcentroid`
+#### `private static final ShaderMacro mktex = prog ->`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `slot`
+#### `private static final ShaderMacro mkcentroid = prog ->`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `tex`
+#### `public static final Slot<TexDraw> slot = new Slot<TexDraw>(Slot.Type.DRAW, TexDraw.class)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `nshader`
+#### `private static final ShaderMacro nshader = ShaderMacro.compose(mktex, Tex2D.mod)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `cshader`
+#### `private static final ShaderMacro cshader = ShaderMacro.compose(mktex, Tex2D.mod, mkcentroid)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `draw`
+#### `public static final Slot<TexClip> slot = new Slot<TexClip>(Slot.Type.GEOM, TexClip.class)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `slot`
+#### `private static final ShaderMacro shader = ShaderMacro.compose(mktex, Tex2D.clip)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `tex`
+#### `public static final Pipe.Op noclip = p -> p.put(TexClip.slot, null)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `shader`
+#### `public static final boolean defclip = true`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `clip`
+### Fields
+
+#### `public final Sampler2D img`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `noclip`
+#### `public boolean centroid = false`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `defclip`
+#### `public final TexRender tex`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-4"></a>
-##### `sz()`
+#### `public final TexDraw draw = new TexDraw(this)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `dispose()`
+#### `public final TexRender tex`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `TexDraw(TexRender tex)`
+#### `public final TexClip clip = new TexClip(this)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `shader()`
+### Methods
+
+#### `public TexRender(Sampler2D img)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `apply(Pipe p)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `toString()`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `TexClip(TexRender tex)`
+#### `public TexDraw(TexRender tex)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `shader()`
+#### `public ShaderMacro shader()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `apply(Pipe p)`
+#### `public void apply(Pipe p)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `toString()`
+#### `public String toString()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `render(GOut g, float[] gc, float[] tc)`
+#### `public TexClip(TexRender tex)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `cons(Material.Buffer buf, Object... args)`
+#### `public ShaderMacro shader()`
+
+- Description: TODO
+
+#### `public void apply(Pipe p)`
+
+- Description: TODO
+
+#### `public String toString()`
+
+- Description: TODO
+
+#### `public void render(GOut g, float[] gc, float[] tc)`
+
+- Description: TODO
+
+#### `public void cons(Material.Buffer buf, Object... args)`
 
 - Description: TODO

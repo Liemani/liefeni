@@ -1,5 +1,7 @@
 # waypoint
 
+This file documents the responsibilities and members of `waypoint`.
+
 ## Meta
 
 - Source: [waypoint.java](../../../../../src/agent/tool/waypoint/waypoint.java)
@@ -8,33 +10,24 @@
 
 ## Role
 
-- Provides a waypoint tool job entry point.
+Provides a waypoint tool job entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [name()](#member-1)
-- [info()](#member-2)
-- [sortkey()](#member-3)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `name()`
+#### `public static String name()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `info()`
+#### `public static String info()`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sortkey()`
+#### `public static String sortkey()`
 
 - Description: TODO

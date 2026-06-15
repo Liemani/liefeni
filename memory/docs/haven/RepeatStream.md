@@ -1,5 +1,7 @@
 # RepeatStream
 
+This file documents the responsibilities and members of `RepeatStream`.
+
 ## Meta
 
 - Source: [RepeatStream.java](../../../src/haven/RepeatStream.java)
@@ -8,56 +10,46 @@
 
 ## Role
 
-- Repeats stream content.
+Repeats stream content.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [rep](#member-1)
-- [cur](#member-2)
-
-#### Methods
-
-- [public InputStream cons();](#member-3)
-- [public int read(byte[] b, int off, int len) throws IOException](#member-4)
-- [public int read() throws IOException](#member-5)
-- [public void close() throws IOException](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `rep`
+### Repeater
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cur`
+## Members
+
+### Constants
+
+### Fields
+
+#### `private final Repeater rep`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `public InputStream cons();`
+#### `private InputStream cur`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public int read(byte[] b, int off, int len) throws IOException`
+### Methods
+
+#### `public InputStream cons()`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `public int read() throws IOException`
+#### `public RepeatStream(Repeater rep)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `public void close() throws IOException`
+#### `public int read(byte[] b, int off, int len) throws IOException`
+
+- Description: TODO
+
+#### `public int read() throws IOException`
+
+- Description: TODO
+
+#### `public void close() throws IOException`
 
 - Description: TODO

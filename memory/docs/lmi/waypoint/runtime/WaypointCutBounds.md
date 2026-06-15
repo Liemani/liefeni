@@ -1,5 +1,7 @@
 # WaypointCutBounds
 
+This file documents the responsibilities and members of `WaypointCutBounds`.
+
 ## Meta
 
 - Source: [WaypointCutBounds.java](../../../../../src/lmi/waypoint/runtime/WaypointCutBounds.java)
@@ -8,133 +10,88 @@
 
 ## Role
 
-- Defines a spatial bound used by waypoint runtime or drawing.
+Defines a spatial bound used by waypoint runtime or drawing.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Constants
-
-- [CUT_ID_SHIFT](#member-1)
-- [GRID_TILE_SIZE](#member-2)
-
-#### Fields
-
-- [centerCut](#member-3)
-- [loadArea](#member-4)
-- [renderArea](#member-5)
-
-#### Methods
-
-- [aroundVir(Coord vir)](#member-6)
-- [aroundWorld(Coord world)](#member-7)
-- [cutOfWorld(Coord world)](#member-8)
-- [cutOfWorld(int x, int y)](#member-9)
-- [cutOriginOfWorld(Coord world)](#member-10)
-- [gridOriginOfWorld(Coord world)](#member-11)
-- [cutOfVir(int virX, int virY)](#member-12)
-- [cutOfVir(Coord vir)](#member-13)
-- [cutOriginOfVir(int virX, int virY)](#member-14)
-- [cutOriginOfCut(Coord cut)](#member-15)
-- [cutIdOfVir(int virX, int virY)](#member-16)
-- [cutIdOfCut(int cutX, int cutY)](#member-17)
-- [renderContainsCutId(int cutId)](#member-18)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `CUT_ID_SHIFT`
+#### `private static final int CUT_ID_SHIFT = 14`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `GRID_TILE_SIZE`
+#### `private static final int GRID_TILE_SIZE = 100`
 
 - Description: TODO
 
-#### Fields
+### Fields
 
-<a id="member-3"></a>
-##### `centerCut`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `loadArea`
+#### `public final Coord centerCut`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `renderArea`
+#### `public final Area loadArea`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `aroundVir(Coord vir)`
+#### `public final Area renderArea`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `aroundWorld(Coord world)`
+### Methods
+
+#### `private WaypointCutBounds(Coord centerCut, Area loadArea, Area renderArea)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `cutOfWorld(Coord world)`
+#### `public static WaypointCutBounds aroundVir(Coord vir)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `cutOfWorld(int x, int y)`
+#### `public static WaypointCutBounds aroundWorld(Coord world)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `cutOriginOfWorld(Coord world)`
+#### `public Coord cutOfWorld(Coord world)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `gridOriginOfWorld(Coord world)`
+#### `public static Coord cutOfWorld(int x, int y)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `cutOfVir(int virX, int virY)`
+#### `public static Coord cutOriginOfWorld(Coord world)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `cutOfVir(Coord vir)`
+#### `public static Coord gridOriginOfWorld(Coord world)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `cutOriginOfVir(int virX, int virY)`
+#### `public static Coord cutOfVir(int virX, int virY)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `cutOriginOfCut(Coord cut)`
+#### `public Coord cutOfVir(Coord vir)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `cutIdOfVir(int virX, int virY)`
+#### `public static Coord cutOriginOfVir(int virX, int virY)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `cutIdOfCut(int cutX, int cutY)`
+#### `public static Coord cutOriginOfCut(Coord cut)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `renderContainsCutId(int cutId)`
+#### `public static int cutIdOfVir(int virX, int virY)`
+
+- Description: TODO
+
+#### `public static int cutIdOfCut(int cutX, int cutY)`
+
+- Description: TODO
+
+#### `public boolean renderContainsCutId(int cutId)`
 
 - Description: TODO

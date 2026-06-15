@@ -1,5 +1,7 @@
 # TexI
 
+This file documents the responsibilities and members of `TexI`.
+
 ## Meta
 
 - Source: [TexI.java](../../../src/haven/TexI.java)
@@ -8,122 +10,88 @@
 
 ## Role
 
-- Represents an image-backed texture.
+Represents an image-backed texture.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [glcm](#member-1)
-- [back](#member-2)
-- [sz](#member-3)
-- [tdim](#member-4)
-- [st](#member-6)
-
-#### Methods
-
-- [sz()](#member-5)
-- [st()](#member-7)
-- [magfilter(Texture.Filter filter)](#member-8)
-- [minfilter(Texture.Filter filter)](#member-9)
-- [filter(Texture.Filter filter)](#member-10)
-- [wrapmode(Texture.Wrapping mode)](#member-11)
-- [render(GOut g, float[] gc, float[] tc)](#member-12)
-- [dispose()](#member-13)
-- [detectfmt(BufferedImage img)](#member-14)
-- [mkbuf(Coord sz)](#member-15)
-- [convert(BufferedImage img, Coord tsz, Coord ul, Coord sz)](#member-16)
-- [convert(BufferedImage img, Coord tsz)](#member-17)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `glcm`
+#### `public static ComponentColorModel glcm = PUtils.cm_rgba`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `back`
+#### `public final BufferedImage back`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `sz`
+#### `protected final Coord sz`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `tdim`
+#### `protected final Coord tdim`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `st`
+#### `private ColorTex st = null`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-5"></a>
-##### `sz()`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `st()`
+#### `public TexI(BufferedImage back, boolean round)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `magfilter(Texture.Filter filter)`
+#### `public TexI(BufferedImage back)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `minfilter(Texture.Filter filter)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `filter(Texture.Filter filter)`
+#### `public ColorTex st()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `wrapmode(Texture.Wrapping mode)`
+#### `public TexI magfilter(Texture.Filter filter)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `render(GOut g, float[] gc, float[] tc)`
+#### `public TexI minfilter(Texture.Filter filter)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `dispose()`
+#### `public TexI filter(Texture.Filter filter)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `detectfmt(BufferedImage img)`
+#### `public TexI wrapmode(Texture.Wrapping mode)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `mkbuf(Coord sz)`
+#### `public void render(GOut g, float[] gc, float[] tc)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `convert(BufferedImage img, Coord tsz, Coord ul, Coord sz)`
+#### `public void dispose()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `convert(BufferedImage img, Coord tsz)`
+#### `public static VectorFormat detectfmt(BufferedImage img)`
+
+- Description: TODO
+
+#### `public static BufferedImage mkbuf(Coord sz)`
+
+- Description: TODO
+
+#### `public static byte[] convert(BufferedImage img, Coord tsz, Coord ul, Coord sz)`
+
+- Description: TODO
+
+#### `public static byte[] convert(BufferedImage img, Coord tsz)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # Constant
 
+This file documents the responsibilities and members of `Constant`.
+
 ## Meta
 
 - Source: [Constant.java](../../../../src/lmi/core/Constant.java)
@@ -8,1244 +10,942 @@
 
 ## Role
 
-- Defines shared constants.
-
-## Code Members
-
-### Member Index
-
-#### Constants
-
-- [M_ACT](#member-1)
-- [M_AFK](#member-2)
-- [M_ERROR](#member-3)
-- [M_LOGIN](#member-4)
-- [M_PLAY](#member-5)
-- [A_AGGRO](#member-6)
-- [A_BP](#member-7)
-- [A_CARRY](#member-8)
-- [A_CRAFT](#member-9)
-- [A_CRIME](#member-10)
-- [A_DESTROY](#member-11)
-- [A_DIG](#member-12)
-- [A_FISH](#member-13)
-- [A_INSPECT](#member-14)
-- [A_MINE](#member-15)
-- [A_POSE](#member-16)
-- [A_REPAIR](#member-17)
-- [A_SHOOT](#member-18)
-- [A_SWIM](#member-19)
-- [A_TRACKING](#member-20)
-- [P_DFRAME](#member-21)
-- [WT_DRYING_FRAME](#member-22)
-- [GI_HARD](#member-23)
-- [GI_SOFT](#member-24)
-- [CHIP_STONE](#member-25)
-- [CHOP_INTO_BLOCKS](#member-26)
-- [MAKE_BOARDS](#member-27)
-- [PICK](#member-28)
-- [PICK_ALMOND](#member-29)
-- [PICK_BERRIES](#member-30)
-- [PICK_CATKIN](#member-31)
-- [PICK_CHESTNUT](#member-32)
-- [PICK_CONE](#member-33)
-- [PICK_DRUPES](#member-34)
-- [PICK_FRUIT](#member-35)
-- [PICK_FRUITS](#member-36)
-- [PICK_LEAF](#member-37)
-- [PICK_SAMARA](#member-38)
-- [PICK_SEEDS](#member-39)
-- [TAKE_BARK](#member-40)
-- [TAKE_BOUGH](#member-41)
-- [TAKE_BRANCH](#member-42)
-- [TILE_IN_COORD2D](#member-43)
-- [TILE_IN_COORD](#member-44)
-- [COORD2D_PER_COORD](#member-45)
-- [COORD_PER_COORD2D](#member-46)
-- [CHUNK_SIDE](#member-47)
-- [VISIBLE_CHUNK_SIDE](#member-48)
-- [PURE_CHUNK_SIDE](#member-49)
-- [VISIBLE_TILE_SIDE](#member-50)
-- [PURE_TILE_SIDE](#member-51)
-- [MAP_CHUNK_SIDE](#member-52)
-- [MAP_VISIBLE_CHUNK_SIDE](#member-53)
-- [RETRY_MAX](#member-54)
-- [D_EAST](#member-55)
-- [D_SOUTH](#member-56)
-- [D_WEST](#member-57)
-- [D_NORTH](#member-58)
-- [TO_INFINITE](#member-59)
-- [TO_IMPERCEPTIBLE](#member-60)
-- [TO_POLL](#member-61)
-- [TO_TEMPORARY](#member-62)
-- [TO_RETRY](#member-63)
-- [TO_WAIT](#member-64)
-- [TO_MAX](#member-65)
-- [MI_NONE](#member-66)
-- [MI_DEFAULT](#member-67)
-- [BLOCKED](#member-68)
-- [FORWARD](#member-69)
-- [BACKWARD](#member-70)
-- [BIDIRECTIONAL](#member-71)
-- [BW_LOG](#member-72)
-- [BH_LOG](#member-73)
-- [BB_LOG](#member-74)
-- [BW_OLDTRUNK](#member-75)
-- [BH_OLDTRUNK](#member-76)
-- [BB_OLDTRUNK](#member-77)
-- [BW_BODY](#member-78)
-- [BH_BODY](#member-79)
-- [BB_BODY](#member-80)
-- [BW_HORSE](#member-81)
-- [BH_HORSE](#member-82)
-- [BB_HORSE](#member-83)
-- [BW_CRATE](#member-84)
-- [BH_CRATE](#member-85)
-- [BB_CRATE](#member-86)
-- [BW_DRYING_FRAME](#member-87)
-- [BH_DRYING_FRAME](#member-88)
-- [BB_DRYING_FRAME](#member-89)
-- [RN_HIT_POINT](#member-90)
-- [RN_STAMINA](#member-91)
-- [RN_ENERGY](#member-92)
-- [RN_BODY](#member-93)
-- [RN_IDLE](#member-94)
-- [RN_WALKING](#member-95)
-- [RN_BUCKETCARRY](#member-96)
-- [RN_TURN](#member-97)
-- [RN_CHOPPAN](#member-98)
-- [RN_SAWING](#member-99)
-- [RN_BUILDAN](#member-100)
-- [RN_THINKAN](#member-101)
-- [RN_BANZAI](#member-102)
-- [RN_TREEPICKAN](#member-103)
-- [RN_BARKCORDAGE](#member-104)
-- [RN_HEMPFIBRE](#member-105)
-- [RN_HIDESTRAP](#member-106)
-- [RN_REEDTWINE](#member-107)
-- [RN_STRAWSTRING](#member-108)
-- [RN_TOUGHROOT](#member-109)
-- [RN_CATTAILFIBRE](#member-110)
-- [RN_SPINDLYTAPROOT](#member-111)
-- [RN_STINGINGNETTLE](#member-112)
-- [RN_PALISADEBIGGATE](#member-113)
-- [RN_PALISADECP](#member-114)
-- [RN_PALISADESEG](#member-115)
-- [RN_POLEBIGGATE](#member-116)
-- [RN_POLECP](#member-117)
-- [RN_POLESEG](#member-118)
-- [RN_BASALT](#member-119)
-- [RN_DOLOMITE](#member-120)
-- [RN_FLINT](#member-121)
-- [RN_GRANITE](#member-122)
-- [RN_LIMESTONE](#member-123)
-- [RN_QUARTZ](#member-124)
-- [RN_SCHIST](#member-125)
-- [RN_ARROWWOOD](#member-126)
-- [RN_BLACKCURRANT](#member-127)
-- [RN_ELDERBERRYBUSH](#member-128)
-- [RN_GORSE](#member-129)
-- [RN_HOLLY](#member-130)
-- [RN_REDCURRANT](#member-131)
-- [RN_SPINDLEBUSH](#member-132)
-- [RN_BOUGHBED](#member-133)
-- [RN_BLACKCURRANTBERRY](#member-134)
-- [RN_BRANCH](#member-135)
-- [RN_CLOGS](#member-136)
-- [RN_LIMESTONE](#member-137)
-- [RN_QUARTZ](#member-138)
-- [RN_SQUIRRELTAIL_BLOOD](#member-139)
-- [RN_BARLEY](#member-140)
-- [RN_BEET](#member-141)
-- [RN_CARROT](#member-142)
-- [RN_FLAX](#member-143)
-- [RN_HEMP](#member-144)
-- [RN_LEEK](#member-145)
-- [RN_LETTUCE](#member-146)
-- [RN_PIPEWEED](#member-147)
-- [RN_POPPY](#member-148)
-- [RN_PUMPKIN](#member-149)
-- [RN_REDONION](#member-150)
-- [RN_TURNIP](#member-151)
-- [RN_WHEAT](#member-152)
-- [RN_YELLOWONION](#member-153)
-- [RN_ANYLEATHER](#member-154)
-- [RN_BOARD](#member-155)
-- [RN_BRANCH](#member-156)
-- [RN_BRICK](#member-157)
-- [RN_METAL](#member-158)
-- [RN_NUGGET_METAL](#member-159)
-- [RN_ORE](#member-160)
-- [RN_SOIL](#member-161)
-- [RN_STONE](#member-162)
-- [RN_WBLOCK](#member-163)
-- [RN_LOG](#member-164)
-- [RN_STUMP](#member-165)
-- [RN_ALMONDTREE](#member-166)
-- [RN_APPLETREE](#member-167)
-- [RN_BAYWILLOW](#member-168)
-- [RN_BEECH](#member-169)
-- [RN_BIRCH](#member-170)
-- [RN_BLACKPINE](#member-171)
-- [RN_CHECKERTREE](#member-172)
-- [RN_CHESTNUTTREE](#member-173)
-- [RN_CRABAPPLETREE](#member-174)
-- [RN_DOGWOOD](#member-175)
-- [RN_GRAYALDER](#member-176)
-- [RN_HAZEL](#member-177)
-- [RN_PLUMTREE](#member-178)
-- [RN_POPLAR](#member-179)
-- [RN_ROWAN](#member-180)
-- [RN_SALLOW](#member-181)
-- [RN_TEREBINTH](#member-182)
-- [RN_WILLOW](#member-183)
-- [RN_OLDSTUMP](#member-184)
-- [RN_OLDTRUNK](#member-185)
-- [RN_CART](#member-186)
-- [RN_DUGOUT](#member-187)
-- [RN_PLOW](#member-188)
-- [RN_ROWBOAT](#member-189)
-- [RN_BARREL](#member-190)
-- [RN_BEEHIVE](#member-191)
-- [RN_CASTINGMOLD_SMALL](#member-192)
-- [RN_CHEST](#member-193)
-- [RN_CRATE](#member-194)
-- [RN_CRUCIBLE](#member-195)
-- [RN_HEARTH_FIRE](#member-196)
-- [RN_PRIMSMELTER](#member-197)
-- [RN_SURVOBJ](#member-198)
-- [RN_TROUGH](#member-199)
-- [RN_STOCKPILE_BOUGH](#member-200)
-- [RN_STOCKPILE_BRANCH](#member-201)
-- [RN_CUPBOARD](#member-202)
+Defines shared constants.
 
-#### Fields
+## Nested Types
 
-- [nameSet_container](#member-203)
-- [nameSet_string](#member-204)
+### Action
 
-### Member Reference
+- Description: TODO
+
+### BoundingBox
+
+- Description: TODO
+
+### ExceptionReason
+
+- Description: TODO
+
+### Gauge
+
+- Description: TODO
+
+### HitPointIndex
+
+- Description: TODO
+
+### Interaction
+
+- Description: TODO
+
+### MeshId
+
+- Description: TODO
+
+### Message
+
+- Description: TODO
+
+### Plan
+
+- Description: TODO
+
+### Timeout
+
+- Description: TODO
+
+### WaypointEdgeDirection
+
+- Description: TODO
+
+### WindowTitle
+
+- Description: TODO
+
+### arch
+
+- Description: TODO
+
+### borka
+
+- Description: TODO
+
+### bumlings
+
+- Description: TODO
+
+### bushes
+
+- Description: TODO
+
+### furn
+
+- Description: TODO
+
+### gfx
+
+- Description: TODO
+
+### herbs
+
+- Description: TODO
+
+### hud
+
+- Description: TODO
+
+### invobjs
+
+- Description: TODO
+
+### items
+
+- Description: TODO
+
+### meter
+
+- Description: TODO
+
+### plants
+
+- Description: TODO
+
+### stockpile
+
+- Description: TODO
 
-#### Constants
+### terobjs
 
-<a id="member-1"></a>
-##### `M_ACT`
+- Description: TODO
+
+### trees
+
+- Description: TODO
+
+### vehicle
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `M_AFK`
+## Members
 
+### Constants
+
+#### `public static final String M_ACT = "act"; //`
+
 - Description: TODO
 
-<a id="member-3"></a>
-##### `M_ERROR`
+#### `public static final String M_AFK = "afk"`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `M_LOGIN`
+#### `public static final String M_ERROR = "error"`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `M_PLAY`
+#### `public static final String M_LOGIN = "login"`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `A_AGGRO`
+#### `public static final String M_PLAY = "play"; //`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `A_BP`
+#### `public static final String A_AGGRO = "aggro"`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `A_CARRY`
+#### `public static final String A_BP = "bp"`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `A_CRAFT`
+#### `public static final String A_CARRY = "carry"`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `A_CRIME`
+#### `public static final String A_CRAFT = "craft"`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `A_DESTROY`
+#### `public static final String A_CRIME = "crime"`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `A_DIG`
+#### `public static final String A_DESTROY = "destroy"`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `A_FISH`
+#### `public static final String A_DIG = "dig"`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `A_INSPECT`
+#### `public static final String A_FISH = "fish"`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `A_MINE`
+#### `public static final String A_INSPECT = "inspect"`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `A_POSE`
+#### `public static final String A_MINE = "mine"`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `A_REPAIR`
+#### `public static final String A_POSE = "pose"`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `A_SHOOT`
+#### `public static final String A_REPAIR = "repair"`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `A_SWIM`
+#### `public static final String A_SHOOT = "shoot"`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `A_TRACKING`
+#### `public static final String A_SWIM = "swim"`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `P_DFRAME`
+#### `public static final String A_TRACKING = "tracking"`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `WT_DRYING_FRAME`
+#### `public static final String P_DFRAME = "dframe"`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `GI_HARD`
+#### `public static final String WT_DRYING_FRAME = "Drying Frame"`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `GI_SOFT`
+#### `public static final int GI_HARD = 0`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `CHIP_STONE`
+#### `public static final int GI_SOFT = 1`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `CHOP_INTO_BLOCKS`
+#### `public static final String CHIP_STONE = "Chip stone"`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `MAKE_BOARDS`
+#### `public static final String CHOP_INTO_BLOCKS = "Chop into blocks"`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `PICK`
+#### `public static final String MAKE_BOARDS = "Make boards"`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `PICK_ALMOND`
+#### `public static final String PICK = "Pick"`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `PICK_BERRIES`
+#### `public static final String PICK_ALMOND = "Pick almond"`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `PICK_CATKIN`
+#### `public static final String PICK_BERRIES = "Pick berries"`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `PICK_CHESTNUT`
+#### `public static final String PICK_CATKIN = "Pick catkin"`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `PICK_CONE`
+#### `public static final String PICK_CHESTNUT = "Pick chestnut"`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `PICK_DRUPES`
+#### `public static final String PICK_CONE = "Pick cone"`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `PICK_FRUIT`
+#### `public static final String PICK_DRUPES = "Pick drupes"`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `PICK_FRUITS`
+#### `public static final String PICK_FRUIT = "Pick fruit"`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `PICK_LEAF`
+#### `public static final String PICK_FRUITS = "Pick fruits"`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `PICK_SAMARA`
+#### `public static final String PICK_LEAF = "Pick leaf"`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `PICK_SEEDS`
+#### `public static final String PICK_SAMARA = "Pick samara"`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `TAKE_BARK`
+#### `public static final String PICK_SEEDS = "Pick seeds"`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `TAKE_BOUGH`
+#### `public static final String TAKE_BARK = "Take bark"`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `TAKE_BRANCH`
+#### `public static final String TAKE_BOUGH = "Take bough"`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `TILE_IN_COORD2D`
+#### `public static final String TAKE_BRANCH = "Take branch"`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `TILE_IN_COORD`
+#### `public static final double TILE_IN_COORD2D = 11.0`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `COORD2D_PER_COORD`
+#### `public static final int TILE_IN_COORD = 1024`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `COORD_PER_COORD2D`
+#### `public static final double COORD2D_PER_COORD = TILE_IN_COORD2D / TILE_IN_COORD`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `CHUNK_SIDE`
+#### `public static final double COORD_PER_COORD2D = TILE_IN_COORD / TILE_IN_COORD2D`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `VISIBLE_CHUNK_SIDE`
+#### `public static final int CHUNK_SIDE = 9`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `PURE_CHUNK_SIDE`
+#### `public static final int VISIBLE_CHUNK_SIDE = 10`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `VISIBLE_TILE_SIDE`
+#### `public static final int PURE_CHUNK_SIDE = VISIBLE_CHUNK_SIDE - 1`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `PURE_TILE_SIDE`
+#### `public static final int VISIBLE_TILE_SIDE = CHUNK_SIDE * VISIBLE_CHUNK_SIDE`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `MAP_CHUNK_SIDE`
+#### `public static final int PURE_TILE_SIDE = CHUNK_SIDE * PURE_CHUNK_SIDE`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `MAP_VISIBLE_CHUNK_SIDE`
+#### `public static final int MAP_CHUNK_SIDE = 25`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `RETRY_MAX`
+#### `public static final int MAP_VISIBLE_CHUNK_SIDE = 5`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `D_EAST`
+#### `public static final int RETRY_MAX = 5`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `D_SOUTH`
+#### `public static final int D_EAST = 0`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `D_WEST`
+#### `public static final int D_SOUTH = 16384`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `D_NORTH`
+#### `public static final int D_WEST = 32768`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `TO_INFINITE`
+#### `public static final int D_NORTH = -16384`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `TO_IMPERCEPTIBLE`
+#### `public static final long TO_INFINITE = 0`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `TO_POLL`
+#### `public static final long TO_IMPERCEPTIBLE = 10`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `TO_TEMPORARY`
+#### `public static final long TO_POLL = 100`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `TO_RETRY`
+#### `public static final long TO_TEMPORARY = 500`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `TO_WAIT`
+#### `public static final long TO_RETRY = 1000`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `TO_MAX`
+#### `public static final long TO_WAIT = 300000`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `MI_NONE`
+#### `public static final long TO_MAX = Long.MAX_VALUE`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `MI_DEFAULT`
+#### `public static final int MI_NONE = -1`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `BLOCKED`
+#### `public static final int MI_DEFAULT = 0`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `FORWARD`
+#### `public static final int BLOCKED = 0`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `BACKWARD`
+#### `public static final int FORWARD = 1`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `BIDIRECTIONAL`
+#### `public static final int BACKWARD = 2`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `BW_LOG`
+#### `public static final int BIDIRECTIONAL = 3`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `BH_LOG`
+#### `public static final int BW_LOG = 352`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `BB_LOG`
+#### `public static final int BH_LOG = 1656`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `BW_OLDTRUNK`
+#### `public static final Coord BB_LOG = Coord.of(BW_LOG, BH_LOG)`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `BH_OLDTRUNK`
+#### `public static final int BW_OLDTRUNK = 352`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `BB_OLDTRUNK`
+#### `public static final int BH_OLDTRUNK = 1842`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `BW_BODY`
+#### `public static final Coord BB_OLDTRUNK = Coord.of(BW_OLDTRUNK, BH_OLDTRUNK)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `BH_BODY`
+#### `public static final int BW_BODY = 512`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `BB_BODY`
+#### `public static final int BH_BODY = 512`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `BW_HORSE`
+#### `public static final Coord BB_BODY = Coord.of(BW_BODY, BH_BODY)`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `BH_HORSE`
+#### `public static final int BW_HORSE = 726`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `BB_HORSE`
+#### `public static final int BH_HORSE = 1470`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `BW_CRATE`
+#### `public static final Coord BB_HORSE = Coord.of(BW_HORSE, BH_HORSE)`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `BH_CRATE`
+#### `public static final int BW_CRATE = 1284`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `BB_CRATE`
+#### `public static final int BH_CRATE = 726`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `BW_DRYING_FRAME`
+#### `public static final Coord BB_CRATE = Coord.of(BW_CRATE, BH_CRATE)`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `BH_DRYING_FRAME`
+#### `public static final int BW_DRYING_FRAME = 2028`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `BB_DRYING_FRAME`
+#### `public static final int BH_DRYING_FRAME = 540`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `RN_HIT_POINT`
+#### `public static final Coord BB_DRYING_FRAME = Coord.of(BW_DRYING_FRAME, BH_DRYING_FRAME)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `RN_STAMINA`
+#### `public static final String RN_HIT_POINT = "hp"`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `RN_ENERGY`
+#### `public static final String RN_STAMINA = "stam"`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `RN_BODY`
+#### `public static final String RN_ENERGY = "nrj"`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `RN_IDLE`
+#### `public static final String RN_BODY = "body"`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `RN_WALKING`
+#### `public static final String RN_IDLE = "idle"`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `RN_BUCKETCARRY`
+#### `public static final String RN_WALKING = "walking"`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `RN_TURN`
+#### `public static final String RN_BUCKETCARRY = "bucketcarry"`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `RN_CHOPPAN`
+#### `public static final String RN_TURN = "turn"`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `RN_SAWING`
+#### `public static final String RN_CHOPPAN = "choppan"`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `RN_BUILDAN`
+#### `public static final String RN_SAWING = "sawing"`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `RN_THINKAN`
+#### `public static final String RN_BUILDAN = "buildan"`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `RN_BANZAI`
+#### `public static final String RN_THINKAN = "thinkan"`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `RN_TREEPICKAN`
+#### `public static final String RN_BANZAI = "banzai"`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `RN_BARKCORDAGE`
+#### `public static final String RN_TREEPICKAN = "treepickan"`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `RN_HEMPFIBRE`
+#### `public static final String RN_BARKCORDAGE = "barkcordage"`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `RN_HIDESTRAP`
+#### `public static final String RN_HEMPFIBRE = "hempfibre"`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `RN_REEDTWINE`
+#### `public static final String RN_HIDESTRAP = "hidestrap"`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `RN_STRAWSTRING`
+#### `public static final String RN_REEDTWINE = "reedtwine"`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `RN_TOUGHROOT`
+#### `public static final String RN_STRAWSTRING = "strawstring"`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `RN_CATTAILFIBRE`
+#### `public static final String RN_TOUGHROOT = "toughroot"`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `RN_SPINDLYTAPROOT`
+#### `public static final String RN_CATTAILFIBRE = "cattailfibre"`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `RN_STINGINGNETTLE`
+#### `public static final String RN_SPINDLYTAPROOT = "spindlytaproot"`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `RN_PALISADEBIGGATE`
+#### `public static final String RN_STINGINGNETTLE = "stingingnettle"`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `RN_PALISADECP`
+#### `public static final String RN_PALISADEBIGGATE = "palisadebiggate"`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `RN_PALISADESEG`
+#### `public static final String RN_PALISADECP = "palisadecp"`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `RN_POLEBIGGATE`
+#### `public static final String RN_PALISADESEG = "palisadeseg"`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `RN_POLECP`
+#### `public static final String RN_POLEBIGGATE = "polebiggate"`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `RN_POLESEG`
+#### `public static final String RN_POLECP = "polecp"`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `RN_BASALT`
+#### `public static final String RN_POLESEG = "poleseg"`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `RN_DOLOMITE`
+#### `public static final String RN_BASALT = "basalt"`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `RN_FLINT`
+#### `public static final String RN_DOLOMITE = "dolomite"`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `RN_GRANITE`
+#### `public static final String RN_FLINT = "flint"`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `RN_LIMESTONE`
+#### `public static final String RN_GRANITE = "granite"`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `RN_QUARTZ`
+#### `public static final String RN_LIMESTONE = "limestone"`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `RN_SCHIST`
+#### `public static final String RN_QUARTZ = "quartz"`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `RN_ARROWWOOD`
+#### `public static final String RN_SCHIST = "schist"`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `RN_BLACKCURRANT`
+#### `public static final String RN_ARROWWOOD = "arrowwood"`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `RN_ELDERBERRYBUSH`
+#### `public static final String RN_BLACKCURRANT = "blackcurrant"`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `RN_GORSE`
+#### `public static final String RN_ELDERBERRYBUSH = "elderberrybush"`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `RN_HOLLY`
+#### `public static final String RN_GORSE = "gorse"`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `RN_REDCURRANT`
+#### `public static final String RN_HOLLY = "holly"`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `RN_SPINDLEBUSH`
+#### `public static final String RN_REDCURRANT = "redcurrant"`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `RN_BOUGHBED`
+#### `public static final String RN_SPINDLEBUSH = "spindlebush"`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `RN_BLACKCURRANTBERRY`
+#### `public static final String RN_BOUGHBED = "boughbed"`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `RN_BRANCH`
+#### `public static final String RN_BLACKCURRANTBERRY = "blackcurrantberry"`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `RN_CLOGS`
+#### `public static final String RN_BRANCH = "branch"`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `RN_LIMESTONE`
+#### `public static final String RN_CLOGS = "clogs"`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `RN_QUARTZ`
+#### `public static final String RN_LIMESTONE = "limestone"`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `RN_SQUIRRELTAIL_BLOOD`
+#### `public static final String RN_QUARTZ = "quartz"`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `RN_BARLEY`
+#### `public static final String RN_SQUIRRELTAIL_BLOOD = "squirreltail-blood"`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `RN_BEET`
+#### `public static final String RN_BARLEY = "barley"`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `RN_CARROT`
+#### `public static final String RN_BEET = "beet"`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `RN_FLAX`
+#### `public static final String RN_CARROT = "carrot"`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `RN_HEMP`
+#### `public static final String RN_FLAX = "flax"`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `RN_LEEK`
+#### `public static final String RN_HEMP = "hemp"`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `RN_LETTUCE`
+#### `public static final String RN_LEEK = "leek"`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `RN_PIPEWEED`
+#### `public static final String RN_LETTUCE = "lettuce"`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `RN_POPPY`
+#### `public static final String RN_PIPEWEED = "pipeweed"`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `RN_PUMPKIN`
+#### `public static final String RN_POPPY = "poppy"`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `RN_REDONION`
+#### `public static final String RN_PUMPKIN = "pumpkin"`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `RN_TURNIP`
+#### `public static final String RN_REDONION = "redonion"`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `RN_WHEAT`
+#### `public static final String RN_TURNIP = "turnip"`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `RN_YELLOWONION`
+#### `public static final String RN_WHEAT = "wheat"`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `RN_ANYLEATHER`
+#### `public static final String RN_YELLOWONION = "yellowonion"`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `RN_BOARD`
+#### `public static final String RN_ANYLEATHER = "anyleather"`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `RN_BRANCH`
+#### `public static final String RN_BOARD = "board"`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `RN_BRICK`
+#### `public static final String RN_BRANCH = "branch"`
 
 - Description: TODO
 
-<a id="member-158"></a>
-##### `RN_METAL`
+#### `public static final String RN_BRICK = "brick"`
 
 - Description: TODO
 
-<a id="member-159"></a>
-##### `RN_NUGGET_METAL`
+#### `public static final String RN_METAL = "metal"`
 
 - Description: TODO
 
-<a id="member-160"></a>
-##### `RN_ORE`
+#### `public static final String RN_NUGGET_METAL = "nugget-metal"`
 
 - Description: TODO
 
-<a id="member-161"></a>
-##### `RN_SOIL`
+#### `public static final String RN_ORE = "ore"`
 
 - Description: TODO
 
-<a id="member-162"></a>
-##### `RN_STONE`
+#### `public static final String RN_SOIL = "soil"`
 
 - Description: TODO
 
-<a id="member-163"></a>
-##### `RN_WBLOCK`
+#### `public static final String RN_STONE = "stone"`
 
 - Description: TODO
 
-<a id="member-164"></a>
-##### `RN_LOG`
+#### `public static final String RN_WBLOCK = "wblock"`
 
 - Description: TODO
 
-<a id="member-165"></a>
-##### `RN_STUMP`
+#### `public static final String RN_LOG = "log"`
 
 - Description: TODO
 
-<a id="member-166"></a>
-##### `RN_ALMONDTREE`
+#### `public static final String RN_STUMP = "stump"`
 
 - Description: TODO
 
-<a id="member-167"></a>
-##### `RN_APPLETREE`
+#### `public static final String RN_ALMONDTREE = "almondtree"`
 
 - Description: TODO
 
-<a id="member-168"></a>
-##### `RN_BAYWILLOW`
+#### `public static final String RN_APPLETREE = "appletree"`
 
 - Description: TODO
 
-<a id="member-169"></a>
-##### `RN_BEECH`
+#### `public static final String RN_BAYWILLOW = "baywillow"`
 
 - Description: TODO
 
-<a id="member-170"></a>
-##### `RN_BIRCH`
+#### `public static final String RN_BEECH = "beech"`
 
 - Description: TODO
 
-<a id="member-171"></a>
-##### `RN_BLACKPINE`
+#### `public static final String RN_BIRCH = "birch"`
 
 - Description: TODO
 
-<a id="member-172"></a>
-##### `RN_CHECKERTREE`
+#### `public static final String RN_BLACKPINE = "blackpine"`
 
 - Description: TODO
 
-<a id="member-173"></a>
-##### `RN_CHESTNUTTREE`
+#### `public static final String RN_CHECKERTREE = "checkertree"`
 
 - Description: TODO
 
-<a id="member-174"></a>
-##### `RN_CRABAPPLETREE`
+#### `public static final String RN_CHESTNUTTREE = "chestnuttree"`
 
 - Description: TODO
 
-<a id="member-175"></a>
-##### `RN_DOGWOOD`
+#### `public static final String RN_CRABAPPLETREE = "crabappletree"`
 
 - Description: TODO
 
-<a id="member-176"></a>
-##### `RN_GRAYALDER`
+#### `public static final String RN_DOGWOOD= "dogwood"`
 
 - Description: TODO
 
-<a id="member-177"></a>
-##### `RN_HAZEL`
+#### `public static final String RN_GRAYALDER = "grayalder"`
 
 - Description: TODO
 
-<a id="member-178"></a>
-##### `RN_PLUMTREE`
+#### `public static final String RN_HAZEL = "hazel"`
 
 - Description: TODO
 
-<a id="member-179"></a>
-##### `RN_POPLAR`
+#### `public static final String RN_PLUMTREE = "plumtree"`
 
 - Description: TODO
 
-<a id="member-180"></a>
-##### `RN_ROWAN`
+#### `public static final String RN_POPLAR = "poplar"`
 
 - Description: TODO
 
-<a id="member-181"></a>
-##### `RN_SALLOW`
+#### `public static final String RN_ROWAN = "rowan"`
 
 - Description: TODO
 
-<a id="member-182"></a>
-##### `RN_TEREBINTH`
+#### `public static final String RN_SALLOW = "sallow"`
 
 - Description: TODO
 
-<a id="member-183"></a>
-##### `RN_WILLOW`
+#### `public static final String RN_TEREBINTH = "terebinth"`
 
 - Description: TODO
 
-<a id="member-184"></a>
-##### `RN_OLDSTUMP`
+#### `public static final String RN_WILLOW = "willow"`
 
 - Description: TODO
 
-<a id="member-185"></a>
-##### `RN_OLDTRUNK`
+#### `public static final String RN_OLDSTUMP = "oldstump"`
 
 - Description: TODO
 
-<a id="member-186"></a>
-##### `RN_CART`
+#### `public static final String RN_OLDTRUNK = "oldtrunk"`
 
 - Description: TODO
 
-<a id="member-187"></a>
-##### `RN_DUGOUT`
+#### `public static final String RN_CART = "cart"`
 
 - Description: TODO
 
-<a id="member-188"></a>
-##### `RN_PLOW`
+#### `public static final String RN_DUGOUT = "dugout"`
 
 - Description: TODO
 
-<a id="member-189"></a>
-##### `RN_ROWBOAT`
+#### `public static final String RN_PLOW = "plow"`
 
 - Description: TODO
 
-<a id="member-190"></a>
-##### `RN_BARREL`
+#### `public static final String RN_ROWBOAT = "rowboat"`
 
 - Description: TODO
 
-<a id="member-191"></a>
-##### `RN_BEEHIVE`
+#### `public static final String RN_BARREL = "barrel"`
 
 - Description: TODO
 
-<a id="member-192"></a>
-##### `RN_CASTINGMOLD_SMALL`
+#### `public static final String RN_BEEHIVE = "beehive"`
 
 - Description: TODO
 
-<a id="member-193"></a>
-##### `RN_CHEST`
+#### `public static final String RN_CASTINGMOLD_SMALL = "castingmold-small"`
 
 - Description: TODO
 
-<a id="member-194"></a>
-##### `RN_CRATE`
+#### `public static final String RN_CHEST = "chest"`
 
 - Description: TODO
 
-<a id="member-195"></a>
-##### `RN_CRUCIBLE`
+#### `public static final String RN_CRATE = "crate"`
 
 - Description: TODO
 
-<a id="member-196"></a>
-##### `RN_HEARTH_FIRE`
+#### `public static final String RN_CRUCIBLE = "crucible"`
 
 - Description: TODO
 
-<a id="member-197"></a>
-##### `RN_PRIMSMELTER`
+#### `public static final String RN_HEARTH_FIRE = "pow"`
 
 - Description: TODO
 
-<a id="member-198"></a>
-##### `RN_SURVOBJ`
+#### `public static final String RN_PRIMSMELTER = "primsmelter"`
 
 - Description: TODO
 
-<a id="member-199"></a>
-##### `RN_TROUGH`
+#### `public static final String RN_SURVOBJ = "survobj"`
 
 - Description: TODO
 
-<a id="member-200"></a>
-##### `RN_STOCKPILE_BOUGH`
+#### `public static final String RN_TROUGH = "trough"`
 
 - Description: TODO
 
-<a id="member-201"></a>
-##### `RN_STOCKPILE_BRANCH`
+#### `public static final String RN_STOCKPILE_BOUGH = "stockpile-bough"`
 
 - Description: TODO
 
-<a id="member-202"></a>
-##### `RN_CUPBOARD`
+#### `public static final String RN_STOCKPILE_BRANCH = "stockpile-branch"`
 
 - Description: TODO
+
+#### `public static final String RN_CUPBOARD = "cupboard"`
 
-#### Fields
+- Description: TODO
 
-<a id="member-203"></a>
-##### `nameSet_container`
+#### `public static final String[] nameSet_container =`
 
 - Description: TODO
 
-<a id="member-204"></a>
-##### `nameSet_string`
+#### `public static final String[] nameSet_string =`
 
 - Description: TODO
+
+### Fields
+
+### Methods

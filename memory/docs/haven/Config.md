@@ -1,5 +1,7 @@
 # Config
 
+This file documents the responsibilities and members of `Config`.
+
 ## Meta
 
 - Source: [Config.java](../../../src/haven/Config.java)
@@ -8,260 +10,182 @@
 
 ## Role
 
-- Holds client configuration and option access.
+Holds client configuration and option access.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [jarprops](#member-1)
-- [confid](#member-2)
-- [par](#member-3)
-- [localprops](#member-4)
-- [global](#member-5)
-- [init](#member-12)
-- [inited](#member-13)
-- [val](#member-14)
-- [directory](#member-30)
-- [rel](#member-31)
-- [props](#member-32)
-- [global](#member-35)
-
-#### Methods
-
-- [get()](#member-6)
-- [getjarprops()](#member-7)
-- [getlocalprops()](#member-8)
-- [getprop(String name, String def)](#member-9)
-- [parsepath(String p)](#member-10)
-- [parseuri(String url)](#member-11)
-- [Variable(Function<Config, T> init)](#member-15)
-- [get()](#member-16)
-- [set(T val)](#member-17)
-- [def(Supplier<V> defval)](#member-18)
-- [prop(String name, Function<String, V> parse, Supplier<V> defval)](#member-19)
-- [prop(String name, String defval)](#member-20)
-- [propi(String name, int defval)](#member-21)
-- [propb(String name, boolean defval)](#member-22)
-- [propf(String name, Double defval)](#member-23)
-- [propb(String name, byte[] defval)](#member-24)
-- [proph(String name, int defport, NamedSocketAddress defval)](#member-25)
-- [propu(String name, URI defval)](#member-26)
-- [propu(String name, String defval)](#member-27)
-- [propp(String name, Path defval)](#member-28)
-- [propp(String name, String defval)](#member-29)
-- [Services(URI rel, Properties props)](#member-33)
-- [fetch(URI uri)](#member-34)
-- [get()](#member-36)
-- [geturi(String name)](#member-37)
-- [var(String name, String defval)](#member-38)
-- [usage(PrintStream out)](#member-39)
-- [cmdline(String[] args)](#member-40)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `jarprops`
+### Services
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `confid`
+### Variable
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `par`
+## Members
+
+### Constants
+
+#### `public static final Properties jarprops = getjarprops()`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localprops`
+#### `public static final String confid = jarprops.getProperty("config.client-id", "unknown")`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `global`
+#### `public static final Variable<Boolean> par = Variable.def(() -> true)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `init`
+#### `public static final Variable<URI> directory = Config.Variable.propu("haven.svcdir", "")`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `inited`
+### Fields
+
+#### `public final Properties localprops = getlocalprops()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `val`
+#### `private static Config global = null`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `directory`
+#### `public final Function<Config, T> init`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `rel`
+#### `private boolean inited = false`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `props`
+#### `private T val`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `global`
+#### `public final URI rel`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `get()`
+#### `public final Properties props`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `getjarprops()`
+#### `private static Services global = null`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `getlocalprops()`
+### Methods
+
+#### `public static Config get()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `getprop(String name, String def)`
+#### `private static Properties getjarprops()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `parsepath(String p)`
+#### `private static Properties getlocalprops()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `parseuri(String url)`
+#### `public String getprop(String name, String def)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `Variable(Function<Config, T> init)`
+#### `public static final Path parsepath(String p)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `get()`
+#### `public static final URI parseuri(String url)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `set(T val)`
+#### `private Variable(Function<Config, T> init)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `def(Supplier<V> defval)`
+#### `public T get()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `prop(String name, Function<String, V> parse, Supplier<V> defval)`
+#### `public void set(T val)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `prop(String name, String defval)`
+#### `public static <V> Variable<V> def(Supplier<V> defval)`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `propi(String name, int defval)`
+#### `public static <V> Variable<V> prop(String name, Function<String, V> parse, Supplier<V> defval)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `propb(String name, boolean defval)`
+#### `public static Variable<String> prop(String name, String defval)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `propf(String name, Double defval)`
+#### `public static Variable<Integer> propi(String name, int defval)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `propb(String name, byte[] defval)`
+#### `public static Variable<Boolean> propb(String name, boolean defval)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `proph(String name, int defport, NamedSocketAddress defval)`
+#### `public static Variable<Double> propf(String name, Double defval)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `propu(String name, URI defval)`
+#### `public static Variable<byte[]> propb(String name, byte[] defval)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `propu(String name, String defval)`
+#### `public static Variable<NamedSocketAddress> proph(String name, int defport, NamedSocketAddress defval)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `propp(String name, Path defval)`
+#### `public static Variable<URI> propu(String name, URI defval)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `propp(String name, String defval)`
+#### `public static Variable<URI> propu(String name, String defval)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `Services(URI rel, Properties props)`
+#### `public static Variable<Path> propp(String name, Path defval)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `fetch(URI uri)`
+#### `public static Variable<Path> propp(String name, String defval)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `get()`
+#### `public Services(URI rel, Properties props)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `geturi(String name)`
+#### `private static Services fetch(URI uri)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `var(String name, String defval)`
+#### `public static Services get()`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `usage(PrintStream out)`
+#### `public URI geturi(String name)`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `cmdline(String[] args)`
+#### `public static Variable<URI> var(String name, String defval)`
+
+- Description: TODO
+
+#### `private static void usage(PrintStream out)`
+
+- Description: TODO
+
+#### `public static void cmdline(String[] args)`
 
 - Description: TODO

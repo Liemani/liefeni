@@ -1,5 +1,7 @@
 # GridPosition
 
+This file documents the responsibilities and members of `GridPosition`.
+
 ## Meta
 
 - Source: [GridPosition.java](../../../../../src/lmi/waypoint/runtime/GridPosition.java)
@@ -8,56 +10,40 @@
 
 ## Role
 
-- Provides the `GridPosition` functionality.
+Provides the `GridPosition` functionality.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [gridId](#member-1)
-- [havenGridId](#member-2)
-- [mapSegmentId](#member-3)
-- [localX](#member-4)
-- [localY](#member-5)
-
-#### Methods
-
-- [local()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `gridId`
+#### `public final long gridId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `havenGridId`
+#### `public final long havenGridId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `mapSegmentId`
+#### `public final long mapSegmentId`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localX`
+#### `public final int localX`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `localY`
+#### `public final int localY`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `local()`
+#### `public GridPosition(long gridId, long havenGridId, long mapSegmentId, int localX, int localY)`
+
+- Description: TODO
+
+#### `public Coord local()`
 
 - Description: TODO

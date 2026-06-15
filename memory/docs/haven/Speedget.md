@@ -1,5 +1,7 @@
 # Speedget
 
+This file documents the responsibilities and members of `Speedget`.
+
 ## Meta
 
 - Source: [Speedget.java](../../../src/haven/Speedget.java)
@@ -8,116 +10,86 @@
 
 ## Role
 
-- Displays a speed control widget.
+Displays a speed control widget.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [imgs](#member-1)
-- [tips](#member-2)
-- [tsz](#member-3)
-- [cur](#member-4)
-- [max](#member-5)
-- [kb_speedup](#member-13)
-- [kb_speeddn](#member-14)
-- [kb_speeds](#member-15)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-6)
-- [draw(GOut g)](#member-7)
-- [uimsg(String msg, Object... args)](#member-8)
-- [set(int s)](#member-9)
-- [mousedown(MouseDownEvent ev)](#member-10)
-- [mousewheel(MouseWheelEvent ev)](#member-11)
-- [tooltip(Coord c, Widget prev)](#member-12)
-- [globtype(GlobKeyEvent ev)](#member-16)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `imgs`
+### $_
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `tips`
+## Members
+
+### Constants
+
+#### `public static final Tex imgs[][]`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `tsz`
+#### `public static final String tips[]`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `cur`
+#### `public static final Coord tsz`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `max`
+#### `public static final KeyBinding kb_speedup = KeyBinding.get("speed-up", KeyMatch.forchar('R', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `kb_speedup`
+#### `public static final KeyBinding kb_speeddn = KeyBinding.get("speed-down", KeyMatch.forchar('R', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.S | KeyMatch.C))`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `kb_speeddn`
+#### `public static final KeyBinding[] kb_speeds =`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `kb_speeds`
+### Fields
+
+#### `public int cur, max`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-6"></a>
-##### `create(UI ui, Object[] args)`
+#### `public int cur, max`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `draw(GOut g)`
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public Speedget(int cur, int max)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `set(int s)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `public void set(int s)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
+
+- Description: TODO
+
+#### `public Object tooltip(Coord c, Widget prev)`
+
+- Description: TODO
+
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # AlignLogJob
 
+This file documents the responsibilities and members of `AlignLogJob`.
+
 ## Meta
 
 - Source: [AlignLogJob.java](../../../../src/agent/test/AlignLogJob.java)
@@ -8,188 +10,124 @@
 
 ## Role
 
-- Provides a manual test or validation job entry point.
+Provides a manual test or validation job entry point.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [alignBehavior](#member-1)
-- [initialized](#member-2)
-- [inputArea](#member-3)
-- [workingArea](#member-4)
-- [outputArea](#member-5)
-- [orderCoordMax](#member-6)
-- [orderCoord](#member-7)
-- [root](#member-8)
-- [trunk](#member-9)
-- [branch](#member-10)
-- [firstLeaf](#member-11)
-- [leaf](#member-12)
-- [SELF_WIDTH](#member-13)
-- [SELF_HEIGHT](#member-14)
-- [BB_SELF](#member-15)
-- [SELF_DIAGONAL](#member-16)
-- [PADDING](#member-17)
-- [ROUTE_WIDTH](#member-18)
-- [HEIGHT_SET](#member-19)
-
-#### Methods
-
-- [run(AgentContext ctx, String[] args)](#member-20)
-- [_setup()](#member-21)
-- [_loop(AgentContext ctx)](#member-22)
-- [_findLog()](#member-23)
-- [_calculateNextLeaf()](#member-24)
-- [_updateLeafCoords()](#member-25)
-- [_calculateOutputArea(Rect wa)](#member-26)
-- [_calculateOrderCoordMax(Rect oa)](#member-27)
-- [info()](#member-28)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `alignBehavior`
+#### `private final AlignLogBehavior alignBehavior = new AlignLogBehavior()`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `initialized`
+#### `private boolean initialized = false`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `inputArea`
+#### `private Rect inputArea, workingArea, outputArea`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `workingArea`
+#### `private Rect inputArea, workingArea, outputArea`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `outputArea`
+#### `private Rect inputArea, workingArea, outputArea`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `orderCoordMax`
+#### `private Coord orderCoordMax, orderCoord = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `orderCoord`
+#### `private Coord orderCoordMax, orderCoord = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `root`
+#### `private Coord root, trunk, branch, firstLeaf, leaf = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `trunk`
+#### `private Coord root, trunk, branch, firstLeaf, leaf = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `branch`
+#### `private Coord root, trunk, branch, firstLeaf, leaf = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `firstLeaf`
+#### `private Coord root, trunk, branch, firstLeaf, leaf = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `leaf`
+#### `private Coord root, trunk, branch, firstLeaf, leaf = Coord.zero()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `SELF_WIDTH`
+#### `private final int SELF_WIDTH = BW_HORSE`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `SELF_HEIGHT`
+#### `private final int SELF_HEIGHT = BH_HORSE`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `BB_SELF`
+#### `private final Coord BB_SELF = BB_HORSE`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `SELF_DIAGONAL`
+#### `private final double SELF_DIAGONAL = BB_SELF.diagonal()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `PADDING`
+#### `private final int PADDING = 2`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `ROUTE_WIDTH`
+#### `private final int ROUTE_WIDTH = SELF_WIDTH + PADDING`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `HEIGHT_SET`
+#### `private final int HEIGHT_SET = BH_LOG + ROUTE_WIDTH + BH_LOG`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-20"></a>
-##### `run(AgentContext ctx, String[] args)`
-
-- Description: TODO
-
-<a id="member-21"></a>
-##### `_setup()`
+#### `public void run(AgentContext ctx, String[] args)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `_loop(AgentContext ctx)`
+#### `private void _setup()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `_findLog()`
+#### `private void _loop(AgentContext ctx)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `_calculateNextLeaf()`
+#### `private Gob _findLog()`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `_updateLeafCoords()`
+#### `private void _calculateNextLeaf()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `_calculateOutputArea(Rect wa)`
+#### `private void _updateLeafCoords()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `_calculateOrderCoordMax(Rect oa)`
+#### `private Rect _calculateOutputArea(Rect wa)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `info()`
+#### `private Coord _calculateOrderCoordMax(Rect oa)`
+
+- Description: TODO
+
+#### `public static String info()`
 
 - Description: TODO

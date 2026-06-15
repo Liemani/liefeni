@@ -1,5 +1,7 @@
 # ILabel
 
+This file documents the responsibilities and members of `ILabel`.
+
 ## Meta
 
 - Source: [ILabel.java](../../../src/haven/ILabel.java)
@@ -8,62 +10,44 @@
 
 ## Role
 
-- Represents an image label widget.
+Represents an image label widget.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [f](#member-1)
-- [text](#member-2)
-
-#### Methods
-
-- [draw(GOut g)](#member-3)
-- [text()](#member-4)
-- [settext(String text)](#member-5)
-- [dispose()](#member-6)
-- [uimsg(String msg, Object... args)](#member-7)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `f`
+#### `public final Text.Furnace f`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `text`
+#### `public Text text`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `draw(GOut g)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `text()`
+#### `public ILabel(String text, Text.Furnace f)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `settext(String text)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `dispose()`
+#### `public String text()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void settext(String text)`
+
+- Description: TODO
+
+#### `public void dispose()`
+
+- Description: TODO
+
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO

@@ -1,5 +1,7 @@
 # TextureArray
 
+This file documents the responsibilities and members of `TextureArray`.
+
 ## Meta
 
 - Source: [TextureArray.java](../../../../src/haven/render/TextureArray.java)
@@ -8,56 +10,50 @@
 
 ## Role
 
-- Represents a texture array.
+Represents a texture array.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [n](#member-1)
-- [layer](#member-2)
-
-#### Methods
-
-- [ArrayImage(T tex, int w, int h, int d, int layer, int level)](#member-3)
-- [equals(ArrayImage<?> that)](#member-4)
-- [equals(Object that)](#member-5)
-- [toString()](#member-6)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `n`
+### ArrayImage
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `layer`
+## Members
+
+### Constants
+
+### Fields
+
+#### `public final int n`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-3"></a>
-##### `ArrayImage(T tex, int w, int h, int d, int layer, int level)`
+#### `public final int layer`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `equals(ArrayImage<?> that)`
+### Methods
+
+#### `public TextureArray(int n, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `equals(Object that)`
+#### `public TextureArray(int n, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `toString()`
+#### `public ArrayImage(T tex, int w, int h, int d, int layer, int level)`
+
+- Description: TODO
+
+#### `public boolean equals(ArrayImage<?> that)`
+
+- Description: TODO
+
+#### `public boolean equals(Object that)`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

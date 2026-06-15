@@ -1,5 +1,7 @@
 # GobIcon
 
+This file documents the responsibilities and members of `GobIcon`.
+
 ## Meta
 
 - Source: [GobIcon.java](../../../src/haven/GobIcon.java)
@@ -8,962 +10,718 @@
 
 ## Role
 
-- Handles gob icon metadata and display settings.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [size](#member-1)
-- [filter](#member-2)
-- [res](#member-3)
-- [sdt](#member-4)
-- [icon](#member-5)
-- [nilid](#member-6)
-- [owner](#member-7)
-- [res](#member-8)
-- [cache](#member-21)
-- [img](#member-22)
-- [tex](#member-23)
-- [cc](#member-24)
-- [rot](#member-25)
-- [ao](#member-26)
-- [z](#member-27)
-- [img](#member-30)
-- [gob](#member-31)
-- [factory](#member-39)
-- [lastnotifs](#member-44)
-- [id](#member-46)
-- [icon](#member-47)
-- [from](#member-48)
-- [res](#member-49)
-- [show](#member-50)
-- [defshow](#member-51)
-- [notify](#member-52)
-- [resns](#member-53)
-- [filens](#member-54)
-- [mark](#member-55)
-- [markset](#member-56)
-- [res](#member-57)
-- [sub](#member-58)
-- [lres](#member-67)
-- [sig](#member-71)
-- [ui](#member-72)
-- [filename](#member-73)
-- [settings](#member-74)
-- [tag](#member-75)
-- [notify](#member-76)
-- [res](#member-79)
-- [data](#member-80)
-- [loading](#member-85)
-- [load](#member-86)
-- [defaults](#member-87)
-- [resolve](#member-88)
-- [save](#member-89)
-- [adv](#member-90)
-- [tag](#member-91)
-- [advbuf](#member-92)
-- [cached](#member-93)
-- [r](#member-94)
-- [next](#member-95)
-- [nset](#member-96)
-- [ctxr](#member-101)
-- [saveagain](#member-109)
-- [saving](#member-110)
-- [name](#member-114)
-- [res](#member-115)
-- [wav](#member-116)
-- [nil](#member-122)
-- [other](#member-123)
-- [builtin](#member-124)
-- [conf](#member-125)
-- [cont](#member-126)
-- [list](#member-127)
-- [setbox](#member-128)
-- [conf](#member-129)
-- [name](#member-130)
-- [id](#member-131)
-- [elf](#member-134)
-- [elh](#member-135)
-- [ordered](#member-136)
-- [cur](#member-137)
-- [conf](#member-146)
-- [nb](#member-147)
-- [items](#member-149)
-
-#### Methods
-
-- [Icon(OwnerContext owner, Resource res)](#member-9)
-- [public abstract String name();](#member-10)
-- [public abstract BufferedImage image();](#member-11)
-- [public abstract void draw(GOut g, Coord cc);](#member-12)
-- [public abstract boolean checkhit(Coord c);](#member-13)
-- [info(ItemInfo.Owner owner)](#member-14)
-- [id()](#member-15)
-- [z()](#member-16)
-- [markable()](#member-17)
-- [hover(Coord c, boolean hovering)](#member-18)
-- [public Icon create(OwnerContext owner, Resource res, Message sdt);](#member-19)
-- [public Collection<? extends Icon> enumerate(OwnerContext owner, Resource res, Message sdt);](#member-20)
-- [Image(Resource res)](#member-28)
-- [get(Resource res)](#member-29)
-- [ImageIcon(OwnerContext owner, Resource res, Image img)](#member-32)
-- [name()](#member-33)
-- [image()](#member-34)
-- [draw(GOut g, Coord cc)](#member-35)
-- [checkhit(Coord c)](#member-36)
-- [z()](#member-37)
-- [markable()](#member-38)
-- [getfac(Resource res)](#member-40)
-- [icon()](#member-41)
-- [resnotif(String nm)](#member-42)
-- [wavnotif(Path path)](#member-43)
-- [notiflimit(Consumer<UI> bk, Object id)](#member-45)
-- [ID(String res, Object[] sub)](#member-59)
-- [hashCode()](#member-60)
-- [equals(ID that)](#member-61)
-- [equals(Object x)](#member-62)
-- [Setting(Resource.Saved res, Object[] id, Icon icon, Settings.ResID from)](#member-63)
-- [Setting(Resource.Saved res, Object[] id)](#member-64)
-- [Setting(Icon icon, Settings.ResID from)](#member-65)
-- [notification()](#member-66)
-- [resource()](#member-68)
-- [getmarkablep()](#member-69)
-- [getmarkp()](#member-70)
-- [Settings(UI ui, String filename)](#member-77)
-- [get(Icon icon)](#member-78)
-- [ResID(Resource.Saved res, byte[] data)](#member-81)
-- [hashCode()](#member-82)
-- [equals(ResID that)](#member-83)
-- [equals(Object x)](#member-84)
-- [Loader(boolean cached)](#member-97)
-- [merge(Setting set, Setting conf)](#member-98)
-- [run()](#member-99)
-- [submit()](#member-100)
-- [context(Class<T> cl)](#member-102)
-- [receive(Object[] args)](#member-103)
-- [encodeset(Map<Object, Object> buf, Setting set)](#member-104)
-- [save(Message dst)](#member-105)
-- [parseset(Setting set, Map<Object, Object> data)](#member-106)
-- [load(Message blob)](#member-107)
-- [save()](#member-108)
-- [dsave0()](#member-111)
-- [dsave()](#member-112)
-- [public static Settings load(UI ui, String name) throws IOException](#member-113)
-- [NotificationSetting(String name, String res, Path wav)](#member-117)
-- [NotificationSetting(String name, String res)](#member-118)
-- [NotificationSetting(String name, Path wav)](#member-119)
-- [NotificationSetting(Path wav)](#member-120)
-- [act(Setting conf)](#member-121)
-- [ListIcon(Setting conf)](#member-132)
-- [andsave(Consumer<T> main)](#member-133)
-- [IconList(Coord sz)](#member-138)
-- [IconLine(Coord sz, ListIcon icon)](#member-139)
-- [searchmatch(ListIcon icon, String text)](#member-140)
-- [allitems()](#member-141)
-- [makeitem(ListIcon icon, int idx, Coord sz)](#member-142)
-- [tick(double dt)](#member-143)
-- [keydown(KeyDownEvent ev)](#member-144)
-- [change(ListIcon icon)](#member-145)
-- [IconSettings(int w, Setting conf)](#member-148)
-- [NotifBox(int w)](#member-150)
-- [items()](#member-151)
-- [makeitem(NotificationSetting item, int idx, Coord sz)](#member-152)
-- [selectwav()](#member-153)
-- [change(NotificationSetting item)](#member-154)
-- [play()](#member-155)
-- [SettingsWindow(Settings conf)](#member-156)
-- [apply(Gob g, OCache.AttrDelta msg)](#member-157)
+Handles gob icon metadata and display settings.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### $icon
 
-<a id="member-1"></a>
-##### `size`
+- Description: TODO
+
+### Factory
+
+- Description: TODO
+
+### ID
+
+- Description: TODO
+
+### Icon
+
+- Description: TODO
+
+### IconLine
+
+- Description: TODO
+
+### IconList
+
+- Description: TODO
+
+### IconSettings
+
+- Description: TODO
+
+### Image
+
+- Description: TODO
+
+### ImageIcon
+
+- Description: TODO
+
+### ListIcon
+
+- Description: TODO
+
+### Loader
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `filter`
+### Markable
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `res`
+### NotifBox
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `sdt`
+### NotificationSetting
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `icon`
+### ResID
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `nilid`
+### Setting
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `owner`
+### Settings
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `res`
+### SettingsWindow
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `cache`
+## Members
 
+### Constants
+
+#### `private static final int size = UI.scale(20)`
+
+- Description: TODO
+
+#### `public static final PUtils.Convolution filter = new PUtils.Hanning(1)`
+
+- Description: TODO
+
+#### `public static final Object[] nilid = new Object[0]`
+
+- Description: TODO
+
+#### `private static final Map<Resource, Image> cache = new WeakHashMap<>()`
+
+- Description: TODO
+
+#### `public static final Factory factory = new Factory()`
+
+- Description: TODO
+
+#### `private static final Map<Object, Double> lastnotifs = new HashMap<>()`
+
+- Description: TODO
+
+#### `public static final byte[] sig = "Icons".getBytes(Utils.ascii)`
+
+- Description: TODO
+
+#### `public static final NotificationSetting nil = new NotificationSetting("None", null, null)`
+
+- Description: TODO
+
+#### `public static final NotificationSetting other = new NotificationSetting("Select file...", null, null)`
+
 - Description: TODO
 
-<a id="member-22"></a>
-##### `img`
+#### `public static final List<NotificationSetting> builtin`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `tex`
+#### `private static final Text.Foundry elf = CharWnd.attrf`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `cc`
+#### `private static final int elh = elf.height() + UI.scale(2)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `rot`
+### Fields
 
+#### `public final Indir<Resource> res`
+
 - Description: TODO
 
-<a id="member-26"></a>
-##### `ao`
+#### `public final byte[] sdt`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `z`
+#### `private Icon icon`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `img`
+#### `public final OwnerContext owner`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `gob`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `factory`
+#### `public final BufferedImage img`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `lastnotifs`
+#### `public final Tex tex`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `id`
+#### `public Coord cc`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `icon`
+#### `public boolean rot`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `from`
+#### `public double ao`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `res`
+#### `public int z`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `show`
+#### `public final Image img`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `defshow`
+#### `private final Gob gob = owner.fcontext(Gob.class, false)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `notify`
+#### `public final ID id`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `resns`
+#### `public final Icon icon`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `filens`
+#### `public final Settings.ResID from`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `mark`
+#### `public Resource.Saved res`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `markset`
+#### `public boolean show, defshow, notify`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `res`
+#### `public boolean show, defshow, notify`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `sub`
+#### `public boolean show, defshow, notify`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `lres`
+#### `public String resns`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `sig`
+#### `public Path filens`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `ui`
+#### `public boolean mark, markset`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `filename`
+#### `public boolean mark, markset`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `settings`
+#### `public final String res`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `tag`
+#### `public final Object[] sub`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `notify`
+#### `private Resource lres`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `res`
+#### `public final UI ui`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `data`
+#### `public final String filename`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `loading`
+#### `public Map<Setting.ID, Setting> settings = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `load`
+#### `public int tag = -1`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `defaults`
+#### `public boolean notify = false`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `resolve`
+#### `public final Resource.Saved res`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `save`
+#### `public final byte[] data`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `adv`
+#### `private Loader loading = null`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `tag`
+#### `public final Queue<ResID> load = new ArrayDeque<>()`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `advbuf`
+#### `public final Map<ResID, Setting> defaults = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `cached`
+#### `public final Map<ResID, Collection<Setting>> resolve = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `r`
+#### `public boolean save = false, adv = false`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `next`
+#### `public boolean save = false, adv = false`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `nset`
+#### `public Integer tag = null`
 
 - Description: TODO
 
-<a id="member-101"></a>
-##### `ctxr`
+#### `private final Collection<Icon> advbuf = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-109"></a>
-##### `saveagain`
+#### `private final boolean cached`
 
 - Description: TODO
 
-<a id="member-110"></a>
-##### `saving`
+#### `private ResID r = null`
 
 - Description: TODO
 
-<a id="member-114"></a>
-##### `name`
+#### `private Loader next = null`
 
 - Description: TODO
 
-<a id="member-115"></a>
-##### `res`
+#### `private Map<Setting.ID, Setting> nset = null`
 
 - Description: TODO
 
-<a id="member-116"></a>
-##### `wav`
+#### `private final ClassResolver<Settings> ctxr = new ClassResolver<Settings>()`
 
 - Description: TODO
 
-<a id="member-122"></a>
-##### `nil`
+#### `private boolean saveagain = false, saving = false`
 
 - Description: TODO
 
-<a id="member-123"></a>
-##### `other`
+#### `private boolean saveagain = false, saving = false`
 
 - Description: TODO
 
-<a id="member-124"></a>
-##### `builtin`
+#### `public final String name, res`
 
 - Description: TODO
 
-<a id="member-125"></a>
-##### `conf`
+#### `public final String name, res`
 
 - Description: TODO
 
-<a id="member-126"></a>
-##### `cont`
+#### `public final Path wav`
 
 - Description: TODO
 
-<a id="member-127"></a>
-##### `list`
+#### `public final Settings conf`
 
 - Description: TODO
 
-<a id="member-128"></a>
-##### `setbox`
+#### `private final PackCont.LinPack cont`
 
 - Description: TODO
 
-<a id="member-129"></a>
-##### `conf`
+#### `private final IconList list`
 
 - Description: TODO
 
-<a id="member-130"></a>
-##### `name`
+#### `private Widget setbox`
 
 - Description: TODO
 
-<a id="member-131"></a>
-##### `id`
+#### `public final Setting conf`
 
 - Description: TODO
 
-<a id="member-134"></a>
-##### `elf`
+#### `public final String name`
 
 - Description: TODO
 
-<a id="member-135"></a>
-##### `elh`
+#### `public final Object[] id`
 
 - Description: TODO
 
-<a id="member-136"></a>
-##### `ordered`
+#### `private List<ListIcon> ordered = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-137"></a>
-##### `cur`
+#### `private Map<Setting.ID, Setting> cur = null`
 
 - Description: TODO
 
-<a id="member-146"></a>
-##### `conf`
+#### `public final Setting conf`
 
 - Description: TODO
 
-<a id="member-147"></a>
-##### `nb`
+#### `public final NotifBox nb`
 
 - Description: TODO
 
-<a id="member-149"></a>
-##### `items`
+#### `private final List<NotificationSetting> items = new ArrayList<>()`
 
 - Description: TODO
+
+### Methods
 
-#### Methods
+#### `public GobIcon(Gob g, Indir<Resource> res, byte[] sdt)`
+
+- Description: TODO
 
-<a id="member-9"></a>
-##### `Icon(OwnerContext owner, Resource res)`
+#### `public Icon(OwnerContext owner, Resource res)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `public abstract String name();`
+#### `public abstract String name()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `public abstract BufferedImage image();`
+#### `public abstract BufferedImage image()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `public abstract void draw(GOut g, Coord cc);`
+#### `public abstract void draw(GOut g, Coord cc)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `public abstract boolean checkhit(Coord c);`
+#### `public abstract boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `info(ItemInfo.Owner owner)`
+#### `public Object[] info(ItemInfo.Owner owner)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `id()`
+#### `public Object[] id()`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `z()`
+#### `public int z()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `markable()`
+#### `public Markable markable()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `hover(Coord c, boolean hovering)`
+#### `public boolean hover(Coord c, boolean hovering)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `public Icon create(OwnerContext owner, Resource res, Message sdt);`
+#### `public Icon create(OwnerContext owner, Resource res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `public Collection<? extends Icon> enumerate(OwnerContext owner, Resource res, Message sdt);`
+#### `public Collection<? extends Icon> enumerate(OwnerContext owner, Resource res, Message sdt)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `Image(Resource res)`
+#### `public Image(Resource res)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `get(Resource res)`
+#### `public static Image get(Resource res)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `ImageIcon(OwnerContext owner, Resource res, Image img)`
+#### `public ImageIcon(OwnerContext owner, Resource res, Image img)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `name()`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `image()`
+#### `public BufferedImage image()`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `draw(GOut g, Coord cc)`
+#### `public void draw(GOut g, Coord cc)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `checkhit(Coord c)`
+#### `public boolean checkhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `z()`
+#### `public int z()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `markable()`
+#### `public Markable markable()`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `getfac(Resource res)`
+#### `public static Icon.Factory getfac(Resource res)`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `icon()`
+#### `public Icon icon()`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `resnotif(String nm)`
+#### `private static Consumer<UI> resnotif(String nm)`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `wavnotif(Path path)`
+#### `private static Consumer<UI> wavnotif(Path path)`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `notiflimit(Consumer<UI> bk, Object id)`
+#### `private static Consumer<UI> notiflimit(Consumer<UI> bk, Object id)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `ID(String res, Object[] sub)`
+#### `public ID(String res, Object[] sub)`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `hashCode()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `equals(ID that)`
+#### `public boolean equals(ID that)`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `equals(Object x)`
+#### `public boolean equals(Object x)`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `Setting(Resource.Saved res, Object[] id, Icon icon, Settings.ResID from)`
+#### `public Setting(Resource.Saved res, Object[] id, Icon icon, Settings.ResID from)`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `Setting(Resource.Saved res, Object[] id)`
+#### `public Setting(Resource.Saved res, Object[] id)`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `Setting(Icon icon, Settings.ResID from)`
+#### `public Setting(Icon icon, Settings.ResID from)`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `notification()`
+#### `public Consumer<UI> notification()`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `resource()`
+#### `public Resource resource()`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `getmarkablep()`
+#### `public boolean getmarkablep()`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `getmarkp()`
+#### `public boolean getmarkp()`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `Settings(UI ui, String filename)`
+#### `public Settings(UI ui, String filename)`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `get(Icon icon)`
+#### `public Setting get(Icon icon)`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `ResID(Resource.Saved res, byte[] data)`
+#### `public ResID(Resource.Saved res, byte[] data)`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `hashCode()`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `equals(ResID that)`
+#### `public boolean equals(ResID that)`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `equals(Object x)`
+#### `public boolean equals(Object x)`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `Loader(boolean cached)`
+#### `public Loader(boolean cached)`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `merge(Setting set, Setting conf)`
+#### `private void merge(Setting set, Setting conf)`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `run()`
+#### `public void run()`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `submit()`
+#### `public void submit()`
 
 - Description: TODO
 
-<a id="member-102"></a>
-##### `context(Class<T> cl)`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-103"></a>
-##### `receive(Object[] args)`
+#### `public void receive(Object[] args)`
 
 - Description: TODO
 
-<a id="member-104"></a>
-##### `encodeset(Map<Object, Object> buf, Setting set)`
+#### `private static void encodeset(Map<Object, Object> buf, Setting set)`
 
 - Description: TODO
 
-<a id="member-105"></a>
-##### `save(Message dst)`
+#### `public void save(Message dst)`
 
 - Description: TODO
 
-<a id="member-106"></a>
-##### `parseset(Setting set, Map<Object, Object> data)`
+#### `private static void parseset(Setting set, Map<Object, Object> data)`
 
 - Description: TODO
 
-<a id="member-107"></a>
-##### `load(Message blob)`
+#### `public void load(Message blob)`
 
 - Description: TODO
 
-<a id="member-108"></a>
-##### `save()`
+#### `public void save()`
 
 - Description: TODO
 
-<a id="member-111"></a>
-##### `dsave0()`
+#### `private void dsave0()`
 
 - Description: TODO
 
-<a id="member-112"></a>
-##### `dsave()`
+#### `public void dsave()`
 
 - Description: TODO
 
-<a id="member-113"></a>
-##### `public static Settings load(UI ui, String name) throws IOException`
+#### `public static Settings load(UI ui, String name) throws IOException`
 
 - Description: TODO
 
-<a id="member-117"></a>
-##### `NotificationSetting(String name, String res, Path wav)`
+#### `private NotificationSetting(String name, String res, Path wav)`
 
 - Description: TODO
 
-<a id="member-118"></a>
-##### `NotificationSetting(String name, String res)`
+#### `public NotificationSetting(String name, String res)`
 
 - Description: TODO
 
-<a id="member-119"></a>
-##### `NotificationSetting(String name, Path wav)`
+#### `public NotificationSetting(String name, Path wav)`
 
 - Description: TODO
 
-<a id="member-120"></a>
-##### `NotificationSetting(Path wav)`
+#### `public NotificationSetting(Path wav)`
 
 - Description: TODO
 
-<a id="member-121"></a>
-##### `act(Setting conf)`
+#### `public boolean act(Setting conf)`
 
 - Description: TODO
 
-<a id="member-132"></a>
-##### `ListIcon(Setting conf)`
+#### `public ListIcon(Setting conf)`
 
 - Description: TODO
 
-<a id="member-133"></a>
-##### `andsave(Consumer<T> main)`
+#### `private <T> Consumer<T> andsave(Consumer<T> main)`
 
 - Description: TODO
 
-<a id="member-138"></a>
-##### `IconList(Coord sz)`
+#### `private IconList(Coord sz)`
 
 - Description: TODO
 
-<a id="member-139"></a>
-##### `IconLine(Coord sz, ListIcon icon)`
+#### `public IconLine(Coord sz, ListIcon icon)`
 
 - Description: TODO
 
-<a id="member-140"></a>
-##### `searchmatch(ListIcon icon, String text)`
+#### `protected boolean searchmatch(ListIcon icon, String text)`
 
 - Description: TODO
 
-<a id="member-141"></a>
-##### `allitems()`
+#### `protected List<ListIcon> allitems()`
 
 - Description: TODO
 
-<a id="member-142"></a>
-##### `makeitem(ListIcon icon, int idx, Coord sz)`
+#### `protected IconLine makeitem(ListIcon icon, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-143"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-144"></a>
-##### `keydown(KeyDownEvent ev)`
+#### `public boolean keydown(KeyDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-145"></a>
-##### `change(ListIcon icon)`
+#### `public void change(ListIcon icon)`
 
 - Description: TODO
 
-<a id="member-148"></a>
-##### `IconSettings(int w, Setting conf)`
+#### `public IconSettings(int w, Setting conf)`
 
 - Description: TODO
 
-<a id="member-150"></a>
-##### `NotifBox(int w)`
+#### `public NotifBox(int w)`
 
 - Description: TODO
 
-<a id="member-151"></a>
-##### `items()`
+#### `protected List<NotificationSetting> items()`
 
 - Description: TODO
 
-<a id="member-152"></a>
-##### `makeitem(NotificationSetting item, int idx, Coord sz)`
+#### `protected Widget makeitem(NotificationSetting item, int idx, Coord sz)`
 
 - Description: TODO
 
-<a id="member-153"></a>
-##### `selectwav()`
+#### `private void selectwav()`
 
 - Description: TODO
 
-<a id="member-154"></a>
-##### `change(NotificationSetting item)`
+#### `public void change(NotificationSetting item)`
 
 - Description: TODO
 
-<a id="member-155"></a>
-##### `play()`
+#### `private void play()`
 
 - Description: TODO
 
-<a id="member-156"></a>
-##### `SettingsWindow(Settings conf)`
+#### `public SettingsWindow(Settings conf)`
 
 - Description: TODO
 
-<a id="member-157"></a>
-##### `apply(Gob g, OCache.AttrDelta msg)`
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
 
 - Description: TODO

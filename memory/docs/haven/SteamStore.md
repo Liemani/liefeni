@@ -1,5 +1,7 @@
 # SteamStore
 
+This file documents the responsibilities and members of `SteamStore`.
+
 ## Meta
 
 - Source: [SteamStore.java](../../../src/haven/SteamStore.java)
@@ -8,50 +10,38 @@
 
 ## Role
 
-- Integrates with the Steam store.
+Integrates with the Steam store.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Fields
-
-- [steamsvc](#member-1)
-- [cb](#member-2)
-
-#### Methods
-
-- [sendauth(long orderid, boolean approved)](#member-3)
-- [callback(String id, Object[] args)](#member-4)
-- [launch(Session sess)](#member-5)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `steamsvc`
+### Authorizer
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `cb`
+## Members
+
+### Constants
+
+#### `public static final Config.Variable<URI> steamsvc = Config.Services.var("steamsvc", "")`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-3"></a>
-##### `sendauth(long orderid, boolean approved)`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `callback(String id, Object[] args)`
+#### `private static Authorizer cb`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `launch(Session sess)`
+### Methods
+
+#### `private static void sendauth(long orderid, boolean approved)`
+
+- Description: TODO
+
+#### `public void callback(String id, Object[] args)`
+
+- Description: TODO
+
+#### `public static void launch(Session sess)`
 
 - Description: TODO

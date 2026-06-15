@@ -1,5 +1,7 @@
 # Statement
 
+This file documents the responsibilities and members of `Statement`.
+
 ## Meta
 
 - Source: [Statement.java](../../../../../src/haven/render/sl/Statement.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Represents a shader statement.
+Represents a shader statement.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [expr(final Expression e)](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `expr(final Expression e)`
+#### `public static Statement expr(final Expression e)`
 
 - Description: TODO

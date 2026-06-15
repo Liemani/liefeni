@@ -1,5 +1,7 @@
 # ManagedWpNode
 
+This file documents the responsibilities and members of `ManagedWpNode`.
+
 ## Meta
 
 - Source: [ManagedWpNode.java](../../../../../src/lmi/waypoint/managed/ManagedWpNode.java)
@@ -8,122 +10,84 @@
 
 ## Role
 
-- Represents a waypoint node value or runtime cache entry.
+Represents a waypoint node value or runtime cache entry.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [graphId](#member-1)
-- [gridId](#member-2)
-- [localX](#member-3)
-- [localY](#member-4)
-- [name](#member-5)
-
-#### Methods
-
-- [fromWpNode(ManagedObjectContext context, WpNode node)](#member-6)
-- [graphId()](#member-7)
-- [gridId()](#member-8)
-- [localX()](#member-9)
-- [localY()](#member-10)
-- [name()](#member-11)
-- [setGraphId(long graphId)](#member-12)
-- [setGridId(long gridId)](#member-13)
-- [setLocalX(int localX)](#member-14)
-- [setLocalY(int localY)](#member-15)
-- [setName(String name)](#member-16)
-- [snapshot()](#member-17)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `graphId`
+#### `private long graphId`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `gridId`
+#### `private long gridId`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `localX`
+#### `private int localX`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `localY`
+#### `private int localY`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `name`
+#### `private String name`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-6"></a>
-##### `fromWpNode(ManagedObjectContext context, WpNode node)`
-
-- Description: TODO
-
-<a id="member-7"></a>
-##### `graphId()`
+#### `public ManagedWpNode(`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `gridId()`
+#### `public static ManagedWpNode fromWpNode(ManagedObjectContext context, WpNode node)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `localX()`
+#### `public long graphId()`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `localY()`
+#### `public long gridId()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `name()`
+#### `public int localX()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `setGraphId(long graphId)`
+#### `public int localY()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `setGridId(long gridId)`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `setLocalX(int localX)`
+#### `public void setGraphId(long graphId)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `setLocalY(int localY)`
+#### `public void setGridId(long gridId)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `setName(String name)`
+#### `public void setLocalX(int localX)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `snapshot()`
+#### `public void setLocalY(int localY)`
+
+- Description: TODO
+
+#### `public void setName(String name)`
+
+- Description: TODO
+
+#### `public WpNodeSnapshot snapshot()`
 
 - Description: TODO

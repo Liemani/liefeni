@@ -1,5 +1,7 @@
 # Drawn
 
+This file documents the responsibilities and members of `Drawn`.
+
 ## Meta
 
 - Source: [Drawn.java](../../../src/haven/Drawn.java)
@@ -8,21 +10,16 @@
 
 ## Role
 
-- Marks something as already drawn or drawable state.
+Marks something as already drawn or drawable state.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public void draw(GOut g);](#member-1)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public void draw(GOut g);`
+#### `public void draw(GOut g)`
 
 - Description: TODO

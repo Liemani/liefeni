@@ -1,5 +1,7 @@
 # SListBox
 
+This file documents the responsibilities and members of `SListBox`.
+
 ## Meta
 
 - Source: [SListBox.java](../../../src/haven/SListBox.java)
@@ -8,254 +10,176 @@
 
 ## Role
 
-- Displays a styled list box widget.
+Displays a styled list box widget.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [every](#member-1)
-- [other](#member-2)
-- [itemh](#member-3)
-- [marg](#member-4)
-- [sb](#member-5)
-- [curw](#member-6)
-- [curi](#member-7)
-- [n](#member-8)
-- [h](#member-9)
-- [curo](#member-10)
-- [itemw](#member-11)
-- [maxy](#member-12)
-- [cury](#member-13)
-- [reset](#member-14)
-
-#### Methods
-
-- [autoscroll()](#member-15)
-- [scrollmin()](#member-16)
-- [scrollmax()](#member-17)
-- [scrollval()](#member-18)
-- [scrollval(int val)](#member-19)
-- [update()](#member-20)
-- [tick(double dt)](#member-21)
-- [totalh()](#member-22)
-- [minimize()](#member-23)
-- [reset()](#member-24)
-- [getcur(I item)](#member-25)
-- [drawbg(GOut g)](#member-26)
-- [drawbg(GOut g, I item, int idx, Area area)](#member-27)
-- [drawsel(GOut g, I item, int idx, Area area)](#member-28)
-- [drawslot(GOut g, I item, int idx, Area area)](#member-29)
-- [draw(GOut g)](#member-30)
-- [slotat(Coord c)](#member-31)
-- [mousewheel(MouseWheelEvent ev)](#member-32)
-- [unselect(int button)](#member-33)
-- [slotclick(Coord c, int slot, int button)](#member-34)
-- [mousedown(MouseDownEvent ev)](#member-35)
-- [resize(Coord sz)](#member-36)
-- [display(int idx)](#member-37)
-- [display(I item)](#member-38)
-- [display()](#member-39)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `every`
+#### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `other`
+#### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `itemh`
+### Fields
+
+#### `public final int itemh, marg`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `marg`
+#### `public final int itemh, marg`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `sb`
+#### `public final Scrollbar sb`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `curw`
+#### `private Map<I, W> curw = new IdentityHashMap<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `curi`
+#### `private I[] curi`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `n`
+#### `private int n = -1, h, curo = 0, itemw = 0`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `h`
+#### `private int n = -1, h, curo = 0, itemw = 0`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `curo`
+#### `private int n = -1, h, curo = 0, itemw = 0`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `itemw`
+#### `private int n = -1, h, curo = 0, itemw = 0`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `maxy`
+#### `private int maxy = 0`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `cury`
+#### `private double cury = 0.0`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `reset`
+#### `private boolean reset = false`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-15"></a>
-##### `autoscroll()`
-
-- Description: TODO
-
-<a id="member-16"></a>
-##### `scrollmin()`
+#### `public SListBox(Coord sz, int itemh, int marg)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `scrollmax()`
+#### `public SListBox(Coord sz, int itemh)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `scrollval()`
+#### `protected boolean autoscroll()`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `scrollval(int val)`
+#### `public int scrollmin()`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `update()`
+#### `public int scrollmax()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `tick(double dt)`
+#### `public int scrollval()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `totalh()`
+#### `public void scrollval(int val)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `minimize()`
+#### `public void update()`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `reset()`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `getcur(I item)`
+#### `public int totalh()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `drawbg(GOut g)`
+#### `public void minimize()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `drawbg(GOut g, I item, int idx, Area area)`
+#### `public void reset()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `drawsel(GOut g, I item, int idx, Area area)`
+#### `public W getcur(I item)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `drawslot(GOut g, I item, int idx, Area area)`
+#### `protected void drawbg(GOut g)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `draw(GOut g)`
+#### `protected void drawbg(GOut g, I item, int idx, Area area)`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `slotat(Coord c)`
+#### `protected void drawsel(GOut g, I item, int idx, Area area)`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `mousewheel(MouseWheelEvent ev)`
+#### `protected void drawslot(GOut g, I item, int idx, Area area)`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `unselect(int button)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `slotclick(Coord c, int slot, int button)`
+#### `public int slotat(Coord c)`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousewheel(MouseWheelEvent ev)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `resize(Coord sz)`
+#### `protected boolean unselect(int button)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `display(int idx)`
+#### `protected boolean slotclick(Coord c, int slot, int button)`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `display(I item)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `display()`
+#### `public void resize(Coord sz)`
+
+- Description: TODO
+
+#### `public void display(int idx)`
+
+- Description: TODO
+
+#### `public void display(I item)`
+
+- Description: TODO
+
+#### `public void display()`
 
 - Description: TODO

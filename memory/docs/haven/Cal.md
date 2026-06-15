@@ -1,5 +1,7 @@
 # Cal
 
+This file documents the responsibilities and members of `Cal`.
+
 ## Meta
 
 - Source: [Cal.java](../../../src/haven/Cal.java)
@@ -8,92 +10,64 @@
 
 ## Role
 
-- Provides calendar and time helpers.
+Provides calendar and time helpers.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
-
-- [hbr](#member-1)
-- [bg](#member-2)
-- [dlnd](#member-3)
-- [nlnd](#member-4)
-- [dsky](#member-5)
-- [nsky](#member-6)
-- [sun](#member-7)
-- [moon](#member-8)
-
-#### Methods
-
-- [draw(GOut g)](#member-9)
-- [checkhit(Coord c)](#member-10)
-- [ord(int i)](#member-11)
-- [tooltip(Coord c, Widget prev)](#member-12)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `hbr`
+#### `public static final double hbr = UI.scale(20.0)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `bg`
+#### `static final Tex bg = Resource.loadtex("gfx/hud/calendar/glass")`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `dlnd`
+#### `static final Tex[] dlnd = new Tex[4]`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `nlnd`
+#### `static final Tex[] nlnd = new Tex[4]`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `dsky`
+#### `static final Resource.Image dsky = Resource.loadrimg("gfx/hud/calendar/daysky")`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `nsky`
+#### `static final Resource.Image nsky = Resource.loadrimg("gfx/hud/calendar/nightsky")`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `sun`
+#### `static final Resource.Anim sun = Resource.local().loadwait("gfx/hud/calendar/sun").layer(Resource.animc)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `moon`
+#### `static final Resource.Anim moon = Resource.local().loadwait("gfx/hud/calendar/moon").layer(Resource.animc)`
 
 - Description: TODO
 
-#### Methods
+### Fields
 
-<a id="member-9"></a>
-##### `draw(GOut g)`
+### Methods
 
-- Description: TODO
-
-<a id="member-10"></a>
-##### `checkhit(Coord c)`
+#### `public Cal()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `ord(int i)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public boolean checkhit(Coord c)`
+
+- Description: TODO
+
+#### `private static String ord(int i)`
+
+- Description: TODO
+
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO

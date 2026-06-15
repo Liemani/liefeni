@@ -1,5 +1,7 @@
 # MapSource
 
+This file documents the responsibilities and members of `MapSource`.
+
 ## Meta
 
 - Source: [MapSource.java](../../../src/haven/MapSource.java)
@@ -8,51 +10,36 @@
 
 ## Role
 
-- Provides a map data source.
+Provides a map data source.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Methods
+### Fields
 
-- [public int gettile(Coord tc);](#member-1)
-- [public double getfz(Coord tc);](#member-2)
-- [public Tileset tileset(int t);](#member-3)
-- [public Tiler tiler(int t);](#member-4)
-- [tileimg(MapSource m, BufferedImage[] texes, int t)](#member-5)
-- [drawmap(MapSource m, Area a)](#member-6)
+### Methods
 
-### Member Reference
-
-#### Methods
-
-<a id="member-1"></a>
-##### `public int gettile(Coord tc);`
+#### `public int gettile(Coord tc)`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `public double getfz(Coord tc);`
+#### `public double getfz(Coord tc)`
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `public Tileset tileset(int t);`
+#### `public Tileset tileset(int t)`
 
 - Description: TODO
 
-<a id="member-4"></a>
-##### `public Tiler tiler(int t);`
+#### `public Tiler tiler(int t)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `tileimg(MapSource m, BufferedImage[] texes, int t)`
+#### `static BufferedImage tileimg(MapSource m, BufferedImage[] texes, int t)`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `drawmap(MapSource m, Area a)`
+#### `public static BufferedImage drawmap(MapSource m, Area a)`
 
 - Description: TODO

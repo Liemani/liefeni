@@ -1,5 +1,7 @@
 # AgentRegistry
 
+This file documents the responsibilities and members of `AgentRegistry`.
+
 ## Meta
 
 - Source: [AgentRegistry.java](../../../../src/lmi/runtime/AgentRegistry.java)
@@ -8,217 +10,150 @@
 
 ## Role
 
-- Tracks available agent jobs and effect constructors.
+Tracks available agent jobs and effect constructors.
 
-## Code Members
+## Nested Types
 
-### Member Index
-
-#### Constants
-
-- [BASE_PACKAGE](#member-1)
-- [BASE_PATH](#member-2)
-
-#### Fields
-
-- [jobMap](#member-3)
-- [effectMap](#member-4)
-- [folderMetadataMap](#member-5)
-- [executableEntries](#member-6)
-- [initialized](#member-7)
-- [kind](#member-21)
-- [cls](#member-22)
-- [commandName](#member-23)
-
-#### Methods
-
-- [init()](#member-8)
-- [jobMap()](#member-9)
-- [jobClass(String name)](#member-10)
-- [effectClass(String name)](#member-11)
-- [folderMetadataClass(String packageName)](#member-12)
-- [executableEntries()](#member-13)
-- [_scanAgentPackage()](#member-14)
-- [_registerClass(String path)](#member-15)
-- [_isFolderMetadataClass(Class<?> cls)](#member-16)
-- [_isConcreteJobClass(Class<?> cls)](#member-17)
-- [_isConcreteEffectClass(Class<?> cls)](#member-18)
-- [_jobCommandName(Class<? extends Job> cls)](#member-19)
-- [_effectCommandName(Class<? extends Effect> cls)](#member-20)
-- [Entry(Kind kind, Class<?> cls, String commandName)](#member-24)
-- [job(Class<? extends Job> cls)](#member-25)
-- [effect(Class<? extends Effect> cls)](#member-26)
-- [kind()](#member-27)
-- [cls()](#member-28)
-- [className()](#member-29)
-- [simpleName()](#member-30)
-- [commandName()](#member-31)
-- [packageName()](#member-32)
-
-### Member Reference
-
-#### Constants
-
-<a id="member-1"></a>
-##### `BASE_PACKAGE`
+### Entry
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `BASE_PATH`
+### Kind
 
 - Description: TODO
 
-#### Fields
+## Members
 
-<a id="member-3"></a>
-##### `jobMap`
+### Constants
 
-- Description: TODO
-
-<a id="member-4"></a>
-##### `effectMap`
+#### `private static final String BASE_PACKAGE = "agent"`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `folderMetadataMap`
+#### `private static final String BASE_PATH = "agent/"`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `executableEntries`
+#### `private static final Map<String, Class<? extends Job>> jobMap = new TreeMap<>()`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `initialized`
+#### `private static final Map<String, Class<? extends Effect>> effectMap = new TreeMap<>()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `kind`
+#### `private static final Map<String, Class<?>> folderMetadataMap = new HashMap<>()`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `cls`
+#### `private static final List<Entry> executableEntries = new ArrayList<>()`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `commandName`
+### Fields
+
+#### `private static boolean initialized = false`
 
 - Description: TODO
 
-#### Methods
-
-<a id="member-8"></a>
-##### `init()`
+#### `private final Kind kind`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `jobMap()`
+#### `private final Class<?> cls`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `jobClass(String name)`
+#### `private final String commandName`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `effectClass(String name)`
+### Methods
+
+#### `public static synchronized void init()`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `folderMetadataClass(String packageName)`
+#### `public static Map<String, Class<? extends Job>> jobMap()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `executableEntries()`
+#### `public static Class<? extends Job> jobClass(String name)`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `_scanAgentPackage()`
+#### `public static Class<? extends Effect> effectClass(String name)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `_registerClass(String path)`
+#### `public static Class<?> folderMetadataClass(String packageName)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `_isFolderMetadataClass(Class<?> cls)`
+#### `public static List<Entry> executableEntries()`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `_isConcreteJobClass(Class<?> cls)`
+#### `private static void _scanAgentPackage()`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `_isConcreteEffectClass(Class<?> cls)`
+#### `private static void _registerClass(String path)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `_jobCommandName(Class<? extends Job> cls)`
+#### `private static boolean _isFolderMetadataClass(Class<?> cls)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `_effectCommandName(Class<? extends Effect> cls)`
+#### `private static boolean _isConcreteJobClass(Class<?> cls)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `Entry(Kind kind, Class<?> cls, String commandName)`
+#### `private static boolean _isConcreteEffectClass(Class<?> cls)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `job(Class<? extends Job> cls)`
+#### `private static String _jobCommandName(Class<? extends Job> cls)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `effect(Class<? extends Effect> cls)`
+#### `private static String _effectCommandName(Class<? extends Effect> cls)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `kind()`
+#### `private Entry(Kind kind, Class<?> cls, String commandName)`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `cls()`
+#### `static Entry job(Class<? extends Job> cls)`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `className()`
+#### `static Entry effect(Class<? extends Effect> cls)`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `simpleName()`
+#### `public Kind kind()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `commandName()`
+#### `public Class<?> cls()`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `packageName()`
+#### `public String className()`
+
+- Description: TODO
+
+#### `public String simpleName()`
+
+- Description: TODO
+
+#### `public String commandName()`
+
+- Description: TODO
+
+#### `public String packageName()`
 
 - Description: TODO

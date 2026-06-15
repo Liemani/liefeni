@@ -1,5 +1,7 @@
 # Area
 
+This file documents the responsibilities and members of `Area`.
+
 ## Meta
 
 - Source: [Area.java](../../../src/haven/Area.java)
@@ -8,188 +10,128 @@
 
 ## Role
 
-- Represents a selectable area or area-related helper.
+Represents a selectable area or area-related helper.
 
-## Code Members
+## Members
 
-### Member Index
+### Constants
 
-#### Fields
+### Fields
 
-- [ul](#member-1)
-- [br](#member-2)
-
-#### Methods
-
-- [hashCode()](#member-3)
-- [equals(Object o)](#member-4)
-- [corn(Coord ul, Coord br)](#member-5)
-- [corni(Coord ul, Coord bri)](#member-6)
-- [sized(Coord ul, Coord sz)](#member-7)
-- [sized(Coord sz)](#member-8)
-- [sizedi(Coord szi)](#member-9)
-- [sz()](#member-10)
-- [positive()](#member-11)
-- [contains(Coord c)](#member-12)
-- [isects(Area o)](#member-13)
-- [contains(Area o)](#member-14)
-- [overlap(Area o)](#member-15)
-- [include(Area o)](#member-16)
-- [closest(Coord p)](#member-17)
-- [area()](#member-18)
-- [xl(Coord off)](#member-19)
-- [margin(Coord m)](#member-20)
-- [margin(int m)](#member-21)
-- [mul(Coord d)](#member-22)
-- [div(Coord d)](#member-23)
-- [ridx(Coord c)](#member-24)
-- [iterator()](#member-25)
-- [ri(Coord c)](#member-26)
-- [rsz()](#member-27)
-- [toString()](#member-28)
-
-### Member Reference
-
-#### Fields
-
-<a id="member-1"></a>
-##### `ul`
+#### `public Coord ul, br`
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `br`
+#### `public Coord ul, br`
 
 - Description: TODO
 
-#### Methods
+### Methods
 
-<a id="member-3"></a>
-##### `hashCode()`
-
-- Description: TODO
-
-<a id="member-4"></a>
-##### `equals(Object o)`
+#### `public Area(Coord ul, Coord br)`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `corn(Coord ul, Coord br)`
+#### `public int hashCode()`
 
 - Description: TODO
 
-<a id="member-6"></a>
-##### `corni(Coord ul, Coord bri)`
+#### `public boolean equals(Object o)`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `sized(Coord ul, Coord sz)`
+#### `public static Area corn(Coord ul, Coord br)`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `sized(Coord sz)`
+#### `public static Area corni(Coord ul, Coord bri)`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `sizedi(Coord szi)`
+#### `public static Area sized(Coord ul, Coord sz)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `sz()`
+#### `public static Area sized(Coord sz)`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `positive()`
+#### `public static Area sizedi(Coord szi)`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `contains(Coord c)`
+#### `public Coord sz()`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `isects(Area o)`
+#### `public boolean positive()`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `contains(Area o)`
+#### `public boolean contains(Coord c)`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `overlap(Area o)`
+#### `public boolean isects(Area o)`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `include(Area o)`
+#### `public boolean contains(Area o)`
 
 - Description: TODO
 
-<a id="member-17"></a>
-##### `closest(Coord p)`
+#### `public Area overlap(Area o)`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `area()`
+#### `public Area include(Area o)`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `xl(Coord off)`
+#### `public Coord closest(Coord p)`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `margin(Coord m)`
+#### `public int area()`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `margin(int m)`
+#### `public Area xl(Coord off)`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `mul(Coord d)`
+#### `public Area margin(Coord m)`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `div(Coord d)`
+#### `public Area margin(int m)`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `ridx(Coord c)`
+#### `public Area mul(Coord d)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `iterator()`
+#### `public Area div(Coord d)`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `ri(Coord c)`
+#### `public int ridx(Coord c)`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `rsz()`
+#### `public Iterator<Coord> iterator()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `toString()`
+#### `public int ri(Coord c)`
+
+- Description: TODO
+
+#### `public int rsz()`
+
+- Description: TODO
+
+#### `public String toString()`
 
 - Description: TODO

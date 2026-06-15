@@ -1,5 +1,7 @@
 # MenuGrid
 
+This file documents the responsibilities and members of `MenuGrid`.
+
 ## Meta
 
 - Source: [MenuGrid.java](../../../src/haven/MenuGrid.java)
@@ -8,620 +10,442 @@
 
 ## Role
 
-- Displays the main menu grid.
-
-## Code Members
-
-### Member Index
-
-#### Fields
-
-- [bg](#member-1)
-- [bgsz](#member-2)
-- [ttfnd](#member-3)
-- [gsz](#member-4)
-- [paginae](#member-5)
-- [cur](#member-6)
-- [pmap](#member-7)
-- [dragging](#member-8)
-- [curbtns](#member-9)
-- [pressed](#member-10)
-- [layout](#member-11)
-- [grab](#member-12)
-- [curoff](#member-13)
-- [recons](#member-14)
-- [showkeys](#member-15)
-- [fstart](#member-16)
-- [scm](#member-18)
-- [id](#member-19)
-- [res](#member-20)
-- [sdt](#member-21)
-- [anew](#member-22)
-- [tnew](#member-23)
-- [rawinfo](#member-24)
-- [button](#member-29)
-- [btn](#member-32)
-- [modflags](#member-33)
-- [mc](#member-34)
-- [click](#member-35)
-- [pag](#member-39)
-- [res](#member-40)
-- [bind](#member-41)
-- [spr](#member-42)
-- [act](#member-43)
-- [parent](#member-46)
-- [rstate](#member-55)
-- [ols](#member-56)
-- [meter](#member-57)
-- [keyfnd](#member-62)
-- [keyrend](#member-63)
-- [haskeyrend](#member-64)
-- [info](#member-66)
-- [ctxr](#member-68)
-- [next](#member-75)
-- [bk](#member-76)
-- [curttp](#member-83)
-- [curttl](#member-84)
-- [curtt](#member-85)
-- [hoverstart](#member-86)
-- [kb_root](#member-96)
-- [kb_back](#member-97)
-- [kb_next](#member-98)
-
-#### Methods
-
-- [create(UI ui, Object[] args)](#member-17)
-- [Pagina(MenuGrid scm, Object id, Indir<Resource> res)](#member-25)
-- [res()](#member-26)
-- [data()](#member-27)
-- [invalidate()](#member-28)
-- [button()](#member-30)
-- [parent()](#member-31)
-- [Interaction(int btn, int modflags, Coord2d mc, ClickData click)](#member-36)
-- [Interaction(int btn, int modflags)](#member-37)
-- [Interaction()](#member-38)
-- [PagButton(Pagina pag)](#member-44)
-- [act()](#member-45)
-- [parent()](#member-47)
-- [spr()](#member-48)
-- [name()](#member-49)
-- [hotkey()](#member-50)
-- [binding()](#member-51)
-- [use(Interaction iact)](#member-52)
-- [tick(double dt)](#member-53)
-- [img()](#member-54)
-- [drawmain(GOut g, GSprite spr)](#member-58)
-- [draw(GOut g, GSprite spr)](#member-59)
-- [sortkey()](#member-60)
-- [bindchr(KeyMatch key)](#member-61)
-- [keyrend()](#member-65)
-- [info()](#member-67)
-- [context(Class<T> cl)](#member-69)
-- [mkrandoom()](#member-70)
-- [getres()](#member-71)
-- [rendertt(boolean withpg)](#member-72)
-- [FactMaker()](#member-73)
-- [public PagButton make(Pagina info);](#member-74)
-- [paginafor(Indir<Resource> res)](#member-77)
-- [paginafor(Object id, Indir<Resource> res)](#member-78)
-- [cons(Pagina p, Collection<PagButton> buf)](#member-79)
-- [announce(Pagina pag)](#member-80)
-- [updlayout()](#member-81)
-- [draw(GOut g)](#member-82)
-- [tooltip(Coord c, Widget prev)](#member-87)
-- [bhit(Coord c)](#member-88)
-- [mousedown(MouseDownEvent ev)](#member-89)
-- [mousemove(MouseMoveEvent ev)](#member-90)
-- [change(Pagina dst)](#member-91)
-- [use(PagButton r, Interaction iact, boolean reset)](#member-92)
-- [tick(double dt)](#member-93)
-- [mouseup(MouseUpEvent ev)](#member-94)
-- [uimsg(String msg, Object... args)](#member-95)
-- [globtype(GlobKeyEvent ev)](#member-99)
-- [getbinding(Coord cc)](#member-100)
+Displays the main menu grid.
 
-### Member Reference
+## Nested Types
 
-#### Fields
+### $_
 
-<a id="member-1"></a>
-##### `bg`
+- Description: TODO
+
+### FactMaker
+
+- Description: TODO
+
+### Factory
+
+- Description: TODO
+
+### Interaction
+
+- Description: TODO
+
+### PagButton
 
 - Description: TODO
 
-<a id="member-2"></a>
-##### `bgsz`
+### Pagina
 
 - Description: TODO
 
-<a id="member-3"></a>
-##### `ttfnd`
+## Members
 
+### Constants
+
+#### `public static final Text.Foundry keyfnd = new Text.Foundry(Text.sans.deriveFont(Font.BOLD), 10)`
+
+- Description: TODO
+
+#### `private static final OwnerContext.ClassResolver<PagButton> ctxr = new OwnerContext.ClassResolver<PagButton>()`
+
+- Description: TODO
+
+#### `public static final KeyBinding kb_root = KeyBinding.get("scm-root", KeyMatch.forcode(KeyEvent.VK_ESCAPE, 0))`
+
 - Description: TODO
 
-<a id="member-4"></a>
-##### `gsz`
+#### `public static final KeyBinding kb_back = KeyBinding.get("scm-back", KeyMatch.forcode(KeyEvent.VK_BACK_SPACE, 0))`
 
 - Description: TODO
 
-<a id="member-5"></a>
-##### `paginae`
+#### `public static final KeyBinding kb_next = KeyBinding.get("scm-next", KeyMatch.forchar('N', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.S))`
 
 - Description: TODO
+
+### Fields
 
-<a id="member-6"></a>
-##### `cur`
+#### `public final static Tex bg = Inventory.invsq`
 
 - Description: TODO
 
-<a id="member-7"></a>
-##### `pmap`
+#### `public final static Coord bgsz = Inventory.sqsz`
 
 - Description: TODO
 
-<a id="member-8"></a>
-##### `dragging`
+#### `public final static RichText.Foundry ttfnd = new RichText.Foundry(TextAttribute.FAMILY, "SansSerif", TextAttribute.SIZE, UI.scale(10f))`
 
 - Description: TODO
 
-<a id="member-9"></a>
-##### `curbtns`
+#### `private static Coord gsz = new Coord(4, 4)`
 
 - Description: TODO
 
-<a id="member-10"></a>
-##### `pressed`
+#### `public final Set<Pagina> paginae = new HashSet<Pagina>()`
 
 - Description: TODO
 
-<a id="member-11"></a>
-##### `layout`
+#### `public Pagina cur`
 
 - Description: TODO
 
-<a id="member-12"></a>
-##### `grab`
+#### `private final Map<Object, Pagina> pmap = new CacheMap<>(CacheMap.RefType.WEAK)`
 
 - Description: TODO
 
-<a id="member-13"></a>
-##### `curoff`
+#### `private Pagina dragging`
 
 - Description: TODO
 
-<a id="member-14"></a>
-##### `recons`
+#### `private Collection<PagButton> curbtns = Collections.emptyList()`
 
 - Description: TODO
 
-<a id="member-15"></a>
-##### `showkeys`
+#### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
 
 - Description: TODO
 
-<a id="member-16"></a>
-##### `fstart`
+#### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
 
 - Description: TODO
 
-<a id="member-18"></a>
-##### `scm`
+#### `private UI.Grab grab`
 
 - Description: TODO
 
-<a id="member-19"></a>
-##### `id`
+#### `private int curoff = 0`
 
 - Description: TODO
 
-<a id="member-20"></a>
-##### `res`
+#### `private boolean recons = true, showkeys = false`
 
 - Description: TODO
 
-<a id="member-21"></a>
-##### `sdt`
+#### `private boolean recons = true, showkeys = false`
 
 - Description: TODO
 
-<a id="member-22"></a>
-##### `anew`
+#### `private double fstart`
 
 - Description: TODO
 
-<a id="member-23"></a>
-##### `tnew`
+#### `public final MenuGrid scm`
 
 - Description: TODO
 
-<a id="member-24"></a>
-##### `rawinfo`
+#### `public final Object id`
 
 - Description: TODO
 
-<a id="member-29"></a>
-##### `button`
+#### `public Indir<Resource> res`
 
 - Description: TODO
 
-<a id="member-32"></a>
-##### `btn`
+#### `public byte[] sdt = null`
 
 - Description: TODO
 
-<a id="member-33"></a>
-##### `modflags`
+#### `public int anew, tnew`
 
 - Description: TODO
 
-<a id="member-34"></a>
-##### `mc`
+#### `public int anew, tnew`
 
 - Description: TODO
 
-<a id="member-35"></a>
-##### `click`
+#### `public Object[] rawinfo =`
 
 - Description: TODO
 
-<a id="member-39"></a>
-##### `pag`
+#### `private PagButton button = null`
 
 - Description: TODO
 
-<a id="member-40"></a>
-##### `res`
+#### `public final int btn, modflags`
 
 - Description: TODO
 
-<a id="member-41"></a>
-##### `bind`
+#### `public final int btn, modflags`
 
 - Description: TODO
 
-<a id="member-42"></a>
-##### `spr`
+#### `public final Coord2d mc`
 
 - Description: TODO
 
-<a id="member-43"></a>
-##### `act`
+#### `public final ClickData click`
 
 - Description: TODO
 
-<a id="member-46"></a>
-##### `parent`
+#### `public final Pagina pag`
 
 - Description: TODO
 
-<a id="member-55"></a>
-##### `rstate`
+#### `public final Resource res`
 
 - Description: TODO
 
-<a id="member-56"></a>
-##### `ols`
+#### `public final KeyBinding bind`
 
 - Description: TODO
 
-<a id="member-57"></a>
-##### `meter`
+#### `private GSprite spr`
 
 - Description: TODO
 
-<a id="member-62"></a>
-##### `keyfnd`
+#### `private AButton act`
 
 - Description: TODO
 
-<a id="member-63"></a>
-##### `keyrend`
+#### `private Pagina parent`
 
 - Description: TODO
 
-<a id="member-64"></a>
-##### `haskeyrend`
+#### `public final AttrCache<Pipe.Op> rstate = new AttrCache<>(this::info, info ->`
 
 - Description: TODO
 
-<a id="member-66"></a>
-##### `info`
+#### `public final AttrCache<GItem.InfoOverlay<?>[]> ols = new AttrCache<>(this::info, info ->`
 
 - Description: TODO
 
-<a id="member-68"></a>
-##### `ctxr`
+#### `public final AttrCache<Double> meter = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
 
 - Description: TODO
 
-<a id="member-75"></a>
-##### `next`
+#### `private Tex keyrend = null`
 
 - Description: TODO
 
-<a id="member-76"></a>
-##### `bk`
+#### `private boolean haskeyrend = false`
 
 - Description: TODO
 
-<a id="member-83"></a>
-##### `curttp`
+#### `private List<ItemInfo> info = null`
 
 - Description: TODO
 
-<a id="member-84"></a>
-##### `curttl`
+#### `public final PagButton next = new PagButton(new Pagina(this, null, Resource.local().loadwait("gfx/hud/sc-next").indir()))`
 
 - Description: TODO
 
-<a id="member-85"></a>
-##### `curtt`
+#### `public final PagButton bk = new PagButton(new Pagina(this, null, Resource.local().loadwait("gfx/hud/sc-back").indir()))`
 
 - Description: TODO
 
-<a id="member-86"></a>
-##### `hoverstart`
+#### `private PagButton curttp = null`
 
 - Description: TODO
 
-<a id="member-96"></a>
-##### `kb_root`
+#### `private boolean curttl = false`
 
 - Description: TODO
 
-<a id="member-97"></a>
-##### `kb_back`
+#### `private Tex curtt = null`
 
 - Description: TODO
 
-<a id="member-98"></a>
-##### `kb_next`
+#### `private double hoverstart`
 
 - Description: TODO
 
-#### Methods
+### Methods
+
+#### `public Widget create(UI ui, Object[] args)`
+
+- Description: TODO
 
-<a id="member-17"></a>
-##### `create(UI ui, Object[] args)`
+#### `public Pagina(MenuGrid scm, Object id, Indir<Resource> res)`
 
 - Description: TODO
 
-<a id="member-25"></a>
-##### `Pagina(MenuGrid scm, Object id, Indir<Resource> res)`
+#### `public Resource res()`
 
 - Description: TODO
 
-<a id="member-26"></a>
-##### `res()`
+#### `public Message data()`
 
 - Description: TODO
 
-<a id="member-27"></a>
-##### `data()`
+#### `private void invalidate()`
 
 - Description: TODO
 
-<a id="member-28"></a>
-##### `invalidate()`
+#### `public PagButton button()`
 
 - Description: TODO
 
-<a id="member-30"></a>
-##### `button()`
+#### `public Pagina parent()`
 
 - Description: TODO
 
-<a id="member-31"></a>
-##### `parent()`
+#### `public Interaction(int btn, int modflags, Coord2d mc, ClickData click)`
 
 - Description: TODO
 
-<a id="member-36"></a>
-##### `Interaction(int btn, int modflags, Coord2d mc, ClickData click)`
+#### `public Interaction(int btn, int modflags)`
 
 - Description: TODO
 
-<a id="member-37"></a>
-##### `Interaction(int btn, int modflags)`
+#### `public Interaction()`
 
 - Description: TODO
 
-<a id="member-38"></a>
-##### `Interaction()`
+#### `public PagButton(Pagina pag)`
 
 - Description: TODO
 
-<a id="member-44"></a>
-##### `PagButton(Pagina pag)`
+#### `public AButton act()`
 
 - Description: TODO
 
-<a id="member-45"></a>
-##### `act()`
+#### `public Pagina parent()`
 
 - Description: TODO
 
-<a id="member-47"></a>
-##### `parent()`
+#### `public GSprite spr()`
 
 - Description: TODO
 
-<a id="member-48"></a>
-##### `spr()`
+#### `public String name()`
 
 - Description: TODO
 
-<a id="member-49"></a>
-##### `name()`
+#### `public KeyMatch hotkey()`
 
 - Description: TODO
 
-<a id="member-50"></a>
-##### `hotkey()`
+#### `public KeyBinding binding()`
 
 - Description: TODO
 
-<a id="member-51"></a>
-##### `binding()`
+#### `public void use(Interaction iact)`
 
 - Description: TODO
 
-<a id="member-52"></a>
-##### `use(Interaction iact)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-53"></a>
-##### `tick(double dt)`
+#### `public BufferedImage img()`
 
 - Description: TODO
 
-<a id="member-54"></a>
-##### `img()`
+#### `public void drawmain(GOut g, GSprite spr)`
 
 - Description: TODO
 
-<a id="member-58"></a>
-##### `drawmain(GOut g, GSprite spr)`
+#### `public void draw(GOut g, GSprite spr)`
 
 - Description: TODO
 
-<a id="member-59"></a>
-##### `draw(GOut g, GSprite spr)`
+#### `public String sortkey()`
 
 - Description: TODO
 
-<a id="member-60"></a>
-##### `sortkey()`
+#### `private char bindchr(KeyMatch key)`
 
 - Description: TODO
 
-<a id="member-61"></a>
-##### `bindchr(KeyMatch key)`
+#### `public Tex keyrend()`
 
 - Description: TODO
 
-<a id="member-65"></a>
-##### `keyrend()`
+#### `public List<ItemInfo> info()`
 
 - Description: TODO
 
-<a id="member-67"></a>
-##### `info()`
+#### `public <T> T context(Class<T> cl)`
 
 - Description: TODO
 
-<a id="member-69"></a>
-##### `context(Class<T> cl)`
+#### `public Random mkrandoom()`
 
 - Description: TODO
 
-<a id="member-70"></a>
-##### `mkrandoom()`
+#### `public Resource getres()`
 
 - Description: TODO
 
-<a id="member-71"></a>
-##### `getres()`
+#### `public BufferedImage rendertt(boolean withpg)`
 
 - Description: TODO
 
-<a id="member-72"></a>
-##### `rendertt(boolean withpg)`
+#### `public FactMaker()`
 
 - Description: TODO
 
-<a id="member-73"></a>
-##### `FactMaker()`
+#### `public PagButton make(Pagina info)`
 
 - Description: TODO
 
-<a id="member-74"></a>
-##### `public PagButton make(Pagina info);`
+#### `public Pagina paginafor(Indir<Resource> res)`
 
 - Description: TODO
 
-<a id="member-77"></a>
-##### `paginafor(Indir<Resource> res)`
+#### `public Pagina paginafor(Object id, Indir<Resource> res)`
 
 - Description: TODO
 
-<a id="member-78"></a>
-##### `paginafor(Object id, Indir<Resource> res)`
+#### `private boolean cons(Pagina p, Collection<PagButton> buf)`
 
 - Description: TODO
 
-<a id="member-79"></a>
-##### `cons(Pagina p, Collection<PagButton> buf)`
+#### `private void announce(Pagina pag)`
 
 - Description: TODO
 
-<a id="member-80"></a>
-##### `announce(Pagina pag)`
+#### `public MenuGrid()`
 
 - Description: TODO
 
-<a id="member-81"></a>
-##### `updlayout()`
+#### `private void updlayout()`
 
 - Description: TODO
 
-<a id="member-82"></a>
-##### `draw(GOut g)`
+#### `public void draw(GOut g)`
 
 - Description: TODO
 
-<a id="member-87"></a>
-##### `tooltip(Coord c, Widget prev)`
+#### `public Object tooltip(Coord c, Widget prev)`
 
 - Description: TODO
 
-<a id="member-88"></a>
-##### `bhit(Coord c)`
+#### `private PagButton bhit(Coord c)`
 
 - Description: TODO
 
-<a id="member-89"></a>
-##### `mousedown(MouseDownEvent ev)`
+#### `public boolean mousedown(MouseDownEvent ev)`
 
 - Description: TODO
 
-<a id="member-90"></a>
-##### `mousemove(MouseMoveEvent ev)`
+#### `public void mousemove(MouseMoveEvent ev)`
 
 - Description: TODO
 
-<a id="member-91"></a>
-##### `change(Pagina dst)`
+#### `public void change(Pagina dst)`
 
 - Description: TODO
 
-<a id="member-92"></a>
-##### `use(PagButton r, Interaction iact, boolean reset)`
+#### `public void use(PagButton r, Interaction iact, boolean reset)`
 
 - Description: TODO
 
-<a id="member-93"></a>
-##### `tick(double dt)`
+#### `public void tick(double dt)`
 
 - Description: TODO
 
-<a id="member-94"></a>
-##### `mouseup(MouseUpEvent ev)`
+#### `public boolean mouseup(MouseUpEvent ev)`
 
 - Description: TODO
 
-<a id="member-95"></a>
-##### `uimsg(String msg, Object... args)`
+#### `public void uimsg(String msg, Object... args)`
 
 - Description: TODO
 
-<a id="member-99"></a>
-##### `globtype(GlobKeyEvent ev)`
+#### `public boolean globtype(GlobKeyEvent ev)`
 
 - Description: TODO
 
-<a id="member-100"></a>
-##### `getbinding(Coord cc)`
+#### `public KeyBinding getbinding(Coord cc)`
 
 - Description: TODO
