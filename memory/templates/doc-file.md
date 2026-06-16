@@ -18,6 +18,8 @@
 
 ### <nested type>
 
+- Role: <nested type 이 맡는 큰 역할>
+
 <nested type의 핵심 역할을 한두 문장으로 설명>
 
 ## Members
@@ -26,16 +28,19 @@
 
 #### `<signature>`
 
+- Role: <member 이 맡는 큰 역할>
 - Description: <member 설명>
 
 ### Fields
 
 #### `<signature>`
 
+- Role: <member 이 맡는 큰 역할>
 - Description: <member 설명>
 
 ### Methods
 
 #### `<signature>`
 
+- Role: <member 이 맡는 큰 역할>
 - Description: <member 설명>

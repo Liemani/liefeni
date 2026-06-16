@@ -10,106 +10,109 @@ This file documents the responsibilities and members of `AudioSprite`.
 
 ## Role
 
-Binds audio behavior to sprite logic.
+Connects audio playback to sprite lifecycles.
 
 ## Nested Types
 
 ### Ambience
 
-- Description: TODO
+- Role: Represents ambience within AudioSprite.
+- Description: Describes the nested ambience type used by the enclosing class.
 
 ### ClipSprite
 
-- Description: TODO
+- Role: Represents clip sprite within AudioSprite.
+- Description: Describes the nested clip sprite type used by the enclosing class.
 
 ### RepeatSprite
 
-- Description: TODO
+- Role: Represents repeat sprite within AudioSprite.
+- Description: Describes the nested repeat sprite type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Sprite.Factory fact = new Sprite.Factory()`
-
-- Description: TODO
+- Role: Defines the shared fact constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final ActAudio.PosClip clip`
-
-- Description: TODO
+- Role: Stores the clip value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean done = false`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `private ActAudio.PosClip clip`
-
-- Description: TODO
+- Role: Stores the clip value.
+- Description: Backs the cached state for this file.
 
 #### `private final Audio.Clip end`
-
-- Description: TODO
+- Role: Stores the end value.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final RenderTree.Node amb`
-
-- Description: TODO
+- Role: Stores the amb value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static List<Audio.Clip> clips(Resource res, String id)`
-
-- Description: TODO
+- Role: Performs clips.
+- Description: Supports the clips operation used by the surrounding class.
 
 #### `public static Audio.Clip randoom(Resource res, String id)`
-
-- Description: TODO
+- Role: Performs randoom.
+- Description: Supports the randoom operation used by the surrounding class.
 
 #### `public ClipSprite(Owner owner, Resource res, Audio.Clip clip)`
-
-- Description: TODO
+- Role: Performs clip sprite.
+- Description: Supports the clip sprite operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public RepeatSprite(Owner owner, Resource res, Audio.Clip beg, List<Audio.Clip> clips, Audio.Clip end)`
-
-- Description: TODO
+- Role: Performs repeat sprite.
+- Description: Supports the repeat sprite operation used by the surrounding class.
 
 #### `private void parts(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs parts.
+- Description: Supports the parts operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void delete()`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public Ambience(Owner owner, Resource res)`
-
-- Description: TODO
+- Role: Performs ambience.
+- Description: Supports the ambience operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.

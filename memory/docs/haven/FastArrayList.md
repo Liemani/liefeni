@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `FastArrayList`.
 
 ## Role
 
-Provides a fast array list implementation.
+Represents the fast array list Haven component.
 
 ## Members
 
@@ -19,63 +19,63 @@ Provides a fast array list implementation.
 ### Fields
 
 #### `private Object[] bk = null`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `private int n = 0`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public FastArrayList()`
-
-- Description: TODO
+- Role: Creates a new FastArrayList instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FastArrayList(int sz)`
-
-- Description: TODO
+- Role: Creates a new FastArrayList instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Object[] ensure(int sz)`
-
-- Description: TODO
+- Role: Ensures the target value exists.
+- Description: Supports the ensure operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public E get(int i)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public boolean add(E e)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public E set(int i, E el)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void add(int i, E el)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public E remove(int i)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public Iterator<E> iterator()`
-
-- Description: TODO
+- Role: Performs iterator.
+- Description: Supports the iterator operation used by the surrounding class.
 
 #### `public ListIterator<E> listIterator()`
-
-- Description: TODO
+- Role: Performs list iterator.
+- Description: Supports the list iterator operation used by the surrounding class.
 
 #### `public ListIterator<E> listIterator(int start)`
-
-- Description: TODO
+- Role: Performs list iterator.
+- Description: Supports the list iterator operation used by the surrounding class.

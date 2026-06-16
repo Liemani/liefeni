@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Indir`.
 
 ## Role
 
-Represents an indirect reference.
+Represents the indir Haven component.
 
 ## Members
 

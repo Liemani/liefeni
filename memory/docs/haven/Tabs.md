@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `Tabs`.
 
 ## Role
 
-Displays tabbed content.
+Represents the tabs Haven component.
 
 ## Nested Types
 
 ### Tab
 
-- Description: TODO
+- Role: Represents tab within Tabs.
+- Description: Describes the nested tab type used by the enclosing class.
 
 ### TabButton
 
-- Description: TODO
+- Role: Represents tab button within Tabs.
+- Description: Describes the nested tab button type used by the enclosing class.
 
 ## Members
 
@@ -29,83 +31,83 @@ Displays tabbed content.
 ### Fields
 
 #### `public Widget parent`
-
-- Description: TODO
-
-#### `public Coord c, sz`
-
-- Description: TODO
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord c, sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Coord c, sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public Tab curtab = null`
-
-- Description: TODO
+- Role: Holds the curtab state.
+- Description: Backs the cached state for this file.
 
 #### `public Collection<Tab> tabs = new LinkedList<Tab>()`
-
-- Description: TODO
+- Role: Caches tabs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public TabButton btn`
-
-- Description: TODO
+- Role: Holds the btn state.
+- Description: Backs the cached state for this file.
 
 #### `public final Tab tab`
-
-- Description: TODO
+- Role: Holds the tab state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Tabs(Coord c, Coord sz, Widget parent)`
-
-- Description: TODO
+- Role: Creates a new Tabs instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Tab()`
-
-- Description: TODO
+- Role: Performs tab.
+- Description: Supports the tab operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public void showtab()`
-
-- Description: TODO
+- Role: Performs showtab.
+- Description: Supports the showtab operation used by the surrounding class.
 
 #### `public Tab add()`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public TabButton(int w, String text, Tab tab)`
-
-- Description: TODO
+- Role: Performs tab button.
+- Description: Supports the tab button operation used by the surrounding class.
 
 #### `public void click()`
-
-- Description: TODO
+- Role: Performs click.
+- Description: Supports the click operation used by the surrounding class.
 
 #### `public void showtab(Tab tab)`
-
-- Description: TODO
+- Role: Performs showtab.
+- Description: Supports the showtab operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public Coord contentsz()`
-
-- Description: TODO
+- Role: Performs contentsz.
+- Description: Supports the contentsz operation used by the surrounding class.
 
 #### `public void pack()`
-
-- Description: TODO
+- Role: Performs pack.
+- Description: Supports the pack operation used by the surrounding class.
 
 #### `public void indpack()`
-
-- Description: TODO
+- Role: Performs indpack.
+- Description: Supports the indpack operation used by the surrounding class.
 
 #### `public void changed(Tab from, Tab to)`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.

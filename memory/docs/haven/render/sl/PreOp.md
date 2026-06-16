@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `PreOp`.
 
 ## Role
 
-Represents a pre-operation expression.
+Represents the pre op shader-language AST node.
 
 ## Nested Types
 
 ### Neg
 
-- Description: TODO
+- Role: Represents neg within PreOp.
+- Description: Describes the nested neg type used by the enclosing class.
 
 ## Members
 
@@ -25,31 +26,31 @@ Represents a pre-operation expression.
 ### Fields
 
 #### `public final Expression op`
-
-- Description: TODO
+- Role: Holds the op state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PreOp(Expression op)`
-
-- Description: TODO
+- Role: Creates a new PreOp instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public abstract String form()`
-
-- Description: TODO
+- Role: Performs form.
+- Description: Supports the form operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
-
-#### `public static class Neg extends PreOp`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public static class Neg extends PreOp`
+- Role: Handles the pre op workflow.
+- Description: Supports the pre op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Neg extends PreOp`
+- Role: Handles the pre op workflow.
+- Description: Supports the pre op operation used by the surrounding class.

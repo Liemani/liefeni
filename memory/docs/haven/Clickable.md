@@ -10,32 +10,32 @@ This file documents the responsibilities and members of `Clickable`.
 
 ## Role
 
-Defines a clickable UI contract.
+Represents the clickable Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<Clickable> slot = new Slot<Clickable>(Slot.Type.DRAW, Clickable.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public Object[] clickargs(ClickData cd)`
-
-- Description: TODO
+- Role: Performs clickargs.
+- Description: Supports the clickargs operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

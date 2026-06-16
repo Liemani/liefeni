@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `PrioQueue`.
 
 ## Role
 
-Provides a priority queue implementation.
+Represents the prio queue Haven component.
 
 ## Members
 
@@ -21,21 +21,21 @@ Provides a priority queue implementation.
 ### Methods
 
 #### `public E peek()`
-
-- Description: TODO
+- Role: Performs peek.
+- Description: Supports the peek operation used by the surrounding class.
 
 #### `public E element()`
-
-- Description: TODO
+- Role: Performs element.
+- Description: Supports the element operation used by the surrounding class.
 
 #### `public E poll()`
-
-- Description: TODO
+- Role: Performs poll.
+- Description: Supports the poll operation used by the surrounding class.
 
 #### `public E remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public boolean removeid(E el)`
-
-- Description: TODO
+- Role: Performs removeid.
+- Description: Supports the removeid operation used by the surrounding class.

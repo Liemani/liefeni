@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `GridPosition`.
 
 ## Role
 
-Provides the `GridPosition` functionality.
+Coordinates waypoint runtime state for grid position.
 
 ## Members
 
@@ -19,31 +19,31 @@ Provides the `GridPosition` functionality.
 ### Fields
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long havenGridId`
-
-- Description: TODO
+- Role: Stores the haven grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long mapSegmentId`
-
-- Description: TODO
+- Role: Stores the map segment id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localX`
-
-- Description: TODO
+- Role: Stores the local x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localY`
-
-- Description: TODO
+- Role: Stores the local y value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GridPosition(long gridId, long havenGridId, long mapSegmentId, int localX, int localY)`
-
-- Description: TODO
+- Role: Creates a new GridPosition instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord local()`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.

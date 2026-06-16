@@ -10,8 +10,7 @@ This file documents the responsibilities and members of `WaypointStore`.
 
 ## Role
 
-Provides the public facade for waypoint DB requests.
-Exposes async entry points for reads, writes, and current-grid save requests.
+Coordinates high-level waypoint persistence requests and batching.
 
 ## Members
 
@@ -22,41 +21,41 @@ Exposes async entry points for reads, writes, and current-grid save requests.
 ### Methods
 
 #### `private WaypointStore()`
-
-- Description: TODO
+- Role: Creates a new WaypointStore instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void initializeAsync(WaypointResultHandler<EmptyWaypointResult> handler)`
-
-- Description: TODO
+- Role: Performs initialize async.
+- Description: Supports the initialize async operation used by the surrounding class.
 
 #### `public static void createNodeAsync(`
-
-- Description: TODO
+- Role: Handles the create node async workflow.
+- Description: Supports the create node async operation used by the surrounding class.
 
 #### `public static void loadNodesByGraphAsync(long graphId, WaypointResultHandler<LoadNodesByGraphResult> handler)`
-
-- Description: TODO
+- Role: Coordinates load nodes by graph async persistence or lookup.
+- Description: Supports the load nodes by graph async operation used by the surrounding class.
 
 #### `public static void loadNodesByGridAsync(long gridId, WaypointResultHandler<LoadNodesByGridResult> handler)`
-
-- Description: TODO
+- Role: Coordinates load nodes by grid async persistence or lookup.
+- Description: Supports the load nodes by grid async operation used by the surrounding class.
 
 #### `public static void loadEdgesByGraphAsync(long graphId, WaypointResultHandler<LoadEdgesByGraphResult> handler)`
-
-- Description: TODO
+- Role: Coordinates load edges by graph async persistence or lookup.
+- Description: Supports the load edges by graph async operation used by the surrounding class.
 
 #### `public static void loadSegmentsByGridAsync(long graphId, long gridId, WaypointResultHandler<LoadSegmentsByCutResult> handler)`
-
-- Description: TODO
+- Role: Coordinates load segments by grid async persistence or lookup.
+- Description: Supports the load segments by grid async operation used by the surrounding class.
 
 #### `public static void loadPointsByGridAsync(long graphId, long gridId, WaypointResultHandler<LoadPointsByCutResult> handler)`
-
-- Description: TODO
+- Role: Coordinates load points by grid async persistence or lookup.
+- Description: Supports the load points by grid async operation used by the surrounding class.
 
 #### `public static SaveBatchResult applySaveBatch(Connection conn, SaveBatch batch) throws Exception`
-
-- Description: TODO
+- Role: Handles the apply save batch workflow.
+- Description: Supports the apply save batch operation used by the surrounding class.
 
 #### `public static void saveMapGridIfMissingAsync(`
-
-- Description: TODO
+- Role: Coordinates save map grid if missing async persistence or lookup.
+- Description: Supports the save map grid if missing async operation used by the surrounding class.

@@ -10,1134 +10,1161 @@ This file documents the responsibilities and members of `ChatUI`.
 
 ## Role
 
-Handles in-game chat UI composition.
+Represents the chat ui Haven component.
 
 ## Nested Types
 
 ### $MChat
 
-- Description: TODO
+- Role: Represents $mchat within ChatUI.
+- Description: Describes the nested $mchat type used by the enclosing class.
 
 ### $PChat
 
-- Description: TODO
+- Role: Represents $pchat within ChatUI.
+- Description: Describes the nested $pchat type used by the enclosing class.
 
 ### $PMChat
 
-- Description: TODO
+- Role: Represents $pmchat within ChatUI.
+- Description: Describes the nested $pmchat type used by the enclosing class.
 
 ### $SChan
 
-- Description: TODO
+- Role: Represents $schan within ChatUI.
+- Description: Describes the nested $schan type used by the enclosing class.
 
 ### Channel
 
-- Description: TODO
+- Role: Represents channel within ChatUI.
+- Description: Describes the nested channel type used by the enclosing class.
 
 ### CharPos
 
-- Description: TODO
+- Role: Represents char pos within ChatUI.
+- Description: Describes the nested char pos type used by the enclosing class.
 
 ### ChatAttribute
 
-- Description: TODO
+- Role: Represents chat attribute within ChatUI.
+- Description: Describes the nested chat attribute type used by the enclosing class.
 
 ### ChatParser
 
-- Description: TODO
+- Role: Represents chat parser within ChatUI.
+- Description: Describes the nested chat parser type used by the enclosing class.
 
 ### DarkChannel
 
-- Description: TODO
+- Role: Represents dark channel within ChatUI.
+- Description: Describes the nested dark channel type used by the enclosing class.
 
 ### EntryChannel
 
-- Description: TODO
+- Role: Represents entry channel within ChatUI.
+- Description: Describes the nested entry channel type used by the enclosing class.
 
 ### InMessage
 
-- Description: TODO
+- Role: Represents in message within ChatUI.
+- Description: Describes the nested in message type used by the enclosing class.
 
 ### Log
 
-- Description: TODO
+- Role: Represents log within ChatUI.
+- Description: Describes the nested log type used by the enclosing class.
 
 ### Message
 
-- Description: TODO
+- Role: Represents message within ChatUI.
+- Description: Describes the nested message type used by the enclosing class.
 
 ### MultiChat
 
-- Description: TODO
+- Role: Represents multi chat within ChatUI.
+- Description: Describes the nested multi chat type used by the enclosing class.
 
 ### MyMessage
 
-- Description: TODO
+- Role: Represents my message within ChatUI.
+- Description: Describes the nested my message type used by the enclosing class.
 
 ### NamedMessage
 
-- Description: TODO
+- Role: Represents named message within ChatUI.
+- Description: Describes the nested named message type used by the enclosing class.
 
 ### Notification
 
-- Description: TODO
+- Role: Represents notification within ChatUI.
+- Description: Describes the nested notification type used by the enclosing class.
 
 ### OutMessage
 
-- Description: TODO
+- Role: Represents out message within ChatUI.
+- Description: Describes the nested out message type used by the enclosing class.
 
 ### PartyChat
 
-- Description: TODO
+- Role: Represents party chat within ChatUI.
+- Description: Describes the nested party chat type used by the enclosing class.
 
 ### PrivChat
 
-- Description: TODO
+- Role: Represents priv chat within ChatUI.
+- Description: Describes the nested priv chat type used by the enclosing class.
 
 ### QuickLine
 
-- Description: TODO
+- Role: Represents quick line within ChatUI.
+- Description: Describes the nested quick line type used by the enclosing class.
 
 ### Rendered
 
-- Description: TODO
+- Role: Represents rendered within ChatUI.
+- Description: Describes the nested rendered type used by the enclosing class.
 
 ### RenderedMessage
 
-- Description: TODO
+- Role: Represents rendered message within ChatUI.
+- Description: Describes the nested rendered message type used by the enclosing class.
 
 ### Selector
 
-- Description: TODO
+- Role: Represents selector within ChatUI.
+- Description: Describes the nested selector type used by the enclosing class.
 
 ### SimpleChat
 
-- Description: TODO
+- Role: Represents simple chat within ChatUI.
+- Description: Describes the nested simple chat type used by the enclosing class.
 
 ### SimpleMessage
 
-- Description: TODO
+- Role: Represents simple message within ChatUI.
+- Description: Describes the nested simple message type used by the enclosing class.
 
 ### Spring
 
-- Description: TODO
+- Role: Represents spring within ChatUI.
+- Description: Describes the nested spring type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(UI.scale(12f)), TextAttribute.FOREGROUND, Color.BLACK)).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared fnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry qfnd = new Text.Foundry(Text.dfont, 12, new java.awt.Color(192, 255, 192))`
-
-- Description: TODO
+- Role: Defines the shared qfnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int selw = UI.scale(130)`
-
-- Description: TODO
+- Role: Defines the shared selw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord marg = UI.scale(new Coord(9, 9))`
-
-- Description: TODO
+- Role: Defines the shared marg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color[] urgcols = new Color[]`
-
-- Description: TODO
+- Role: Defines the shared urgcols constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute HYPERLINK = new ChatAttribute("hyperlink")`
-
-- Description: TODO
+- Role: Defines the shared hyperlink constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Pattern urlpat = Pattern.compile("\\b((https?://)|(www\\.[a-z0-9_.-]+\\.[a-z0-9_.-]+))[a-z0-9/_.~#%+?&:*=-]*", Pattern.CASE_INSENSITIVE)`
-
-- Description: TODO
+- Role: Defines the shared urlpat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Map<? extends Attribute, ?> urlstyle = RichText.fillattrs(TextAttribute.FOREGROUND, new Color(64, 64, 255),`
-
-- Description: TODO
+- Role: Defines the shared urlstyle constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex chandiv = Resource.loadtex("gfx/hud/chat-cdiv")`
-
-- Description: TODO
+- Role: Defines the shared chandiv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex chanseld = Resource.loadtex("gfx/hud/chat-csel")`
-
-- Description: TODO
+- Role: Defines the shared chanseld constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bulc = Resource.loadtex("gfx/hud/chat-lc")`
-
-- Description: TODO
+- Role: Defines the shared bulc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex burc = Resource.loadtex("gfx/hud/chat-rc")`
-
-- Description: TODO
+- Role: Defines the shared burc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bhb = Resource.loadtex("gfx/hud/chat-hori")`
-
-- Description: TODO
+- Role: Defines the shared bhb constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bvlb = Resource.loadtex("gfx/hud/chat-verti")`
-
-- Description: TODO
+- Role: Defines the shared bvlb constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bvrb = bvlb`
-
-- Description: TODO
+- Role: Defines the shared bvrb constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bmf = Resource.loadtex("gfx/hud/chat-mid")`
-
-- Description: TODO
+- Role: Defines the shared bmf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bcbd = Resource.loadtex("gfx/hud/chat-close-g")`
-
-- Description: TODO
+- Role: Defines the shared bcbd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Resource notifsfx = Resource.local().loadwait("sfx/hud/chat")`
-
-- Description: TODO
+- Role: Defines the shared notifsfx constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int minh = 111`
-
-- Description: TODO
+- Role: Defines the shared minh constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_quick = KeyBinding.get("chat-quick", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, 0))`
-
-- Description: TODO
+- Role: Defines the shared kb quick constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Channel sel = null`
-
-- Description: TODO
+- Role: Holds the sel state.
+- Description: Backs the cached state for this file.
 
 #### `public int urgency = 0`
-
-- Description: TODO
+- Role: Stores the urgency value.
+- Description: Backs the cached state for this file.
 
 #### `private final Selector chansel`
-
-- Description: TODO
+- Role: Holds the chansel state.
+- Description: Backs the cached state for this file.
 
 #### `private Coord base = Coord.z`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `private QuickLine qline = null`
-
-- Description: TODO
+- Role: Stores the qline value.
+- Description: Backs the cached state for this file.
 
 #### `private final LinkedList<Notification> notifs = new LinkedList<Notification>()`
-
-- Description: TODO
+- Role: Caches notifs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private UI.Grab qgrab`
-
-- Description: TODO
+- Role: Stores the qgrab value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<RenderedMessage> rmsgs = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches rmsgs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int urgency = 0`
-
-- Description: TODO
+- Role: Stores the urgency value.
+- Description: Backs the cached state for this file.
 
 #### `private final Scrollbar sb`
-
-- Description: TODO
+- Role: Holds the sb state.
+- Description: Backs the cached state for this file.
 
 #### `private final IButton cb`
-
-- Description: TODO
+- Role: Holds the cb state.
+- Description: Backs the cached state for this file.
 
 #### `private double dy`
-
-- Description: TODO
+- Role: Stores the dy value.
+- Description: Backs the cached state for this file.
 
 #### `public final double time = Utils.ntime()`
-
-- Description: TODO
-
-#### `private RenderedMessage soldest = null, snewest = null`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `private RenderedMessage soldest = null, snewest = null`
+- Role: Holds the soldest state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private RenderedMessage soldest = null, snewest = null`
+- Role: Holds the soldest state.
+- Description: Backs the cached state for this file.
 
 #### `public final Message msg`
-
-- Description: TODO
+- Role: Holds the msg state.
+- Description: Backs the cached state for this file.
 
 #### `public final int idx`
-
-- Description: TODO
+- Role: Stores the idx value.
+- Description: Backs the cached state for this file.
 
 #### `private Indir<Text> data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private Text text`
-
-- Description: TODO
-
-#### `RenderedMessage snext = null, sprev = null`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `RenderedMessage snext = null, sprev = null`
+- Role: Holds the snext state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `RenderedMessage snext = null, sprev = null`
+- Role: Holds the snext state.
+- Description: Backs the cached state for this file.
 
 #### `double lseen = 0`
-
-- Description: TODO
-
-#### `int w, y`
-
-- Description: TODO
+- Role: Stores the lseen value.
+- Description: Backs the cached state for this file.
 
 #### `int w, y`
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `int w, y`
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord sz = null`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public final String text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `public final RenderedMessage rm`
-
-- Description: TODO
+- Role: Holds the rm state.
+- Description: Backs the cached state for this file.
 
 #### `public final int pn`
-
-- Description: TODO
+- Role: Stores the pn value.
+- Description: Backs the cached state for this file.
 
 #### `public final RichText.TextPart part`
-
-- Description: TODO
+- Role: Stores the part value.
+- Description: Backs the cached state for this file.
 
 #### `public final TextHitInfo ch`
-
-- Description: TODO
+- Role: Stores the ch value.
+- Description: Backs the cached state for this file.
 
 #### `public final Comparator<CharPos> poscmp = new Comparator<CharPos>()`
-
-- Description: TODO
-
-#### `private CharPos selorig, lasthit, selstart, selend`
-
-- Description: TODO
+- Role: Stores the poscmp value.
+- Description: Backs the cached state for this file.
 
 #### `private CharPos selorig, lasthit, selstart, selend`
-
-- Description: TODO
-
-#### `private CharPos selorig, lasthit, selstart, selend`
-
-- Description: TODO
+- Role: Stores the selend value.
+- Description: Backs the cached state for this file.
 
 #### `private CharPos selorig, lasthit, selstart, selend`
+- Role: Stores the selend value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private CharPos selorig, lasthit, selstart, selend`
+- Role: Stores the selend value.
+- Description: Backs the cached state for this file.
+
+#### `private CharPos selorig, lasthit, selstart, selend`
+- Role: Stores the selend value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean dragging`
-
-- Description: TODO
+- Role: Tracks the dragging flag.
+- Description: Supports the dragging operation used by the surrounding class.
 
 #### `private Indir<Resource> iconres = null`
-
-- Description: TODO
+- Role: Stores the iconres value.
+- Description: Backs the cached state for this file.
 
 #### `private final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `private final TextEntry in`
-
-- Description: TODO
+- Role: Stores the in value.
+- Description: Backs the cached state for this file.
 
 #### `private List<String> history = new ArrayList<String>()`
-
-- Description: TODO
+- Role: Caches history entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int hpos = 0`
-
-- Description: TODO
+- Role: Stores the hpos value.
+- Description: Backs the cached state for this file.
 
 #### `private String hcurrent`
-
-- Description: TODO
+- Role: Stores the hcurrent value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final int urgency`
-
-- Description: TODO
+- Role: Stores the urgency value.
+- Description: Backs the cached state for this file.
 
 #### `private final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Integer, Color> pc = new HashMap<Integer, Color>()`
-
-- Description: TODO
+- Role: Caches pc entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Map<Integer, Boolean> muted = null`
-
-- Description: TODO
+- Role: Tracks the muted flag.
+- Description: Supports the muted operation used by the surrounding class.
 
 #### `private Integer mutewait = null`
-
-- Description: TODO
+- Role: Stores the mutewait value.
+- Description: Backs the cached state for this file.
 
 #### `public final int from`
-
-- Description: TODO
+- Role: Stores the from value.
+- Description: Backs the cached state for this file.
 
 #### `public final String text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `public final int w`
-
-- Description: TODO
+- Role: Stores the w value.
+- Description: Backs the cached state for this file.
 
 #### `public final String nm`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `private float colseq = 0`
-
-- Description: TODO
+- Role: Stores the colseq value.
+- Description: Backs the cached state for this file.
 
 #### `private final int other`
-
-- Description: TODO
+- Role: Stores the other value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean muted`
-
-- Description: TODO
+- Role: Tracks the muted flag.
+- Description: Supports the muted operation used by the surrounding class.
 
 #### `public final BufferedImage ctex = Resource.loadimg("gfx/hud/chantex")`
-
-- Description: TODO
+- Role: Stores the ctex value.
+- Description: Backs the cached state for this file.
 
 #### `public final Text.Foundry tf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(12))).aa(true)`
-
-- Description: TODO
+- Role: Stores the tf value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color[] uc =`
-
-- Description: TODO
+- Role: Holds the chat ui state.
+- Description: Backs the cached state for this file.
 
 #### `private final List<DarkChannel> chls = new ArrayList<DarkChannel>()`
-
-- Description: TODO
-
-#### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
-
-- Description: TODO
+- Role: Caches chls entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
-
-- Description: TODO
+- Role: Stores the iconsz value.
+- Description: Backs the cached state for this file.
 
 #### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
+- Role: Stores the iconsz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
+- Role: Stores the iconsz value.
+- Description: Backs the cached state for this file.
 
 #### `private final int offset = chandiv.sz().y + chanseld.sz().y`
-
-- Description: TODO
+- Role: Stores the offset value.
+- Description: Backs the cached state for this file.
 
 #### `private int ts = 0`
-
-- Description: TODO
+- Role: Stores the ts value.
+- Description: Backs the cached state for this file.
 
 #### `private double ds = 0`
-
-- Description: TODO
+- Role: Stores the ds value.
+- Description: Backs the cached state for this file.
 
 #### `private Channel cstart`
-
-- Description: TODO
+- Role: Holds the cstart state.
+- Description: Backs the cached state for this file.
 
 #### `public final Channel chan`
-
-- Description: TODO
+- Role: Holds the chan state.
+- Description: Backs the cached state for this file.
 
 #### `public Text rname`
-
-- Description: TODO
+- Role: Stores the rname value.
+- Description: Backs the cached state for this file.
 
 #### `public Tex ricon`
-
-- Description: TODO
+- Role: Stores the ricon value.
+- Description: Backs the cached state for this file.
 
 #### `private int urgency = 0`
-
-- Description: TODO
+- Role: Stores the urgency value.
+- Description: Backs the cached state for this file.
 
 #### `private Resource.Image icon`
-
-- Description: TODO
+- Role: Stores the icon value.
+- Description: Backs the cached state for this file.
 
 #### `public final Channel chan`
-
-- Description: TODO
+- Role: Holds the chan state.
+- Description: Backs the cached state for this file.
 
 #### `public final Channel.Message msg`
-
-- Description: TODO
-
-#### `public final Text chnm, rmsg`
-
-- Description: TODO
+- Role: Holds the msg state.
+- Description: Backs the cached state for this file.
 
 #### `public final Text chnm, rmsg`
+- Role: Stores the rmsg value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Text chnm, rmsg`
+- Role: Stores the rmsg value.
+- Description: Backs the cached state for this file.
 
 #### `public final double time = Utils.ntime()`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `private Text.Line rqline = null`
-
-- Description: TODO
+- Role: Stores the rqline value.
+- Description: Backs the cached state for this file.
 
 #### `private int rqpre`
-
-- Description: TODO
-
-#### `final int oy = base.y - c.y, ny`
-
-- Description: TODO
+- Role: Stores the rqpre value.
+- Description: Backs the cached state for this file.
 
 #### `final int oy = base.y - c.y, ny`
+- Role: Stores the oy value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final int oy = base.y - c.y, ny`
+- Role: Stores the oy value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean targetshow = false`
-
-- Description: TODO
+- Role: Tracks the targetshow flag.
+- Description: Supports the targetshow operation used by the surrounding class.
 
 #### `public final ReadLine buf`
-
-- Description: TODO
+- Role: Holds the buf state.
+- Description: Backs the cached state for this file.
 
 #### `public final EntryChannel chan`
-
-- Description: TODO
+- Role: Holds the chan state.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab dm = null`
-
-- Description: TODO
+- Role: Stores the dm value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord doff`
-
-- Description: TODO
+- Role: Stores the doff value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ChatUI()`
-
-- Description: TODO
+- Role: Creates a new ChatUI instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `private ChatAttribute(String name)`
-
-- Description: TODO
+- Role: Performs chat attribute.
+- Description: Supports the chat attribute operation used by the surrounding class.
 
 #### `public ChatParser(Object... args)`
-
-- Description: TODO
+- Role: Performs chat parser.
+- Description: Supports the chat parser operation used by the surrounding class.
 
 #### `protected RichText.Part text(PState s, String text, Map<? extends Attribute, ?> attrs) throws IOException`
-
-- Description: TODO
+- Role: Handles the text workflow.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public abstract Indir<Text> render(int w)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public boolean valid(Indir<Text> prev)`
-
-- Description: TODO
+- Role: Performs valid.
+- Description: Supports the valid operation used by the surrounding class.
 
 #### `public boolean mousedown(Channel chan, CharPos pos, Coord c, int btn)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mouseup(Channel chan, CharPos pos, Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public boolean clicked(Channel chan, CharPos pos, Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs clicked.
+- Description: Supports the clicked operation used by the surrounding class.
 
 #### `public RenderedMessage(Message msg, int idx, int iw)`
-
-- Description: TODO
+- Role: Performs rendered message.
+- Description: Supports the rendered message operation used by the surrounding class.
 
 #### `public Indir<Text> data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `private void slink()`
-
-- Description: TODO
+- Role: Performs slink.
+- Description: Supports the slink operation used by the surrounding class.
 
 #### `private void sunlink()`
-
-- Description: TODO
+- Role: Performs sunlink.
+- Description: Supports the sunlink operation used by the surrounding class.
 
 #### `public Text text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public int h()`
-
-- Description: TODO
+- Role: Performs h.
+- Description: Supports the h operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void invalidate()`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public void resize(int w)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public boolean update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `private void trimunseen()`
-
-- Description: TODO
+- Role: Performs trimunseen.
+- Description: Supports the trimunseen operation used by the surrounding class.
 
 #### `public SimpleMessage(String text, Color col)`
-
-- Description: TODO
+- Role: Performs simple message.
+- Description: Supports the simple message operation used by the surrounding class.
 
 #### `public Indir<Text> render(int w)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public Channel(boolean closable)`
-
-- Description: TODO
+- Role: Performs channel.
+- Description: Supports the channel operation used by the surrounding class.
 
 #### `public void append(Message msg, int urgency)`
-
-- Description: TODO
+- Role: Performs append.
+- Description: Supports the append operation used by the surrounding class.
 
 #### `public void append(Message msg)`
-
-- Description: TODO
+- Role: Performs append.
+- Description: Supports the append operation used by the surrounding class.
 
 #### `public void append(String line, Color col)`
-
-- Description: TODO
+- Role: Performs append.
+- Description: Supports the append operation used by the surrounding class.
 
 #### `public int iw()`
-
-- Description: TODO
+- Role: Performs iw.
+- Description: Supports the iw operation used by the surrounding class.
 
 #### `public int ih()`
-
-- Description: TODO
+- Role: Performs ih.
+- Description: Supports the ih operation used by the surrounding class.
 
 #### `public void updurgency(int urg)`
-
-- Description: TODO
+- Role: Performs updurgency.
+- Description: Supports the updurgency operation used by the surrounding class.
 
 #### `public int messageat(int y, boolean nearest)`
-
-- Description: TODO
+- Role: Performs messageat.
+- Description: Supports the messageat operation used by the surrounding class.
 
 #### `public RenderedMessage messageat(Coord c, Coord hc)`
-
-- Description: TODO
+- Role: Performs messageat.
+- Description: Supports the messageat operation used by the surrounding class.
 
 #### `private void updyseq(int mi)`
-
-- Description: TODO
+- Role: Performs updyseq.
+- Description: Supports the updyseq operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public CharPos(RenderedMessage rm, RichText.TextPart part, TextHitInfo ch)`
-
-- Description: TODO
+- Role: Performs char pos.
+- Description: Supports the char pos operation used by the surrounding class.
 
 #### `private static int partnum(RichText text, RichText.TextPart part)`
-
-- Description: TODO
+- Role: Performs partnum.
+- Description: Supports the partnum operation used by the surrounding class.
 
 #### `public boolean equals(Object oo)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public CharPos charat(Coord c)`
-
-- Description: TODO
+- Role: Performs charat.
+- Description: Supports the charat operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `protected void selected(CharPos start, CharPos end)`
-
-- Description: TODO
+- Role: Performs selected.
+- Description: Supports the selected operation used by the surrounding class.
 
 #### `protected boolean clicked(CharPos pos, int btn)`
-
-- Description: TODO
+- Role: Performs clicked.
+- Description: Supports the clicked operation used by the surrounding class.
 
 #### `public void select()`
-
-- Description: TODO
+- Role: Performs select.
+- Description: Supports the select operation used by the surrounding class.
 
 #### `public void display()`
-
-- Description: TODO
+- Role: Performs display.
+- Description: Supports the display operation used by the surrounding class.
 
 #### `private void drawsel(GOut g, RenderedMessage rm, int y)`
-
-- Description: TODO
+- Role: Performs drawsel.
+- Description: Supports the drawsel operation used by the surrounding class.
 
 #### `public void uimsg(String name, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `public abstract String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public boolean selmousedown(Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs selmousedown.
+- Description: Supports the selmousedown operation used by the surrounding class.
 
 #### `public boolean selmouseup(Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs selmouseup.
+- Description: Supports the selmouseup operation used by the surrounding class.
 
 #### `public boolean selclicked(Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs selclicked.
+- Description: Supports the selclicked operation used by the surrounding class.
 
 #### `public Channel icon(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public Resource.Image icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public Log(String name)`
-
-- Description: TODO
+- Role: Performs log.
+- Description: Supports the log operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public EntryChannel(boolean closable)`
-
-- Description: TODO
+- Role: Performs entry channel.
+- Description: Supports the entry channel operation used by the surrounding class.
 
 #### `public int ih()`
-
-- Description: TODO
+- Role: Performs ih.
+- Description: Supports the ih operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void send(String text)`
-
-- Description: TODO
+- Role: Sends the current message.
+- Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `public SimpleChat(boolean closable, String name)`
-
-- Description: TODO
+- Role: Performs simple chat.
+- Description: Supports the simple chat operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public NamedMessage(int from, String text, Color col)`
-
-- Description: TODO
+- Role: Performs named message.
+- Description: Supports the named message operation used by the surrounding class.
 
 #### `public Rendered(int w, String nm)`
-
-- Description: TODO
+- Role: Performs rendered.
+- Description: Supports the rendered operation used by the surrounding class.
 
 #### `public Text get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private String nm()`
-
-- Description: TODO
+- Role: Performs nm.
+- Description: Supports the nm operation used by the surrounding class.
 
 #### `public Indir<Text> render(int w)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public boolean valid(Indir<Text> data)`
-
-- Description: TODO
+- Role: Performs valid.
+- Description: Supports the valid operation used by the surrounding class.
 
 #### `public boolean clicked(Channel chan, CharPos pos, Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs clicked.
+- Description: Supports the clicked operation used by the surrounding class.
 
 #### `private void mutemenu(int pl, boolean cur)`
-
-- Description: TODO
+- Role: Performs mutemenu.
+- Description: Supports the mutemenu operation used by the surrounding class.
 
 #### `public MyMessage(String text)`
-
-- Description: TODO
+- Role: Performs my message.
+- Description: Supports the my message operation used by the surrounding class.
 
 #### `public MultiChat(boolean closable, String name, int urgency)`
-
-- Description: TODO
+- Role: Performs multi chat.
+- Description: Supports the multi chat operation used by the surrounding class.
 
 #### `private Color nextcol()`
-
-- Description: TODO
+- Role: Performs nextcol.
+- Description: Supports the nextcol operation used by the surrounding class.
 
 #### `public Color fromcolor(int from)`
-
-- Description: TODO
+- Role: Performs fromcolor.
+- Description: Supports the fromcolor operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public PartyChat()`
-
-- Description: TODO
+- Role: Performs party chat.
+- Description: Supports the party chat operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public PrivChat(boolean closable, int other)`
-
-- Description: TODO
+- Role: Performs priv chat.
+- Description: Supports the priv chat operation used by the surrounding class.
 
 #### `private void menu()`
-
-- Description: TODO
+- Role: Performs menu.
+- Description: Supports the menu operation used by the surrounding class.
 
 #### `public boolean selclicked(Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs selclicked.
+- Description: Supports the selclicked operation used by the surrounding class.
 
 #### `public InMessage(String text)`
-
-- Description: TODO
+- Role: Performs in message.
+- Description: Supports the in message operation used by the surrounding class.
 
 #### `public boolean clicked(Channel chan, CharPos pos, Coord c, int btn)`
-
-- Description: TODO
+- Role: Performs clicked.
+- Description: Supports the clicked operation used by the surrounding class.
 
 #### `public OutMessage(String text)`
-
-- Description: TODO
+- Role: Performs out message.
+- Description: Supports the out message operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
-
-#### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
-
-#### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
-- Description: TODO
+#### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
+
+#### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T w)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void cdestroy(Widget w)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `private Text namedeco(String name, BufferedImage img, Color col)`
-
-- Description: TODO
+- Role: Performs namedeco.
+- Description: Supports the namedeco operation used by the surrounding class.
 
 #### `public Text nmrender(String name, Color col)`
-
-- Description: TODO
+- Role: Performs nmrender.
+- Description: Supports the nmrender operation used by the surrounding class.
 
 #### `public int chidx(Channel chan)`
-
-- Description: TODO
+- Role: Performs chidx.
+- Description: Supports the chidx operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `private DarkChannel(Channel chan)`
-
-- Description: TODO
+- Role: Performs dark channel.
+- Description: Supports the dark channel operation used by the surrounding class.
 
 #### `public Text rname()`
-
-- Description: TODO
+- Role: Performs rname.
+- Description: Supports the rname operation used by the surrounding class.
 
 #### `public Tex ricon()`
-
-- Description: TODO
+- Role: Performs ricon.
+- Description: Supports the ricon operation used by the surrounding class.
 
 #### `public Selector(Coord sz)`
-
-- Description: TODO
+- Role: Performs selector.
+- Description: Supports the selector operation used by the surrounding class.
 
 #### `private void add(Channel chan)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `private void rm(Channel chan)`
-
-- Description: TODO
+- Role: Performs rm.
+- Description: Supports the rm operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void show(int si)`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public void show(Channel chan)`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public boolean up()`
-
-- Description: TODO
+- Role: Performs up.
+- Description: Supports the up operation used by the surrounding class.
 
 #### `public boolean down()`
-
-- Description: TODO
+- Role: Performs down.
+- Description: Supports the down operation used by the surrounding class.
 
 #### `private Channel bypos(Coord c)`
-
-- Description: TODO
+- Role: Performs bypos.
+- Description: Supports the bypos operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `private int clips(int s)`
-
-- Description: TODO
+- Role: Performs clips.
+- Description: Supports the clips operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void select(Channel chan, boolean focus)`
-
-- Description: TODO
+- Role: Performs select.
+- Description: Supports the select operation used by the surrounding class.
 
 #### `public void select(Channel chan)`
-
-- Description: TODO
+- Role: Performs select.
+- Description: Supports the select operation used by the surrounding class.
 
 #### `private Notification(Channel chan, Channel.Message msg)`
-
-- Description: TODO
+- Role: Performs notification.
+- Description: Supports the notification operation used by the surrounding class.
 
 #### `public void drawsmall(GOut g, Coord br, int h)`
-
-- Description: TODO
+- Role: Performs drawsmall.
+- Description: Supports the drawsmall operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void notify(Channel chan, Channel.Message msg, int urgency)`
-
-- Description: TODO
+- Role: Performs notify.
+- Description: Supports the notify operation used by the surrounding class.
 
 #### `Spring(int ny)`
-
-- Description: TODO
+- Role: Handles the spring workflow.
+- Description: Supports the spring operation used by the surrounding class.
 
 #### `public void ntick(double a)`
-
-- Description: TODO
+- Role: Performs ntick.
+- Description: Supports the ntick operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void presize()`
-
-- Description: TODO
+- Role: Performs presize.
+- Description: Supports the presize operation used by the surrounding class.
 
 #### `public void sshow(boolean show)`
-
-- Description: TODO
+- Role: Performs sshow.
+- Description: Supports the sshow operation used by the surrounding class.
 
 #### `public void hresize(int h)`
-
-- Description: TODO
+- Role: Performs hresize.
+- Description: Supports the hresize operation used by the surrounding class.
 
 #### `public void resize(int w)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void move(Coord base)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void expand()`
-
-- Description: TODO
+- Role: Performs expand.
+- Description: Supports the expand operation used by the surrounding class.
 
 #### `public void show()`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public void hide()`
-
-- Description: TODO
+- Role: Performs hide.
+- Description: Supports the hide operation used by the surrounding class.
 
 #### `private QuickLine(EntryChannel chan)`
-
-- Description: TODO
+- Role: Performs quick line.
+- Description: Supports the quick line operation used by the surrounding class.
 
 #### `private void cancel()`
-
-- Description: TODO
+- Role: Performs cancel.
+- Description: Supports the cancel operation used by the surrounding class.
 
 #### `public void done(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public boolean key(KbdEvent ev)`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.

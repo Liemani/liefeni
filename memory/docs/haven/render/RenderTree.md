@@ -10,546 +10,556 @@ This file documents the responsibilities and members of `RenderTree`.
 
 ## Role
 
-Represents a render tree.
+Defines the render tree render pipeline component.
 
 ## Nested Types
 
 ### Client
 
-- Description: TODO
+- Role: Represents client within RenderTree.
+- Description: Describes the nested client type used by the enclosing class.
 
 ### DepInfo
 
-- Description: TODO
+- Role: Represents dep info within RenderTree.
+- Description: Describes the nested dep info type used by the enclosing class.
 
 ### DepPipe
 
-- Description: TODO
+- Role: Represents dep pipe within RenderTree.
+- Description: Describes the nested dep pipe type used by the enclosing class.
 
 ### Inheritance
 
-- Description: TODO
+- Role: Represents inheritance within RenderTree.
+- Description: Describes the nested inheritance type used by the enclosing class.
 
 ### Node
 
-- Description: TODO
+- Role: Represents node within RenderTree.
+- Description: Describes the nested node type used by the enclosing class.
 
 ### Slot
 
-- Description: TODO
+- Role: Represents slot within RenderTree.
+- Description: Describes the nested slot type used by the enclosing class.
 
 ### SlotPipe
 
-- Description: TODO
+- Role: Represents slot pipe within RenderTree.
+- Description: Describes the nested slot pipe type used by the enclosing class.
 
 ### SlotRemoved
 
-- Description: TODO
+- Role: Represents slot removed within RenderTree.
+- Description: Describes the nested slot removed type used by the enclosing class.
 
 ### StaticPipe
 
-- Description: TODO
+- Role: Represents static pipe within RenderTree.
+- Description: Describes the nested static pipe type used by the enclosing class.
 
 ### TreeSlot
 
-- Description: TODO
+- Role: Represents tree slot within RenderTree.
+- Description: Describes the nested tree slot type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final WeakHashedSet<DepInfo> interned = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Defines the shared interned constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<DepInfo, Reference<StaticPipe>> interned = new WeakHashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared interned constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Node nil = new Nil()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Lock lock = new ReentrantLock()`
-
-- Description: TODO
+- Role: Synchronizes access to the reentrant lock state.
+- Description: Supports the reentrant lock operation used by the surrounding class.
 
 #### `private final TreeSlot root`
-
-- Description: TODO
+- Role: Holds the root state.
+- Description: Backs the cached state for this file.
 
 #### `private final List<Client<?>> clients = new ArrayList<>()`
-
-- Description: TODO
-
-#### `private int nslots, nleaves`
-
-- Description: TODO
+- Role: Caches clients entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int nslots, nleaves`
+- Role: Stores the nleaves value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int nslots, nleaves`
+- Role: Stores the nleaves value.
+- Description: Backs the cached state for this file.
 
 #### `final Class<? extends R> type`
-
-- Description: TODO
+- Role: Holds the type state.
+- Description: Backs the cached state for this file.
 
 #### `final RenderList<R> list`
-
-- Description: TODO
+- Role: Caches list entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Pipe[] groups`
-
-- Description: TODO
+- Role: Holds the groups state.
+- Description: Backs the cached state for this file.
 
 #### `private final int[] gstates`
-
-- Description: TODO
+- Role: Stores the gstates value.
+- Description: Backs the cached state for this file.
 
 #### `public State[] states =`
-
-- Description: TODO
+- Role: Holds the render tree state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean[] def =`
-
-- Description: TODO
+- Role: Tracks whether  is active.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public boolean[] deps =`
-
-- Description: TODO
+- Role: Tracks whether  is active.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public int ndef = 0`
-
-- Description: TODO
+- Role: Stores the ndef value.
+- Description: Backs the cached state for this file.
 
 #### `public final DepInfo data = new DepInfo()`
-
-- Description: TODO
+- Role: Holds the data state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pipe parent`
-
-- Description: TODO
+- Role: Holds the parent state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean lock = false`
-
-- Description: TODO
+- Role: Tracks the lock flag.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `public final DepInfo bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public final String node`
-
-- Description: TODO
+- Role: Stores the node value.
+- Description: Backs the cached state for this file.
 
 #### `final TreeSlot parent`
-
-- Description: TODO
+- Role: Holds the parent state.
+- Description: Backs the cached state for this file.
 
 #### `final RenderTree tree`
-
-- Description: TODO
+- Role: Holds the tree state.
+- Description: Backs the cached state for this file.
 
 #### `final Node node`
-
-- Description: TODO
+- Role: Stores the node value.
+- Description: Backs the cached state for this file.
 
 #### `private DepInfo dstate = null`
-
-- Description: TODO
+- Role: Holds the dstate state.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<TreeSlot>[] rdeps = null`
-
-- Description: TODO
+- Role: Caches rdeps entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private TreeSlot[] deps = null`
-
-- Description: TODO
-
-#### `private Pipe.Op cstate, ostate`
-
-- Description: TODO
+- Role: Holds the deps state.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe.Op cstate, ostate`
+- Role: Holds the ostate state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Pipe.Op cstate, ostate`
+- Role: Holds the ostate state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean stlock = false`
-
-- Description: TODO
+- Role: Tracks the stlock flag.
+- Description: Supports the stlock operation used by the surrounding class.
 
 #### `private TreeSlot[] children = null`
-
-- Description: TODO
+- Role: Holds the children state.
+- Description: Backs the cached state for this file.
 
 #### `private int nchildren = 0`
-
-- Description: TODO
+- Role: Stores the nchildren value.
+- Description: Backs the cached state for this file.
 
 #### `private int pidx = -1`
-
-- Description: TODO
+- Role: Stores the pidx value.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe pdstate = null`
-
-- Description: TODO
+- Role: Holds the pdstate state.
+- Description: Backs the cached state for this file.
 
 #### `private Inheritance istate = null`
-
-- Description: TODO
+- Role: Holds the istate state.
+- Description: Backs the cached state for this file.
 
 #### `protected Slot slot = null`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public RenderTree()`
-
-- Description: TODO
+- Role: Creates a new RenderTree instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Locked lock()`
-
-- Description: TODO
+- Role: Performs lock.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `Client(Class<? extends R> type, RenderList<R> list)`
-
-- Description: TODO
+- Role: Handles the client workflow.
+- Description: Supports the client operation used by the surrounding class.
 
 #### `void added(TreeSlot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `void removed(TreeSlot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `void updated(TreeSlot slot)`
-
-- Description: TODO
+- Role: Performs updated.
+- Description: Supports the updated operation used by the surrounding class.
 
 #### `void updated(Pipe group, int[] mask)`
-
-- Description: TODO
+- Role: Performs updated.
+- Description: Supports the updated operation used by the surrounding class.
 
 #### `public Inheritance(Pipe[] groups, int[] gstates)`
-
-- Description: TODO
+- Role: Performs inheritance.
+- Description: Supports the inheritance operation used by the surrounding class.
 
 #### `public Pipe group(int g)`
-
-- Description: TODO
+- Role: Performs group.
+- Description: Supports the group operation used by the surrounding class.
 
 #### `public int gstate(int id)`
-
-- Description: TODO
+- Role: Performs gstate.
+- Description: Supports the gstate operation used by the surrounding class.
 
 #### `public int nstates()`
-
-- Description: TODO
+- Role: Performs nstates.
+- Description: Supports the nstates operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private void alloc(int idx)`
-
-- Description: TODO
+- Role: Performs alloc.
+- Description: Supports the alloc operation used by the surrounding class.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public DepInfo intern()`
-
-- Description: TODO
+- Role: Performs intern.
+- Description: Supports the intern operation used by the surrounding class.
 
 #### `public int[] defdiff(DepInfo that)`
-
-- Description: TODO
+- Role: Performs defdiff.
+- Description: Supports the defdiff operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public DepPipe(Pipe parent)`
-
-- Description: TODO
+- Role: Performs dep pipe.
+- Description: Supports the dep pipe operation used by the surrounding class.
 
 #### `public DepPipe prep(Pipe.Op op)`
-
-- Description: TODO
+- Role: Performs prep.
+- Description: Supports the prep operation used by the surrounding class.
 
 #### `public DepInfo lock()`
-
-- Description: TODO
+- Role: Performs lock.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `public <T extends State> T get(State.Slot<T> slot)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public <T extends State> void put(State.Slot<? super T> slot, T state)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public Pipe copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public State[] states()`
-
-- Description: TODO
+- Role: Performs states.
+- Description: Supports the states operation used by the surrounding class.
 
 #### `public StaticPipe(DepInfo bk)`
-
-- Description: TODO
+- Role: Performs static pipe.
+- Description: Supports the static pipe operation used by the surrounding class.
 
 #### `public static StaticPipe get(DepInfo bk)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public <T extends State> T get(State.Slot<T> slot)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Pipe copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public State[] states()`
-
-- Description: TODO
+- Role: Performs states.
+- Description: Supports the states operation used by the surrounding class.
 
 #### `public Slot add(Node n, Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public default Slot add(Node n)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void cstate(Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs cstate.
+- Description: Supports the cstate operation used by the surrounding class.
 
 #### `public void ostate(Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs ostate.
+- Description: Supports the ostate operation used by the surrounding class.
 
 #### `public Slot parent()`
-
-- Description: TODO
+- Role: Performs parent.
+- Description: Supports the parent operation used by the surrounding class.
 
 #### `public void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public default void lockstate()`
-
-- Description: TODO
+- Role: Performs lockstate.
+- Description: Supports the lockstate operation used by the surrounding class.
 
 #### `private SlotRemoved(String message, TreeSlot slot)`
-
-- Description: TODO
+- Role: Performs slot removed.
+- Description: Supports the slot removed operation used by the surrounding class.
 
 #### `private SlotRemoved(TreeSlot slot)`
-
-- Description: TODO
+- Role: Performs slot removed.
+- Description: Supports the slot removed operation used by the surrounding class.
 
 #### `private TreeSlot(RenderTree tree, TreeSlot parent, Node node)`
-
-- Description: TODO
+- Role: Performs tree slot.
+- Description: Supports the tree slot operation used by the surrounding class.
 
 #### `private void addch(TreeSlot ch)`
-
-- Description: TODO
+- Role: Performs addch.
+- Description: Supports the addch operation used by the surrounding class.
 
 #### `private void removech(TreeSlot ch)`
-
-- Description: TODO
+- Role: Performs removech.
+- Description: Supports the removech operation used by the surrounding class.
 
 #### `public Iterable<TreeSlot> children()`
-
-- Description: TODO
+- Role: Performs children.
+- Description: Supports the children operation used by the surrounding class.
 
 #### `public Slot parent()`
-
-- Description: TODO
+- Role: Performs parent.
+- Description: Supports the parent operation used by the surrounding class.
 
 #### `public TreeSlot add(Node n, Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `private DepInfo mkdstate(Pipe.Op cstate, Pipe.Op ostate)`
-
-- Description: TODO
+- Role: Performs mkdstate.
+- Description: Supports the mkdstate operation used by the surrounding class.
 
 #### `private void remrdep(int stidx, TreeSlot rdep)`
-
-- Description: TODO
+- Role: Performs remrdep.
+- Description: Supports the remrdep operation used by the surrounding class.
 
 #### `private void addrdep(int stidx, TreeSlot rdep)`
-
-- Description: TODO
+- Role: Performs addrdep.
+- Description: Supports the addrdep operation used by the surrounding class.
 
 #### `private void adddep(int stidx, TreeSlot dep)`
-
-- Description: TODO
+- Role: Performs adddep.
+- Description: Supports the adddep operation used by the surrounding class.
 
 #### `private void rdepupd()`
-
-- Description: TODO
+- Role: Performs rdepupd.
+- Description: Supports the rdepupd operation used by the surrounding class.
 
 #### `private DepInfo setdstate(DepInfo nst)`
-
-- Description: TODO
+- Role: Performs setdstate.
+- Description: Supports the setdstate operation used by the surrounding class.
 
 #### `private void upddstate(DepInfo nst)`
-
-- Description: TODO
+- Role: Performs upddstate.
+- Description: Supports the upddstate operation used by the surrounding class.
 
 #### `private void updtotal(boolean setds)`
-
-- Description: TODO
+- Role: Performs updtotal.
+- Description: Supports the updtotal operation used by the surrounding class.
 
 #### `private DepInfo dstate()`
-
-- Description: TODO
+- Role: Performs dstate.
+- Description: Supports the dstate operation used by the surrounding class.
 
 #### `private void checklockdeps()`
-
-- Description: TODO
+- Role: Performs checklockdeps.
+- Description: Supports the checklockdeps operation used by the surrounding class.
 
 #### `public void lockstate()`
-
-- Description: TODO
+- Role: Performs lockstate.
+- Description: Supports the lockstate operation used by the surrounding class.
 
 #### `private void chstate(Pipe.Op cstate, Pipe.Op ostate)`
-
-- Description: TODO
+- Role: Performs chstate.
+- Description: Supports the chstate operation used by the surrounding class.
 
 #### `public void cstate(Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs cstate.
+- Description: Supports the cstate operation used by the surrounding class.
 
 #### `public void ostate(Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs ostate.
+- Description: Supports the ostate operation used by the surrounding class.
 
 #### `public void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public <T extends State> T get(State.Slot<T> slot)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Pipe copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public State[] states()`
-
-- Description: TODO
+- Role: Performs states.
+- Description: Supports the states operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private Pipe pdstate()`
-
-- Description: TODO
+- Role: Performs pdstate.
+- Description: Supports the pdstate operation used by the surrounding class.
 
 #### `private Inheritance istate()`
-
-- Description: TODO
+- Role: Performs istate.
+- Description: Supports the istate operation used by the surrounding class.
 
 #### `public Node obj()`
-
-- Description: TODO
+- Role: Performs obj.
+- Description: Supports the obj operation used by the surrounding class.
 
 #### `public GroupPipe state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public default void added(Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public default void removed(Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Iterable<Slot> slots()`
-
-- Description: TODO
+- Role: Performs slots.
+- Description: Supports the slots operation used by the surrounding class.
 
 #### `public Slot add(Node n, Pipe.Op state)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Slot add(Node n)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(RenderList<?> list)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `private void dump(TreeSlot slot, int ind)`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `public void dump()`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `public String stats()`
-
-- Description: TODO
+- Role: Performs stats.
+- Description: Supports the stats operation used by the surrounding class.

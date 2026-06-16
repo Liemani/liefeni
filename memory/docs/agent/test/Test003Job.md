@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Test003Job`.
 
 ## Role
 
-Provides a manual test or validation job entry point.
+Implements a test job for test003 job.
 
 ## Members
 
@@ -21,9 +21,9 @@ Provides a manual test or validation job entry point.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

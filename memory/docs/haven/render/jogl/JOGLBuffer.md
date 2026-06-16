@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `JOGLBuffer`.
 
 ## Role
 
-Represents a JOGL buffer.
+Adapts the render backend to JOGL for joglbuffer.
 
 ## Members
 
@@ -19,23 +19,23 @@ Represents a JOGL buffer.
 ### Fields
 
 #### `public final ByteBuffer data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public JOGLBuffer(int sz)`
-
-- Description: TODO
+- Role: Creates a new JOGLBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public JOGLBuffer(ByteBuffer data)`
-
-- Description: TODO
+- Role: Creates a new JOGLBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ByteBuffer data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

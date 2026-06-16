@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `BackCache`.
 
 ## Role
 
-Caches resources or data in the background.
+Represents the back cache Haven component.
 
 ## Nested Types
 
 ### Cache
 
-- Description: TODO
+- Role: Represents cache within BackCache.
+- Description: Describes the nested cache type used by the enclosing class.
 
 ## Members
 
@@ -25,55 +26,55 @@ Caches resources or data in the background.
 ### Fields
 
 #### `public final Function<K, V> load`
-
-- Description: TODO
+- Role: Holds the load state.
+- Description: Backs the cached state for this file.
 
 #### `public final BiConsumer<K, V> store`
-
-- Description: TODO
+- Role: Holds the store state.
+- Description: Backs the cached state for this file.
 
 #### `public final BiConsumer<K, V> dispose`
-
-- Description: TODO
+- Role: Holds the dispose state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<K, V> cache`
-
-- Description: TODO
+- Role: Caches cache entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final int size`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public BackCache(int size, Function<K, V> load, BiConsumer<K, V> store, BiConsumer<K, V> dispose)`
-
-- Description: TODO
+- Role: Creates a new BackCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BackCache(int size, Function<K, V> load, BiConsumer<K, V> store)`
-
-- Description: TODO
+- Role: Creates a new BackCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Cache(int size)`
-
-- Description: TODO
+- Role: Performs cache.
+- Description: Supports the cache operation used by the surrounding class.
 
 #### `protected boolean removeEldestEntry(Map.Entry<K, V> eldest)`
-
-- Description: TODO
+- Role: Removes the eldest entry.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public boolean cached(K key)`
-
-- Description: TODO
+- Role: Performs cached.
+- Description: Supports the cached operation used by the surrounding class.
 
 #### `public V get(K key)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void put(K key, V val)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public void remove(K key)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.

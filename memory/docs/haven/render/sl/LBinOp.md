@@ -10,29 +10,34 @@ This file documents the responsibilities and members of `LBinOp`.
 
 ## Role
 
-Represents a logical binary operation.
+Represents the lbin op shader-language AST node.
 
 ## Nested Types
 
 ### AAdd
 
-- Description: TODO
+- Role: Represents aadd within LBinOp.
+- Description: Describes the nested aadd type used by the enclosing class.
 
 ### ADiv
 
-- Description: TODO
+- Role: Represents adiv within LBinOp.
+- Description: Describes the nested adiv type used by the enclosing class.
 
 ### AMul
 
-- Description: TODO
+- Role: Represents amul within LBinOp.
+- Description: Describes the nested amul type used by the enclosing class.
 
 ### ASub
 
-- Description: TODO
+- Role: Represents asub within LBinOp.
+- Description: Describes the nested asub type used by the enclosing class.
 
 ### Assign
 
-- Description: TODO
+- Role: Represents assign within LBinOp.
+- Description: Describes the nested assign type used by the enclosing class.
 
 ## Members
 
@@ -41,67 +46,67 @@ Represents a logical binary operation.
 ### Fields
 
 #### `public final LValue lhs`
-
-- Description: TODO
+- Role: Holds the lhs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Expression rhs`
-
-- Description: TODO
+- Role: Holds the rhs state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LBinOp(LValue lhs, Expression rhs)`
-
-- Description: TODO
+- Role: Creates a new LBinOp instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public abstract String form()`
-
-- Description: TODO
+- Role: Performs form.
+- Description: Supports the form operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
-
-#### `public static class Assign extends LBinOp`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public static class Assign extends LBinOp`
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Assign extends LBinOp`
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
 #### `public static class AAdd extends LBinOp`
-
-- Description: TODO
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
 #### `public static class AAdd extends LBinOp`
-
-- Description: TODO
-
-#### `public static class ASub extends LBinOp`
-
-- Description: TODO
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
 #### `public static class ASub extends LBinOp`
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class ASub extends LBinOp`
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
 #### `public static class AMul extends LBinOp`
-
-- Description: TODO
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
 #### `public static class AMul extends LBinOp`
-
-- Description: TODO
-
-#### `public static class ADiv extends LBinOp`
-
-- Description: TODO
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
 #### `public static class ADiv extends LBinOp`
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class ADiv extends LBinOp`
+- Role: Handles the lbin op workflow.
+- Description: Supports the lbin op operation used by the surrounding class.

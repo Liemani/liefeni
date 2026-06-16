@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Abortable`.
 
 ## Role
 
-Defines an abortable render operation.
+Defines the abortable render pipeline component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Defines an abortable render operation.
 ### Methods
 
 #### `public void abort()`
-
-- Description: TODO
+- Role: Performs abort.
+- Description: Supports the abort operation used by the surrounding class.

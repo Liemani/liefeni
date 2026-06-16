@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `VectorFormat`.
 
 ## Role
 
-Represents a vector format.
+Defines the vector format render pipeline component.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents a vector format.
 ### Fields
 
 #### `public final int nc`
-
-- Description: TODO
+- Role: Stores the nc value.
+- Description: Backs the cached state for this file.
 
 #### `public final NumberFormat cf`
-
-- Description: TODO
+- Role: Holds the cf state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public VectorFormat(int nc, NumberFormat cf)`
-
-- Description: TODO
+- Role: Creates a new VectorFormat instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.

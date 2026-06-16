@@ -10,318 +10,319 @@ This file documents the responsibilities and members of `ReadLine`.
 
 ## Role
 
-Supports line-by-line reading.
+Represents the read line Haven component.
 
 ## Nested Types
 
 ### UndoState
 
-- Description: TODO
+- Role: Represents undo state within ReadLine.
+- Description: Describes the nested undo state type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Owner nil = new Owner()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Owner owner`
-
-- Description: TODO
+- Role: Holds the owner state.
+- Description: Backs the cached state for this file.
 
 #### `public char[] buf = new char[16]`
-
-- Description: TODO
+- Role: Stores the buf value.
+- Description: Backs the cached state for this file.
 
 #### `public int length = 0`
-
-- Description: TODO
+- Role: Stores the length value.
+- Description: Backs the cached state for this file.
 
 #### `public int point = 0`
-
-- Description: TODO
+- Role: Stores the point value.
+- Description: Backs the cached state for this file.
 
 #### `public int seq = 0`
-
-- Description: TODO
+- Role: Stores the seq value.
+- Description: Backs the cached state for this file.
 
 #### `public double mtime`
-
-- Description: TODO
+- Role: Stores the mtime value.
+- Description: Backs the cached state for this file.
 
 #### `private Text tcache = null`
-
-- Description: TODO
+- Role: Stores the tcache value.
+- Description: Backs the cached state for this file.
 
 #### `public int mark = -1`
-
-- Description: TODO
-
-#### `private int mark, yankpos, undopos`
-
-- Description: TODO
+- Role: Stores the mark value.
+- Description: Backs the cached state for this file.
 
 #### `private int mark, yankpos, undopos`
-
-- Description: TODO
+- Role: Stores the undopos value.
+- Description: Backs the cached state for this file.
 
 #### `private int mark, yankpos, undopos`
+- Role: Stores the undopos value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int mark, yankpos, undopos`
+- Role: Stores the undopos value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean tmm`
-
-- Description: TODO
+- Role: Tracks the tmm flag.
+- Description: Supports the tmm operation used by the surrounding class.
 
 #### `private String last = ""`
-
-- Description: TODO
+- Role: Stores the last value.
+- Description: Backs the cached state for this file.
 
 #### `private List<String> yanklist = new ArrayList<String>()`
-
-- Description: TODO
+- Role: Caches yanklist entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<UndoState> undolist = new ArrayList<UndoState>()`
-
-- Description: TODO
+- Role: Caches undolist entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private String line`
-
-- Description: TODO
+- Role: Stores the line value.
+- Description: Backs the cached state for this file.
 
 #### `private int point`
-
-- Description: TODO
-
-#### `private String lastsel = "", lastclip = ""`
-
-- Description: TODO
+- Role: Stores the point value.
+- Description: Backs the cached state for this file.
 
 #### `private String lastsel = "", lastclip = ""`
+- Role: Stores the lastsel value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private String lastsel = "", lastclip = ""`
+- Role: Stores the lastsel value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public char[] buffer()`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `public int length()`
-
-- Description: TODO
+- Role: Performs length.
+- Description: Supports the length operation used by the surrounding class.
 
 #### `public int point()`
-
-- Description: TODO
+- Role: Performs point.
+- Description: Supports the point operation used by the surrounding class.
 
 #### `public void point(int p)`
-
-- Description: TODO
+- Role: Performs point.
+- Description: Supports the point operation used by the surrounding class.
 
 #### `public int mark()`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public void mark(int m)`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public void setline(String line)`
-
-- Description: TODO
+- Role: Performs setline.
+- Description: Supports the setline operation used by the surrounding class.
 
 #### `public boolean key(char c, KeyEvent ev, int mod)`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public double mtime()`
-
-- Description: TODO
+- Role: Performs mtime.
+- Description: Supports the mtime operation used by the surrounding class.
 
 #### `public default boolean empty()`
-
-- Description: TODO
+- Role: Performs empty.
+- Description: Supports the empty operation used by the surrounding class.
 
 #### `public default String line()`
-
-- Description: TODO
+- Role: Performs line.
+- Description: Supports the line operation used by the surrounding class.
 
 #### `public default Text render(Text.Foundry f)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public default void select(int from, int to)`
-
-- Description: TODO
+- Role: Performs select.
+- Description: Supports the select operation used by the surrounding class.
 
 #### `public default boolean lneq(String ln)`
-
-- Description: TODO
+- Role: Performs lneq.
+- Description: Supports the lneq operation used by the surrounding class.
 
 #### `public default boolean key(KeyEvent ev)`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public default void changed(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public default void done(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public Base(Owner owner, String init)`
-
-- Description: TODO
+- Role: Performs base.
+- Description: Supports the base operation used by the surrounding class.
 
 #### `public String line(int off, int len)`
-
-- Description: TODO
+- Role: Performs line.
+- Description: Supports the line operation used by the surrounding class.
 
 #### `public void line(String ln)`
-
-- Description: TODO
+- Role: Performs line.
+- Description: Supports the line operation used by the surrounding class.
 
 #### `public char[] remove(int off, int len)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public char[] ensure(int off, int len)`
-
-- Description: TODO
+- Role: Ensures the target value exists.
+- Description: Supports the ensure operation used by the surrounding class.
 
 #### `public static boolean wordchar(char c)`
-
-- Description: TODO
+- Role: Performs wordchar.
+- Description: Supports the wordchar operation used by the surrounding class.
 
 #### `public int wordstart(int from)`
-
-- Description: TODO
+- Role: Performs wordstart.
+- Description: Supports the wordstart operation used by the surrounding class.
 
 #### `public int wordend(int from)`
-
-- Description: TODO
+- Role: Performs wordend.
+- Description: Supports the wordend operation used by the surrounding class.
 
 #### `protected abstract boolean key2(char c, KeyEvent ev, int mod)`
-
-- Description: TODO
+- Role: Performs key2.
+- Description: Supports the key2 operation used by the surrounding class.
 
 #### `public boolean key(char c, KeyEvent ev, int mod)`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public char[] buffer()`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `public int length()`
-
-- Description: TODO
+- Role: Performs length.
+- Description: Supports the length operation used by the surrounding class.
 
 #### `public int point()`
-
-- Description: TODO
+- Role: Performs point.
+- Description: Supports the point operation used by the surrounding class.
 
 #### `public void point(int p)`
-
-- Description: TODO
+- Role: Performs point.
+- Description: Supports the point operation used by the surrounding class.
 
 #### `public double mtime()`
-
-- Description: TODO
+- Role: Performs mtime.
+- Description: Supports the mtime operation used by the surrounding class.
 
 #### `public void setline(String line)`
-
-- Description: TODO
+- Role: Performs setline.
+- Description: Supports the setline operation used by the surrounding class.
 
 #### `public Text render(Text.Foundry f)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public PCLine(Owner owner, String init)`
-
-- Description: TODO
+- Role: Performs pcline.
+- Description: Supports the pcline operation used by the surrounding class.
 
 #### `public void clipset(Clipboard c)`
-
-- Description: TODO
+- Role: Performs clipset.
+- Description: Supports the clipset operation used by the surrounding class.
 
 #### `public String cliptext()`
-
-- Description: TODO
+- Role: Performs cliptext.
+- Description: Supports the cliptext operation used by the surrounding class.
 
 #### `public int mark()`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public void mark(int mark)`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public void setline(String line)`
-
-- Description: TODO
+- Role: Performs setline.
+- Description: Supports the setline operation used by the surrounding class.
 
 #### `public void rmsel()`
-
-- Description: TODO
+- Role: Performs rmsel.
+- Description: Supports the rmsel operation used by the surrounding class.
 
 #### `private void cksel()`
-
-- Description: TODO
+- Role: Performs cksel.
+- Description: Supports the cksel operation used by the surrounding class.
 
 #### `public boolean key2(char c, KeyEvent ev, int mod)`
-
-- Description: TODO
+- Role: Performs key2.
+- Description: Supports the key2 operation used by the surrounding class.
 
 #### `public EmacsLine(Owner owner, String init)`
-
-- Description: TODO
+- Role: Performs emacs line.
+- Description: Supports the emacs line operation used by the surrounding class.
 
 #### `private UndoState()`
-
-- Description: TODO
+- Role: Performs undo state.
+- Description: Supports the undo state operation used by the surrounding class.
 
 #### `private void save()`
-
-- Description: TODO
+- Role: Saves the current data.
+- Description: Saves the current data through the persistence pipeline.
 
 #### `private void mode(String mode)`
-
-- Description: TODO
+- Role: Performs mode.
+- Description: Supports the mode operation used by the surrounding class.
 
 #### `private void killclipboard()`
-
-- Description: TODO
+- Role: Performs killclipboard.
+- Description: Supports the killclipboard operation used by the surrounding class.
 
 #### `private void kill(String text)`
-
-- Description: TODO
+- Role: Performs kill.
+- Description: Supports the kill operation used by the surrounding class.
 
 #### `private String cliptext(Clipboard c)`
-
-- Description: TODO
+- Role: Performs cliptext.
+- Description: Supports the cliptext operation used by the surrounding class.
 
 #### `public int mark()`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public void mark(int m)`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public void rmsel()`
-
-- Description: TODO
+- Role: Performs rmsel.
+- Description: Supports the rmsel operation used by the surrounding class.
 
 #### `public boolean key2(char c, KeyEvent ev, int mod)`
-
-- Description: TODO
+- Role: Performs key2.
+- Description: Supports the key2 operation used by the surrounding class.
 
 #### `public static ReadLine make(Owner owner, String init)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.

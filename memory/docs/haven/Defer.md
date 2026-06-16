@@ -10,214 +10,220 @@ This file documents the responsibilities and members of `Defer`.
 
 ## Role
 
-Schedules deferred work.
+Represents the defer Haven component.
 
 ## Nested Types
 
 ### Callable
 
-- Description: TODO
+- Role: Represents callable within Defer.
+- Description: Describes the nested callable type used by the enclosing class.
 
 ### CancelledException
 
-- Description: TODO
+- Role: Represents cancelled exception within Defer.
+- Description: Describes the nested cancelled exception type used by the enclosing class.
 
 ### DeferredException
 
-- Description: TODO
+- Role: Represents deferred exception within Defer.
+- Description: Describes the nested deferred exception type used by the enclosing class.
 
 ### Future
 
-- Description: TODO
+- Role: Represents future within Defer.
+- Description: Describes the nested future type used by the enclosing class.
 
 ### NotDoneException
 
-- Description: TODO
+- Role: Represents not done exception within Defer.
+- Description: Describes the nested not done exception type used by the enclosing class.
 
 ### Worker
 
-- Description: TODO
+- Role: Represents worker within Defer.
+- Description: Describes the nested worker type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<ThreadGroup, Defer> groups = new WeakHashMap<ThreadGroup, Defer>()`
-
-- Description: TODO
+- Role: Defines the shared groups constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final AtomicInteger threadno = new AtomicInteger(0)`
-
-- Description: TODO
+- Role: Defines the shared threadno constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Queue<Future<?>> queue = new PrioQueue<Future<?>>()`
-
-- Description: TODO
+- Role: Caches queue entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Collection<Thread> pool = new LinkedList<Thread>()`
-
-- Description: TODO
+- Role: Caches pool entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final int maxthreads = Math.max(2, Runtime.getRuntime().availableProcessors() - 1)`
-
-- Description: TODO
+- Role: Stores the maxthreads value.
+- Description: Backs the cached state for this file.
 
 #### `private final AtomicInteger busy = new AtomicInteger(0)`
-
-- Description: TODO
+- Role: Stores the busy value.
+- Description: Backs the cached state for this file.
 
 #### `public final transient Future future`
-
-- Description: TODO
+- Role: Holds the future state.
+- Description: Backs the cached state for this file.
 
 #### `public final Callable<T> task`
-
-- Description: TODO
+- Role: Holds the task state.
+- Description: Backs the cached state for this file.
 
 #### `private final Waitable.Queue wq = new Waitable.Queue()`
-
-- Description: TODO
+- Role: Caches wq entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int prio = -1`
-
-- Description: TODO
+- Role: Stores the prio value.
+- Description: Backs the cached state for this file.
 
 #### `private T val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `private volatile String state = ""`
-
-- Description: TODO
+- Role: Stores the state value.
+- Description: Backs the cached state for this file.
 
 #### `private Throwable exc = null`
-
-- Description: TODO
+- Role: Holds the exc state.
+- Description: Backs the cached state for this file.
 
 #### `private Loading lastload = null`
-
-- Description: TODO
+- Role: Holds the lastload state.
+- Description: Backs the cached state for this file.
 
 #### `private volatile Thread running = null`
-
-- Description: TODO
+- Role: Holds the running state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public T call() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the call workflow.
+- Description: Supports the call operation used by the surrounding class.
 
 #### `public CancelledException()`
-
-- Description: TODO
+- Role: Performs cancelled exception.
+- Description: Supports the cancelled exception operation used by the surrounding class.
 
 #### `public CancelledException(Throwable cause)`
-
-- Description: TODO
+- Role: Performs cancelled exception.
+- Description: Supports the cancelled exception operation used by the surrounding class.
 
 #### `public DeferredException(Throwable cause)`
-
-- Description: TODO
+- Role: Performs deferred exception.
+- Description: Supports the deferred exception operation used by the surrounding class.
 
 #### `public NotDoneException(Future future)`
-
-- Description: TODO
+- Role: Performs not done exception.
+- Description: Supports the not done exception operation used by the surrounding class.
 
 #### `public NotDoneException(Future future, Loading cause)`
-
-- Description: TODO
+- Role: Performs not done exception.
+- Description: Supports the not done exception operation used by the surrounding class.
 
 #### `public String getMessage()`
-
-- Description: TODO
+- Role: Returns the message.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-
-- Description: TODO
+- Role: Performs waitfor.
+- Description: Supports the waitfor operation used by the surrounding class.
 
 #### `public boolean boostprio(int prio)`
-
-- Description: TODO
+- Role: Performs boostprio.
+- Description: Supports the boostprio operation used by the surrounding class.
 
 #### `private Future(Callable<T> task)`
-
-- Description: TODO
+- Role: Performs future.
+- Description: Supports the future operation used by the surrounding class.
 
 #### `public void cancel()`
-
-- Description: TODO
+- Role: Performs cancel.
+- Description: Supports the cancel operation used by the surrounding class.
 
 #### `private void chstate(String nst)`
-
-- Description: TODO
+- Role: Performs chstate.
+- Description: Supports the chstate operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public T get(int prio)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public T get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public boolean done(int prio)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public boolean done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public int priority()`
-
-- Description: TODO
+- Role: Performs priority.
+- Description: Supports the priority operation used by the surrounding class.
 
 #### `public void boostprio(int prio)`
-
-- Description: TODO
+- Role: Performs boostprio.
+- Description: Supports the boostprio operation used by the surrounding class.
 
 #### `private Worker()`
-
-- Description: TODO
+- Role: Performs worker.
+- Description: Supports the worker operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public Defer(ThreadGroup parent)`
-
-- Description: TODO
+- Role: Creates a new Defer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void defer(final Future<?> f)`
-
-- Description: TODO
+- Role: Performs defer.
+- Description: Supports the defer operation used by the surrounding class.
 
 #### `public <T> Future<T> defer(Callable<T> task)`
-
-- Description: TODO
+- Role: Performs defer.
+- Description: Supports the defer operation used by the surrounding class.
 
 #### `private static Defer getgroup()`
-
-- Description: TODO
+- Role: Performs getgroup.
+- Description: Supports the getgroup operation used by the surrounding class.
 
 #### `public static <T> Future<T> later(Callable<T> task)`
-
-- Description: TODO
+- Role: Performs later.
+- Description: Supports the later operation used by the surrounding class.
 
 #### `public static <T> Future<T> later(Runnable task, T result)`
-
-- Description: TODO
+- Role: Performs later.
+- Description: Supports the later operation used by the surrounding class.
 
 #### `public String stats()`
-
-- Description: TODO
+- Role: Performs stats.
+- Description: Supports the stats operation used by the surrounding class.
 
 #### `public static String gstats()`
-
-- Description: TODO
+- Role: Performs gstats.
+- Description: Supports the gstats operation used by the surrounding class.

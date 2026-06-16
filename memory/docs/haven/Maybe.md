@@ -10,76 +10,76 @@ This file documents the responsibilities and members of `Maybe`.
 
 ## Role
 
-Represents an optional value.
+Represents the maybe Haven component.
 
 ## Members
 
 ### Constants
 
 #### `static final Maybe<?> empty = new Maybe<Object>()`
-
-- Description: TODO
+- Role: Defines the shared empty constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public boolean has()`
-
-- Description: TODO
+- Role: Performs has.
+- Description: Supports the has operation used by the surrounding class.
 
 #### `public MissingValue()`
-
-- Description: TODO
+- Role: Performs missing value.
+- Description: Supports the missing value operation used by the surrounding class.
 
 #### `public MissingValue(Throwable cause)`
-
-- Description: TODO
+- Role: Performs missing value.
+- Description: Supports the missing value operation used by the surrounding class.
 
 #### `public MissingValue(String msg)`
-
-- Description: TODO
+- Role: Performs missing value.
+- Description: Supports the missing value operation used by the surrounding class.
 
 #### `public MissingValue(String msg, Throwable cause)`
-
-- Description: TODO
+- Role: Performs missing value.
+- Description: Supports the missing value operation used by the surrounding class.
 
 #### `public static MissingValue wrap(Throwable cause)`
-
-- Description: TODO
+- Role: Performs wrap.
+- Description: Supports the wrap operation used by the surrounding class.
 
 #### `public default T or(T val)`
-
-- Description: TODO
+- Role: Performs or.
+- Description: Supports the or operation used by the surrounding class.
 
 #### `public default <R> Maybe<R> map(Function<? super T, ? extends R> fn)`
-
-- Description: TODO
+- Role: Performs map.
+- Description: Supports the map operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> of(T value)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> from(Supplier<? extends T> value)`
-
-- Description: TODO
+- Role: Performs from.
+- Description: Supports the from operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> reason(String reason)`
-
-- Description: TODO
+- Role: Performs reason.
+- Description: Supports the reason operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> reason(Supplier<String> reason)`
-
-- Description: TODO
+- Role: Performs reason.
+- Description: Supports the reason operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> not()`
-
-- Description: TODO
+- Role: Performs not.
+- Description: Supports the not operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> not(Throwable cause)`
-
-- Description: TODO
+- Role: Performs not.
+- Description: Supports the not operation used by the surrounding class.
 
 #### `public static <T> Maybe<T> not(Supplier<? extends Throwable> cause)`
-
-- Description: TODO
+- Role: Performs not.
+- Description: Supports the not operation used by the surrounding class.

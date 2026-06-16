@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LockedFile`.
 
 ## Role
 
-Represents a locked file resource.
+Represents the locked file Haven component.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents a locked file resource.
 ### Fields
 
 #### `public FileChannel f`
-
-- Description: TODO
+- Role: Stores the f value.
+- Description: Backs the cached state for this file.
 
 #### `public FileLock l`
-
-- Description: TODO
+- Role: Stores the l value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private LockedFile(FileChannel f, FileLock l)`
-
-- Description: TODO
+- Role: Creates a new LockedFile instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void release() throws IOException`
-
-- Description: TODO
+- Role: Handles the release workflow.
+- Description: Supports the release operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public static LockedFile lock(Path path, long pos, long len, boolean shared) throws IOException`
-
-- Description: TODO
+- Role: Handles the lock workflow.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `public static LockedFile lock(Path path) throws IOException`
-
-- Description: TODO
+- Role: Handles the lock workflow.
+- Description: Supports the lock operation used by the surrounding class.

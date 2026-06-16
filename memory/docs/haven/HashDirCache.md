@@ -10,162 +10,164 @@ This file documents the responsibilities and members of `HashDirCache`.
 
 ## Role
 
-Caches directories by hash.
+Represents the hash dir cache Haven component.
 
 ## Nested Types
 
 ### CacheFile
 
-- Description: TODO
+- Role: Represents cache file within HashDirCache.
+- Description: Describes the nested cache file type used by the enclosing class.
 
 ### Header
 
-- Description: TODO
+- Role: Represents header within HashDirCache.
+- Description: Describes the nested header type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<URI, HashDirCache> current = new CacheMap<>()`
-
-- Description: TODO
+- Role: Defines the shared current constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Path, int[]> monitors = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared monitors constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Path base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `public final URI id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `private final long idhash`
-
-- Description: TODO
-
-#### `String cid, name`
-
-- Description: TODO
+- Role: Stores the idhash value.
+- Description: Backs the cached state for this file.
 
 #### `String cid, name`
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `String cid, name`
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `final Path p`
-
-- Description: TODO
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
 #### `final Header h`
-
-- Description: TODO
+- Role: Holds the h state.
+- Description: Backs the cached state for this file.
 
 #### `FileChannel f`
-
-- Description: TODO
+- Role: Stores the f value.
+- Description: Backs the cached state for this file.
 
 #### `private static boolean monwarned = false`
-
-- Description: TODO
+- Role: Tracks the monwarned flag.
+- Description: Supports the monwarned operation used by the surrounding class.
 
 ### Methods
 
 #### `public static Path findbase()`
-
-- Description: TODO
+- Role: Performs findbase.
+- Description: Supports the findbase operation used by the surrounding class.
 
 #### `private HashDirCache(URI id)`
-
-- Description: TODO
+- Role: Creates a new HashDirCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static HashDirCache get(URI id)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private static URI mkurn(String id)`
-
-- Description: TODO
+- Role: Performs mkurn.
+- Description: Supports the mkurn operation used by the surrounding class.
 
 #### `public static HashDirCache get(String id)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private long namehash(long h, String name)`
-
-- Description: TODO
+- Role: Performs namehash.
+- Description: Supports the namehash operation used by the surrounding class.
 
 #### `private Header readhead(DataInput fp) throws IOException`
-
-- Description: TODO
+- Role: Handles the readhead workflow.
+- Description: Supports the readhead operation used by the surrounding class.
 
 #### `private Header readhead(ReadableByteChannel ch) throws IOException`
-
-- Description: TODO
+- Role: Handles the readhead workflow.
+- Description: Supports the readhead operation used by the surrounding class.
 
 #### `private void writehead(DataOutput fp, String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the writehead workflow.
+- Description: Supports the writehead operation used by the surrounding class.
 
 #### `private void writehead(WritableByteChannel ch, String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the writehead workflow.
+- Description: Supports the writehead operation used by the surrounding class.
 
 #### `private static FileChannel open2(Path path, OpenOption... mode) throws IOException`
-
-- Description: TODO
+- Role: Handles the open2 workflow.
+- Description: Supports the open2 operation used by the surrounding class.
 
 #### `CacheFile(Path p, Header h, LockedFile lf) throws IOException`
-
-- Description: TODO
+- Role: Handles the cache file workflow.
+- Description: Supports the cache file operation used by the surrounding class.
 
 #### `FileChannel acquire()`
-
-- Description: TODO
+- Role: Performs acquire.
+- Description: Supports the acquire operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `private CacheFile lookup(String name, boolean creat) throws IOException`
-
-- Description: TODO
+- Role: Handles the lookup workflow.
+- Description: Supports the lookup operation used by the surrounding class.
 
 #### `private static DirectoryStream.Filter<Path> fnfilter(java.util.function.Predicate<String> filter)`
-
-- Description: TODO
+- Role: Performs fnfilter.
+- Description: Supports the fnfilter operation used by the surrounding class.
 
 #### `private Iterator<String> list(boolean filter) throws IOException`
-
-- Description: TODO
+- Role: Handles the list workflow.
+- Description: Supports the list operation used by the surrounding class.
 
 #### `private Iterator<String> list() throws IOException`
-
-- Description: TODO
+- Role: Handles the list workflow.
+- Description: Supports the list operation used by the surrounding class.
 
 #### `public OutputStream store(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the store workflow.
+- Description: Supports the store operation used by the surrounding class.
 
 #### `public InputStream fetch(String name) throws IOException`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public void remove(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the remove workflow.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public static HashDirCache create()`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public static void main(String[] args) throws IOException`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

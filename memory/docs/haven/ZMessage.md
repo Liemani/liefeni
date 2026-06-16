@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ZMessage`.
 
 ## Role
 
-Represents a z-order or layered message.
+Represents the zmessage Haven component.
 
 ## Members
 
@@ -19,47 +19,47 @@ Represents a z-order or layered message.
 ### Fields
 
 #### `private transient Inflater zi = null`
-
-- Description: TODO
+- Role: Holds the zi state.
+- Description: Backs the cached state for this file.
 
 #### `private transient Deflater zo = null`
-
-- Description: TODO
+- Role: Holds the zo state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean eof`
-
-- Description: TODO
+- Role: Tracks the eof flag.
+- Description: Supports the eof operation used by the surrounding class.
 
 #### `private final transient Message bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ZMessage(Message from)`
-
-- Description: TODO
+- Role: Creates a new ZMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean underflow(int hint)`
-
-- Description: TODO
+- Role: Performs underflow.
+- Description: Supports the underflow operation used by the surrounding class.
 
 #### `private void flush(boolean sync, boolean finish)`
-
-- Description: TODO
+- Role: Performs flush.
+- Description: Supports the flush operation used by the surrounding class.
 
 #### `public void flush()`
-
-- Description: TODO
+- Role: Performs flush.
+- Description: Supports the flush operation used by the surrounding class.
 
 #### `public void overflow(int min)`
-
-- Description: TODO
+- Role: Performs overflow.
+- Description: Supports the overflow operation used by the surrounding class.
 
 #### `public void finish()`
-
-- Description: TODO
+- Role: Performs finish.
+- Description: Supports the finish operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

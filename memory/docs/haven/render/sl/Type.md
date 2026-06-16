@@ -10,238 +10,240 @@ This file documents the responsibilities and members of `Type`.
 
 ## Role
 
-Represents a shader type.
+Represents the type shader-language AST node.
 
 ## Nested Types
 
 ### Sampler
 
-- Description: TODO
+- Role: Represents sampler within Type.
+- Description: Describes the nested sampler type used by the enclosing class.
 
 ### Simple
 
-- Description: TODO
+- Role: Represents simple within Type.
+- Description: Describes the nested simple type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Type VOID = new Simple("void")`
-
-- Description: TODO
+- Role: Defines the shared void constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type INT = new Simple("int")`
-
-- Description: TODO
+- Role: Defines the shared int constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type UINT = new Simple("uint")`
-
-- Description: TODO
+- Role: Defines the shared uint constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type FLOAT = new Simple("float")`
-
-- Description: TODO
+- Role: Defines the shared float constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type VEC2 = new Simple("vec2")`
-
-- Description: TODO
+- Role: Defines the shared vec2 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type VEC3 = new Simple("vec3")`
-
-- Description: TODO
+- Role: Defines the shared vec3 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type VEC4 = new Simple("vec4")`
-
-- Description: TODO
+- Role: Defines the shared vec4 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type IVEC2 = new Simple("ivec2")`
-
-- Description: TODO
+- Role: Defines the shared ivec2 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type IVEC3 = new Simple("ivec3")`
-
-- Description: TODO
+- Role: Defines the shared ivec3 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type IVEC4 = new Simple("ivec4")`
-
-- Description: TODO
+- Role: Defines the shared ivec4 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type UVEC2 = new Simple("uvec2")`
-
-- Description: TODO
+- Role: Defines the shared uvec2 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type UVEC3 = new Simple("uvec3")`
-
-- Description: TODO
+- Role: Defines the shared uvec3 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type UVEC4 = new Simple("uvec4")`
-
-- Description: TODO
+- Role: Defines the shared uvec4 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type MAT3 = new Simple("mat3")`
-
-- Description: TODO
+- Role: Defines the shared mat3 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type MAT4 = new Simple("mat4")`
-
-- Description: TODO
+- Role: Defines the shared mat4 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER1D = new Sampler("sampler1D")`
-
-- Description: TODO
+- Role: Defines the shared sampler1 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER1DARRAY = new Sampler("sampler1DArray")`
-
-- Description: TODO
+- Role: Defines the shared sampler1 darray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER2D = new Sampler("sampler2D")`
-
-- Description: TODO
+- Role: Defines the shared sampler2 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER2DARRAY = new Sampler("sampler2DArray")`
-
-- Description: TODO
+- Role: Defines the shared sampler2 darray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER2DMS = new Sampler("sampler2DMS")`
-
-- Description: TODO
+- Role: Defines the shared sampler2 dms constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER2DMSARRAY = new Sampler("sampler2DMSArray")`
-
-- Description: TODO
+- Role: Defines the shared sampler2 dmsarray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER3D = new Sampler("sampler3D")`
-
-- Description: TODO
+- Role: Defines the shared sampler3 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLERCUBE = new Sampler("samplerCube")`
-
-- Description: TODO
+- Role: Defines the shared samplercube constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLERCUBEARRAY = new Sampler("samplerCubeArray")`
-
-- Description: TODO
+- Role: Defines the shared samplercubearray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLERBUFFER = new Sampler("samplerBuffer")`
-
-- Description: TODO
+- Role: Defines the shared samplerbuffer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER1D = new Sampler("isampler1D")`
-
-- Description: TODO
+- Role: Defines the shared isampler1 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER1DARRAY = new Sampler("isampler1DArray")`
-
-- Description: TODO
+- Role: Defines the shared isampler1 darray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER2D = new Sampler("isampler2D")`
-
-- Description: TODO
+- Role: Defines the shared isampler2 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER2DARRAY = new Sampler("isampler2DArray")`
-
-- Description: TODO
+- Role: Defines the shared isampler2 darray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER2DMS = new Sampler("isampler2DMS")`
-
-- Description: TODO
+- Role: Defines the shared isampler2 dms constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER2DMSARRAY = new Sampler("isampler2DMSArray")`
-
-- Description: TODO
+- Role: Defines the shared isampler2 dmsarray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLER3D = new Sampler("isampler3D")`
-
-- Description: TODO
+- Role: Defines the shared isampler3 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLERCUBE = new Sampler("isamplerCube")`
-
-- Description: TODO
+- Role: Defines the shared isamplercube constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLERCUBEARRAY = new Sampler("isamplerCubeArray")`
-
-- Description: TODO
+- Role: Defines the shared isamplercubearray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type ISAMPLERBUFFER = new Sampler("isamplerBuffer")`
-
-- Description: TODO
+- Role: Defines the shared isamplerbuffer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER1D = new Sampler("usampler1D")`
-
-- Description: TODO
+- Role: Defines the shared usampler1 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER1DARRAY = new Sampler("usampler1DArray")`
-
-- Description: TODO
+- Role: Defines the shared usampler1 darray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER2D = new Sampler("usampler2D")`
-
-- Description: TODO
+- Role: Defines the shared usampler2 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER2DARRAY = new Sampler("usampler2DArray")`
-
-- Description: TODO
+- Role: Defines the shared usampler2 darray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER2DMS = new Sampler("usampler2DMS")`
-
-- Description: TODO
+- Role: Defines the shared usampler2 dms constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER2DMSARRAY = new Sampler("usampler2DMSArray")`
-
-- Description: TODO
+- Role: Defines the shared usampler2 dmsarray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLER3D = new Sampler("usampler3D")`
-
-- Description: TODO
+- Role: Defines the shared usampler3 d constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLERCUBE = new Sampler("usamplerCube")`
-
-- Description: TODO
+- Role: Defines the shared usamplercube constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLERCUBEARRAY = new Sampler("usamplerCubeArray")`
-
-- Description: TODO
+- Role: Defines the shared usamplercubearray constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type USAMPLERBUFFER = new Sampler("usamplerBuffer")`
-
-- Description: TODO
+- Role: Defines the shared usamplerbuffer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLER2DSHADOW = new Sampler("sampler2DShadow")`
-
-- Description: TODO
+- Role: Defines the shared sampler2 dshadow constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Type SAMPLERCUBESHADOW = new Sampler("samplerCubeShadow")`
-
-- Description: TODO
+- Role: Defines the shared samplercubeshadow constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private Simple(String name)`
-
-- Description: TODO
+- Role: Performs simple.
+- Description: Supports the simple operation used by the surrounding class.
 
 #### `public String name(Context ctx)`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private Sampler(String name)`
-
-- Description: TODO
+- Role: Performs sampler.
+- Description: Supports the sampler operation used by the surrounding class.
 
 #### `public abstract String name(Context ctx)`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.

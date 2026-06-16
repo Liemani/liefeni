@@ -10,468 +10,468 @@ This file documents the responsibilities and members of `Coord`.
 
 ## Role
 
-Provides integer coordinate math.
+Represents a 2D integer coordinate.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord ZERO = Coord.zero()`
-
-- Description: TODO
+- Role: Defines the shared zero constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public int x, y`
-
-- Description: TODO
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
 #### `public int x, y`
-
-- Description: TODO
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord z = new Coord(0, 0)`
-
-- Description: TODO
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord[] uecw =`
-
-- Description: TODO
+- Role: Stores the coord state.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord[] uccw =`
-
-- Description: TODO
+- Role: Stores the coord state.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord[] upcw =`
-
-- Description: TODO
+- Role: Stores the coord state.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord[] usqc =`
-
-- Description: TODO
+- Role: Stores the coord state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Coord(int x, int y)`
-
-- Description: TODO
+- Role: Creates a new Coord instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord(Coord c)`
-
-- Description: TODO
+- Role: Creates a new Coord instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord(Coord3f c)`
-
-- Description: TODO
+- Role: Creates a new Coord instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord()`
-
-- Description: TODO
+- Role: Creates a new Coord instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord(java.awt.Dimension d)`
-
-- Description: TODO
+- Role: Creates a new Coord instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Coord of(int x, int y)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord of(int x)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord of(Coord c)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord sc(double a, double r)`
-
-- Description: TODO
+- Role: Performs sc.
+- Description: Supports the sc operation used by the surrounding class.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(int X, int Y)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int compareTo(Coord c)`
-
-- Description: TODO
+- Role: Performs compare to.
+- Description: Supports the compare to operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Coord add(int ax, int ay)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord add(Coord b)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord sub(int ax, int ay)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Coord sub(Coord b)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Coord mul(int f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord mul(int fx, int fy)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord mul(double f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord mul(double fx, double fy)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord inv()`
-
-- Description: TODO
+- Role: Performs inv.
+- Description: Supports the inv operation used by the surrounding class.
 
 #### `public Coord mul(Coord f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord2d mul(Coord2d f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord div(Coord d)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord div(int d)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord div(double d)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord mod(Coord d)`
-
-- Description: TODO
+- Role: Performs mod.
+- Description: Supports the mod operation used by the surrounding class.
 
 #### `public boolean isect2(Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Performs isect2.
+- Description: Supports the isect2 operation used by the surrounding class.
 
 #### `public boolean isect(Coord c, Coord s)`
-
-- Description: TODO
+- Role: Performs isect.
+- Description: Supports the isect operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public double angle(Coord o)`
-
-- Description: TODO
+- Role: Performs angle.
+- Description: Supports the angle operation used by the surrounding class.
 
 #### `public double abs()`
-
-- Description: TODO
+- Role: Performs abs.
+- Description: Supports the abs operation used by the surrounding class.
 
 #### `public Coord norm(double n)`
-
-- Description: TODO
+- Role: Performs norm.
+- Description: Supports the norm operation used by the surrounding class.
 
 #### `public double dist(Coord o)`
-
-- Description: TODO
+- Role: Performs dist.
+- Description: Supports the dist operation used by the surrounding class.
 
 #### `public Coord clip(Coord ul, Coord sz)`
-
-- Description: TODO
+- Role: Performs clip.
+- Description: Supports the clip operation used by the surrounding class.
 
 #### `public Coord clip(Area area)`
-
-- Description: TODO
+- Role: Performs clip.
+- Description: Supports the clip operation used by the surrounding class.
 
 #### `public Coord clipi(Area area)`
-
-- Description: TODO
+- Role: Performs clipi.
+- Description: Supports the clipi operation used by the surrounding class.
 
 #### `public Iterable<Coord> offsets(Coord... list)`
-
-- Description: TODO
+- Role: Performs offsets.
+- Description: Supports the offsets operation used by the surrounding class.
 
 #### `public Coord wy(int y)`
-
-- Description: TODO
+- Role: Performs wy.
+- Description: Supports the wy operation used by the surrounding class.
 
 #### `public Coord addy(int dy)`
-
-- Description: TODO
+- Role: Performs addy.
+- Description: Supports the addy operation used by the surrounding class.
 
 #### `public Coord min(int x, int y)`
-
-- Description: TODO
+- Role: Performs min.
+- Description: Supports the min operation used by the surrounding class.
 
 #### `public Coord min(Coord c)`
-
-- Description: TODO
+- Role: Performs min.
+- Description: Supports the min operation used by the surrounding class.
 
 #### `public Coord max(int x, int y)`
-
-- Description: TODO
+- Role: Performs max.
+- Description: Supports the max operation used by the surrounding class.
 
 #### `public Coord max(Coord c)`
-
-- Description: TODO
+- Role: Performs max.
+- Description: Supports the max operation used by the surrounding class.
 
 #### `public int max()`
-
-- Description: TODO
+- Role: Performs max.
+- Description: Supports the max operation used by the surrounding class.
 
 #### `public int min()`
-
-- Description: TODO
+- Role: Performs min.
+- Description: Supports the min operation used by the surrounding class.
 
 #### `public void init(int x, int y)`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public void init(Coord coord)`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Coord assign(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign.
+- Description: Supports the assign operation used by the surrounding class.
 
 #### `public Coord assign(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign.
+- Description: Supports the assign operation used by the surrounding class.
 
 #### `public static Coord of(haven.Coord2d coord2d)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord zero()`
-
-- Description: TODO
+- Role: Performs zero.
+- Description: Supports the zero operation used by the surrounding class.
 
 #### `public haven.Coord2d toCoord2d()`
-
-- Description: TODO
+- Role: Performs to coord2d.
+- Description: Supports the to coord2d operation used by the surrounding class.
 
 #### `public boolean equals(Coord coord)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public Coord subtract(int x, int y)`
-
-- Description: TODO
+- Role: Performs subtract.
+- Description: Supports the subtract operation used by the surrounding class.
 
 #### `public Coord multiply(int x, int y)`
-
-- Description: TODO
+- Role: Performs multiply.
+- Description: Supports the multiply operation used by the surrounding class.
 
 #### `public Coord divide(int x, int y)`
-
-- Description: TODO
+- Role: Performs divide.
+- Description: Supports the divide operation used by the surrounding class.
 
 #### `public Coord floorDivide(int x, int y)`
-
-- Description: TODO
+- Role: Performs floor divide.
+- Description: Supports the floor divide operation used by the surrounding class.
 
 #### `public Coord ceilDivide(int x, int y)`
-
-- Description: TODO
+- Role: Performs ceil divide.
+- Description: Supports the ceil divide operation used by the surrounding class.
 
 #### `public Coord subtract(Coord coord)`
-
-- Description: TODO
+- Role: Performs subtract.
+- Description: Supports the subtract operation used by the surrounding class.
 
 #### `public Coord multiply(Coord coord)`
-
-- Description: TODO
+- Role: Performs multiply.
+- Description: Supports the multiply operation used by the surrounding class.
 
 #### `public Coord divide(Coord coord)`
-
-- Description: TODO
+- Role: Performs divide.
+- Description: Supports the divide operation used by the surrounding class.
 
 #### `public Coord floorDivide(Coord coord)`
-
-- Description: TODO
+- Role: Performs floor divide.
+- Description: Supports the floor divide operation used by the surrounding class.
 
 #### `public Coord ceilDivide(Coord coord)`
-
-- Description: TODO
+- Role: Performs ceil divide.
+- Description: Supports the ceil divide operation used by the surrounding class.
 
 #### `public Coord add(int value)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord subtract(int value)`
-
-- Description: TODO
+- Role: Performs subtract.
+- Description: Supports the subtract operation used by the surrounding class.
 
 #### `public Coord multiply(int value)`
-
-- Description: TODO
+- Role: Performs multiply.
+- Description: Supports the multiply operation used by the surrounding class.
 
 #### `public Coord divide(int value)`
-
-- Description: TODO
+- Role: Performs divide.
+- Description: Supports the divide operation used by the surrounding class.
 
 #### `public Coord floorDivide(int value)`
-
-- Description: TODO
+- Role: Performs floor divide.
+- Description: Supports the floor divide operation used by the surrounding class.
 
 #### `public Coord ceilDivide(int value)`
-
-- Description: TODO
+- Role: Performs ceil divide.
+- Description: Supports the ceil divide operation used by the surrounding class.
 
 #### `public Coord assignAdd(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign add.
+- Description: Supports the assign add operation used by the surrounding class.
 
 #### `public Coord assignSubtract(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign subtract.
+- Description: Supports the assign subtract operation used by the surrounding class.
 
 #### `public Coord assignMultiply(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign multiply.
+- Description: Supports the assign multiply operation used by the surrounding class.
 
 #### `public Coord assignDivide(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign divide.
+- Description: Supports the assign divide operation used by the surrounding class.
 
 #### `public Coord assignFloorDivide(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign floor divide.
+- Description: Supports the assign floor divide operation used by the surrounding class.
 
 #### `public Coord assignCeilDivide(int x, int y)`
-
-- Description: TODO
+- Role: Performs assign ceil divide.
+- Description: Supports the assign ceil divide operation used by the surrounding class.
 
 #### `public Coord assignAdd(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign add.
+- Description: Supports the assign add operation used by the surrounding class.
 
 #### `public Coord assignSubtract(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign subtract.
+- Description: Supports the assign subtract operation used by the surrounding class.
 
 #### `public Coord assignMultiply(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign multiply.
+- Description: Supports the assign multiply operation used by the surrounding class.
 
 #### `public Coord assignDivide(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign divide.
+- Description: Supports the assign divide operation used by the surrounding class.
 
 #### `public Coord assignFloorDivide(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign floor divide.
+- Description: Supports the assign floor divide operation used by the surrounding class.
 
 #### `public Coord assignCeilDivide(Coord coord)`
-
-- Description: TODO
+- Role: Performs assign ceil divide.
+- Description: Supports the assign ceil divide operation used by the surrounding class.
 
 #### `public Coord assignAdd(int value)`
-
-- Description: TODO
+- Role: Performs assign add.
+- Description: Supports the assign add operation used by the surrounding class.
 
 #### `public Coord assignSubtract(int value)`
-
-- Description: TODO
+- Role: Performs assign subtract.
+- Description: Supports the assign subtract operation used by the surrounding class.
 
 #### `public Coord assignMultiply(int value)`
-
-- Description: TODO
+- Role: Performs assign multiply.
+- Description: Supports the assign multiply operation used by the surrounding class.
 
 #### `public Coord assignDivide(int value)`
-
-- Description: TODO
+- Role: Performs assign divide.
+- Description: Supports the assign divide operation used by the surrounding class.
 
 #### `public Coord assignFloorDivide(int value)`
-
-- Description: TODO
+- Role: Performs assign floor divide.
+- Description: Supports the assign floor divide operation used by the surrounding class.
 
 #### `public Coord assignCeilDivide(int value)`
-
-- Description: TODO
+- Role: Performs assign ceil divide.
+- Description: Supports the assign ceil divide operation used by the surrounding class.
 
 #### `public Coord assignAdd(double value)`
-
-- Description: TODO
+- Role: Performs assign add.
+- Description: Supports the assign add operation used by the surrounding class.
 
 #### `public Coord assignSubtract(double value)`
-
-- Description: TODO
+- Role: Performs assign subtract.
+- Description: Supports the assign subtract operation used by the surrounding class.
 
 #### `public Coord assignMultiply(double value)`
-
-- Description: TODO
+- Role: Performs assign multiply.
+- Description: Supports the assign multiply operation used by the surrounding class.
 
 #### `public Coord assignDivide(double value)`
-
-- Description: TODO
+- Role: Performs assign divide.
+- Description: Supports the assign divide operation used by the surrounding class.
 
 #### `public Coord assignFloorDivide(double value)`
-
-- Description: TODO
+- Role: Performs assign floor divide.
+- Description: Supports the assign floor divide operation used by the surrounding class.
 
 #### `public Coord assignCeilDivide(double value)`
-
-- Description: TODO
+- Role: Performs assign ceil divide.
+- Description: Supports the assign ceil divide operation used by the surrounding class.
 
 #### `public Coord center()`
-
-- Description: TODO
+- Role: Performs center.
+- Description: Supports the center operation used by the surrounding class.
 
 #### `public Coord north()`
-
-- Description: TODO
+- Role: Performs north.
+- Description: Supports the north operation used by the surrounding class.
 
 #### `public Coord east()`
-
-- Description: TODO
+- Role: Performs east.
+- Description: Supports the east operation used by the surrounding class.
 
 #### `public Coord west()`
-
-- Description: TODO
+- Role: Performs west.
+- Description: Supports the west operation used by the surrounding class.
 
 #### `public Coord south()`
-
-- Description: TODO
+- Role: Performs south.
+- Description: Supports the south operation used by the surrounding class.
 
 #### `public Coord offset(int x, int y)`
-
-- Description: TODO
+- Role: Performs offset.
+- Description: Supports the offset operation used by the surrounding class.
 
 #### `public Coord tileMin()`
-
-- Description: TODO
+- Role: Performs tile min.
+- Description: Supports the tile min operation used by the surrounding class.
 
 #### `public Coord tileMax()`
-
-- Description: TODO
+- Role: Performs tile max.
+- Description: Supports the tile max operation used by the surrounding class.
 
 #### `public double diagonal()`
-
-- Description: TODO
+- Role: Performs diagonal.
+- Description: Supports the diagonal operation used by the surrounding class.
 
 #### `public double distance(Coord coord)`
-
-- Description: TODO
+- Role: Returns the distance from the local player.
+- Description: Measures the distance from the current local player position.
 
 #### `public int rectilinearDistance(Coord coord)`
-
-- Description: TODO
+- Role: Performs rectilinear distance.
+- Description: Supports the rectilinear distance operation used by the surrounding class.

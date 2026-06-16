@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SaveBatchResult`.
 
 ## Role
 
-Carries a typed result payload for waypoint work.
+Provides waypoint persistence support for save batch result.
 
 ## Members
 
@@ -21,5 +21,5 @@ Carries a typed result payload for waypoint work.
 ### Methods
 
 #### `public SaveBatchResult()`
-
-- Description: TODO
+- Role: Creates a new SaveBatchResult instance.
+- Description: Constructs the instance and initializes its default state.

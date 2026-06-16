@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ShaderContext`.
 
 ## Role
 
-Represents shader context state.
+Represents the shader context shader-language AST node.
 
 ## Members
 
@@ -19,11 +19,11 @@ Represents shader context state.
 ### Fields
 
 #### `public final ProgramContext prog`
-
-- Description: TODO
+- Role: Stores the prog value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ShaderContext(ProgramContext prog)`
-
-- Description: TODO
+- Role: Creates a new ShaderContext instance.
+- Description: Constructs the instance and initializes its default state.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `PosLight`.
 
 ## Role
 
-Represents a positional light source.
+Represents the pos light Haven component.
 
 ## Members
 
@@ -19,55 +19,55 @@ Represents a positional light source.
 ### Fields
 
 #### `public float[] pos`
-
-- Description: TODO
-
-#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-
-- Description: TODO
+- Role: Stores the pos value.
+- Description: Backs the cached state for this file.
 
 #### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-
-- Description: TODO
-
-#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-
-- Description: TODO
+- Role: Stores the ac value.
+- Description: Backs the cached state for this file.
 
 #### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
+- Role: Stores the ac value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
+- Role: Stores the ac value.
+- Description: Backs the cached state for this file.
+
+#### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
+- Role: Stores the ac value.
+- Description: Backs the cached state for this file.
 
 #### `public static float atoverride = 0`
-
-- Description: TODO
+- Role: Stores the atoverride value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PosLight(FColor col, Coord3f pos)`
-
-- Description: TODO
+- Role: Creates a new PosLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PosLight(Color col, Coord3f pos)`
-
-- Description: TODO
+- Role: Creates a new PosLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PosLight(FColor amb, FColor dif, FColor spc, Coord3f pos)`
-
-- Description: TODO
+- Role: Creates a new PosLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PosLight(Color amb, Color dif, Color spc, Coord3f pos)`
-
-- Description: TODO
+- Role: Creates a new PosLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void move(Coord3f pos)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void att(float c, float l, float q)`
-
-- Description: TODO
+- Role: Performs att.
+- Description: Supports the att operation used by the surrounding class.
 
 #### `public Object[] params(GroupPipe state)`
-
-- Description: TODO
+- Role: Performs params.
+- Description: Supports the params operation used by the surrounding class.

@@ -10,470 +10,479 @@ This file documents the responsibilities and members of `Composited`.
 
 ## Role
 
-Handles composited render state and clicks.
+Represents the composited Haven component.
 
 ## Nested Types
 
 ### CompositeClick
 
-- Description: TODO
+- Role: Represents composite click within Composited.
+- Description: Describes the nested composite click type used by the enclosing class.
 
 ### Desc
 
-- Description: TODO
+- Role: Represents desc within Composited.
+- Description: Describes the nested desc type used by the enclosing class.
 
 ### ED
 
-- Description: TODO
+- Role: Represents ed within Composited.
+- Description: Describes the nested ed type used by the enclosing class.
 
 ### Equipped
 
-- Description: TODO
+- Role: Represents equipped within Composited.
+- Description: Describes the nested equipped type used by the enclosing class.
 
 ### Layer
 
-- Description: TODO
+- Role: Represents layer within Composited.
+- Description: Describes the nested layer type used by the enclosing class.
 
 ### MD
 
-- Description: TODO
+- Role: Represents md within Composited.
+- Description: Describes the nested md type used by the enclosing class.
 
 ### ModOrder
 
-- Description: TODO
+- Role: Represents mod order within Composited.
+- Description: Describes the nested mod order type used by the enclosing class.
 
 ### Model
 
-- Description: TODO
+- Role: Represents model within Composited.
+- Description: Describes the nested model type used by the enclosing class.
 
 ### Poses
 
-- Description: TODO
+- Role: Represents poses within Composited.
+- Description: Describes the nested poses type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Comparator<ModOrder> cmp = new Comparator<ModOrder>()`
-
-- Description: TODO
+- Role: Defines the shared cmp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<Equipped> eqctxr = new OwnerContext.ClassResolver<Equipped>()`
-
-- Description: TODO
+- Role: Defines the shared eqctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Pipe.Op prep = p ->`
-
-- Description: TODO
+- Role: Defines the shared prep constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Skeleton skel`
-
-- Description: TODO
+- Role: Holds the skel state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pose pose`
-
-- Description: TODO
+- Role: Holds the pose state.
+- Description: Backs the cached state for this file.
 
 #### `public final OwnerContext eqowner`
-
-- Description: TODO
+- Role: Stores the eqowner value.
+- Description: Backs the cached state for this file.
 
 #### `public Collection<Model> mod = new ArrayList<Model>()`
-
-- Description: TODO
+- Role: Caches mod entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Collection<Equipped> equ = new ArrayList<Equipped>()`
-
-- Description: TODO
+- Role: Caches equ entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Poses poses = new Poses()`
-
-- Description: TODO
+- Role: Holds the poses state.
+- Description: Backs the cached state for this file.
 
 #### `public List<MD> cmod = new LinkedList<MD>()`
-
-- Description: TODO
+- Role: Caches cmod entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public List<ED> cequ = new LinkedList<ED>()`
-
-- Description: TODO
+- Role: Caches cequ entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final PoseMod[] mods`
-
-- Description: TODO
+- Role: Holds the mods state.
+- Description: Backs the cached state for this file.
 
 #### `Pose old`
-
-- Description: TODO
-
-#### `float ipold = 0.0f, ipol = 0.0f`
-
-- Description: TODO
+- Role: Holds the old state.
+- Description: Backs the cached state for this file.
 
 #### `float ipold = 0.0f, ipol = 0.0f`
+- Role: Stores the ipold value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `float ipold = 0.0f, ipol = 0.0f`
+- Role: Stores the ipold value.
+- Description: Backs the cached state for this file.
 
 #### `public float limit = -1.0f`
-
-- Description: TODO
-
-#### `public boolean stat, ldone`
-
-- Description: TODO
+- Role: Stores the limit value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean stat, ldone`
+- Role: Tracks the ldone flag.
+- Description: Supports the ldone operation used by the surrounding class.
 
-- Description: TODO
+#### `public boolean stat, ldone`
+- Role: Tracks the ldone flag.
+- Description: Supports the ldone operation used by the surrounding class.
 
 #### `private Random srnd = new Random()`
-
-- Description: TODO
+- Role: Holds the srnd state.
+- Description: Backs the cached state for this file.
 
 #### `private float rsmod = (srnd.nextFloat() * 0.1f) + 0.95f`
-
-- Description: TODO
-
-#### `public final int z1, z2`
-
-- Description: TODO
+- Role: Stores the rsmod value.
+- Description: Backs the cached state for this file.
 
 #### `public final int z1, z2`
+- Role: Stores the z2 value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int z1, z2`
+- Role: Stores the z2 value.
+- Description: Backs the cached state for this file.
 
 #### `public final FastMesh m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `public final PoseMorph morph`
-
-- Description: TODO
+- Role: Holds the morph state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
-
-#### `private int z = 0, lz = 0`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int z = 0, lz = 0`
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int z = 0, lz = 0`
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `public final Material mat`
-
-- Description: TODO
+- Role: Holds the mat state.
+- Description: Backs the cached state for this file.
 
 #### `public final ModOrder order`
-
-- Description: TODO
+- Role: Holds the order state.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Layer> lay = new ArrayList<Layer>()`
-
-- Description: TODO
+- Role: Caches lay entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Sprite spr`
-
-- Description: TODO
+- Role: Holds the spr state.
+- Description: Backs the cached state for this file.
 
 #### `private final RUtils.StateNode<Sprite> n`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `public final ED desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> mod`
-
-- Description: TODO
+- Role: Stores the mod value.
+- Description: Backs the cached state for this file.
 
 #### `public List<ResData> tex`
-
-- Description: TODO
+- Role: Caches tex entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int id = -1`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private Model real`
-
-- Description: TODO
-
-#### `public int t, id = -1`
-
-- Description: TODO
+- Role: Holds the real state.
+- Description: Backs the cached state for this file.
 
 #### `public int t, id = -1`
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int t, id = -1`
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public String at`
-
-- Description: TODO
+- Role: Stores the at value.
+- Description: Backs the cached state for this file.
 
 #### `public ResData res`
-
-- Description: TODO
+- Role: Holds the res state.
+- Description: Backs the cached state for this file.
 
 #### `public Coord3f off`
-
-- Description: TODO
+- Role: Stores the off value.
+- Description: Backs the cached state for this file.
 
 #### `private Equipped real`
-
-- Description: TODO
+- Role: Stores the real value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `public List<MD> mod = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches mod entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public List<ED> equ = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches equ entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Material.Owner matowner = new Material.Owner()`
-
-- Description: TODO
+- Role: Holds the matowner state.
+- Description: Backs the cached state for this file.
 
 #### `public final Gob.GobClick gi`
-
-- Description: TODO
+- Role: Stores the gi value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Poses()`
-
-- Description: TODO
+- Role: Performs poses.
+- Description: Supports the poses operation used by the surrounding class.
 
 #### `public Poses(List<? extends PoseMod> mods)`
-
-- Description: TODO
+- Role: Performs poses.
+- Description: Supports the poses operation used by the surrounding class.
 
 #### `private void rebuild()`
-
-- Description: TODO
+- Role: Performs rebuild.
+- Description: Supports the rebuild operation used by the surrounding class.
 
 #### `public void set(float ipol)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void tick(float dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `protected void done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public Composited(Skeleton skel, OwnerContext eqowner)`
-
-- Description: TODO
+- Role: Creates a new Composited instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Composited(Skeleton skel)`
-
-- Description: TODO
+- Role: Creates a new Composited instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ModOrder(int z1, int z2)`
-
-- Description: TODO
+- Role: Performs mod order.
+- Description: Supports the mod order operation used by the surrounding class.
 
 #### `public int mainorder()`
-
-- Description: TODO
+- Role: Performs mainorder.
+- Description: Supports the mainorder operation used by the surrounding class.
 
 #### `public Comparator<ModOrder> comparator()`
-
-- Description: TODO
+- Role: Performs comparator.
+- Description: Supports the comparator operation used by the surrounding class.
 
 #### `private Layer(Material mat, int z1, int z2)`
-
-- Description: TODO
+- Role: Performs layer.
+- Description: Supports the layer operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `private Model(FastMesh m, int id)`
-
-- Description: TODO
+- Role: Performs model.
+- Description: Supports the model operation used by the surrounding class.
 
 #### `private void addlay(Material mat)`
-
-- Description: TODO
+- Role: Performs addlay.
+- Description: Supports the addlay operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public TickList.Ticking ticker()`
-
-- Description: TODO
+- Role: Performs ticker.
+- Description: Supports the ticker operation used by the surrounding class.
 
 #### `public void autotick(double dt)`
-
-- Description: TODO
+- Role: Performs autotick.
+- Description: Supports the autotick operation used by the surrounding class.
 
 #### `private Equipped(ED ed)`
-
-- Description: TODO
+- Role: Performs equipped.
+- Description: Supports the equipped operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public Composited comp()`
-
-- Description: TODO
+- Role: Performs comp.
+- Description: Supports the comp operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public MD(Indir<Resource> mod, List<ResData> tex)`
-
-- Description: TODO
+- Role: Performs md.
+- Description: Supports the md operation used by the surrounding class.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public MD clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public ED(int t, String at, ResData res, Coord3f off)`
-
-- Description: TODO
+- Role: Performs ed.
+- Description: Supports the ed operation used by the surrounding class.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals2(Object o)`
-
-- Description: TODO
+- Role: Performs equals2.
+- Description: Supports the equals2 operation used by the surrounding class.
 
 #### `public ED clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public Desc(Indir<Resource> base)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public static Desc decode(Resource.Resolver sess, Object[] args)`
-
-- Description: TODO
+- Role: Performs decode.
+- Description: Supports the decode operation used by the surrounding class.
 
 #### `public Desc clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private Collection<Model> nmod(Collection<MD> nmod)`
-
-- Description: TODO
+- Role: Performs nmod.
+- Description: Supports the nmod operation used by the surrounding class.
 
 #### `private Collection<Equipped> nequ(List<ED> nequ)`
-
-- Description: TODO
+- Role: Performs nequ.
+- Description: Supports the nequ operation used by the surrounding class.
 
 #### `public CompositeClick(Gob.GobClick gi)`
-
-- Description: TODO
+- Role: Performs composite click.
+- Description: Supports the composite click operation used by the surrounding class.
 
 #### `public Object[] clickargs(ClickData cd)`
-
-- Description: TODO
+- Role: Performs clickargs.
+- Description: Supports the clickargs operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private void parts(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs parts.
+- Description: Supports the parts operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
-
-- Description: TODO
+- Role: Performs eqpoint.
+- Description: Supports the eqpoint operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public void chmod(List<MD> mod)`
-
-- Description: TODO
+- Role: Performs chmod.
+- Description: Supports the chmod operation used by the surrounding class.
 
 #### `public void chequ(List<ED> equ)`
-
-- Description: TODO
+- Role: Performs chequ.
+- Description: Supports the chequ operation used by the surrounding class.

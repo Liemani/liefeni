@@ -10,76 +10,76 @@ This file documents the responsibilities and members of `HSlider`.
 
 ## Role
 
-Displays a horizontal slider widget.
+Represents the hslider Haven component.
 
 ## Members
 
 ### Constants
 
 #### `static final Tex sflarp = Resource.loadtex("gfx/hud/sflarp")`
-
-- Description: TODO
+- Role: Defines the shared sflarp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Tex schain`
-
-- Description: TODO
+- Role: Defines the shared schain constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final int chcut = UI.scale(7)`
-
-- Description: TODO
+- Role: Defines the shared chcut constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public int val, min, max`
-
-- Description: TODO
-
-#### `public int val, min, max`
-
-- Description: TODO
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
 #### `public int val, min, max`
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int val, min, max`
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab drag = null`
-
-- Description: TODO
+- Role: Stores the drag value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public HSlider(int w, int min, int max, int val)`
-
-- Description: TODO
+- Role: Creates a new HSlider instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private void update(Coord c)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public void changed()`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public void fchanged()`
-
-- Description: TODO
+- Role: Performs fchanged.
+- Description: Supports the fchanged operation used by the surrounding class.
 
 #### `public void resize(int w)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.

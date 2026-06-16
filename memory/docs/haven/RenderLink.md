@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RenderLink`.
 
 ## Role
 
-Links render state or resources.
+Represents the render link Haven component.
 
 ## Members
 
@@ -19,175 +19,175 @@ Links render state or resources.
 ### Fields
 
 #### `public final Resource srcres`
-
-- Description: TODO
-
-#### `public final Indir<Resource> mesh, mat`
-
-- Description: TODO
+- Role: Stores the srcres value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> mesh, mat`
+- Role: Stores the mat value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Indir<Resource> mesh, mat`
+- Role: Stores the mat value.
+- Description: Backs the cached state for this file.
 
 #### `public final int meshid, matid`
-
-- Description: TODO
+- Role: Stores the matid value.
+- Description: Backs the cached state for this file.
 
 #### `public final int meshid, matid`
-
-- Description: TODO
+- Role: Stores the matid value.
+- Description: Backs the cached state for this file.
 
 #### `private Node res = null`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> from`
-
-- Description: TODO
-
-#### `public final int meshid, meshmask`
-
-- Description: TODO
+- Role: Stores the from value.
+- Description: Backs the cached state for this file.
 
 #### `public final int meshid, meshmask`
+- Role: Stores the meshmask value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int meshid, meshmask`
+- Role: Stores the meshmask value.
+- Description: Backs the cached state for this file.
 
 #### `private Node res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource from`
-
-- Description: TODO
+- Role: Stores the from value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object[] args`
-
-- Description: TODO
+- Role: Holds the args state.
+- Description: Backs the cached state for this file.
 
 #### `private Resource lres`
-
-- Description: TODO
+- Role: Stores the lres value.
+- Description: Backs the cached state for this file.
 
 #### `private RenderLink link = null`
-
-- Description: TODO
+- Role: Holds the link state.
+- Description: Backs the cached state for this file.
 
 #### `public transient final RenderLink l`
-
-- Description: TODO
+- Role: Holds the l state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<String, Object> info`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public Node make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public default Node make()`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public MeshMat(Resource srcres, Indir<Resource> mesh, int meshid, Indir<Resource> mat, int matid)`
-
-- Description: TODO
+- Role: Performs mesh mat.
+- Description: Supports the mesh mat operation used by the surrounding class.
 
 #### `public static MeshMat parse(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public Node make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public AmbientLink(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs ambient link.
+- Description: Supports the ambient link operation used by the surrounding class.
 
 #### `public static AmbientLink parse(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public Node make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public Collect(Indir<Resource> from, int meshid, int meshmask)`
-
-- Description: TODO
+- Role: Performs collect.
+- Description: Supports the collect operation used by the surrounding class.
 
 #### `public static Collect parse(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public Node make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public ResSprite(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs res sprite.
+- Description: Supports the res sprite operation used by the surrounding class.
 
 #### `public static ResSprite parse(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public Node make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public Parameters(Resource from, Indir<Resource> res, Object[] args)`
-
-- Description: TODO
+- Role: Performs parameters.
+- Description: Supports the parameters operation used by the surrounding class.
 
 #### `public static Parameters parse(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public Node make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public ArgMaker()`
-
-- Description: TODO
+- Role: Performs arg maker.
+- Description: Supports the arg maker operation used by the surrounding class.
 
 #### `public RenderLink parse(Resource res, Object... args)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public Res(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs res.
+- Description: Supports the res operation used by the surrounding class.
 
 #### `public Integer layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.
 
 #### `public Map<String, Object> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.

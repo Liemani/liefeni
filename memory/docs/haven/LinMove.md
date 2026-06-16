@@ -10,78 +10,80 @@ This file documents the responsibilities and members of `LinMove`.
 
 ## Role
 
-Represents linear movement behavior.
+Represents the lin move Haven component.
 
 ## Nested Types
 
 ### $linbeg
 
-- Description: TODO
+- Role: Represents $linbeg within LinMove.
+- Description: Describes the nested $linbeg type used by the enclosing class.
 
 ### $linstep
 
-- Description: TODO
+- Role: Represents $linstep within LinMove.
+- Description: Describes the nested $linstep type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final double MAXOVER = 0.5`
-
-- Description: TODO
+- Role: Defines the shared maxover constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Coord2d s, v`
-
-- Description: TODO
+- Role: Stores the v value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord2d s, v`
-
-- Description: TODO
-
-#### `public double t, lt, e`
-
-- Description: TODO
+- Role: Stores the v value.
+- Description: Backs the cached state for this file.
 
 #### `public double t, lt, e`
-
-- Description: TODO
+- Role: Stores the e value.
+- Description: Backs the cached state for this file.
 
 #### `public double t, lt, e`
+- Role: Stores the e value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double t, lt, e`
+- Role: Stores the e value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean ts = false`
-
-- Description: TODO
+- Role: Tracks the ts flag.
+- Description: Supports the ts operation used by the surrounding class.
 
 ### Methods
 
 #### `public LinMove(Gob gob, Coord2d s, Coord2d v)`
-
-- Description: TODO
+- Role: Creates a new LinMove instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord3f getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `public double getv()`
-
-- Description: TODO
+- Role: Returns the avatar value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void ctick(double dt)`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void sett(double t)`
-
-- Description: TODO
-
-#### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Performs sett.
+- Description: Supports the sett operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
-- Description: TODO
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

@@ -10,13 +10,16 @@ This file documents the responsibilities and members of `CommandHandler`.
 
 ## Role
 
-Registers and dispatches console commands.
+Dispatches lifecycle commands into the runtime.
 
 ## Nested Types
 
 ### ACommand
+### ACommand
+- Role: Represents the acommand helper used by CommandHandler.
 
-- Description: TODO
+- Role: Wraps one lifecycle command definition.
+- Description: Describes the nested acommand type used by the enclosing class.
 
 ## Members
 
@@ -27,9 +30,9 @@ Registers and dispatches console commands.
 ### Methods
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public void run(Console cons, String[] args) throws Exception`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.

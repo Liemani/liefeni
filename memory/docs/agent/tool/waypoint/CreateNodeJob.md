@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `CreateNodeJob`.
 
 ## Role
 
-Provides a waypoint tool job entry point.
+Implements a waypoint job for create node job.
 
 ## Members
 
@@ -21,17 +21,17 @@ Provides a waypoint tool job entry point.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private static void _createNodeAtCurrentPositionAsync(String nodeName)`
-
-- Description: TODO
+- Role: Performs  create node at current position async.
+- Description: Supports the create node at current position async operation used by the surrounding class.
 
 #### `private static String _inputNodeName()`
-
-- Description: TODO
+- Role: Performs  input node name.
+- Description: Supports the input node name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

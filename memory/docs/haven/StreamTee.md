@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `StreamTee`.
 
 ## Role
 
-Duplicates stream output.
+Represents the stream tee Haven component.
 
 ## Members
 
@@ -19,63 +19,63 @@ Duplicates stream output.
 ### Fields
 
 #### `private InputStream in`
-
-- Description: TODO
+- Role: Holds the in state.
+- Description: Backs the cached state for this file.
 
 #### `private List<OutputStream> forked = new LinkedList<OutputStream>()`
-
-- Description: TODO
+- Role: Caches forked entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean readeof = false`
-
-- Description: TODO
+- Role: Tracks the readeof flag.
+- Description: Supports the readeof operation used by the surrounding class.
 
 #### `private boolean ncwe = false; /* NCWE = No Close Without EOF */`
-
-- Description: TODO
+- Role: Tracks the ncwe flag.
+- Description: Supports the ncwe operation used by the surrounding class.
 
 ### Methods
 
 #### `public StreamTee(InputStream in)`
-
-- Description: TODO
+- Role: Creates a new StreamTee instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int available() throws IOException`
-
-- Description: TODO
+- Role: Handles the available workflow.
+- Description: Supports the available operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public void setncwe()`
-
-- Description: TODO
+- Role: Performs setncwe.
+- Description: Supports the setncwe operation used by the surrounding class.
 
 #### `public void flush() throws IOException`
-
-- Description: TODO
+- Role: Handles the flush workflow.
+- Description: Supports the flush operation used by the surrounding class.
 
 #### `public void mark(int limit)`
-
-- Description: TODO
+- Role: Performs mark.
+- Description: Supports the mark operation used by the surrounding class.
 
 #### `public boolean markSupported()`
-
-- Description: TODO
+- Role: Performs mark supported.
+- Description: Supports the mark supported operation used by the surrounding class.
 
 #### `public int read() throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int read(byte[] buf, int off, int len) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public void reset() throws IOException`
-
-- Description: TODO
+- Role: Handles the reset workflow.
+- Description: Supports the reset operation used by the surrounding class.
 
 #### `public void attach(OutputStream s)`
-
-- Description: TODO
+- Role: Performs attach.
+- Description: Supports the attach operation used by the surrounding class.

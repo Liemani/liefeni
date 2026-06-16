@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `EventHandler`.
 
 ## Role
 
-Dispatches Haven input or UI events.
+Represents the event handler Haven component.
 
 ## Members
 
@@ -19,39 +19,39 @@ Dispatches Haven input or UI events.
 ### Fields
 
 #### `public final Class<E> t`
-
-- Description: TODO
+- Role: Holds the t state.
+- Description: Backs the cached state for this file.
 
 #### `public final EventHandler<? super E> h`
-
-- Description: TODO
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
 #### `public final EventHandler<? super E> bk`
-
-- Description: TODO
+- Role: Stores the bk value.
+- Description: Backs the cached state for this file.
 
 #### `public final Predicate<? super E> sel`
-
-- Description: TODO
+- Role: Holds the sel state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public boolean handle(E ev)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public Listener(Class<E> t, EventHandler<? super E> h)`
-
-- Description: TODO
+- Role: Performs listener.
+- Description: Supports the listener operation used by the surrounding class.
 
 #### `public boolean check(Object ev)`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public Filter(EventHandler<? super E> bk, Predicate<? super E> sel)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public boolean handle(E ev)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.

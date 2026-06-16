@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `FragTarget`.
 
 ## Role
 
-Represents a fragment render target.
+Defines the frag target render pipeline component.
 
 ## Members
 
@@ -19,47 +19,47 @@ Represents a fragment render target.
 ### Fields
 
 #### `public Object buf`
-
-- Description: TODO
+- Role: Holds the buf state.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean mask[] =`
-
-- Description: TODO
+- Role: Tracks whether  is active.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public BlendMode blend = null`
-
-- Description: TODO
+- Role: Holds the blend state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public FragTarget(Object buf)`
-
-- Description: TODO
+- Role: Creates a new FragTarget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FragTarget blend(BlendMode blend)`
-
-- Description: TODO
+- Role: Performs blend.
+- Description: Supports the blend operation used by the surrounding class.
 
 #### `public FragTarget mask(boolean r, boolean g, boolean b, boolean a)`
-
-- Description: TODO
+- Role: Performs mask.
+- Description: Supports the mask operation used by the surrounding class.
 
 #### `public FragTarget mask(boolean[] mask)`
-
-- Description: TODO
+- Role: Performs mask.
+- Description: Supports the mask operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(FragTarget that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ReportException`.
 
 ## Role
 
-Represents an exception suitable for reporting.
+Handles Haven error reporting for report exception.
 
 ## Members
 
@@ -21,5 +21,5 @@ Represents an exception suitable for reporting.
 ### Methods
 
 #### `public ReportException(String message)`
-
-- Description: TODO
+- Role: Creates a new ReportException instance.
+- Description: Constructs the instance and initializes its default state.

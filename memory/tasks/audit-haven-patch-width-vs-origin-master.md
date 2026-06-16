@@ -1,8 +1,6 @@
-# Task
+# `origin/master`와 비교해서 Haven 쪽 patch가 과하게 넓어진 부분이 있는지 다시 검증하기
 
-## Title
-
-`origin/master`와 비교해서 Haven 쪽 patch가 과하게 넓어진 부분이 있는지 다시 검증하기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

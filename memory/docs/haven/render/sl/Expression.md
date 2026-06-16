@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Expression`.
 
 ## Role
 
-Represents a shader expression.
+Represents the expression shader-language AST node.
 
 ## Members
 

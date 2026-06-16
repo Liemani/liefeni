@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `GobHealth`.
 
 ## Role
 
-Tracks gob health or health display state.
+Represents the gob health Haven component.
 
 ## Nested Types
 
 ### $health
 
-- Description: TODO
+- Role: Represents $health within GobHealth.
+- Description: Describes the nested $health type used by the enclosing class.
 
 ## Members
 
@@ -25,23 +26,23 @@ Tracks gob health or health display state.
 ### Fields
 
 #### `public final float hp`
-
-- Description: TODO
+- Role: Stores the hp value.
+- Description: Backs the cached state for this file.
 
 #### `public final Pipe.Op fx`
-
-- Description: TODO
+- Role: Holds the fx state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GobHealth(Gob g, float hp)`
-
-- Description: TODO
+- Role: Creates a new GobHealth instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Pipe.Op gobstate()`
-
-- Description: TODO
+- Role: Performs gobstate.
+- Description: Supports the gobstate operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

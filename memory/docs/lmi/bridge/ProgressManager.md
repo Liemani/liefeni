@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ProgressManager`.
 
 ## Role
 
-Tracks a `GameUI.Progress` widget and waits for it to appear and disappear around blocking actions.
+Tracks progress widgets and reports progress lifecycle changes to LMI.
 
 ## Members
 
@@ -19,27 +19,27 @@ Tracks a `GameUI.Progress` widget and waits for it to appear and disappear aroun
 ### Fields
 
 #### `private static haven.GameUI.Progress _widget = null`
-
-- Description: TODO
+- Role: Stores the widget value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static void setWidget(haven.GameUI.Progress widget)`
-
-- Description: TODO
+- Role: Sets the widget.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void waitProgress()`
-
-- Description: TODO
+- Role: Performs wait progress.
+- Description: Supports the wait progress operation used by the surrounding class.
 
 #### `private static boolean _isProgressing()`
-
-- Description: TODO
+- Role: Performs  is progressing.
+- Description: Supports the is progressing operation used by the surrounding class.
 
 #### `private static void _waitProgressAdded()`
-
-- Description: TODO
+- Role: Performs  wait progress added.
+- Description: Supports the wait progress added operation used by the surrounding class.
 
 #### `private static void waitProgressDestroyed()`
-
-- Description: TODO
+- Role: Performs wait progress destroyed.
+- Description: Supports the wait progress destroyed operation used by the surrounding class.

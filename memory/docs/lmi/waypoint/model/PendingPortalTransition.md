@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `PendingPortalTransition
 
 ## Role
 
-Provides the `PendingPortalTransition` functionality.
+Represents waypoint model data for pending portal transition.
 
 ## Members
 
@@ -19,11 +19,11 @@ Provides the `PendingPortalTransition` functionality.
 ### Fields
 
 #### `public final String entryPortalResname`
-
-- Description: TODO
+- Role: Stores the entry portal resname value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PendingPortalTransition(String entryPortalResname)`
-
-- Description: TODO
+- Role: Creates a new PendingPortalTransition instance.
+- Description: Constructs the instance and initializes its default state.

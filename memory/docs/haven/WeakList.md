@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `WeakList`.
 
 ## Role
 
-Provides a weak list.
+Represents the weak list Haven component.
 
 ## Nested Types
 
 ### Entry
 
-- Description: TODO
+- Role: Represents entry within WeakList.
+- Description: Describes the nested entry type used by the enclosing class.
 
 ## Members
 
@@ -25,63 +26,63 @@ Provides a weak list.
 ### Fields
 
 #### `private final ReferenceQueue<T> cleanq = new ReferenceQueue<T>()`
-
-- Description: TODO
+- Role: Caches cleanq entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Entry<T> head = null`
-
-- Description: TODO
-
-#### `private Entry<E> n, p`
-
-- Description: TODO
+- Role: Holds the head state.
+- Description: Backs the cached state for this file.
 
 #### `private Entry<E> n, p`
+- Role: Holds the p state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Entry<E> n, p`
+- Role: Holds the p state.
+- Description: Backs the cached state for this file.
 
 #### `private WeakList<E> l`
-
-- Description: TODO
+- Role: Caches l entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `private void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public Iterator<T> iterator()`
-
-- Description: TODO
+- Role: Performs iterator.
+- Description: Supports the iterator operation used by the surrounding class.
 
 #### `public Entry<T> add2(T e)`
-
-- Description: TODO
+- Role: Performs add2.
+- Description: Supports the add2 operation used by the surrounding class.
 
 #### `public boolean add(T e)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `private Entry(E e, WeakList<E> l)`
-
-- Description: TODO
+- Role: Performs entry.
+- Description: Supports the entry operation used by the surrounding class.
 
 #### `private void link()`
-
-- Description: TODO
+- Role: Performs link.
+- Description: Supports the link operation used by the surrounding class.
 
 #### `private void unlink()`
-
-- Description: TODO
+- Role: Performs unlink.
+- Description: Supports the unlink operation used by the surrounding class.
 
 #### `public void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.

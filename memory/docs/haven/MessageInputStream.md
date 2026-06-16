@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `MessageInputStream`.
 
 ## Role
 
-Reads messages from an input stream.
+Represents the message input stream Haven component.
 
 ## Members
 
@@ -19,19 +19,19 @@ Reads messages from an input stream.
 ### Fields
 
 #### `private final Message bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public MessageInputStream(Message from)`
-
-- Description: TODO
+- Role: Creates a new MessageInputStream instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int read()`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int read(byte[] buf, int off, int len)`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.

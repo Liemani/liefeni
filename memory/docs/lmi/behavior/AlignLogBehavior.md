@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `AlignLogBehavior`.
 
 ## Role
 
-Implements a reusable behavior for log alignment.
+Represents the align log behavior component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Implements a reusable behavior for log alignment.
 ### Methods
 
 #### `public void run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.

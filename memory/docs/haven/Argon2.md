@@ -10,202 +10,205 @@ This file documents the responsibilities and members of `Argon2`.
 
 ## Role
 
-Provides Argon2 hashing support.
+Represents the argon2 Haven component.
 
 ## Nested Types
 
 ### Instance
 
-- Description: TODO
+- Role: Represents instance within Argon2.
+- Description: Describes the nested instance type used by the enclosing class.
 
 ### Type
 
-- Description: TODO
+- Role: Represents type within Argon2.
+- Description: Describes the nested type type used by the enclosing class.
 
 ### Version
 
-- Description: TODO
+- Role: Represents version within Argon2.
+- Description: Describes the nested version type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final int SYNC_POINTS = 4`
-
-- Description: TODO
+- Role: Defines the shared sync points constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int BLOCK_SIZE = 1024`
-
-- Description: TODO
+- Role: Defines the shared block size constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int PREHASH_DIGEST_LENGTH = 64`
-
-- Description: TODO
+- Role: Defines the shared prehash digest length constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int PREHASH_SEED_LENGTH = 72`
-
-- Description: TODO
+- Role: Defines the shared prehash seed length constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int N = BLOCK_SIZE / 8`
-
-- Description: TODO
+- Role: Defines the shared n constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final long[] zero = new long[N]`
-
-- Description: TODO
+- Role: Defines the shared zero constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private Type type`
-
-- Description: TODO
-
-#### `private int t, m, p`
-
-- Description: TODO
+- Role: Holds the type state.
+- Description: Backs the cached state for this file.
 
 #### `private int t, m, p`
-
-- Description: TODO
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
 #### `private int t, m, p`
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int t, m, p`
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
 #### `private Version version = Version.V13`
-
-- Description: TODO
-
-#### `public final int id`
-
-- Description: TODO
+- Role: Holds the version state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `private final int lanes, passes, m_cost`
-
-- Description: TODO
-
-#### `private final int lanes, passes, m_cost`
-
-- Description: TODO
+#### `public final int id`
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private final int lanes, passes, m_cost`
+- Role: Stores the m cost value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int lanes, passes, m_cost`
+- Role: Stores the m cost value.
+- Description: Backs the cached state for this file.
+
+#### `private final int lanes, passes, m_cost`
+- Role: Stores the m cost value.
+- Description: Backs the cached state for this file.
 
 #### `private final int outlen`
-
-- Description: TODO
-
-#### `private final int memory_blocks, segment_length, lane_length`
-
-- Description: TODO
+- Role: Stores the outlen value.
+- Description: Backs the cached state for this file.
 
 #### `private final int memory_blocks, segment_length, lane_length`
-
-- Description: TODO
+- Role: Stores the lane length value.
+- Description: Backs the cached state for this file.
 
 #### `private final int memory_blocks, segment_length, lane_length`
+- Role: Stores the lane length value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int memory_blocks, segment_length, lane_length`
+- Role: Stores the lane length value.
+- Description: Backs the cached state for this file.
 
 #### `private final long[][] memory`
-
-- Description: TODO
+- Role: Stores the memory value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `Type(int id)`
-
-- Description: TODO
+- Role: Handles the type workflow.
+- Description: Supports the type operation used by the surrounding class.
 
 #### `Version(int id)`
-
-- Description: TODO
+- Role: Handles the version workflow.
+- Description: Supports the version operation used by the surrounding class.
 
 #### `public Argon2(Type type, int t, int m, int p)`
-
-- Description: TODO
+- Role: Creates a new Argon2 instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Instance(int outlen)`
-
-- Description: TODO
+- Role: Performs instance.
+- Description: Supports the instance operation used by the surrounding class.
 
 #### `private void copy_block(long[] dst, long[] src)`
-
-- Description: TODO
+- Role: Performs copy block.
+- Description: Supports the copy block operation used by the surrounding class.
 
 #### `private void xor_block(long[] dst, long[] src)`
-
-- Description: TODO
+- Role: Performs xor block.
+- Description: Supports the xor block operation used by the surrounding class.
 
 #### `private void load_block(long[] block, byte[] bytes)`
-
-- Description: TODO
+- Role: Returns the block.
+- Description: Exposes the requested value without mutating state.
 
 #### `private void store_block(long[] block, byte[] bytes)`
-
-- Description: TODO
+- Role: Performs store block.
+- Description: Supports the store block operation used by the surrounding class.
 
 #### `private void blake2b_long(byte[] out, int outoff, int outlen, byte[] in, int inoff, int inlen)`
-
-- Description: TODO
+- Role: Performs blake2b long.
+- Description: Supports the blake2b long operation used by the surrounding class.
 
 #### `private byte[] initial_hash(byte[] key, byte[] salt)`
-
-- Description: TODO
+- Role: Performs initial hash.
+- Description: Supports the initial hash operation used by the surrounding class.
 
 #### `private void fill_first_blocks(byte[] blockhash)`
-
-- Description: TODO
+- Role: Performs fill first blocks.
+- Description: Supports the fill first blocks operation used by the surrounding class.
 
 #### `private long fBlaMka(long x, long y)`
-
-- Description: TODO
+- Role: Performs f bla mka.
+- Description: Supports the f bla mka operation used by the surrounding class.
 
 #### `private void G(long[] B, int a, int b, int c, int d)`
-
-- Description: TODO
+- Role: Performs g.
+- Description: Supports the g operation used by the surrounding class.
 
 #### `private void BLAKE2_ROUND_NOMSG(long[] B, int i0, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15)`
-
-- Description: TODO
+- Role: Performs blake2 round nomsg.
+- Description: Supports the blake2 round nomsg operation used by the surrounding class.
 
 #### `private void fill_block(long[] prev_block, long[] ref_block, long[] next_block, boolean with_xor)`
-
-- Description: TODO
+- Role: Performs fill block.
+- Description: Supports the fill block operation used by the surrounding class.
 
 #### `private void next_addresses(long[] address_block, long[] input_block)`
-
-- Description: TODO
+- Role: Performs next addresses.
+- Description: Supports the next addresses operation used by the surrounding class.
 
 #### `private int index_alpha(int pass, int slice, int lane, int index, long pseudo_rand, boolean same_lane)`
-
-- Description: TODO
+- Role: Performs index alpha.
+- Description: Supports the index alpha operation used by the surrounding class.
 
 #### `private void fill_segment(int pass, int slice, int lane)`
-
-- Description: TODO
+- Role: Performs fill segment.
+- Description: Supports the fill segment operation used by the surrounding class.
 
 #### `private byte[] phinalize()`
-
-- Description: TODO
+- Role: Performs phinalize.
+- Description: Supports the phinalize operation used by the surrounding class.
 
 #### `private void fill_memory_blocks()`
-
-- Description: TODO
+- Role: Performs fill memory blocks.
+- Description: Supports the fill memory blocks operation used by the surrounding class.
 
 #### `public byte[] hash(byte[] key, byte[] salt)`
-
-- Description: TODO
+- Role: Performs hash.
+- Description: Supports the hash operation used by the surrounding class.
 
 #### `public byte[] hash(byte[] key, byte[] salt, int len)`
-
-- Description: TODO
+- Role: Performs hash.
+- Description: Supports the hash operation used by the surrounding class.
 
 #### `public static void main(String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RobotException`.
 
 ## Role
 
-Represents a robot test failure.
+Provides a Haven test helper for robot exception.
 
 ## Members
 
@@ -19,15 +19,15 @@ Represents a robot test failure.
 ### Fields
 
 #### `public Robot bot`
-
-- Description: TODO
+- Role: Holds the bot state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public RobotException(Robot bot, String msg, Throwable cause)`
-
-- Description: TODO
+- Role: Creates a new RobotException instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RobotException(Robot bot, String msg)`
-
-- Description: TODO
+- Role: Creates a new RobotException instance.
+- Description: Constructs the instance and initializes its default state.

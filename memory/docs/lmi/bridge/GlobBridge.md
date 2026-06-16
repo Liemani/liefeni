@@ -17,285 +17,285 @@ Owns the current Haven `Glob` reference and provides narrow world/map lookup hel
 ### Constants
 
 #### `private static final double itimefac = 3.0`
-
-- Description: TODO
+- Role: Defines the shared itimefac constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Slot<FrameInfo> slot = new Slot<>(Slot.Type.SYS, FrameInfo.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform u_globtime = new Uniform(Type.FLOAT, "globtime", p ->`
-
-- Description: TODO
+- Role: Defines the shared u globtime constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final OCache oc = new OCache(this)`
-
-- Description: TODO
+- Role: Caches oc entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MCache map`
-
-- Description: TODO
+- Role: Caches map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Session sess`
-
-- Description: TODO
+- Role: Stores the sess value.
+- Description: Backs the cached state for this file.
 
 #### `public final Loader loader = new Loader()`
-
-- Description: TODO
-
-#### `public double gtime, sgtime, epoch = Utils.rtime()`
-
-- Description: TODO
+- Role: Holds the loader state.
+- Description: Backs the cached state for this file.
 
 #### `public double gtime, sgtime, epoch = Utils.rtime()`
-
-- Description: TODO
+- Role: Stores the epoch value.
+- Description: Backs the cached state for this file.
 
 #### `public double gtime, sgtime, epoch = Utils.rtime()`
+- Role: Stores the epoch value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double gtime, sgtime, epoch = Utils.rtime()`
+- Role: Stores the epoch value.
+- Description: Backs the cached state for this file.
 
 #### `public Astronomy ast`
-
-- Description: TODO
+- Role: Holds the ast state.
+- Description: Backs the cached state for this file.
 
 #### `public Party party`
-
-- Description: TODO
-
-#### `public Color lightamb = null, lightdif = null, lightspc = null`
-
-- Description: TODO
+- Role: Holds the party state.
+- Description: Backs the cached state for this file.
 
 #### `public Color lightamb = null, lightdif = null, lightspc = null`
-
-- Description: TODO
+- Role: Stores the lightamb value.
+- Description: Backs the cached state for this file.
 
 #### `public Color lightamb = null, lightdif = null, lightspc = null`
+- Role: Stores the lightamb value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `public Color olightamb = null, olightdif = null, olightspc = null`
-
-- Description: TODO
-
-#### `public Color olightamb = null, olightdif = null, olightspc = null`
-
-- Description: TODO
+#### `public Color lightamb = null, lightdif = null, lightspc = null`
+- Role: Stores the lightamb value.
+- Description: Backs the cached state for this file.
 
 #### `public Color olightamb = null, olightdif = null, olightspc = null`
+- Role: Stores the olightamb value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Color olightamb = null, olightdif = null, olightspc = null`
+- Role: Stores the olightamb value.
+- Description: Backs the cached state for this file.
+
+#### `public Color olightamb = null, olightdif = null, olightspc = null`
+- Role: Stores the olightamb value.
+- Description: Backs the cached state for this file.
 
 #### `public Color tlightamb = null, tlightdif = null, tlightspc = null`
-
-- Description: TODO
-
-#### `public Color tlightamb = null, tlightdif = null, tlightspc = null`
-
-- Description: TODO
+- Role: Stores the tlightamb value.
+- Description: Backs the cached state for this file.
 
 #### `public Color tlightamb = null, tlightdif = null, tlightspc = null`
+- Role: Stores the tlightamb value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Color tlightamb = null, tlightdif = null, tlightspc = null`
+- Role: Stores the tlightamb value.
+- Description: Backs the cached state for this file.
 
 #### `public double lightang = 0.0, lightelev = 0.0`
-
-- Description: TODO
+- Role: Stores the lightang value.
+- Description: Backs the cached state for this file.
 
 #### `public double lightang = 0.0, lightelev = 0.0`
-
-- Description: TODO
-
-#### `public double olightang = 0.0, olightelev = 0.0`
-
-- Description: TODO
+- Role: Stores the lightang value.
+- Description: Backs the cached state for this file.
 
 #### `public double olightang = 0.0, olightelev = 0.0`
+- Role: Stores the olightang value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double olightang = 0.0, olightelev = 0.0`
+- Role: Stores the olightang value.
+- Description: Backs the cached state for this file.
 
 #### `public double tlightang = 0.0, tlightelev = 0.0`
-
-- Description: TODO
+- Role: Stores the tlightang value.
+- Description: Backs the cached state for this file.
 
 #### `public double tlightang = 0.0, tlightelev = 0.0`
-
-- Description: TODO
+- Role: Stores the tlightang value.
+- Description: Backs the cached state for this file.
 
 #### `public double lchange = -1`
-
-- Description: TODO
-
-#### `public Indir<Resource> sky1 = null, sky2 = null`
-
-- Description: TODO
+- Role: Stores the lchange value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> sky1 = null, sky2 = null`
+- Role: Stores the sky1 value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Indir<Resource> sky1 = null, sky2 = null`
+- Role: Stores the sky1 value.
+- Description: Backs the cached state for this file.
 
 #### `public double skyblend = 0.0`
-
-- Description: TODO
+- Role: Stores the skyblend value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<String, CAttr> cattr = new HashMap<String, CAttr>()`
-
-- Description: TODO
+- Role: Caches cattr entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Map<Indir<Resource>, Object> wmap = new HashMap<Indir<Resource>, Object>()`
-
-- Description: TODO
+- Role: Caches wmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Glob glob`
-
-- Description: TODO
+- Role: Stores the glob value.
+- Description: Backs the cached state for this file.
 
 #### `public final String nm`
-
-- Description: TODO
-
-#### `public int base, comp`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public int base, comp`
+- Role: Stores the comp value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int base, comp`
+- Role: Stores the comp value.
+- Description: Backs the cached state for this file.
 
 #### `public ItemInfo.Raw info`
-
-- Description: TODO
+- Role: Holds the info state.
+- Description: Backs the cached state for this file.
 
 #### `private double lastctick = 0`
-
-- Description: TODO
-
-#### `private double stimefac = itimefac, ctimefac = itimefac`
-
-- Description: TODO
+- Role: Stores the lastctick value.
+- Description: Backs the cached state for this file.
 
 #### `private double stimefac = itimefac, ctimefac = itimefac`
+- Role: Stores the stimefac value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private double stimefac = itimefac, ctimefac = itimefac`
+- Role: Stores the stimefac value.
+- Description: Backs the cached state for this file.
 
 #### `public final double globtime`
-
-- Description: TODO
+- Role: Stores the globtime value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Glob(Session sess)`
-
-- Description: TODO
+- Role: Performs glob.
+- Description: Supports the glob operation used by the surrounding class.
 
 #### `public default Pipe.Op state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public default void update(Object... args)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public default boolean remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public default boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the tick over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public Weather weather(Glob glob, Object... args)`
-
-- Description: TODO
+- Role: Performs weather.
+- Description: Supports the weather operation used by the surrounding class.
 
 #### `public CAttr(Glob glob, String nm, int base, int comp, ItemInfo.Raw info)`
-
-- Description: TODO
+- Role: Performs cattr.
+- Description: Supports the cattr operation used by the surrounding class.
 
 #### `public void update(int base, int comp, ItemInfo.Raw info)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Indir<Resource> res()`
-
-- Description: TODO
+- Role: Performs res.
+- Description: Supports the res operation used by the surrounding class.
 
 #### `private static Color colstep(Color o, Color t, double a)`
-
-- Description: TODO
+- Role: Performs colstep.
+- Description: Supports the colstep operation used by the surrounding class.
 
 #### `private void ticklight(double dt)`
-
-- Description: TODO
+- Role: Advances the ticklight over time.
+- Description: Supports the ticklight operation used by the surrounding class.
 
 #### `public void ctick()`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `private void tickgtime(double now, double dt)`
-
-- Description: TODO
+- Role: Advances the tickgtime over time.
+- Description: Supports the tickgtime operation used by the surrounding class.
 
 #### `private void updgtime(double sgtime, boolean inc)`
-
-- Description: TODO
+- Role: Performs updgtime.
+- Description: Supports the updgtime operation used by the surrounding class.
 
 #### `public String gtimestats()`
-
-- Description: TODO
+- Role: Performs gtimestats.
+- Description: Supports the gtimestats operation used by the surrounding class.
 
 #### `public double globtime()`
-
-- Description: TODO
+- Role: Performs globtime.
+- Description: Supports the globtime operation used by the surrounding class.
 
 #### `public void blob(Message msg)`
-
-- Description: TODO
+- Role: Performs blob.
+- Description: Supports the blob operation used by the surrounding class.
 
 #### `public Collection<Weather> weather()`
-
-- Description: TODO
+- Role: Performs weather.
+- Description: Supports the weather operation used by the surrounding class.
 
 #### `public static DirLight amblight(Pipe st)`
-
-- Description: TODO
+- Role: Performs amblight.
+- Description: Supports the amblight operation used by the surrounding class.
 
 #### `public CAttr getcattr(String nm)`
-
-- Description: TODO
+- Role: Performs getcattr.
+- Description: Supports the getcattr operation used by the surrounding class.
 
 #### `public void cattr(String nm, int base, int comp, ItemInfo.Raw info)`
-
-- Description: TODO
+- Role: Performs cattr.
+- Description: Supports the cattr operation used by the surrounding class.
 
 #### `public FrameInfo(Glob glob)`
-
-- Description: TODO
+- Role: Performs frame info.
+- Description: Supports the frame info operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static Expression globtime()`
-
-- Description: TODO
+- Role: Performs globtime.
+- Description: Supports the globtime operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

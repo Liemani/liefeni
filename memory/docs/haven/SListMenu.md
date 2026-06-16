@@ -10,230 +10,235 @@ This file documents the responsibilities and members of `SListMenu`.
 
 ## Role
 
-Displays a styled list menu widget.
+Represents the slist menu Haven component.
 
 ## Nested Types
 
 ### Action
 
-- Description: TODO
+- Role: Represents action within SListMenu.
+- Description: Describes the nested action type used by the enclosing class.
 
 ### IconMenu
 
-- Description: TODO
+- Role: Represents icon menu within SListMenu.
+- Description: Describes the nested icon menu type used by the enclosing class.
 
 ### InnerList
 
-- Description: TODO
+- Role: Represents inner list within SListMenu.
+- Description: Describes the nested inner list type used by the enclosing class.
 
 ### Item
 
-- Description: TODO
+- Role: Represents item within SListMenu.
+- Description: Describes the nested item type used by the enclosing class.
 
 ### TextMenu
 
-- Description: TODO
+- Role: Represents text menu within SListMenu.
+- Description: Describes the nested text menu type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry bigf = CharWnd.attrf`
-
-- Description: TODO
+- Role: Defines the shared bigf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry smallf = new Text.Foundry(Text.fraktur, 14).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared smallf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex bg = Window.bg`
-
-- Description: TODO
+- Role: Defines the shared bg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final IBox obox = Window.wbox`
-
-- Description: TODO
+- Role: Defines the shared obox constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final InnerList box`
-
-- Description: TODO
+- Role: Caches box entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public boolean grab = true`
-
-- Description: TODO
-
-#### `private UI.Grab mg, kg`
-
-- Description: TODO
+- Role: Tracks the grab flag.
+- Description: Supports the grab operation used by the surrounding class.
 
 #### `private UI.Grab mg, kg`
+- Role: Stores the kg value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private UI.Grab mg, kg`
+- Role: Stores the kg value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord mc = Coord.of(-1, -1)`
-
-- Description: TODO
+- Role: Stores the mc value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean inited = false`
-
-- Description: TODO
-
-#### `public final Text.Foundry fnd`
-
-- Description: TODO
+- Role: Tracks the inited flag.
+- Description: Supports the inited operation used by the surrounding class.
 
 #### `public final Text.Foundry fnd`
+- Role: Stores the fnd value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Text.Foundry fnd`
+- Role: Stores the fnd value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `protected abstract List<? extends I> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected abstract W makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `protected abstract void choice(I item)`
-
-- Description: TODO
+- Role: Performs choice.
+- Description: Supports the choice operation used by the surrounding class.
 
 #### `public SListMenu(Coord sz, int itemh)`
-
-- Description: TODO
+- Role: Creates a new SListMenu instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Item(I item, W child)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `private InnerList(Coord sz, int itemh)`
-
-- Description: TODO
+- Role: Performs inner list.
+- Description: Supports the inner list operation used by the surrounding class.
 
 #### `protected List<? extends I> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Item makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public void change(I item)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `protected void drawbg(GOut g, I item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `private void aresize(Coord f, Coord t)`
-
-- Description: TODO
+- Role: Performs aresize.
+- Description: Supports the aresize operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public SListMenu<I, W> addat(Widget wdg, Coord c)`
-
-- Description: TODO
+- Role: Performs addat.
+- Description: Supports the addat operation used by the surrounding class.
 
 #### `public SListMenu nograb()`
-
-- Description: TODO
+- Role: Performs nograb.
+- Description: Supports the nograb operation used by the surrounding class.
 
 #### `public TextMenu(Coord sz, Text.Foundry fnd)`
-
-- Description: TODO
+- Role: Performs text menu.
+- Description: Supports the text menu operation used by the surrounding class.
 
 #### `public TextMenu(Coord sz)`
-
-- Description: TODO
+- Role: Performs text menu.
+- Description: Supports the text menu operation used by the surrounding class.
 
 #### `protected abstract String nameof(I item)`
-
-- Description: TODO
+- Role: Performs nameof.
+- Description: Supports the nameof operation used by the surrounding class.
 
 #### `protected Widget makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, Text.Foundry fnd, List<? extends I> items, Function<? super I, String> nmf, Consumer<? super I> action, Runnable cancel)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, List<? extends I> items, Function<? super I, String> nmf, Consumer<? super I> action)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static Action of(String name, Runnable fun)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static SListMenu<Action, Widget> of(Coord sz, Text.Foundry fnd, List<? extends Action> actions, Runnable cancel)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static SListMenu<Action, Widget> of(Coord sz, Text.Foundry fnd, List<? extends Action> actions)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public IconMenu(Coord sz, Text.Foundry fnd)`
-
-- Description: TODO
+- Role: Performs icon menu.
+- Description: Supports the icon menu operation used by the surrounding class.
 
 #### `public IconMenu(Coord sz)`
-
-- Description: TODO
+- Role: Performs icon menu.
+- Description: Supports the icon menu operation used by the surrounding class.
 
 #### `protected abstract String nameof(I item)`
-
-- Description: TODO
+- Role: Performs nameof.
+- Description: Supports the nameof operation used by the surrounding class.
 
 #### `protected abstract BufferedImage iconof(I item)`
-
-- Description: TODO
+- Role: Performs iconof.
+- Description: Supports the iconof operation used by the surrounding class.
 
 #### `protected Widget makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, Text.Foundry fnd, List<? extends I> items, Function<? super I, String> nmf, Function<? super I, BufferedImage> imgf, Consumer<? super I> action, Runnable cancel)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, List<? extends I> items, Function<? super I, String> nmf, Function<? super I, BufferedImage> imgf, Consumer<? super I> action)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.

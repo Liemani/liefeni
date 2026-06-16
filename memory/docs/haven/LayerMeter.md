@@ -10,94 +10,95 @@ This file documents the responsibilities and members of `LayerMeter`.
 
 ## Role
 
-Displays layered meter UI.
+Represents the layer meter Haven component.
 
 ## Nested Types
 
 ### Meter
 
-- Description: TODO
+- Role: Represents meter within LayerMeter.
+- Description: Describes the nested meter type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final OwnerContext.ClassResolver<LayerMeter> ctxr = new OwnerContext.ClassResolver<LayerMeter>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `protected ItemInfo.Raw rawinfo = null`
-
-- Description: TODO
+- Role: Holds the rawinfo state.
+- Description: Backs the cached state for this file.
 
 #### `protected List<ItemInfo> info = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `protected List<Meter> meters = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches meters entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final double a`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color c`
-
-- Description: TODO
+- Role: Stores the c value.
+- Description: Backs the cached state for this file.
 
 #### `private double hoverstart`
-
-- Description: TODO
-
-#### `private Tex shorttip, longtip`
-
-- Description: TODO
+- Role: Stores the hoverstart value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex shorttip, longtip`
+- Role: Stores the longtip value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Tex shorttip, longtip`
+- Role: Stores the longtip value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LayerMeter(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new LayerMeter instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Meter(double a, Color c)`
-
-- Description: TODO
+- Role: Performs meter.
+- Description: Supports the meter operation used by the surrounding class.
 
 #### `public void set(List<Meter> meters)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void set(double a, Color c)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `private static double av(Object arg)`
-
-- Description: TODO
+- Role: Performs av.
+- Description: Supports the av operation used by the surrounding class.
 
 #### `public static List<Meter> decmeters(Object[] args, int s)`
-
-- Description: TODO
+- Role: Performs decmeters.
+- Description: Supports the decmeters operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

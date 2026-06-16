@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SaveEdgeResult`.
 
 ## Role
 
-Carries a typed result payload for waypoint work.
+Represents the result of save edge result.
 
 ## Members
 
@@ -19,43 +19,43 @@ Carries a typed result payload for waypoint work.
 ### Fields
 
 #### `public final boolean saved`
-
-- Description: TODO
+- Role: Tracks the saved flag.
+- Description: Supports the saved operation used by the surrounding class.
 
 #### `public final Long edgeId`
-
-- Description: TODO
+- Role: Stores the edge id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Integer pointCount`
-
-- Description: TODO
+- Role: Stores the point count value.
+- Description: Backs the cached state for this file.
 
 #### `public final WpEdge edge`
-
-- Description: TODO
+- Role: Stores the edge value.
+- Description: Backs the cached state for this file.
 
 #### `public final Array<WpSegment> segments`
-
-- Description: TODO
+- Role: Caches segments entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Array<WpPoint> points`
-
-- Description: TODO
+- Role: Caches points entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final String errorMessage`
-
-- Description: TODO
+- Role: Stores the error message value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private SaveEdgeResult(boolean saved, Long edgeId, Integer pointCount, WpEdge edge,`
-
-- Description: TODO
+- Role: Creates a new SaveEdgeResult instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static SaveEdgeResult saved(long edgeId, int pointCount, WpEdge edge, Array<WpSegment> segments, Array<WpPoint> points)`
-
-- Description: TODO
+- Role: Coordinates saved persistence or lookup.
+- Description: Supports the saved operation used by the surrounding class.
 
 #### `public static SaveEdgeResult failed(String errorMessage)`
-
-- Description: TODO
+- Role: Performs failed.
+- Description: Supports the failed operation used by the surrounding class.

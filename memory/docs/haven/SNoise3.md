@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SNoise3`.
 
 ## Role
 
-Provides 3D noise generation.
+Represents the snoise3 Haven component.
 
 ## Members
 
@@ -19,39 +19,39 @@ Provides 3D noise generation.
 ### Fields
 
 #### `private final byte[] ptab = new byte[256]`
-
-- Description: TODO
+- Role: Stores the ptab value.
+- Description: Backs the cached state for this file.
 
 #### `private final double[][] gtab =`
-
-- Description: TODO
+- Role: Stores the snoise3 state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SNoise3(Random rnd)`
-
-- Description: TODO
+- Role: Creates a new SNoise3 instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SNoise3(long seed)`
-
-- Description: TODO
+- Role: Creates a new SNoise3 instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SNoise3()`
-
-- Description: TODO
+- Role: Creates a new SNoise3 instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public double get(double r, double x, double y, double z)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public double getr(double lo, double hi, double r, double x, double y, double z)`
-
-- Description: TODO
+- Role: Performs getr.
+- Description: Supports the getr operation used by the surrounding class.
 
 #### `public int geti(int lo, int hi, double r, double x, double y, double z)`
-
-- Description: TODO
+- Role: Performs geti.
+- Description: Supports the geti operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

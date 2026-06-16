@@ -10,194 +10,199 @@ This file documents the responsibilities and members of `TerrainTile`.
 
 ## Role
 
-Represents a terrain tile helper.
+Provides resource helper logic for terrain tile.
 
 ## Nested Types
 
 ### Blend
 
-- Description: TODO
+- Role: Represents blend within TerrainTile.
+- Description: Describes the nested blend type used by the enclosing class.
 
 ### Factory
 
-- Description: TODO
+- Role: Represents factory within TerrainTile.
+- Description: Describes the nested factory type used by the enclosing class.
 
 ### RFactory
 
-- Description: TODO
+- Role: Represents rfactory within TerrainTile.
+- Description: Describes the nested rfactory type used by the enclosing class.
 
 ### RidgeTile
 
-- Description: TODO
+- Role: Represents ridge tile within TerrainTile.
+- Description: Describes the nested ridge tile type used by the enclosing class.
 
 ### Var
 
-- Description: TODO
+- Role: Represents var within TerrainTile.
+- Description: Describes the nested var type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final int sr = 12`
-
-- Description: TODO
+- Role: Defines the shared sr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final NodeWrap base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `public final SNoise3 noise`
-
-- Description: TODO
+- Role: Holds the noise state.
+- Description: Backs the cached state for this file.
 
 #### `public final Var[] var`
-
-- Description: TODO
+- Role: Holds the var state.
+- Description: Backs the cached state for this file.
 
 #### `public final Tileset transset`
-
-- Description: TODO
+- Role: Holds the transset state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pipe.Op draw`
-
-- Description: TODO
+- Role: Holds the draw state.
+- Description: Backs the cached state for this file.
 
 #### `public NodeWrap mat`
-
-- Description: TODO
-
-#### `public double thrl, thrh`
-
-- Description: TODO
+- Role: Stores the mat value.
+- Description: Backs the cached state for this file.
 
 #### `public double thrl, thrh`
+- Role: Stores the thrh value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double thrl, thrh`
+- Role: Stores the thrh value.
+- Description: Backs the cached state for this file.
 
 #### `public double nz`
-
-- Description: TODO
+- Role: Stores the nz value.
+- Description: Backs the cached state for this file.
 
 #### `public Pipe.Op draw`
-
-- Description: TODO
+- Role: Holds the draw state.
+- Description: Backs the cached state for this file.
 
 #### `final MapMesh m`
-
-- Description: TODO
-
-#### `final Scan vs, es`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `final Scan vs, es`
+- Role: Holds the es state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final Scan vs, es`
+- Role: Holds the es state.
+- Description: Backs the cached state for this file.
 
 #### `final float[][] bv`
-
-- Description: TODO
+- Role: Stores the bv value.
+- Description: Backs the cached state for this file.
 
 #### `final boolean[][] en`
-
-- Description: TODO
+- Role: Tracks the en flag.
+- Description: Supports the en operation used by the surrounding class.
 
 #### `final VertFactory[] lvfac = new VertFactory[var.length + 1]`
-
-- Description: TODO
+- Role: Holds the lvfac state.
+- Description: Backs the cached state for this file.
 
 #### `public final MapMesh.DataID<Blend> blend = new MapMesh.DataID<Blend>()`
-
-- Description: TODO
+- Role: Holds the blend state.
+- Description: Backs the cached state for this file.
 
 #### `private final static Map<TexRender, AlphaTex> transtex = new WeakHashMap<TexRender, AlphaTex>()`
-
-- Description: TODO
+- Role: Caches transtex entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Tiler.MCons rcons`
-
-- Description: TODO
+- Role: Holds the rcons state.
+- Description: Backs the cached state for this file.
 
 #### `public final int rth`
-
-- Description: TODO
+- Role: Stores the rth value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Var(NodeWrap mat, double thrl, double thrh, double nz)`
-
-- Description: TODO
+- Role: Performs var.
+- Description: Supports the var operation used by the surrounding class.
 
 #### `private Blend(MapMesh m)`
-
-- Description: TODO
+- Role: Performs blend.
+- Description: Supports the blend operation used by the surrounding class.
 
 #### `private void setbase(float[][] bv)`
-
-- Description: TODO
+- Role: Performs setbase.
+- Description: Supports the setbase operation used by the surrounding class.
 
 #### `public TerrainTile create(int id, Tileset set)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public TerrainTile(int id, SNoise3 noise, NodeWrap base, Var[] var, Tileset transset)`
-
-- Description: TODO
+- Role: Creates a new TerrainTile instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public TerrainTile(int id, TerrainTile from)`
-
-- Description: TODO
+- Role: Creates a new TerrainTile instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs lay.
+- Description: Supports the lay operation used by the surrounding class.
 
 #### `public void faces(MapMesh m, MPart d)`
-
-- Description: TODO
+- Role: Performs faces.
+- Description: Supports the faces operation used by the surrounding class.
 
 #### `public void _faces(MapMesh m, int z, Tile trans, MPart d)`
-
-- Description: TODO
+- Role: Performs  faces.
+- Description: Supports the faces operation used by the surrounding class.
 
 #### `private MCons tcons(final int z, final Tile t)`
-
-- Description: TODO
+- Role: Performs tcons.
+- Description: Supports the tcons operation used by the surrounding class.
 
 #### `public MCons tcons(final int z, final int bmask, final int cmask)`
-
-- Description: TODO
+- Role: Performs tcons.
+- Description: Supports the tcons operation used by the surrounding class.
 
 #### `public void trans(MapMesh m, Random rnd, Tiler gt, Coord lc, Coord gc, int z, int bmask, int cmask)`
-
-- Description: TODO
+- Role: Performs trans.
+- Description: Supports the trans operation used by the surrounding class.
 
 #### `public Tiler create(int id, Tileset set)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public RidgeTile(int id, SNoise3 noise, NodeWrap base, Var[] var, Tileset transset, int rth, Pipe.Op rmat, float texh)`
-
-- Description: TODO
+- Role: Performs ridge tile.
+- Description: Supports the ridge tile operation used by the surrounding class.
 
 #### `public RidgeTile(int id, RidgeTile from)`
-
-- Description: TODO
+- Role: Performs ridge tile.
+- Description: Supports the ridge tile operation used by the surrounding class.
 
 #### `public double breakz()`
-
-- Description: TODO
+- Role: Performs breakz.
+- Description: Supports the breakz operation used by the surrounding class.
 
 #### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs model.
+- Description: Supports the model operation used by the surrounding class.
 
 #### `public void lay(MapMesh m, Coord lc, Coord gc, MCons cons, boolean cover)`
-
-- Description: TODO
+- Role: Performs lay.
+- Description: Supports the lay operation used by the surrounding class.
 
 #### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs lay.
+- Description: Supports the lay operation used by the surrounding class.

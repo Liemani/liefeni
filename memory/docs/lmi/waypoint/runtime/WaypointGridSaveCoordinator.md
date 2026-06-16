@@ -10,52 +10,48 @@ This file documents the responsibilities and members of `WaypointGridSaveCoordin
 
 ## Role
 
-Coordinates current-grid save requests.
-Deduplicates pending saves for the same Haven grid.
-Fans out success or failure to waiting handlers.
-Triggers waypoint refresh after completion.
-Resolves the current Haven grid and map segment metadata before saving.
+Coordinates saving the current Haven grid into waypoint storage.
 
 ## Members
 
 ### Constants
 
 #### `private static final Set<Long> pendingGridSaveHavenGridIds = new HashSet<>()`
-
-- Description: TODO
+- Role: Defines the shared pending grid save haven grid ids constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Long, List<WaypointResultHandler<SaveMapGridResult>>> pendingHandlersByHavenGridId = new HashMap<>()`
-
-- Description: TODO
+- Role: Coordinates asynchronous waypoint grid save coordinator work.
+- Description: Supports the pending handlers by haven grid id operation used by the surrounding class.
 
 ### Fields
 
 ### Methods
 
 #### `private WaypointGridSaveCoordinator()`
-
-- Description: TODO
+- Role: Creates a new WaypointGridSaveCoordinator instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void saveIfMissing(Coord gc, WaypointResultHandler<SaveMapGridResult> handler)`
-
-- Description: TODO
+- Role: Coordinates save if missing persistence or lookup.
+- Description: Supports the save if missing operation used by the surrounding class.
 
 #### `static void saveIfMissing(long mapSegmentId, int localX, int localY, long havenGridId, Coord originWorld)`
-
-- Description: TODO
+- Role: Coordinates save if missing persistence or lookup.
+- Description: Supports the save if missing operation used by the surrounding class.
 
 #### `static synchronized void onResolved(long havenGridId, ResolvedGrid grid, SaveMapGridResult result)`
-
-- Description: TODO
+- Role: Performs on resolved.
+- Description: Supports the on resolved operation used by the surrounding class.
 
 #### `static synchronized void onSaveFailed(long havenGridId, Exception error)`
-
-- Description: TODO
+- Role: Performs on save failed.
+- Description: Supports the on save failed operation used by the surrounding class.
 
 #### `private static synchronized void saveIfMissing(`
-
-- Description: TODO
+- Role: Coordinates save if missing persistence or lookup.
+- Description: Supports the save if missing operation used by the surrounding class.
 
 #### `private static MapFile mapFile()`
-
-- Description: TODO
+- Role: Performs map file.
+- Description: Supports the map file operation used by the surrounding class.

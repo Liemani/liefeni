@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ClickManager`.
 
 ## Role
 
-Coordinates subsystem state and routes work through the appropriate boundary.
+Coordinates click-driven interaction handling.
 
 ## Members
 
@@ -19,39 +19,39 @@ Coordinates subsystem state and routes work through the appropriate boundary.
 ### Fields
 
 #### `public static volatile boolean isGobClickMode`
-
-- Description: TODO
+- Role: Tracks the is gob click mode flag.
+- Description: Supports the is gob click mode operation used by the surrounding class.
 
 #### `public static volatile boolean isAreaSelectMode`
-
-- Description: TODO
+- Role: Tracks the is area select mode flag.
+- Description: Supports the is area select mode operation used by the surrounding class.
 
 #### `private static haven.ClickData _clickData`
-
-- Description: TODO
+- Role: Holds the click data state.
+- Description: Backs the cached state for this file.
 
 #### `private static Rect _selectedArea`
-
-- Description: TODO
+- Role: Stores the selected area value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static void setClickData(haven.ClickData clickData)`
-
-- Description: TODO
+- Role: Sets the click data.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setSelectedArea(Rect area)`
-
-- Description: TODO
+- Role: Sets the selected area.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void reset()`
-
-- Description: TODO
+- Role: Performs reset.
+- Description: Supports the reset operation used by the surrounding class.
 
 #### `public static Gob getGob()`
-
-- Description: TODO
+- Role: Returns the gob.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Rect getArea()`
-
-- Description: TODO
+- Role: Returns the area.
+- Description: Exposes the requested value without mutating state.

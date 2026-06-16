@@ -10,68 +10,68 @@ This file documents the responsibilities and members of `HttpStatus`.
 
 ## Role
 
-Represents an HTTP status value.
+Represents the http status Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<URI> mond = Config.Services.var("srvmon", "")`
-
-- Description: TODO
+- Role: Defines the shared mond constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int[] delays =`
-
-- Description: TODO
+- Role: Defines the shared http status constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final URI src`
-
-- Description: TODO
+- Role: Holds the src state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean syn = false`
-
-- Description: TODO
+- Role: Tracks the syn flag.
+- Description: Supports the syn operation used by the surrounding class.
 
 #### `public String status`
-
-- Description: TODO
+- Role: Stores the status value.
+- Description: Backs the cached state for this file.
 
 #### `public int users`
-
-- Description: TODO
+- Role: Stores the users value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean quit = false`
-
-- Description: TODO
+- Role: Tracks the quit flag.
+- Description: Supports the quit operation used by the surrounding class.
 
 #### `private InputStream cur = null`
-
-- Description: TODO
+- Role: Holds the cur state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public HttpStatus(URI src)`
-
-- Description: TODO
+- Role: Creates a new HttpStatus instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public HttpStatus()`
-
-- Description: TODO
+- Role: Creates a new HttpStatus instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void handle(String... words)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `private void handle(byte[] buf, int off, int len)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void quit()`
-
-- Description: TODO
+- Role: Performs quit.
+- Description: Supports the quit operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ClickData`.
 
 ## Role
 
-Carries data for a click interaction.
+Represents the click data Haven component.
 
 ## Members
 
@@ -19,27 +19,27 @@ Carries data for a click interaction.
 ### Fields
 
 #### `public final Clickable ci`
-
-- Description: TODO
+- Role: Holds the ci state.
+- Description: Backs the cached state for this file.
 
 #### `public final Slot slot`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ClickData(Clickable ci, Slot slot)`
-
-- Description: TODO
+- Role: Creates a new ClickData instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Object[] array()`
-
-- Description: TODO
+- Role: Performs array.
+- Description: Supports the array operation used by the surrounding class.
 
 #### `public Object[] clickargs()`
-
-- Description: TODO
+- Role: Performs clickargs.
+- Description: Supports the clickargs operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

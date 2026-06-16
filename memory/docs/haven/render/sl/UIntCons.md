@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `UIntCons`.
 
 ## Role
 
-Represents an unsigned int constructor.
+Represents the uint cons shader-language AST node.
 
 ## Members
 
@@ -19,19 +19,19 @@ Represents an unsigned int constructor.
 ### Fields
 
 #### `public final Expression init`
-
-- Description: TODO
+- Role: Holds the init state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public UIntCons(Expression init)`
-
-- Description: TODO
+- Role: Creates a new UIntCons instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

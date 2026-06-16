@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `MeshMorph`.
 
 ## Role
 
-Represents mesh morphing support.
+Represents the mesh morph Haven component.
 
 ## Nested Types
 
 ### Attrib
 
-- Description: TODO
+- Role: Represents attrib within MeshMorph.
+- Description: Describes the nested attrib type used by the enclosing class.
 
 ### MorphType
 
-- Description: TODO
+- Role: Represents morph type within MeshMorph.
+- Description: Describes the nested morph type type used by the enclosing class.
 
 ### Morpher
 
-- Description: TODO
+- Role: Represents morpher within MeshMorph.
+- Description: Describes the nested morpher type used by the enclosing class.
 
 ## Members
 
@@ -33,47 +36,47 @@ Represents mesh morphing support.
 ### Fields
 
 #### `public final VertexContext vctx`
-
-- Description: TODO
+- Role: Stores the vctx value.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<Morpher> morphs = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches morphs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Collection<Attrib> morphed = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches morphed entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `final Value va`
-
-- Description: TODO
+- Role: Holds the va state.
+- Description: Backs the cached state for this file.
 
 #### `final MorphType type`
-
-- Description: TODO
+- Role: Holds the type state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void morph(Value val, MorphType type, VertexContext vctx)`
-
-- Description: TODO
+- Role: Performs morph.
+- Description: Supports the morph operation used by the surrounding class.
 
 #### `Attrib(Value va, MorphType type)`
-
-- Description: TODO
+- Role: Handles the attrib workflow.
+- Description: Supports the attrib operation used by the surrounding class.
 
 #### `private MeshMorph(VertexContext vctx)`
-
-- Description: TODO
+- Role: Creates a new MeshMorph instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void add(Morpher morph)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(Value va, MorphType type)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public static MeshMorph get(VertexContext vctx)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.

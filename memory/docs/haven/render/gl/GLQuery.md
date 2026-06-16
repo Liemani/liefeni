@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `GLQuery`.
 
 ## Role
 
-Represents a GL query.
+Provides GL backend support for glquery.
 
 ## Members
 
@@ -21,17 +21,17 @@ Represents a GL query.
 ### Methods
 
 #### `public GLQuery(GLEnvironment env)`
-
-- Description: TODO
+- Role: Creates a new GLQuery instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public abstract boolean check(GL gl)`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public abstract void abort()`
-
-- Description: TODO
+- Role: Performs abort.
+- Description: Supports the abort operation used by the surrounding class.
 
 #### `public void abortcreate()`
-
-- Description: TODO
+- Role: Performs abortcreate.
+- Description: Supports the abortcreate operation used by the surrounding class.

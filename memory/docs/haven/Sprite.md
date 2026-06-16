@@ -10,45 +10,54 @@ This file documents the responsibilities and members of `Sprite`.
 
 ## Role
 
-Represents a sprite.
+Represents a drawable Haven sprite.
 
 ## Nested Types
 
 ### CDel
 
-- Description: TODO
+- Role: Represents cdel within Sprite.
+- Description: Describes the nested cdel type used by the enclosing class.
 
 ### CUpd
 
-- Description: TODO
+- Role: Represents cupd within Sprite.
+- Description: Describes the nested cupd type used by the enclosing class.
 
 ### FactMaker
 
-- Description: TODO
+- Role: Represents fact maker within Sprite.
+- Description: Describes the nested fact maker type used by the enclosing class.
 
 ### Factory
 
-- Description: TODO
+- Role: Represents factory within Sprite.
+- Description: Describes the nested factory type used by the enclosing class.
 
 ### Mill
 
-- Description: TODO
+- Role: Represents mill within Sprite.
+- Description: Describes the nested mill type used by the enclosing class.
 
 ### Owner
 
-- Description: TODO
+- Role: Represents owner within Sprite.
+- Description: Describes the nested owner type used by the enclosing class.
 
 ### RecOwner
 
-- Description: TODO
+- Role: Represents rec owner within Sprite.
+- Description: Describes the nested rec owner type used by the enclosing class.
 
 ### ResourceException
 
-- Description: TODO
+- Role: Represents resource exception within Sprite.
+- Description: Describes the nested resource exception type used by the enclosing class.
 
 ### UIOwner
 
-- Description: TODO
+- Role: Represents uiowner within Sprite.
+- Description: Describes the nested uiowner type used by the enclosing class.
 
 ## Members
 
@@ -57,155 +66,155 @@ Represents a sprite.
 ### Fields
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Owner owner`
-
-- Description: TODO
+- Role: Holds the owner state.
+- Description: Backs the cached state for this file.
 
 #### `public static List<Factory> factories = new LinkedList<Factory>()`
-
-- Description: TODO
+- Role: Caches factories entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Widget wdg`
-
-- Description: TODO
+- Role: Stores the wdg value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final byte[] sdt`
-
-- Description: TODO
+- Role: Stores the sdt value.
+- Description: Backs the cached state for this file.
 
 #### `public Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Resource getres()`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public UIOwner(Widget wdg)`
-
-- Description: TODO
+- Role: Performs uiowner.
+- Description: Supports the uiowner operation used by the surrounding class.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void delete()`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public void update(Message sdt)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public Sprite create(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public S create(Owner owner)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public FromRes(Indir<Resource> res, byte[] sdt)`
-
-- Description: TODO
+- Role: Performs from res.
+- Description: Supports the from res operation used by the surrounding class.
 
 #### `public Sprite create(Owner owner)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public static Mill<Sprite> of(Indir<Resource> res, byte[] sdt)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Mill<Sprite> of(Indir<Resource> res, Message sdt)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Mill<Sprite> of(Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Mill<Sprite> of(ResData dat)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public ResourceException(String msg, Resource res)`
-
-- Description: TODO
+- Role: Performs resource exception.
+- Description: Supports the resource exception operation used by the surrounding class.
 
 #### `public ResourceException(String msg, Throwable cause, Resource res)`
-
-- Description: TODO
+- Role: Performs resource exception.
+- Description: Supports the resource exception operation used by the surrounding class.
 
 #### `protected Sprite(Owner owner, Resource res)`
-
-- Description: TODO
+- Role: Creates a new Sprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static int decnum(Message sdt)`
-
-- Description: TODO
+- Role: Performs decnum.
+- Description: Supports the decnum operation used by the surrounding class.
 
 #### `public static Sprite create(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

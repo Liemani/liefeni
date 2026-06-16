@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `CompilerClassLoader`.
 
 ## Role
 
-Loads compiled resource classes.
+Provides resource helper logic for compiler class loader.
 
 ## Members
 
@@ -19,15 +19,15 @@ Loads compiled resource classes.
 ### Fields
 
 #### `private Indir<Resource>[] useres`
-
-- Description: TODO
+- Role: Stores the useres value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public CompilerClassLoader(ClassLoader parent)`
-
-- Description: TODO
+- Role: Creates a new CompilerClassLoader instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Class<?> findClass(String name) throws ClassNotFoundException`
-
-- Description: TODO
+- Role: Handles the find class workflow.
+- Description: Supports the find class operation used by the surrounding class.

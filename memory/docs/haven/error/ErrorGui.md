@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ErrorGui`.
 
 ## Role
 
-Displays the error GUI.
+Handles Haven error reporting for error gui.
 
 ## Members
 
@@ -19,71 +19,71 @@ Displays the error GUI.
 ### Fields
 
 #### `private JLabel status`
-
-- Description: TODO
+- Role: Stores the status value.
+- Description: Backs the cached state for this file.
 
 #### `private JEditorPane info`
-
-- Description: TODO
+- Role: Holds the info state.
+- Description: Backs the cached state for this file.
 
 #### `private JPanel details`
-
-- Description: TODO
-
-#### `private JButton closebtn, detbtn`
-
-- Description: TODO
+- Role: Holds the details state.
+- Description: Backs the cached state for this file.
 
 #### `private JButton closebtn, detbtn`
+- Role: Holds the detbtn state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private JButton closebtn, detbtn`
+- Role: Holds the detbtn state.
+- Description: Backs the cached state for this file.
 
 #### `private JTextArea exbox`
-
-- Description: TODO
-
-#### `private JScrollPane infoc, exboxc`
-
-- Description: TODO
+- Role: Stores the exbox value.
+- Description: Backs the cached state for this file.
 
 #### `private JScrollPane infoc, exboxc`
+- Role: Holds the exboxc state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private JScrollPane infoc, exboxc`
+- Role: Holds the exboxc state.
+- Description: Backs the cached state for this file.
 
 #### `private Thread reporter`
-
-- Description: TODO
+- Role: Holds the reporter state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean done`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 ### Methods
 
 #### `public ErrorGui(java.awt.Frame parent)`
-
-- Description: TODO
+- Role: Creates a new ErrorGui instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean goterror(Throwable t)`
-
-- Description: TODO
+- Role: Performs goterror.
+- Description: Supports the goterror operation used by the surrounding class.
 
 #### `public void connecting()`
-
-- Description: TODO
+- Role: Performs connecting.
+- Description: Supports the connecting operation used by the surrounding class.
 
 #### `public void sending()`
-
-- Description: TODO
+- Role: Performs sending.
+- Description: Supports the sending operation used by the surrounding class.
 
 #### `public void done(final String ctype, final String info)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public void senderror(Exception e)`
-
-- Description: TODO
+- Role: Performs senderror.
+- Description: Supports the senderror operation used by the surrounding class.
 
 #### `public abstract void errorsent()`
-
-- Description: TODO
+- Role: Performs errorsent.
+- Description: Supports the errorsent operation used by the surrounding class.

@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `IButton`.
 
 ## Role
 
-Represents an image button widget.
+Represents the ibutton Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within IButton.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
@@ -25,95 +26,95 @@ Represents an image button widget.
 ### Fields
 
 #### `public final BufferedImage up, down, hover`
-
-- Description: TODO
-
-#### `public final BufferedImage up, down, hover`
-
-- Description: TODO
+- Role: Stores the hover value.
+- Description: Backs the cached state for this file.
 
 #### `public final BufferedImage up, down, hover`
+- Role: Stores the hover value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final BufferedImage up, down, hover`
+- Role: Stores the hover value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean h = false, a = false`
-
-- Description: TODO
+- Role: Tracks the h flag.
+- Description: Supports the h operation used by the surrounding class.
 
 #### `public boolean h = false, a = false`
-
-- Description: TODO
+- Role: Tracks the h flag.
+- Description: Supports the h operation used by the surrounding class.
 
 #### `public Runnable action = null`
-
-- Description: TODO
+- Role: Holds the action state.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab d = null`
-
-- Description: TODO
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public IButton(BufferedImage up, BufferedImage down, BufferedImage hover, Runnable action)`
-
-- Description: TODO
+- Role: Creates a new IButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IButton(BufferedImage up, BufferedImage down, BufferedImage hover)`
-
-- Description: TODO
+- Role: Creates a new IButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IButton(BufferedImage up, BufferedImage down)`
-
-- Description: TODO
+- Role: Creates a new IButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IButton(String base, String up, String down, String hover, Runnable action)`
-
-- Description: TODO
+- Role: Creates a new IButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IButton(String base, String up, String down, String hover)`
-
-- Description: TODO
+- Role: Creates a new IButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IButton action(Runnable action)`
-
-- Description: TODO
+- Role: Performs action.
+- Description: Supports the action operation used by the surrounding class.
 
 #### `public void draw(BufferedImage buf)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public void click()`
-
-- Description: TODO
+- Role: Performs click.
+- Description: Supports the click operation used by the surrounding class.
 
 #### `public boolean gkeytype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Performs gkeytype.
+- Description: Supports the gkeytype operation used by the surrounding class.
 
 #### `protected void depress()`
-
-- Description: TODO
+- Role: Performs depress.
+- Description: Supports the depress operation used by the surrounding class.
 
 #### `protected void unpress()`
-
-- Description: TODO
+- Role: Performs unpress.
+- Description: Supports the unpress operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.

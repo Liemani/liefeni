@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Astronomy`.
 
 ## Role
 
-Provides world time and astronomy helpers.
+Represents the astronomy Haven component.
 
 ## Members
 
@@ -19,51 +19,51 @@ Provides world time and astronomy helpers.
 ### Fields
 
 #### `public final double dt, mp, yt, sp, sd`
-
-- Description: TODO
-
-#### `public final double dt, mp, yt, sp, sd`
-
-- Description: TODO
+- Role: Stores the sd value.
+- Description: Backs the cached state for this file.
 
 #### `public final double dt, mp, yt, sp, sd`
-
-- Description: TODO
-
-#### `public final double dt, mp, yt, sp, sd`
-
-- Description: TODO
+- Role: Stores the sd value.
+- Description: Backs the cached state for this file.
 
 #### `public final double dt, mp, yt, sp, sd`
+- Role: Stores the sd value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final double dt, mp, yt, sp, sd`
+- Role: Stores the sd value.
+- Description: Backs the cached state for this file.
+
+#### `public final double dt, mp, yt, sp, sd`
+- Role: Stores the sd value.
+- Description: Backs the cached state for this file.
 
 #### `public final double years, ym, md`
-
-- Description: TODO
-
-#### `public final double years, ym, md`
-
-- Description: TODO
+- Role: Stores the md value.
+- Description: Backs the cached state for this file.
 
 #### `public final double years, ym, md`
+- Role: Stores the md value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final double years, ym, md`
+- Role: Stores the md value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean night`
-
-- Description: TODO
+- Role: Tracks the night flag.
+- Description: Supports the night operation used by the surrounding class.
 
 #### `public final Color mc`
-
-- Description: TODO
+- Role: Stores the mc value.
+- Description: Backs the cached state for this file.
 
 #### `public final int is`
-
-- Description: TODO
+- Role: Stores the is value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Astronomy(double dt, double mp, double yt, boolean night, Color mc, int is, double sp, double sd, double years, double ym, double md)`
-
-- Description: TODO
+- Role: Creates a new Astronomy instance.
+- Description: Constructs the instance and initializes its default state.

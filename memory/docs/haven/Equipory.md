@@ -10,122 +10,124 @@ This file documents the responsibilities and members of `Equipory`.
 
 ## Role
 
-Displays the equipment UI.
+Represents the equipory Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Equipory.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### SlotInfo
 
-- Description: TODO
+- Role: Represents slot info within Equipory.
+- Description: Describes the nested slot info type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Resource.Image bgi = Resource.loadrimg("gfx/hud/equip/bg")`
-
-- Description: TODO
-
-#### `private static final int yo = Inventory.sqsz.y, sh = 11`
-
-- Description: TODO
+- Role: Defines the shared bgi constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int yo = Inventory.sqsz.y, sh = 11`
+- Role: Defines the shared yo constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `private static final int yo = Inventory.sqsz.y, sh = 11`
+- Role: Defines the shared yo constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex bg = new TexI(PUtils.uiscale(bgi.img, Coord.of((sh * yo * bgi.sz.x) / bgi.sz.y, sh * yo)))`
-
-- Description: TODO
+- Role: Defines the shared bg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int rx = invsq.sz().x + bg.sz().x`
-
-- Description: TODO
+- Role: Defines the shared rx constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord bgc = new Coord(invsq.sz().x, 0)`
-
-- Description: TODO
+- Role: Defines the shared bgc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord ecoords[] =`
-
-- Description: TODO
+- Role: Defines the shared equipory constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex[] ebgs = new Tex[ecoords.length]`
-
-- Description: TODO
+- Role: Defines the shared ebgs constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text[] etts = new Text[ecoords.length]`
-
-- Description: TODO
+- Role: Defines the shared etts constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `static Coord isz`
-
-- Description: TODO
+- Role: Stores the isz value.
+- Description: Backs the cached state for this file.
 
 #### `Map<GItem, Collection<WItem>> wmap = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches wmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Avaview ava`
-
-- Description: TODO
+- Role: Holds the ava state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public Equipory(long gobid)`
-
-- Description: TODO
+- Role: Creates a new Equipory instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int slots()`
-
-- Description: TODO
+- Role: Performs slots.
+- Description: Supports the slots operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void cdestroy(Widget w)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public int epat(Coord c)`
-
-- Description: TODO
+- Role: Performs epat.
+- Description: Supports the epat operation used by the surrounding class.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public void drawslots(GOut g)`
-
-- Description: TODO
+- Role: Performs drawslots.
+- Description: Supports the drawslots operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.

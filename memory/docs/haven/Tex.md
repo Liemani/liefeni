@@ -10,48 +10,48 @@ This file documents the responsibilities and members of `Tex`.
 
 ## Role
 
-Represents a texture.
+Represents the tex Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex nil = new Tex()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public default void render(GOut g, Coord dul, Coord dbr, Coord tul, Coord tbr)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public default void render(GOut g, Coord c)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public default void crender(GOut g, Coord c, Coord dsz, Coord cul, Coord cbr)`
-
-- Description: TODO
+- Role: Performs crender.
+- Description: Supports the crender operation used by the surrounding class.
 
 #### `public default void crender(GOut g, Coord c, Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Performs crender.
+- Description: Supports the crender operation used by the surrounding class.
 
 #### `public static int nextp2(int in)`
-
-- Description: TODO
+- Role: Performs nextp2.
+- Description: Supports the nextp2 operation used by the surrounding class.
 
 #### `public default void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

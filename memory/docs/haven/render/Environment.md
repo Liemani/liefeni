@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Environment`.
 
 ## Role
 
-Represents render environment state.
+Defines the environment render pipeline component.
 
 ## Members
 
@@ -21,97 +21,97 @@ Represents render environment state.
 ### Methods
 
 #### `public Render render()`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public FillBuffer fillbuf(DataBuffer target, int from, int to)`
-
-- Description: TODO
+- Role: Performs fillbuf.
+- Description: Supports the fillbuf operation used by the surrounding class.
 
 #### `public default FillBuffer fillbuf(DataBuffer target)`
-
-- Description: TODO
+- Role: Performs fillbuf.
+- Description: Supports the fillbuf operation used by the surrounding class.
 
 #### `public DrawList drawlist()`
-
-- Description: TODO
+- Role: Performs drawlist.
+- Description: Supports the drawlist operation used by the surrounding class.
 
 #### `public void submit(Render cmd)`
-
-- Description: TODO
+- Role: Performs submit.
+- Description: Supports the submit operation used by the surrounding class.
 
 #### `public boolean compatible(DrawList ob)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public boolean compatible(Texture ob)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public boolean compatible(DataBuffer ob)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public UnavailableException(String msg)`
-
-- Description: TODO
+- Role: Performs unavailable exception.
+- Description: Supports the unavailable exception operation used by the surrounding class.
 
 #### `public UnavailableException(String msg, Throwable cause)`
-
-- Description: TODO
+- Role: Performs unavailable exception.
+- Description: Supports the unavailable exception operation used by the surrounding class.
 
 #### `public String vendor()`
-
-- Description: TODO
+- Role: Performs vendor.
+- Description: Supports the vendor operation used by the surrounding class.
 
 #### `public String driver()`
-
-- Description: TODO
+- Role: Performs driver.
+- Description: Supports the driver operation used by the surrounding class.
 
 #### `public String device()`
-
-- Description: TODO
+- Role: Performs device.
+- Description: Supports the device operation used by the surrounding class.
 
 #### `public Caps caps()`
-
-- Description: TODO
+- Role: Performs caps.
+- Description: Supports the caps operation used by the surrounding class.
 
 #### `public abstract Environment back()`
-
-- Description: TODO
+- Role: Performs back.
+- Description: Supports the back operation used by the surrounding class.
 
 #### `public Render render()`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public FillBuffer fillbuf(DataBuffer target, int from, int to)`
-
-- Description: TODO
+- Role: Performs fillbuf.
+- Description: Supports the fillbuf operation used by the surrounding class.
 
 #### `public DrawList drawlist()`
-
-- Description: TODO
+- Role: Performs drawlist.
+- Description: Supports the drawlist operation used by the surrounding class.
 
 #### `public void submit(Render cmd)`
-
-- Description: TODO
+- Role: Performs submit.
+- Description: Supports the submit operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public Caps caps()`
-
-- Description: TODO
+- Role: Performs caps.
+- Description: Supports the caps operation used by the surrounding class.
 
 #### `public boolean compatible(DrawList ob)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public boolean compatible(Texture ob)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public boolean compatible(DataBuffer ob)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.

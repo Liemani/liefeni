@@ -10,442 +10,448 @@ This file documents the responsibilities and members of `MenuGrid`.
 
 ## Role
 
-Displays the main menu grid.
+Represents the in-game menu grid and its pages.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within MenuGrid.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### FactMaker
 
-- Description: TODO
+- Role: Represents fact maker within MenuGrid.
+- Description: Describes the nested fact maker type used by the enclosing class.
 
 ### Factory
 
-- Description: TODO
+- Role: Represents factory within MenuGrid.
+- Description: Describes the nested factory type used by the enclosing class.
 
 ### Interaction
 
-- Description: TODO
+- Role: Represents interaction within MenuGrid.
+- Description: Describes the nested interaction type used by the enclosing class.
 
 ### PagButton
 
-- Description: TODO
+- Role: Represents pag button within MenuGrid.
+- Description: Describes the nested pag button type used by the enclosing class.
 
 ### Pagina
 
-- Description: TODO
+- Role: Represents pagina within MenuGrid.
+- Description: Describes the nested pagina type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry keyfnd = new Text.Foundry(Text.sans.deriveFont(Font.BOLD), 10)`
-
-- Description: TODO
+- Role: Defines the shared keyfnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<PagButton> ctxr = new OwnerContext.ClassResolver<PagButton>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_root = KeyBinding.get("scm-root", KeyMatch.forcode(KeyEvent.VK_ESCAPE, 0))`
-
-- Description: TODO
+- Role: Defines the shared kb root constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_back = KeyBinding.get("scm-back", KeyMatch.forcode(KeyEvent.VK_BACK_SPACE, 0))`
-
-- Description: TODO
+- Role: Defines the shared kb back constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_next = KeyBinding.get("scm-next", KeyMatch.forchar('N', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.S))`
-
-- Description: TODO
+- Role: Defines the shared kb next constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final static Tex bg = Inventory.invsq`
-
-- Description: TODO
+- Role: Stores the bg value.
+- Description: Backs the cached state for this file.
 
 #### `public final static Coord bgsz = Inventory.sqsz`
-
-- Description: TODO
+- Role: Stores the bgsz value.
+- Description: Backs the cached state for this file.
 
 #### `public final static RichText.Foundry ttfnd = new RichText.Foundry(TextAttribute.FAMILY, "SansSerif", TextAttribute.SIZE, UI.scale(10f))`
-
-- Description: TODO
+- Role: Stores the ttfnd value.
+- Description: Backs the cached state for this file.
 
 #### `private static Coord gsz = new Coord(4, 4)`
-
-- Description: TODO
+- Role: Stores the gsz value.
+- Description: Backs the cached state for this file.
 
 #### `public final Set<Pagina> paginae = new HashSet<Pagina>()`
-
-- Description: TODO
+- Role: Caches paginae entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Pagina cur`
-
-- Description: TODO
+- Role: Holds the cur state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Object, Pagina> pmap = new CacheMap<>(CacheMap.RefType.WEAK)`
-
-- Description: TODO
+- Role: Caches pmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Pagina dragging`
-
-- Description: TODO
+- Role: Holds the dragging state.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<PagButton> curbtns = Collections.emptyList()`
-
-- Description: TODO
-
-#### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
-
-- Description: TODO
+- Role: Caches curbtns entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
+- Role: Holds the menu grid state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
+- Role: Holds the menu grid state.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 #### `private int curoff = 0`
-
-- Description: TODO
-
-#### `private boolean recons = true, showkeys = false`
-
-- Description: TODO
+- Role: Stores the curoff value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean recons = true, showkeys = false`
+- Role: Tracks the recons flag.
+- Description: Supports the recons operation used by the surrounding class.
 
-- Description: TODO
+#### `private boolean recons = true, showkeys = false`
+- Role: Tracks the recons flag.
+- Description: Supports the recons operation used by the surrounding class.
 
 #### `private double fstart`
-
-- Description: TODO
+- Role: Stores the fstart value.
+- Description: Backs the cached state for this file.
 
 #### `public final MenuGrid scm`
-
-- Description: TODO
+- Role: Stores the scm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public byte[] sdt = null`
-
-- Description: TODO
-
-#### `public int anew, tnew`
-
-- Description: TODO
+- Role: Stores the sdt value.
+- Description: Backs the cached state for this file.
 
 #### `public int anew, tnew`
+- Role: Stores the tnew value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int anew, tnew`
+- Role: Stores the tnew value.
+- Description: Backs the cached state for this file.
 
 #### `public Object[] rawinfo =`
-
-- Description: TODO
+- Role: Holds the menu grid state.
+- Description: Backs the cached state for this file.
 
 #### `private PagButton button = null`
-
-- Description: TODO
-
-#### `public final int btn, modflags`
-
-- Description: TODO
+- Role: Holds the button state.
+- Description: Backs the cached state for this file.
 
 #### `public final int btn, modflags`
+- Role: Stores the modflags value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int btn, modflags`
+- Role: Stores the modflags value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord2d mc`
-
-- Description: TODO
+- Role: Stores the mc value.
+- Description: Backs the cached state for this file.
 
 #### `public final ClickData click`
-
-- Description: TODO
+- Role: Holds the click state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pagina pag`
-
-- Description: TODO
+- Role: Holds the pag state.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final KeyBinding bind`
-
-- Description: TODO
+- Role: Holds the bind state.
+- Description: Backs the cached state for this file.
 
 #### `private GSprite spr`
-
-- Description: TODO
+- Role: Holds the spr state.
+- Description: Backs the cached state for this file.
 
 #### `private AButton act`
-
-- Description: TODO
+- Role: Holds the act state.
+- Description: Backs the cached state for this file.
 
 #### `private Pagina parent`
-
-- Description: TODO
+- Role: Holds the parent state.
+- Description: Backs the cached state for this file.
 
 #### `public final AttrCache<Pipe.Op> rstate = new AttrCache<>(this::info, info ->`
-
-- Description: TODO
+- Role: Caches rstate entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final AttrCache<GItem.InfoOverlay<?>[]> ols = new AttrCache<>(this::info, info ->`
-
-- Description: TODO
+- Role: Caches ols entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final AttrCache<Double> meter = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
-
-- Description: TODO
+- Role: Caches meter entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Tex keyrend = null`
-
-- Description: TODO
+- Role: Stores the keyrend value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean haskeyrend = false`
-
-- Description: TODO
+- Role: Tracks the haskeyrend flag.
+- Description: Supports the haskeyrend operation used by the surrounding class.
 
 #### `private List<ItemInfo> info = null`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final PagButton next = new PagButton(new Pagina(this, null, Resource.local().loadwait("gfx/hud/sc-next").indir()))`
-
-- Description: TODO
+- Role: Holds the next state.
+- Description: Backs the cached state for this file.
 
 #### `public final PagButton bk = new PagButton(new Pagina(this, null, Resource.local().loadwait("gfx/hud/sc-back").indir()))`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `private PagButton curttp = null`
-
-- Description: TODO
+- Role: Holds the curttp state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean curttl = false`
-
-- Description: TODO
+- Role: Tracks the curttl flag.
+- Description: Supports the curttl operation used by the surrounding class.
 
 #### `private Tex curtt = null`
-
-- Description: TODO
+- Role: Stores the curtt value.
+- Description: Backs the cached state for this file.
 
 #### `private double hoverstart`
-
-- Description: TODO
+- Role: Stores the hoverstart value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Pagina(MenuGrid scm, Object id, Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs pagina.
+- Description: Supports the pagina operation used by the surrounding class.
 
 #### `public Resource res()`
-
-- Description: TODO
+- Role: Performs res.
+- Description: Supports the res operation used by the surrounding class.
 
 #### `public Message data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `private void invalidate()`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public PagButton button()`
-
-- Description: TODO
+- Role: Performs button.
+- Description: Supports the button operation used by the surrounding class.
 
 #### `public Pagina parent()`
-
-- Description: TODO
+- Role: Performs parent.
+- Description: Supports the parent operation used by the surrounding class.
 
 #### `public Interaction(int btn, int modflags, Coord2d mc, ClickData click)`
-
-- Description: TODO
+- Role: Performs interaction.
+- Description: Supports the interaction operation used by the surrounding class.
 
 #### `public Interaction(int btn, int modflags)`
-
-- Description: TODO
+- Role: Performs interaction.
+- Description: Supports the interaction operation used by the surrounding class.
 
 #### `public Interaction()`
-
-- Description: TODO
+- Role: Performs interaction.
+- Description: Supports the interaction operation used by the surrounding class.
 
 #### `public PagButton(Pagina pag)`
-
-- Description: TODO
+- Role: Performs pag button.
+- Description: Supports the pag button operation used by the surrounding class.
 
 #### `public AButton act()`
-
-- Description: TODO
+- Role: Performs act.
+- Description: Supports the act operation used by the surrounding class.
 
 #### `public Pagina parent()`
-
-- Description: TODO
+- Role: Performs parent.
+- Description: Supports the parent operation used by the surrounding class.
 
 #### `public GSprite spr()`
-
-- Description: TODO
+- Role: Performs spr.
+- Description: Supports the spr operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public KeyMatch hotkey()`
-
-- Description: TODO
+- Role: Performs hotkey.
+- Description: Supports the hotkey operation used by the surrounding class.
 
 #### `public KeyBinding binding()`
-
-- Description: TODO
+- Role: Performs binding.
+- Description: Supports the binding operation used by the surrounding class.
 
 #### `public void use(Interaction iact)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public BufferedImage img()`
-
-- Description: TODO
+- Role: Performs img.
+- Description: Supports the img operation used by the surrounding class.
 
 #### `public void drawmain(GOut g, GSprite spr)`
-
-- Description: TODO
+- Role: Performs drawmain.
+- Description: Supports the drawmain operation used by the surrounding class.
 
 #### `public void draw(GOut g, GSprite spr)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public String sortkey()`
-
-- Description: TODO
+- Role: Performs sortkey.
+- Description: Supports the sortkey operation used by the surrounding class.
 
 #### `private char bindchr(KeyMatch key)`
-
-- Description: TODO
+- Role: Performs bindchr.
+- Description: Supports the bindchr operation used by the surrounding class.
 
 #### `public Tex keyrend()`
-
-- Description: TODO
+- Role: Performs keyrend.
+- Description: Supports the keyrend operation used by the surrounding class.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public Resource getres()`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public BufferedImage rendertt(boolean withpg)`
-
-- Description: TODO
+- Role: Performs rendertt.
+- Description: Supports the rendertt operation used by the surrounding class.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public PagButton make(Pagina info)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public Pagina paginafor(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs paginafor.
+- Description: Supports the paginafor operation used by the surrounding class.
 
 #### `public Pagina paginafor(Object id, Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs paginafor.
+- Description: Supports the paginafor operation used by the surrounding class.
 
 #### `private boolean cons(Pagina p, Collection<PagButton> buf)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `private void announce(Pagina pag)`
-
-- Description: TODO
+- Role: Performs announce.
+- Description: Supports the announce operation used by the surrounding class.
 
 #### `public MenuGrid()`
-
-- Description: TODO
+- Role: Creates a new MenuGrid instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void updlayout()`
-
-- Description: TODO
+- Role: Performs updlayout.
+- Description: Supports the updlayout operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `private PagButton bhit(Coord c)`
-
-- Description: TODO
+- Role: Performs bhit.
+- Description: Supports the bhit operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public void change(Pagina dst)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public void use(PagButton r, Interaction iact, boolean reset)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.
 
 #### `public KeyBinding getbinding(Coord cc)`
-
-- Description: TODO
+- Role: Performs getbinding.
+- Description: Supports the getbinding operation used by the surrounding class.

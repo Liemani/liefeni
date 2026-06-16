@@ -10,98 +10,100 @@ This file documents the responsibilities and members of `CompImage`.
 
 ## Role
 
-Represents a composed image.
+Represents the comp image Haven component.
 
 ## Nested Types
 
 ### Image
 
-- Description: TODO
+- Role: Represents image within CompImage.
+- Description: Describes the nested image type used by the enclosing class.
 
 ### Placed
 
-- Description: TODO
+- Role: Represents placed within CompImage.
+- Description: Describes the nested placed type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Image nil = new Image()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Coord sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<Placed> cont = new LinkedList<Placed>()`
-
-- Description: TODO
-
-#### `Image img; Coord c`
-
-- Description: TODO
+- Role: Caches cont entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `Image img; Coord c`
+- Role: Stores the c value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `Image img; Coord c`
+- Role: Stores the c value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void draw(Graphics g, Coord c)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `Placed(Image img, Coord c)`
-
-- Description: TODO
+- Role: Handles the placed workflow.
+- Description: Supports the placed operation used by the surrounding class.
 
 #### `public CompImage()`
-
-- Description: TODO
+- Role: Creates a new CompImage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public CompImage add(Image img, Coord c)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public static Image mk(final BufferedImage img)`
-
-- Description: TODO
+- Role: Performs mk.
+- Description: Supports the mk operation used by the surrounding class.
 
 #### `public CompImage add(final BufferedImage img, Coord c)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public static Image mk(final CompImage img)`
-
-- Description: TODO
+- Role: Performs mk.
+- Description: Supports the mk operation used by the surrounding class.
 
 #### `public CompImage add(final CompImage img, Coord c)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `private void compose(Graphics on, Coord off)`
-
-- Description: TODO
+- Role: Performs compose.
+- Description: Supports the compose operation used by the surrounding class.
 
 #### `public BufferedImage compose()`
-
-- Description: TODO
+- Role: Performs compose.
+- Description: Supports the compose operation used by the surrounding class.
 
 #### `public CompImage table(Coord base, Image[][] cells, Object cs, int rs, int[] cj)`
-
-- Description: TODO
+- Role: Performs table.
+- Description: Supports the table operation used by the surrounding class.
 
 #### `public static Image[][] transpose(Image[][] cells)`
-
-- Description: TODO
+- Role: Performs transpose.
+- Description: Supports the transpose operation used by the surrounding class.
 
 #### `public static Image[][] transpose(Collection<Image[]> rows)`
-
-- Description: TODO
+- Role: Performs transpose.
+- Description: Supports the transpose operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `BrowserAuth`.
 
 ## Role
 
-Supports browser-based authentication.
+Represents the browser auth Haven component.
 
 ## Members
 
@@ -21,9 +21,9 @@ Supports browser-based authentication.
 ### Methods
 
 #### `public abstract String method()`
-
-- Description: TODO
+- Role: Performs method.
+- Description: Supports the method operation used by the surrounding class.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the tryauth workflow.
+- Description: Supports the tryauth operation used by the surrounding class.

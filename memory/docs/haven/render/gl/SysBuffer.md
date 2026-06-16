@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SysBuffer`.
 
 ## Role
 
-Represents a system-backed GL buffer.
+Provides GL backend support for sys buffer.
 
 ## Members
 
@@ -21,9 +21,9 @@ Represents a system-backed GL buffer.
 ### Methods
 
 #### `public ByteBuffer data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public default void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

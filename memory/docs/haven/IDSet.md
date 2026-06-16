@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `IDSet`.
 
 ## Role
 
-Represents a set of identifiers.
+Represents the idset Haven component.
 
 ## Nested Types
 
 ### WRef
 
-- Description: TODO
+- Role: Represents wref within IDSet.
+- Description: Describes the nested wref type used by the enclosing class.
 
 ## Members
 
@@ -25,39 +26,39 @@ Represents a set of identifiers.
 ### Fields
 
 #### `private final HashMap<WRef<T>, WRef<T>> bk = new HashMap<WRef<T>, WRef<T>>()`
-
-- Description: TODO
+- Role: Caches bk entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final ReferenceQueue<T> queue = new ReferenceQueue<T>()`
-
-- Description: TODO
+- Role: Caches queue entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final int hash`
-
-- Description: TODO
+- Role: Stores the hash value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private WRef(T ob, ReferenceQueue<T> queue)`
-
-- Description: TODO
+- Role: Performs wref.
+- Description: Supports the wref operation used by the surrounding class.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `private void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public T intern(T ob)`
-
-- Description: TODO
+- Role: Performs intern.
+- Description: Supports the intern operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.

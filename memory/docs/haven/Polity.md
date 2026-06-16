@@ -10,182 +10,186 @@ This file documents the responsibilities and members of `Polity`.
 
 ## Role
 
-Represents polity or faction state.
+Represents the polity Haven component.
 
 ## Nested Types
 
 ### AuthMeter
 
-- Description: TODO
+- Role: Represents auth meter within Polity.
+- Description: Describes the nested auth meter type used by the enclosing class.
 
 ### Member
 
-- Description: TODO
+- Role: Represents member within Polity.
+- Description: Describes the nested member type used by the enclosing class.
 
 ### MemberList
 
-- Description: TODO
+- Role: Represents member list within Polity.
+- Description: Describes the nested member list type used by the enclosing class.
 
 ### MemberWidget
 
-- Description: TODO
+- Role: Represents member widget within Polity.
+- Description: Describes the nested member widget type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text unk = Text.render("???")`
-
-- Description: TODO
+- Role: Defines the shared unk constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text self = Text.render("You", new Color(192, 192, 255))`
-
-- Description: TODO
+- Role: Defines the shared self constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry nmf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(14))).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared nmf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry membf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(12))).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared membf constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final String cap, name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final String cap, name`
-
-- Description: TODO
-
-#### `public int auth, acap, adrain, aseq`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public int auth, acap, adrain, aseq`
-
-- Description: TODO
-
-#### `public int auth, acap, adrain, aseq`
-
-- Description: TODO
+- Role: Stores the aseq value.
+- Description: Backs the cached state for this file.
 
 #### `public int auth, acap, adrain, aseq`
+- Role: Stores the aseq value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int auth, acap, adrain, aseq`
+- Role: Stores the aseq value.
+- Description: Backs the cached state for this file.
+
+#### `public int auth, acap, adrain, aseq`
+- Role: Stores the aseq value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean offline`
-
-- Description: TODO
+- Role: Tracks the offline flag.
+- Description: Supports the offline operation used by the surrounding class.
 
 #### `public final List<Member> memb = new ArrayList<Member>()`
-
-- Description: TODO
+- Role: Caches memb entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Map<Integer, Member> idmap = new HashMap<Integer, Member>()`
-
-- Description: TODO
+- Role: Caches idmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `protected Widget mw`
-
-- Description: TODO
-
-#### `public final Integer id`
-
-- Description: TODO
+- Role: Stores the mw value.
+- Description: Backs the cached state for this file.
 
 #### `public final Integer id`
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Integer id`
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private int aseq = -1`
-
-- Description: TODO
+- Role: Stores the aseq value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex rauth = null`
-
-- Description: TODO
+- Role: Stores the rauth value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Member(Integer id)`
-
-- Description: TODO
+- Role: Performs member.
+- Description: Supports the member operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public MemberList(Coord sz)`
-
-- Description: TODO
+- Role: Performs member list.
+- Description: Supports the member list operation used by the surrounding class.
 
 #### `public MemberList(int w, int h)`
-
-- Description: TODO
+- Role: Performs member list.
+- Description: Supports the member list operation used by the surrounding class.
 
 #### `public List<Member> allitems()`
-
-- Description: TODO
+- Role: Performs allitems.
+- Description: Supports the allitems operation used by the surrounding class.
 
 #### `public String itemname(Member m)`
-
-- Description: TODO
+- Role: Performs itemname.
+- Description: Supports the itemname operation used by the surrounding class.
 
 #### `public boolean searchmatch(Member m, String txt)`
-
-- Description: TODO
+- Role: Performs searchmatch.
+- Description: Supports the searchmatch operation used by the surrounding class.
 
 #### `protected Widget makeitem(Member m, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `protected void drawbg(GOut g)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, Member m, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `public void change(Member pm)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public MemberWidget(Coord sz, Integer id)`
-
-- Description: TODO
+- Role: Performs member widget.
+- Description: Supports the member widget operation used by the surrounding class.
 
 #### `public Polity(String cap, String name)`
-
-- Description: TODO
+- Role: Creates a new Polity instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public AuthMeter(Coord sz)`
-
-- Description: TODO
+- Role: Performs auth meter.
+- Description: Supports the auth meter operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `protected Member parsememb(Object[] args)`
-
-- Description: TODO
+- Role: Performs parsememb.
+- Description: Supports the parsememb operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void cdestroy(Widget w)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.

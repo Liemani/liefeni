@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Avatar`.
 
 ## Role
 
-Represents a character avatar helper.
+Represents the avatar Haven component.
 
 ## Nested Types
 
 ### $avatar
 
-- Description: TODO
+- Role: Represents $avatar within Avatar.
+- Description: Describes the nested $avatar type used by the enclosing class.
 
 ## Members
 
@@ -25,27 +26,27 @@ Represents a character avatar helper.
 ### Fields
 
 #### `public List<Indir<Resource>> layers = null`
-
-- Description: TODO
+- Role: Caches layers entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<Resource.Image> images = null`
-
-- Description: TODO
+- Role: Caches images entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public Avatar(Gob gob)`
-
-- Description: TODO
+- Role: Creates a new Avatar instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `void setlayers(List<Indir<Resource>> layers)`
-
-- Description: TODO
+- Role: Performs setlayers.
+- Description: Supports the setlayers operation used by the surrounding class.
 
 #### `public List<Resource.Image> images()`
-
-- Description: TODO
+- Role: Performs images.
+- Description: Supports the images operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

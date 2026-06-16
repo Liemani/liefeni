@@ -10,64 +10,64 @@ This file documents the responsibilities and members of `ResCache`.
 
 ## Role
 
-Caches resources.
+Represents the res cache Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<java.net.URI> cachebase = Config.Variable.propu("haven.cachebase", "")`
-
-- Description: TODO
+- Role: Defines the shared cachebase constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public static ResCache global = StupidJavaCodeContainer.makeglobal()`
-
-- Description: TODO
-
-#### `public final ResCache pri, sec[]`
-
-- Description: TODO
+- Role: Caches global entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final ResCache pri, sec[]`
+- Role: Holds the res cache state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final ResCache pri, sec[]`
+- Role: Holds the res cache state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public OutputStream store(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the store workflow.
+- Description: Supports the store operation used by the surrounding class.
 
 #### `public InputStream fetch(String name) throws IOException`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `private static ResCache makeglobal()`
-
-- Description: TODO
+- Role: Performs makeglobal.
+- Description: Supports the makeglobal operation used by the surrounding class.
 
 #### `public OutputStream store(final String name)`
-
-- Description: TODO
+- Role: Performs store.
+- Description: Supports the store operation used by the surrounding class.
 
 #### `public InputStream fetch(String name) throws IOException`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public Fallback(ResCache pri, ResCache... sec)`
-
-- Description: TODO
+- Role: Performs fallback.
+- Description: Supports the fallback operation used by the surrounding class.
 
 #### `public InputStream fetch(String name) throws IOException`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public OutputStream store(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the store workflow.
+- Description: Supports the store operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

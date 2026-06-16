@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `NumberFormat`.
 
 ## Role
 
-Represents number formatting support.
+Defines the number format render pipeline component.
 
 ## Members
 
@@ -19,11 +19,11 @@ Represents number formatting support.
 ### Fields
 
 #### `public final int size`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `NumberFormat(int size)`
-
-- Description: TODO
+- Role: Creates a new NumberFormat instance.
+- Description: Constructs the instance and initializes its default state.

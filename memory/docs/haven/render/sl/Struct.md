@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `Struct`.
 
 ## Role
 
-Represents a shader struct.
+Represents the struct shader-language AST node.
 
 ## Nested Types
 
 ### Constructor
 
-- Description: TODO
+- Role: Represents constructor within Struct.
+- Description: Describes the nested constructor type used by the enclosing class.
 
 ### Definition
 
-- Description: TODO
+- Role: Represents definition within Struct.
+- Description: Describes the nested definition type used by the enclosing class.
 
 ### Field
 
-- Description: TODO
+- Role: Represents field within Struct.
+- Description: Describes the nested field type used by the enclosing class.
 
 ## Members
 
@@ -33,91 +36,91 @@ Represents a shader struct.
 ### Fields
 
 #### `public final Symbol name`
-
-- Description: TODO
+- Role: Holds the name state.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Field> fields`
-
-- Description: TODO
+- Role: Caches fields entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Type type`
-
-- Description: TODO
+- Role: Holds the type state.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final Expression[] els`
-
-- Description: TODO
+- Role: Holds the els state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Field(Type type, String name)`
-
-- Description: TODO
+- Role: Performs field.
+- Description: Supports the field operation used by the surrounding class.
 
 #### `private Struct(Symbol name, List<Field> fields)`
-
-- Description: TODO
+- Role: Creates a new Struct instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Struct(Symbol name, Field... fields)`
-
-- Description: TODO
+- Role: Creates a new Struct instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Struct(Symbol name)`
-
-- Description: TODO
+- Role: Creates a new Struct instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Struct make(Symbol name, Object... args)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public String name(Context ctx)`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public Constructor(Expression... els)`
-
-- Description: TODO
+- Role: function Object() { [native code] }
+- Description: Supports the constructor operation used by the surrounding class.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public Constructor construct(Expression... els)`
-
-- Description: TODO
+- Role: Performs construct.
+- Description: Supports the construct operation used by the surrounding class.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public Struct type()`
-
-- Description: TODO
+- Role: Performs type.
+- Description: Supports the type operation used by the surrounding class.
 
 #### `public boolean defined(Context ctx)`
-
-- Description: TODO
+- Role: Performs defined.
+- Description: Supports the defined operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `VboState`.
 
 ## Role
 
-Represents VBO state.
+Provides GL backend support for vbo state.
 
 ## Members
 
@@ -19,43 +19,43 @@ Represents VBO state.
 ### Fields
 
 #### `public final GLBuffer buf`
-
-- Description: TODO
+- Role: Stores the buf value.
+- Description: Backs the cached state for this file.
 
 #### `public static int slot = slotidx(VboState.class)`
-
-- Description: TODO
+- Role: Stores the slot value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public VboState(GLBuffer buf)`
-
-- Description: TODO
+- Role: Creates a new VboState instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void apply(BGL gl)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void unapply(BGL gl)`
-
-- Description: TODO
+- Role: Performs unapply.
+- Description: Supports the unapply operation used by the surrounding class.
 
 #### `public void applyto(BGL gl, GLState to)`
-
-- Description: TODO
+- Role: Performs applyto.
+- Description: Supports the applyto operation used by the surrounding class.
 
 #### `public static void apply(BGL gl, Applier st, GLBuffer buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static void set(Applier st, GLBuffer buf)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public static GLBuffer get(Applier st)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public int slotidx()`
-
-- Description: TODO
+- Role: Performs slotidx.
+- Description: Supports the slotidx operation used by the surrounding class.

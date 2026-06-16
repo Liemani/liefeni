@@ -10,326 +10,333 @@ This file documents the responsibilities and members of `AuthClient`.
 
 ## Role
 
-Handles authentication client logic.
+Represents the auth client Haven component.
 
 ## Nested Types
 
 ### AuthException
 
-- Description: TODO
+- Role: Represents auth exception within AuthClient.
+- Description: Describes the nested auth exception type used by the enclosing class.
 
 ### Credentials
 
-- Description: TODO
+- Role: Represents credentials within AuthClient.
+- Description: Describes the nested credentials type used by the enclosing class.
 
 ### NativeCred
 
-- Description: TODO
+- Role: Represents native cred within AuthClient.
+- Description: Describes the nested native cred type used by the enclosing class.
 
 ### Obfuscation
 
-- Description: TODO
+- Role: Represents obfuscation within AuthClient.
+- Description: Describes the nested obfuscation type used by the enclosing class.
 
 ### SrpAssertion
 
-- Description: TODO
+- Role: Represents srp assertion within AuthClient.
+- Description: Describes the nested srp assertion type used by the enclosing class.
 
 ### TokenCred
 
-- Description: TODO
+- Role: Represents token cred within AuthClient.
+- Description: Describes the nested token cred type used by the enclosing class.
 
 ### TokenInfo
 
-- Description: TODO
+- Role: Represents token info within AuthClient.
+- Description: Describes the nested token info type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int DEFPORT = 1871`
-
-- Description: TODO
+- Role: Defines the shared defport constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Config.Variable<Boolean> strictcert = Config.Variable.propb("haven.auth-cert-strict", true)`
-
-- Description: TODO
+- Role: Defines the shared strictcert constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final SslHelper ssl`
-
-- Description: TODO
+- Role: Defines the shared ssl constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Digest.Algorithm digest = Digest.SHA256`
-
-- Description: TODO
+- Role: Defines the shared digest constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BigInteger N = b2i(new byte[]`
-
-- Description: TODO
+- Role: Defines the shared n constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BigInteger g = n(2)`
-
-- Description: TODO
+- Role: Defines the shared g constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BigInteger k = b2i(Digest.hash(digest, i2b(N), i2b(g)))`
-
-- Description: TODO
+- Role: Defines the shared k constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private SocketChannel sk`
-
-- Description: TODO
+- Role: Holds the sk state.
+- Description: Backs the cached state for this file.
 
 #### `private SslChannel ssk`
-
-- Description: TODO
+- Role: Holds the ssk state.
+- Description: Backs the cached state for this file.
 
 #### `private final InputStream skin`
-
-- Description: TODO
+- Role: Holds the skin state.
+- Description: Backs the cached state for this file.
 
 #### `private final OutputStream skout`
-
-- Description: TODO
+- Role: Holds the skout state.
+- Description: Backs the cached state for this file.
 
 #### `public final ByteChannel bk`
-
-- Description: TODO
+- Role: Stores the bk value.
+- Description: Backs the cached state for this file.
 
 #### `public byte key = (byte)0xa5`
-
-- Description: TODO
+- Role: Stores the key value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean senthead = false`
-
-- Description: TODO
+- Role: Tracks the senthead flag.
+- Description: Supports the senthead operation used by the surrounding class.
 
 #### `public byte[] id = new byte[]`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public String desc = ""`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `public final byte[] A`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `public final byte[] K`
-
-- Description: TODO
+- Role: Stores the k value.
+- Description: Backs the cached state for this file.
 
 #### `public final String username`
-
-- Description: TODO
+- Role: Stores the username value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] pw`
-
-- Description: TODO
+- Role: Stores the pw value.
+- Description: Backs the cached state for this file.
 
 #### `private final Runnable clean`
-
-- Description: TODO
+- Role: Holds the clean state.
+- Description: Backs the cached state for this file.
 
 #### `public final String acctname`
-
-- Description: TODO
+- Role: Stores the acctname value.
+- Description: Backs the cached state for this file.
 
 #### `public final byte[] token`
-
-- Description: TODO
+- Role: Stores the token value.
+- Description: Backs the cached state for this file.
 
 #### `private final Runnable clean`
-
-- Description: TODO
+- Role: Holds the clean state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Obfuscation(ByteChannel bk)`
-
-- Description: TODO
+- Role: Performs obfuscation.
+- Description: Supports the obfuscation operation used by the surrounding class.
 
 #### `private void obf(ByteBuffer data, int a, int b)`
-
-- Description: TODO
+- Role: Performs obf.
+- Description: Supports the obf operation used by the surrounding class.
 
 #### `public int read(ByteBuffer dst) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int write(ByteBuffer src) throws IOException`
-
-- Description: TODO
+- Role: Writes the target data.
+- Description: Supports the write operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public boolean isOpen()`
-
-- Description: TODO
+- Role: Checks whether the open.
+- Description: Returns a boolean result for the described condition.
 
 #### `private void connect(NamedSocketAddress srv, boolean obf) throws IOException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public AuthClient(NamedSocketAddress srv) throws IOException`
-
-- Description: TODO
+- Role: Creates a new AuthClient instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void checkname(String host, SSLSession sess) throws IOException`
-
-- Description: TODO
+- Role: Handles the checkname workflow.
+- Description: Supports the checkname operation used by the surrounding class.
 
 #### `public SocketAddress address()`
-
-- Description: TODO
+- Role: Performs address.
+- Description: Supports the address operation used by the surrounding class.
 
 #### `public byte[] getcookie() throws IOException`
-
-- Description: TODO
+- Role: Returns the cookie value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public String getalias() throws IOException`
-
-- Description: TODO
+- Role: Returns the alias value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public List<Map<?, ?>> gethosts() throws IOException`
-
-- Description: TODO
+- Role: Returns the hosts value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public List<NamedSocketAddress> gethosts(NamedSocketAddress defaults) throws IOException`
-
-- Description: TODO
+- Role: Returns the hosts value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public TokenInfo id(byte[] id)`
-
-- Description: TODO
+- Role: Performs id.
+- Description: Supports the id operation used by the surrounding class.
 
 #### `public TokenInfo desc(String desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public Object[] encode()`
-
-- Description: TODO
+- Role: Performs encode.
+- Description: Supports the encode operation used by the surrounding class.
 
 #### `public static TokenInfo forhost()`
-
-- Description: TODO
+- Role: Performs forhost.
+- Description: Supports the forhost operation used by the surrounding class.
 
 #### `public byte[] gettoken(TokenInfo info) throws IOException`
-
-- Description: TODO
+- Role: Returns the token value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public byte[] gettoken() throws IOException`
-
-- Description: TODO
+- Role: Returns the token value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `private void sendmsg(MessageBuf msg) throws IOException`
-
-- Description: TODO
+- Role: Handles the sendmsg workflow.
+- Description: Supports the sendmsg operation used by the surrounding class.
 
 #### `private void esendmsg(Object... args) throws IOException`
-
-- Description: TODO
+- Role: Handles the esendmsg workflow.
+- Description: Supports the esendmsg operation used by the surrounding class.
 
 #### `private static void readall(InputStream in, byte[] buf) throws IOException`
-
-- Description: TODO
+- Role: Handles the readall workflow.
+- Description: Supports the readall operation used by the surrounding class.
 
 #### `private Message recvmsg() throws IOException`
-
-- Description: TODO
+- Role: Handles the recvmsg workflow.
+- Description: Supports the recvmsg operation used by the surrounding class.
 
 #### `public Message cmd(Object... args) throws IOException`
-
-- Description: TODO
+- Role: Handles the cmd workflow.
+- Description: Supports the cmd operation used by the surrounding class.
 
 #### `public abstract String tryauth(AuthClient cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the tryauth workflow.
+- Description: Supports the tryauth operation used by the surrounding class.
 
 #### `public abstract String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public void discard()`
-
-- Description: TODO
+- Role: Performs discard.
+- Description: Supports the discard operation used by the surrounding class.
 
 #### `public AuthException(String msg)`
-
-- Description: TODO
+- Role: Performs auth exception.
+- Description: Supports the auth exception operation used by the surrounding class.
 
 #### `public static BigInteger n(long v)`
-
-- Description: TODO
+- Role: Performs n.
+- Description: Supports the n operation used by the surrounding class.
 
 #### `public static BigInteger b2i(byte[] b)`
-
-- Description: TODO
+- Role: Performs b2i.
+- Description: Supports the b2i operation used by the surrounding class.
 
 #### `public static byte[] i2b(BigInteger i)`
-
-- Description: TODO
+- Role: Performs i2b.
+- Description: Supports the i2b operation used by the surrounding class.
 
 #### `public SrpAssertion(byte[] phash, byte[] Bb)`
-
-- Description: TODO
+- Role: Performs srp assertion.
+- Description: Supports the srp assertion operation used by the surrounding class.
 
 #### `public byte[] sign(byte[] msg)`
-
-- Description: TODO
+- Role: Performs sign.
+- Description: Supports the sign operation used by the surrounding class.
 
 #### `public NativeCred(String username, byte[] pw)`
-
-- Description: TODO
+- Role: Performs native cred.
+- Description: Supports the native cred operation used by the surrounding class.
 
 #### `public NativeCred(String username, String pw)`
-
-- Description: TODO
+- Role: Performs native cred.
+- Description: Supports the native cred operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static byte[] prehash(byte[] pw, Object[] spec)`
-
-- Description: TODO
+- Role: Performs prehash.
+- Description: Supports the prehash operation used by the surrounding class.
 
 #### `private byte[] hashpw(AuthClient cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the hashpw workflow.
+- Description: Supports the hashpw operation used by the surrounding class.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the tryauth workflow.
+- Description: Supports the tryauth operation used by the surrounding class.
 
 #### `public void discard()`
-
-- Description: TODO
+- Role: Performs discard.
+- Description: Supports the discard operation used by the surrounding class.
 
 #### `public TokenCred(String acctname, byte[] token)`
-
-- Description: TODO
+- Role: Performs token cred.
+- Description: Supports the token cred operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the tryauth workflow.
+- Description: Supports the tryauth operation used by the surrounding class.
 
 #### `public void discard()`
-
-- Description: TODO
+- Role: Performs discard.
+- Description: Supports the discard operation used by the surrounding class.
 
 #### `public static void main(final String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

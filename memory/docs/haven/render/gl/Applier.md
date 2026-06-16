@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Applier`.
 
 ## Role
 
-Applies GL render state.
+Provides GL backend support for applier.
 
 ## Members
 
@@ -19,95 +19,95 @@ Applies GL render state.
 ### Fields
 
 #### `public final GLEnvironment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `private State[] cur = new State[0]`
-
-- Description: TODO
+- Role: Holds the cur state.
+- Description: Backs the cached state for this file.
 
 #### `private ShaderMacro[] shaders = new ShaderMacro[0]`
-
-- Description: TODO
+- Role: Holds the shaders state.
+- Description: Backs the cached state for this file.
 
 #### `private int shash = 0`
-
-- Description: TODO
+- Role: Stores the shash value.
+- Description: Backs the cached state for this file.
 
 #### `private GLProgram prog`
-
-- Description: TODO
+- Role: Holds the prog state.
+- Description: Backs the cached state for this file.
 
 #### `private Object[] uvals = new Object[0]`
-
-- Description: TODO
+- Role: Holds the uvals state.
+- Description: Backs the cached state for this file.
 
 #### `public GLState[] glstates = new GLState[GLState.slots.length]`
-
-- Description: TODO
+- Role: Holds the glstates state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Applier(GLEnvironment env)`
-
-- Description: TODO
+- Role: Creates a new Applier instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void assume(Applier that)`
-
-- Description: TODO
+- Role: Performs assume.
+- Description: Supports the assume operation used by the surrounding class.
 
 #### `public Applier clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `private void setprog(GLProgram prog)`
-
-- Description: TODO
+- Role: Performs setprog.
+- Description: Supports the setprog operation used by the surrounding class.
 
 #### `public GLProgram prog()`
-
-- Description: TODO
+- Role: Performs prog.
+- Description: Supports the prog operation used by the surrounding class.
 
 #### `private <T> void uapply(BGL gl, GLProgram prog, int ui, Object val)`
-
-- Description: TODO
+- Role: Performs uapply.
+- Description: Supports the uapply operation used by the surrounding class.
 
 #### `private Object getuval(GLProgram prog, int ui, Pipe pipe)`
-
-- Description: TODO
+- Role: Performs getuval.
+- Description: Supports the getuval operation used by the surrounding class.
 
 #### `private Object getfval(GLProgram prog, int fi, Pipe pipe)`
-
-- Description: TODO
+- Role: Performs getfval.
+- Description: Supports the getfval operation used by the surrounding class.
 
 #### `private static <T extends State> void glpapply(GLEnvironment env, BGL gl, GLPipeState<T> st, State from, State to)`
-
-- Description: TODO
+- Role: Performs glpapply.
+- Description: Supports the glpapply operation used by the surrounding class.
 
 #### `private void assume(State[] ns)`
-
-- Description: TODO
+- Role: Performs assume.
+- Description: Supports the assume operation used by the surrounding class.
 
 #### `private void apply2(BGL gl, State[] ns, Pipe to)`
-
-- Description: TODO
+- Role: Performs apply2.
+- Description: Supports the apply2 operation used by the surrounding class.
 
 #### `public void assume(Pipe to)`
-
-- Description: TODO
+- Role: Performs assume.
+- Description: Supports the assume operation used by the surrounding class.
 
 #### `public void apply(BGL gl, Pipe to)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void apply(BGL gl, int slot, GLState st)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void apply(BGL gl, GLState st)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void apply(BGL gl, Applier that)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

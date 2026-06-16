@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ToggleSleepEffect`.
 
 ## Role
 
-Provides an immediate action entry point.
+Implements an instant agent effect for toggle sleep effect.
 
 ## Members
 
@@ -21,17 +21,17 @@ Provides an immediate action entry point.
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public static String sortkey()`
-
-- Description: TODO
+- Role: Performs sortkey.
+- Description: Supports the sortkey operation used by the surrounding class.

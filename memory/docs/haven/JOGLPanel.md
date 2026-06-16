@@ -10,134 +10,135 @@ This file documents the responsibilities and members of `JOGLPanel`.
 
 ## Role
 
-Hosts the JOGL-backed UI panel.
+Represents the joglpanel Haven component.
 
 ## Nested Types
 
 ### ProfileException
 
-- Description: TODO
+- Role: Represents profile exception within JOGLPanel.
+- Description: Describes the nested profile exception type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final boolean dumpbgl = true`
-
-- Description: TODO
+- Role: Defines the shared dumpbgl constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public boolean aswap`
-
-- Description: TODO
+- Role: Tracks the aswap flag.
+- Description: Supports the aswap operation used by the surrounding class.
 
 #### `private JOGLEnvironment env = null`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `private Area shape`
-
-- Description: TODO
-
-#### `private Pipe base, wnd`
-
-- Description: TODO
+- Role: Holds the shape state.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe base, wnd`
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Pipe base, wnd`
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
 #### `private final Loop main = new Loop(this)`
-
-- Description: TODO
+- Role: Holds the main state.
+- Description: Backs the cached state for this file.
 
 #### `public final String availability`
-
-- Description: TODO
+- Role: Stores the availability value.
+- Description: Backs the cached state for this file.
 
 #### `private final haven.error.ErrorHandler errh = haven.error.ErrorHandler.find()`
-
-- Description: TODO
+- Role: Stores the errh value.
+- Description: Backs the cached state for this file.
 
 #### `private Robot awtrobot`
-
-- Description: TODO
+- Role: Holds the awtrobot state.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-
-- Description: TODO
+- Role: Caches cmdmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public ProfileException(Throwable cause)`
-
-- Description: TODO
+- Role: Performs profile exception.
+- Description: Supports the profile exception operation used by the surrounding class.
 
 #### `private static GLCapabilities mkcaps()`
-
-- Description: TODO
+- Role: Performs mkcaps.
+- Description: Supports the mkcaps operation used by the surrounding class.
 
 #### `public JOGLPanel()`
-
-- Description: TODO
+- Role: Creates a new JOGLPanel instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private boolean iswap()`
-
-- Description: TODO
+- Role: Performs iswap.
+- Description: Supports the iswap operation used by the surrounding class.
 
 #### `private void initgl(GL gl)`
-
-- Description: TODO
+- Role: Performs initgl.
+- Description: Supports the initgl operation used by the surrounding class.
 
 #### `private void setenv(JOGLEnvironment env)`
-
-- Description: TODO
+- Role: Performs setenv.
+- Description: Supports the setenv operation used by the surrounding class.
 
 #### `private void redraw(GL gl)`
-
-- Description: TODO
+- Role: Performs redraw.
+- Description: Supports the redraw operation used by the surrounding class.
 
 #### `public GLEnvironment env()`
-
-- Description: TODO
+- Role: Performs env.
+- Description: Supports the env operation used by the surrounding class.
 
 #### `public Area shape()`
-
-- Description: TODO
+- Role: Performs shape.
+- Description: Supports the shape operation used by the surrounding class.
 
 #### `public Pipe basestate()`
-
-- Description: TODO
+- Role: Performs basestate.
+- Description: Supports the basestate operation used by the surrounding class.
 
 #### `public void glswap(haven.render.gl.GL gl)`
-
-- Description: TODO
+- Role: Performs glswap.
+- Description: Supports the glswap operation used by the surrounding class.
 
 #### `private void uglyjoglhack() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the uglyjoglhack workflow.
+- Description: Supports the uglyjoglhack operation used by the surrounding class.
 
 #### `private void renderloop()`
-
-- Description: TODO
+- Role: Performs renderloop.
+- Description: Supports the renderloop operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public UI newui(UI.Runner fun)`
-
-- Description: TODO
+- Role: Performs newui.
+- Description: Supports the newui operation used by the surrounding class.
 
 #### `public void background(boolean bg)`
-
-- Description: TODO
+- Role: Performs background.
+- Description: Supports the background operation used by the surrounding class.
 
 #### `public void setmousepos(Coord c)`
-
-- Description: TODO
+- Role: Performs setmousepos.
+- Description: Supports the setmousepos operation used by the surrounding class.
 
 #### `public Map<String, Console.Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.

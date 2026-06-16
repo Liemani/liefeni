@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `RadioGroup`.
 
 ## Role
 
-Manages a radio button group.
+Represents the radio group Haven component.
 
 ## Nested Types
 
 ### RadioButton
 
-- Description: TODO
+- Role: Represents radio button within RadioGroup.
+- Description: Describes the nested radio button type used by the enclosing class.
 
 ## Members
 
@@ -25,67 +26,67 @@ Manages a radio button group.
 ### Fields
 
 #### `private Widget parent`
-
-- Description: TODO
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
 #### `private ArrayList<RadioButton> btns`
-
-- Description: TODO
+- Role: Caches btns entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private HashMap<String, RadioButton> map`
-
-- Description: TODO
+- Role: Caches map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private HashMap<RadioButton, String> rmap`
-
-- Description: TODO
+- Role: Caches rmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private RadioButton checked`
-
-- Description: TODO
+- Role: Holds the checked state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public RadioGroup(Widget parent)`
-
-- Description: TODO
+- Role: Creates a new RadioGroup instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `RadioButton(String lbl)`
-
-- Description: TODO
+- Role: Handles the radio button workflow.
+- Description: Supports the radio button operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void changed(boolean val)`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public RadioButton add(String lbl, Coord c)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void check(int index)`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public void check(String lbl)`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public void check(RadioButton rb)`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public void hide()`
-
-- Description: TODO
+- Role: Performs hide.
+- Description: Supports the hide operation used by the surrounding class.
 
 #### `public void show()`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public void changed(int btn, String lbl)`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `MultiClient`.
 
 ## Role
 
-Provides a multi-client test harness.
+Provides a Haven test helper for multi client.
 
 ## Members
 
@@ -19,39 +19,39 @@ Provides a multi-client test harness.
 ### Fields
 
 #### `public Collection<TestClient> clients = new HashSet<TestClient>()`
-
-- Description: TODO
-
-#### `public int num, delay`
-
-- Description: TODO
+- Role: Caches clients entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int num, delay`
+- Role: Stores the delay value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int num, delay`
+- Role: Stores the delay value.
+- Description: Backs the cached state for this file.
 
 #### `public int started`
-
-- Description: TODO
+- Role: Stores the started value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public MultiClient(int num, int delay)`
-
-- Description: TODO
+- Role: Creates a new MultiClient instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void stopall()`
-
-- Description: TODO
+- Role: Performs stopall.
+- Description: Supports the stopall operation used by the surrounding class.
 
 #### `public static void usage()`
-
-- Description: TODO
+- Role: Performs usage.
+- Description: Supports the usage operation used by the surrounding class.
 
 #### `public static void main(String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.

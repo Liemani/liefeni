@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `AutoVarying`.
 
 ## Role
 
-Represents an automatically varying shader value.
+Represents the auto varying shader-language AST node.
 
 ## Nested Types
 
 ### Value
 
-- Description: TODO
+- Role: Represents value within AutoVarying.
+- Description: Describes the nested value type used by the enclosing class.
 
 ## Members
 
@@ -27,37 +28,37 @@ Represents an automatically varying shader value.
 ### Methods
 
 #### `public AutoVarying(Type type, Symbol name)`
-
-- Description: TODO
+- Role: Creates a new AutoVarying instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public AutoVarying(Type type, String prefix)`
-
-- Description: TODO
+- Role: Creates a new AutoVarying instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public AutoVarying(Type type)`
-
-- Description: TODO
+- Role: Creates a new AutoVarying instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Value(ValBlock blk)`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `protected void cons2(Block blk)`
-
-- Description: TODO
+- Role: Performs cons2.
+- Description: Supports the cons2 operation used by the surrounding class.
 
 #### `protected Expression root(VertexContext vctx)`
-
-- Description: TODO
+- Role: Performs root.
+- Description: Supports the root operation used by the surrounding class.
 
 #### `protected Value make(ValBlock vals, final VertexContext vctx)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public ValBlock.Value value(final VertexContext ctx)`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.

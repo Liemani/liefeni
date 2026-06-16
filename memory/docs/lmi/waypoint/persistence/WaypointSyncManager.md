@@ -10,32 +10,32 @@ This file documents the responsibilities and members of `WaypointSyncManager`.
 
 ## Role
 
-Queues DB completions for delivery on the draw/render boundary.
+Coordinates waypoint synchronization between runtime and persistence.
 
 ## Members
 
 ### Constants
 
 #### `private static final ConcurrentLinkedQueue<Runnable> completions = new ConcurrentLinkedQueue<>()`
-
-- Description: TODO
+- Role: Defines the shared completions constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `private WaypointSyncManager()`
-
-- Description: TODO
+- Role: Creates a new WaypointSyncManager instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void enqueue(Runnable completion)`
-
-- Description: TODO
+- Role: Performs enqueue.
+- Description: Supports the enqueue operation used by the surrounding class.
 
 #### `public static void drain()`
-
-- Description: TODO
+- Role: Performs drain.
+- Description: Supports the drain operation used by the surrounding class.
 
 #### `public static void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.

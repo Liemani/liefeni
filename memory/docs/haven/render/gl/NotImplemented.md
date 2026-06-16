@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `NotImplemented`.
 
 ## Role
 
-Represents an unimplemented GL helper.
+Provides GL backend support for not implemented.
 
 ## Members
 
@@ -21,13 +21,13 @@ Represents an unimplemented GL helper.
 ### Methods
 
 #### `public NotImplemented(String message, Throwable cause)`
-
-- Description: TODO
+- Role: Creates a new NotImplemented instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public NotImplemented(String message)`
-
-- Description: TODO
+- Role: Creates a new NotImplemented instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public NotImplemented()`
-
-- Description: TODO
+- Role: Creates a new NotImplemented instance.
+- Description: Constructs the instance and initializes its default state.

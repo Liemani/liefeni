@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `HackThread`.
 
 ## Role
 
-Provides a thread wrapper for client hacks or tweaks.
+Represents the hack thread Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Provides a thread wrapper for client hacks or tweaks.
 ### Fields
 
 #### `private Set<Runnable> ils = new HashSet<Runnable>()`
-
-- Description: TODO
+- Role: Caches ils entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public HackThread(ThreadGroup tg, Runnable target, String name)`
-
-- Description: TODO
+- Role: Creates a new HackThread instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public HackThread(Runnable target, String name)`
-
-- Description: TODO
+- Role: Creates a new HackThread instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public HackThread(String name)`
-
-- Description: TODO
+- Role: Creates a new HackThread instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static ThreadGroup tg()`
-
-- Description: TODO
+- Role: Performs tg.
+- Description: Supports the tg operation used by the surrounding class.
 
 #### `public void addil(Runnable r)`
-
-- Description: TODO
+- Role: Performs addil.
+- Description: Supports the addil operation used by the surrounding class.
 
 #### `public void remil(Runnable r)`
-
-- Description: TODO
+- Role: Performs remil.
+- Description: Supports the remil operation used by the surrounding class.
 
 #### `public void interrupt()`
-
-- Description: TODO
+- Role: Performs interrupt.
+- Description: Supports the interrupt operation used by the surrounding class.

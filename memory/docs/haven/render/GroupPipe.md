@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `GroupPipe`.
 
 ## Role
 
-Represents a grouped render pipe.
+Defines the group pipe render pipeline component.
 
 ## Members
 
@@ -21,25 +21,25 @@ Represents a grouped render pipe.
 ### Methods
 
 #### `public Pipe group(int g)`
-
-- Description: TODO
+- Role: Performs group.
+- Description: Supports the group operation used by the surrounding class.
 
 #### `public int gstate(int id)`
-
-- Description: TODO
+- Role: Performs gstate.
+- Description: Supports the gstate operation used by the surrounding class.
 
 #### `public int nstates()`
-
-- Description: TODO
+- Role: Performs nstates.
+- Description: Supports the nstates operation used by the surrounding class.
 
 #### `public default <T extends State> T get(State.Slot<T> slot)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public default Pipe copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public default State[] states()`
-
-- Description: TODO
+- Role: Performs states.
+- Description: Supports the states operation used by the surrounding class.

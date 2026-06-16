@@ -10,92 +10,92 @@ This file documents the responsibilities and members of `RichTextBox`.
 
 ## Role
 
-Displays rich text in a widget.
+Represents the rich text box Haven component.
 
 ## Members
 
 ### Constants
 
 #### `private static final int marg = UI.scale(10)`
-
-- Description: TODO
+- Role: Defines the shared marg constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final RichText.Foundry fnd`
-
-- Description: TODO
+- Role: Stores the fnd value.
+- Description: Backs the cached state for this file.
 
 #### `public Color bg = Color.BLACK`
-
-- Description: TODO
+- Role: Stores the bg value.
+- Description: Backs the cached state for this file.
 
 #### `private Indir<? extends RichText.Document> render`
-
-- Description: TODO
+- Role: Stores the render value.
+- Description: Backs the cached state for this file.
 
 #### `private RichText text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `private Scrollbar sb`
-
-- Description: TODO
+- Role: Holds the sb state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public RichTextBox(Coord sz, RichText.Foundry fnd, Indir<? extends RichText.Document> doc)`
-
-- Description: TODO
+- Role: Creates a new RichTextBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RichTextBox(Coord sz, Indir<? extends RichText.Document> doc)`
-
-- Description: TODO
+- Role: Creates a new RichTextBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RichTextBox(Coord sz, String text, RichText.Foundry fnd)`
-
-- Description: TODO
+- Role: Creates a new RichTextBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RichTextBox(Coord sz, String text, Object... attrs)`
-
-- Description: TODO
+- Role: Creates a new RichTextBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void ckrender()`
-
-- Description: TODO
+- Role: Performs ckrender.
+- Description: Supports the ckrender operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void set(Indir<? extends RichText.Document> doc)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void set(RichText.Document doc)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void settext(Indir<String> text)`
-
-- Description: TODO
+- Role: Performs settext.
+- Description: Supports the settext operation used by the surrounding class.
 
 #### `public void settext(String text, Object... attrs)`
-
-- Description: TODO
+- Role: Performs settext.
+- Description: Supports the settext operation used by the surrounding class.
 
 #### `public void settext(String text)`
-
-- Description: TODO
+- Role: Performs settext.
+- Description: Supports the settext operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.

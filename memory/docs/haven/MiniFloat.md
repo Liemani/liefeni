@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `MiniFloat`.
 
 ## Role
 
-Provides minimal float helpers.
+Represents the mini float Haven component.
 
 ## Members
 
@@ -19,71 +19,71 @@ Provides minimal float helpers.
 ### Fields
 
 #### `public final byte bits`
-
-- Description: TODO
+- Role: Stores the bits value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public MiniFloat(byte bits)`
-
-- Description: TODO
+- Role: Creates a new MiniFloat instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static MiniFloat decode(byte bits)`
-
-- Description: TODO
+- Role: Performs decode.
+- Description: Supports the decode operation used by the surrounding class.
 
 #### `public static MiniFloat of(float val)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static MiniFloat of(double val)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public boolean equals(MiniFloat that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public float floatValue()`
-
-- Description: TODO
+- Role: Performs float value.
+- Description: Supports the float value operation used by the surrounding class.
 
 #### `public byte byteValue()`
-
-- Description: TODO
+- Role: Performs byte value.
+- Description: Supports the byte value operation used by the surrounding class.
 
 #### `public short shortValue()`
-
-- Description: TODO
+- Role: Performs short value.
+- Description: Supports the short value operation used by the surrounding class.
 
 #### `public int intValue()`
-
-- Description: TODO
+- Role: Performs int value.
+- Description: Supports the int value operation used by the surrounding class.
 
 #### `public long longValue()`
-
-- Description: TODO
+- Role: Performs long value.
+- Description: Supports the long value operation used by the surrounding class.
 
 #### `public double doubleValue()`
-
-- Description: TODO
+- Role: Performs double value.
+- Description: Supports the double value operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public static float bits(byte bits)`
-
-- Description: TODO
+- Role: Performs bits.
+- Description: Supports the bits operation used by the surrounding class.
 
 #### `public static byte bits(float f)`
-
-- Description: TODO
+- Role: Performs bits.
+- Description: Supports the bits operation used by the surrounding class.

@@ -10,38 +10,39 @@ This file documents the responsibilities and members of `SteamStore`.
 
 ## Role
 
-Integrates with the Steam store.
+Represents the steam store Haven component.
 
 ## Nested Types
 
 ### Authorizer
 
-- Description: TODO
+- Role: Represents authorizer within SteamStore.
+- Description: Describes the nested authorizer type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<URI> steamsvc = Config.Services.var("steamsvc", "")`
-
-- Description: TODO
+- Role: Defines the shared steamsvc constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static Authorizer cb`
-
-- Description: TODO
+- Role: Holds the cb state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private static void sendauth(long orderid, boolean approved)`
-
-- Description: TODO
+- Role: Performs sendauth.
+- Description: Supports the sendauth operation used by the surrounding class.
 
 #### `public void callback(String id, Object[] args)`
-
-- Description: TODO
+- Role: Performs callback.
+- Description: Supports the callback operation used by the surrounding class.
 
 #### `public static void launch(Session sess)`
-
-- Description: TODO
+- Role: Performs launch.
+- Description: Supports the launch operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SteamWorkshop`.
 
 ## Role
 
-Integrates with the Steam Workshop.
+Represents the steam workshop Haven component.
 
 ## Members
 
@@ -21,17 +21,17 @@ Integrates with the Steam Workshop.
 ### Methods
 
 #### `private static void err(String format, Object... args)`
-
-- Description: TODO
+- Role: Performs err.
+- Description: Supports the err operation used by the surrounding class.
 
 #### `private static void usage_upload(PrintStream out)`
-
-- Description: TODO
+- Role: Performs usage upload.
+- Description: Supports the usage upload operation used by the surrounding class.
 
 #### `public static void cmd_upload(String[] args)`
-
-- Description: TODO
+- Role: Performs cmd upload.
+- Description: Supports the cmd upload operation used by the surrounding class.
 
 #### `public static void main(String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.

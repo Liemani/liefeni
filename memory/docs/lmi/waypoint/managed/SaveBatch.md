@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SaveBatch`.
 
 ## Role
 
-Groups waypoint writes into a single save batch.
+Batches waypoint persistence work for a single flush.
 
 ## Members
 
@@ -19,15 +19,15 @@ Groups waypoint writes into a single save batch.
 ### Fields
 
 #### `public final List<WpNodeSnapshot> wpNodeSnapshots`
-
-- Description: TODO
+- Role: Caches wp node snapshots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public SaveBatch(List<WpNodeSnapshot> wpNodeSnapshots)`
-
-- Description: TODO
+- Role: Creates a new SaveBatch instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean isEmpty()`
-
-- Description: TODO
+- Role: Checks whether the empty.
+- Description: Returns a boolean result for the described condition.

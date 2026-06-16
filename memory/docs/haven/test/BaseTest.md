@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `BaseTest`.
 
 ## Role
 
-Provides a base test harness.
+Provides a Haven test helper for base test.
 
 ## Members
 
@@ -19,27 +19,27 @@ Provides a base test harness.
 ### Fields
 
 #### `public ThreadGroup tg`
-
-- Description: TODO
+- Role: Holds the tg state.
+- Description: Backs the cached state for this file.
 
 #### `public Thread me`
-
-- Description: TODO
+- Role: Holds the me state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public BaseTest()`
-
-- Description: TODO
+- Role: Creates a new BaseTest instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void printf(String fmt, Object... args)`
-
-- Description: TODO
+- Role: Performs printf.
+- Description: Supports the printf operation used by the surrounding class.
 
 #### `public void start()`
-
-- Description: TODO
+- Role: Starts the current workflow.
+- Description: Supports the start operation used by the surrounding class.
 
 #### `public void stop()`
-
-- Description: TODO
+- Role: Stops the current workflow.
+- Description: Supports the stop operation used by the surrounding class.

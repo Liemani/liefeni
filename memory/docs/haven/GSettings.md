@@ -10,254 +10,263 @@ This file documents the responsibilities and members of `GSettings`.
 
 ## Role
 
-Holds graphics settings.
+Represents the gsettings Haven component.
 
 ## Nested Types
 
 ### BoolSetting
 
-- Description: TODO
+- Role: Represents bool setting within GSettings.
+- Description: Describes the nested bool setting type used by the enclosing class.
 
 ### EnumSetting
 
-- Description: TODO
+- Role: Represents enum setting within GSettings.
+- Description: Describes the nested enum setting type used by the enclosing class.
 
 ### FloatSetting
 
-- Description: TODO
+- Role: Represents float setting within GSettings.
+- Description: Describes the nested float setting type used by the enclosing class.
 
 ### HertzSetting
 
-- Description: TODO
+- Role: Represents hertz setting within GSettings.
+- Description: Describes the nested hertz setting type used by the enclosing class.
 
 ### IntSetting
 
-- Description: TODO
+- Role: Represents int setting within GSettings.
+- Description: Describes the nested int setting type used by the enclosing class.
 
 ### LightMode
 
-- Description: TODO
+- Role: Represents light mode within GSettings.
+- Description: Describes the nested light mode type used by the enclosing class.
 
 ### Setting
 
-- Description: TODO
+- Role: Represents setting within GSettings.
+- Description: Describes the nested setting type used by the enclosing class.
 
 ### SettingException
 
-- Description: TODO
+- Role: Represents setting exception within GSettings.
+- Description: Describes the nested setting exception type used by the enclosing class.
 
 ### SyncMode
 
-- Description: TODO
+- Role: Represents sync mode within GSettings.
+- Description: Describes the nested sync mode type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<GSettings> slot = new Slot<>(Slot.Type.SYS, GSettings.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final List<Field> settings`
-
-- Description: TODO
+- Role: Defines the shared settings constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final String nm`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public T val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean set`
-
-- Description: TODO
+- Role: Tracks the set flag.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `private final Class<E> real`
-
-- Description: TODO
+- Role: Holds the real state.
+- Description: Backs the cached state for this file.
 
 #### `public BoolSetting lshadow = new BoolSetting("sdw")`
-
-- Description: TODO
+- Role: Tracks the lshadow flag.
+- Description: Supports the bool setting operation used by the surrounding class.
 
 #### `public IntSetting shadowres = new IntSetting("sres")`
-
-- Description: TODO
+- Role: Stores the shadowres value.
+- Description: Backs the cached state for this file.
 
 #### `public BoolSetting vsync = new BoolSetting("vsync")`
-
-- Description: TODO
+- Role: Tracks the vsync flag.
+- Description: Supports the bool setting operation used by the surrounding class.
 
 #### `public FloatSetting hz = new HertzSetting("hz")`
-
-- Description: TODO
+- Role: Stores the hz value.
+- Description: Backs the cached state for this file.
 
 #### `public FloatSetting bghz = new HertzSetting("bghz")`
-
-- Description: TODO
+- Role: Stores the bghz value.
+- Description: Backs the cached state for this file.
 
 #### `public FloatSetting rscale = new FloatSetting("rscale")`
-
-- Description: TODO
+- Role: Stores the rscale value.
+- Description: Backs the cached state for this file.
 
 #### `public EnumSetting<SyncMode> syncmode = new EnumSetting<SyncMode>("syncmode", SyncMode.class)`
-
-- Description: TODO
+- Role: Holds the syncmode state.
+- Description: Backs the cached state for this file.
 
 #### `public EnumSetting<LightMode> lightmode = new EnumSetting<LightMode>("lighting", LightMode.class)`
-
-- Description: TODO
+- Role: Holds the lightmode state.
+- Description: Backs the cached state for this file.
 
 #### `public IntSetting maxlights = new IntSetting("maxlights")`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private GSettings()`
-
-- Description: TODO
+- Role: Creates a new GSettings instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public GSettings(GSettings from)`
-
-- Description: TODO
+- Role: Creates a new GSettings instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SettingException(String msg)`
-
-- Description: TODO
+- Role: Performs setting exception.
+- Description: Supports the setting exception operation used by the surrounding class.
 
 #### `public Setting(String nm)`
-
-- Description: TODO
+- Role: Performs setting.
+- Description: Supports the setting operation used by the surrounding class.
 
 #### `public abstract T parse(String val)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public void validate(Environment env, T val)`
-
-- Description: TODO
+- Role: Performs validate.
+- Description: Supports the validate operation used by the surrounding class.
 
 #### `public abstract T defval()`
-
-- Description: TODO
+- Role: Performs defval.
+- Description: Supports the defval operation used by the surrounding class.
 
 #### `public String reduce(T val)`
-
-- Description: TODO
+- Role: Performs reduce.
+- Description: Supports the reduce operation used by the surrounding class.
 
 #### `public T restore(String prs)`
-
-- Description: TODO
+- Role: Performs restore.
+- Description: Supports the restore operation used by the surrounding class.
 
 #### `public Setting<T> clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public BoolSetting(String nm)`
-
-- Description: TODO
+- Role: Performs bool setting.
+- Description: Supports the bool setting operation used by the surrounding class.
 
 #### `public Boolean parse(String val)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public EnumSetting(String nm, Class<E> real)`
-
-- Description: TODO
+- Role: Performs enum setting.
+- Description: Supports the enum setting operation used by the surrounding class.
 
 #### `public E parse(String val)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public E restore(String prs)`
-
-- Description: TODO
+- Role: Performs restore.
+- Description: Supports the restore operation used by the surrounding class.
 
 #### `public IntSetting(String nm)`
-
-- Description: TODO
+- Role: Performs int setting.
+- Description: Supports the int setting operation used by the surrounding class.
 
 #### `public Integer parse(String val)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public FloatSetting(String nm)`
-
-- Description: TODO
+- Role: Performs float setting.
+- Description: Supports the float setting operation used by the surrounding class.
 
 #### `public Float parse(String val)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public HertzSetting(String nm)`
-
-- Description: TODO
+- Role: Performs hertz setting.
+- Description: Supports the hertz setting operation used by the surrounding class.
 
 #### `public Float parse(String val)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public void validate(Environment env, Float val)`
-
-- Description: TODO
+- Role: Performs validate.
+- Description: Supports the validate operation used by the surrounding class.
 
 #### `public Setting<?> find(String name)`
-
-- Description: TODO
+- Role: Performs find.
+- Description: Supports the find operation used by the surrounding class.
 
 #### `private static <T> Setting<T> update(Setting<T> set, T val)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `private <T> GSettings supdate(Setting<T> set, T val)`
-
-- Description: TODO
+- Role: Performs supdate.
+- Description: Supports the supdate operation used by the surrounding class.
 
 #### `private static <T> void validate0(Environment env, Setting<T> set)`
-
-- Description: TODO
+- Role: Performs validate0.
+- Description: Supports the validate0 operation used by the surrounding class.
 
 #### `public GSettings validate(Environment env)`
-
-- Description: TODO
+- Role: Performs validate.
+- Description: Supports the validate operation used by the surrounding class.
 
 #### `public <T> GSettings update(Environment env, Setting<T> set, T val)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `private static <T> void setdef(Setting<T> set)`
-
-- Description: TODO
+- Role: Performs setdef.
+- Description: Supports the setdef operation used by the surrounding class.
 
 #### `public static GSettings defaults()`
-
-- Description: TODO
+- Role: Performs defaults.
+- Description: Supports the defaults operation used by the surrounding class.
 
 #### `private static <T> String reduce0(Setting<T> s)`
-
-- Description: TODO
+- Role: Performs reduce0.
+- Description: Supports the reduce0 operation used by the surrounding class.
 
 #### `public void save()`
-
-- Description: TODO
+- Role: Saves the current data.
+- Description: Saves the current data through the persistence pipeline.
 
 #### `private static <T> Setting<T> restore0(Setting<T> s, String prs)`
-
-- Description: TODO
+- Role: Performs restore0.
+- Description: Supports the restore0 operation used by the surrounding class.
 
 #### `public static GSettings load(boolean failsafe)`
-
-- Description: TODO
+- Role: Loads the target data.
+- Description: Loads the target data into the in-memory state.
 
 #### `public haven.render.sl.ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

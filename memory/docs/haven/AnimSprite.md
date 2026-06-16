@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `AnimSprite`.
 
 ## Role
 
-Represents a general animated sprite.
+Represents the anim sprite Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Factory fact = new Factory()`
-
-- Description: TODO
+- Role: Defines the shared fact constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final RenderTree.Node[] parts`
-
-- Description: TODO
+- Role: Stores the parts value.
+- Description: Backs the cached state for this file.
 
 #### `private final MeshAnim.Animation[] anims`
-
-- Description: TODO
+- Role: Holds the anims state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private AnimSprite(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates a new AnimSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public boolean tick(double ddt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.

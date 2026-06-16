@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DrawBuffer`.
 
 ## Role
 
-Represents a drawing buffer.
+Integrates Haven rendering-server support for draw buffer.
 
 ## Members
 
@@ -19,47 +19,47 @@ Represents a drawing buffer.
 ### Fields
 
 #### `public final Environment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord sz`
-
-- Description: TODO
-
-#### `public final Texture2D color, depth`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public final Texture2D color, depth`
+- Role: Stores the depth value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Texture2D color, depth`
+- Role: Stores the depth value.
+- Description: Backs the cached state for this file.
 
 #### `private final Pipe.Op basic`
-
-- Description: TODO
+- Role: Holds the basic state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public DrawBuffer(Environment env, Coord sz)`
-
-- Description: TODO
+- Role: Creates a new DrawBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Pipe.Op basic()`
-
-- Description: TODO
+- Role: Performs basic.
+- Description: Supports the basic operation used by the surrounding class.
 
 #### `public GOut graphics()`
-
-- Description: TODO
+- Role: Performs graphics.
+- Description: Supports the graphics operation used by the surrounding class.
 
 #### `public void draw(Drawn thing)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public BufferedImage draw(Pipe.Op state, RenderTree.Node n)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

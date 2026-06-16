@@ -10,102 +10,103 @@ This file documents the responsibilities and members of `HtmlReporter`.
 
 ## Role
 
-Generates HTML error reports.
+Handles Haven error reporting for html reporter.
 
 ## Nested Types
 
 ### ErrorIdentity
 
-- Description: TODO
+- Role: Represents error identity within HtmlReporter.
+- Description: Describes the nested error identity type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final DateFormat dfmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")`
-
-- Description: TODO
+- Role: Defines the shared dfmt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final NumberFormat ifmt = NumberFormat.getInstance()`
-
-- Description: TODO
+- Role: Defines the shared ifmt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final String[] idxprops =`
-
-- Description: TODO
+- Role: Defines the shared html reporter constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Class[] boring =`
-
-- Description: TODO
+- Role: Defines the shared html reporter constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public String jarrev`
-
-- Description: TODO
+- Role: Stores the jarrev value.
+- Description: Backs the cached state for this file.
 
 #### `public Throwable t`
-
-- Description: TODO
+- Role: Holds the t state.
+- Description: Backs the cached state for this file.
 
 #### `private Pattern[] ignclass = new Pattern[]`
-
-- Description: TODO
+- Role: Holds the ignclass state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private int equals(String a, String b)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int stcmp(StackTraceElement a, StackTraceElement b)`
-
-- Description: TODO
+- Role: Performs stcmp.
+- Description: Supports the stcmp operation used by the surrounding class.
 
 #### `public int thcmp(Throwable a, Throwable b)`
-
-- Description: TODO
+- Role: Performs thcmp.
+- Description: Supports the thcmp operation used by the surrounding class.
 
 #### `public ErrorIdentity(Report r)`
-
-- Description: TODO
+- Role: Performs error identity.
+- Description: Supports the error identity operation used by the surrounding class.
 
 #### `public int compareTo(ErrorIdentity o)`
-
-- Description: TODO
+- Role: Performs compare to.
+- Description: Supports the compare to operation used by the surrounding class.
 
 #### `public boolean equals(ErrorIdentity o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static String htmlhead(String title)`
-
-- Description: TODO
+- Role: Performs htmlhead.
+- Description: Supports the htmlhead operation used by the surrounding class.
 
 #### `public static String htmltail()`
-
-- Description: TODO
+- Role: Performs htmltail.
+- Description: Supports the htmltail operation used by the surrounding class.
 
 #### `public static String htmlq(String html)`
-
-- Description: TODO
+- Role: Performs htmlq.
+- Description: Supports the htmlq operation used by the surrounding class.
 
 #### `public static String htmlbt(StackTraceElement[] bt)`
-
-- Description: TODO
+- Role: Performs htmlbt.
+- Description: Supports the htmlbt operation used by the surrounding class.
 
 #### `public static void makereport(OutputStream outs, Report rep) throws IOException`
-
-- Description: TODO
+- Role: Handles the makereport workflow.
+- Description: Supports the makereport operation used by the surrounding class.
 
 #### `public static Throwable findrootexc(Throwable t)`
-
-- Description: TODO
+- Role: Performs findrootexc.
+- Description: Supports the findrootexc operation used by the surrounding class.
 
 #### `public static void makeindex(OutputStream outs, Map<Path, Report> reports, Map<Path, Exception> failed) throws IOException`
-
-- Description: TODO
+- Role: Handles the makeindex workflow.
+- Description: Supports the makeindex operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

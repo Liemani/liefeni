@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DescribeMCacheGridsEffe
 
 ## Role
 
-Provides a debug effect for inspecting or mutating runtime state.
+Prints map cache grid state for debugging.
 
 ## Members
 
@@ -21,17 +21,17 @@ Provides a debug effect for inspecting or mutating runtime state.
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `private static Map<Coord, ?> _mapField(MCache map, String fieldName)`
-
-- Description: TODO
+- Role: Reads a reflected map field from the target object.
+- Description: Supports the map field operation used by the surrounding class.

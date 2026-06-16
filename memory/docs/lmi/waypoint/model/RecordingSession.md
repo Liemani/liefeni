@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RecordingSession`.
 
 ## Role
 
-Provides the `RecordingSession` functionality.
+Represents waypoint model data for recording session.
 
 ## Members
 
@@ -19,35 +19,35 @@ Provides the `RecordingSession` functionality.
 ### Fields
 
 #### `public final long startNodeId`
-
-- Description: TODO
+- Role: Stores the start node id value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<RecordingSegment> segments = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches segments entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final long startedAtMillis`
-
-- Description: TODO
+- Role: Stores the started at millis value.
+- Description: Backs the cached state for this file.
 
 #### `public PendingPortalTransition pendingPortalTransition`
-
-- Description: TODO
+- Role: Stores the pending portal transition value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public RecordingSession(long startNodeId, long baseGraphId, long baseGridId, int baseLocalX, int baseLocalY)`
-
-- Description: TODO
+- Role: Creates a new RecordingSession instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int pointCount()`
-
-- Description: TODO
+- Role: Performs point count.
+- Description: Supports the point count operation used by the surrounding class.
 
 #### `public RecordingSegment currentSegment()`
-
-- Description: TODO
+- Role: Returns the segment.
+- Description: Exposes the requested value without mutating state.
 
 #### `public RecordingClick lastClick()`
-
-- Description: TODO
+- Role: Performs last click.
+- Description: Supports the last click operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Robot`.
 
 ## Role
 
-Provides a robot test helper.
+Provides a Haven test helper for robot.
 
 ## Members
 
@@ -19,27 +19,27 @@ Provides a robot test helper.
 ### Fields
 
 #### `public TestClient c`
-
-- Description: TODO
+- Role: Holds the c state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Robot(TestClient cl)`
-
-- Description: TODO
+- Role: Creates a new Robot instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public void newwdg(int id, Widget w, Object... args)`
-
-- Description: TODO
+- Role: Performs newwdg.
+- Description: Supports the newwdg operation used by the surrounding class.
 
 #### `public void dstwdg(int id, Widget w)`
-
-- Description: TODO
+- Role: Performs dstwdg.
+- Description: Supports the dstwdg operation used by the surrounding class.
 
 #### `public void uimsg(int id, Widget w, String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

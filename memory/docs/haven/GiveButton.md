@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `GiveButton`.
 
 ## Role
 
-Displays a give/transfer button widget.
+Represents the give button Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within GiveButton.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
@@ -25,51 +26,51 @@ Displays a give/transfer button widget.
 ### Fields
 
 #### `public static Tex bg = Resource.loadtex("gfx/hud/combat/knapp/knapp")`
-
-- Description: TODO
+- Role: Stores the bg value.
+- Description: Backs the cached state for this file.
 
 #### `public static Tex ol = Resource.loadtex("gfx/hud/combat/knapp/ol")`
-
-- Description: TODO
+- Role: Stores the ol value.
+- Description: Backs the cached state for this file.
 
 #### `public static Tex or = Resource.loadtex("gfx/hud/combat/knapp/or")`
-
-- Description: TODO
+- Role: Stores the or value.
+- Description: Backs the cached state for this file.
 
 #### `public static Tex sl = Resource.loadtex("gfx/hud/combat/knapp/sl")`
-
-- Description: TODO
+- Role: Stores the sl value.
+- Description: Backs the cached state for this file.
 
 #### `public static Tex sr = Resource.loadtex("gfx/hud/combat/knapp/sr")`
-
-- Description: TODO
+- Role: Stores the sr value.
+- Description: Backs the cached state for this file.
 
 #### `int state`
-
-- Description: TODO
+- Role: Stores the state value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public GiveButton(int state, Coord sz)`
-
-- Description: TODO
+- Role: Creates a new GiveButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public GiveButton(int state)`
-
-- Description: TODO
+- Role: Creates a new GiveButton instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void uimsg(String name, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

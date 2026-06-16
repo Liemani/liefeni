@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Return`.
 
 ## Role
 
-Represents a return statement.
+Represents the return shader-language AST node.
 
 ## Members
 
@@ -19,19 +19,19 @@ Represents a return statement.
 ### Fields
 
 #### `public final Expression rv`
-
-- Description: TODO
+- Role: Holds the rv state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Return(Expression rv)`
-
-- Description: TODO
+- Role: Creates a new Return instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

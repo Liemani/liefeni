@@ -10,56 +10,56 @@ This file documents the responsibilities and members of `Swizzle`.
 
 ## Role
 
-Represents a component swizzle.
+Defines the swizzle render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Swizzle ID3 = id(3)`
-
-- Description: TODO
+- Role: Defines the shared id3 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Swizzle ID4 = id(4)`
-
-- Description: TODO
+- Role: Defines the shared id4 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Swizzle BGR = new Swizzle(2, 1, 0)`
-
-- Description: TODO
+- Role: Defines the shared bgr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Swizzle BGRA = new Swizzle(2, 1, 0, 3)`
-
-- Description: TODO
+- Role: Defines the shared bgra constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int[] perm`
-
-- Description: TODO
+- Role: Stores the perm value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Swizzle(int... perm)`
-
-- Description: TODO
+- Role: Creates a new Swizzle instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean idp()`
-
-- Description: TODO
+- Role: Performs idp.
+- Description: Supports the idp operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Swizzle id(int nc)`
-
-- Description: TODO
+- Role: Performs id.
+- Description: Supports the id operation used by the surrounding class.

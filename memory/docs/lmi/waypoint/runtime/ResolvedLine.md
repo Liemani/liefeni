@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ResolvedLine`.
 
 ## Role
 
-Provides the `ResolvedLine` functionality.
+Coordinates waypoint runtime state for resolved line.
 
 ## Members
 
@@ -19,15 +19,15 @@ Provides the `ResolvedLine` functionality.
 ### Fields
 
 #### `public final Coord fromWorld`
-
-- Description: TODO
+- Role: Stores the from world value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord toWorld`
-
-- Description: TODO
+- Role: Stores the to world value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ResolvedLine(Coord fromWorld, Coord toWorld)`
-
-- Description: TODO
+- Role: Creates a new ResolvedLine instance.
+- Description: Constructs the instance and initializes its default state.

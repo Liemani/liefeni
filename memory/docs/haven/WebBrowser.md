@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `WebBrowser`.
 
 ## Role
 
-Opens web content in a browser.
+Represents the web browser Haven component.
 
 ## Nested Types
 
 ### BrowserException
 
-- Description: TODO
+- Role: Represents browser exception within WebBrowser.
+- Description: Describes the nested browser exception type used by the enclosing class.
 
 ## Members
 
@@ -25,27 +26,27 @@ Opens web content in a browser.
 ### Fields
 
 #### `public static WebBrowser self`
-
-- Description: TODO
+- Role: Holds the self state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public WebBrowser()`
-
-- Description: TODO
+- Role: Creates a new WebBrowser instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public abstract void show(URL url)`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public BrowserException(String msg)`
-
-- Description: TODO
+- Role: Performs browser exception.
+- Description: Supports the browser exception operation used by the surrounding class.
 
 #### `public BrowserException(Throwable cause)`
-
-- Description: TODO
+- Role: Performs browser exception.
+- Description: Supports the browser exception operation used by the surrounding class.
 
 #### `public static void sshow(URL url)`
-
-- Description: TODO
+- Role: Performs sshow.
+- Description: Supports the sshow operation used by the surrounding class.

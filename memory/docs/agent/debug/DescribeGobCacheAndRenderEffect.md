@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DescribeGobCacheAndRend
 
 ## Role
 
-Provides a debug effect for inspecting or mutating runtime state.
+Prints gob cache and render state for debugging.
 
 ## Members
 
@@ -21,25 +21,25 @@ Provides a debug effect for inspecting or mutating runtime state.
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `private static int _ocacheGobCount(OCache oc)`
-
-- Description: TODO
+- Role: Counts gobs currently cached in OCache.
+- Description: Supports the ocache gob count operation used by the surrounding class.
 
 #### `private static Object _field(Object object, String fieldName)`
-
-- Description: TODO
+- Role: Reads a reflected field from the target object.
+- Description: Supports the field operation used by the surrounding class.
 
 #### `private static Map<?, ?> _mapField(Object object, String fieldName)`
-
-- Description: TODO
+- Role: Reads a reflected map field from the target object.
+- Description: Supports the map field operation used by the surrounding class.

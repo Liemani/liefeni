@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Effect`.
 
 ## Role
 
-Defines the base contract for immediate actions.
+Base type for instant agent effects.
 
 ## Members
 
@@ -21,9 +21,9 @@ Defines the base contract for immediate actions.
 ### Methods
 
 #### `public abstract void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

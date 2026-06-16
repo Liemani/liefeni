@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SinglePipe`.
 
 ## Role
 
-Represents a single render pipe.
+Defines the single pipe render pipeline component.
 
 ## Members
 
@@ -19,27 +19,27 @@ Represents a single render pipe.
 ### Fields
 
 #### `public final Slot<T> slot`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 #### `public final T value`
-
-- Description: TODO
+- Role: Holds the value state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SinglePipe(Slot<T> slot, T value)`
-
-- Description: TODO
+- Role: Creates a new SinglePipe instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public <G extends State> G get(Slot<G> slot)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Pipe copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public State[] states()`
-
-- Description: TODO
+- Role: Performs states.
+- Description: Supports the states operation used by the surrounding class.

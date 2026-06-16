@@ -10,358 +10,375 @@ This file documents the responsibilities and members of `ItemInfo`.
 
 ## Role
 
-Holds item information and tooltips.
+Represents the item info Haven component.
 
 ## Nested Types
 
 ### AdHoc
 
-- Description: TODO
+- Role: Represents ad hoc within ItemInfo.
+- Description: Describes the nested ad hoc type used by the enclosing class.
 
 ### AttrCache
 
-- Description: TODO
+- Role: Represents attr cache within ItemInfo.
+- Description: Describes the nested attr cache type used by the enclosing class.
 
 ### Contents
 
-- Description: TODO
+- Role: Represents contents within ItemInfo.
+- Description: Describes the nested contents type used by the enclosing class.
 
 ### Default
 
-- Description: TODO
+- Role: Represents default within ItemInfo.
+- Description: Describes the nested default type used by the enclosing class.
 
 ### Dynamic
 
-- Description: TODO
+- Role: Represents dynamic within ItemInfo.
+- Description: Describes the nested dynamic type used by the enclosing class.
 
 ### FactMaker
 
-- Description: TODO
+- Role: Represents fact maker within ItemInfo.
+- Description: Describes the nested fact maker type used by the enclosing class.
 
 ### InfoFactory
 
-- Description: TODO
+- Role: Represents info factory within ItemInfo.
+- Description: Describes the nested info factory type used by the enclosing class.
 
 ### InfoTip
 
-- Description: TODO
+- Role: Represents info tip within ItemInfo.
+- Description: Describes the nested info tip type used by the enclosing class.
 
 ### Layout
 
-- Description: TODO
+- Role: Represents layout within ItemInfo.
+- Description: Describes the nested layout type used by the enclosing class.
 
 ### Name
 
-- Description: TODO
+- Role: Represents name within ItemInfo.
+- Description: Describes the nested name type used by the enclosing class.
 
 ### Owner
 
-- Description: TODO
+- Role: Represents owner within ItemInfo.
+- Description: Describes the nested owner type used by the enclosing class.
 
 ### Pagina
 
-- Description: TODO
+- Role: Represents pagina within ItemInfo.
+- Description: Describes the nested pagina type used by the enclosing class.
 
 ### Raw
 
-- Description: TODO
+- Role: Represents raw within ItemInfo.
+- Description: Describes the nested raw type used by the enclosing class.
 
 ### ResOwner
 
-- Description: TODO
+- Role: Represents res owner within ItemInfo.
+- Description: Describes the nested res owner type used by the enclosing class.
 
 ### SpriteOwner
 
-- Description: TODO
+- Role: Represents sprite owner within ItemInfo.
+- Description: Describes the nested sprite owner type used by the enclosing class.
 
 ### Tip
 
-- Description: TODO
+- Role: Represents tip within ItemInfo.
+- Description: Describes the nested tip type used by the enclosing class.
 
 ### TipID
 
-- Description: TODO
+- Role: Represents tip id within ItemInfo.
+- Description: Describes the nested tip id type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Raw nil = new Raw(new Object[0], 0)`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Text.Line ch = Text.render("Contents:")`
-
-- Description: TODO
+- Role: Defines the shared ch constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Owner owner`
-
-- Description: TODO
+- Role: Holds the owner state.
+- Description: Backs the cached state for this file.
 
 #### `public final Object[] data`
-
-- Description: TODO
+- Role: Holds the data state.
+- Description: Backs the cached state for this file.
 
 #### `public final double time`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `public final Owner owner`
-
-- Description: TODO
+- Role: Holds the owner state.
+- Description: Backs the cached state for this file.
 
 #### `public final CompImage cmp = new CompImage()`
-
-- Description: TODO
+- Role: Stores the cmp value.
+- Description: Backs the cached state for this file.
 
 #### `public int width = 0`
-
-- Description: TODO
+- Role: Stores the width value.
+- Description: Backs the cached state for this file.
 
 #### `private final List<Tip> tips = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches tips entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<TipID, Tip> itab = new HashMap<>()`
-
-- Description: TODO
-
-#### `public final Text str`
-
-- Description: TODO
+- Role: Caches itab entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Text str`
+- Role: Stores the str value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Text str`
+- Role: Stores the str value.
+- Description: Backs the cached state for this file.
 
 #### `public final RichText.Document doc`
-
-- Description: TODO
+- Role: Stores the doc value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<ItemInfo> sub`
-
-- Description: TODO
+- Role: Caches sub entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Supplier<List<ItemInfo>> from`
-
-- Description: TODO
+- Role: Caches from entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Function<List<ItemInfo>, Supplier<R>> data`
-
-- Description: TODO
+- Role: Caches data entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<ItemInfo> forinfo = null`
-
-- Description: TODO
+- Role: Caches forinfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Supplier<R> save`
-
-- Description: TODO
+- Role: Holds the save state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public Resource resource()`
-
-- Description: TODO
+- Role: Performs resource.
+- Description: Supports the resource operation used by the surrounding class.
 
 #### `public GSprite sprite()`
-
-- Description: TODO
+- Role: Performs sprite.
+- Description: Supports the sprite operation used by the surrounding class.
 
 #### `public Raw(Object[] data, double time)`
-
-- Description: TODO
+- Role: Performs raw.
+- Description: Supports the raw operation used by the surrounding class.
 
 #### `public Raw(Object[] data)`
-
-- Description: TODO
+- Role: Performs raw.
+- Description: Supports the raw operation used by the surrounding class.
 
 #### `public ItemInfo build(Owner owner, Raw raw, Object... args)`
-
-- Description: TODO
+- Role: Performs build.
+- Description: Supports the build operation used by the surrounding class.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public ItemInfo(Owner owner)`
-
-- Description: TODO
+- Role: Creates a new ItemInfo instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Layout(Owner owner)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public T make(Owner owner)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public <T extends Tip> T intern(TipID<T> id)`
-
-- Description: TODO
+- Role: Performs intern.
+- Description: Supports the intern operation used by the surrounding class.
 
 #### `public void add(Tip tip)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public BufferedImage render()`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public Tip(Owner owner)`
-
-- Description: TODO
+- Role: Performs tip.
+- Description: Supports the tip operation used by the surrounding class.
 
 #### `public BufferedImage tipimg()`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public BufferedImage tipimg(int w)`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public Tip shortvar()`
-
-- Description: TODO
+- Role: Performs shortvar.
+- Description: Supports the shortvar operation used by the surrounding class.
 
 #### `public void prepare(Layout l)`
-
-- Description: TODO
+- Role: Performs prepare.
+- Description: Supports the prepare operation used by the surrounding class.
 
 #### `public void layout(Layout l)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public AdHoc(Owner owner, String str)`
-
-- Description: TODO
+- Role: Performs ad hoc.
+- Description: Supports the ad hoc operation used by the surrounding class.
 
 #### `public BufferedImage tipimg()`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public Name(Owner owner, Text str)`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public Name(Owner owner, String str)`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public BufferedImage tipimg()`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public Tip shortvar()`
-
-- Description: TODO
+- Role: Performs shortvar.
+- Description: Supports the shortvar operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String get(Owner owner)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public ItemInfo build(Owner owner, Raw raw, Object... args)`
-
-- Description: TODO
+- Role: Performs build.
+- Description: Supports the build operation used by the surrounding class.
 
 #### `public Pagina(Owner owner, RichText.Document doc)`
-
-- Description: TODO
+- Role: Performs pagina.
+- Description: Supports the pagina operation used by the surrounding class.
 
 #### `public Pagina(Owner owner, String str)`
-
-- Description: TODO
+- Role: Performs pagina.
+- Description: Supports the pagina operation used by the surrounding class.
 
 #### `public BufferedImage tipimg(int w)`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public void layout(Layout l)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public Contents(Owner owner, List<ItemInfo> sub)`
-
-- Description: TODO
+- Role: Performs contents.
+- Description: Supports the contents operation used by the surrounding class.
 
 #### `public BufferedImage tipimg()`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public Tip shortvar()`
-
-- Description: TODO
+- Role: Performs shortvar.
+- Description: Supports the shortvar operation used by the surrounding class.
 
 #### `public static BufferedImage catimgs(int margin, BufferedImage... imgs)`
-
-- Description: TODO
+- Role: Performs catimgs.
+- Description: Supports the catimgs operation used by the surrounding class.
 
 #### `public static BufferedImage catimgsh(int margin, BufferedImage... imgs)`
-
-- Description: TODO
+- Role: Performs catimgsh.
+- Description: Supports the catimgsh operation used by the surrounding class.
 
 #### `public static BufferedImage longtip(List<ItemInfo> info)`
-
-- Description: TODO
+- Role: Performs longtip.
+- Description: Supports the longtip operation used by the surrounding class.
 
 #### `public static BufferedImage shorttip(List<ItemInfo> info)`
-
-- Description: TODO
+- Role: Performs shorttip.
+- Description: Supports the shorttip operation used by the surrounding class.
 
 #### `public static <T> T find(Class<T> cl, List<ItemInfo> il)`
-
-- Description: TODO
+- Role: Performs find.
+- Description: Supports the find operation used by the surrounding class.
 
 #### `public static List<ItemInfo> buildinfo(Owner owner, Raw raw)`
-
-- Description: TODO
+- Role: Performs buildinfo.
+- Description: Supports the buildinfo operation used by the surrounding class.
 
 #### `public static List<ItemInfo> buildinfo(Owner owner, Object[] rawinfo)`
-
-- Description: TODO
+- Role: Performs buildinfo.
+- Description: Supports the buildinfo operation used by the surrounding class.
 
 #### `private static String dump(Object arg)`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `public AttrCache(Supplier<List<ItemInfo>> from, Function<List<ItemInfo>, Supplier<R>> data)`
-
-- Description: TODO
+- Role: Performs attr cache.
+- Description: Supports the attr cache operation used by the surrounding class.
 
 #### `public R get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static <I, R> Function<List<ItemInfo>, Supplier<R>> map1(Class<I> icl, Function<I, Supplier<R>> data)`
-
-- Description: TODO
+- Role: Performs map1.
+- Description: Supports the map1 operation used by the surrounding class.
 
 #### `public static <I, R> Function<List<ItemInfo>, Supplier<R>> map1s(Class<I> icl, Function<I, R> data)`
-
-- Description: TODO
+- Role: Performs map1s.
+- Description: Supports the map1s operation used by the surrounding class.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

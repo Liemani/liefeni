@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `Varying`.
 
 ## Role
 
-Represents a shader varying.
+Represents the varying shader-language AST node.
 
 ## Nested Types
 
 ### Def
 
-- Description: TODO
+- Role: Represents def within Varying.
+- Description: Describes the nested def type used by the enclosing class.
 
 ### Interpol
 
-- Description: TODO
+- Role: Represents interpol within Varying.
+- Description: Describes the nested interpol type used by the enclosing class.
 
 ## Members
 
@@ -29,23 +31,23 @@ Represents a shader varying.
 ### Fields
 
 #### `public Interpol ipol = Interpol.NORMAL`
-
-- Description: TODO
+- Role: Stores the ipol value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `protected Interpol ipol(Context ctx)`
-
-- Description: TODO
+- Role: Performs ipol.
+- Description: Supports the ipol operation used by the surrounding class.
 
 #### `public Varying(Type type, Symbol name)`
-
-- Description: TODO
+- Role: Creates a new Varying instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.

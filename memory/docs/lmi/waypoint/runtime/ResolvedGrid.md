@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ResolvedGrid`.
 
 ## Role
 
-Represents a grid-level waypoint runtime value.
+Coordinates waypoint runtime state for resolved grid.
 
 ## Members
 
@@ -19,23 +19,23 @@ Represents a grid-level waypoint runtime value.
 ### Fields
 
 #### `public final long mapGridId`
-
-- Description: TODO
+- Role: Stores the map grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long havenGridId`
-
-- Description: TODO
+- Role: Stores the haven grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long mapSegmentId`
-
-- Description: TODO
+- Role: Stores the map segment id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord originWorld`
-
-- Description: TODO
+- Role: Stores the origin world value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ResolvedGrid(long mapGridId, long havenGridId, long mapSegmentId, Coord originWorld)`
-
-- Description: TODO
+- Role: Creates a new ResolvedGrid instance.
+- Description: Constructs the instance and initializes its default state.

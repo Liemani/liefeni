@@ -10,130 +10,132 @@ This file documents the responsibilities and members of `FragColor`.
 
 ## Role
 
-Represents fragment color state.
+Defines the frag color render pipeline component.
 
 ## Nested Types
 
 ### ColorValue
 
-- Description: TODO
+- Role: Represents color value within FragColor.
+- Description: Describes the nested color value type used by the enclosing class.
 
 ### FragBlend
 
-- Description: TODO
+- Role: Represents frag blend within FragColor.
+- Description: Describes the nested frag blend type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<FragColor> slot = new Slot<>(Slot.Type.SYS, FragColor.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Slot<FragBlend> blend = new Slot<>(Slot.Type.SYS, FragBlend.class)`
-
-- Description: TODO
+- Role: Defines the shared blend constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final FragData fragcol = new FragData(Type.VEC4, "fragcol", p ->`
-
-- Description: TODO
+- Role: Defines the shared fragcol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Object defcolor = new Object()`
-
-- Description: TODO
+- Role: Defines the shared defcolor constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro value = prog -> fragcol0(prog.fctx).force()`
-
-- Description: TODO
+- Role: Defines the shared value constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro mksrgb = prog -> fragcol0(prog.fctx).srgb = true`
-
-- Description: TODO
+- Role: Defines the shared mksrgb constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro[] shaders =`
-
-- Description: TODO
+- Role: Defines the shared frag color constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final T image`
-
-- Description: TODO
+- Role: Holds the image state.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean srgb`
-
-- Description: TODO
+- Role: Tracks the srgb flag.
+- Description: Supports the srgb operation used by the surrounding class.
 
 #### `final BlendMode mode`
-
-- Description: TODO
+- Role: Holds the mode state.
+- Description: Backs the cached state for this file.
 
 #### `boolean srgb = false`
-
-- Description: TODO
+- Role: Tracks the srgb flag.
+- Description: Supports the srgb operation used by the surrounding class.
 
 ### Methods
 
 #### `public FragColor(T image, boolean srgb)`
-
-- Description: TODO
+- Role: Creates a new FragColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FragColor(T image)`
-
-- Description: TODO
+- Role: Creates a new FragColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `FragBlend(BlendMode mode)`
-
-- Description: TODO
+- Role: Handles the frag blend workflow.
+- Description: Supports the frag blend operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public static Pipe.Op blend(BlendMode mode)`
-
-- Description: TODO
+- Role: Performs blend.
+- Description: Supports the blend operation used by the surrounding class.
 
 #### `ColorValue(ValBlock vals)`
-
-- Description: TODO
+- Role: Handles the color value workflow.
+- Description: Supports the color value operation used by the surrounding class.
 
 #### `public Expression root()`
-
-- Description: TODO
+- Role: Performs root.
+- Description: Supports the root operation used by the surrounding class.
 
 #### `protected void cons2(Block blk)`
-
-- Description: TODO
+- Role: Performs cons2.
+- Description: Supports the cons2 operation used by the surrounding class.
 
 #### `private static ColorValue fragcol0(FragmentContext fctx)`
-
-- Description: TODO
+- Role: Performs fragcol0.
+- Description: Supports the fragcol0 operation used by the surrounding class.
 
 #### `public static Value fragcol(FragmentContext fctx)`
-
-- Description: TODO
+- Role: Performs fragcol.
+- Description: Supports the fragcol operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

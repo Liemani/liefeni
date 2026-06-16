@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `Tileset`.
 
 ## Role
 
-Represents a tile set.
+Represents the tileset Haven component.
 
 ## Nested Types
 
 ### Flavor
 
-- Description: TODO
+- Role: Represents flavor within Tileset.
+- Description: Describes the nested flavor type used by the enclosing class.
 
 ### SpriteFlavor
 
-- Description: TODO
+- Role: Represents sprite flavor within Tileset.
+- Description: Describes the nested sprite flavor type used by the enclosing class.
 
 ### Tile
 
-- Description: TODO
+- Role: Represents tile within Tileset.
+- Description: Describes the nested tile type used by the enclosing class.
 
 ## Members
 
@@ -33,283 +36,283 @@ Represents a tile set.
 ### Fields
 
 #### `private String tn = "gnd"`
-
-- Description: TODO
+- Role: Stores the tn value.
+- Description: Backs the cached state for this file.
 
 #### `public String[] tags =`
-
-- Description: TODO
+- Role: Stores the tileset state.
+- Description: Backs the cached state for this file.
 
 #### `public Object[] ta = new Object[0]`
-
-- Description: TODO
+- Role: Holds the ta state.
+- Description: Backs the cached state for this file.
 
 #### `private transient Tiler.Factory tfac`
-
-- Description: TODO
+- Role: Holds the tfac state.
+- Description: Backs the cached state for this file.
 
 #### `public Collection<Indir<Flavor>> flavors = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches flavors entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public NodeWrap flavobjmat = null`
-
-- Description: TODO
+- Role: Stores the flavobjmat value.
+- Description: Backs the cached state for this file.
 
 #### `public WeightList<Tile> ground`
-
-- Description: TODO
-
-#### `public WeightList<Tile>[] ctrans, btrans`
-
-- Description: TODO
+- Role: Caches ground entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public WeightList<Tile>[] ctrans, btrans`
+- Role: Caches btrans entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
-- Description: TODO
+#### `public WeightList<Tile>[] ctrans, btrans`
+- Role: Caches btrans entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int flavprob`
-
-- Description: TODO
+- Role: Stores the flavprob value.
+- Description: Backs the cached state for this file.
 
 #### `transient BufferedImage img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `transient private Tex tex`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int w`
-
-- Description: TODO
+- Role: Stores the w value.
+- Description: Backs the cached state for this file.
 
 #### `public final char t`
-
-- Description: TODO
+- Role: Stores the t value.
+- Description: Backs the cached state for this file.
 
 #### `private final long seed`
-
-- Description: TODO
+- Role: Stores the seed value.
+- Description: Backs the cached state for this file.
 
 #### `public final Glob glob`
-
-- Description: TODO
+- Role: Stores the glob value.
+- Description: Backs the cached state for this file.
 
 #### `public final Area area`
-
-- Description: TODO
+- Role: Holds the area state.
+- Description: Backs the cached state for this file.
 
 #### `public final long seed`
-
-- Description: TODO
+- Role: Stores the seed value.
+- Description: Backs the cached state for this file.
 
 #### `final Map<NodeWrap, Collection<Gob>> mats = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches mats entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Object, Object> data = new IdentityHashMap<>()`
-
-- Description: TODO
+- Role: Caches data entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Collection<Runnable> finish = new LinkedList<>()`
-
-- Description: TODO
-
-#### `public final MapSource grid, map`
-
-- Description: TODO
+- Role: Caches finish entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MapSource grid, map`
+- Role: Stores the map value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final MapSource grid, map`
+- Role: Stores the map value.
+- Description: Backs the cached state for this file.
 
 #### `public final int tile`
-
-- Description: TODO
+- Role: Stores the tile value.
+- Description: Backs the cached state for this file.
 
 #### `public final Area area`
-
-- Description: TODO
+- Role: Holds the area state.
+- Description: Backs the cached state for this file.
 
 #### `private final Coord toff`
-
-- Description: TODO
+- Role: Stores the toff value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean[] mask = null`
-
-- Description: TODO
+- Role: Tracks the mask flag.
+- Description: Supports the mask operation used by the surrounding class.
 
 #### `private List<Coord> tiles = null`
-
-- Description: TODO
+- Role: Caches tiles entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object[] args`
-
-- Description: TODO
+- Role: Holds the args state.
+- Description: Backs the cached state for this file.
 
 #### `private Flavor flav`
-
-- Description: TODO
+- Role: Holds the flav state.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final double p`
-
-- Description: TODO
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Tile(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs tile.
+- Description: Supports the tile operation used by the surrounding class.
 
 #### `public synchronized Tex tex()`
-
-- Description: TODO
+- Role: Performs tex.
+- Description: Supports the tex operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Obj(Buffer buf, Coord2d c, double a)`
-
-- Description: TODO
+- Role: Performs obj.
+- Description: Supports the obj operation used by the surrounding class.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public GridObj(Buffer buf, Coord2d c, double a)`
-
-- Description: TODO
+- Role: Performs grid obj.
+- Description: Supports the grid obj operation used by the surrounding class.
 
 #### `public GridObj(Buffer buf)`
-
-- Description: TODO
+- Role: Performs grid obj.
+- Description: Supports the grid obj operation used by the surrounding class.
 
 #### `public Placer placer()`
-
-- Description: TODO
+- Role: Returns the gob placer.
+- Description: Exposes the placer used when positioning the gob.
 
 #### `protected Pipe.Op getmapstate(Coord3f pc)`
-
-- Description: TODO
+- Role: Performs getmapstate.
+- Description: Supports the getmapstate operation used by the surrounding class.
 
 #### `public Buffer(Glob glob, Area area, long seed)`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `public Collection<Gob> matslot(NodeWrap mat)`
-
-- Description: TODO
+- Role: Performs matslot.
+- Description: Supports the matslot operation used by the surrounding class.
 
 #### `public void add(Gob ob, NodeWrap mat)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(Gob ob)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public <T> T datum(Function<Buffer, T> id)`
-
-- Description: TODO
+- Role: Performs datum.
+- Description: Supports the datum operation used by the surrounding class.
 
 #### `public void finish(Runnable act)`
-
-- Description: TODO
+- Role: Performs finish.
+- Description: Supports the finish operation used by the surrounding class.
 
 #### `public void finish()`
-
-- Description: TODO
+- Role: Performs finish.
+- Description: Supports the finish operation used by the surrounding class.
 
 #### `public Terrain(MapSource grid, MapSource map, int tile, Area area, Coord toff)`
-
-- Description: TODO
+- Role: Performs terrain.
+- Description: Supports the terrain operation used by the surrounding class.
 
 #### `public boolean[] mask()`
-
-- Description: TODO
+- Role: Performs mask.
+- Description: Supports the mask operation used by the surrounding class.
 
 #### `public List<Coord> tiles()`
-
-- Description: TODO
+- Role: Performs tiles.
+- Description: Supports the tiles operation used by the surrounding class.
 
 #### `public int gettile(Coord tc)`
-
-- Description: TODO
+- Role: Performs gettile.
+- Description: Supports the gettile operation used by the surrounding class.
 
 #### `public double getfz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getfz.
+- Description: Supports the getfz operation used by the surrounding class.
 
 #### `public Tileset tileset(int t)`
-
-- Description: TODO
+- Role: Performs tileset.
+- Description: Supports the tileset operation used by the surrounding class.
 
 #### `public Tiler tiler(int t)`
-
-- Description: TODO
+- Role: Performs tiler.
+- Description: Supports the tiler operation used by the surrounding class.
 
 #### `public void flavor(Buffer buf, Terrain trn, Random seed)`
-
-- Description: TODO
+- Role: Performs flavor.
+- Description: Supports the flavor operation used by the surrounding class.
 
 #### `public Flavor make(Tileset trn, Object... args)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public Res(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs res.
+- Description: Supports the res operation used by the surrounding class.
 
 #### `public Flavor get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public SpriteFlavor(Indir<Resource> res, double p)`
-
-- Description: TODO
+- Role: Performs sprite flavor.
+- Description: Supports the sprite flavor operation used by the surrounding class.
 
 #### `public void flavor(Buffer buf, Terrain trn, Random seed)`
-
-- Description: TODO
+- Role: Performs flavor.
+- Description: Supports the flavor operation used by the surrounding class.
 
 #### `private Tileset(Resource res)`
-
-- Description: TODO
+- Role: Creates a new Tileset instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Tileset(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Creates a new Tileset instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Tiler.Factory tfac()`
-
-- Description: TODO
+- Role: Performs tfac.
+- Description: Supports the tfac operation used by the surrounding class.
 
 #### `private void packtiles(Collection<Tile> tiles, Coord tsz)`
-
-- Description: TODO
+- Role: Performs packtiles.
+- Description: Supports the packtiles operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.

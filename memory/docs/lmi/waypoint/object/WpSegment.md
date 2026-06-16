@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WpSegment`.
 
 ## Role
 
-Represents a waypoint segment value or runtime cache entry.
+Represents a waypoint segment domain object.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents a waypoint segment value or runtime cache entry.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long edgeId`
-
-- Description: TODO
+- Role: Stores the edge id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int step`
-
-- Description: TODO
+- Role: Stores the step value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private WpSegment(long id, long edgeId, long gridId, int step)`
-
-- Description: TODO
+- Role: Creates a new WpSegment instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static WpSegment of(long id, long edgeId, long gridId, int step)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static WpSegment fromRecord(WpSegmentRecord record)`
-
-- Description: TODO
+- Role: Performs from record.
+- Description: Supports the from record operation used by the surrounding class.

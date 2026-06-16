@@ -10,570 +10,583 @@ This file documents the responsibilities and members of `ModSprite`.
 
 ## Role
 
-Represents a modified sprite wrapper.
+Represents the mod sprite Haven component.
 
 ## Nested Types
 
 ### $res
 
-- Description: TODO
+- Role: Represents $res within ModSprite.
+- Description: Describes the nested $res type used by the enclosing class.
 
 ### Animation
 
-- Description: TODO
+- Role: Represents animation within ModSprite.
+- Description: Describes the nested animation type used by the enclosing class.
 
 ### Cons
 
-- Description: TODO
+- Role: Represents cons within ModSprite.
+- Description: Describes the nested cons type used by the enclosing class.
 
 ### Meshes
 
-- Description: TODO
+- Role: Represents meshes within ModSprite.
+- Description: Describes the nested meshes type used by the enclosing class.
 
 ### Mod
 
-- Description: TODO
+- Role: Represents mod within ModSprite.
+- Description: Describes the nested mod type used by the enclosing class.
 
 ### ModMaker
 
-- Description: TODO
+- Role: Represents mod maker within ModSprite.
+- Description: Describes the nested mod maker type used by the enclosing class.
 
 ### Part
 
-- Description: TODO
+- Role: Represents part within ModSprite.
+- Description: Describes the nested part type used by the enclosing class.
 
 ### Poser
 
-- Description: TODO
+- Role: Represents poser within ModSprite.
+- Description: Describes the nested poser type used by the enclosing class.
 
 ### RMod
 
-- Description: TODO
+- Role: Represents rmod within ModSprite.
+- Description: Describes the nested rmod type used by the enclosing class.
 
 ### RenderLinks
 
-- Description: TODO
+- Role: Represents render links within ModSprite.
+- Description: Describes the nested render links type used by the enclosing class.
 
 ### ResData
 
-- Description: TODO
+- Role: Represents res data within ModSprite.
+- Description: Describes the nested res data type used by the enclosing class.
 
 ### SMod
 
-- Description: TODO
+- Role: Represents smod within ModSprite.
+- Description: Describes the nested smod type used by the enclosing class.
 
 ### Ticker
 
-- Description: TODO
+- Role: Represents ticker within ModSprite.
+- Description: Describes the nested ticker type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Collection<RMod> rmods = new ArrayList<>()`
-
-- Description: TODO
+- Role: Defines the shared rmods constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ThreadLocal<Cons> curcons = new ThreadLocal<Cons>()`
-
-- Description: TODO
+- Role: Defines the shared curcons constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final RenderTree.Node[] noparts =`
-
-- Description: TODO
+- Role: Defines the shared mod sprite constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Ticker[] notickers =`
-
-- Description: TODO
+- Role: Defines the shared mod sprite constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final EquipTarget[] noeqtgts =`
-
-- Description: TODO
+- Role: Defines the shared mod sprite constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Mod[] nomods =`
-
-- Description: TODO
+- Role: Defines the shared mod sprite constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Factory fact = new Factory()`
-
-- Description: TODO
+- Role: Defines the shared fact constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Resource, ResData> rdcache = new WeakHashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared rdcache constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<ModSprite> ctxr = new OwnerContext.ClassResolver<ModSprite>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final float ipollen = 0.3f`
-
-- Description: TODO
+- Role: Defines the shared ipollen constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Skeleton.ResPose, PoseMod> initids = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared initids constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<Poser> ctxr = new OwnerContext.ClassResolver<Poser>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Gob gob`
-
-- Description: TODO
+- Role: Stores the gob value.
+- Description: Backs the cached state for this file.
 
 #### `public int flags = 0`
-
-- Description: TODO
+- Role: Stores the flags value.
+- Description: Backs the cached state for this file.
 
 #### `protected final ResData resdata`
-
-- Description: TODO
+- Role: Holds the resdata state.
+- Description: Backs the cached state for this file.
 
 #### `protected final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `protected ArrayList<Mod> imods = null`
-
-- Description: TODO
+- Role: Caches imods entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `protected RenderTree.Node[] parts = noparts`
-
-- Description: TODO
+- Role: Stores the parts value.
+- Description: Backs the cached state for this file.
 
 #### `protected Ticker[] tickers = notickers`
-
-- Description: TODO
+- Role: Holds the tickers state.
+- Description: Backs the cached state for this file.
 
 #### `protected EquipTarget[] eqtgts = noeqtgts`
-
-- Description: TODO
+- Role: Stores the eqtgts value.
+- Description: Backs the cached state for this file.
 
 #### `private Mod[] omods = nomods`
-
-- Description: TODO
+- Role: Holds the omods state.
+- Description: Backs the cached state for this file.
 
 #### `private int lastupd`
-
-- Description: TODO
+- Role: Stores the lastupd value.
+- Description: Backs the cached state for this file.
 
 #### `public RenderTree.Node obj`
-
-- Description: TODO
+- Role: Stores the obj value.
+- Description: Backs the cached state for this file.
 
 #### `public LinkedList<NodeWrap> wraps = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches wraps entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public LinkedList<Pipe.Op> state = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches state entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public LinkedList<Supplier<? extends Pipe.Op>> dynstate = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches dynstate entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Collection<Resource.Metadata> info = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Collection<Mod> mods = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches mods entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Collection<Part> parts = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches parts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Collection<Ticker> tickers = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches tickers entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Collection<EquipTarget> eqtgts = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches eqtgts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<Mod> mods = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches mods entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Collection<SMod> smods = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches smods entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final FastMesh.MeshRes[] meshes`
-
-- Description: TODO
+- Role: Holds the meshes state.
+- Description: Backs the cached state for this file.
 
 #### `public final ModSprite main`
-
-- Description: TODO
+- Role: Holds the main state.
+- Description: Backs the cached state for this file.
 
 #### `public final RenderLink.Res[] rlinks`
-
-- Description: TODO
+- Role: Holds the rlinks state.
+- Description: Backs the cached state for this file.
 
 #### `public final RenderTree.Node[] parts`
-
-- Description: TODO
+- Role: Stores the parts value.
+- Description: Backs the cached state for this file.
 
 #### `public final MeshAnim.Res[] descs`
-
-- Description: TODO
+- Role: Holds the descs state.
+- Description: Backs the cached state for this file.
 
 #### `public MeshAnim.Animation[] anims =`
-
-- Description: TODO
+- Role: Holds the mod sprite state.
+- Description: Backs the cached state for this file.
 
 #### `private Map<MeshAnim.Res, MeshAnim.Animation> ids = Collections.emptyMap()`
-
-- Description: TODO
+- Role: Caches ids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `rigid = new BaseColor(FColor.GREEN),`
-
-- Description: TODO
+- Role: Holds the base color state.
+- Description: Backs the cached state for this file.
 
 #### `morphed = new BaseColor(FColor.RED),`
-
-- Description: TODO
+- Role: Holds the base color state.
+- Description: Backs the cached state for this file.
 
 #### `unboned = new BaseColor(FColor.YELLOW)`
-
-- Description: TODO
+- Role: Holds the base color state.
+- Description: Backs the cached state for this file.
 
 #### `public static boolean bonedb = false`
-
-- Description: TODO
+- Role: Tracks the bonedb flag.
+- Description: Supports the bonedb operation used by the surrounding class.
 
 #### `public final ModSprite spr`
-
-- Description: TODO
+- Role: Holds the spr state.
+- Description: Backs the cached state for this file.
 
 #### `public final Skeleton skel`
-
-- Description: TODO
+- Role: Holds the skel state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pose pose`
-
-- Description: TODO
+- Role: Holds the pose state.
+- Description: Backs the cached state for this file.
 
 #### `public final Skeleton.ResPose[] descs`
-
-- Description: TODO
+- Role: Holds the descs state.
+- Description: Backs the cached state for this file.
 
 #### `public PoseMod[] mods =`
-
-- Description: TODO
+- Role: Holds the mod sprite state.
+- Description: Backs the cached state for this file.
 
 #### `private Map<Skeleton.ResPose, PoseMod> ids = initids`
-
-- Description: TODO
+- Role: Caches ids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean stat = false`
-
-- Description: TODO
+- Role: Tracks the stat flag.
+- Description: Supports the stat operation used by the surrounding class.
 
 #### `private Pose oldpose`
-
-- Description: TODO
+- Role: Holds the oldpose state.
+- Description: Backs the cached state for this file.
 
 #### `private float ipold`
-
-- Description: TODO
+- Role: Stores the ipold value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void operate(ModSprite spr)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public void operate(Cons cons)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public default int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public default void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public default boolean decdata(Message sdt)`
-
-- Description: TODO
+- Role: Performs decdata.
+- Description: Supports the decdata operation used by the surrounding class.
 
 #### `public static Mod of(Consumer<Cons> mod, int order)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public default boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public default void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public Part(RenderTree.Node obj, NodeWrap... wraps)`
-
-- Description: TODO
+- Role: Performs part.
+- Description: Supports the part operation used by the surrounding class.
 
 #### `public void unwrap()`
-
-- Description: TODO
+- Role: Performs unwrap.
+- Description: Supports the unwrap operation used by the surrounding class.
 
 #### `public RenderTree.Node make()`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public Map<?, ?> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public ModSprite spr()`
-
-- Description: TODO
+- Role: Performs spr.
+- Description: Supports the spr operation used by the surrounding class.
 
 #### `public void add(Mod mod)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(Part part)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void process()`
-
-- Description: TODO
+- Role: Performs process.
+- Description: Supports the process operation used by the surrounding class.
 
 #### `public RenderTree.Node[] parts()`
-
-- Description: TODO
+- Role: Performs parts.
+- Description: Supports the parts operation used by the surrounding class.
 
 #### `public ResData(Resource res)`
-
-- Description: TODO
+- Role: Performs res data.
+- Description: Supports the res data operation used by the surrounding class.
 
 #### `public ModMaker()`
-
-- Description: TODO
+- Role: Performs mod maker.
+- Description: Supports the mod maker operation used by the surrounding class.
 
 #### `public void operate(ResData dat)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `protected ResData resdata(Resource res)`
-
-- Description: TODO
+- Role: Performs resdata.
+- Description: Supports the resdata operation used by the surrounding class.
 
 #### `public static int decflags(Message sdt)`
-
-- Description: TODO
+- Role: Performs decflags.
+- Description: Supports the decflags operation used by the surrounding class.
 
 #### `protected void decdata(Message sdt)`
-
-- Description: TODO
+- Role: Performs decdata.
+- Description: Supports the decdata operation used by the surrounding class.
 
 #### `protected ModSprite(boolean dummy, Owner owner, Resource res)`
-
-- Description: TODO
+- Role: Creates a new ModSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ModSprite(Owner owner, Resource res)`
-
-- Description: TODO
+- Role: Creates a new ModSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ModSprite(Owner owner, Resource res, int flags)`
-
-- Description: TODO
+- Role: Creates a new ModSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ModSprite(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates a new ModSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public void imod(Mod mod)`
-
-- Description: TODO
+- Role: Performs imod.
+- Description: Supports the imod operation used by the surrounding class.
 
 #### `public <T> T imod(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs imod.
+- Description: Supports the imod operation used by the surrounding class.
 
 #### `protected Cons cons()`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public static Cons curcons()`
-
-- Description: TODO
+- Role: Performs curcons.
+- Description: Supports the curcons operation used by the surrounding class.
 
 #### `protected void modifiers(Cons cons)`
-
-- Description: TODO
+- Role: Performs modifiers.
+- Description: Supports the modifiers operation used by the surrounding class.
 
 #### `protected void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void update(Message sdt)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `protected void omods(Collection<Mod> buf, Gob gob)`
-
-- Description: TODO
+- Role: Performs omods.
+- Description: Supports the omods operation used by the surrounding class.
 
 #### `private Mod[] getomods()`
-
-- Description: TODO
+- Role: Performs getomods.
+- Description: Supports the getomods operation used by the surrounding class.
 
 #### `private void attrupdate()`
-
-- Description: TODO
+- Role: Performs attrupdate.
+- Description: Supports the attrupdate operation used by the surrounding class.
 
 #### `public boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `private void parts(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs parts.
+- Description: Supports the parts operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat)`
-
-- Description: TODO
+- Role: Performs eqpoint.
+- Description: Supports the eqpoint operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Meshes(FastMesh.MeshRes[] meshes)`
-
-- Description: TODO
+- Role: Performs meshes.
+- Description: Supports the meshes operation used by the surrounding class.
 
 #### `public void operate(Cons cons)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public void operate(ResData dat)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public RenderLinks(ModSprite spr, RenderLink.Res[] rlinks)`
-
-- Description: TODO
+- Role: Performs render links.
+- Description: Supports the render links operation used by the surrounding class.
 
 #### `public void operate(Cons cons)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public void operate(ResData dat)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public Animation(MeshAnim.Res[] descs)`
-
-- Description: TODO
+- Role: Performs animation.
+- Description: Supports the animation operation used by the surrounding class.
 
 #### `public void operate(Cons cons)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public boolean tick(double ddt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public void operate(ResData dat)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public Poser(ModSprite spr, Skeleton skel, Skeleton.ResPose[] descs)`
-
-- Description: TODO
+- Role: Performs poser.
+- Description: Supports the poser operation used by the surrounding class.
 
 #### `private void rebuild()`
-
-- Description: TODO
+- Role: Performs rebuild.
+- Description: Supports the rebuild operation used by the surrounding class.
 
 #### `public void operate(Cons cons)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.
 
 #### `public boolean tick(double ddt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
-
-- Description: TODO
+- Role: Performs eqpoint.
+- Description: Supports the eqpoint operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Collection<Location.Chain> getloc()`
-
-- Description: TODO
+- Role: Returns the avatar location.
+- Description: Exposes the requested value without mutating state.
 
 #### `public double getv()`
-
-- Description: TODO
+- Role: Returns the avatar value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public void operate(ResData dat)`
-
-- Description: TODO
+- Role: Performs operate.
+- Description: Supports the operate operation used by the surrounding class.

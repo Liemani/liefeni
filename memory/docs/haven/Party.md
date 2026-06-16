@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Party`.
 
 ## Role
 
-Represents party state.
+Represents the party Haven component.
 
 ## Nested Types
 
 ### Member
 
-- Description: TODO
+- Role: Represents member within Party.
+- Description: Describes the nested member type used by the enclosing class.
 
 ## Members
 
@@ -25,71 +26,71 @@ Represents party state.
 ### Fields
 
 #### `public Map<Long, Member> memb = Collections.emptyMap()`
-
-- Description: TODO
+- Role: Caches memb entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Member leader = null`
-
-- Description: TODO
+- Role: Holds the leader state.
+- Description: Backs the cached state for this file.
 
 #### `public int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private final Glob glob`
-
-- Description: TODO
+- Role: Stores the glob value.
+- Description: Backs the cached state for this file.
 
 #### `private int mseq = 0`
-
-- Description: TODO
+- Role: Stores the mseq value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gobid`
-
-- Description: TODO
+- Role: Stores the gobid value.
+- Description: Backs the cached state for this file.
 
 #### `public final int seq`
-
-- Description: TODO
+- Role: Stores the seq value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord2d c = null`
-
-- Description: TODO
+- Role: Stores the c value.
+- Description: Backs the cached state for this file.
 
 #### `private double ma = Math.random() * Math.PI * 2`
-
-- Description: TODO
+- Role: Stores the ma value.
+- Description: Backs the cached state for this file.
 
 #### `private double oa = Double.NaN`
-
-- Description: TODO
+- Role: Stores the oa value.
+- Description: Backs the cached state for this file.
 
 #### `public Color col = Color.BLACK`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Party(Glob glob)`
-
-- Description: TODO
+- Role: Creates a new Party instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Member(long gobid)`
-
-- Description: TODO
+- Role: Performs member.
+- Description: Supports the member operation used by the surrounding class.
 
 #### `public Gob getgob()`
-
-- Description: TODO
+- Role: Performs getgob.
+- Description: Supports the getgob operation used by the surrounding class.
 
 #### `public Coord2d getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `void setc(Coord2d c)`
-
-- Description: TODO
+- Role: Performs setc.
+- Description: Supports the setc operation used by the surrounding class.
 
 #### `public double geta()`
-
-- Description: TODO
+- Role: Performs geta.
+- Description: Supports the geta operation used by the surrounding class.

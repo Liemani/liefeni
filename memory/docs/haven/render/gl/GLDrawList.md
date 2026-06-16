@@ -10,622 +10,632 @@ This file documents the responsibilities and members of `GLDrawList`.
 
 ## Role
 
-Represents a GL draw list.
+Provides GL backend support for gldraw list.
 
 ## Nested Types
 
 ### DepSetting
 
-- Description: TODO
+- Role: Represents dep setting within GLDrawList.
+- Description: Describes the nested dep setting type used by the enclosing class.
 
 ### DrawSlot
 
-- Description: TODO
+- Role: Represents draw slot within GLDrawList.
+- Description: Describes the nested draw slot type used by the enclosing class.
 
 ### FrameSetting
 
-- Description: TODO
+- Role: Represents frame setting within GLDrawList.
+- Description: Describes the nested frame setting type used by the enclosing class.
 
 ### PipeSetting
 
-- Description: TODO
+- Role: Represents pipe setting within GLDrawList.
+- Description: Describes the nested pipe setting type used by the enclosing class.
 
 ### ProgramMismatchException
 
-- Description: TODO
+- Role: Represents program mismatch exception within GLDrawList.
+- Description: Describes the nested program mismatch exception type used by the enclosing class.
 
 ### Setting
 
-- Description: TODO
+- Role: Represents setting within GLDrawList.
+- Description: Describes the nested setting type used by the enclosing class.
 
 ### SettingKey
 
-- Description: TODO
+- Role: Represents setting key within GLDrawList.
+- Description: Describes the nested setting key type used by the enclosing class.
 
 ### SlotRender
 
-- Description: TODO
+- Role: Represents slot render within GLDrawList.
+- Description: Describes the nested slot render type used by the enclosing class.
 
 ### UniformSetting
 
-- Description: TODO
+- Role: Represents uniform setting within GLDrawList.
+- Description: Describes the nested uniform setting type used by the enclosing class.
 
 ### VaoSetting
 
-- Description: TODO
+- Role: Represents vao setting within GLDrawList.
+- Description: Describes the nested vao setting type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int idx_vao = 0`
-
-- Description: TODO
+- Role: Defines the shared idx vao constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int idx_fbo = 1`
-
-- Description: TODO
+- Role: Defines the shared idx fbo constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int idx_pst = 2`
-
-- Description: TODO
+- Role: Defines the shared idx pst constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int idx_uni = idx_pst + GLPipeState.all.length`
-
-- Description: TODO
+- Role: Defines the shared idx uni constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Comparator<DrawSlot> order = new Comparator<DrawSlot>()`
-
-- Description: TODO
+- Role: Defines the shared order constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final GLEnvironment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `public Object desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<SettingKey, DepSetting> settings = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches settings entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Slot<? extends Rendered>, DrawSlot> slotmap = new IdentityHashMap<>()`
-
-- Description: TODO
+- Role: Caches slotmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Pipe, Object> psettings = new IdentityHashMap<>()`
-
-- Description: TODO
+- Role: Caches psettings entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Pipe, Object> orderidx = new IdentityHashMap<>()`
-
-- Description: TODO
+- Role: Caches orderidx entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final GLDoubleBuffer settingbuf = new GLDoubleBuffer()`
-
-- Description: TODO
+- Role: Stores the settingbuf value.
+- Description: Backs the cached state for this file.
 
 #### `private DrawSlot root = null`
-
-- Description: TODO
+- Role: Holds the root state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean disposed = false`
-
-- Description: TODO
+- Role: Tracks the disposed flag.
+- Description: Supports the disposed operation used by the surrounding class.
 
 #### `private static AtomicLong uniqid = new AtomicLong()`
-
-- Description: TODO
+- Role: Stores the uniqid value.
+- Description: Backs the cached state for this file.
 
 #### `final long sortid`
-
-- Description: TODO
-
-#### `DrawSlot tp, tl, tr`
-
-- Description: TODO
+- Role: Stores the sortid value.
+- Description: Backs the cached state for this file.
 
 #### `DrawSlot tp, tl, tr`
-
-- Description: TODO
+- Role: Holds the tr state.
+- Description: Backs the cached state for this file.
 
 #### `DrawSlot tp, tl, tr`
+- Role: Holds the tr state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `DrawSlot tp, tl, tr`
+- Role: Holds the tr state.
+- Description: Backs the cached state for this file.
 
 #### `int th = 0`
-
-- Description: TODO
+- Role: Stores the th value.
+- Description: Backs the cached state for this file.
 
 #### `int tsubsize = 0; /* Not critical, only used for debugging purposes. */`
-
-- Description: TODO
+- Role: Stores the tsubsize value.
+- Description: Backs the cached state for this file.
 
 #### `final Slot<? extends Rendered> bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `final GLProgram prog`
-
-- Description: TODO
+- Role: Holds the prog state.
+- Description: Backs the cached state for this file.
 
 #### `final Setting[] settings`
-
-- Description: TODO
-
-#### `BufferBGL compiled, main`
-
-- Description: TODO
+- Role: Holds the settings state.
+- Description: Backs the cached state for this file.
 
 #### `BufferBGL compiled, main`
+- Role: Stores the main value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `BufferBGL compiled, main`
+- Role: Stores the main value.
+- Description: Backs the cached state for this file.
 
 #### `Rendered.Order gorder`
-
-- Description: TODO
+- Role: Holds the gorder state.
+- Description: Backs the cached state for this file.
 
 #### `final Pipe ordersrc`
-
-- Description: TODO
+- Role: Holds the ordersrc state.
+- Description: Backs the cached state for this file.
 
 #### `private volatile boolean disposed = false`
-
-- Description: TODO
+- Role: Tracks the disposed flag.
+- Description: Supports the disposed operation used by the surrounding class.
 
 #### `final GLProgram prog`
-
-- Description: TODO
+- Role: Holds the prog state.
+- Description: Backs the cached state for this file.
 
 #### `final Object vid`
-
-- Description: TODO
+- Role: Holds the vid state.
+- Description: Backs the cached state for this file.
 
 #### `final Pipe depid_1`
-
-- Description: TODO
+- Role: Holds the depid 1 state.
+- Description: Backs the cached state for this file.
 
 #### `final Pipe[] depid_v`
-
-- Description: TODO
+- Role: Holds the depid v state.
+- Description: Backs the cached state for this file.
 
 #### `final GLDoubleBuffer.Buffered gl = settingbuf.new Buffered()`
-
-- Description: TODO
+- Role: Stores the gl value.
+- Description: Backs the cached state for this file.
 
 #### `final SettingKey key`
-
-- Description: TODO
+- Role: Holds the key state.
+- Description: Backs the cached state for this file.
 
 #### `int rc = 0`
-
-- Description: TODO
+- Role: Stores the rc value.
+- Description: Backs the cached state for this file.
 
 #### `private int depmask_1 = -1`
-
-- Description: TODO
+- Role: Stores the depmask 1 value.
+- Description: Backs the cached state for this file.
 
 #### `private int[] depmask_v = null`
-
-- Description: TODO
+- Role: Stores the depmask v value.
+- Description: Backs the cached state for this file.
 
 #### `final GLProgram prog`
-
-- Description: TODO
+- Role: Holds the prog state.
+- Description: Backs the cached state for this file.
 
 #### `final GLPipeState<T> setting`
-
-- Description: TODO
+- Role: Holds the setting state.
+- Description: Backs the cached state for this file.
 
 #### `final GLProgram prog`
-
-- Description: TODO
+- Role: Holds the prog state.
+- Description: Backs the cached state for this file.
 
 #### `final Uniform var`
-
-- Description: TODO
+- Role: Holds the var state.
+- Description: Backs the cached state for this file.
 
 #### `GLObject vref`
-
-- Description: TODO
+- Role: Stores the vref value.
+- Description: Backs the cached state for this file.
 
 #### `final VaoBindState st`
-
-- Description: TODO
+- Role: Holds the st state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Pair<GLVertexArray, GLBuffer>, VaoSetting> vaos = new CacheMap<>(CacheMap.RefType.WEAK)`
-
-- Description: TODO
+- Role: Caches vaos entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final VaoSetting vao_nil = getvao(null, null)`
-
-- Description: TODO
+- Role: Holds the vao nil state.
+- Description: Backs the cached state for this file.
 
 #### `final DrawSlot slot`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean done`
-
-- Description: TODO
-
-#### `public final GLProgram.Dump got, expected`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public final GLProgram.Dump got, expected`
+- Role: Holds the expected state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final GLProgram.Dump got, expected`
+- Role: Holds the expected state.
+- Description: Backs the cached state for this file.
 
 #### `public final Object pdump`
-
-- Description: TODO
+- Role: Holds the pdump state.
+- Description: Backs the cached state for this file.
 
 #### `private final Disposable lck = Finalizer.leakcheck(this)`
-
-- Description: TODO
+- Role: Holds the lck state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private static int btheight(DrawSlot s)`
-
-- Description: TODO
+- Role: Performs btheight.
+- Description: Supports the btheight operation used by the surrounding class.
 
 #### `private static int btsubsize(DrawSlot s)`
-
-- Description: TODO
+- Role: Performs btsubsize.
+- Description: Supports the btsubsize operation used by the surrounding class.
 
 #### `private static void setp(DrawSlot s, DrawSlot p)`
-
-- Description: TODO
+- Role: Performs setp.
+- Description: Supports the setp operation used by the surrounding class.
 
 #### `DrawSlot first()`
-
-- Description: TODO
+- Role: Performs first.
+- Description: Supports the first operation used by the surrounding class.
 
 #### `DrawSlot prev()`
-
-- Description: TODO
+- Role: Performs prev.
+- Description: Supports the prev operation used by the surrounding class.
 
 #### `DrawSlot next()`
-
-- Description: TODO
+- Role: Performs next.
+- Description: Supports the next operation used by the surrounding class.
 
 #### `private int setheight()`
-
-- Description: TODO
+- Role: Performs setheight.
+- Description: Supports the setheight operation used by the surrounding class.
 
 #### `private void bbtrl()`
-
-- Description: TODO
+- Role: Performs bbtrl.
+- Description: Supports the bbtrl operation used by the surrounding class.
 
 #### `private void bbtrr()`
-
-- Description: TODO
+- Role: Performs bbtrr.
+- Description: Supports the bbtrr operation used by the surrounding class.
 
 #### `private void insert(DrawSlot child)`
-
-- Description: TODO
+- Role: Performs insert.
+- Description: Supports the insert operation used by the surrounding class.
 
 #### `private void tinsert()`
-
-- Description: TODO
+- Role: Performs tinsert.
+- Description: Supports the tinsert operation used by the surrounding class.
 
 #### `private void tremove()`
-
-- Description: TODO
+- Role: Performs tremove.
+- Description: Supports the tremove operation used by the surrounding class.
 
 #### `private GLProgram progfor(Slot<? extends Rendered> sl)`
-
-- Description: TODO
+- Role: Performs progfor.
+- Description: Supports the progfor operation used by the surrounding class.
 
 #### `private void getsettings()`
-
-- Description: TODO
+- Role: Performs getsettings.
+- Description: Supports the getsettings operation used by the surrounding class.
 
 #### `private void glupdate(DrawSlot prev)`
-
-- Description: TODO
+- Role: Performs glupdate.
+- Description: Supports the glupdate operation used by the surrounding class.
 
 #### `private void orderreg()`
-
-- Description: TODO
+- Role: Performs orderreg.
+- Description: Supports the orderreg operation used by the surrounding class.
 
 #### `private void orderunreg()`
-
-- Description: TODO
+- Role: Performs orderunreg.
+- Description: Supports the orderunreg operation used by the surrounding class.
 
 #### `void orderupdate()`
-
-- Description: TODO
+- Role: Performs orderupdate.
+- Description: Supports the orderupdate operation used by the surrounding class.
 
 #### `DrawSlot(Slot<? extends Rendered> bk)`
-
-- Description: TODO
+- Role: Handles the draw slot workflow.
+- Description: Supports the draw slot operation used by the surrounding class.
 
 #### `void insert()`
-
-- Description: TODO
+- Role: Performs insert.
+- Description: Supports the insert operation used by the surrounding class.
 
 #### `void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `SettingKey(GLProgram prog, Object vid, Pipe... depid)`
-
-- Description: TODO
+- Role: Handles the setting key workflow.
+- Description: Supports the setting key operation used by the surrounding class.
 
 #### `public int ndeps()`
-
-- Description: TODO
+- Role: Performs ndeps.
+- Description: Supports the ndeps operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `private static Pipe nidx(GroupPipe st, int idx)`
-
-- Description: TODO
+- Role: Performs nidx.
+- Description: Supports the nidx operation used by the surrounding class.
 
 #### `static Pipe[] makedepid(GroupPipe state, Collection<State.Slot<?>> deps)`
-
-- Description: TODO
+- Role: Performs makedepid.
+- Description: Supports the makedepid operation used by the surrounding class.
 
 #### `abstract void compile(BGL gl)`
-
-- Description: TODO
+- Role: Performs compile.
+- Description: Supports the compile operation used by the surrounding class.
 
 #### `void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `void put()`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `DepSetting(SettingKey key)`
-
-- Description: TODO
+- Role: Handles the dep setting workflow.
+- Description: Supports the dep setting operation used by the surrounding class.
 
 #### `abstract State.Slot[] depslots()`
-
-- Description: TODO
+- Role: Performs depslots.
+- Description: Supports the depslots operation used by the surrounding class.
 
 #### `void ckupdate(int[] mask)`
-
-- Description: TODO
+- Role: Performs ckupdate.
+- Description: Supports the ckupdate operation used by the surrounding class.
 
 #### `Pipe compstate()`
-
-- Description: TODO
+- Role: Performs compstate.
+- Description: Supports the compstate operation used by the surrounding class.
 
 #### `void put()`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `void del()`
-
-- Description: TODO
+- Role: Performs del.
+- Description: Supports the del operation used by the surrounding class.
 
 #### `private void delsettingp(DepSetting set, Pipe dp)`
-
-- Description: TODO
+- Role: Performs delsettingp.
+- Description: Supports the delsettingp operation used by the surrounding class.
 
 #### `private void delsetting(DepSetting set)`
-
-- Description: TODO
+- Role: Performs delsetting.
+- Description: Supports the delsetting operation used by the surrounding class.
 
 #### `private void addsettingp(DepSetting set, Pipe dp)`
-
-- Description: TODO
+- Role: Performs addsettingp.
+- Description: Supports the addsettingp operation used by the surrounding class.
 
 #### `private void addsetting(DepSetting set)`
-
-- Description: TODO
+- Role: Performs addsetting.
+- Description: Supports the addsetting operation used by the surrounding class.
 
 #### `private static State.Slot[] progfslots(GLProgram prog)`
-
-- Description: TODO
+- Role: Performs progfslots.
+- Description: Supports the progfslots operation used by the surrounding class.
 
 #### `FrameSetting(SettingKey key)`
-
-- Description: TODO
+- Role: Handles the frame setting workflow.
+- Description: Supports the frame setting operation used by the surrounding class.
 
 #### `void compile(BGL gl)`
-
-- Description: TODO
+- Role: Performs compile.
+- Description: Supports the compile operation used by the surrounding class.
 
 #### `State.Slot[] depslots()`
-
-- Description: TODO
+- Role: Performs depslots.
+- Description: Supports the depslots operation used by the surrounding class.
 
 #### `DepSetting getframe(GLProgram prog, GroupPipe state)`
-
-- Description: TODO
+- Role: Performs getframe.
+- Description: Supports the getframe operation used by the surrounding class.
 
 #### `PipeSetting(SettingKey key, GLPipeState<T> setting)`
-
-- Description: TODO
+- Role: Handles the pipe setting workflow.
+- Description: Supports the pipe setting operation used by the surrounding class.
 
 #### `void compile(BGL gl)`
-
-- Description: TODO
+- Role: Performs compile.
+- Description: Supports the compile operation used by the surrounding class.
 
 #### `State.Slot[] depslots()`
-
-- Description: TODO
+- Role: Performs depslots.
+- Description: Supports the depslots operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `DepSetting getpipest(GLPipeState<?> pst, GroupPipe state)`
-
-- Description: TODO
+- Role: Performs getpipest.
+- Description: Supports the getpipest operation used by the surrounding class.
 
 #### `UniformSetting(SettingKey key)`
-
-- Description: TODO
+- Role: Handles the uniform setting workflow.
+- Description: Supports the uniform setting operation used by the surrounding class.
 
 #### `void compile(BGL gl)`
-
-- Description: TODO
+- Role: Performs compile.
+- Description: Supports the compile operation used by the surrounding class.
 
 #### `State.Slot[] depslots()`
-
-- Description: TODO
+- Role: Performs depslots.
+- Description: Supports the depslots operation used by the surrounding class.
 
 #### `void del()`
-
-- Description: TODO
+- Role: Performs del.
+- Description: Supports the del operation used by the surrounding class.
 
 #### `DepSetting getuniform(GLProgram prog, Uniform var, GroupPipe state)`
-
-- Description: TODO
+- Role: Performs getuniform.
+- Description: Supports the getuniform operation used by the surrounding class.
 
 #### `VaoSetting(GLVertexArray vao, GLBuffer ebo)`
-
-- Description: TODO
+- Role: Handles the vao setting workflow.
+- Description: Supports the vao setting operation used by the surrounding class.
 
 #### `void compile(BGL gl)`
-
-- Description: TODO
+- Role: Performs compile.
+- Description: Supports the compile operation used by the surrounding class.
 
 #### `void put()`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `private VaoSetting getvao(GLVertexArray vao, GLBuffer ebo)`
-
-- Description: TODO
+- Role: Performs getvao.
+- Description: Supports the getvao operation used by the surrounding class.
 
 #### `SlotRender(DrawSlot slot)`
-
-- Description: TODO
+- Role: Handles the slot render workflow.
+- Description: Supports the slot render operation used by the surrounding class.
 
 #### `public Environment env()`
-
-- Description: TODO
+- Role: Performs env.
+- Description: Supports the env operation used by the surrounding class.
 
 #### `public void draw(Pipe st, Model mod)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void submit(Render sub)`
-
-- Description: TODO
+- Role: Performs submit.
+- Description: Supports the submit operation used by the surrounding class.
 
 #### `public void clear(Pipe pipe, FragData buf, FColor val)`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void clear(Pipe pipe, double val)`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void pget(Pipe pipe, FragData buf, Area area, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
-
-- Description: TODO
+- Role: Performs pget.
+- Description: Supports the pget operation used by the surrounding class.
 
 #### `public void pget(Texture.Image img, VectorFormat fmt, ByteBuffer dst, Consumer<ByteBuffer> callback)`
-
-- Description: TODO
+- Role: Performs pget.
+- Description: Supports the pget operation used by the surrounding class.
 
 #### `public void timestamp(Consumer<Long> callback)`
-
-- Description: TODO
+- Role: Performs timestamp.
+- Description: Supports the timestamp operation used by the surrounding class.
 
 #### `public void fence(Runnable callback)`
-
-- Description: TODO
+- Role: Performs fence.
+- Description: Supports the fence operation used by the surrounding class.
 
 #### `public <T extends DataBuffer> void update(T buf, DataBuffer.PartFiller<? super T> data, int from, int to)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public <T extends DataBuffer> void update(T buf, DataBuffer.Filler<? super T> data)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `private void verify(DrawSlot t)`
-
-- Description: TODO
+- Role: Performs verify.
+- Description: Supports the verify operation used by the surrounding class.
 
 #### `private void verify()`
-
-- Description: TODO
+- Role: Performs verify.
+- Description: Supports the verify operation used by the surrounding class.
 
 #### `public GLDrawList(GLEnvironment env)`
-
-- Description: TODO
+- Role: Creates a new GLDrawList instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ProgramMismatchException(GLProgram got, GLProgram expected)`
-
-- Description: TODO
+- Role: Performs program mismatch exception.
+- Description: Supports the program mismatch exception operation used by the surrounding class.
 
 #### `public void draw(Render r)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void add(Slot<? extends Rendered> slot)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(Slot<? extends Rendered> slot)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void update(Slot<? extends Rendered> slot)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `private void orderupdate(Pipe group)`
-
-- Description: TODO
+- Role: Performs orderupdate.
+- Description: Supports the orderupdate operation used by the surrounding class.
 
 #### `public void update(Pipe group, int[] mask)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `void treedump(java.io.PrintWriter out, DrawSlot slot)`
-
-- Description: TODO
+- Role: Performs treedump.
+- Description: Supports the treedump operation used by the surrounding class.
 
 #### `String treedump(DrawSlot root)`
-
-- Description: TODO
+- Role: Performs treedump.
+- Description: Supports the treedump operation used by the surrounding class.
 
 #### `String treedump()`
-
-- Description: TODO
+- Role: Performs treedump.
+- Description: Supports the treedump operation used by the surrounding class.
 
 #### `public String stats()`
-
-- Description: TODO
+- Role: Performs stats.
+- Description: Supports the stats operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public GLDrawList desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.

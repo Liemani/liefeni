@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Area`.
 
 ## Role
 
-Represents a selectable area or area-related helper.
+Represents the area Haven component.
 
 ## Members
 
@@ -19,119 +19,119 @@ Represents a selectable area or area-related helper.
 ### Fields
 
 #### `public Coord ul, br`
-
-- Description: TODO
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord ul, br`
-
-- Description: TODO
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Area(Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Creates a new Area instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static Area corn(Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Performs corn.
+- Description: Supports the corn operation used by the surrounding class.
 
 #### `public static Area corni(Coord ul, Coord bri)`
-
-- Description: TODO
+- Role: Performs corni.
+- Description: Supports the corni operation used by the surrounding class.
 
 #### `public static Area sized(Coord ul, Coord sz)`
-
-- Description: TODO
+- Role: Performs sized.
+- Description: Supports the sized operation used by the surrounding class.
 
 #### `public static Area sized(Coord sz)`
-
-- Description: TODO
+- Role: Performs sized.
+- Description: Supports the sized operation used by the surrounding class.
 
 #### `public static Area sizedi(Coord szi)`
-
-- Description: TODO
+- Role: Performs sizedi.
+- Description: Supports the sizedi operation used by the surrounding class.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public boolean positive()`
-
-- Description: TODO
+- Role: Performs positive.
+- Description: Supports the positive operation used by the surrounding class.
 
 #### `public boolean contains(Coord c)`
-
-- Description: TODO
+- Role: Performs contains.
+- Description: Supports the contains operation used by the surrounding class.
 
 #### `public boolean isects(Area o)`
-
-- Description: TODO
+- Role: Performs isects.
+- Description: Supports the isects operation used by the surrounding class.
 
 #### `public boolean contains(Area o)`
-
-- Description: TODO
+- Role: Performs contains.
+- Description: Supports the contains operation used by the surrounding class.
 
 #### `public Area overlap(Area o)`
-
-- Description: TODO
+- Role: Performs overlap.
+- Description: Supports the overlap operation used by the surrounding class.
 
 #### `public Area include(Area o)`
-
-- Description: TODO
+- Role: Performs include.
+- Description: Supports the include operation used by the surrounding class.
 
 #### `public Coord closest(Coord p)`
-
-- Description: TODO
+- Role: Performs closest.
+- Description: Supports the closest operation used by the surrounding class.
 
 #### `public int area()`
-
-- Description: TODO
+- Role: Performs area.
+- Description: Supports the area operation used by the surrounding class.
 
 #### `public Area xl(Coord off)`
-
-- Description: TODO
+- Role: Performs xl.
+- Description: Supports the xl operation used by the surrounding class.
 
 #### `public Area margin(Coord m)`
-
-- Description: TODO
+- Role: Performs margin.
+- Description: Supports the margin operation used by the surrounding class.
 
 #### `public Area margin(int m)`
-
-- Description: TODO
+- Role: Performs margin.
+- Description: Supports the margin operation used by the surrounding class.
 
 #### `public Area mul(Coord d)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Area div(Coord d)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public int ridx(Coord c)`
-
-- Description: TODO
+- Role: Performs ridx.
+- Description: Supports the ridx operation used by the surrounding class.
 
 #### `public Iterator<Coord> iterator()`
-
-- Description: TODO
+- Role: Performs iterator.
+- Description: Supports the iterator operation used by the surrounding class.
 
 #### `public int ri(Coord c)`
-
-- Description: TODO
+- Role: Performs ri.
+- Description: Supports the ri operation used by the surrounding class.
 
 #### `public int rsz()`
-
-- Description: TODO
+- Role: Performs rsz.
+- Description: Supports the rsz operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

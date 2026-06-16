@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DRandom`.
 
 ## Role
 
-Provides deterministic random support.
+Represents the drandom Haven component.
 
 ## Members
 
@@ -19,83 +19,83 @@ Provides deterministic random support.
 ### Fields
 
 #### `private final Random rnd = new Random(0)`
-
-- Description: TODO
+- Role: Holds the rnd state.
+- Description: Backs the cached state for this file.
 
 #### `private final long seed`
-
-- Description: TODO
+- Role: Stores the seed value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public DRandom()`
-
-- Description: TODO
+- Role: Creates a new DRandom instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public DRandom(long seed)`
-
-- Description: TODO
+- Role: Creates a new DRandom instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public DRandom(Random from)`
-
-- Description: TODO
+- Role: Creates a new DRandom instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Random seed(long a)`
-
-- Description: TODO
+- Role: Performs seed.
+- Description: Supports the seed operation used by the surrounding class.
 
 #### `private Random seed(long a, long b)`
-
-- Description: TODO
+- Role: Performs seed.
+- Description: Supports the seed operation used by the surrounding class.
 
 #### `private Random seed(long... a)`
-
-- Description: TODO
+- Role: Performs seed.
+- Description: Supports the seed operation used by the surrounding class.
 
 #### `public int randi(long a)`
-
-- Description: TODO
+- Role: Performs randi.
+- Description: Supports the randi operation used by the surrounding class.
 
 #### `public int randi(long a, long b)`
-
-- Description: TODO
+- Role: Performs randi.
+- Description: Supports the randi operation used by the surrounding class.
 
 #### `public int randi(long... a)`
-
-- Description: TODO
+- Role: Performs randi.
+- Description: Supports the randi operation used by the surrounding class.
 
 #### `public long randl(long a)`
-
-- Description: TODO
+- Role: Performs randl.
+- Description: Supports the randl operation used by the surrounding class.
 
 #### `public long randl(long a, long b)`
-
-- Description: TODO
+- Role: Performs randl.
+- Description: Supports the randl operation used by the surrounding class.
 
 #### `public long randl(long... a)`
-
-- Description: TODO
+- Role: Performs randl.
+- Description: Supports the randl operation used by the surrounding class.
 
 #### `public float randf(long a)`
-
-- Description: TODO
+- Role: Performs randf.
+- Description: Supports the randf operation used by the surrounding class.
 
 #### `public float randf(long a, long b)`
-
-- Description: TODO
+- Role: Performs randf.
+- Description: Supports the randf operation used by the surrounding class.
 
 #### `public float randf(long... a)`
-
-- Description: TODO
+- Role: Performs randf.
+- Description: Supports the randf operation used by the surrounding class.
 
 #### `public double randd(long a)`
-
-- Description: TODO
+- Role: Performs randd.
+- Description: Supports the randd operation used by the surrounding class.
 
 #### `public double randd(long a, long b)`
-
-- Description: TODO
+- Role: Performs randd.
+- Description: Supports the randd operation used by the surrounding class.
 
 #### `public double randd(long... a)`
-
-- Description: TODO
+- Role: Performs randd.
+- Description: Supports the randd operation used by the surrounding class.

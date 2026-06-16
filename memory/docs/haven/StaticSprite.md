@@ -10,44 +10,44 @@ This file documents the responsibilities and members of `StaticSprite`.
 
 ## Role
 
-Represents a static sprite.
+Represents the static sprite Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Factory fact = new Factory()`
-
-- Description: TODO
+- Role: Defines the shared fact constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final RenderTree.Node[] parts`
-
-- Description: TODO
+- Role: Stores the parts value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public StaticSprite(Owner owner, Resource res, RenderTree.Node[] parts)`
-
-- Description: TODO
+- Role: Creates a new StaticSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public StaticSprite(Owner owner, Resource res, RenderTree.Node part)`
-
-- Description: TODO
+- Role: Creates a new StaticSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public StaticSprite(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates a new StaticSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static RenderTree.Node[] lsparts(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Performs lsparts.
+- Description: Supports the lsparts operation used by the surrounding class.
 
 #### `public static RenderTree.Node[] lsparts(Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Performs lsparts.
+- Description: Supports the lsparts operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.

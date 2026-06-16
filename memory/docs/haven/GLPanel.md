@@ -10,29 +10,34 @@ This file documents the responsibilities and members of `GLPanel`.
 
 ## Role
 
-Hosts the OpenGL-backed UI panel.
+Represents the glpanel Haven component.
 
 ## Nested Types
 
 ### BufferSwap
 
-- Description: TODO
+- Role: Represents buffer swap within GLPanel.
+- Description: Describes the nested buffer swap type used by the enclosing class.
 
 ### FrameCycle
 
-- Description: TODO
+- Role: Represents frame cycle within GLPanel.
+- Description: Describes the nested frame cycle type used by the enclosing class.
 
 ### GLFinish
 
-- Description: TODO
+- Role: Represents glfinish within GLPanel.
+- Description: Describes the nested glfinish type used by the enclosing class.
 
 ### ProfileCycle
 
-- Description: TODO
+- Role: Represents profile cycle within GLPanel.
+- Description: Describes the nested profile cycle type used by the enclosing class.
 
 ### ProfilePart
 
-- Description: TODO
+- Role: Represents profile part within GLPanel.
+- Description: Describes the nested profile part type used by the enclosing class.
 
 ## Members
 
@@ -41,227 +46,227 @@ Hosts the OpenGL-backed UI panel.
 ### Fields
 
 #### `public static boolean gldebug = false`
-
-- Description: TODO
+- Role: Tracks the gldebug flag.
+- Description: Supports the gldebug operation used by the surrounding class.
 
 #### `public final GLPanel p`
-
-- Description: TODO
-
-#### `public final CPUProfile uprof = new CPUProfile(300), rprof = new CPUProfile(300)`
-
-- Description: TODO
+- Role: Holds the p state.
+- Description: Backs the cached state for this file.
 
 #### `public final CPUProfile uprof = new CPUProfile(300), rprof = new CPUProfile(300)`
+- Role: Stores the uprof value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final CPUProfile uprof = new CPUProfile(300), rprof = new CPUProfile(300)`
+- Role: Stores the uprof value.
+- Description: Backs the cached state for this file.
 
 #### `public final GPUProfile gprof = new GPUProfile(300)`
-
-- Description: TODO
+- Role: Stores the gprof value.
+- Description: Backs the cached state for this file.
 
 #### `protected boolean bgmode = false`
-
-- Description: TODO
+- Role: Tracks the bgmode flag.
+- Description: Supports the bgmode operation used by the surrounding class.
 
 #### `protected int fps`
-
-- Description: TODO
+- Role: Stores the fps value.
+- Description: Backs the cached state for this file.
 
 #### `protected double framelag`
-
-- Description: TODO
+- Role: Stores the framelag value.
+- Description: Backs the cached state for this file.
 
 #### `protected volatile int frameno`
-
-- Description: TODO
-
-#### `protected double uidle = 0.0, ridle = 0.0`
-
-- Description: TODO
+- Role: Stores the frameno value.
+- Description: Backs the cached state for this file.
 
 #### `protected double uidle = 0.0, ridle = 0.0`
+- Role: Stores the uidle value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `protected double uidle = 0.0, ridle = 0.0`
+- Role: Stores the uidle value.
+- Description: Backs the cached state for this file.
 
 #### `protected long lastrcycle = 0, ridletime = 0`
-
-- Description: TODO
+- Role: Stores the lastrcycle value.
+- Description: Backs the cached state for this file.
 
 #### `protected long lastrcycle = 0, ridletime = 0`
-
-- Description: TODO
-
-#### `protected UI lockedui, ui`
-
-- Description: TODO
+- Role: Stores the lastrcycle value.
+- Description: Backs the cached state for this file.
 
 #### `protected UI lockedui, ui`
+- Role: Stores the UI value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `protected UI lockedui, ui`
+- Role: Stores the UI value.
+- Description: Backs the cached state for this file.
 
 #### `private final Dispatcher ed`
-
-- Description: TODO
+- Role: Holds the ed state.
+- Description: Backs the cached state for this file.
 
 #### `private final Object uilock = new Object()`
-
-- Description: TODO
+- Role: Holds the uilock state.
+- Description: Backs the cached state for this file.
 
 #### `final double ttime`
-
-- Description: TODO
+- Role: Stores the ttime value.
+- Description: Backs the cached state for this file.
 
 #### `final CPUProfile prof`
-
-- Description: TODO
+- Role: Stores the prof value.
+- Description: Backs the cached state for this file.
 
 #### `ProfileCycle prev`
-
-- Description: TODO
+- Role: Stores the prev value.
+- Description: Backs the cached state for this file.
 
 #### `CPUProfile.Frame frame`
-
-- Description: TODO
+- Role: Stores the frame value.
+- Description: Backs the cached state for this file.
 
 #### `Profile.Part curp`
-
-- Description: TODO
+- Role: Stores the curp value.
+- Description: Backs the cached state for this file.
 
 #### `final ProfileCycle prof`
-
-- Description: TODO
+- Role: Stores the prof value.
+- Description: Backs the cached state for this file.
 
 #### `final String label`
-
-- Description: TODO
+- Role: Stores the label value.
+- Description: Backs the cached state for this file.
 
 #### `private Object prevtooltip = null`
-
-- Description: TODO
+- Role: Holds the prevtooltip state.
+- Description: Backs the cached state for this file.
 
 #### `private Indir<Tex> prevtooltex = null`
-
-- Description: TODO
+- Role: Stores the prevtooltex value.
+- Description: Backs the cached state for this file.
 
 #### `private Disposable freetooltex = null`
-
-- Description: TODO
+- Role: Holds the freetooltex state.
+- Description: Backs the cached state for this file.
 
 #### `private String cursmode = defaultcurs()`
-
-- Description: TODO
+- Role: Stores the cursmode value.
+- Description: Backs the cached state for this file.
 
 #### `private Object lastcursor = null`
-
-- Description: TODO
+- Role: Holds the lastcursor state.
+- Description: Backs the cached state for this file.
 
 #### `private Coord curshotspot = Coord.z`
-
-- Description: TODO
-
-#### `private long prevfree = 0, framealloc = 0`
-
-- Description: TODO
+- Role: Stores the curshotspot value.
+- Description: Backs the cached state for this file.
 
 #### `private long prevfree = 0, framealloc = 0`
+- Role: Stores the prevfree value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private long prevfree = 0, framealloc = 0`
+- Role: Stores the prevfree value.
+- Description: Backs the cached state for this file.
 
 #### `private StreamOut streamout = null`
-
-- Description: TODO
+- Role: Holds the streamout state.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-
-- Description: TODO
+- Role: Caches cmdmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public GLEnvironment env()`
-
-- Description: TODO
+- Role: Performs env.
+- Description: Supports the env operation used by the surrounding class.
 
 #### `public Area shape()`
-
-- Description: TODO
+- Role: Performs shape.
+- Description: Supports the shape operation used by the surrounding class.
 
 #### `public Pipe basestate()`
-
-- Description: TODO
+- Role: Performs basestate.
+- Description: Supports the basestate operation used by the surrounding class.
 
 #### `public void glswap(GL gl)`
-
-- Description: TODO
+- Role: Performs glswap.
+- Description: Supports the glswap operation used by the surrounding class.
 
 #### `public Loop(GLPanel p)`
-
-- Description: TODO
+- Role: Performs loop.
+- Description: Supports the loop operation used by the surrounding class.
 
 #### `private double framedur()`
-
-- Description: TODO
+- Role: Performs framedur.
+- Description: Supports the framedur operation used by the surrounding class.
 
 #### `BufferSwap(double ttime)`
-
-- Description: TODO
-
-#### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Handles the buffer swap workflow.
+- Description: Supports the buffer swap operation used by the surrounding class.
 
 #### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void run(GL gl)`
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
-- Description: TODO
+#### `public void run(GL gl)`
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `ProfileCycle(CPUProfile prof, ProfileCycle prev, GLRender out)`
-
-- Description: TODO
+- Role: Handles the profile cycle workflow.
+- Description: Supports the profile cycle operation used by the surrounding class.
 
 #### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `ProfilePart(ProfileCycle prof, String label)`
-
-- Description: TODO
+- Role: Handles the profile part workflow.
+- Description: Supports the profile part operation used by the surrounding class.
 
 #### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private void drawtooltip(UI ui, GOut g)`
-
-- Description: TODO
+- Role: Performs drawtooltip.
+- Description: Supports the drawtooltip operation used by the surrounding class.
 
 #### `private static String defaultcurs()`
-
-- Description: TODO
+- Role: Performs defaultcurs.
+- Description: Supports the defaultcurs operation used by the surrounding class.
 
 #### `private void drawcursor(UI ui, GOut g)`
-
-- Description: TODO
+- Role: Performs drawcursor.
+- Description: Supports the drawcursor operation used by the surrounding class.
 
 #### `private void drawstats(UI ui, GOut g, GLRender buf)`
-
-- Description: TODO
+- Role: Performs drawstats.
+- Description: Supports the drawstats operation used by the surrounding class.
 
 #### `private void display(UI ui, GLRender buf)`
-
-- Description: TODO
+- Role: Performs display.
+- Description: Supports the display operation used by the surrounding class.
 
 #### `public void run() throws InterruptedException`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public UI newui(UI.Runner fun)`
-
-- Description: TODO
+- Role: Performs newui.
+- Description: Supports the newui operation used by the surrounding class.
 
 #### `public Map<String, Console.Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.

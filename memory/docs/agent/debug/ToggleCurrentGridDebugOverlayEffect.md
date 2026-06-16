@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ToggleCurrentGridDebugO
 
 ## Role
 
-Provides a debug effect for inspecting or mutating runtime state.
+Toggles the current-grid debug overlay.
 
 ## Members
 
@@ -21,13 +21,13 @@ Provides a debug effect for inspecting or mutating runtime state.
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

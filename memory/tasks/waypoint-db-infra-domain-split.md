@@ -1,8 +1,6 @@
-# Task
+# waypoint DB 공통 인프라와 waypoint 도메인 계층 분리 범위 정리하기
 
-## Title
-
-waypoint DB 공통 인프라와 waypoint 도메인 계층 분리 범위 정리하기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

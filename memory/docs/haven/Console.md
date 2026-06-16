@@ -10,90 +10,93 @@ This file documents the responsibilities and members of `Console`.
 
 ## Role
 
-Provides a console command surface.
+Represents the console Haven component.
 
 ## Nested Types
 
 ### Command
 
-- Description: TODO
+- Role: Represents command within Console.
+- Description: Describes the nested command type used by the enclosing class.
 
 ### Directory
 
-- Description: TODO
+- Role: Represents directory within Console.
+- Description: Describes the nested directory type used by the enclosing class.
 
 ### Host
 
-- Description: TODO
+- Role: Represents host within Console.
+- Description: Describes the nested host type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<String, Command> scommands = new TreeMap<String, Command>()`
-
-- Description: TODO
+- Role: Defines the shared scommands constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Map<String, Command> commands = new TreeMap<String, Command>()`
-
-- Description: TODO
+- Role: Caches commands entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Collection<Directory> dirs = new LinkedList<Directory>()`
-
-- Description: TODO
+- Role: Caches dirs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final ThreadLocal<Host> host = new ThreadLocal<>()`
-
-- Description: TODO
+- Role: Holds the host state.
+- Description: Backs the cached state for this file.
 
 #### `public PrintWriter out`
-
-- Description: TODO
+- Role: Stores the out value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void run(Console cons, String[] args) throws Exception`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public Map<String, Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void setscmd(String name, Command cmd)`
-
-- Description: TODO
+- Role: Performs setscmd.
+- Description: Supports the setscmd operation used by the surrounding class.
 
 #### `public void setcmd(String name, Command cmd)`
-
-- Description: TODO
+- Role: Performs setcmd.
+- Description: Supports the setcmd operation used by the surrounding class.
 
 #### `public Map<String, Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void add(Directory dir)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Command findcmd(String name)`
-
-- Description: TODO
+- Role: Performs findcmd.
+- Description: Supports the findcmd operation used by the surrounding class.
 
 #### `public void run(Host host, String[] args) throws Exception`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void run(Host host, String cmdl) throws Exception`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public Host host()`
-
-- Description: TODO
+- Role: Performs host.
+- Description: Supports the host operation used by the surrounding class.
 
 #### `public void clearout()`
-
-- Description: TODO
+- Role: Performs clearout.
+- Description: Supports the clearout operation used by the surrounding class.

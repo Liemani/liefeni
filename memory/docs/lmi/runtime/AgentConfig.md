@@ -10,48 +10,48 @@ This file documents the responsibilities and members of `AgentConfig`.
 
 ## Role
 
-Holds agent-level configuration and tunables.
+Carries configuration for a runtime agent.
 
 ## Members
 
 ### Constants
 
 #### `private static final String FILE_PATH = "data/agent-config.properties"`
-
-- Description: TODO
+- Role: Defines the shared file path constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Properties props = new Properties()`
-
-- Description: TODO
+- Role: Holds the props state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public AgentConfig()`
-
-- Description: TODO
+- Role: Creates a new AgentConfig instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void setDrive(String key, boolean on)`
-
-- Description: TODO
+- Role: Sets the drive.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public boolean isDriveEnabled(String key)`
-
-- Description: TODO
+- Role: Checks whether the drive enabled.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String getDriveStatus(String key)`
-
-- Description: TODO
+- Role: Returns the drive status.
+- Description: Exposes the requested value without mutating state.
 
 #### `public java.util.Set<String> getAllDrives()`
-
-- Description: TODO
+- Role: Returns the all drives.
+- Description: Exposes the requested value without mutating state.
 
 #### `private void load()`
-
-- Description: TODO
+- Role: Coordinates load persistence or lookup.
+- Description: Supports the load operation used by the surrounding class.
 
 #### `private void save()`
-
-- Description: TODO
+- Role: Coordinates save persistence or lookup.
+- Description: Supports the save operation used by the surrounding class.

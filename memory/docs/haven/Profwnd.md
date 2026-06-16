@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Profwnd`.
 
 ## Role
 
-Displays a profiling window.
+Represents the profwnd Haven component.
 
 ## Members
 
@@ -19,31 +19,31 @@ Displays a profiling window.
 ### Fields
 
 #### `private final Profile prof`
-
-- Description: TODO
+- Role: Stores the prof value.
+- Description: Backs the cached state for this file.
 
 #### `private final boolean live`
-
-- Description: TODO
+- Role: Tracks the live flag.
+- Description: Supports the live operation used by the surrounding class.
 
 ### Methods
 
 #### `public Profwnd(Profile prof, String title, boolean live)`
-
-- Description: TODO
+- Role: Creates a new Profwnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Profwnd(Profile prof, String title)`
-
-- Description: TODO
+- Role: Creates a new Profwnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void reqclose()`
-
-- Description: TODO
+- Role: Performs reqclose.
+- Description: Supports the reqclose operation used by the surrounding class.
 
 #### `private void capture()`
-
-- Description: TODO
+- Role: Performs capture.
+- Description: Supports the capture operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.

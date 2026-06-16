@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `PrintIconsJob`.
 
 ## Role
 
-Provides a debug job for inspecting or measuring runtime state.
+Prints visible icon resources for debugging.
 
 ## Members
 
@@ -21,9 +21,9 @@ Provides a debug job for inspecting or measuring runtime state.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

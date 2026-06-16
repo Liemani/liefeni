@@ -10,136 +10,136 @@ This file documents the responsibilities and members of `LWJGLPanel`.
 
 ## Role
 
-Hosts the LWJGL-backed UI panel.
+Represents the lwjglpanel Haven component.
 
 ## Members
 
 ### Constants
 
 #### `private static final int[][] glversions =`
-
-- Description: TODO
+- Role: Defines the shared lwjglpanel constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final boolean dumpbgl = true`
-
-- Description: TODO
+- Role: Defines the shared dumpbgl constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private LWJGLEnvironment env = null`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean aswap`
-
-- Description: TODO
+- Role: Tracks the aswap flag.
+- Description: Supports the aswap operation used by the surrounding class.
 
 #### `private Area shape`
-
-- Description: TODO
-
-#### `private Pipe base, wnd`
-
-- Description: TODO
+- Role: Holds the shape state.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe base, wnd`
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Pipe base, wnd`
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
 #### `private final Loop main = new Loop(this)`
-
-- Description: TODO
+- Role: Holds the main state.
+- Description: Backs the cached state for this file.
 
 #### `private final haven.error.ErrorHandler errh = haven.error.ErrorHandler.find()`
-
-- Description: TODO
+- Role: Stores the errh value.
+- Description: Backs the cached state for this file.
 
 #### `private Robot awtrobot`
-
-- Description: TODO
+- Role: Holds the awtrobot state.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-
-- Description: TODO
+- Role: Caches cmdmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public LWJGLPanel()`
-
-- Description: TODO
+- Role: Creates a new LWJGLPanel instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void initGL()`
-
-- Description: TODO
+- Role: Initializes the gl.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public void paintGL()`
-
-- Description: TODO
+- Role: Performs paint gl.
+- Description: Supports the paint gl operation used by the surrounding class.
 
 #### `protected ContextData createContext() throws AWTException`
-
-- Description: TODO
+- Role: Handles the create context workflow.
+- Description: Supports the create context operation used by the surrounding class.
 
 #### `private void setenv(LWJGLEnvironment env)`
-
-- Description: TODO
+- Role: Performs setenv.
+- Description: Supports the setenv operation used by the surrounding class.
 
 #### `public GLEnvironment env()`
-
-- Description: TODO
+- Role: Performs env.
+- Description: Supports the env operation used by the surrounding class.
 
 #### `public Area shape()`
-
-- Description: TODO
+- Role: Performs shape.
+- Description: Supports the shape operation used by the surrounding class.
 
 #### `public Pipe basestate()`
-
-- Description: TODO
+- Role: Performs basestate.
+- Description: Supports the basestate operation used by the surrounding class.
 
 #### `private boolean iswap()`
-
-- Description: TODO
+- Role: Performs iswap.
+- Description: Supports the iswap operation used by the surrounding class.
 
 #### `public void glswap(GL gl)`
-
-- Description: TODO
+- Role: Performs glswap.
+- Description: Supports the glswap operation used by the surrounding class.
 
 #### `private void reshape(Area shape)`
-
-- Description: TODO
+- Role: Performs reshape.
+- Description: Supports the reshape operation used by the surrounding class.
 
 #### `private void initgl()`
-
-- Description: TODO
+- Role: Performs initgl.
+- Description: Supports the initgl operation used by the surrounding class.
 
 #### `private void awtrun(Runnable task) throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the awtrun workflow.
+- Description: Supports the awtrun operation used by the surrounding class.
 
 #### `private void glrun(Runnable task) throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the glrun workflow.
+- Description: Supports the glrun operation used by the surrounding class.
 
 #### `private void renderloop()`
-
-- Description: TODO
+- Role: Performs renderloop.
+- Description: Supports the renderloop operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public UI newui(UI.Runner fun)`
-
-- Description: TODO
+- Role: Performs newui.
+- Description: Supports the newui operation used by the surrounding class.
 
 #### `public void background(boolean bg)`
-
-- Description: TODO
+- Role: Performs background.
+- Description: Supports the background operation used by the surrounding class.
 
 #### `public void setmousepos(Coord c)`
-
-- Description: TODO
+- Role: Performs setmousepos.
+- Description: Supports the setmousepos operation used by the surrounding class.
 
 #### `public Map<String, Console.Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.

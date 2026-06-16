@@ -10,278 +10,282 @@ This file documents the responsibilities and members of `LoginScreen`.
 
 ## Role
 
-Displays the login screen.
+Represents the login screen Haven component.
 
 ## Nested Types
 
 ### Credbox
 
-- Description: TODO
+- Role: Represents credbox within LoginScreen.
+- Description: Describes the nested credbox type used by the enclosing class.
 
 ### StatusLabel
 
-- Description: TODO
+- Role: Represents status label within LoginScreen.
+- Description: Describes the nested status label type used by the enclosing class.
 
 ### Steambox
 
-- Description: TODO
+- Role: Represents steambox within LoginScreen.
+- Description: Describes the nested steambox type used by the enclosing class.
 
 ### UserEntry
 
-- Description: TODO
+- Role: Represents user entry within LoginScreen.
+- Description: Describes the nested user entry type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<String> authmech = Config.Variable.prop("haven.authmech", "native")`
-
-- Description: TODO
+- Role: Defines the shared authmech constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex bg = Resource.loadtex("gfx/loginscr")`
-
-- Description: TODO
+- Role: Defines the shared bg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Position bgc = new Position(UI.scale(420, 300))`
-
-- Description: TODO
+- Role: Defines the shared bgc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_savtoken = KeyBinding.get("login/savtoken", KeyMatch.forchar('R', KeyMatch.M))`
-
-- Description: TODO
+- Role: Defines the shared kb savtoken constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_deltoken = KeyBinding.get("login/deltoken", KeyMatch.forchar('F', KeyMatch.M))`
-
-- Description: TODO
+- Role: Defines the shared kb deltoken constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `textf = new Text.Foundry(Text.sans, 16).aa(true),`
-
-- Description: TODO
+- Role: Holds the foundry state.
+- Description: Backs the cached state for this file.
 
 #### `textfs = new Text.Foundry(Text.sans, 14).aa(true)`
-
-- Description: TODO
+- Role: Holds the foundry state.
+- Description: Backs the cached state for this file.
 
 #### `public final Widget login`
-
-- Description: TODO
+- Role: Stores the login value.
+- Description: Backs the cached state for this file.
 
 #### `public final String confname`
-
-- Description: TODO
-
-#### `private Text error, progress`
-
-- Description: TODO
+- Role: Stores the confname value.
+- Description: Backs the cached state for this file.
 
 #### `private Text error, progress`
+- Role: Stores the progress value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Text error, progress`
+- Role: Stores the progress value.
+- Description: Backs the cached state for this file.
 
 #### `private Button optbtn`
-
-- Description: TODO
+- Role: Holds the optbtn state.
+- Description: Backs the cached state for this file.
 
 #### `private OptWnd opts`
-
-- Description: TODO
+- Role: Holds the opts state.
+- Description: Backs the cached state for this file.
 
 #### `public final UserEntry user`
-
-- Description: TODO
+- Role: Holds the user state.
+- Description: Backs the cached state for this file.
 
 #### `private final TextEntry pass`
-
-- Description: TODO
+- Role: Stores the pass value.
+- Description: Backs the cached state for this file.
 
 #### `private final CheckBox savetoken`
-
-- Description: TODO
+- Role: Holds the savetoken state.
+- Description: Backs the cached state for this file.
 
 #### `private final Button fbtn`
-
-- Description: TODO
+- Role: Holds the fbtn state.
+- Description: Backs the cached state for this file.
 
 #### `private final IButton exec`
-
-- Description: TODO
-
-#### `private final Widget pwbox, tkbox`
-
-- Description: TODO
+- Role: Holds the exec state.
+- Description: Backs the cached state for this file.
 
 #### `private final Widget pwbox, tkbox`
+- Role: Stores the tkbox value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final Widget pwbox, tkbox`
+- Role: Stores the tkbox value.
+- Description: Backs the cached state for this file.
 
 #### `private byte[] token = null`
-
-- Description: TODO
+- Role: Stores the token value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean inited = false`
-
-- Description: TODO
+- Role: Tracks the inited flag.
+- Description: Supports the inited operation used by the surrounding class.
 
 #### `private final List<String> history = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches history entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int hpos = -1`
-
-- Description: TODO
+- Role: Stores the hpos value.
+- Description: Backs the cached state for this file.
 
 #### `private String hcurrent`
-
-- Description: TODO
+- Role: Stores the hcurrent value.
+- Description: Backs the cached state for this file.
 
 #### `private static boolean steam_autologin = true`
-
-- Description: TODO
+- Role: Tracks the steam autologin flag.
+- Description: Supports the steam autologin operation used by the surrounding class.
 
 #### `public final HttpStatus stat`
-
-- Description: TODO
+- Role: Holds the stat state.
+- Description: Backs the cached state for this file.
 
 #### `public final double ax`
-
-- Description: TODO
+- Role: Stores the ax value.
+- Description: Backs the cached state for this file.
 
 #### `private Text[] lines = new Text[2]`
-
-- Description: TODO
+- Role: Stores the lines value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private String getpref(String name, String def)`
-
-- Description: TODO
+- Role: Performs getpref.
+- Description: Supports the getpref operation used by the surrounding class.
 
 #### `public LoginScreen(String confname)`
-
-- Description: TODO
+- Role: Creates a new LoginScreen instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private UserEntry(int w)`
-
-- Description: TODO
+- Role: Performs user entry.
+- Description: Supports the user entry operation used by the surrounding class.
 
 #### `protected void changed()`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public void settext2(String text)`
-
-- Description: TODO
+- Role: Performs settext2.
+- Description: Supports the settext2 operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public void init(String name)`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `private Credbox()`
-
-- Description: TODO
+- Role: Performs credbox.
+- Description: Supports the credbox operation used by the surrounding class.
 
 #### `private void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `private void checktoken()`
-
-- Description: TODO
+- Role: Performs checktoken.
+- Description: Supports the checktoken operation used by the surrounding class.
 
 #### `private void forget()`
-
-- Description: TODO
+- Role: Performs forget.
+- Description: Supports the forget operation used by the surrounding class.
 
 #### `private void enter()`
-
-- Description: TODO
+- Role: Enters the current lifecycle state.
+- Description: Enters the current lifecycle state and updates lifecycle state accordingly.
 
 #### `private AuthClient.Credentials creds()`
-
-- Description: TODO
+- Role: Performs creds.
+- Description: Supports the creds operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public void show()`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `private Steambox()`
-
-- Description: TODO
+- Role: Performs steambox.
+- Description: Supports the steambox operation used by the surrounding class.
 
 #### `private AuthClient.Credentials creds() throws java.io.IOException`
-
-- Description: TODO
+- Role: Handles the creds workflow.
+- Description: Supports the creds operation used by the surrounding class.
 
 #### `private void enter()`
-
-- Description: TODO
+- Role: Enters the current lifecycle state.
+- Description: Enters the current lifecycle state and updates lifecycle state accordingly.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public StatusLabel(URI svc, double ax)`
-
-- Description: TODO
+- Role: Performs status label.
+- Description: Supports the status label operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `private void mklogin()`
-
-- Description: TODO
+- Role: Performs mklogin.
+- Description: Supports the mklogin operation used by the surrounding class.
 
 #### `private void error(String error)`
-
-- Description: TODO
+- Role: Displays an error message.
+- Description: Supports the error operation used by the surrounding class.
 
 #### `private void progress(String p)`
-
-- Description: TODO
+- Role: Performs progress.
+- Description: Supports the progress operation used by the surrounding class.
 
 #### `private void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `public void cdestroy(Widget ch)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void presize()`
-
-- Description: TODO
+- Role: Performs presize.
+- Description: Supports the presize operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.

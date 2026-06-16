@@ -1,8 +1,6 @@
-# Task
+# `LoadSegmentsByCutResult`, `LoadPointsByCutResult` naming을 현재 grid 기준 의미와 맞추기
 
-## Title
-
-`LoadSegmentsByCutResult`, `LoadPointsByCutResult` naming을 현재 grid 기준 의미와 맞추기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

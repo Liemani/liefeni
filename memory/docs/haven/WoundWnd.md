@@ -10,322 +10,331 @@ This file documents the responsibilities and members of `WoundWnd`.
 
 ## Role
 
-Displays the wound window.
+Represents the wound wnd Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within WoundWnd.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### $wound
 
-- Description: TODO
+- Role: Represents $wound within WoundWnd.
+- Description: Describes the nested $wound type used by the enclosing class.
 
 ### Info
 
-- Description: TODO
+- Role: Represents info within WoundWnd.
+- Description: Describes the nested info type used by the enclosing class.
 
 ### Item
 
-- Description: TODO
+- Role: Represents item within WoundWnd.
+- Description: Describes the nested item type used by the enclosing class.
 
 ### QuickInfo
 
-- Description: TODO
+- Role: Represents quick info within WoundWnd.
+- Description: Describes the nested quick info type used by the enclosing class.
 
 ### Wound
 
-- Description: TODO
+- Role: Represents wound within WoundWnd.
+- Description: Describes the nested wound type used by the enclosing class.
 
 ### WoundBox
 
-- Description: TODO
+- Role: Represents wound box within WoundWnd.
+- Description: Describes the nested wound box type used by the enclosing class.
 
 ### WoundList
 
-- Description: TODO
+- Role: Represents wound list within WoundWnd.
+- Description: Describes the nested wound list type used by the enclosing class.
 
 ### WoundPagina
 
-- Description: TODO
+- Role: Represents wound pagina within WoundWnd.
+- Description: Describes the nested wound pagina type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry namef = new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared namef constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<Wound> ctxr = new OwnerContext.ClassResolver<Wound>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Widget woundbox`
-
-- Description: TODO
+- Role: Stores the woundbox value.
+- Description: Backs the cached state for this file.
 
 #### `public final WoundList wounds`
-
-- Description: TODO
+- Role: Caches wounds entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Wound.Info wound`
-
-- Description: TODO
+- Role: Holds the wound state.
+- Description: Backs the cached state for this file.
 
 #### `public final RichText.Document doc`
-
-- Description: TODO
+- Role: Stores the doc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Glob glob`
-
-- Description: TODO
-
-#### `public final int id, parentid`
-
-- Description: TODO
+- Role: Stores the glob value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id, parentid`
+- Role: Stores the parentid value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int id, parentid`
+- Role: Stores the parentid value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public int level`
-
-- Description: TODO
+- Role: Stores the level value.
+- Description: Backs the cached state for this file.
 
 #### `public ItemInfo.Raw rawinfo`
-
-- Description: TODO
+- Role: Holds the rawinfo state.
+- Description: Backs the cached state for this file.
 
 #### `private String sortkey = "\uffff"`
-
-- Description: TODO
+- Role: Stores the sortkey value.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> info`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> info`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public List<Wound> wounds = new ArrayList<Wound>()`
-
-- Description: TODO
+- Role: Caches wounds entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean loading = false`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 #### `private final Comparator<Wound> wcomp = new Comparator<Wound>()`
-
-- Description: TODO
+- Role: Holds the wcomp state.
+- Description: Backs the cached state for this file.
 
 #### `public final Wound w`
-
-- Description: TODO
-
-#### `private Widget qd, nm`
-
-- Description: TODO
+- Role: Holds the w state.
+- Description: Backs the cached state for this file.
 
 #### `private Widget qd, nm`
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Widget qd, nm`
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `private Object dres, dinfo`
-
-- Description: TODO
+- Role: Holds the dinfo state.
+- Description: Backs the cached state for this file.
 
 #### `private Object dres, dinfo`
-
-- Description: TODO
+- Role: Holds the dinfo state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public default Widget qwdg(int h)`
-
-- Description: TODO
+- Role: Performs qwdg.
+- Description: Supports the qwdg operation used by the surrounding class.
 
 #### `public default String qstr()`
-
-- Description: TODO
+- Role: Performs qstr.
+- Description: Supports the qstr operation used by the surrounding class.
 
 #### `public default int qprio()`
-
-- Description: TODO
+- Role: Performs qprio.
+- Description: Supports the qprio operation used by the surrounding class.
 
 #### `public WoundPagina(Owner owner, RichText.Document doc)`
-
-- Description: TODO
+- Role: Performs wound pagina.
+- Description: Supports the wound pagina operation used by the surrounding class.
 
 #### `public WoundPagina(Owner owner, Resource.Pagina pag)`
-
-- Description: TODO
+- Role: Performs wound pagina.
+- Description: Supports the wound pagina operation used by the surrounding class.
 
 #### `public void layout(Layout l)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `private Wound(Glob glob, int id, Indir<Resource> res, int parentid)`
-
-- Description: TODO
+- Role: Performs wound.
+- Description: Supports the wound operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Resource resource()`
-
-- Description: TODO
+- Role: Performs resource.
+- Description: Supports the resource operation used by the surrounding class.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public BufferedImage icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public int woundid()`
-
-- Description: TODO
+- Role: Performs woundid.
+- Description: Supports the woundid operation used by the surrounding class.
 
 #### `public WoundBox(int id)`
-
-- Description: TODO
+- Role: Performs wound box.
+- Description: Supports the wound box operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public Wound wound()`
-
-- Description: TODO
+- Role: Performs wound.
+- Description: Supports the wound operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void drawbg(GOut g)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `public BufferedImage renderinfo(int width)`
-
-- Description: TODO
+- Role: Performs renderinfo.
+- Description: Supports the renderinfo operation used by the surrounding class.
 
 #### `public int woundid()`
-
-- Description: TODO
+- Role: Performs woundid.
+- Description: Supports the woundid operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private WoundList(Coord sz)`
-
-- Description: TODO
+- Role: Performs wound list.
+- Description: Supports the wound list operation used by the surrounding class.
 
 #### `protected List<Wound> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Widget makeitem(Wound w, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `private List<Wound> treesort(List<Wound> from, int pid, int level)`
-
-- Description: TODO
+- Role: Performs treesort.
+- Description: Supports the treesort operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public Item(Coord sz, Wound w)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `private QuickInfo getqdat(List<ItemInfo> info)`
-
-- Description: TODO
+- Role: Performs getqdat.
+- Description: Supports the getqdat operation used by the surrounding class.
 
 #### `private void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, Wound w, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `protected boolean unselect(int button)`
-
-- Description: TODO
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `public Wound get(int id)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void add(Wound w)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Wound remove(int id)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public WoundWnd()`
-
-- Description: TODO
+- Role: Creates a new WoundWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `private void decwound(Object[] args, int a, int len)`
-
-- Description: TODO
+- Role: Performs decwound.
+- Description: Supports the decwound operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

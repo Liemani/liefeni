@@ -10,68 +10,68 @@ This file documents the responsibilities and members of `MixColor`.
 
 ## Role
 
-Represents a mixed color state.
+Defines the mix color render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<MixColor> slot = new Slot<>(Slot.Type.DRAW, MixColor.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final InstancedUniform u_color = new InstancedUniform.Vec4("mixcolor", p -> p.get(slot).color, slot)`
-
-- Description: TODO
+- Role: Defines the shared u color constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying transfer = new AutoVarying(Type.VEC4)`
-
-- Description: TODO
+- Role: Defines the shared transfer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Instancer<MixColor> instancer = new Instancer<MixColor>()`
-
-- Description: TODO
+- Role: Defines the shared instancer constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final float[] color`
-
-- Description: TODO
+- Role: Stores the color value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public MixColor(float[] color)`
-
-- Description: TODO
+- Role: Creates a new MixColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public MixColor(FColor color)`
-
-- Description: TODO
+- Role: Creates a new MixColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public MixColor(float r, float g, float b, float a)`
-
-- Description: TODO
+- Role: Creates a new MixColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public MixColor(Color color)`
-
-- Description: TODO
+- Role: Creates a new MixColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public MixColor(int r, int g, int b, int a)`
-
-- Description: TODO
+- Role: Creates a new MixColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public InstancedAttribute[] attribs()`
-
-- Description: TODO
+- Role: Performs attribs.
+- Description: Supports the attribs operation used by the surrounding class.

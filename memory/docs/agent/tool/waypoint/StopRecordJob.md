@@ -10,13 +10,16 @@ This file documents the responsibilities and members of `StopRecordJob`.
 
 ## Role
 
-Provides a waypoint tool job entry point.
+Implements a waypoint job for stop record job.
 
 ## Nested Types
 
 ### EndNodeHandler
+### EndNodeHandler
+- Role: Represents the end node handler helper used by StopRecordJob.
 
-- Description: TODO
+- Role: Coordinates the asynchronous completion callbacks for the stop-record flow.
+- Description: Describes the nested end node handler type used by the enclosing class.
 
 ## Members
 
@@ -27,33 +30,33 @@ Provides a waypoint tool job entry point.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private static void _ensureEndNodeAsync(EndNodeHandler handler)`
-
-- Description: TODO
+- Role: Performs  ensure end node async.
+- Description: Supports the ensure end node async operation used by the surrounding class.
 
 #### `private static void _createEndNodeAsync(EndNodeHandler handler)`
-
-- Description: TODO
+- Role: Performs  create end node async.
+- Description: Supports the create end node async operation used by the surrounding class.
 
 #### `private static String _inputEndNodeName()`
-
-- Description: TODO
+- Role: Performs  input end node name.
+- Description: Supports the input end node name operation used by the surrounding class.
 
 #### `private static void _saveEdgeAsync(RecordingSession session, WpNode endNode)`
-
-- Description: TODO
+- Role: Performs  save edge async.
+- Description: Supports the save edge async operation used by the surrounding class.
 
 #### `private static void _appendSavedEdge(SaveEdgeResult result)`
-
-- Description: TODO
+- Role: Performs  append saved edge.
+- Description: Supports the append saved edge operation used by the surrounding class.
 
 #### `void onResolved(WpNode endNode)`
-
-- Description: TODO
+- Role: Performs on resolved.
+- Description: Supports the on resolved operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

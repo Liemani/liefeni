@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `LPick`.
 
 ## Role
 
-Represents a logical pick expression.
+Represents the lpick shader-language AST node.
 
 ## Members
 
 ### Constants
 
 #### `public static final String valid = "xyzwrgbastpq"`
-
-- Description: TODO
+- Role: Defines the shared valid constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final LValue val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `public final char[] el`
-
-- Description: TODO
+- Role: Stores the el value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LPick(LValue val, char[] el)`
-
-- Description: TODO
+- Role: Creates a new LPick instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public LPick(LValue val, String el)`
-
-- Description: TODO
+- Role: Creates a new LPick instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

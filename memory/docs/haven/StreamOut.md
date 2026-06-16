@@ -10,80 +10,80 @@ This file documents the responsibilities and members of `StreamOut`.
 
 ## Role
 
-Writes stream content out.
+Represents the stream out Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<Path> path = Config.Variable.propp("haven.streamout", "")`
-
-- Description: TODO
+- Role: Defines the shared path constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Config.Variable<Double> rate = Config.Variable.propf("haven.streamrate", null)`
-
-- Description: TODO
+- Role: Defines the shared rate constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final WritableByteChannel out`
-
-- Description: TODO
+- Role: Stores the out value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `private final Queue<ByteBuffer> free = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches free entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private ByteBuffer obuf = null`
-
-- Description: TODO
+- Role: Stores the obuf value.
+- Description: Backs the cached state for this file.
 
 #### `private Thread ot = null`
-
-- Description: TODO
+- Role: Holds the ot state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean running = true`
-
-- Description: TODO
+- Role: Tracks the running flag.
+- Description: Supports the running operation used by the surrounding class.
 
 ### Methods
 
 #### `public StreamOut(Coord sz, WritableByteChannel out)`
-
-- Description: TODO
+- Role: Creates a new StreamOut instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public StreamOut(Coord sz, Path out) throws IOException`
-
-- Description: TODO
+- Role: Creates a new StreamOut instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void writeframe(ByteBuffer data)`
-
-- Description: TODO
+- Role: Performs writeframe.
+- Description: Supports the writeframe operation used by the surrounding class.
 
 #### `private void uoutput()`
-
-- Description: TODO
+- Role: Performs uoutput.
+- Description: Supports the uoutput operation used by the surrounding class.
 
 #### `private void routput(double rate)`
-
-- Description: TODO
+- Role: Performs routput.
+- Description: Supports the routput operation used by the surrounding class.
 
 #### `private void output()`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `private void fin(ByteBuffer buf)`
-
-- Description: TODO
+- Role: Performs fin.
+- Description: Supports the fin operation used by the surrounding class.
 
 #### `public void accept(Render g, Pipe state)`
-
-- Description: TODO
+- Role: Performs accept.
+- Description: Supports the accept operation used by the surrounding class.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

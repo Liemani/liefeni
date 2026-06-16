@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `MultiMap`.
 
 ## Role
 
-Provides a multimap implementation.
+Represents the multi map Haven component.
 
 ## Members
 
@@ -21,33 +21,33 @@ Provides a multimap implementation.
 ### Methods
 
 #### `public void put(K key, V value)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public V remove(K key, V value)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public Collection<V> removeall(K key)`
-
-- Description: TODO
+- Role: Performs removeall.
+- Description: Supports the removeall operation used by the surrounding class.
 
 #### `public V pop(K key)`
-
-- Description: TODO
+- Role: Applies avatar description updates.
+- Description: Supports the pop operation used by the surrounding class.
 
 #### `public V get(K key)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Collection<V> getall(K key)`
-
-- Description: TODO
+- Role: Performs getall.
+- Description: Supports the getall operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Collection<V> values()`
-
-- Description: TODO
+- Role: Performs values.
+- Description: Supports the values operation used by the surrounding class.

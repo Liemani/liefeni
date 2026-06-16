@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `VaoState`.
 
 ## Role
 
-Represents VAO state.
+Provides GL backend support for vao state.
 
 ## Members
 
@@ -19,11 +19,11 @@ Represents VAO state.
 ### Fields
 
 #### `public static int slot = slotidx(VaoState.class)`
-
-- Description: TODO
+- Role: Stores the slot value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public int slotidx()`
-
-- Description: TODO
+- Role: Performs slotidx.
+- Description: Supports the slotidx operation used by the surrounding class.

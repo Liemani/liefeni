@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Lumin`.
 
 ## Role
 
-Represents luminance-related helpers.
+Represents the lumin Haven component.
 
 ## Nested Types
 
 ### $lumin
 
-- Description: TODO
+- Role: Represents $lumin within Lumin.
+- Description: Describes the nested $lumin type used by the enclosing class.
 
 ## Members
 
@@ -25,23 +26,23 @@ Represents luminance-related helpers.
 ### Fields
 
 #### `Coord off`
-
-- Description: TODO
-
-#### `int sz, str`
-
-- Description: TODO
+- Role: Stores the off value.
+- Description: Backs the cached state for this file.
 
 #### `int sz, str`
+- Role: Stores the str value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `int sz, str`
+- Role: Stores the str value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Lumin(Gob g, Coord off, int sz, int str)`
-
-- Description: TODO
+- Role: Creates a new Lumin instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

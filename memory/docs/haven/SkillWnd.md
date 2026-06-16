@@ -10,49 +10,59 @@ This file documents the responsibilities and members of `SkillWnd`.
 
 ## Role
 
-Displays the skills window.
+Represents the skill wnd Haven component.
 
 ## Nested Types
 
 ### $credo
 
-- Description: TODO
+- Role: Represents $credo within SkillWnd.
+- Description: Describes the nested $credo type used by the enclosing class.
 
 ### $expls
 
-- Description: TODO
+- Role: Represents $expls within SkillWnd.
+- Description: Describes the nested $expls type used by the enclosing class.
 
 ### $skill
 
-- Description: TODO
+- Role: Represents $skill within SkillWnd.
+- Description: Describes the nested $skill type used by the enclosing class.
 
 ### Credo
 
-- Description: TODO
+- Role: Represents credo within SkillWnd.
+- Description: Describes the nested credo type used by the enclosing class.
 
 ### CredoGrid
 
-- Description: TODO
+- Role: Represents credo grid within SkillWnd.
+- Description: Describes the nested credo grid type used by the enclosing class.
 
 ### CredoImg
 
-- Description: TODO
+- Role: Represents credo img within SkillWnd.
+- Description: Describes the nested credo img type used by the enclosing class.
 
 ### ExpGrid
 
-- Description: TODO
+- Role: Represents exp grid within SkillWnd.
+- Description: Describes the nested exp grid type used by the enclosing class.
 
 ### Experience
 
-- Description: TODO
+- Role: Represents experience within SkillWnd.
+- Description: Describes the nested experience type used by the enclosing class.
 
 ### Skill
 
-- Description: TODO
+- Role: Represents skill within SkillWnd.
+- Description: Describes the nested skill type used by the enclosing class.
 
 ### SkillGrid
 
-- Description: TODO
+- Role: Represents skill grid within SkillWnd.
+- Description: Describes the nested skill grid type used by the enclosing class.
 
 ## Members
 
@@ -61,387 +71,387 @@ Displays the skills window.
 ### Fields
 
 #### `public final SkillGrid skg`
-
-- Description: TODO
+- Role: Stores the skg value.
+- Description: Backs the cached state for this file.
 
 #### `public final CredoGrid credos`
-
-- Description: TODO
+- Role: Stores the credos value.
+- Description: Backs the cached state for this file.
 
 #### `public final ExpGrid exps`
-
-- Description: TODO
+- Role: Stores the exps value.
+- Description: Backs the cached state for this file.
 
 #### `private CharWnd chr`
-
-- Description: TODO
-
-#### `private Widget skill, credo, expls`
-
-- Description: TODO
+- Role: Stores the chr value.
+- Description: Backs the cached state for this file.
 
 #### `private Widget skill, credo, expls`
-
-- Description: TODO
+- Role: Stores the expls value.
+- Description: Backs the cached state for this file.
 
 #### `private Widget skill, credo, expls`
+- Role: Stores the expls value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Widget skill, credo, expls`
+- Role: Stores the expls value.
+- Description: Backs the cached state for this file.
 
 #### `public final String nm`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final int cost`
-
-- Description: TODO
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean has = false`
-
-- Description: TODO
+- Role: Tracks the has flag.
+- Description: Supports the has operation used by the surrounding class.
 
 #### `private String sortkey`
-
-- Description: TODO
+- Role: Stores the sortkey value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex small`
-
-- Description: TODO
+- Role: Stores the small value.
+- Description: Backs the cached state for this file.
 
 #### `private Text tooltip = null`
-
-- Description: TODO
+- Role: Stores the tooltip value.
+- Description: Backs the cached state for this file.
 
 #### `public final String nm`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean has = false`
-
-- Description: TODO
+- Role: Tracks the has flag.
+- Description: Supports the has operation used by the surrounding class.
 
 #### `private String sortkey`
-
-- Description: TODO
+- Role: Stores the sortkey value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex small`
-
-- Description: TODO
+- Role: Stores the small value.
+- Description: Backs the cached state for this file.
 
 #### `private Text tooltip = null`
-
-- Description: TODO
+- Role: Stores the tooltip value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
-
-#### `public final int mtime, score`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final int mtime, score`
+- Role: Stores the score value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int mtime, score`
+- Role: Stores the score value.
+- Description: Backs the cached state for this file.
 
 #### `private String sortkey = "\uffff"`
-
-- Description: TODO
+- Role: Stores the sortkey value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex small`
-
-- Description: TODO
+- Role: Stores the small value.
+- Description: Backs the cached state for this file.
 
 #### `private Text tooltip = null`
-
-- Description: TODO
-
-#### `public final Group nsk, csk`
-
-- Description: TODO
+- Role: Stores the tooltip value.
+- Description: Backs the cached state for this file.
 
 #### `public final Group nsk, csk`
+- Role: Holds the csk state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Group nsk, csk`
+- Role: Holds the csk state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean loading = false`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 #### `public final Coord crsz = UI.scale(70, 88)`
-
-- Description: TODO
+- Role: Stores the crsz value.
+- Description: Backs the cached state for this file.
 
 #### `public final int btnw = UI.scale(100)`
-
-- Description: TODO
+- Role: Stores the btnw value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex credoufr = new TexI(convolvedown(Resource.loadimg("gfx/hud/chr/yrkirframe"), crsz, iconfilter))`
-
-- Description: TODO
+- Role: Stores the credoufr value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex credosfr = new TexI(convolvedown(Resource.loadimg("gfx/hud/chr/yrkirsframe"), crsz, iconfilter))`
-
-- Description: TODO
+- Role: Stores the credosfr value.
+- Description: Backs the cached state for this file.
 
 #### `public final Text.Foundry prsf = new Text.Foundry(Text.fraktur, 15).aa(true)`
-
-- Description: TODO
+- Role: Stores the prsf value.
+- Description: Backs the cached state for this file.
 
 #### `public final int m = UI.scale(5)`
-
-- Description: TODO
-
-#### `public List<Credo> ncr = Collections.emptyList(), ccr = Collections.emptyList()`
-
-- Description: TODO
+- Role: Stores the m value.
+- Description: Backs the cached state for this file.
 
 #### `public List<Credo> ncr = Collections.emptyList(), ccr = Collections.emptyList()`
+- Role: Caches ncr entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
-- Description: TODO
+#### `public List<Credo> ncr = Collections.emptyList(), ccr = Collections.emptyList()`
+- Role: Caches ncr entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Credo pcr = null`
-
-- Description: TODO
-
-#### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
-
-- Description: TODO
+- Role: Holds the pcr state.
+- Description: Backs the cached state for this file.
 
 #### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
-
-- Description: TODO
-
-#### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
-
-- Description: TODO
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
 #### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
-
-- Description: TODO
-
-#### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
-
-- Description: TODO
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
 #### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
+
+#### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
+
+#### `public int pcl, pclt, pcql, pcqlt, pqid, cost`
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
 #### `public Credo sel = null`
-
-- Description: TODO
-
-#### `private final Img pcrc, ncrc, ccrc`
-
-- Description: TODO
+- Role: Holds the sel state.
+- Description: Backs the cached state for this file.
 
 #### `private final Img pcrc, ncrc, ccrc`
-
-- Description: TODO
+- Role: Holds the ccrc state.
+- Description: Backs the cached state for this file.
 
 #### `private final Img pcrc, ncrc, ccrc`
+- Role: Holds the ccrc state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final Img pcrc, ncrc, ccrc`
+- Role: Holds the ccrc state.
+- Description: Backs the cached state for this file.
 
 #### `private final Button pbtn, qbtn`
-
-- Description: TODO
+- Role: Holds the qbtn state.
+- Description: Backs the cached state for this file.
 
 #### `private final Button pbtn, qbtn`
-
-- Description: TODO
+- Role: Holds the qbtn state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean loading = false`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 #### `private final Credo cr`
-
-- Description: TODO
+- Role: Holds the cr state.
+- Description: Backs the cached state for this file.
 
 #### `public final Group seen`
-
-- Description: TODO
+- Role: Holds the seen state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean loading = false`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
-
-#### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
-- Description: TODO
+#### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private Skill(String nm, Indir<Resource> res, int cost, boolean has)`
-
-- Description: TODO
+- Role: Performs skill.
+- Description: Supports the skill operation used by the surrounding class.
 
 #### `public RichText.Document rendertext()`
-
-- Description: TODO
+- Role: Performs rendertext.
+- Description: Supports the rendertext operation used by the surrounding class.
 
 #### `public Text tooltip()`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `private Credo(String nm, Indir<Resource> res, boolean has)`
-
-- Description: TODO
+- Role: Performs credo.
+- Description: Supports the credo operation used by the surrounding class.
 
 #### `public RichText.Document rendertext()`
-
-- Description: TODO
+- Role: Performs rendertext.
+- Description: Supports the rendertext operation used by the surrounding class.
 
 #### `public Text tooltip()`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `private Experience(Indir<Resource> res, int mtime, int score)`
-
-- Description: TODO
+- Role: Performs experience.
+- Description: Supports the experience operation used by the surrounding class.
 
 #### `public RichText.Document rendertext()`
-
-- Description: TODO
+- Role: Performs rendertext.
+- Description: Supports the rendertext operation used by the surrounding class.
 
 #### `public Text tooltip()`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public SkillGrid(Coord sz)`
-
-- Description: TODO
+- Role: Performs skill grid.
+- Description: Supports the skill grid operation used by the surrounding class.
 
 #### `protected void drawitem(GOut g, Skill sk)`
-
-- Description: TODO
+- Role: Performs drawitem.
+- Description: Supports the drawitem operation used by the surrounding class.
 
 #### `protected void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `private void sksort(List<Skill> skills)`
-
-- Description: TODO
+- Role: Performs sksort.
+- Description: Supports the sksort operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public CredoGrid(Coord sz)`
-
-- Description: TODO
+- Role: Performs credo grid.
+- Description: Supports the credo grid operation used by the surrounding class.
 
 #### `private Tex crtex(Credo cr)`
-
-- Description: TODO
+- Role: Performs crtex.
+- Description: Supports the crtex operation used by the surrounding class.
 
 #### `CredoImg(Credo cr)`
-
-- Description: TODO
+- Role: Handles the credo img workflow.
+- Description: Supports the credo img operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `private int crgrid(int y, Collection<Credo> crs)`
-
-- Description: TODO
+- Role: Performs crgrid.
+- Description: Supports the crgrid operation used by the surrounding class.
 
 #### `private void sort(List<Credo> buf)`
-
-- Description: TODO
+- Role: Performs sort.
+- Description: Supports the sort operation used by the surrounding class.
 
 #### `private void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void change(Credo cr)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public void pcr(Credo cr, int crl, int crlt, int crql, int crqlt, int qid)`
-
-- Description: TODO
+- Role: Performs pcr.
+- Description: Supports the pcr operation used by the surrounding class.
 
 #### `public void ncr(List<Credo> cr)`
-
-- Description: TODO
+- Role: Performs ncr.
+- Description: Supports the ncr operation used by the surrounding class.
 
 #### `public void ccr(List<Credo> cr)`
-
-- Description: TODO
+- Role: Performs ccr.
+- Description: Supports the ccr operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public ExpGrid(Coord sz)`
-
-- Description: TODO
+- Role: Performs exp grid.
+- Description: Supports the exp grid operation used by the surrounding class.
 
 #### `protected void drawitem(GOut g, Experience exp)`
-
-- Description: TODO
+- Role: Performs drawitem.
+- Description: Supports the drawitem operation used by the surrounding class.
 
 #### `protected void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `public SkillWnd()`
-
-- Description: TODO
+- Role: Creates a new SkillWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private List<Skill> decsklist(Object[] args, int a, boolean has)`
-
-- Description: TODO
+- Role: Performs decsklist.
+- Description: Supports the decsklist operation used by the surrounding class.
 
 #### `private List<Credo> deccrlist(Object[] args, int a, boolean has)`
-
-- Description: TODO
+- Role: Performs deccrlist.
+- Description: Supports the deccrlist operation used by the surrounding class.
 
 #### `private List<Experience> decexplist(Object[] args, int a)`
-
-- Description: TODO
+- Role: Performs decexplist.
+- Description: Supports the decexplist operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

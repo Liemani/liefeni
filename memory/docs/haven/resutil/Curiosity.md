@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Curiosity`.
 
 ## Role
 
-Represents curiosity item info.
+Provides resource helper logic for curiosity.
 
 ## Members
 
@@ -19,55 +19,55 @@ Represents curiosity item info.
 ### Fields
 
 #### `public final Color better = new Color(0, 255, 0, 64), worse = new Color(255, 0, 0, 64)`
-
-- Description: TODO
+- Role: Stores the better value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color better = new Color(0, 255, 0, 64), worse = new Color(255, 0, 0, 64)`
-
-- Description: TODO
-
-#### `public final int exp, mw, enc, time`
-
-- Description: TODO
+- Role: Stores the better value.
+- Description: Backs the cached state for this file.
 
 #### `public final int exp, mw, enc, time`
-
-- Description: TODO
-
-#### `public final int exp, mw, enc, time`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `public final int exp, mw, enc, time`
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int exp, mw, enc, time`
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
+
+#### `public final int exp, mw, enc, time`
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `public final UI ui`
-
-- Description: TODO
+- Role: Stores the UI value.
+- Description: Backs the cached state for this file.
 
 #### `static String[] units =`
-
-- Description: TODO
+- Role: Stores the curiosity state.
+- Description: Backs the cached state for this file.
 
 #### `static int[] div =`
-
-- Description: TODO
+- Role: Stores the curiosity state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Curiosity(Owner owner, int exp, int mw, int enc, int time)`
-
-- Description: TODO
+- Role: Creates a new Curiosity instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `static String timefmt(int time)`
-
-- Description: TODO
+- Role: Performs timefmt.
+- Description: Supports the timefmt operation used by the surrounding class.
 
 #### `public BufferedImage tipimg()`
-
-- Description: TODO
+- Role: Performs tipimg.
+- Description: Supports the tipimg operation used by the surrounding class.
 
 #### `public Color olcol()`
-
-- Description: TODO
+- Role: Performs olcol.
+- Description: Supports the olcol operation used by the surrounding class.

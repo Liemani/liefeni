@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `JythonRNode`.
 
 ## Role
 
-Represents a Jython-backed resource node.
+Integrates Haven rendering-server support for jython rnode.
 
 ## Members
 
@@ -21,9 +21,9 @@ Represents a Jython-backed resource node.
 ### Methods
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.

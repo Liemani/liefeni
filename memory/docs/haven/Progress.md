@@ -10,106 +10,107 @@ This file documents the responsibilities and members of `Progress`.
 
 ## Role
 
-Displays a progress widget.
+Represents the progress Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Progress.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int defh = UI.scale(20)`
-
-- Description: TODO
+- Role: Defines the shared defh constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int m = UI.scale(1)`
-
-- Description: TODO
+- Role: Defines the shared m constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public float a`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private Supplier<Float> val`
-
-- Description: TODO
+- Role: Stores the val value.
+- Description: Backs the cached state for this file.
 
 #### `private Function<? super Float, ?> text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `private Function<?, String> fmt`
-
-- Description: TODO
+- Role: Stores the fmt value.
+- Description: Backs the cached state for this file.
 
 #### `private Function<?, Color> col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex rt = null`
-
-- Description: TODO
+- Role: Stores the rt value.
+- Description: Backs the cached state for this file.
 
 #### `private Object pt`
-
-- Description: TODO
+- Role: Holds the pt state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Progress(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new Progress instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Progress(int w)`
-
-- Description: TODO
+- Role: Creates a new Progress instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Progress val(Supplier<Float> val)`
-
-- Description: TODO
+- Role: Performs val.
+- Description: Supports the val operation used by the surrounding class.
 
 #### `public <V> Progress text(Function<? super Float, V> text, Function<? super V, String> fmt, Function<? super V, Color> col)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public <V> Progress text(Supplier<V> text, Function<? super V, String> fmt, Function<? super V, Color> col)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public <V> Progress text(Function<? super Float, V> text, Function<? super V, String> fmt)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public <V> Progress text(Supplier<V> text, Function<? super V, String> fmt)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public Progress text(Function<? super Float, ?> text)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public Progress text(Supplier<?> text)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public Progress percent()`
-
-- Description: TODO
+- Role: Performs percent.
+- Description: Supports the percent operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

@@ -10,8 +10,7 @@ This file documents the responsibilities and members of `AppContext`.
 
 ## Role
 
-Holds shared references to the current Haven session and UI-level state that is not owned by a specific bridge surface.
-Avoids owning world/map-view references that now live in bridge helpers.
+Owns shared LMI application context and service wiring.
 
 ## Members
 
@@ -20,235 +19,235 @@ Avoids owning world/map-view references that now live in bridge helpers.
 ### Fields
 
 #### `public static MainFrame mainFrame`
-
-- Description: TODO
+- Role: Holds the main frame state.
+- Description: Backs the cached state for this file.
 
 #### `public static Thread mainThread`
-
-- Description: TODO
+- Role: Coordinates asynchronous app context work.
+- Description: Supports the main thread operation used by the surrounding class.
 
 #### `public static JOGLPanel joglPanel`
-
-- Description: TODO
+- Role: Holds the jogl panel state.
+- Description: Backs the cached state for this file.
 
 #### `public static UIPanel.Dispatcher dispatcher`
-
-- Description: TODO
+- Role: Stores the dispatcher value.
+- Description: Backs the cached state for this file.
 
 #### `public static RemoteUI remoteUI`
-
-- Description: TODO
+- Role: Stores the remote UI value.
+- Description: Backs the cached state for this file.
 
 #### `public static UI ui`
-
-- Description: TODO
+- Role: Stores the UI value.
+- Description: Backs the cached state for this file.
 
 #### `public static Session session`
-
-- Description: TODO
+- Role: Stores the session value.
+- Description: Backs the cached state for this file.
 
 #### `public static OCache oCache`
-
-- Description: TODO
+- Role: Caches o cache entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public static RootWidget rootWidget`
-
-- Description: TODO
+- Role: Stores the root widget value.
+- Description: Backs the cached state for this file.
 
 #### `public static GameUI gameUI`
-
-- Description: TODO
+- Role: Stores the game UI value.
+- Description: Backs the cached state for this file.
 
 #### `public static MenuGrid menuGrid`
-
-- Description: TODO
+- Role: Stores the menu grid value.
+- Description: Backs the cached state for this file.
 
 #### `public static List<IMeter> meterWidgets`
-
-- Description: TODO
+- Role: Caches meter widgets entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public static IMeter hitPointMeter`
-
-- Description: TODO
+- Role: Stores the hit point meter value.
+- Description: Backs the cached state for this file.
 
 #### `public static IMeter staminaMeter`
-
-- Description: TODO
+- Role: Stores the stamina meter value.
+- Description: Backs the cached state for this file.
 
 #### `public static IMeter energyMeter`
-
-- Description: TODO
+- Role: Stores the energy meter value.
+- Description: Backs the cached state for this file.
 
 #### `public static Equipory equipory`
-
-- Description: TODO
+- Role: Stores the equipory value.
+- Description: Backs the cached state for this file.
 
 #### `public static Inventory mainInventory`
-
-- Description: TODO
+- Role: Holds the main inventory state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public static void resetWidgetCache()`
-
-- Description: TODO
+- Role: Performs reset widget cache.
+- Description: Supports the reset widget cache operation used by the surrounding class.
 
 #### `public static void resetSessionState()`
-
-- Description: TODO
+- Role: Performs reset session state.
+- Description: Supports the reset session state operation used by the surrounding class.
 
 #### `public static void setMainFrame(MainFrame val)`
-
-- Description: TODO
+- Role: Sets the main frame.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setMainThread(Thread val)`
-
-- Description: TODO
+- Role: Sets the main thread.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setJOGLPanel(JOGLPanel val)`
-
-- Description: TODO
+- Role: Sets the jogl panel.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setDispatcher(UIPanel.Dispatcher val)`
-
-- Description: TODO
+- Role: Sets the dispatcher.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setRemoteUI(RemoteUI val)`
-
-- Description: TODO
+- Role: Sets the remote ui.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setUI(UI val)`
-
-- Description: TODO
+- Role: Sets the ui.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setRootWidget(RootWidget val)`
-
-- Description: TODO
+- Role: Updates the root widget reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setGameUI(GameUI val)`
-
-- Description: TODO
+- Role: Updates the game UI reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setMenuGrid(MenuGrid val)`
-
-- Description: TODO
+- Role: Updates the menu grid reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setSession(Session val)`
-
-- Description: TODO
+- Role: Sets the session.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setOCache(OCache val)`
-
-- Description: TODO
+- Role: Sets the o cache.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setEquipory(Equipory val)`
-
-- Description: TODO
+- Role: Sets the equipory.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void setMainInventory(Inventory val)`
-
-- Description: TODO
+- Role: Sets the main inventory.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void addMeterWidget(IMeter meter)`
-
-- Description: TODO
+- Role: Adds the meter widget.
+- Description: Adds the meter widget to the current collection or state.
 
 #### `private static IMeter findMeterWidget(String resourceSuffix)`
-
-- Description: TODO
+- Role: Returns the meter widget.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static IMeter hitPointMeter()`
-
-- Description: TODO
+- Role: Performs hit point meter.
+- Description: Supports the hit point meter operation used by the surrounding class.
 
 #### `public static IMeter staminaMeter()`
-
-- Description: TODO
+- Role: Performs stamina meter.
+- Description: Supports the stamina meter operation used by the surrounding class.
 
 #### `public static IMeter energyMeter()`
-
-- Description: TODO
+- Role: Performs energy meter.
+- Description: Supports the energy meter operation used by the surrounding class.
 
 #### `public static GItem cursorGItem()`
-
-- Description: TODO
+- Role: Performs cursor gitem.
+- Description: Supports the cursor gitem operation used by the surrounding class.
 
 #### `public static MenuGrid menuGrid()`
-
-- Description: TODO
+- Role: Performs menu grid.
+- Description: Supports the menu grid operation used by the surrounding class.
 
 #### `public static GameUI gameUI()`
-
-- Description: TODO
+- Role: Performs game ui.
+- Description: Supports the game ui operation used by the surrounding class.
 
 #### `public static RootWidget rootWidget()`
-
-- Description: TODO
+- Role: Performs root widget.
+- Description: Supports the root widget operation used by the surrounding class.
 
 #### `public static UI ui()`
-
-- Description: TODO
+- Role: Performs ui.
+- Description: Supports the ui operation used by the surrounding class.
 
 #### `public static Session session()`
-
-- Description: TODO
+- Role: Performs session.
+- Description: Supports the session operation used by the surrounding class.
 
 #### `public static OCache oCache()`
-
-- Description: TODO
+- Role: Performs o cache.
+- Description: Supports the o cache operation used by the surrounding class.
 
 #### `public static Equipory equipory()`
-
-- Description: TODO
+- Role: Performs equipory.
+- Description: Supports the equipory operation used by the surrounding class.
 
 #### `public static Inventory mainInventory()`
-
-- Description: TODO
+- Role: Performs main inventory.
+- Description: Supports the main inventory operation used by the surrounding class.
 
 #### `public static Indir<Resource> cursor()`
-
-- Description: TODO
+- Role: Performs cursor.
+- Description: Supports the cursor operation used by the surrounding class.
 
 #### `public static ChatUI chatUI()`
-
-- Description: TODO
+- Role: Performs chat ui.
+- Description: Supports the chat ui operation used by the surrounding class.
 
 #### `public static Window window()`
-
-- Description: TODO
+- Role: Performs window.
+- Description: Supports the window operation used by the surrounding class.
 
 #### `public static Button button()`
-
-- Description: TODO
+- Role: Performs button.
+- Description: Supports the button operation used by the surrounding class.
 
 #### `public static ISBox isbox()`
-
-- Description: TODO
+- Role: Performs isbox.
+- Description: Supports the isbox operation used by the surrounding class.
 
 #### `public static Inventory inventory()`
-
-- Description: TODO
+- Role: Performs inventory.
+- Description: Supports the inventory operation used by the surrounding class.
 
 #### `public static GItem gitem()`
-
-- Description: TODO
+- Role: Performs gitem.
+- Description: Supports the gitem operation used by the surrounding class.
 
 #### `public static WItem witem()`
-
-- Description: TODO
+- Role: Performs witem.
+- Description: Supports the witem operation used by the surrounding class.
 
 #### `static Coord getMouseLocation()`
-
-- Description: TODO
+- Role: Returns the mouse location.
+- Description: Exposes the requested value without mutating state.
 
 #### `static void interruptMainThread()`
-
-- Description: TODO
+- Role: Performs interrupt main thread.
+- Description: Supports the interrupt main thread operation used by the surrounding class.
 
 #### `static void closeSession()`
-
-- Description: TODO
+- Role: Closes the session.
+- Description: Supports the close session operation used by the surrounding class.

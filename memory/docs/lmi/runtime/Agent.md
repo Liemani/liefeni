@@ -10,13 +10,16 @@ This file documents the responsibilities and members of `Agent`.
 
 ## Role
 
-Represents the automation worker and its job execution loop.
+Represents an executable agent definition.
 
 ## Nested Types
 
 ### JobRequest
+### JobRequest
+- Role: Represents the job request helper used by Agent.
 
-- Description: TODO
+- Role: Carries one queued agent job request.
+- Description: Describes the nested job request type used by the enclosing class.
 
 ## Members
 
@@ -25,79 +28,79 @@ Represents the automation worker and its job execution loop.
 ### Fields
 
 #### `private static Agent instance`
-
-- Description: TODO
+- Role: Holds the instance state.
+- Description: Backs the cached state for this file.
 
 #### `private final Deque<JobRequest> jobRequests = new ArrayDeque<>()`
-
-- Description: TODO
+- Role: Caches job requests entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final AgentConfig config = new AgentConfig()`
-
-- Description: TODO
+- Role: Holds the config state.
+- Description: Backs the cached state for this file.
 
 #### `private AgentContext context = null; // Optional tracking`
-
-- Description: TODO
+- Role: Stores the context value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean sleeping = false`
-
-- Description: TODO
+- Role: Tracks the sleeping flag.
+- Description: Supports the sleeping operation used by the surrounding class.
 
 #### `private final Job job`
-
-- Description: TODO
+- Role: Holds the job state.
+- Description: Backs the cached state for this file.
 
 #### `private final String[] args`
-
-- Description: TODO
+- Role: Stores the args value.
+- Description: Backs the cached state for this file.
 
 #### `private final AgentContext context`
-
-- Description: TODO
+- Role: Stores the context value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private Agent()`
-
-- Description: TODO
+- Role: Creates a new Agent instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static synchronized Agent getInstance()`
-
-- Description: TODO
+- Role: Returns the instance.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void pushJob(Job job, String[] args)`
-
-- Description: TODO
+- Role: Performs push job.
+- Description: Supports the push job operation used by the surrounding class.
 
 #### `public void enqueueJob(Job job, String[] args)`
-
-- Description: TODO
+- Role: Performs enqueue job.
+- Description: Supports the enqueue job operation used by the surrounding class.
 
 #### `public void stopAll()`
-
-- Description: TODO
+- Role: Performs stop all.
+- Description: Supports the stop all operation used by the surrounding class.
 
 #### `public void setSleep(boolean sleep)`
-
-- Description: TODO
+- Role: Sets the sleep.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public boolean isSleeping()`
-
-- Description: TODO
+- Role: Checks whether the sleeping.
+- Description: Returns a boolean result for the described condition.
 
 #### `public AgentConfig getConfig()`
-
-- Description: TODO
+- Role: Returns the config.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private void checkDrivesAndInterrupt()`
-
-- Description: TODO
+- Role: Performs check drives and interrupt.
+- Description: Supports the check drives and interrupt operation used by the surrounding class.
 
 #### `private JobRequest(Job job, String[] args, AgentContext context)`
-
-- Description: TODO
+- Role: Performs job request.
+- Description: Supports the job request operation used by the surrounding class.

@@ -10,514 +10,525 @@ This file documents the responsibilities and members of `WaterTile`.
 
 ## Role
 
-Represents a water tile helper.
+Provides resource helper logic for water tile.
 
 ## Nested Types
 
 ### BaseSurface
 
-- Description: TODO
+- Role: Represents base surface within WaterTile.
+- Description: Describes the nested base surface type used by the enclosing class.
 
 ### Bottom
 
-- Description: TODO
+- Role: Represents bottom within WaterTile.
+- Description: Describes the nested bottom type used by the enclosing class.
 
 ### BottomData
 
-- Description: TODO
+- Role: Represents bottom data within WaterTile.
+- Description: Describes the nested bottom data type used by the enclosing class.
 
 ### BottomFog
 
-- Description: TODO
+- Role: Represents bottom fog within WaterTile.
+- Description: Describes the nested bottom fog type used by the enclosing class.
 
 ### BottomSurface
 
-- Description: TODO
+- Role: Represents bottom surface within WaterTile.
+- Description: Describes the nested bottom surface type used by the enclosing class.
 
 ### BottomVertex
 
-- Description: TODO
+- Role: Represents bottom vertex within WaterTile.
+- Description: Describes the nested bottom vertex type used by the enclosing class.
 
 ### Fac
 
-- Description: TODO
+- Role: Represents fac within WaterTile.
+- Description: Describes the nested fac type used by the enclosing class.
 
 ### Field
 
-- Description: TODO
+- Role: Represents field within WaterTile.
+- Description: Describes the nested field type used by the enclosing class.
 
 ### FlowData
 
-- Description: TODO
+- Role: Represents flow data within WaterTile.
+- Description: Describes the nested flow data type used by the enclosing class.
 
 ### FoamSurface
 
-- Description: TODO
+- Role: Represents foam surface within WaterTile.
+- Description: Describes the nested foam surface type used by the enclosing class.
 
 ### ObFog
 
-- Description: TODO
+- Role: Represents ob fog within WaterTile.
+- Description: Describes the nested ob fog type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final float[] nxpcw, nypcw`
-
-- Description: TODO
+- Role: Defines the shared nypcw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final float[] nxpcw, nypcw`
-
-- Description: TODO
+- Role: Defines the shared nypcw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int I = 10`
-
-- Description: TODO
+- Role: Defines the shared i constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MapMesh.DataID<FlowData> id = MapMesh.makeid(FlowData.class)`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MapMesh.DataID<BottomData> id = MapMesh.makeid(BottomData.class)`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MapMesh.DataID<Bottom> id = MapMesh.makeid(Bottom.class)`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final SamplerCube sky = new SamplerCube(new RUtils.CubeFill(() -> Resource.local().load("gfx/tiles/skycube").get().layer(Resource.imgc).img).mktex())`
-
-- Description: TODO
+- Role: Defines the shared sky constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final TexRender nrm = Resource.local().loadwait("gfx/tiles/wnrm").layer(TexR.class).tex()`
-
-- Description: TODO
+- Role: Defines the shared nrm constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final TexRender flow = Resource.local().loadwait("gfx/tiles/wfoam").layer(TexR.class).tex()`
-
-- Description: TODO
+- Role: Defines the shared flow constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final State.Slot<State> surfslot = new State.Slot<>(State.Slot.Type.DRAW, State.class)`
-
-- Description: TODO
+- Role: Defines the shared surfslot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Pipe.Op surfextra = Pipe.Op.compose(new States.DepthBias(2, 2), new States.Facecull())`
-
-- Description: TODO
+- Role: Defines the shared surfextra constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Pipe.Op baseextra = Pipe.Op.compose(surfextra, FragColor.blend(new BlendMode(BlendMode.Factor.ONE, BlendMode.Factor.ONE)))`
-
-- Description: TODO
+- Role: Defines the shared baseextra constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Pipe.Op surfmat = Pipe.Op.compose(new BaseSurface(), new Rendered.Order.Default(6000))`
-
-- Description: TODO
+- Role: Defines the shared surfmat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Pipe.Op foamextra = Pipe.Op.compose(surfextra, FragColor.blend(new BlendMode(BlendMode.Factor.ONE, BlendMode.Factor.ONE)),`
-
-- Description: TODO
+- Role: Defines the shared foamextra constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute[] vertv = new Attribute[4]`
-
-- Description: TODO
+- Role: Defines the shared vertv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MeshBuf.LayerID<MeshBuf.Vec2Layer>[] lvertv = new MeshBuf.LayerID[4]`
-
-- Description: TODO
+- Role: Defines the shared lvertv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying[] vvertv = new AutoVarying[4]`
-
-- Description: TODO
+- Role: Defines the shared vvertv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying[] vverti = new AutoVarying[4]`
-
-- Description: TODO
+- Role: Defines the shared vverti constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute vipol = new Attribute(Type.VEC2)`
-
-- Description: TODO
+- Role: Defines the shared vipol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MeshBuf.LayerID<MeshBuf.Vec2Layer> lvipol = new MeshBuf.V2LayerID(vipol)`
-
-- Description: TODO
+- Role: Defines the shared lvipol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Pipe.Op foammat = Pipe.Op.compose(new FoamSurface(), new Rendered.Order.Default(6001))`
-
-- Description: TODO
+- Role: Defines the shared foammat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MeshBuf.LayerID<MeshBuf.Vec1Layer> depthlayer = new MeshBuf.V1LayerID(BottomFog.depth)`
-
-- Description: TODO
+- Role: Defines the shared depthlayer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final double maxdepth = 8; /* XXX: These should be parameterized. */`
-
-- Description: TODO
+- Role: Defines the shared maxdepth constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color fogcolor = new Color(0, 16, 48)`
-
-- Description: TODO
+- Role: Defines the shared fogcolor constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Expression mfogcolor = col3(fogcolor)`
-
-- Description: TODO
+- Role: Defines the shared mfogcolor constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute depth = new Attribute(Type.FLOAT)`
-
-- Description: TODO
+- Role: Defines the shared depth constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying fragd = new AutoVarying(Type.FLOAT)`
-
-- Description: TODO
+- Role: Defines the shared fragd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BottomFog waterfog = new BottomFog()`
-
-- Description: TODO
+- Role: Defines the shared waterfog constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Pipe.Op botmat = Pipe.Op.compose(waterfog, new States.DepthBias(4, 4))`
-
-- Description: TODO
+- Role: Defines the shared botmat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Slot<ObFog> slot = new Slot<>(State.Slot.Type.DRAW, ObFog.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final InstancedUniform cbasez = new InstancedUniform.Float1("basez", p -> p.get(slot).basez, slot)`
-
-- Description: TODO
+- Role: Defines the shared cbasez constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final AutoVarying fragd = new AutoVarying(Type.FLOAT)`
-
-- Description: TODO
+- Role: Defines the shared fragd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Instancer<ObFog> instancer = new Instancer<ObFog>()`
-
-- Description: TODO
+- Role: Defines the shared instancer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Pipe.Op clickstate = Pipe.Op.compose(MapMesh.clickpost, States.maskdepth)`
-
-- Description: TODO
+- Role: Defines the shared clickstate constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int depth`
-
-- Description: TODO
+- Role: Stores the depth value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tiler.MCons bottom`
-
-- Description: TODO
-
-#### `public final float[] xv, yv`
-
-- Description: TODO
+- Role: Holds the bottom state.
+- Description: Backs the cached state for this file.
 
 #### `public final float[] xv, yv`
+- Role: Stores the yv value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final float[] xv, yv`
+- Role: Stores the yv value.
+- Description: Backs the cached state for this file.
 
 #### `public final Scan vs`
-
-- Description: TODO
+- Role: Holds the vs state.
+- Description: Backs the cached state for this file.
 
 #### `public final MapMesh m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `public final MCache map`
-
-- Description: TODO
-
-#### `public final float[] xs, ys`
-
-- Description: TODO
+- Role: Caches map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final float[] xs, ys`
+- Role: Stores the ys value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final float[] xs, ys`
+- Role: Stores the ys value.
+- Description: Backs the cached state for this file.
 
 #### `public float[] xv, yv`
-
-- Description: TODO
+- Role: Stores the yv value.
+- Description: Backs the cached state for this file.
 
 #### `public float[] xv, yv`
-
-- Description: TODO
+- Role: Stores the yv value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean[] wv`
-
-- Description: TODO
-
-#### `public final Scan vs, fs, ts`
-
-- Description: TODO
+- Role: Tracks the wv flag.
+- Description: Supports the wv operation used by the surrounding class.
 
 #### `public final Scan vs, fs, ts`
-
-- Description: TODO
+- Role: Holds the ts state.
+- Description: Backs the cached state for this file.
 
 #### `public final Scan vs, fs, ts`
+- Role: Holds the ts state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Scan vs, fs, ts`
+- Role: Holds the ts state.
+- Description: Backs the cached state for this file.
 
 #### `public final float[] depth`
-
-- Description: TODO
+- Role: Stores the depth value.
+- Description: Backs the cached state for this file.
 
 #### `public final Scan ds`
-
-- Description: TODO
+- Role: Holds the ds state.
+- Description: Backs the cached state for this file.
 
 #### `final MapMesh m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `final boolean[] s`
-
-- Description: TODO
+- Role: Tracks the s flag.
+- Description: Supports the s operation used by the surrounding class.
 
 #### `final Vertex[] surf`
-
-- Description: TODO
+- Role: Stores the surf value.
+- Description: Backs the cached state for this file.
 
 #### `final boolean[] split`
-
-- Description: TODO
+- Role: Tracks the split flag.
+- Description: Supports the split operation used by the surrounding class.
 
 #### `float[] ed`
-
-- Description: TODO
-
-#### `final Scan vs, ss`
-
-- Description: TODO
+- Role: Stores the ed value.
+- Description: Backs the cached state for this file.
 
 #### `final Scan vs, ss`
+- Role: Holds the ss state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final Scan vs, ss`
+- Role: Holds the ss state.
+- Description: Backs the cached state for this file.
 
 #### `final BottomData prs`
-
-- Description: TODO
+- Role: Holds the prs state.
+- Description: Backs the cached state for this file.
 
 #### `public final float d`
-
-- Description: TODO
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform ssky = new Uniform(Type.SAMPLERCUBE, p -> sky)`
-
-- Description: TODO
+- Role: Holds the ssky state.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform snrm = new Uniform(Type.SAMPLER2D, p -> nrm.img)`
-
-- Description: TODO
+- Role: Holds the snrm state.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform icam = new Uniform(Type.MAT3, p -> Homo3D.camxf(p).transpose(), Homo3D.cam)`
-
-- Description: TODO
+- Role: Holds the icam state.
+- Description: Backs the cached state for this file.
 
 #### `private ShaderMacro shader = new ShaderMacro()`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform ssky = new Uniform(Type.SAMPLERCUBE, p -> sky)`
-
-- Description: TODO
+- Role: Holds the ssky state.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform snrm = new Uniform(Type.SAMPLER2D, p -> nrm.img)`
-
-- Description: TODO
+- Role: Holds the snrm state.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform sflow = new Uniform(Type.SAMPLER2D, p -> flow.img)`
-
-- Description: TODO
+- Role: Holds the sflow state.
+- Description: Backs the cached state for this file.
 
 #### `private final Uniform icam = new Uniform(Type.MAT3, p -> Homo3D.camxf(p).transpose(), Homo3D.cam)`
-
-- Description: TODO
+- Role: Holds the icam state.
+- Description: Backs the cached state for this file.
 
 #### `private ShaderMacro shader = new ShaderMacro()`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `public static Function rgbmix = new Function.Def(Type.VEC4)`
-
-- Description: TODO
+- Role: Holds the rgbmix state.
+- Description: Backs the cached state for this file.
 
 #### `private final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `public final float basez`
-
-- Description: TODO
+- Role: Stores the basez value.
+- Description: Backs the cached state for this file.
 
 #### `public final BottomData b`
-
-- Description: TODO
+- Role: Holds the b state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Field(MapMesh m)`
-
-- Description: TODO
+- Role: Performs field.
+- Description: Supports the field operation used by the surrounding class.
 
 #### `public void calc()`
-
-- Description: TODO
+- Role: Performs calc.
+- Description: Supports the calc operation used by the surrounding class.
 
 #### `private void water()`
-
-- Description: TODO
+- Role: Performs water.
+- Description: Supports the water operation used by the surrounding class.
 
 #### `private void slopes()`
-
-- Description: TODO
+- Role: Performs slopes.
+- Description: Supports the slopes operation used by the surrounding class.
 
 #### `private void iter()`
-
-- Description: TODO
+- Role: Performs iter.
+- Description: Supports the iter operation used by the surrounding class.
 
 #### `public FlowData(MapMesh m)`
-
-- Description: TODO
+- Role: Performs flow data.
+- Description: Supports the flow data operation used by the surrounding class.
 
 #### `public Coord3f vel(Coord tc)`
-
-- Description: TODO
+- Role: Performs vel.
+- Description: Supports the vel operation used by the surrounding class.
 
 #### `public BottomData(MapMesh m)`
-
-- Description: TODO
+- Role: Performs bottom data.
+- Description: Supports the bottom data operation used by the surrounding class.
 
 #### `public boolean clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public Bottom(MapMesh m)`
-
-- Description: TODO
+- Role: Performs bottom.
+- Description: Supports the bottom operation used by the surrounding class.
 
 #### `public BottomVertex(Surface surf, Coord3f c, float d)`
-
-- Description: TODO
+- Role: Performs bottom vertex.
+- Description: Supports the bottom vertex operation used by the surrounding class.
 
 #### `public void modify(MeshBuf buf, MeshBuf.Vertex v)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public float d(int x, int y)`
-
-- Description: TODO
+- Role: Performs d.
+- Description: Supports the d operation used by the surrounding class.
 
 #### `public Vertex[] fortilea(Coord c)`
-
-- Description: TODO
+- Role: Performs fortilea.
+- Description: Supports the fortilea operation used by the surrounding class.
 
 #### `public void calcnrm()`
-
-- Description: TODO
+- Role: Performs calcnrm.
+- Description: Supports the calcnrm operation used by the surrounding class.
 
 #### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs model.
+- Description: Supports the model operation used by the surrounding class.
 
 #### `private BaseSurface()`
-
-- Description: TODO
+- Role: Performs base surface.
+- Description: Supports the base surface operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `private FoamSurface()`
-
-- Description: TODO
+- Role: Performs foam surface.
+- Description: Supports the foam surface operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `private BottomFog()`
-
-- Description: TODO
+- Role: Performs bottom fog.
+- Description: Supports the bottom fog operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public ObFog(float basez)`
-
-- Description: TODO
+- Role: Performs ob fog.
+- Description: Supports the ob fog operation used by the surrounding class.
 
 #### `public boolean equals(ObFog that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object x)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public InstancedAttribute[] attribs()`
-
-- Description: TODO
+- Role: Performs attribs.
+- Description: Supports the attribs operation used by the surrounding class.
 
 #### `public Tiler create(int id, Tileset set)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public WaterTile(int id, Tiler.MCons bottom, int depth)`
-
-- Description: TODO
+- Role: Creates a new WaterTile instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs lay.
+- Description: Supports the lay operation used by the surrounding class.
 
 #### `public void trans(MapMesh m, Random rnd, Tiler gt, Coord lc, Coord gc, int z, int bmask, int cmask)`
-
-- Description: TODO
+- Role: Performs trans.
+- Description: Supports the trans operation used by the surrounding class.
 
 #### `public BottomSurface(MapMesh m)`
-
-- Description: TODO
+- Role: Performs bottom surface.
+- Description: Supports the bottom surface operation used by the surrounding class.
 
 #### `public double getz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public MCache.ZSurface getsurf(MapMesh m, MCache.SurfaceID id)`
-
-- Description: TODO
+- Role: Returns the surface id for the supplied surface name.
+- Description: Maps a surface name to the corresponding `MCache.SurfaceID` value.
 
 #### `public Pipe.Op clickstate()`
-
-- Description: TODO
+- Role: Performs clickstate.
+- Description: Supports the clickstate operation used by the surrounding class.
 
 #### `public Pipe.Op drawstate(Glob glob, Coord3f c)`
-
-- Description: TODO
+- Role: Performs drawstate.
+- Description: Supports the drawstate operation used by the surrounding class.

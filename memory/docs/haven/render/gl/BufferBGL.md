@@ -10,102 +10,103 @@ This file documents the responsibilities and members of `BufferBGL`.
 
 ## Role
 
-Provides buffered GL command access.
+Provides GL backend support for buffer bgl.
 
 ## Nested Types
 
 ### Profile
 
-- Description: TODO
+- Role: Represents profile within BufferBGL.
+- Description: Describes the nested profile type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final boolean DEBUG = false`
-
-- Description: TODO
+- Role: Defines the shared debug constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BufferBGL empty = new BufferBGL(0)`
-
-- Description: TODO
+- Role: Defines the shared empty constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static Profile curprof = null`
-
-- Description: TODO
+- Role: Stores the curprof value.
+- Description: Backs the cached state for this file.
 
 #### `private Command[] list`
-
-- Description: TODO
+- Role: Holds the list state.
+- Description: Backs the cached state for this file.
 
 #### `private int n = 0`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `private double stime`
-
-- Description: TODO
+- Role: Stores the stime value.
+- Description: Backs the cached state for this file.
 
 #### `private int n`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `private Command[] cmds = new Command[128]`
-
-- Description: TODO
+- Role: Holds the cmds state.
+- Description: Backs the cached state for this file.
 
 #### `private double[] times = new double[128]`
-
-- Description: TODO
+- Role: Stores the times value.
+- Description: Backs the cached state for this file.
 
 #### `public final Request start = gl ->`
-
-- Description: TODO
+- Role: Holds the start state.
+- Description: Backs the cached state for this file.
 
 #### `public final Request stop = gl ->`
-
-- Description: TODO
+- Role: Holds the stop state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public BufferBGL(int c)`
-
-- Description: TODO
+- Role: Creates a new BufferBGL instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BufferBGL()`
-
-- Description: TODO
+- Role: Creates a new BufferBGL instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void abort()`
-
-- Description: TODO
+- Role: Performs abort.
+- Description: Supports the abort operation used by the surrounding class.
 
 #### `protected void add(Command cmd)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public BufferBGL trim()`
-
-- Description: TODO
+- Role: Performs trim.
+- Description: Supports the trim operation used by the surrounding class.
 
 #### `protected Iterable<Command> dump()`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `private void register(Command cmd)`
-
-- Description: TODO
+- Role: Performs register.
+- Description: Supports the register operation used by the surrounding class.
 
 #### `public void dump(PrintStream out)`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `public Request dump(Path out)`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.

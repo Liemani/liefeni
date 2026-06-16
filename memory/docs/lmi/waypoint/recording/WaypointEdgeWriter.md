@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointEdgeWriter`.
 
 ## Role
 
-Writes waypoint recording state into persistence or runtime output.
+Writes waypoint edges during recording.
 
 ## Members
 
@@ -21,9 +21,9 @@ Writes waypoint recording state into persistence or runtime output.
 ### Methods
 
 #### `private WaypointEdgeWriter()`
-
-- Description: TODO
+- Role: Creates a new WaypointEdgeWriter instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void saveAsync(`
-
-- Description: TODO
+- Role: Coordinates save async persistence or lookup.
+- Description: Supports the save async operation used by the surrounding class.

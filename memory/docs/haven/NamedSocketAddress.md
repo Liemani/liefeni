@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `NamedSocketAddress`.
 
 ## Role
 
-Represents a named socket address.
+Represents the named socket address Haven component.
 
 ## Members
 
@@ -19,43 +19,43 @@ Represents a named socket address.
 ### Fields
 
 #### `public final String host`
-
-- Description: TODO
+- Role: Stores the host value.
+- Description: Backs the cached state for this file.
 
 #### `public final int port`
-
-- Description: TODO
+- Role: Stores the port value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public NamedSocketAddress(String host, int port)`
-
-- Description: TODO
+- Role: Creates a new NamedSocketAddress instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean equals(NamedSocketAddress that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static NamedSocketAddress parse(String spec, int defport)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public static NamedSocketAddress parse(String spec)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public String toString(int defport)`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

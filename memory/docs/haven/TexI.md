@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `TexI`.
 
 ## Role
 
-Represents an image-backed texture.
+Represents the tex i Haven component.
 
 ## Members
 
@@ -19,79 +19,79 @@ Represents an image-backed texture.
 ### Fields
 
 #### `public static ComponentColorModel glcm = PUtils.cm_rgba`
-
-- Description: TODO
+- Role: Stores the glcm value.
+- Description: Backs the cached state for this file.
 
 #### `public final BufferedImage back`
-
-- Description: TODO
+- Role: Stores the back value.
+- Description: Backs the cached state for this file.
 
 #### `protected final Coord sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `protected final Coord tdim`
-
-- Description: TODO
+- Role: Stores the tdim value.
+- Description: Backs the cached state for this file.
 
 #### `private ColorTex st = null`
-
-- Description: TODO
+- Role: Stores the st value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TexI(BufferedImage back, boolean round)`
-
-- Description: TODO
+- Role: Creates a new TexI instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public TexI(BufferedImage back)`
-
-- Description: TODO
+- Role: Creates a new TexI instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public ColorTex st()`
-
-- Description: TODO
+- Role: Performs st.
+- Description: Supports the st operation used by the surrounding class.
 
 #### `public TexI magfilter(Texture.Filter filter)`
-
-- Description: TODO
+- Role: Performs magfilter.
+- Description: Supports the magfilter operation used by the surrounding class.
 
 #### `public TexI minfilter(Texture.Filter filter)`
-
-- Description: TODO
+- Role: Performs minfilter.
+- Description: Supports the minfilter operation used by the surrounding class.
 
 #### `public TexI filter(Texture.Filter filter)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public TexI wrapmode(Texture.Wrapping mode)`
-
-- Description: TODO
+- Role: Performs wrapmode.
+- Description: Supports the wrapmode operation used by the surrounding class.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public static VectorFormat detectfmt(BufferedImage img)`
-
-- Description: TODO
+- Role: Performs detectfmt.
+- Description: Supports the detectfmt operation used by the surrounding class.
 
 #### `public static BufferedImage mkbuf(Coord sz)`
-
-- Description: TODO
+- Role: Performs mkbuf.
+- Description: Supports the mkbuf operation used by the surrounding class.
 
 #### `public static byte[] convert(BufferedImage img, Coord tsz, Coord ul, Coord sz)`
-
-- Description: TODO
+- Role: Performs convert.
+- Description: Supports the convert operation used by the surrounding class.
 
 #### `public static byte[] convert(BufferedImage img, Coord tsz)`
-
-- Description: TODO
+- Role: Performs convert.
+- Description: Supports the convert operation used by the surrounding class.

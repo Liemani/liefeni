@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointBootstrap`.
 
 ## Role
 
-Bootstraps waypoint runtime and persistence initialization.
+Bootstraps waypoint runtime wiring and startup state.
 
 ## Members
 
@@ -19,19 +19,19 @@ Bootstraps waypoint runtime and persistence initialization.
 ### Fields
 
 #### `private static boolean initialized`
-
-- Description: TODO
+- Role: Tracks whether initialized is initialized.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 ### Methods
 
 #### `private WaypointBootstrap()`
-
-- Description: TODO
+- Role: Creates a new WaypointBootstrap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static synchronized void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public static synchronized boolean initialized()`
-
-- Description: TODO
+- Role: Performs initialized.
+- Description: Supports the initialized operation used by the surrounding class.

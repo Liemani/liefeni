@@ -10,17 +10,23 @@ This file documents the responsibilities and members of `WaypointSceneBuilder`.
 
 ## Role
 
-Builds a draw-ready or runtime-ready waypoint object.
+Builds waypoint scene state from current runtime inputs.
 
 ## Nested Types
 
 ### BuildResult
+### BuildResult
+- Role: Represents the build result helper used by WaypointSceneBuilder.
 
-- Description: TODO
+- Role: Carries the result of building a waypoint scene.
+- Description: Describes the nested build result type used by the enclosing class.
 
 ### NodeVisibility
+### NodeVisibility
+- Role: Represents the node visibility helper used by WaypointSceneBuilder.
 
-- Description: TODO
+- Role: Classifies how a waypoint node should appear in the scene.
+- Description: Describes the nested node visibility type used by the enclosing class.
 
 ## Members
 
@@ -29,35 +35,35 @@ Builds a draw-ready or runtime-ready waypoint object.
 ### Fields
 
 #### `public final WaypointScene scene`
-
-- Description: TODO
+- Role: Stores the scene value.
+- Description: Backs the cached state for this file.
 
 #### `public final Array<ManagedWpNode> selectedManagedNodes`
-
-- Description: TODO
+- Role: Caches selected managed nodes entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `private WaypointSceneBuilder()`
-
-- Description: TODO
+- Role: Creates a new WaypointSceneBuilder instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static BuildResult build(`
-
-- Description: TODO
+- Role: Handles the build workflow.
+- Description: Supports the build operation used by the surrounding class.
 
 #### `private static void _appendResidentEdge(`
-
-- Description: TODO
+- Role: Handles the append resident edge workflow.
+- Description: Supports the append resident edge operation used by the surrounding class.
 
 #### `private static NodeVisibility _classifyNode(long gridId, WaypointGridBounds bounds)`
-
-- Description: TODO
+- Role: Performs  classify node.
+- Description: Supports the classify node operation used by the surrounding class.
 
 #### `private static ResolvedNode _resolvedNode(WaypointGridBounds bounds, ManagedWpNode node)`
-
-- Description: TODO
+- Role: Performs  resolved node.
+- Description: Supports the resolved node operation used by the surrounding class.
 
 #### `BuildResult(WaypointScene scene, Array<ManagedWpNode> selectedManagedNodes)`
-
-- Description: TODO
+- Role: Handles the build result workflow.
+- Description: Supports the build result operation used by the surrounding class.

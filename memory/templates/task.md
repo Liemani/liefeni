@@ -10,21 +10,21 @@
 - Completed: YYYY-MM-DD
 - Canceled: YYYY-MM-DD
 - Parent Task:
-- [<task file>](../tasks/<task file>)
+  - [<task file>](../tasks/<task file>)
 - Child Tasks:
-- [<task file>](../tasks/<task file>)
+  - [<task file>](../tasks/<task file>)
 - Indexes:
-- [<index file>](../indexes/<index file>)
+  - [<index file>](../indexes/<index file>)
 - Related Decisions:
-- [<decision file>](../decisions/<decision file>)
+  - [<decision file>](../decisions/<decision file>)
 
 ## Notes
 
 - <작업의 목적 또는 해야 할 일>
 - <진행 중 참고할 사항>
-- <Parent Task가 없어도 되면 섹션을 생략 가능>
-- <Child Tasks가 없어도 되면 섹션을 생략 가능>
-- <Indexes가 없어도 되면 섹션을 생략 가능>
+- <Parent Task가 없어도 되면 항목을 비워둘 수 있음>
+- <Child Tasks가 없어도 되면 항목을 비워둘 수 있음>
+- <Indexes가 없어도 되면 항목을 비워둘 수 있음>
 - <Started는 Now 또는 Done일 때만 추가>
 - <Completed는 Done일 때만 추가>
 - <Canceled는 Canceled일 때만 추가>

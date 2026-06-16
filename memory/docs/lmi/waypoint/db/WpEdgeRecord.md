@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WpEdgeRecord`.
 
 ## Role
 
-Represents a low-level waypoint persistence record.
+Represents a persisted waypoint database record for wp edge record.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a low-level waypoint persistence record.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long graphId`
-
-- Description: TODO
+- Role: Stores the graph id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long node0Id`
-
-- Description: TODO
+- Role: Stores the node0 id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long node1Id`
-
-- Description: TODO
+- Role: Stores the node1 id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int direction`
-
-- Description: TODO
+- Role: Stores the direction value.
+- Description: Backs the cached state for this file.
 
 #### `public final double timeCost`
-
-- Description: TODO
+- Role: Stores the time cost value.
+- Description: Backs the cached state for this file.
 
 #### `public final double fatigueCost`
-
-- Description: TODO
+- Role: Stores the fatigue cost value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public WpEdgeRecord(long id, long graphId, long node0Id, long node1Id, int direction, double timeCost, double fatigueCost)`
-
-- Description: TODO
+- Role: Creates a new WpEdgeRecord instance.
+- Description: Constructs the instance and initializes its default state.

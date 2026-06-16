@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Mat3Cons`.
 
 ## Role
 
-Represents a mat3 constructor.
+Represents the mat3 cons shader-language AST node.
 
 ## Members
 
@@ -19,19 +19,19 @@ Represents a mat3 constructor.
 ### Fields
 
 #### `public final Expression[] els`
-
-- Description: TODO
+- Role: Holds the els state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Mat3Cons(Expression... els)`
-
-- Description: TODO
+- Role: Creates a new Mat3Cons instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

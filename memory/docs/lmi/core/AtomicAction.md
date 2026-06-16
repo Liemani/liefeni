@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `AtomicAction`.
 
 ## Role
 
-Encapsulates a short, indivisible action.
+Represents a single atomic LMI action.
 
 ## Members
 
@@ -21,53 +21,53 @@ Encapsulates a short, indivisible action.
 ### Methods
 
 #### `private AtomicAction()`
-
-- Description: TODO
+- Role: Creates a new AtomicAction instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void interact(long gobId, Coord gobPosition)`
-
-- Description: TODO
+- Role: Performs interact.
+- Description: Supports the interact operation used by the surrounding class.
 
 #### `public static void enter(long doorId, Coord doorPosition, int meshId)`
-
-- Description: TODO
+- Role: Performs enter.
+- Description: Supports the enter operation used by the surrounding class.
 
 #### `public static void go(Coord coord)`
-
-- Description: TODO
+- Role: Performs go.
+- Description: Supports the go operation used by the surrounding class.
 
 #### `public static void forceGo(Coord coord)`
-
-- Description: TODO
+- Role: Performs force go.
+- Description: Supports the force go operation used by the surrounding class.
 
 #### `public static void lift(long gobId, Coord gobPosition)`
-
-- Description: TODO
+- Role: Performs lift.
+- Description: Supports the lift operation used by the surrounding class.
 
 #### `public static void forceLift(long gobId, Coord gobPosition)`
-
-- Description: TODO
+- Role: Performs force lift.
+- Description: Supports the force lift operation used by the surrounding class.
 
 #### `public static void put(Coord coord)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public static void forcePut(Coord coord)`
-
-- Description: TODO
+- Role: Performs force put.
+- Description: Supports the force put operation used by the surrounding class.
 
 #### `public static boolean go(Coord coord, boolean force, AgentContext ctx)`
-
-- Description: TODO
+- Role: Performs go.
+- Description: Supports the go operation used by the surrounding class.
 
 #### `public static boolean lift(long gobId, Coord gobPosition, AgentContext ctx)`
-
-- Description: TODO
+- Role: Performs lift.
+- Description: Supports the lift operation used by the surrounding class.
 
 #### `public static boolean put(Coord coord, AgentContext ctx)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `private static Gob _gob(long gobId)`
-
-- Description: TODO
+- Role: Performs  gob.
+- Description: Supports the gob operation used by the surrounding class.

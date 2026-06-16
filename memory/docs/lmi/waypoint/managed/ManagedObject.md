@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ManagedObject`.
 
 ## Role
 
-Represents a waypoint object shared between runtime and persistence.
+Represents a managed waypoint domain object.
 
 ## Members
 
@@ -19,83 +19,83 @@ Represents a waypoint object shared between runtime and persistence.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private final ManagedObjectContext context`
-
-- Description: TODO
+- Role: Stores the context value.
+- Description: Backs the cached state for this file.
 
 #### `private long version`
-
-- Description: TODO
+- Role: Stores the version value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean dirty`
-
-- Description: TODO
+- Role: Tracks whether dirty is dirty.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private boolean deleted`
-
-- Description: TODO
+- Role: Tracks the deleted flag.
+- Description: Supports the deleted operation used by the surrounding class.
 
 #### `private boolean saving`
-
-- Description: TODO
+- Role: Tracks the saving flag.
+- Description: Supports the saving operation used by the surrounding class.
 
 #### `private boolean saveFailed`
-
-- Description: TODO
+- Role: Tracks the save failed flag.
+- Description: Supports the save failed operation used by the surrounding class.
 
 ### Methods
 
 #### `protected ManagedObject(ManagedObjectContext context, long id, long version)`
-
-- Description: TODO
+- Role: Creates a new ManagedObject instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public final long version()`
-
-- Description: TODO
+- Role: Performs version.
+- Description: Supports the version operation used by the surrounding class.
 
 #### `public final boolean isDirty()`
-
-- Description: TODO
+- Role: Checks whether the dirty.
+- Description: Returns a boolean result for the described condition.
 
 #### `public final boolean isDeleted()`
-
-- Description: TODO
+- Role: Checks whether the deleted.
+- Description: Returns a boolean result for the described condition.
 
 #### `public final boolean isSaving()`
-
-- Description: TODO
+- Role: Checks whether the saving.
+- Description: Returns a boolean result for the described condition.
 
 #### `public final boolean isSaveFailed()`
-
-- Description: TODO
+- Role: Checks whether the save failed.
+- Description: Returns a boolean result for the described condition.
 
 #### `protected final ManagedObjectContext context()`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `protected final void markDirty()`
-
-- Description: TODO
+- Role: Performs mark dirty.
+- Description: Supports the mark dirty operation used by the surrounding class.
 
 #### `public final void markDeleted()`
-
-- Description: TODO
+- Role: Performs mark deleted.
+- Description: Supports the mark deleted operation used by the surrounding class.
 
 #### `final void onSaveQueued()`
-
-- Description: TODO
+- Role: Performs on save queued.
+- Description: Supports the on save queued operation used by the surrounding class.
 
 #### `final void onSaveSucceeded(long savedVersion)`
-
-- Description: TODO
+- Role: Performs on save succeeded.
+- Description: Supports the on save succeeded operation used by the surrounding class.
 
 #### `final void onSaveFailed()`
-
-- Description: TODO
+- Role: Performs on save failed.
+- Description: Supports the on save failed operation used by the surrounding class.
 
 #### `final void onSaveRolledBack()`
-
-- Description: TODO
+- Role: Performs on save rolled back.
+- Description: Supports the on save rolled back operation used by the surrounding class.

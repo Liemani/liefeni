@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `PosixArgs`.
 
 ## Role
 
-Parses POSIX-style arguments.
+Represents the posix args Haven component.
 
 ## Nested Types
 
 ### Arg
 
-- Description: TODO
+- Role: Represents arg within PosixArgs.
+- Description: Describes the nested arg type used by the enclosing class.
 
 ## Members
 
@@ -25,43 +26,43 @@ Parses POSIX-style arguments.
 ### Fields
 
 #### `private List<Arg> parsed`
-
-- Description: TODO
+- Role: Caches parsed entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public String[] rest`
-
-- Description: TODO
+- Role: Stores the rest value.
+- Description: Backs the cached state for this file.
 
 #### `public String arg = null`
-
-- Description: TODO
+- Role: Stores the arg value.
+- Description: Backs the cached state for this file.
 
 #### `private char ch`
-
-- Description: TODO
+- Role: Stores the ch value.
+- Description: Backs the cached state for this file.
 
 #### `private String arg`
-
-- Description: TODO
+- Role: Stores the arg value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private Arg(char ch, String arg)`
-
-- Description: TODO
+- Role: Performs arg.
+- Description: Supports the arg operation used by the surrounding class.
 
 #### `private PosixArgs()`
-
-- Description: TODO
+- Role: Creates a new PosixArgs instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static PosixArgs getopt(String[] argv, int start, String desc)`
-
-- Description: TODO
+- Role: Performs getopt.
+- Description: Supports the getopt operation used by the surrounding class.
 
 #### `public static PosixArgs getopt(String[] argv, String desc)`
-
-- Description: TODO
+- Role: Performs getopt.
+- Description: Supports the getopt operation used by the surrounding class.
 
 #### `public Iterable<Character> parsed()`
-
-- Description: TODO
+- Role: Performs parsed.
+- Description: Supports the parsed operation used by the surrounding class.

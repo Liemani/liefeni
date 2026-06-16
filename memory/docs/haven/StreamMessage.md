@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `StreamMessage`.
 
 ## Role
 
-Represents a stream message.
+Represents the stream message Haven component.
 
 ## Nested Types
 
 ### IOError
 
-- Description: TODO
+- Role: Represents ioerror within StreamMessage.
+- Description: Describes the nested ioerror type used by the enclosing class.
 
 ## Members
 
@@ -25,51 +26,51 @@ Represents a stream message.
 ### Fields
 
 #### `private final InputStream bkin`
-
-- Description: TODO
+- Role: Holds the bkin state.
+- Description: Backs the cached state for this file.
 
 #### `private final OutputStream bkou`
-
-- Description: TODO
+- Role: Holds the bkou state.
+- Description: Backs the cached state for this file.
 
 #### `private int behind = 0`
-
-- Description: TODO
+- Role: Stores the behind value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public StreamMessage(InputStream in, OutputStream out)`
-
-- Description: TODO
+- Role: Creates a new StreamMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public StreamMessage(InputStream in)`
-
-- Description: TODO
+- Role: Creates a new StreamMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public StreamMessage(OutputStream out)`
-
-- Description: TODO
+- Role: Creates a new StreamMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IOError(Throwable cause)`
-
-- Description: TODO
+- Role: Performs ioerror.
+- Description: Supports the ioerror operation used by the surrounding class.
 
 #### `public boolean underflow(int hint)`
-
-- Description: TODO
+- Role: Performs underflow.
+- Description: Supports the underflow operation used by the surrounding class.
 
 #### `public int tell()`
-
-- Description: TODO
+- Role: Performs tell.
+- Description: Supports the tell operation used by the surrounding class.
 
 #### `public void flush()`
-
-- Description: TODO
+- Role: Performs flush.
+- Description: Supports the flush operation used by the surrounding class.
 
 #### `public void overflow(int min)`
-
-- Description: TODO
+- Role: Performs overflow.
+- Description: Supports the overflow operation used by the surrounding class.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

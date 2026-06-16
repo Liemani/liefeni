@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Context`.
 
 ## Role
 
-Represents a resource script context.
+Represents the context shader-language AST node.
 
 ## Members
 
@@ -19,39 +19,39 @@ Represents a resource script context.
 ### Fields
 
 #### `public final Map<Symbol, String> symtab = new HashMap<Symbol, String>()`
-
-- Description: TODO
+- Role: Caches symtab entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Map<String, Symbol> rsymtab = new HashMap<String, Symbol>()`
-
-- Description: TODO
+- Role: Caches rsymtab entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int symgen = 1`
-
-- Description: TODO
+- Role: Stores the symgen value.
+- Description: Backs the cached state for this file.
 
 #### `public List<Toplevel> typedefs = new LinkedList<Toplevel>()`
-
-- Description: TODO
+- Role: Caches typedefs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public List<Toplevel> vardefs = new LinkedList<Toplevel>()`
-
-- Description: TODO
+- Role: Caches vardefs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public List<Toplevel> fundefs = new LinkedList<Toplevel>()`
-
-- Description: TODO
+- Role: Caches fundefs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Set<String> exts = new HashSet<String>()`
-
-- Description: TODO
+- Role: Caches exts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

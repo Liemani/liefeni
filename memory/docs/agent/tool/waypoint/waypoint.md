@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `waypoint`.
 
 ## Role
 
-Provides a waypoint tool job entry point.
+Provides waypoint tool support for waypoint.
 
 ## Members
 
@@ -21,13 +21,13 @@ Provides a waypoint tool job entry point.
 ### Methods
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public static String sortkey()`
-
-- Description: TODO
+- Role: Performs sortkey.
+- Description: Supports the sortkey operation used by the surrounding class.

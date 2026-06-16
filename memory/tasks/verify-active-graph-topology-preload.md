@@ -1,8 +1,6 @@
-# Task
+# `REQ-WP-004`: active graph 결정과 graph topology preload가 실제 in-game 흐름에서 항상 맞게 동작하는지 검증하기
 
-## Title
-
-`REQ-WP-004`: active graph 결정과 graph topology preload가 실제 in-game 흐름에서 항상 맞게 동작하는지 검증하기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

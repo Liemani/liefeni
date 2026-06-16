@@ -10,84 +10,84 @@ This file documents the responsibilities and members of `RootWidget`.
 
 ## Role
 
-Represents the root widget tree.
+Represents the root widget Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry msgfoundry = new Text.Foundry(Text.dfont, 14)`
-
-- Description: TODO
+- Role: Defines the shared msgfoundry constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public boolean modtip = false`
-
-- Description: TODO
-
-#### `Profile guprof, grprof, ggprof`
-
-- Description: TODO
+- Role: Tracks the modtip flag.
+- Description: Supports the modtip operation used by the surrounding class.
 
 #### `Profile guprof, grprof, ggprof`
-
-- Description: TODO
+- Role: Stores the ggprof value.
+- Description: Backs the cached state for this file.
 
 #### `Profile guprof, grprof, ggprof`
+- Role: Stores the ggprof value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `Profile guprof, grprof, ggprof`
+- Role: Stores the ggprof value.
+- Description: Backs the cached state for this file.
 
 #### `private Text lastmsg`
-
-- Description: TODO
+- Role: Stores the lastmsg value.
+- Description: Backs the cached state for this file.
 
 #### `private double msgtime`
-
-- Description: TODO
+- Role: Stores the msgtime value.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-
-- Description: TODO
+- Role: Caches cmdmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public RootWidget(UI ui, Coord sz)`
-
-- Description: TODO
+- Role: Creates a new RootWidget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean getcurs(CursorQuery ev)`
-
-- Description: TODO
+- Role: Returns the current cursor state.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void msg(String msg, Color color)`
-
-- Description: TODO
+- Role: Displays an in-game message.
+- Description: Supports the msg operation used by the surrounding class.
 
 #### `public boolean msg(UI.Notice msg)`
-
-- Description: TODO
+- Role: Displays an in-game message.
+- Description: Supports the msg operation used by the surrounding class.
 
 #### `public void error(String msg)`
-
-- Description: TODO
+- Role: Displays an error message.
+- Description: Supports the error operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Map<String, Console.Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.

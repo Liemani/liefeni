@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Output`.
 
 ## Role
 
-Represents a shader output.
+Represents the output shader-language AST node.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a shader output.
 ### Fields
 
 #### `private final Writer out`
-
-- Description: TODO
+- Role: Holds the out state.
+- Description: Backs the cached state for this file.
 
 #### `public final Context ctx`
-
-- Description: TODO
+- Role: Stores the ctx value.
+- Description: Backs the cached state for this file.
 
 #### `public int indent = 0`
-
-- Description: TODO
+- Role: Stores the indent value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Output(Writer out, Context ctx)`
-
-- Description: TODO
+- Role: Creates a new Output instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void write(char c)`
-
-- Description: TODO
+- Role: Writes the target data.
+- Description: Supports the write operation used by the surrounding class.
 
 #### `public void write(String str)`
-
-- Description: TODO
+- Role: Writes the target data.
+- Description: Supports the write operation used by the surrounding class.
 
 #### `public void write(Symbol sym)`
-
-- Description: TODO
+- Role: Writes the target data.
+- Description: Supports the write operation used by the surrounding class.
 
 #### `public void indent()`
-
-- Description: TODO
+- Role: Performs indent.
+- Description: Supports the indent operation used by the surrounding class.

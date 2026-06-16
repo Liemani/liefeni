@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RecordJob`.
 
 ## Role
 
-Provides a waypoint tool job entry point.
+Implements a waypoint job for record job.
 
 ## Members
 
@@ -21,25 +21,25 @@ Provides a waypoint tool job entry point.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private static boolean _ensureGraphSelected()`
-
-- Description: TODO
+- Role: Performs  ensure graph selected.
+- Description: Supports the ensure graph selected operation used by the surrounding class.
 
 #### `private static ResolvedNode _selectStartNode()`
-
-- Description: TODO
+- Role: Performs  select start node.
+- Description: Supports the select start node operation used by the surrounding class.
 
 #### `private static void _moveToStartNode(ResolvedNode startNode)`
-
-- Description: TODO
+- Role: Performs  move to start node.
+- Description: Supports the move to start node operation used by the surrounding class.
 
 #### `private static RecordingSession _startRecording(ResolvedNode startNode)`
-
-- Description: TODO
+- Role: Performs  start recording.
+- Description: Supports the start recording operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

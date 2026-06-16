@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `BMap`.
 
 ## Role
 
-Provides a base map abstraction.
+Represents the bmap Haven component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Provides a base map abstraction.
 ### Methods
 
 #### `public BMap<V, K> reverse()`
-
-- Description: TODO
+- Role: Performs reverse.
+- Description: Supports the reverse operation used by the surrounding class.

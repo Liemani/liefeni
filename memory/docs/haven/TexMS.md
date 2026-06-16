@@ -10,86 +10,88 @@ This file documents the responsibilities and members of `TexMS`.
 
 ## Role
 
-Represents a multisampled texture.
+Represents the tex ms Haven component.
 
 ## Nested Types
 
 ### Draw
 
-- Description: TODO
+- Role: Represents draw within TexMS.
+- Description: Describes the nested draw type used by the enclosing class.
 
 ### Resolve
 
-- Description: TODO
+- Role: Represents resolve within TexMS.
+- Description: Describes the nested resolve type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Attribute texc = new Attribute(VEC2, "mstexc")`
-
-- Description: TODO
+- Role: Defines the shared texc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final VertexArray.Layout fmt = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 16),`
-
-- Description: TODO
+- Role: Defines the shared fmt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying texcoord = new AutoVarying(VEC2, "s_mstex")`
-
-- Description: TODO
+- Role: Defines the shared texcoord constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform mstex = new Uniform(SAMPLER2DMS, p -> ((Draw)p.get(RUtils.adhoc)).data, RUtils.adhoc)`
-
-- Description: TODO
+- Role: Defines the shared mstex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Integer, Resolve> shaders = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared shaders constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Sampler2DMS data`
-
-- Description: TODO
+- Role: Holds the data state.
+- Description: Backs the cached state for this file.
 
 #### `public final int samples`
-
-- Description: TODO
+- Role: Stores the samples value.
+- Description: Backs the cached state for this file.
 
 #### `public final Sampler2DMS data`
-
-- Description: TODO
+- Role: Holds the data state.
+- Description: Backs the cached state for this file.
 
 #### `private Draw st = null`
-
-- Description: TODO
+- Role: Holds the st state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TexMS(Sampler2DMS data)`
-
-- Description: TODO
+- Role: Creates a new TexMS instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `private Resolve(int samples)`
-
-- Description: TODO
+- Role: Performs resolve.
+- Description: Supports the resolve operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public static Resolve get(int samples)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Draw(Sampler2DMS data)`
-
-- Description: TODO
+- Role: Performs draw.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.

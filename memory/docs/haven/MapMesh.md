@@ -10,470 +10,480 @@ This file documents the responsibilities and members of `MapMesh`.
 
 ## Role
 
-Represents map mesh rendering data.
+Represents the map mesh Haven component.
 
 ## Nested Types
 
 ### ConsHooks
 
-- Description: TODO
+- Role: Represents cons hooks within MapMesh.
+- Description: Describes the nested cons hooks type used by the enclosing class.
 
 ### DataID
 
-- Description: TODO
+- Role: Represents data id within MapMesh.
+- Description: Describes the nested data id type used by the enclosing class.
 
 ### MLOrder
 
-- Description: TODO
+- Role: Represents mlorder within MapMesh.
+- Description: Describes the nested mlorder type used by the enclosing class.
 
 ### MapSurface
 
-- Description: TODO
+- Role: Represents map surface within MapMesh.
+- Description: Describes the nested map surface type used by the enclosing class.
 
 ### MatKey
 
-- Description: TODO
+- Role: Represents mat key within MapMesh.
+- Description: Describes the nested mat key type used by the enclosing class.
 
 ### Model
 
-- Description: TODO
+- Role: Represents model within MapMesh.
+- Description: Describes the nested model type used by the enclosing class.
 
 ### OLArray
 
-- Description: TODO
+- Role: Represents olarray within MapMesh.
+- Description: Describes the nested olarray type used by the enclosing class.
 
 ### OLOrder
 
-- Description: TODO
+- Role: Represents olorder within MapMesh.
+- Description: Describes the nested olorder type used by the enclosing class.
 
 ### Scan
 
-- Description: TODO
+- Role: Represents scan within MapMesh.
+- Description: Describes the nested scan type used by the enclosing class.
 
 ### ShallowWrap
 
-- Description: TODO
+- Role: Represents shallow wrap within MapMesh.
+- Description: Describes the nested shallow wrap type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final DataID<MapSurface> gnd = makeid(MapSurface.class)`
-
-- Description: TODO
+- Role: Defines the shared gnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final VertexArray.Layout olvfmt = new VertexArray.Layout(new VertexArray.Layout.Input(Homo3D.vertex, new VectorFormat(3, NumberFormat.FLOAT32), 0, 0, 16),`
-
-- Description: TODO
+- Role: Defines the shared olvfmt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final VertexArray.Layout gridfmt = new VertexArray.Layout(new VertexArray.Layout.Input(Homo3D.vertex, new VectorFormat(3, NumberFormat.FLOAT32), 0, 0, 12))`
-
-- Description: TODO
+- Role: Defines the shared gridfmt constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Coord ul, sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord ul, sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public final MCache map`
-
-- Description: TODO
+- Role: Caches map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public RenderTree.Node flat`
-
-- Description: TODO
+- Role: Stores the flat value.
+- Description: Backs the cached state for this file.
 
 #### `private final long rnd`
-
-- Description: TODO
+- Role: Stores the rnd value.
+- Description: Backs the cached state for this file.
 
 #### `private Map<DataID, Object> data = new LinkedHashMap<DataID, Object>()`
-
-- Description: TODO
+- Role: Caches data entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<RenderTree.Node> extras = new ArrayList<RenderTree.Node>()`
-
-- Description: TODO
+- Role: Caches extras entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<Disposable> dparts = new ArrayList<Disposable>()`
-
-- Description: TODO
-
-#### `public final Coord ul, sz, br`
-
-- Description: TODO
+- Role: Caches dparts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Coord ul, sz, br`
-
-- Description: TODO
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord ul, sz, br`
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Coord ul, sz, br`
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
 #### `public final int l`
-
-- Description: TODO
+- Role: Stores the l value.
+- Description: Backs the cached state for this file.
 
 #### `public final Scan vs = new Scan(Coord.of(-1, -1), sz.add(3, 3))`
-
-- Description: TODO
+- Role: Holds the vs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Scan ts = new Scan(Coord.z, sz)`
-
-- Description: TODO
+- Role: Holds the ts state.
+- Description: Backs the cached state for this file.
 
 #### `public final Scan bs = new Scan(Coord.of(-1, -1), sz.add(2, 2))`
-
-- Description: TODO
+- Role: Holds the bs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Vertex[] surf = new Vertex[vs.l]`
-
-- Description: TODO
+- Role: Stores the surf value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean[] split = new boolean[bs.l]`
-
-- Description: TODO
+- Role: Tracks the split flag.
+- Description: Supports the split operation used by the surrounding class.
 
 #### `public final int z`
-
-- Description: TODO
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `private final static Comparator<MLOrder> cmp = new Comparator<MLOrder>()`
-
-- Description: TODO
+- Role: Holds the cmp state.
+- Description: Backs the cached state for this file.
 
 #### `public static Order premap = new Order.Default(990)`
-
-- Description: TODO
+- Role: Holds the premap state.
+- Description: Backs the cached state for this file.
 
 #### `public static Order postmap = new Order.Default(1010)`
-
-- Description: TODO
+- Role: Holds the postmap state.
+- Description: Backs the cached state for this file.
 
 #### `public final MapMesh m`
-
-- Description: TODO
-
-#### `public final NodeWrap mat`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `public final NodeWrap mat`
+- Role: Stores the mat value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final NodeWrap mat`
+- Role: Stores the mat value.
+- Description: Backs the cached state for this file.
 
 #### `private final int hash`
-
-- Description: TODO
+- Role: Stores the hash value.
+- Description: Backs the cached state for this file.
 
 #### `private static Pipe.Op gmmat = Pipe.Op.compose(new States.DepthBias(-1, -1),`
-
-- Description: TODO
+- Role: Holds the gmmat state.
+- Description: Backs the cached state for this file.
 
 #### `private Map<Pair<MCache.SurfaceID, Tiler>, MCache.ZSurface> zsurfaces = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches zsurfaces entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MCache.OverlayInfo id`
-
-- Description: TODO
+- Role: Caches id entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final static Comparator<OLOrder> cmp = (a, b) ->`
-
-- Description: TODO
+- Role: Holds the cmp state.
+- Description: Backs the cached state for this file.
 
 #### `VertexArray dat`
-
-- Description: TODO
+- Role: Caches dat entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `int[] vl`
-
-- Description: TODO
+- Role: Stores the vl value.
+- Description: Backs the cached state for this file.
 
 #### `private OLArray olvert = null`
-
-- Description: TODO
+- Role: Caches olvert entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `final Rendered r`
-
-- Description: TODO
+- Role: Holds the r state.
+- Description: Backs the cached state for this file.
 
 #### `final Pipe.Op st`
-
-- Description: TODO
+- Role: Holds the st state.
+- Description: Backs the cached state for this file.
 
 #### `public static Order clickmain = Rendered.deflt`
-
-- Description: TODO
+- Role: Holds the clickmain state.
+- Description: Backs the cached state for this file.
 
 #### `public static Order clickpost = new Order.Default(100)`
-
-- Description: TODO
+- Role: Holds the clickpost state.
+- Description: Backs the cached state for this file.
 
 #### `private RenderTree.Node grid = null`
-
-- Description: TODO
+- Role: Stores the grid value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public T make(MapMesh m)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public static <T> DataID<T> makeid(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs makeid.
+- Description: Supports the makeid operation used by the surrounding class.
 
 #### `public default void sfin()`
-
-- Description: TODO
+- Role: Performs sfin.
+- Description: Supports the sfin operation used by the surrounding class.
 
 #### `public default void calcnrm()`
-
-- Description: TODO
+- Role: Performs calcnrm.
+- Description: Supports the calcnrm operation used by the surrounding class.
 
 #### `public default void postcalcnrm(Random rnd)`
-
-- Description: TODO
+- Role: Performs postcalcnrm.
+- Description: Supports the postcalcnrm operation used by the surrounding class.
 
 #### `public default boolean clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public <T> T data(DataID<T> id)`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public Scan(Coord ul, Coord sz)`
-
-- Description: TODO
+- Role: Performs scan.
+- Description: Supports the scan operation used by the surrounding class.
 
 #### `public int o(int x, int y)`
-
-- Description: TODO
+- Role: Performs o.
+- Description: Supports the o operation used by the surrounding class.
 
 #### `public int o(Coord in)`
-
-- Description: TODO
+- Role: Performs o.
+- Description: Supports the o operation used by the surrounding class.
 
 #### `public boolean has(int x, int y)`
-
-- Description: TODO
+- Role: Performs has.
+- Description: Supports the has operation used by the surrounding class.
 
 #### `public boolean has(Coord in)`
-
-- Description: TODO
+- Role: Performs has.
+- Description: Supports the has operation used by the surrounding class.
 
 #### `public MapSurface()`
-
-- Description: TODO
+- Role: Performs map surface.
+- Description: Supports the map surface operation used by the surrounding class.
 
 #### `private void modelborder()`
-
-- Description: TODO
+- Role: Performs modelborder.
+- Description: Supports the modelborder operation used by the surrounding class.
 
 #### `public Vertex fortile(Coord c)`
-
-- Description: TODO
+- Role: Performs fortile.
+- Description: Supports the fortile operation used by the surrounding class.
 
 #### `public Vertex[] fortilea(Coord c)`
-
-- Description: TODO
+- Role: Performs fortilea.
+- Description: Supports the fortilea operation used by the surrounding class.
 
 #### `public void sfin()`
-
-- Description: TODO
+- Role: Performs sfin.
+- Description: Supports the sfin operation used by the surrounding class.
 
 #### `public void calcnrm()`
-
-- Description: TODO
+- Role: Performs calcnrm.
+- Description: Supports the calcnrm operation used by the surrounding class.
 
 #### `public void postcalcnrm(Random rnd)`
-
-- Description: TODO
+- Role: Performs postcalcnrm.
+- Description: Supports the postcalcnrm operation used by the surrounding class.
 
 #### `public boolean clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public MLOrder(int z, int subz)`
-
-- Description: TODO
+- Role: Performs mlorder.
+- Description: Supports the mlorder operation used by the surrounding class.
 
 #### `public MLOrder(int z)`
-
-- Description: TODO
+- Role: Performs mlorder.
+- Description: Supports the mlorder operation used by the surrounding class.
 
 #### `public int mainorder()`
-
-- Description: TODO
+- Role: Performs mainorder.
+- Description: Supports the mainorder operation used by the surrounding class.
 
 #### `public boolean equals(Object x)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Comparator<MLOrder> comparator()`
-
-- Description: TODO
+- Role: Performs comparator.
+- Description: Supports the comparator operation used by the surrounding class.
 
 #### `private MapMesh(MCache map, Coord ul, Coord sz, Random rnd)`
-
-- Description: TODO
+- Role: Creates a new MapMesh instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Random rnd()`
-
-- Description: TODO
+- Role: Performs rnd.
+- Description: Supports the rnd operation used by the surrounding class.
 
 #### `public Random rnd(Coord c)`
-
-- Description: TODO
+- Role: Performs rnd.
+- Description: Supports the rnd operation used by the surrounding class.
 
 #### `public static Random grnd(Coord c)`
-
-- Description: TODO
+- Role: Performs grnd.
+- Description: Supports the grnd operation used by the surrounding class.
 
 #### `private static void dotrans(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs dotrans.
+- Description: Supports the dotrans operation used by the surrounding class.
 
 #### `public Model(MapMesh m, NodeWrap mat)`
-
-- Description: TODO
+- Role: Performs model.
+- Description: Supports the model operation used by the surrounding class.
 
 #### `public void sfin()`
-
-- Description: TODO
+- Role: Performs sfin.
+- Description: Supports the sfin operation used by the surrounding class.
 
 #### `public void calcnrm()`
-
-- Description: TODO
+- Role: Performs calcnrm.
+- Description: Supports the calcnrm operation used by the surrounding class.
 
 #### `public boolean clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public void postcalcnrm(Random rnd)`
-
-- Description: TODO
+- Role: Performs postcalcnrm.
+- Description: Supports the postcalcnrm operation used by the surrounding class.
 
 #### `public MatKey(NodeWrap mat)`
-
-- Description: TODO
+- Role: Performs mat key.
+- Description: Supports the mat key operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object x)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public Model make(MapMesh m)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public static Model get(MapMesh m, NodeWrap mat)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static MapMesh build(MCache mc, Random rnd, Coord ul, Coord sz)`
-
-- Description: TODO
+- Role: Performs build.
+- Description: Supports the build operation used by the surrounding class.
 
 #### `public static RenderTree.Node groundmod(MCache map, Coord2d cc, Coord2d ul, Coord2d br, double a)`
-
-- Description: TODO
+- Role: Performs groundmod.
+- Description: Supports the groundmod operation used by the surrounding class.
 
 #### `public MCache.ZSurface getsurf(MCache.SurfaceID id, Tiler tile)`
-
-- Description: TODO
+- Role: Returns the surface id for the supplied surface name.
+- Description: Maps a surface name to the corresponding `MCache.SurfaceID` value.
 
 #### `public OLOrder(MCache.OverlayInfo id)`
-
-- Description: TODO
+- Role: Performs olorder.
+- Description: Supports the olorder operation used by the surrounding class.
 
 #### `public int mainorder()`
-
-- Description: TODO
+- Role: Performs mainorder.
+- Description: Supports the mainorder operation used by the surrounding class.
 
 #### `public boolean equals(Object x)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Comparator<OLOrder> comparator()`
-
-- Description: TODO
+- Role: Performs comparator.
+- Description: Supports the comparator operation used by the surrounding class.
 
 #### `OLArray(VertexArray dat, int[] vl)`
-
-- Description: TODO
+- Role: Handles the olarray workflow.
+- Description: Supports the olarray operation used by the surrounding class.
 
 #### `private OLArray makeolvbuf()`
-
-- Description: TODO
+- Role: Performs makeolvbuf.
+- Description: Supports the makeolvbuf operation used by the surrounding class.
 
 #### `ShallowWrap(Rendered r, Pipe.Op st)`
-
-- Description: TODO
+- Role: Handles the shallow wrap workflow.
+- Description: Supports the shallow wrap operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void draw(Pipe context, Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public RenderTree.Node makeol(MCache.OverlayInfo id)`
-
-- Description: TODO
+- Role: Performs makeol.
+- Description: Supports the makeol operation used by the surrounding class.
 
 #### `public RenderTree.Node makeolol(MCache.OverlayInfo id)`
-
-- Description: TODO
+- Role: Performs makeolol.
+- Description: Supports the makeolol operation used by the surrounding class.
 
 #### `private void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `private void consflat()`
-
-- Description: TODO
+- Role: Performs consflat.
+- Description: Supports the consflat operation used by the surrounding class.
 
 #### `private RenderTree.Node consgrid()`
-
-- Description: TODO
+- Role: Performs consgrid.
+- Description: Supports the consgrid operation used by the surrounding class.
 
 #### `public RenderTree.Node grid()`
-
-- Description: TODO
+- Role: Performs grid.
+- Description: Supports the grid operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

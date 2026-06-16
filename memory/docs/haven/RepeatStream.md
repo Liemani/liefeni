@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `RepeatStream`.
 
 ## Role
 
-Repeats stream content.
+Represents the repeat stream Haven component.
 
 ## Nested Types
 
 ### Repeater
 
-- Description: TODO
+- Role: Represents repeater within RepeatStream.
+- Description: Describes the nested repeater type used by the enclosing class.
 
 ## Members
 
@@ -25,31 +26,31 @@ Repeats stream content.
 ### Fields
 
 #### `private final Repeater rep`
-
-- Description: TODO
+- Role: Holds the rep state.
+- Description: Backs the cached state for this file.
 
 #### `private InputStream cur`
-
-- Description: TODO
+- Role: Holds the cur state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public InputStream cons()`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public RepeatStream(Repeater rep)`
-
-- Description: TODO
+- Role: Creates a new RepeatStream instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int read(byte[] b, int off, int len) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int read() throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

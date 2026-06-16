@@ -10,442 +10,448 @@ This file documents the responsibilities and members of `FightWnd`.
 
 ## Role
 
-Displays the fight window.
+Represents the fight wnd Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within FightWnd.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Action
 
-- Description: TODO
+- Role: Represents action within FightWnd.
+- Description: Describes the nested action type used by the enclosing class.
 
 ### Actions
 
-- Description: TODO
+- Role: Represents actions within FightWnd.
+- Description: Describes the nested actions type used by the enclosing class.
 
 ### BView
 
-- Description: TODO
+- Role: Represents bview within FightWnd.
+- Description: Describes the nested bview type used by the enclosing class.
 
 ### Item
 
-- Description: TODO
+- Role: Represents item within FightWnd.
+- Description: Describes the nested item type used by the enclosing class.
 
 ### Savelist
 
-- Description: TODO
+- Role: Represents savelist within FightWnd.
+- Description: Describes the nested savelist type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final OwnerContext.ClassResolver<FightWnd> actxr = new OwnerContext.ClassResolver<FightWnd>()`
-
-- Description: TODO
+- Role: Defines the shared actxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry namef = new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared namef constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final String[] keys =`
-
-- Description: TODO
+- Role: Defines the shared fight wnd constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int nsave`
-
-- Description: TODO
+- Role: Stores the nsave value.
+- Description: Backs the cached state for this file.
 
 #### `public int maxact`
-
-- Description: TODO
+- Role: Stores the maxact value.
+- Description: Backs the cached state for this file.
 
 #### `public final Actions actlist`
-
-- Description: TODO
+- Role: Holds the actlist state.
+- Description: Backs the cached state for this file.
 
 #### `public final Savelist savelist`
-
-- Description: TODO
+- Role: Holds the savelist state.
+- Description: Backs the cached state for this file.
 
 #### `public List<Action> acts = new ArrayList<Action>()`
-
-- Description: TODO
+- Role: Caches acts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Action[] order`
-
-- Description: TODO
+- Role: Holds the order state.
+- Description: Backs the cached state for this file.
 
 #### `public int usesave`
-
-- Description: TODO
+- Role: Stores the usesave value.
+- Description: Backs the cached state for this file.
 
 #### `private final Text[] saves`
-
-- Description: TODO
+- Role: Stores the saves value.
+- Description: Backs the cached state for this file.
 
 #### `private final ImageInfoBox info`
-
-- Description: TODO
+- Role: Stores the info value.
+- Description: Backs the cached state for this file.
 
 #### `private final Label count`
-
-- Description: TODO
+- Role: Stores the count value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Indir<Resource>, Object[]> actrawinfo = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches actrawinfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `private final int id`
-
-- Description: TODO
-
-#### `public int a, u`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public int a, u`
+- Role: Stores the u value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int a, u`
+- Role: Stores the u value.
+- Description: Backs the cached state for this file.
 
 #### `private String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> info = null`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Tex icon = null`
-
-- Description: TODO
+- Role: Stores the icon value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean loading = false`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 #### `private Action drag = null`
-
-- Description: TODO
+- Role: Holds the drag state.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 #### `public final Action item`
-
-- Description: TODO
+- Role: Holds the item state.
+- Description: Backs the cached state for this file.
 
 #### `private final Label use`
-
-- Description: TODO
-
-#### `private int u = -1, a = -1`
-
-- Description: TODO
+- Role: Stores the use value.
+- Description: Backs the cached state for this file.
 
 #### `private int u = -1, a = -1`
+- Role: Stores the u value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int u = -1, a = -1`
+- Role: Stores the u value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord dp`
-
-- Description: TODO
+- Role: Stores the dp value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 #### `private Action drag`
-
-- Description: TODO
+- Role: Holds the drag state.
+- Description: Backs the cached state for this file.
 
 #### `private Coord dp`
-
-- Description: TODO
+- Role: Stores the dp value.
+- Description: Backs the cached state for this file.
 
 #### `private final Coord[] animoff = new Coord[order.length]`
-
-- Description: TODO
+- Role: Stores the animoff value.
+- Description: Backs the cached state for this file.
 
 #### `private final double[] animpr = new double[order.length]`
-
-- Description: TODO
+- Role: Stores the animpr value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean anim = false`
-
-- Description: TODO
+- Role: Tracks the anim flag.
+- Description: Supports the anim operation used by the surrounding class.
 
 #### `final Tex[] keys = new Tex[10]`
-
-- Description: TODO
+- Role: Stores the keys value.
+- Description: Backs the cached state for this file.
 
 #### `private final List<Integer> items = Utils.range(nsave)`
-
-- Description: TODO
+- Role: Caches items entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int n`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `private Text.Line redit = null`
-
-- Description: TODO
+- Role: Stores the redit value.
+- Description: Backs the cached state for this file.
 
 #### `private ReadLine ed`
-
-- Description: TODO
+- Role: Holds the ed state.
+- Description: Backs the cached state for this file.
 
 #### `private double focusstart`
-
-- Description: TODO
+- Role: Stores the focusstart value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord lc = null`
-
-- Description: TODO
+- Role: Stores the lc value.
+- Description: Backs the cached state for this file.
 
 #### `private double lt = 0`
-
-- Description: TODO
+- Role: Stores the lt value.
+- Description: Backs the cached state for this file.
 
 #### `private Text unused = new Text.Foundry(attrf.font.deriveFont(java.awt.Font.ITALIC)).aa(true).render("Unused save")`
-
-- Description: TODO
+- Role: Stores the unused value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Action(Indir<Resource> res, int id, int a, int u)`
-
-- Description: TODO
+- Role: Performs action.
+- Description: Supports the action operation used by the surrounding class.
 
 #### `public String rendertext()`
-
-- Description: TODO
+- Role: Performs rendertext.
+- Description: Supports the rendertext operation used by the surrounding class.
 
 #### `private void a(int a)`
-
-- Description: TODO
+- Role: Returns the local player facing angle.
+- Description: Returns the local player heading in radians.
 
 #### `private void u(int u)`
-
-- Description: TODO
+- Role: Performs u.
+- Description: Supports the u operation used by the surrounding class.
 
 #### `public Resource resource()`
-
-- Description: TODO
+- Role: Performs resource.
+- Description: Supports the resource operation used by the surrounding class.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public BufferedImage rendericon()`
-
-- Description: TODO
+- Role: Performs rendericon.
+- Description: Supports the rendericon operation used by the surrounding class.
 
 #### `public Tex icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public BufferedImage renderinfo(int width)`
-
-- Description: TODO
+- Role: Performs renderinfo.
+- Description: Supports the renderinfo operation used by the surrounding class.
 
 #### `private void recount()`
-
-- Description: TODO
+- Role: Performs recount.
+- Description: Supports the recount operation used by the surrounding class.
 
 #### `public Actions(Coord sz)`
-
-- Description: TODO
+- Role: Performs actions.
+- Description: Supports the actions operation used by the surrounding class.
 
 #### `protected List<Action> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Widget makeitem(Action act, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public Item(Coord sz, Action act)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public boolean setu(int u)`
-
-- Description: TODO
+- Role: Performs setu.
+- Description: Supports the setu operation used by the surrounding class.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.
 
 #### `public void change(Action act)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void drag(Action act)`
-
-- Description: TODO
+- Role: Performs drag.
+- Description: Supports the drag operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public int findorder(Action a)`
-
-- Description: TODO
+- Role: Performs findorder.
+- Description: Supports the findorder operation used by the surrounding class.
 
 #### `private BView()`
-
-- Description: TODO
+- Role: Performs bview.
+- Description: Supports the bview operation used by the surrounding class.
 
 #### `private Coord itemc(int i)`
-
-- Description: TODO
+- Role: Performs itemc.
+- Description: Supports the itemc operation used by the surrounding class.
 
 #### `private int citem(Coord c)`
-
-- Description: TODO
+- Role: Performs citem.
+- Description: Supports the citem operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `private void animate(int s, Coord off)`
-
-- Description: TODO
+- Role: Performs animate.
+- Description: Supports the animate operation used by the surrounding class.
 
 #### `public boolean dropthing(Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs dropthing.
+- Description: Supports the dropthing operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public Savelist(Coord sz)`
-
-- Description: TODO
+- Role: Performs savelist.
+- Description: Supports the savelist operation used by the surrounding class.
 
 #### `protected List<Integer> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Widget makeitem(Integer n, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public Item(Coord sz, int n)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void done(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public void changed(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void load(int n)`
-
-- Description: TODO
+- Role: Loads the target data.
+- Description: Loads the target data into the in-memory state.
 
 #### `public void save(int n)`
-
-- Description: TODO
+- Role: Saves the current data.
+- Description: Saves the current data through the persistence pipeline.
 
 #### `public void use(int n)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public FightWnd(int nsave, int nact, int max)`
-
-- Description: TODO
+- Role: Creates a new FightWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Action findact(int resid)`
-
-- Description: TODO
+- Role: Performs findact.
+- Description: Supports the findact operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

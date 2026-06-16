@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ResolvedPoint`.
 
 ## Role
 
-Represents a waypoint point value or runtime cache entry.
+Coordinates waypoint runtime state for resolved point.
 
 ## Members
 
@@ -19,39 +19,39 @@ Represents a waypoint point value or runtime cache entry.
 ### Fields
 
 #### `public final long segmentId`
-
-- Description: TODO
+- Role: Stores the segment id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int step`
-
-- Description: TODO
+- Role: Stores the step value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localX`
-
-- Description: TODO
+- Role: Stores the local x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localY`
-
-- Description: TODO
+- Role: Stores the local y value.
+- Description: Backs the cached state for this file.
 
 #### `public final int mouseButton`
-
-- Description: TODO
+- Role: Stores the mouse button value.
+- Description: Backs the cached state for this file.
 
 #### `public final Integer meshId`
-
-- Description: TODO
+- Role: Stores the mesh id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord world`
-
-- Description: TODO
+- Role: Stores the world value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ResolvedPoint(long segmentId, long gridId, int step, int localX, int localY,`
-
-- Description: TODO
+- Role: Creates a new ResolvedPoint instance.
+- Description: Constructs the instance and initializes its default state.

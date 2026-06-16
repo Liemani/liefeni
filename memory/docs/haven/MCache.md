@@ -10,710 +10,723 @@ This file documents the responsibilities and members of `MCache`.
 
 ## Role
 
-Caches map grids and world tile data.
+Caches map grid data and loading state.
 
 ## Nested Types
 
 ### Cut
 
-- Description: TODO
+- Role: Represents cut within MCache.
+- Description: Describes the nested cut type used by the enclosing class.
 
 ### Deferred
 
-- Description: TODO
+- Role: Represents deferred within MCache.
+- Description: Describes the nested deferred type used by the enclosing class.
 
 ### Flavobjs
 
-- Description: TODO
+- Role: Represents flavobjs within MCache.
+- Description: Describes the nested flavobjs type used by the enclosing class.
 
 ### Grid
 
-- Description: TODO
+- Role: Represents grid within MCache.
+- Description: Describes the nested grid type used by the enclosing class.
 
 ### LoadingMap
 
-- Description: TODO
+- Role: Represents loading map within MCache.
+- Description: Describes the nested loading map type used by the enclosing class.
 
 ### LocalOverlay
 
-- Description: TODO
+- Role: Represents local overlay within MCache.
+- Description: Describes the nested local overlay type used by the enclosing class.
 
 ### Overlay
 
-- Description: TODO
+- Role: Represents overlay within MCache.
+- Description: Describes the nested overlay type used by the enclosing class.
 
 ### OverlayInfo
 
-- Description: TODO
+- Role: Represents overlay info within MCache.
+- Description: Describes the nested overlay info type used by the enclosing class.
 
 ### RectOverlay
 
-- Description: TODO
+- Role: Represents rect overlay within MCache.
+- Description: Describes the nested rect overlay type used by the enclosing class.
 
 ### Request
 
-- Description: TODO
+- Role: Represents request within MCache.
+- Description: Describes the nested request type used by the enclosing class.
 
 ### ResOverlay
 
-- Description: TODO
+- Role: Represents res overlay within MCache.
+- Description: Describes the nested res overlay type used by the enclosing class.
 
 ### SurfaceID
 
-- Description: TODO
+- Role: Represents surface id within MCache.
+- Description: Describes the nested surface id type used by the enclosing class.
 
 ### ZSurface
 
-- Description: TODO
+- Role: Represents zsurface within MCache.
+- Description: Describes the nested zsurface type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord2d tilesz = Coord2d.of(11, 11)`
-
-- Description: TODO
+- Role: Defines the shared tilesz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord tilesz2 = tilesz.round(); /* XXX: Remove me in due time. */`
-
-- Description: TODO
+- Role: Defines the shared tilesz2 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cmaps = Coord.of(100, 100)`
-
-- Description: TODO
+- Role: Defines the shared cmaps constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cutsz = Coord.of(25, 25)`
-
-- Description: TODO
+- Role: Defines the shared cutsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cutn = cmaps.div(cutsz)`
-
-- Description: TODO
+- Role: Defines the shared cutn constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final SurfaceID map = new SurfaceID(null)`
-
-- Description: TODO
+- Role: Defines the shared map constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final SurfaceID trn = new SurfaceID(map)`
-
-- Description: TODO
+- Role: Defines the shared trn constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Object setmon = new Object()`
-
-- Description: TODO
+- Role: Holds the setmon state.
+- Description: Backs the cached state for this file.
 
 #### `private Indir<Resource>[] sets = new Indir[16]`
-
-- Description: TODO
+- Role: Stores the sets value.
+- Description: Backs the cached state for this file.
 
 #### `private Reference<Tileset>[] csets = new Reference[16]`
-
-- Description: TODO
+- Role: Holds the csets state.
+- Description: Backs the cached state for this file.
 
 #### `private Reference<Tiler>[] tiles = new Reference[16]`
-
-- Description: TODO
+- Role: Holds the tiles state.
+- Description: Backs the cached state for this file.
 
 #### `private final Waitable.Queue gridwait = new Waitable.Queue()`
-
-- Description: TODO
+- Role: Caches gridwait entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `Map<Coord, Request> req = new HashMap<Coord, Request>()`
-
-- Description: TODO
+- Role: Caches req entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `Map<Coord, Grid> grids = new HashMap<Coord, Grid>()`
-
-- Description: TODO
+- Role: Caches grids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `Session sess`
-
-- Description: TODO
+- Role: Stores the sess value.
+- Description: Backs the cached state for this file.
 
 #### `Set<LocalOverlay> ols = new HashSet<>()`
-
-- Description: TODO
-
-#### `public volatile int olseq = 0, chseq = 0`
-
-- Description: TODO
+- Role: Caches ols entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public volatile int olseq = 0, chseq = 0`
+- Role: Stores the olseq value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public volatile int olseq = 0, chseq = 0`
+- Role: Stores the olseq value.
+- Description: Backs the cached state for this file.
 
 #### `Map<Integer, Defrag> fragbufs = new TreeMap<Integer, Defrag>()`
-
-- Description: TODO
+- Role: Caches fragbufs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Coord gc`
-
-- Description: TODO
+- Role: Stores the gc value.
+- Description: Backs the cached state for this file.
 
 #### `private transient final MCache map`
-
-- Description: TODO
+- Role: Caches map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private long lastreq = 0`
-
-- Description: TODO
+- Role: Stores the lastreq value.
+- Description: Backs the cached state for this file.
 
 #### `private int reqs = 0`
-
-- Description: TODO
+- Role: Stores the reqs value.
+- Description: Backs the cached state for this file.
 
 #### `public final SurfaceID parent`
-
-- Description: TODO
+- Role: Holds the parent state.
+- Description: Backs the cached state for this file.
 
 #### `public final Gob.Placer mapplace = new Gob.DefaultPlace(this, SurfaceID.map)`
-
-- Description: TODO
+- Role: Stores the mapplace value.
+- Description: Backs the cached state for this file.
 
 #### `public final Gob.Placer trnplace = new Gob.DefaultPlace(this, SurfaceID.trn)`
-
-- Description: TODO
+- Role: Stores the trnplace value.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<String> tags`
-
-- Description: TODO
-
-#### `private final int matid, omatid`
-
-- Description: TODO
+- Role: Caches tags entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final int matid, omatid`
+- Role: Stores the omatid value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int matid, omatid`
+- Role: Stores the omatid value.
+- Description: Backs the cached state for this file.
 
 #### `public final OverlayInfo id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public Area a`
-
-- Description: TODO
-
-#### `public final Coord gc, ul`
-
-- Description: TODO
+- Role: Holds the a state.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord gc, ul`
+- Role: Stores the ul value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Coord gc, ul`
+- Role: Stores the ul value.
+- Description: Backs the cached state for this file.
 
 #### `public final int tiles[] = new int[cmaps.x * cmaps.y]`
-
-- Description: TODO
+- Role: Stores the mcache state.
+- Description: Backs the cached state for this file.
 
 #### `public final float z[] = new float[cmaps.x * cmaps.y]`
-
-- Description: TODO
+- Role: Stores the mcache state.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> ols[]`
-
-- Description: TODO
+- Role: Holds the mcache state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean ol[][]`
-
-- Description: TODO
+- Role: Tracks whether  is active.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public int seq = -1`
-
-- Description: TODO
+- Role: Stores the seq value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean removed = false`
-
-- Description: TODO
+- Role: Tracks the removed flag.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `private int olseq = -1`
-
-- Description: TODO
+- Role: Stores the olseq value.
+- Description: Backs the cached state for this file.
 
 #### `private final Cut cuts[]`
-
-- Description: TODO
+- Role: Holds the mcache state.
+- Description: Backs the cached state for this file.
 
 #### `private Defer.Future<T> def`
-
-- Description: TODO
+- Role: Holds the def state.
+- Description: Backs the cached state for this file.
 
 #### `private T val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean inited = false`
-
-- Description: TODO
+- Role: Tracks the inited flag.
+- Description: Supports the inited operation used by the surrounding class.
 
 #### `public final Coord cc`
-
-- Description: TODO
+- Role: Stores the cc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Deferred<MapMesh> mesh`
-
-- Description: TODO
+- Role: Holds the mesh state.
+- Description: Backs the cached state for this file.
 
 #### `public final Deferred<Flavobjs> fo`
-
-- Description: TODO
+- Role: Holds the fo state.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<OverlayInfo, RenderTree.Node> ols = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches ols entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Map<OverlayInfo, RenderTree.Node> olols = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches olols entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `final RenderTree.Node[] mats`
-
-- Description: TODO
+- Role: Stores the mats value.
+- Description: Backs the cached state for this file.
 
 #### `final Gob[] all`
-
-- Description: TODO
+- Role: Stores the all value.
+- Description: Backs the cached state for this file.
 
 #### `private Indir<Resource>[] fill_plots`
-
-- Description: TODO
+- Role: Stores the fill plots value.
+- Description: Backs the cached state for this file.
 
 #### `private final ThreadLocal<Reference<Grid>> cached = new ThreadLocal<>()`
-
-- Description: TODO
+- Role: Stores the cached value.
+- Description: Backs the cached state for this file.
 
 #### `public final ZSurface zsurf = new ZSurface()`
-
-- Description: TODO
+- Role: Holds the zsurf state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LoadingMap(MCache map, Coord gc)`
-
-- Description: TODO
+- Role: Performs loading map.
+- Description: Supports the loading map operation used by the surrounding class.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-
-- Description: TODO
+- Role: Performs waitfor.
+- Description: Supports the waitfor operation used by the surrounding class.
 
 #### `public default double getz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public default double getz(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public default Coord3f getnorm(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getnorm.
+- Description: Supports the getnorm operation used by the surrounding class.
 
 #### `public default Coord3f getnormt(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getnormt.
+- Description: Supports the getnormt operation used by the surrounding class.
 
 #### `public default Coord3f getnormp(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getnormp.
+- Description: Supports the getnormp operation used by the surrounding class.
 
 #### `public SurfaceID(SurfaceID parent)`
-
-- Description: TODO
+- Role: Performs surface id.
+- Description: Supports the surface id operation used by the surrounding class.
 
 #### `public boolean hasparent(SurfaceID p)`
-
-- Description: TODO
+- Role: Performs hasparent.
+- Description: Supports the hasparent operation used by the surrounding class.
 
 #### `public Collection<String> tags()`
-
-- Description: TODO
+- Role: Performs tags.
+- Description: Supports the tags operation used by the surrounding class.
 
 #### `public Material mat()`
-
-- Description: TODO
+- Role: Performs mat.
+- Description: Supports the mat operation used by the surrounding class.
 
 #### `public default Material omat()`
-
-- Description: TODO
+- Role: Performs omat.
+- Description: Supports the omat operation used by the surrounding class.
 
 #### `public ResOverlay(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs res overlay.
+- Description: Supports the res overlay operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Collection<String> tags()`
-
-- Description: TODO
+- Role: Performs tags.
+- Description: Supports the tags operation used by the surrounding class.
 
 #### `public Material mat()`
-
-- Description: TODO
+- Role: Performs mat.
+- Description: Supports the mat operation used by the surrounding class.
 
 #### `public Material omat()`
-
-- Description: TODO
+- Role: Performs omat.
+- Description: Supports the omat operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public OverlayInfo id()`
-
-- Description: TODO
+- Role: Performs id.
+- Description: Supports the id operation used by the surrounding class.
 
 #### `public void fill(Area a, boolean[] buf)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public default boolean filter(Area a)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public default void tick()`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void add(LocalOverlay ol)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(LocalOverlay ol)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public RectOverlay(OverlayInfo id, Area a)`
-
-- Description: TODO
+- Role: Performs rect overlay.
+- Description: Supports the rect overlay operation used by the surrounding class.
 
 #### `public OverlayInfo id()`
-
-- Description: TODO
+- Role: Performs id.
+- Description: Supports the id operation used by the surrounding class.
 
 #### `public boolean filter(Area b)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public void fill(Area b, boolean[] buf)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public void update(Area a)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Overlay(Area a, OverlayInfo id)`
-
-- Description: TODO
+- Role: Performs overlay.
+- Description: Supports the overlay operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `private void cktileid(int id)`
-
-- Description: TODO
+- Role: Performs cktileid.
+- Description: Supports the cktileid operation used by the surrounding class.
 
 #### `public T get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `protected void update(T val)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public T cur()`
-
-- Description: TODO
+- Role: Performs cur.
+- Description: Supports the cur operation used by the surrounding class.
 
 #### `public void rebuild()`
-
-- Description: TODO
+- Role: Performs rebuild.
+- Description: Supports the rebuild operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `protected abstract T build()`
-
-- Description: TODO
+- Role: Performs build.
+- Description: Supports the build operation used by the surrounding class.
 
 #### `protected abstract String message()`
-
-- Description: TODO
+- Role: Performs message.
+- Description: Supports the message operation used by the surrounding class.
 
 #### `public Cut(Coord cc)`
-
-- Description: TODO
+- Role: Performs cut.
+- Description: Supports the cut operation used by the surrounding class.
 
 #### `public void invalidate()`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public Grid(Coord gc)`
-
-- Description: TODO
+- Role: Performs grid.
+- Description: Supports the grid operation used by the surrounding class.
 
 #### `public int gettile(Coord tc)`
-
-- Description: TODO
+- Role: Performs gettile.
+- Description: Supports the gettile operation used by the surrounding class.
 
 #### `public double getz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public void getol(OverlayInfo id, Area a, boolean[] buf)`
-
-- Description: TODO
+- Role: Performs getol.
+- Description: Supports the getol operation used by the surrounding class.
 
 #### `Flavobjs(Map<NodeWrap, Collection<Gob>> flavobjs)`
-
-- Description: TODO
+- Role: Handles the flavobjs workflow.
+- Description: Supports the flavobjs operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `private Flavobjs makeflavor(Coord cutc)`
-
-- Description: TODO
+- Role: Performs makeflavor.
+- Description: Supports the makeflavor operation used by the surrounding class.
 
 #### `public RenderTree.Node getfo(Coord cc)`
-
-- Description: TODO
+- Role: Performs getfo.
+- Description: Supports the getfo operation used by the surrounding class.
 
 #### `private Cut geticut(Coord cc)`
-
-- Description: TODO
+- Role: Performs geticut.
+- Description: Supports the geticut operation used by the surrounding class.
 
 #### `public MapMesh getcut(Coord cc)`
-
-- Description: TODO
+- Role: Performs getcut.
+- Description: Supports the getcut operation used by the surrounding class.
 
 #### `public RenderTree.Node getolcut(OverlayInfo id, Coord cc)`
-
-- Description: TODO
+- Role: Performs getolcut.
+- Description: Supports the getolcut operation used by the surrounding class.
 
 #### `public RenderTree.Node getololcut(OverlayInfo id, Coord cc)`
-
-- Description: TODO
+- Role: Performs getololcut.
+- Description: Supports the getololcut operation used by the surrounding class.
 
 #### `public void ivneigh(Coord nc)`
-
-- Description: TODO
+- Role: Performs ivneigh.
+- Description: Supports the ivneigh operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `private void invalidate()`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `private void filltiles(Message buf)`
-
-- Description: TODO
+- Role: Performs filltiles.
+- Description: Supports the filltiles operation used by the surrounding class.
 
 #### `private void filltiles2(Message buf)`
-
-- Description: TODO
+- Role: Performs filltiles2.
+- Description: Supports the filltiles2 operation used by the surrounding class.
 
 #### `private void filltiles3(Message buf)`
-
-- Description: TODO
+- Role: Performs filltiles3.
+- Description: Supports the filltiles3 operation used by the surrounding class.
 
 #### `private void fillz(Message buf)`
-
-- Description: TODO
+- Role: Performs fillz.
+- Description: Supports the fillz operation used by the surrounding class.
 
 #### `private void decplots(Message buf)`
-
-- Description: TODO
+- Role: Performs decplots.
+- Description: Supports the decplots operation used by the surrounding class.
 
 #### `private void fillplots(Message buf)`
-
-- Description: TODO
+- Role: Performs fillplots.
+- Description: Supports the fillplots operation used by the surrounding class.
 
 #### `private void subfill(Message msg)`
-
-- Description: TODO
+- Role: Performs subfill.
+- Description: Supports the subfill operation used by the surrounding class.
 
 #### `public void fill(Message msg)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public double getfz(Coord c)`
-
-- Description: TODO
+- Role: Performs getfz.
+- Description: Supports the getfz operation used by the surrounding class.
 
 #### `public Tileset tileset(int i)`
-
-- Description: TODO
+- Role: Performs tileset.
+- Description: Supports the tileset operation used by the surrounding class.
 
 #### `public Tiler tiler(int i)`
-
-- Description: TODO
+- Role: Performs tiler.
+- Description: Supports the tiler operation used by the surrounding class.
 
 #### `public MCache(Session sess)`
-
-- Description: TODO
+- Role: Creates a new MCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void ctick(double dt)`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public void invalidate(Coord cc)`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public void invalblob(Message msg)`
-
-- Description: TODO
+- Role: Performs invalblob.
+- Description: Supports the invalblob operation used by the surrounding class.
 
 #### `public Grid getgrid(Coord gc)`
-
-- Description: TODO
+- Role: Performs getgrid.
+- Description: Supports the getgrid operation used by the surrounding class.
 
 #### `public Grid getgridt(Coord tc)`
-
-- Description: TODO
+- Role: Performs getgridt.
+- Description: Supports the getgridt operation used by the surrounding class.
 
 #### `public int gettile(Coord tc)`
-
-- Description: TODO
+- Role: Performs gettile.
+- Description: Supports the gettile operation used by the surrounding class.
 
 #### `public double getfz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getfz.
+- Description: Supports the getfz operation used by the surrounding class.
 
 #### `public double getcz(double px, double py)`
-
-- Description: TODO
+- Role: Performs getcz.
+- Description: Supports the getcz operation used by the surrounding class.
 
 #### `public double getcz(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getcz.
+- Description: Supports the getcz operation used by the surrounding class.
 
 #### `public float getcz(float px, float py)`
-
-- Description: TODO
+- Role: Performs getcz.
+- Description: Supports the getcz operation used by the surrounding class.
 
 #### `public float getcz(Coord pc)`
-
-- Description: TODO
+- Role: Performs getcz.
+- Description: Supports the getcz operation used by the surrounding class.
 
 #### `public Coord3f getzp(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getzp.
+- Description: Supports the getzp operation used by the surrounding class.
 
 #### `public double getz(SurfaceID id, Coord tc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public double getz(SurfaceID id, Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public Coord3f getzp(SurfaceID id, Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getzp.
+- Description: Supports the getzp operation used by the surrounding class.
 
 #### `public Coord3f getnorm(SurfaceID id, Coord2d pc)`
-
-- Description: TODO
+- Role: Performs getnorm.
+- Description: Supports the getnorm operation used by the surrounding class.
 
 #### `public Collection<OverlayInfo> getols(Area a)`
-
-- Description: TODO
+- Role: Performs getols.
+- Description: Supports the getols operation used by the surrounding class.
 
 #### `public void getol(OverlayInfo id, Area a, boolean[] buf)`
-
-- Description: TODO
+- Role: Performs getol.
+- Description: Supports the getol operation used by the surrounding class.
 
 #### `public MapMesh getcut(Coord cc)`
-
-- Description: TODO
+- Role: Performs getcut.
+- Description: Supports the getcut operation used by the surrounding class.
 
 #### `public RenderTree.Node getfo(Coord cc)`
-
-- Description: TODO
+- Role: Performs getfo.
+- Description: Supports the getfo operation used by the surrounding class.
 
 #### `public RenderTree.Node getolcut(OverlayInfo id, Coord cc)`
-
-- Description: TODO
+- Role: Performs getolcut.
+- Description: Supports the getolcut operation used by the surrounding class.
 
 #### `public RenderTree.Node getololcut(OverlayInfo id, Coord cc)`
-
-- Description: TODO
+- Role: Performs getololcut.
+- Description: Supports the getololcut operation used by the surrounding class.
 
 #### `public void mapdata2(Message msg)`
-
-- Description: TODO
+- Role: Performs mapdata2.
+- Description: Supports the mapdata2 operation used by the surrounding class.
 
 #### `public void mapdata(Message msg)`
-
-- Description: TODO
+- Role: Performs mapdata.
+- Description: Supports the mapdata operation used by the surrounding class.
 
 #### `public Resource tilesetr(int i)`
-
-- Description: TODO
+- Role: Performs tilesetr.
+- Description: Supports the tilesetr operation used by the surrounding class.
 
 #### `public Tileset tileset(int i)`
-
-- Description: TODO
+- Role: Performs tileset.
+- Description: Supports the tileset operation used by the surrounding class.
 
 #### `public Tiler tiler(int i)`
-
-- Description: TODO
+- Role: Performs tiler.
+- Description: Supports the tiler operation used by the surrounding class.
 
 #### `public void trimall()`
-
-- Description: TODO
+- Role: Performs trimall.
+- Description: Supports the trimall operation used by the surrounding class.
 
 #### `public void trim(Coord ul, Coord lr)`
-
-- Description: TODO
+- Role: Performs trim.
+- Description: Supports the trim operation used by the surrounding class.
 
 #### `public void request(Coord gc)`
-
-- Description: TODO
+- Role: Performs request.
+- Description: Supports the request operation used by the surrounding class.
 
 #### `public void reqarea(Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Performs reqarea.
+- Description: Supports the reqarea operation used by the surrounding class.
 
 #### `public void sendreqs()`
-
-- Description: TODO
+- Role: Performs sendreqs.
+- Description: Supports the sendreqs operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointGridBounds`.
 
 ## Role
 
-Defines a spatial bound used by waypoint runtime or drawing.
+Coordinates waypoint runtime state for waypoint grid bounds.
 
 ## Members
 
@@ -19,55 +19,55 @@ Defines a spatial bound used by waypoint runtime or drawing.
 ### Fields
 
 #### `public final Coord centerGrid`
-
-- Description: TODO
+- Role: Stores the center grid value.
+- Description: Backs the cached state for this file.
 
 #### `public final Area loadArea`
-
-- Description: TODO
+- Role: Holds the load area state.
+- Description: Backs the cached state for this file.
 
 #### `public final Area renderArea`
-
-- Description: TODO
+- Role: Holds the render area state.
+- Description: Backs the cached state for this file.
 
 #### `private final Set<Long> loadGridIds`
-
-- Description: TODO
+- Role: Caches load grid ids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Set<Long> renderGridIds`
-
-- Description: TODO
+- Role: Caches render grid ids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Long, Coord> gridOrigins`
-
-- Description: TODO
+- Role: Caches grid origins entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `private WaypointGridBounds(`
-
-- Description: TODO
+- Role: Creates a new WaypointGridBounds instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static WaypointGridBounds empty()`
-
-- Description: TODO
+- Role: Performs empty.
+- Description: Supports the empty operation used by the surrounding class.
 
 #### `public static WaypointGridBounds aroundWorld(Coord world)`
-
-- Description: TODO
+- Role: Performs around world.
+- Description: Supports the around world operation used by the surrounding class.
 
 #### `public Set<Long> loadGridIds()`
-
-- Description: TODO
+- Role: Coordinates load grid ids persistence or lookup.
+- Description: Supports the load grid ids operation used by the surrounding class.
 
 #### `public boolean loadContainsGridId(long gridId)`
-
-- Description: TODO
+- Role: Coordinates load contains grid id persistence or lookup.
+- Description: Supports the load contains grid id operation used by the surrounding class.
 
 #### `public boolean renderContainsGridId(long gridId)`
-
-- Description: TODO
+- Role: Renders the render contains grid id.
+- Description: Supports the render contains grid id operation used by the surrounding class.
 
 #### `public Coord worldOfGridLocal(long gridId, int localX, int localY)`
-
-- Description: TODO
+- Role: Performs world of grid local.
+- Description: Supports the world of grid local operation used by the surrounding class.

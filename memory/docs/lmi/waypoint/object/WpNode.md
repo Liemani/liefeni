@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WpNode`.
 
 ## Role
 
-Represents a waypoint node value or runtime cache entry.
+Represents a waypoint node domain object.
 
 ## Members
 
@@ -19,39 +19,39 @@ Represents a waypoint node value or runtime cache entry.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long graphId`
-
-- Description: TODO
+- Role: Stores the graph id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localX`
-
-- Description: TODO
+- Role: Stores the local x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localY`
-
-- Description: TODO
+- Role: Stores the local y value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private WpNode(long id, long graphId, long gridId, int localX, int localY, String name)`
-
-- Description: TODO
+- Role: Creates a new WpNode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static WpNode of(long id, long graphId, long gridId, int localX, int localY, String name)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static WpNode fromRecord(WpNodeRecord record)`
-
-- Description: TODO
+- Role: Performs from record.
+- Description: Supports the from record operation used by the surrounding class.

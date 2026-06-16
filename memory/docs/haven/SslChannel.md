@@ -10,108 +10,108 @@ This file documents the responsibilities and members of `SslChannel`.
 
 ## Role
 
-Handles SSL channel communication.
+Represents the ssl channel Haven component.
 
 ## Members
 
 ### Constants
 
 #### `private static final ByteBuffer empty = ByteBuffer.allocate(0)`
-
-- Description: TODO
+- Role: Defines the shared empty constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final ByteChannel bk`
-
-- Description: TODO
+- Role: Stores the bk value.
+- Description: Backs the cached state for this file.
 
 #### `public final SSLEngine ssl`
-
-- Description: TODO
-
-#### `private ByteBuffer inbuf = null, outbuf = null`
-
-- Description: TODO
+- Role: Holds the ssl state.
+- Description: Backs the cached state for this file.
 
 #### `private ByteBuffer inbuf = null, outbuf = null`
+- Role: Stores the inbuf value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private ByteBuffer inbuf = null, outbuf = null`
+- Role: Stores the inbuf value.
+- Description: Backs the cached state for this file.
 
 #### `private ByteBuffer readbuf = ByteBuffer.allocate(512)`
-
-- Description: TODO
+- Role: Stores the readbuf value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean haveshook = false`
-
-- Description: TODO
+- Role: Tracks the haveshook flag.
+- Description: Supports the haveshook operation used by the surrounding class.
 
 ### Methods
 
 #### `private static SSLContext defctx()`
-
-- Description: TODO
+- Role: Performs defctx.
+- Description: Supports the defctx operation used by the surrounding class.
 
 #### `private void initssl()`
-
-- Description: TODO
+- Role: Performs initssl.
+- Description: Supports the initssl operation used by the surrounding class.
 
 #### `public SslChannel(ByteChannel bk, SSLEngine ssl)`
-
-- Description: TODO
+- Role: Creates a new SslChannel instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SslChannel(ByteChannel bk, SSLContext ctx)`
-
-- Description: TODO
+- Role: Creates a new SslChannel instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SslChannel(ByteChannel bk, SSLContext ctx, String host, int port)`
-
-- Description: TODO
+- Role: Creates a new SslChannel instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SslChannel(ByteChannel bk)`
-
-- Description: TODO
+- Role: Creates a new SslChannel instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void tasks()`
-
-- Description: TODO
+- Role: Performs tasks.
+- Description: Supports the tasks operation used by the surrounding class.
 
 #### `private void checkshake() throws IOException`
-
-- Description: TODO
+- Role: Handles the checkshake workflow.
+- Description: Supports the checkshake operation used by the surrounding class.
 
 #### `private SSLEngineResult fill() throws IOException`
-
-- Description: TODO
+- Role: Handles the fill workflow.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public void handshake() throws IOException`
-
-- Description: TODO
+- Role: Handles the handshake workflow.
+- Description: Supports the handshake operation used by the surrounding class.
 
 #### `public int read(ByteBuffer dst) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int write(ByteBuffer src, boolean ac) throws IOException`
-
-- Description: TODO
+- Role: Writes the target data.
+- Description: Supports the write operation used by the surrounding class.
 
 #### `public int write(ByteBuffer src) throws IOException`
-
-- Description: TODO
+- Role: Writes the target data.
+- Description: Supports the write operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public boolean isOpen()`
-
-- Description: TODO
+- Role: Checks whether the open.
+- Description: Returns a boolean result for the described condition.
 
 #### `public SSLSession session()`
-
-- Description: TODO
+- Role: Performs session.
+- Description: Supports the session operation used by the surrounding class.
 
 #### `public void checkname(String host) throws IOException`
-
-- Description: TODO
+- Role: Handles the checkname workflow.
+- Description: Supports the checkname operation used by the surrounding class.

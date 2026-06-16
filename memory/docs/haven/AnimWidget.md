@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `AnimWidget`.
 
 ## Role
 
-Provides a widget that animates over time.
+Represents the anim widget Haven component.
 
 ## Members
 
@@ -19,95 +19,95 @@ Provides a widget that animates over time.
 ### Fields
 
 #### `public final AnimWidget w`
-
-- Description: TODO
+- Role: Stores the w value.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<Anim> anims = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches anims entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Collection<Anim> nanims = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches nanims entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final AnimWidget w`
-
-- Description: TODO
+- Role: Stores the w value.
+- Description: Backs the cached state for this file.
 
 #### `private double a = 0.0`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private final double s`
-
-- Description: TODO
+- Role: Stores the s value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public <E extends Event> void listen(Class<E> t, EventHandler<? super E> h)`
-
-- Description: TODO
+- Role: Performs listen.
+- Description: Supports the listen operation used by the surrounding class.
 
 #### `public boolean deafen(EventHandler<?> h)`
-
-- Description: TODO
+- Role: Performs deafen.
+- Description: Supports the deafen operation used by the surrounding class.
 
 #### `public <H extends EventHandler<?>> H listening(Class<H> cl)`
-
-- Description: TODO
+- Role: Performs listening.
+- Description: Supports the listening operation used by the surrounding class.
 
 #### `public Handler(AnimWidget w)`
-
-- Description: TODO
+- Role: Performs handler.
+- Description: Supports the handler operation used by the surrounding class.
 
 #### `private void checkempty()`
-
-- Description: TODO
+- Role: Performs checkempty.
+- Description: Supports the checkempty operation used by the surrounding class.
 
 #### `public boolean handle(TickEvent ev)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public void add(Anim anim)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(Anim anim)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public static Handler get(AnimWidget w, boolean creat)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public default <A extends Anim> A animated(Class<A> type)`
-
-- Description: TODO
+- Role: Performs animated.
+- Description: Supports the animated operation used by the surrounding class.
 
 #### `public default void clearanims(Class<?> type)`
-
-- Description: TODO
+- Role: Performs clearanims.
+- Description: Supports the clearanims operation used by the surrounding class.
 
 #### `public Anim(AnimWidget w)`
-
-- Description: TODO
+- Role: Performs anim.
+- Description: Supports the anim operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public abstract boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public NormAnim(AnimWidget w, double s)`
-
-- Description: TODO
+- Role: Performs norm anim.
+- Description: Supports the norm anim operation used by the surrounding class.
 
 #### `public boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public abstract void ntick(double a)`
-
-- Description: TODO
+- Role: Performs ntick.
+- Description: Supports the ntick operation used by the surrounding class.

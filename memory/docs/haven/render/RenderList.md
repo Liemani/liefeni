@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RenderList`.
 
 ## Role
 
-Represents a list of render tasks.
+Defines the render list render pipeline component.
 
 ## Members
 
@@ -21,57 +21,57 @@ Represents a list of render tasks.
 ### Methods
 
 #### `public GroupPipe state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public R obj()`
-
-- Description: TODO
+- Role: Performs obj.
+- Description: Supports the obj operation used by the surrounding class.
 
 #### `public default <T> Slot<T> cast(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs cast.
+- Description: Supports the cast operation used by the surrounding class.
 
 #### `public Locked lock()`
-
-- Description: TODO
+- Role: Performs lock.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `public Iterable<? extends Slot<?>> slots()`
-
-- Description: TODO
+- Role: Performs slots.
+- Description: Supports the slots operation used by the surrounding class.
 
 #### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(RenderList<?> list)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public default String stats()`
-
-- Description: TODO
+- Role: Performs stats.
+- Description: Supports the stats operation used by the surrounding class.
 
 #### `public void add(Slot<? extends R> slot)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(Slot<? extends R> slot)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void update(Slot<? extends R> slot)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void update(Pipe group, int[] statemask)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public default void syncadd(Adapter tree, Class<? extends R> type)`
-
-- Description: TODO
+- Role: Performs syncadd.
+- Description: Supports the syncadd operation used by the surrounding class.
 
 #### `public default void asyncadd(Adapter tree, Class<? extends R> type)`
-
-- Description: TODO
+- Role: Performs asyncadd.
+- Description: Supports the asyncadd operation used by the surrounding class.

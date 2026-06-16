@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `MapOverlay`.
 
 ## Role
 
-Renders a draw-time overlay for the corresponding subsystem.
+Draws map-related overlay content.
 
 ## Members
 
@@ -21,13 +21,13 @@ Renders a draw-time overlay for the corresponding subsystem.
 ### Methods
 
 #### `default boolean visible()`
-
-- Description: TODO
+- Role: Returns whether the widget is visible.
+- Description: Controls whether the overlay participates in rendering.
 
 #### `default int zOrder()`
-
-- Description: TODO
+- Role: Returns the z order.
+- Description: Controls draw ordering relative to other overlays.
 
 #### `void draw(MapView mapView, GOut g)`
-
-- Description: TODO
+- Role: Renders the draw.
+- Description: Supports the draw operation used by the surrounding class.

@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Future`.
 
 ## Role
 
-Represents deferred computation state.
+Represents the future Haven component.
 
 ## Nested Types
 
 ### NotDone
 
-- Description: TODO
+- Role: Represents not done within Future.
+- Description: Describes the nested not done type used by the enclosing class.
 
 ## Members
 
@@ -25,59 +26,59 @@ Represents deferred computation state.
 ### Fields
 
 #### `private final Waitable.Queue wq = new Waitable.Queue()`
-
-- Description: TODO
+- Role: Caches wq entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private T val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `private Throwable exc`
-
-- Description: TODO
+- Role: Holds the exc state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean set = false`
-
-- Description: TODO
+- Role: Tracks the set flag.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public final transient Simple future`
-
-- Description: TODO
+- Role: Holds the future state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public T get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public boolean done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public PastException(Throwable cause)`
-
-- Description: TODO
+- Role: Performs past exception.
+- Description: Supports the past exception operation used by the surrounding class.
 
 #### `public boolean done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `private NotDone(Simple future)`
-
-- Description: TODO
+- Role: Performs not done.
+- Description: Supports the not done operation used by the surrounding class.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-
-- Description: TODO
+- Role: Performs waitfor.
+- Description: Supports the waitfor operation used by the surrounding class.
 
 #### `public T get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void set(T val)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void error(Throwable cause)`
-
-- Description: TODO
+- Role: Displays an error message.
+- Description: Supports the error operation used by the surrounding class.

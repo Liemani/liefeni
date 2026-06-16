@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SteamCreds`.
 
 ## Role
 
-Holds Steam credentials.
+Represents the steam creds Haven component.
 
 ## Members
 
@@ -19,23 +19,23 @@ Holds Steam credentials.
 ### Fields
 
 #### `private final Steam api`
-
-- Description: TODO
+- Role: Holds the api state.
+- Description: Backs the cached state for this file.
 
 #### `private final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SteamCreds() throws IOException`
-
-- Description: TODO
+- Role: Creates a new SteamCreds instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the tryauth workflow.
+- Description: Supports the tryauth operation used by the surrounding class.

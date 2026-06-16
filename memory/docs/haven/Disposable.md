@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Disposable`.
 
 ## Role
 
-Defines disposable resource behavior.
+Represents the disposable Haven component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Defines disposable resource behavior.
 ### Methods
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

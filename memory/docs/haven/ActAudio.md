@@ -10,310 +10,318 @@ This file documents the responsibilities and members of `ActAudio`.
 
 ## Role
 
-Handles action-triggered audio playback.
+Adapts audio sources to active scene and UI state.
 
 ## Nested Types
 
 ### Adapter
 
-- Description: TODO
+- Role: Represents adapter within ActAudio.
+- Description: Describes the nested adapter type used by the enclosing class.
 
 ### Ambience
 
-- Description: TODO
+- Role: Represents ambience within ActAudio.
+- Description: Describes the nested ambience type used by the enclosing class.
 
 ### Channel
 
-- Description: TODO
+- Role: Represents channel within ActAudio.
+- Description: Describes the nested channel type used by the enclosing class.
 
 ### Glob
 
-- Description: TODO
+- Role: Represents glob within ActAudio.
+- Description: Describes the nested glob type used by the enclosing class.
 
 ### Global
 
-- Description: TODO
+- Role: Represents global within ActAudio.
+- Description: Describes the nested global type used by the enclosing class.
 
 ### PosClip
 
-- Description: TODO
+- Role: Represents pos clip within ActAudio.
+- Description: Describes the nested pos clip type used by the enclosing class.
 
 ### Root
 
-- Description: TODO
+- Role: Represents root within ActAudio.
+- Description: Describes the nested root type used by the enclosing class.
 
 ### RootChannel
 
-- Description: TODO
+- Role: Represents root channel within ActAudio.
+- Description: Describes the nested root channel type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<ActAudio> audio = new State.Slot<>(Slot.Type.SYS, ActAudio.class)`
-
-- Description: TODO
+- Role: Defines the shared audio constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Channel pos`
-
-- Description: TODO
+- Role: Holds the pos state.
+- Description: Backs the cached state for this file.
 
 #### `public final Channel amb`
-
-- Description: TODO
+- Role: Holds the amb state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Global, Global> global = new HashMap<Global, Global>()`
-
-- Description: TODO
+- Role: Caches global entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Channel parent`
-
-- Description: TODO
+- Role: Holds the parent state.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<CS> clips = new HashSet<CS>()`
-
-- Description: TODO
+- Role: Caches clips entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public double volume`
-
-- Description: TODO
+- Role: Stores the volume value.
+- Description: Backs the cached state for this file.
 
 #### `private Audio.VolAdjust volc = null`
-
-- Description: TODO
+- Role: Stores the volc value.
+- Description: Backs the cached state for this file.
 
 #### `private Audio.Mixer mixer = null`
-
-- Description: TODO
+- Role: Stores the mixer value.
+- Description: Backs the cached state for this file.
 
 #### `public final RootChannel aui = new RootChannel("aui")`
-
-- Description: TODO
+- Role: Holds the aui state.
+- Description: Backs the cached state for this file.
 
 #### `public final RootChannel pos = new RootChannel("pos")`
-
-- Description: TODO
+- Role: Holds the pos state.
+- Description: Backs the cached state for this file.
 
 #### `public final RootChannel amb = new RootChannel("amb")`
-
-- Description: TODO
+- Role: Holds the amb state.
+- Description: Backs the cached state for this file.
 
 #### `private final VolAdjust clip`
-
-- Description: TODO
+- Role: Holds the clip state.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final double bvol`
-
-- Description: TODO
+- Role: Stores the bvol value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `private final VolAdjust clip`
-
-- Description: TODO
+- Role: Holds the clip state.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<RenderList.Slot<Ambience>> active = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches active entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private double lastupd = Utils.rtime()`
-
-- Description: TODO
-
-#### `private boolean added = false, hasvol = false`
-
-- Description: TODO
+- Role: Stores the lastupd value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean added = false, hasvol = false`
+- Role: Tracks the added flag.
+- Description: Supports the added operation used by the surrounding class.
 
-- Description: TODO
+#### `private boolean added = false, hasvol = false`
+- Role: Tracks the added flag.
+- Description: Supports the added operation used by the surrounding class.
 
 ### Methods
 
 #### `public haven.render.sl.ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public ActAudio(Root root)`
-
-- Description: TODO
+- Role: Creates a new ActAudio instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void apply(Pipe st)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void add(CS clip)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(CS clip)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Adapter(Channel parent)`
-
-- Description: TODO
+- Role: Performs adapter.
+- Description: Supports the adapter operation used by the surrounding class.
 
 #### `public void add(CS clip)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(CS clip)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `private RootChannel(String name)`
-
-- Description: TODO
+- Role: Performs root channel.
+- Description: Supports the root channel operation used by the surrounding class.
 
 #### `public Audio.Mixer mixer()`
-
-- Description: TODO
+- Role: Performs mixer.
+- Description: Supports the mixer operation used by the surrounding class.
 
 #### `public void setvolume(double volume)`
-
-- Description: TODO
+- Role: Performs setvolume.
+- Description: Supports the setvolume operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void add(CS clip)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(CS clip)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public String stats()`
-
-- Description: TODO
+- Role: Performs stats.
+- Description: Supports the stats operation used by the surrounding class.
 
 #### `public boolean cycle(ActAudio list)`
-
-- Description: TODO
+- Role: Performs cycle.
+- Description: Supports the cycle operation used by the surrounding class.
 
 #### `public static Coord3f spos(Pipe st)`
-
-- Description: TODO
+- Role: Performs spos.
+- Description: Supports the spos operation used by the surrounding class.
 
 #### `public PosClip(VolAdjust clip)`
-
-- Description: TODO
+- Role: Performs pos clip.
+- Description: Supports the pos clip operation used by the surrounding class.
 
 #### `public PosClip(CS clip)`
-
-- Description: TODO
+- Role: Performs pos clip.
+- Description: Supports the pos clip operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public TickList.Ticking ticker()`
-
-- Description: TODO
+- Role: Performs ticker.
+- Description: Supports the ticker operation used by the surrounding class.
 
 #### `public void autotick(double dt)`
-
-- Description: TODO
+- Role: Performs autotick.
+- Description: Supports the autotick operation used by the surrounding class.
 
 #### `public Ambience(Resource res, double bvol)`
-
-- Description: TODO
+- Role: Performs ambience.
+- Description: Supports the ambience operation used by the surrounding class.
 
 #### `public Ambience(Resource res)`
-
-- Description: TODO
+- Role: Performs ambience.
+- Description: Supports the ambience operation used by the surrounding class.
 
 #### `public Glob(Resource res)`
-
-- Description: TODO
+- Role: Performs glob.
+- Description: Supports the glob operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object other)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `private double curvol()`
-
-- Description: TODO
+- Role: Performs curvol.
+- Description: Supports the curvol operation used by the surrounding class.
 
 #### `public boolean cycle(ActAudio list)`
-
-- Description: TODO
+- Role: Performs cycle.
+- Description: Supports the cycle operation used by the surrounding class.
 
 #### `public void add(RenderList.Slot<Ambience> slot)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(RenderList.Slot<Ambience> slot)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public <T extends Global> T intern(T glob)`
-
-- Description: TODO
+- Role: Performs intern.
+- Description: Supports the intern operation used by the surrounding class.
 
 #### `public void cycle()`
-
-- Description: TODO
+- Role: Performs cycle.
+- Description: Supports the cycle operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.

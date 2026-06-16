@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Attribute`.
 
 ## Role
 
-Represents a shader attribute.
+Represents the attribute shader-language AST node.
 
 ## Nested Types
 
 ### Def
 
-- Description: TODO
+- Role: Represents def within Attribute.
+- Description: Describes the nested def type used by the enclosing class.
 
 ## Members
 
@@ -25,31 +26,31 @@ Represents a shader attribute.
 ### Fields
 
 #### `public boolean primary = false`
-
-- Description: TODO
+- Role: Tracks the primary flag.
+- Description: Supports the primary operation used by the surrounding class.
 
 ### Methods
 
 #### `public Attribute(Type type, Symbol name)`
-
-- Description: TODO
+- Role: Creates a new Attribute instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Attribute(Type type, String infix)`
-
-- Description: TODO
+- Role: Creates a new Attribute instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Attribute(Type type)`
-
-- Description: TODO
+- Role: Creates a new Attribute instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Attribute primary()`
-
-- Description: TODO
+- Role: Performs primary.
+- Description: Supports the primary operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.

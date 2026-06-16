@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `TexRaw`.
 
 ## Role
 
-Represents a raw texture.
+Represents the tex raw Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a raw texture.
 ### Fields
 
 #### `public final Sampler2D back`
-
-- Description: TODO
+- Role: Holds the back state.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean invert`
-
-- Description: TODO
+- Role: Tracks the invert flag.
+- Description: Supports the invert operation used by the surrounding class.
 
 #### `private final ColorTex st`
-
-- Description: TODO
+- Role: Stores the st value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TexRaw(Sampler2D back, boolean invert)`
-
-- Description: TODO
+- Role: Creates a new TexRaw instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public TexRaw(Sampler2D back)`
-
-- Description: TODO
+- Role: Creates a new TexRaw instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

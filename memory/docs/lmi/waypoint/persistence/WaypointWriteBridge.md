@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointWriteBridge`.
 
 ## Role
 
-Bridges waypoint recording state into persistence writes.
+Bridges waypoint write requests into the database executor.
 
 ## Members
 
@@ -21,25 +21,25 @@ Bridges waypoint recording state into persistence writes.
 ### Methods
 
 #### `private WaypointWriteBridge()`
-
-- Description: TODO
+- Role: Creates a new WaypointWriteBridge instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static WpEdge insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,`
-
-- Description: TODO
+- Role: Mutates the insert wp edge state.
+- Description: Supports the insert wp edge operation used by the surrounding class.
 
 #### `public static long insertWpSegment(Connection conn, long edgeId, int step, long gridId) throws Exception`
-
-- Description: TODO
+- Role: Mutates the insert wp segment state.
+- Description: Supports the insert wp segment operation used by the surrounding class.
 
 #### `public static long insertWpPoint(Connection conn, long segmentId, long gridId, int step, int localX, int localY,`
-
-- Description: TODO
+- Role: Mutates the insert wp point state.
+- Description: Supports the insert wp point operation used by the surrounding class.
 
 #### `public static void updateWpNode(Connection conn, WpNodeSnapshot snapshot) throws Exception`
-
-- Description: TODO
+- Role: Mutates the update wp node state.
+- Description: Supports the update wp node operation used by the surrounding class.
 
 #### `private static int reversedDirection(int direction)`
-
-- Description: TODO
+- Role: Performs reversed direction.
+- Description: Supports the reversed direction operation used by the surrounding class.

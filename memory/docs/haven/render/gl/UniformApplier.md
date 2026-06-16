@@ -10,64 +10,64 @@ This file documents the responsibilities and members of `UniformApplier`.
 
 ## Role
 
-Applies uniform values to GL programs.
+Provides GL backend support for uniform applier.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<Type, TypeMapping> mappings = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared mappings constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final String varnm`
-
-- Description: TODO
+- Role: Stores the varnm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Type vartype`
-
-- Description: TODO
+- Role: Holds the vartype state.
+- Description: Backs the cached state for this file.
 
 #### `public final Class<?> valtype`
-
-- Description: TODO
+- Role: Holds the valtype state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Class<?>, UniformApplier<?>> reg = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches reg entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Class<?>, UniformApplier<?>> cache = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches cache entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public NoMappingException(String varnm, Type vartype, Class<?> valtype)`
-
-- Description: TODO
+- Role: Performs no mapping exception.
+- Description: Supports the no mapping exception operation used by the surrounding class.
 
 #### `public static <T> void register(Type type, Class<T> cl, UniformApplier<T> fn)`
-
-- Description: TODO
+- Role: Performs register.
+- Description: Supports the register operation used by the surrounding class.
 
 #### `public static <T> UniformApplier<T> get(Type type, Class<T> cl)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private static <T> void apply0(BGL gl, UniformApplier<T> fn, UniformID var, Type type, Object val)`
-
-- Description: TODO
+- Role: Performs apply0.
+- Description: Supports the apply0 operation used by the surrounding class.
 
 #### `private static void apply(BGL gl, Type type, UniformID var, Object val)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static void apply(BGL gl, GLProgram prog, Uniform var, Object val)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void apply(BGL gl, UniformID var, Type type, T value)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

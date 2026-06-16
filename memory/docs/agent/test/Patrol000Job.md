@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Patrol000Job`.
 
 ## Role
 
-Provides a manual test or validation job entry point.
+Implements a test job for patrol000 job.
 
 ## Members
 
@@ -19,15 +19,15 @@ Provides a manual test or validation job entry point.
 ### Fields
 
 #### `private Array<haven.Coord> _path = new Array<>()`
-
-- Description: TODO
+- Role: Caches path entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

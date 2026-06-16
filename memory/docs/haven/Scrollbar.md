@@ -10,104 +10,104 @@ This file documents the responsibilities and members of `Scrollbar`.
 
 ## Role
 
-Displays a scrollbar widget.
+Represents the scrollbar Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex schain = Resource.loadtex("gfx/hud/schain")`
-
-- Description: TODO
+- Role: Defines the shared schain constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex sflarp = Resource.loadtex("gfx/hud/sflarp")`
-
-- Description: TODO
+- Role: Defines the shared sflarp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int chcut = UI.scale(7)`
-
-- Description: TODO
+- Role: Defines the shared chcut constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int width = sflarp.sz().x`
-
-- Description: TODO
+- Role: Defines the shared width constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Scrollable ctl`
-
-- Description: TODO
-
-#### `public int val, min, max`
-
-- Description: TODO
+- Role: Holds the ctl state.
+- Description: Backs the cached state for this file.
 
 #### `public int val, min, max`
-
-- Description: TODO
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
 #### `public int val, min, max`
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int val, min, max`
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab drag = null`
-
-- Description: TODO
+- Role: Stores the drag value.
+- Description: Backs the cached state for this file.
 
 #### `private double acc = 0.5`
-
-- Description: TODO
+- Role: Stores the acc value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Scrollbar(int h, int min, int max)`
-
-- Description: TODO
+- Role: Creates a new Scrollbar instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Scrollbar(int h, Scrollable ctl)`
-
-- Description: TODO
+- Role: Creates a new Scrollbar instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean vis()`
-
-- Description: TODO
+- Role: Performs vis.
+- Description: Supports the vis operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private void update(Coord c)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public void changed()`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public void ch(int a)`
-
-- Description: TODO
+- Role: Performs ch.
+- Description: Supports the ch operation used by the surrounding class.
 
 #### `public void ch(double a)`
-
-- Description: TODO
+- Role: Performs ch.
+- Description: Supports the ch operation used by the surrounding class.
 
 #### `public void resize(int h)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void move(Coord c)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.

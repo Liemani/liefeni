@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `StreamBuffer`.
 
 ## Role
 
-Represents a streamed GL buffer.
+Provides GL backend support for stream buffer.
 
 ## Nested Types
 
 ### Fill
 
-- Description: TODO
+- Role: Represents fill within StreamBuffer.
+- Description: Describes the nested fill type used by the enclosing class.
 
 ## Members
 
@@ -25,83 +26,83 @@ Represents a streamed GL buffer.
 ### Fields
 
 #### `public final GLBuffer rbuf`
-
-- Description: TODO
+- Role: Stores the rbuf value.
+- Description: Backs the cached state for this file.
 
 #### `public final int size`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 #### `private SysBuffer[] xfbufs =`
-
-- Description: TODO
+- Role: Holds the stream buffer state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean[] used =`
-
-- Description: TODO
+- Role: Tracks whether  is active.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final ByteBuffer data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private final boolean[] clear`
-
-- Description: TODO
+- Role: Tracks the clear flag.
+- Description: Supports the clear operation used by the surrounding class.
 
 #### `private final Runnable clean`
-
-- Description: TODO
+- Role: Holds the clean state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public StreamBuffer(GLEnvironment env, int size)`
-
-- Description: TODO
+- Role: Creates a new StreamBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private SysBuffer mkbuf()`
-
-- Description: TODO
+- Role: Performs mkbuf.
+- Description: Supports the mkbuf operation used by the surrounding class.
 
 #### `public ByteBuffer get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void put(ByteBuffer buf)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public void put(BGL gl, ByteBuffer buf)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public Fill()`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public boolean compatible(Environment env)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public ByteBuffer push()`
-
-- Description: TODO
+- Role: Performs push.
+- Description: Supports the push operation used by the surrounding class.
 
 #### `public void pull(ByteBuffer buf)`
-
-- Description: TODO
+- Role: Performs pull.
+- Description: Supports the pull operation used by the surrounding class.
 
 #### `ByteBuffer get()`
-
-- Description: TODO
-
-#### `public void dispose()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void dispose()`
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
-- Description: TODO
+#### `public void dispose()`
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

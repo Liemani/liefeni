@@ -10,322 +10,328 @@ This file documents the responsibilities and members of `PUtils`.
 
 ## Role
 
-Provides packet or protocol utilities.
+Represents the putils Haven component.
 
 ## Nested Types
 
 ### BlurFurn
 
-- Description: TODO
+- Role: Represents blur furn within PUtils.
+- Description: Describes the nested blur furn type used by the enclosing class.
 
 ### Convolution
 
-- Description: TODO
+- Role: Represents convolution within PUtils.
+- Description: Describes the nested convolution type used by the enclosing class.
 
 ### Hamming
 
-- Description: TODO
+- Role: Represents hamming within PUtils.
+- Description: Describes the nested hamming type used by the enclosing class.
 
 ### Hanning
 
-- Description: TODO
+- Role: Represents hanning within PUtils.
+- Description: Describes the nested hanning type used by the enclosing class.
 
 ### Lanczos
 
-- Description: TODO
+- Role: Represents lanczos within PUtils.
+- Description: Describes the nested lanczos type used by the enclosing class.
 
 ### TexFurn
 
-- Description: TODO
+- Role: Represents tex furn within PUtils.
+- Description: Describes the nested tex furn type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final ComponentColorModel cm_rgb = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]`
-
-- Description: TODO
+- Role: Defines the shared cm rgb constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final ComponentColorModel cm_rgba = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]`
-
-- Description: TODO
+- Role: Defines the shared cm rgba constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Convolution box = new Convolution()`
-
-- Description: TODO
+- Role: Defines the shared box constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Convolution uifilter = new Lanczos(3)`
-
-- Description: TODO
+- Role: Defines the shared uifilter constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int grad, brad`
-
-- Description: TODO
+- Role: Stores the brad value.
+- Description: Backs the cached state for this file.
 
 #### `public final int grad, brad`
-
-- Description: TODO
+- Role: Stores the brad value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `public final BufferedImage tex`
-
-- Description: TODO
-
-#### `private final double sz`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `private final double sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `private final double sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final double sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static Coord imgsz(BufferedImage img)`
-
-- Description: TODO
+- Role: Performs imgsz.
+- Description: Supports the imgsz operation used by the surrounding class.
 
 #### `public static Coord imgsz(Raster img)`
-
-- Description: TODO
+- Role: Performs imgsz.
+- Description: Supports the imgsz operation used by the surrounding class.
 
 #### `public static WritableRaster byteraster(Coord sz, int bands)`
-
-- Description: TODO
+- Role: Performs byteraster.
+- Description: Supports the byteraster operation used by the surrounding class.
 
 #### `public static WritableRaster alpharaster(Coord sz)`
-
-- Description: TODO
+- Role: Performs alpharaster.
+- Description: Supports the alpharaster operation used by the surrounding class.
 
 #### `public static WritableRaster imgraster(Coord sz)`
-
-- Description: TODO
+- Role: Performs imgraster.
+- Description: Supports the imgraster operation used by the surrounding class.
 
 #### `public static WritableRaster copy(Raster src)`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public static BufferedImage copy(BufferedImage src)`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public static BufferedImage rasterimg(WritableRaster img)`
-
-- Description: TODO
+- Role: Performs rasterimg.
+- Description: Supports the rasterimg operation used by the surrounding class.
 
 #### `public static BufferedImage coercergba(BufferedImage img, boolean copy)`
-
-- Description: TODO
+- Role: Performs coercergba.
+- Description: Supports the coercergba operation used by the surrounding class.
 
 #### `public static BufferedImage coercergba(BufferedImage img)`
-
-- Description: TODO
+- Role: Performs coercergba.
+- Description: Supports the coercergba operation used by the surrounding class.
 
 #### `public static Area alphabounds(Raster img, int thres)`
-
-- Description: TODO
+- Role: Performs alphabounds.
+- Description: Supports the alphabounds operation used by the surrounding class.
 
 #### `public static Area alphabounds(BufferedImage img, int thres)`
-
-- Description: TODO
+- Role: Performs alphabounds.
+- Description: Supports the alphabounds operation used by the surrounding class.
 
 #### `public static WritableRaster imggrow(WritableRaster img, int rad)`
-
-- Description: TODO
+- Role: Performs imggrow.
+- Description: Supports the imggrow operation used by the surrounding class.
 
 #### `public static WritableRaster imgblur(WritableRaster img, int rad, double var)`
-
-- Description: TODO
+- Role: Performs imgblur.
+- Description: Supports the imgblur operation used by the surrounding class.
 
 #### `public static WritableRaster alphadraw(WritableRaster dst, Raster alpha, Coord ul, Color col)`
-
-- Description: TODO
+- Role: Performs alphadraw.
+- Description: Supports the alphadraw operation used by the surrounding class.
 
 #### `public static WritableRaster blit(WritableRaster dst, Raster src, Coord off)`
-
-- Description: TODO
+- Role: Performs blit.
+- Description: Supports the blit operation used by the surrounding class.
 
 #### `public static WritableRaster gayblit(WritableRaster dst, int dband, Coord doff, Raster src, int sband, Coord soff)`
-
-- Description: TODO
+- Role: Performs gayblit.
+- Description: Supports the gayblit operation used by the surrounding class.
 
 #### `public static WritableRaster alphablit(WritableRaster dst, Raster src, Coord off)`
-
-- Description: TODO
+- Role: Performs alphablit.
+- Description: Supports the alphablit operation used by the surrounding class.
 
 #### `public static WritableRaster blendblit(WritableRaster dst, Raster src, Coord off, int a)`
-
-- Description: TODO
+- Role: Performs blendblit.
+- Description: Supports the blendblit operation used by the surrounding class.
 
 #### `public static WritableRaster tilemod(WritableRaster dst, Raster tile, Coord off)`
-
-- Description: TODO
+- Role: Performs tilemod.
+- Description: Supports the tilemod operation used by the surrounding class.
 
 #### `public static WritableRaster colmul(WritableRaster img, Color col)`
-
-- Description: TODO
+- Role: Performs colmul.
+- Description: Supports the colmul operation used by the surrounding class.
 
 #### `public static WritableRaster copyband(WritableRaster dst, int dband, Coord doff, Raster src, int sband, Coord soff, Coord sz)`
-
-- Description: TODO
+- Role: Performs copyband.
+- Description: Supports the copyband operation used by the surrounding class.
 
 #### `public static WritableRaster copyband(WritableRaster dst, int dband, Coord doff, Raster src, int sband)`
-
-- Description: TODO
+- Role: Performs copyband.
+- Description: Supports the copyband operation used by the surrounding class.
 
 #### `public static WritableRaster copyband(WritableRaster dst, int dband, Raster src, int sband)`
-
-- Description: TODO
+- Role: Performs copyband.
+- Description: Supports the copyband operation used by the surrounding class.
 
 #### `public static WritableRaster blurmask(Raster img, int grad, int brad, Color col)`
-
-- Description: TODO
+- Role: Performs blurmask.
+- Description: Supports the blurmask operation used by the surrounding class.
 
 #### `public static WritableRaster blurmask2(Raster img, int grad, int brad, Color col)`
-
-- Description: TODO
+- Role: Performs blurmask2.
+- Description: Supports the blurmask2 operation used by the surrounding class.
 
 #### `public static WritableRaster glowmask(Raster img)`
-
-- Description: TODO
+- Role: Performs glowmask.
+- Description: Supports the glowmask operation used by the surrounding class.
 
 #### `public static BufferedImage glowmask(Raster img, int grad, Color col)`
-
-- Description: TODO
+- Role: Performs glowmask.
+- Description: Supports the glowmask operation used by the surrounding class.
 
 #### `public BlurFurn(Text.Forge bk, int grad, int brad, Color col)`
-
-- Description: TODO
+- Role: Performs blur furn.
+- Description: Supports the blur furn operation used by the surrounding class.
 
 #### `public BlurFurn(Text.Furnace bk, int grad, int brad, Color col)`
-
-- Description: TODO
+- Role: Performs blur furn.
+- Description: Supports the blur furn operation used by the surrounding class.
 
 #### `public BufferedImage proc(Text.Slug text)`
-
-- Description: TODO
+- Role: Performs proc.
+- Description: Supports the proc operation used by the surrounding class.
 
 #### `public Coord tloff()`
-
-- Description: TODO
+- Role: Performs tloff.
+- Description: Supports the tloff operation used by the surrounding class.
 
 #### `public Coord broff()`
-
-- Description: TODO
+- Role: Performs broff.
+- Description: Supports the broff operation used by the surrounding class.
 
 #### `public TexFurn(Text.Forge bk, BufferedImage tex)`
-
-- Description: TODO
+- Role: Performs tex furn.
+- Description: Supports the tex furn operation used by the surrounding class.
 
 #### `public TexFurn(Text.Furnace bk, BufferedImage tex)`
-
-- Description: TODO
+- Role: Performs tex furn.
+- Description: Supports the tex furn operation used by the surrounding class.
 
 #### `public BufferedImage proc(Text.Slug text)`
-
-- Description: TODO
+- Role: Performs proc.
+- Description: Supports the proc operation used by the surrounding class.
 
 #### `public Coord tloff()`
-
-- Description: TODO
+- Role: Performs tloff.
+- Description: Supports the tloff operation used by the surrounding class.
 
 #### `public Coord broff()`
-
-- Description: TODO
+- Role: Performs broff.
+- Description: Supports the broff operation used by the surrounding class.
 
 #### `public static void dumpband(Raster img, int band)`
-
-- Description: TODO
+- Role: Performs dumpband.
+- Description: Supports the dumpband operation used by the surrounding class.
 
 #### `public static BufferedImage monochromize(BufferedImage img, Color col)`
-
-- Description: TODO
+- Role: Performs monochromize.
+- Description: Supports the monochromize operation used by the surrounding class.
 
 #### `public double cval(double td)`
-
-- Description: TODO
+- Role: Performs cval.
+- Description: Supports the cval operation used by the surrounding class.
 
 #### `public double support()`
-
-- Description: TODO
+- Role: Performs support.
+- Description: Supports the support operation used by the surrounding class.
 
 #### `public Hanning(double sz)`
-
-- Description: TODO
+- Role: Performs hanning.
+- Description: Supports the hanning operation used by the surrounding class.
 
 #### `public double cval(double td)`
-
-- Description: TODO
+- Role: Performs cval.
+- Description: Supports the cval operation used by the surrounding class.
 
 #### `public double support()`
-
-- Description: TODO
+- Role: Performs support.
+- Description: Supports the support operation used by the surrounding class.
 
 #### `public Hamming(double sz)`
-
-- Description: TODO
+- Role: Performs hamming.
+- Description: Supports the hamming operation used by the surrounding class.
 
 #### `public double cval(double td)`
-
-- Description: TODO
+- Role: Performs cval.
+- Description: Supports the cval operation used by the surrounding class.
 
 #### `public double support()`
-
-- Description: TODO
+- Role: Performs support.
+- Description: Supports the support operation used by the surrounding class.
 
 #### `public Lanczos(double sz)`
-
-- Description: TODO
+- Role: Performs lanczos.
+- Description: Supports the lanczos operation used by the surrounding class.
 
 #### `public double cval(double td)`
-
-- Description: TODO
+- Role: Performs cval.
+- Description: Supports the cval operation used by the surrounding class.
 
 #### `public double support()`
-
-- Description: TODO
+- Role: Performs support.
+- Description: Supports the support operation used by the surrounding class.
 
 #### `public static WritableRaster convolvedown(Raster in, Coord tsz, Convolution filter)`
-
-- Description: TODO
+- Role: Performs convolvedown.
+- Description: Supports the convolvedown operation used by the surrounding class.
 
 #### `public static BufferedImage convolvedown(BufferedImage img, Coord tsz, Convolution filter)`
-
-- Description: TODO
+- Role: Performs convolvedown.
+- Description: Supports the convolvedown operation used by the surrounding class.
 
 #### `public static WritableRaster convolveup(Raster in, Coord tsz, Convolution filter)`
-
-- Description: TODO
+- Role: Performs convolveup.
+- Description: Supports the convolveup operation used by the surrounding class.
 
 #### `public static BufferedImage convolveup(BufferedImage img, Coord tsz, Convolution filter)`
-
-- Description: TODO
+- Role: Performs convolveup.
+- Description: Supports the convolveup operation used by the surrounding class.
 
 #### `public static WritableRaster convolve(Raster img, Coord tsz, Convolution filter)`
-
-- Description: TODO
+- Role: Performs convolve.
+- Description: Supports the convolve operation used by the surrounding class.
 
 #### `public static BufferedImage convolve(BufferedImage img, Coord tsz, Convolution filter)`
-
-- Description: TODO
+- Role: Performs convolve.
+- Description: Supports the convolve operation used by the surrounding class.
 
 #### `public static Raster uiscale(Raster img, Coord tsz)`
-
-- Description: TODO
+- Role: Performs uiscale.
+- Description: Supports the uiscale operation used by the surrounding class.
 
 #### `public static BufferedImage uiscale(BufferedImage img, Coord tsz)`
-
-- Description: TODO
+- Role: Performs uiscale.
+- Description: Supports the uiscale operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

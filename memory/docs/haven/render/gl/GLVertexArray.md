@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `GLVertexArray`.
 
 ## Role
 
-Represents a GL vertex array.
+Provides GL backend support for glvertex array.
 
 ## Nested Types
 
 ### Indexed
 
-- Description: TODO
+- Role: Represents indexed within GLVertexArray.
+- Description: Describes the nested indexed type used by the enclosing class.
 
 ### ProgIndex
 
-- Description: TODO
+- Role: Represents prog index within GLVertexArray.
+- Description: Describes the nested prog index type used by the enclosing class.
 
 ## Members
 
@@ -29,103 +31,103 @@ Represents a GL vertex array.
 ### Fields
 
 #### `private int id, state = 0`
-
-- Description: TODO
+- Role: Stores the state value.
+- Description: Backs the cached state for this file.
 
 #### `private int id, state = 0`
-
-- Description: TODO
+- Role: Stores the state value.
+- Description: Backs the cached state for this file.
 
 #### `final GLEnvironment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `final WeakReference<Model> desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 #### `Indexed[] vaos = new Indexed[2]`
-
-- Description: TODO
+- Role: Holds the vaos state.
+- Description: Backs the cached state for this file.
 
 #### `int n = 0`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `final Collection<GLProgram> progs = new HashSet<>()`
-
-- Description: TODO
+- Role: Caches progs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `final Attribute[] attribs`
-
-- Description: TODO
+- Role: Holds the attribs state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GLVertexArray(GLEnvironment env)`
-
-- Description: TODO
+- Role: Creates a new GLVertexArray instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `static boolean ephemeralp(VertexArray va)`
-
-- Description: TODO
+- Role: Performs ephemeralp.
+- Description: Supports the ephemeralp operation used by the surrounding class.
 
 #### `static boolean ephemeralp(Model m)`
-
-- Description: TODO
+- Role: Performs ephemeralp.
+- Description: Supports the ephemeralp operation used by the surrounding class.
 
 #### `public void init(GLProgram prog, Model mod)`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public ProgIndex(GLEnvironment env, Model desc)`
-
-- Description: TODO
+- Role: Performs prog index.
+- Description: Supports the prog index operation used by the surrounding class.
 
 #### `Indexed(GLEnvironment env, Attribute[] attribs)`
-
-- Description: TODO
+- Role: Handles the indexed workflow.
+- Description: Supports the indexed operation used by the surrounding class.
 
 #### `boolean cleanprogs()`
-
-- Description: TODO
+- Role: Performs cleanprogs.
+- Description: Supports the cleanprogs operation used by the surrounding class.
 
 #### `void useprog(GLProgram prog)`
-
-- Description: TODO
+- Role: Performs useprog.
+- Description: Supports the useprog operation used by the surrounding class.
 
 #### `void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `void add(Indexed vao)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `GLVertexArray get(GLProgram prog, Model mod)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

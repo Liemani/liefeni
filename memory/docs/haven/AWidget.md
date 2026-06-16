@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `AWidget`.
 
 ## Role
 
-Defines a widget base class used across Haven UI.
+Represents the awidget Haven component.
 
 ## Members
 
@@ -21,9 +21,9 @@ Defines a widget base class used across Haven UI.
 ### Methods
 
 #### `public AWidget()`
-
-- Description: TODO
+- Role: Creates a new AWidget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.

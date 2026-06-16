@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ErrorStatus`.
 
 ## Role
 
-Represents error status values.
+Handles Haven error reporting for error status.
 
 ## Members
 
@@ -21,41 +21,41 @@ Represents error status values.
 ### Methods
 
 #### `public boolean goterror(Throwable t)`
-
-- Description: TODO
+- Role: Performs goterror.
+- Description: Supports the goterror operation used by the surrounding class.
 
 #### `public void connecting()`
-
-- Description: TODO
+- Role: Performs connecting.
+- Description: Supports the connecting operation used by the surrounding class.
 
 #### `public void sending()`
-
-- Description: TODO
+- Role: Performs sending.
+- Description: Supports the sending operation used by the surrounding class.
 
 #### `public void done(String ctype, String info)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public void senderror(Exception e)`
-
-- Description: TODO
+- Role: Performs senderror.
+- Description: Supports the senderror operation used by the surrounding class.
 
 #### `public boolean goterror(Throwable t)`
-
-- Description: TODO
+- Role: Performs goterror.
+- Description: Supports the goterror operation used by the surrounding class.
 
 #### `public void connecting()`
-
-- Description: TODO
+- Role: Performs connecting.
+- Description: Supports the connecting operation used by the surrounding class.
 
 #### `public void sending()`
-
-- Description: TODO
+- Role: Performs sending.
+- Description: Supports the sending operation used by the surrounding class.
 
 #### `public void done(String ctype, String info)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public void senderror(Exception e)`
-
-- Description: TODO
+- Role: Performs senderror.
+- Description: Supports the senderror operation used by the surrounding class.

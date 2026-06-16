@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LFieldRef`.
 
 ## Role
 
-Represents a logical field reference.
+Represents the lfield ref shader-language AST node.
 
 ## Members
 
@@ -19,23 +19,23 @@ Represents a logical field reference.
 ### Fields
 
 #### `public final LValue val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `public final String el`
-
-- Description: TODO
+- Role: Stores the el value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LFieldRef(LValue val, String el)`
-
-- Description: TODO
+- Role: Creates a new LFieldRef instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

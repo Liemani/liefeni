@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DropTarget`.
 
 ## Role
 
-Defines a UI drop target.
+Represents the drop target Haven component.
 
 ## Members
 
@@ -19,95 +19,95 @@ Defines a UI drop target.
 ### Fields
 
 #### `public final Object thing`
-
-- Description: TODO
+- Role: Holds the thing state.
+- Description: Backs the cached state for this file.
 
 #### `public final Hover root`
-
-- Description: TODO
+- Role: Holds the root state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean hovering`
-
-- Description: TODO
+- Role: Tracks the hovering flag.
+- Description: Supports the hovering operation used by the surrounding class.
 
 #### `public DropTarget tgt`
-
-- Description: TODO
+- Role: Holds the tgt state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public default boolean dropthing(Coord cc, Object thing)`
-
-- Description: TODO
+- Role: Performs dropthing.
+- Description: Supports the dropthing operation used by the surrounding class.
 
 #### `public default boolean drophover(Coord cc, boolean hovering, Object thing)`
-
-- Description: TODO
+- Role: Performs drophover.
+- Description: Supports the drophover operation used by the surrounding class.
 
 #### `public default boolean dropthing(Drop ev)`
-
-- Description: TODO
+- Role: Performs dropthing.
+- Description: Supports the dropthing operation used by the surrounding class.
 
 #### `public default boolean drophover(Hover ev)`
-
-- Description: TODO
+- Role: Performs drophover.
+- Description: Supports the drophover operation used by the surrounding class.
 
 #### `public DropEvent(Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs drop event.
+- Description: Supports the drop event operation used by the surrounding class.
 
 #### `public DropEvent(DropEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs drop event.
+- Description: Supports the drop event operation used by the surrounding class.
 
 #### `public Drop(Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public Drop(Drop from, Coord c)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public Drop derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public Hover(Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs hover.
+- Description: Supports the hover operation used by the surrounding class.
 
 #### `public Hover(Hover from, Coord c)`
-
-- Description: TODO
+- Role: Performs hover.
+- Description: Supports the hover operation used by the surrounding class.
 
 #### `public Hover derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `public Hover hovering(boolean h)`
-
-- Description: TODO
+- Role: Performs hovering.
+- Description: Supports the hovering operation used by the surrounding class.
 
 #### `public boolean accept(DropTarget tgt)`
-
-- Description: TODO
+- Role: Performs accept.
+- Description: Supports the accept operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public static boolean dropthing(Widget wdg, Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs dropthing.
+- Description: Supports the dropthing operation used by the surrounding class.
 
 #### `public static boolean drophover(Widget wdg, Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs drophover.
+- Description: Supports the drophover operation used by the surrounding class.

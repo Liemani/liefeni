@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Walker`.
 
 ## Role
 
-Traverses shader AST nodes.
+Represents the walker shader-language AST node.
 
 ## Members
 
@@ -21,5 +21,5 @@ Traverses shader AST nodes.
 ### Methods
 
 #### `public void el(Element e)`
-
-- Description: TODO
+- Role: Performs el.
+- Description: Supports the el operation used by the surrounding class.

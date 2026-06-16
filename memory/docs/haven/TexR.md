@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `TexR`.
 
 ## Role
 
-Represents a render-target texture.
+Represents the tex r Haven component.
 
 ## Nested Types
 
 ### Encoded
 
-- Description: TODO
+- Role: Represents encoded within TexR.
+- Description: Describes the nested encoded type used by the enclosing class.
 
 ### Image
 
-- Description: TODO
+- Role: Represents image within TexR.
+- Description: Describes the nested image type used by the enclosing class.
 
 ### Real
 
-- Description: TODO
+- Role: Represents real within TexR.
+- Description: Describes the nested real type used by the enclosing class.
 
 ## Members
 
@@ -33,95 +36,95 @@ Represents a render-target texture.
 ### Fields
 
 #### `transient private byte[] img, mask`
-
-- Description: TODO
+- Role: Stores the mask value.
+- Description: Backs the cached state for this file.
 
 #### `transient private byte[] img, mask`
-
-- Description: TODO
+- Role: Stores the mask value.
+- Description: Backs the cached state for this file.
 
 #### `transient private final TexL tex`
-
-- Description: TODO
-
-#### `private final Coord off, sz`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `private final Coord off, sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final Coord off, sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final TexL tex`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public abstract TexL tex()`
-
-- Description: TODO
+- Role: Performs tex.
+- Description: Supports the tex operation used by the surrounding class.
 
 #### `public TexR(Resource res)`
-
-- Description: TODO
+- Role: Creates a new TexR instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Encoded(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs encoded.
+- Description: Supports the encoded operation used by the surrounding class.
 
 #### `private Real()`
-
-- Description: TODO
+- Role: Performs real.
+- Description: Supports the real operation used by the surrounding class.
 
 #### `private BufferedImage rd(final byte[] data)`
-
-- Description: TODO
+- Role: Performs rd.
+- Description: Supports the rd operation used by the surrounding class.
 
 #### `public BufferedImage fill()`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public String loadname()`
-
-- Description: TODO
+- Role: Performs loadname.
+- Description: Supports the loadname operation used by the surrounding class.
 
 #### `public TexL tex()`
-
-- Description: TODO
+- Role: Performs tex.
+- Description: Supports the tex operation used by the surrounding class.
 
 #### `public Integer layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.
 
 #### `public Image(Resource res, TexL tex, int id)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public Image(Resource res, TexL tex)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public TexL tex()`
-
-- Description: TODO
+- Role: Performs tex.
+- Description: Supports the tex operation used by the surrounding class.
 
 #### `public Integer layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `GLReference`.
 
 ## Role
 
-Represents a GL reference.
+Provides GL backend support for glreference.
 
 ## Members
 
@@ -21,9 +21,9 @@ Represents a GL reference.
 ### Methods
 
 #### `public GLReference(T ob)`
-
-- Description: TODO
+- Role: Creates a new GLReference instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static <T extends Disposable> T get(Object ro, Class<T> type)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.

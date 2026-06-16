@@ -10,120 +10,120 @@ This file documents the responsibilities and members of `CoordNd`.
 
 ## Role
 
-Provides N-dimensional coordinate helpers.
+Represents an N-dimensional coordinate.
 
 ## Members
 
 ### Constants
 
 #### `public static final CoordNd o = new CoordNd(0)`
-
-- Description: TODO
+- Role: Defines the shared o constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final double[] el`
-
-- Description: TODO
+- Role: Stores the el value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public CoordNd(int n)`
-
-- Description: TODO
+- Role: Creates a new CoordNd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public CoordNd(double... el)`
-
-- Description: TODO
+- Role: Creates a new CoordNd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public double el(int i)`
-
-- Description: TODO
+- Role: Performs el.
+- Description: Supports the el operation used by the surrounding class.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `private CoordNd op(DoubleUnaryOperator op)`
-
-- Description: TODO
+- Role: Performs op.
+- Description: Supports the op operation used by the surrounding class.
 
 #### `private CoordNd op(DoubleBinaryOperator op, double[] b)`
-
-- Description: TODO
+- Role: Performs op.
+- Description: Supports the op operation used by the surrounding class.
 
 #### `public CoordNd add(CoordNd b)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public CoordNd inv()`
-
-- Description: TODO
+- Role: Performs inv.
+- Description: Supports the inv operation used by the surrounding class.
 
 #### `public CoordNd sub(CoordNd b)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public CoordNd mul(double f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public CoordNd mul(CoordNd b)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public CoordNd div(double f)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public CoordNd div(CoordNd b)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public CoordNd mod(double b)`
-
-- Description: TODO
+- Role: Performs mod.
+- Description: Supports the mod operation used by the surrounding class.
 
 #### `public CoordNd mod(CoordNd b)`
-
-- Description: TODO
+- Role: Performs mod.
+- Description: Supports the mod operation used by the surrounding class.
 
 #### `public CoordNd round()`
-
-- Description: TODO
+- Role: Performs round.
+- Description: Supports the round operation used by the surrounding class.
 
 #### `public CoordNd floor()`
-
-- Description: TODO
+- Role: Performs floor.
+- Description: Supports the floor operation used by the surrounding class.
 
 #### `public CoordNd ceil()`
-
-- Description: TODO
+- Role: Performs ceil.
+- Description: Supports the ceil operation used by the surrounding class.
 
 #### `public double dmul(CoordNd b)`
-
-- Description: TODO
+- Role: Performs dmul.
+- Description: Supports the dmul operation used by the surrounding class.
 
 #### `public double abs()`
-
-- Description: TODO
+- Role: Performs abs.
+- Description: Supports the abs operation used by the surrounding class.
 
 #### `public CoordNd norm(double l)`
-
-- Description: TODO
+- Role: Performs norm.
+- Description: Supports the norm operation used by the surrounding class.
 
 #### `public CoordNd norm()`
-
-- Description: TODO
+- Role: Performs norm.
+- Description: Supports the norm operation used by the surrounding class.
 
 #### `public double dist(CoordNd o)`
-
-- Description: TODO
+- Role: Performs dist.
+- Description: Supports the dist operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

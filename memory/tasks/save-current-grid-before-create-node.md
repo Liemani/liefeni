@@ -1,8 +1,6 @@
-# Task
+# `REQ-WP-002`: `CreateNodeJob` 실행 전에 현재 player grid가 waypoint DB에 존재하도록 보장하기
 
-## Title
-
-`REQ-WP-002`: `CreateNodeJob` 실행 전에 현재 player grid가 waypoint DB에 존재하도록 보장하기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

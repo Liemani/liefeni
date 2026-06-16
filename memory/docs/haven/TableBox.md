@@ -10,33 +10,39 @@ This file documents the responsibilities and members of `TableBox`.
 
 ## Role
 
-Displays a table-style box widget.
+Represents the table box Haven component.
 
 ## Nested Types
 
 ### ColSpec
 
-- Description: TODO
+- Role: Represents col spec within TableBox.
+- Description: Describes the nested col spec type used by the enclosing class.
 
 ### Column
 
-- Description: TODO
+- Role: Represents column within TableBox.
+- Description: Describes the nested column type used by the enclosing class.
 
 ### HeadFactory
 
-- Description: TODO
+- Role: Represents head factory within TableBox.
+- Description: Describes the nested head factory type used by the enclosing class.
 
 ### IHeading
 
-- Description: TODO
+- Role: Represents iheading within TableBox.
+- Description: Describes the nested iheading type used by the enclosing class.
 
 ### MainList
 
-- Description: TODO
+- Role: Represents main list within TableBox.
+- Description: Describes the nested main list type used by the enclosing class.
 
 ### Row
 
-- Description: TODO
+- Role: Represents row within TableBox.
+- Description: Describes the nested row type used by the enclosing class.
 
 ## Members
 
@@ -45,179 +51,179 @@ Displays a table-style box widget.
 ### Fields
 
 #### `public final List<Column<I>> cols`
-
-- Description: TODO
+- Role: Caches cols entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MainList main`
-
-- Description: TODO
+- Role: Caches main entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final TableBox<I> tbl`
-
-- Description: TODO
+- Role: Holds the tbl state.
+- Description: Backs the cached state for this file.
 
 #### `public final ColSpec<? super I> spec`
-
-- Description: TODO
+- Role: Holds the spec state.
+- Description: Backs the cached state for this file.
 
 #### `public Widget head`
-
-- Description: TODO
-
-#### `public int x, w`
-
-- Description: TODO
+- Role: Stores the head value.
+- Description: Backs the cached state for this file.
 
 #### `public int x, w`
+- Role: Stores the w value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int x, w`
+- Role: Stores the w value.
+- Description: Backs the cached state for this file.
 
 #### `public Collection<BiConsumer<GOut, Column<? super I>>> drawcb = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches drawcb entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean hovering`
-
-- Description: TODO
+- Role: Tracks the hovering flag.
+- Description: Supports the hovering operation used by the surrounding class.
 
 ### Methods
 
 #### `public TableBox(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new TableBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected abstract List<? extends I> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected abstract List<ColSpec<? super I>> spec()`
-
-- Description: TODO
+- Role: Performs spec.
+- Description: Supports the spec operation used by the surrounding class.
 
 #### `protected abstract int itemh()`
-
-- Description: TODO
+- Role: Performs itemh.
+- Description: Supports the itemh operation used by the surrounding class.
 
 #### `protected int headh()`
-
-- Description: TODO
+- Role: Performs headh.
+- Description: Supports the headh operation used by the surrounding class.
 
 #### `protected int colmarg()`
-
-- Description: TODO
+- Role: Performs colmarg.
+- Description: Supports the colmarg operation used by the surrounding class.
 
 #### `protected int rowmarg()`
-
-- Description: TODO
+- Role: Performs rowmarg.
+- Description: Supports the rowmarg operation used by the surrounding class.
 
 #### `protected MainList makelist(Coord sz)`
-
-- Description: TODO
+- Role: Performs makelist.
+- Description: Supports the makelist operation used by the surrounding class.
 
 #### `protected Row makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public Widget heading(Column<? extends I> col, Coord sz)`
-
-- Description: TODO
+- Role: Performs heading.
+- Description: Supports the heading operation used by the surrounding class.
 
 #### `public static <T> HeadFactory<T> of(Tex heading)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public int fixw()`
-
-- Description: TODO
+- Role: Performs fixw.
+- Description: Supports the fixw operation used by the surrounding class.
 
 #### `public double flexw()`
-
-- Description: TODO
+- Role: Performs flexw.
+- Description: Supports the flexw operation used by the surrounding class.
 
 #### `public double align()`
-
-- Description: TODO
+- Role: Performs align.
+- Description: Supports the align operation used by the surrounding class.
 
 #### `public double halign()`
-
-- Description: TODO
+- Role: Performs halign.
+- Description: Supports the halign operation used by the surrounding class.
 
 #### `public abstract Widget heading(Column<? extends I> col, Coord sz)`
-
-- Description: TODO
+- Role: Performs heading.
+- Description: Supports the heading operation used by the surrounding class.
 
 #### `public abstract Widget makecell(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makecell.
+- Description: Supports the makecell operation used by the surrounding class.
 
 #### `public static <T> ColSpec<T> of(int fixw, double flexw, double align, double halign,`
-
-- Description: TODO
+- Role: Handles the of workflow.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static <T> ColSpec<T> of(int fixw, double flexw, double align, double halign, Tex heading,`
-
-- Description: TODO
+- Role: Handles the of workflow.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `protected Column(TableBox<I> tbl, ColSpec<? super I> spec)`
-
-- Description: TODO
+- Role: Performs column.
+- Description: Supports the column operation used by the surrounding class.
 
 #### `protected Row(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs row.
+- Description: Supports the row operation used by the surrounding class.
 
 #### `protected MainList(Coord sz)`
-
-- Description: TODO
+- Role: Performs main list.
+- Description: Supports the main list operation used by the surrounding class.
 
 #### `public List<? extends I> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `public Row makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
-
-#### `protected boolean unselect(int button)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `protected boolean unselect(int button)`
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
-- Description: TODO
+#### `protected boolean unselect(int button)`
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `private void widths()`
-
-- Description: TODO
+- Role: Performs widths.
+- Description: Supports the widths operation used by the surrounding class.
 
 #### `protected void drawgrid(GOut g)`
-
-- Description: TODO
+- Role: Performs drawgrid.
+- Description: Supports the drawgrid operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public IHeading(Column<?> col, Coord sz)`
-
-- Description: TODO
+- Role: Performs iheading.
+- Description: Supports the iheading operation used by the surrounding class.
 
 #### `protected abstract boolean click(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Performs click.
+- Description: Supports the click operation used by the surrounding class.
 
 #### `private void col(GOut g, Column<?> col)`
-
-- Description: TODO
+- Role: Performs col.
+- Description: Supports the col operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
-
-- Description: TODO
+- Role: Performs mousehover.
+- Description: Supports the mousehover operation used by the surrounding class.
 
 #### `public static <T> HeadFactory<T> wrap(HeadFactory<T> bk, Function<Column<? extends T>, Predicate<? super MouseDownEvent>> clickf)`
-
-- Description: TODO
+- Role: Performs wrap.
+- Description: Supports the wrap operation used by the surrounding class.

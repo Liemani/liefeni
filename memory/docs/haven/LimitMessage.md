@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LimitMessage`.
 
 ## Role
 
-Represents a rate-limited or bounded message.
+Represents the limit message Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a rate-limited or bounded message.
 ### Fields
 
 #### `private final Message bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `private int left`
-
-- Description: TODO
+- Role: Stores the left value.
+- Description: Backs the cached state for this file.
 
 #### `private final boolean eoferror`
-
-- Description: TODO
+- Role: Tracks the eoferror flag.
+- Description: Supports the eoferror operation used by the surrounding class.
 
 ### Methods
 
 #### `public LimitMessage(Message bk, int left, boolean eoferror)`
-
-- Description: TODO
+- Role: Creates a new LimitMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public LimitMessage(Message bk, int left)`
-
-- Description: TODO
+- Role: Creates a new LimitMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean underflow(int hint)`
-
-- Description: TODO
+- Role: Performs underflow.
+- Description: Supports the underflow operation used by the surrounding class.
 
 #### `public void overflow(int min)`
-
-- Description: TODO
+- Role: Performs overflow.
+- Description: Supports the overflow operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `Block`.
 
 ## Role
 
-Represents a shader statement block.
+Represents the block shader-language AST node.
 
 ## Nested Types
 
 ### Def
 
-- Description: TODO
+- Role: Represents def within Block.
+- Description: Describes the nested def type used by the enclosing class.
 
 ### Local
 
-- Description: TODO
+- Role: Represents local within Block.
+- Description: Describes the nested local type used by the enclosing class.
 
 ## Members
 
@@ -29,79 +31,79 @@ Represents a shader statement block.
 ### Fields
 
 #### `public final List<Statement> stmts = new LinkedList<Statement>()`
-
-- Description: TODO
+- Role: Caches stmts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Expression init`
-
-- Description: TODO
+- Role: Holds the init state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Block(Statement... stmts)`
-
-- Description: TODO
+- Role: Creates a new Block instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Local(Type type, Symbol name)`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.
 
 #### `public Local(Type type)`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.
 
 #### `public Def(Expression init)`
-
-- Description: TODO
+- Role: Performs def.
+- Description: Supports the def operation used by the surrounding class.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public void add(Statement stmt, Statement before)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(Statement stmt)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(Expression expr, Statement before)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(Expression expr)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Local local(Type type, Symbol name, Expression init, Statement before)`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.
 
 #### `public Local local(Type type, Symbol name, Expression init)`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.
 
 #### `public Local local(Type type, String prefix, Expression init)`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.
 
 #### `public Local local(Type type, Expression init)`
-
-- Description: TODO
+- Role: Performs local.
+- Description: Supports the local operation used by the surrounding class.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void trail(Output out, boolean nl)`
-
-- Description: TODO
+- Role: Performs trail.
+- Description: Supports the trail operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

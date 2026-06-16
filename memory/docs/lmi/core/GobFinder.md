@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `GobFinder`.
 
 ## Role
 
-Searches for relevant gobs in the current world state.
+Locates gobs from cached Haven state.
 
 ## Members
 
@@ -21,41 +21,41 @@ Searches for relevant gobs in the current world state.
 ### Methods
 
 #### `public static Gob closest()`
-
-- Description: TODO
+- Role: Performs closest.
+- Description: Supports the closest operation used by the surrounding class.
 
 #### `public static Gob closestOf(String name)`
-
-- Description: TODO
+- Role: Performs closest of.
+- Description: Supports the closest of operation used by the surrounding class.
 
 #### `public static Gob byId(long gobId)`
-
-- Description: TODO
+- Role: Performs by id.
+- Description: Supports the by id operation used by the surrounding class.
 
 #### `public static Gob at(Coord position)`
-
-- Description: TODO
+- Role: Performs at.
+- Description: Supports the at operation used by the surrounding class.
 
 #### `public static Gob at(int x, int y)`
-
-- Description: TODO
+- Role: Performs at.
+- Description: Supports the at operation used by the surrounding class.
 
 #### `public static Array<Gob> all()`
-
-- Description: TODO
+- Role: Performs all.
+- Description: Supports the all operation used by the surrounding class.
 
 #### `public static Array<Gob> where(Predicate<Gob> predicate)`
-
-- Description: TODO
+- Role: Performs where.
+- Description: Supports the where operation used by the surrounding class.
 
 #### `public static Array<Gob> in(Rect area)`
-
-- Description: TODO
+- Role: Performs in.
+- Description: Supports the in operation used by the surrounding class.
 
 #### `public static Array<Gob> inSelectedArea()`
-
-- Description: TODO
+- Role: Performs in selected area.
+- Description: Supports the in selected area operation used by the surrounding class.
 
 #### `private static Gob _closestWhere(java.util.function.Predicate<Gob> predicate)`
-
-- Description: TODO
+- Role: Performs  closest where.
+- Description: Supports the closest where operation used by the surrounding class.

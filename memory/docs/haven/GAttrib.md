@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `GAttrib`.
 
 ## Role
 
-Represents a gob attribute.
+Represents the gattrib Haven component.
 
 ## Nested Types
 
 ### Parser
 
-- Description: TODO
+- Role: Represents parser within GAttrib.
+- Description: Describes the nested parser type used by the enclosing class.
 
 ### ParserMaker
 
-- Description: TODO
+- Role: Represents parser maker within GAttrib.
+- Description: Describes the nested parser maker type used by the enclosing class.
 
 ## Members
 
@@ -29,39 +31,39 @@ Represents a gob attribute.
 ### Fields
 
 #### `public final Gob gob`
-
-- Description: TODO
+- Role: Stores the gob value.
+- Description: Backs the cached state for this file.
 
 #### `Collection<RenderTree.Slot> slots`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public GAttrib(Gob gob)`
-
-- Description: TODO
+- Role: Creates a new GAttrib instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void ctick(double dt)`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public Parser make(Class<?> cl, Resource ires, Object... argv)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public void apply(Gob gob, Message sdt)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

@@ -10,48 +10,48 @@ This file documents the responsibilities and members of `DepthBuffer`.
 
 ## Role
 
-Represents a depth buffer.
+Defines the depth buffer render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<DepthBuffer> slot = new Slot<>(Slot.Type.SYS, DepthBuffer.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Object defdepth = new Object()`
-
-- Description: TODO
+- Role: Defines the shared defdepth constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final T image`
-
-- Description: TODO
+- Role: Holds the image state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public DepthBuffer(T image)`
-
-- Description: TODO
+- Role: Creates a new DepthBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

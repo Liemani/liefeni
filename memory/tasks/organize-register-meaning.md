@@ -1,8 +1,6 @@
-# Task
+# `register` 관련 내용과 역할 정리하기
 
-## Title
-
-`register` 관련 내용과 역할 정리하기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

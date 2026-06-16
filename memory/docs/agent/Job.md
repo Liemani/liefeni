@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Job`.
 
 ## Role
 
-Defines the base contract for long-running jobs.
+Base type for long-running agent jobs.
 
 ## Members
 
@@ -21,5 +21,5 @@ Defines the base contract for long-running jobs.
 ### Methods
 
 #### `public abstract void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.

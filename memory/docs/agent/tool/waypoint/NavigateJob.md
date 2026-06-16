@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `NavigateJob`.
 
 ## Role
 
-Provides a waypoint tool job entry point.
+Implements a waypoint job for navigate job.
 
 ## Members
 
@@ -21,9 +21,9 @@ Provides a waypoint tool job entry point.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

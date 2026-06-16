@@ -10,74 +10,75 @@ This file documents the responsibilities and members of `FragData`.
 
 ## Role
 
-Represents fragment shader data.
+Represents the frag data shader-language AST node.
 
 ## Nested Types
 
 ### Def
 
-- Description: TODO
+- Role: Represents def within FragData.
+- Description: Describes the nested def type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object defid = new PostProc.AutoID("fragdata", 15000)`
-
-- Description: TODO
+- Role: Defines the shared defid constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Function<Pipe, Object> value`
-
-- Description: TODO
+- Role: Holds the value state.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<State.Slot<?>> deps`
-
-- Description: TODO
+- Role: Caches deps entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public boolean primary = false`
-
-- Description: TODO
+- Role: Tracks the primary flag.
+- Description: Supports the primary operation used by the surrounding class.
 
 ### Methods
 
 #### `public FragData(Type type, Symbol name, Function<Pipe, Object> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Creates a new FragData instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FragData(Type type, String infix, Function<Pipe, Object> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Creates a new FragData instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FragData(Type type, Function<Pipe, Object> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Creates a new FragData instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FragData primary()`
-
-- Description: TODO
+- Role: Performs primary.
+- Description: Supports the primary operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public void process(PostProc proc)`
-
-- Description: TODO
+- Role: Performs process.
+- Description: Supports the process operation used by the surrounding class.
 
 #### `public Object ppid()`
-
-- Description: TODO
+- Role: Performs ppid.
+- Description: Supports the ppid operation used by the surrounding class.
 
 #### `private FragData var()`
-
-- Description: TODO
+- Role: Performs var.
+- Description: Supports the var operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.

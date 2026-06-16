@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `TestClient`.
 
 ## Role
 
-Provides a test client harness.
+Provides a Haven test helper for test client.
 
 ## Nested Types
 
 ### TestUI
 
-- Description: TODO
+- Role: Represents test ui within TestClient.
+- Description: Describes the nested test ui type used by the enclosing class.
 
 ## Members
 
@@ -25,103 +26,103 @@ Provides a test client harness.
 ### Fields
 
 #### `public Session sess`
-
-- Description: TODO
+- Role: Stores the sess value.
+- Description: Backs the cached state for this file.
 
 #### `public InetSocketAddress addr`
-
-- Description: TODO
+- Role: Holds the addr state.
+- Description: Backs the cached state for this file.
 
 #### `public String user`
-
-- Description: TODO
+- Role: Stores the user value.
+- Description: Backs the cached state for this file.
 
 #### `public byte[] cookie`
-
-- Description: TODO
+- Role: Stores the cookie value.
+- Description: Backs the cached state for this file.
 
 #### `public ThreadGroup tg`
-
-- Description: TODO
+- Role: Holds the tg state.
+- Description: Backs the cached state for this file.
 
 #### `public Thread me`
-
-- Description: TODO
+- Role: Holds the me state.
+- Description: Backs the cached state for this file.
 
 #### `public UI ui`
-
-- Description: TODO
+- Role: Stores the UI value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean loop = false`
-
-- Description: TODO
+- Role: Tracks the loop flag.
+- Description: Supports the loop operation used by the surrounding class.
 
 #### `public Collection<Robot> robots = new HashSet<Robot>()`
-
-- Description: TODO
+- Role: Caches robots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private static Object errsync = new Object()`
-
-- Description: TODO
+- Role: Holds the errsync state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TestClient(String user)`
-
-- Description: TODO
+- Role: Creates a new TestClient instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void connect() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public void addbot(Robot bot)`
-
-- Description: TODO
+- Role: Performs addbot.
+- Description: Supports the addbot operation used by the surrounding class.
 
 #### `public void rembot(Robot bot)`
-
-- Description: TODO
+- Role: Performs rembot.
+- Description: Supports the rembot operation used by the surrounding class.
 
 #### `public void setmousepos(Coord c)`
-
-- Description: TODO
+- Role: Performs setmousepos.
+- Description: Supports the setmousepos operation used by the surrounding class.
 
 #### `public TestUI(Coord sz, Session sess)`
-
-- Description: TODO
+- Role: Performs test ui.
+- Description: Supports the test ui operation used by the surrounding class.
 
 #### `public void newwidgetp(int id, String type, int parent, Object[] pargs, Object... cargs) throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the newwidgetp workflow.
+- Description: Supports the newwidgetp operation used by the surrounding class.
 
 #### `public void destroy(Widget w)`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public void uimsg(int id, String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void start()`
-
-- Description: TODO
+- Role: Starts the current workflow.
+- Description: Supports the start operation used by the surrounding class.
 
 #### `public void stop()`
-
-- Description: TODO
+- Role: Stops the current workflow.
+- Description: Supports the stop operation used by the surrounding class.
 
 #### `public boolean alive()`
-
-- Description: TODO
+- Role: Performs alive.
+- Description: Supports the alive operation used by the surrounding class.
 
 #### `public void join()`
-
-- Description: TODO
+- Role: Performs join.
+- Description: Supports the join operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

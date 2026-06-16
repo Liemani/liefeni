@@ -10,86 +10,87 @@ This file documents the responsibilities and members of `Test`.
 
 ## Role
 
-Provides a rendering backend test harness.
+Adapts the render backend to LWJGL for test.
 
 ## Nested Types
 
 ### TestPanel
 
-- Description: TODO
+- Role: Represents test panel within Test.
+- Description: Describes the nested test panel type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `static final FColor gay = new FColor(1.0f, 0.0f, 0.5f)`
-
-- Description: TODO
+- Role: Defines the shared gay constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `Frame wnd`
-
-- Description: TODO
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
 #### `TestPanel p`
-
-- Description: TODO
+- Role: Holds the p state.
+- Description: Backs the cached state for this file.
 
 #### `volatile boolean done = false`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `LWJGLEnvironment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `Pipe base`
-
-- Description: TODO
+- Role: Holds the base state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `TestPanel()`
-
-- Description: TODO
+- Role: Handles the test panel workflow.
+- Description: Supports the test panel operation used by the surrounding class.
 
 #### `static GLData mkcaps()`
-
-- Description: TODO
+- Role: Performs mkcaps.
+- Description: Supports the mkcaps operation used by the surrounding class.
 
 #### `public void initGL()`
-
-- Description: TODO
+- Role: Initializes the gl.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public void paintGL()`
-
-- Description: TODO
+- Role: Performs paint gl.
+- Description: Supports the paint gl operation used by the surrounding class.
 
 #### `public LWJGLEnvironment mkenv()`
-
-- Description: TODO
+- Role: Performs mkenv.
+- Description: Supports the mkenv operation used by the surrounding class.
 
 #### `Test()`
-
-- Description: TODO
+- Role: Creates a new Test instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `void draw(Render g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `void draw()`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `void reshape(Area wnd)`
-
-- Description: TODO
+- Role: Performs reshape.
+- Description: Supports the reshape operation used by the surrounding class.
 
 #### `public static void main(String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.

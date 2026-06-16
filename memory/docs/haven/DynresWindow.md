@@ -10,594 +10,605 @@ This file documents the responsibilities and members of `DynresWindow`.
 
 ## Role
 
-Displays dynamic resource upload state.
+Represents the dynres window Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within DynresWindow.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Adder
 
-- Description: TODO
+- Role: Represents adder within DynresWindow.
+- Description: Describes the nested adder type used by the enclosing class.
 
 ### Display
 
-- Description: TODO
+- Role: Represents display within DynresWindow.
+- Description: Describes the nested display type used by the enclosing class.
 
 ### Image
 
-- Description: TODO
+- Role: Represents image within DynresWindow.
+- Description: Describes the nested image type used by the enclosing class.
 
 ### Owner
 
-- Description: TODO
+- Role: Represents owner within DynresWindow.
+- Description: Describes the nested owner type used by the enclosing class.
 
 ### PaletteCopy
 
-- Description: TODO
+- Role: Represents palette copy within DynresWindow.
+- Description: Describes the nested palette copy type used by the enclosing class.
 
 ### Preview
 
-- Description: TODO
+- Role: Represents preview within DynresWindow.
+- Description: Describes the nested preview type used by the enclosing class.
 
 ### PreviewWindow
 
-- Description: TODO
+- Role: Represents preview window within DynresWindow.
+- Description: Describes the nested preview window type used by the enclosing class.
 
 ### Spec
 
-- Description: TODO
+- Role: Represents spec within DynresWindow.
+- Description: Describes the nested spec type used by the enclosing class.
 
 ### Upload
 
-- Description: TODO
+- Role: Represents upload within DynresWindow.
+- Description: Describes the nested upload type used by the enclosing class.
 
 ### View
 
-- Description: TODO
+- Role: Represents view within DynresWindow.
+- Description: Describes the nested view type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<URI> service = Config.Services.var("dynresurl", "")`
-
-- Description: TODO
+- Role: Defines the shared service constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord itemsz = UI.scale(128, 128)`
-
-- Description: TODO
+- Role: Defines the shared itemsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final UID key = UID.of(1)`
-
-- Description: TODO
+- Role: Defines the shared key constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final OwnerContext.ClassResolver<Owner> ctxr = new OwnerContext.ClassResolver<Owner>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final OwnerContext.ClassResolver<View> ctxr = new OwnerContext.ClassResolver<View>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Future<List<Preview.Spec>> previews = Preview.Spec.fetch()`
-
-- Description: TODO
+- Role: Caches previews entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Color[] pal`
-
-- Description: TODO
+- Role: Stores the pal value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Image> imgs = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches imgs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Adder adder`
-
-- Description: TODO
+- Role: Holds the adder state.
+- Description: Backs the cached state for this file.
 
 #### `public final Color[] pal`
-
-- Description: TODO
+- Role: Stores the pal value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<DataFlavor, Supplier<Object>> types`
-
-- Description: TODO
+- Role: Caches types entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final List<Future<BufferedImage>> processing = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches processing entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private SListMenu menu`
-
-- Description: TODO
+- Role: Holds the menu state.
+- Description: Backs the cached state for this file.
 
 #### `public final UID id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `private BufferedImage img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `private SListMenu menu`
-
-- Description: TODO
+- Role: Holds the menu state.
+- Description: Backs the cached state for this file.
 
 #### `private TexRender tex = null`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Spec> specs`
-
-- Description: TODO
+- Role: Caches specs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public View view`
-
-- Description: TODO
+- Role: Holds the view state.
+- Description: Backs the cached state for this file.
 
 #### `private final Indir<Resource> vres`
-
-- Description: TODO
+- Role: Stores the vres value.
+- Description: Backs the cached state for this file.
 
 #### `private final SDropBox<Spec, Widget> list`
-
-- Description: TODO
+- Role: Stores the list value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final byte[] sdt`
-
-- Description: TODO
+- Role: Stores the sdt value.
+- Description: Backs the cached state for this file.
 
 #### `public final int sdtoff`
-
-- Description: TODO
+- Role: Stores the sdtoff value.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<Integer, Indir<Resource>> resmap = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches resmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Pipe.Op st`
-
-- Description: TODO
+- Role: Holds the st state.
+- Description: Backs the cached state for this file.
 
 #### `public final Sprite.Owner bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> vres`
-
-- Description: TODO
+- Role: Stores the vres value.
+- Description: Backs the cached state for this file.
 
 #### `public final Spec spec`
-
-- Description: TODO
+- Role: Holds the spec state.
+- Description: Backs the cached state for this file.
 
 #### `private final Indir<Resource> vres`
-
-- Description: TODO
+- Role: Stores the vres value.
+- Description: Backs the cached state for this file.
 
 #### `private Sprite spr`
-
-- Description: TODO
+- Role: Holds the spr state.
+- Description: Backs the cached state for this file.
 
 #### `private RenderTree.Slot slot`
-
-- Description: TODO
-
-#### `private float field, elev, angl`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 #### `private float field, elev, angl`
-
-- Description: TODO
+- Role: Stores the angl value.
+- Description: Backs the cached state for this file.
 
 #### `private float field, elev, angl`
+- Role: Stores the angl value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `private float tfield = Float.NaN, telev, tangl`
-
-- Description: TODO
-
-#### `private float tfield = Float.NaN, telev, tangl`
-
-- Description: TODO
+#### `private float field, elev, angl`
+- Role: Stores the angl value.
+- Description: Backs the cached state for this file.
 
 #### `private float tfield = Float.NaN, telev, tangl`
+- Role: Stores the tfield value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private float tfield = Float.NaN, telev, tangl`
+- Role: Stores the tfield value.
+- Description: Backs the cached state for this file.
+
+#### `private float tfield = Float.NaN, telev, tangl`
+- Role: Stores the tfield value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord dragstart`
-
-- Description: TODO
+- Role: Stores the dragstart value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab`
-
-- Description: TODO
-
-#### `private float dragelev, dragangl`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 #### `private float dragelev, dragangl`
+- Role: Stores the dragangl value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private float dragelev, dragangl`
+- Role: Stores the dragangl value.
+- Description: Backs the cached state for this file.
 
 #### `public final BufferedImage img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `public final TexL tex`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `private final Display display`
-
-- Description: TODO
+- Role: Holds the display state.
+- Description: Backs the cached state for this file.
 
 #### `private final Button uploadbtn`
-
-- Description: TODO
+- Role: Holds the uploadbtn state.
+- Description: Backs the cached state for this file.
 
 #### `private Upload upload`
-
-- Description: TODO
+- Role: Holds the upload state.
+- Description: Backs the cached state for this file.
 
 #### `private Progress prog`
-
-- Description: TODO
+- Role: Stores the prog value.
+- Description: Backs the cached state for this file.
 
 #### `volatile byte[] data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `volatile int off`
-
-- Description: TODO
+- Role: Stores the off value.
+- Description: Backs the cached state for this file.
 
 #### `Map<String, Object> resp`
-
-- Description: TODO
+- Role: Caches resp entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public DynresWindow(Color[] pal)`
-
-- Description: TODO
+- Role: Creates a new DynresWindow instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Map<String, Object> ttoresp(HttpURLConnection conn) throws IOException`
-
-- Description: TODO
+- Role: Handles the ttoresp workflow.
+- Description: Supports the ttoresp operation used by the surrounding class.
 
 #### `public static String auth(Session sess)`
-
-- Description: TODO
+- Role: Performs auth.
+- Description: Supports the auth operation used by the surrounding class.
 
 #### `public BufferedImage process(BufferedImage in)`
-
-- Description: TODO
+- Role: Performs process.
+- Description: Supports the process operation used by the surrounding class.
 
 #### `public PaletteCopy(Color[] pal)`
-
-- Description: TODO
+- Role: Performs palette copy.
+- Description: Supports the palette copy operation used by the surrounding class.
 
 #### `private BufferedImage img()`
-
-- Description: TODO
+- Role: Performs img.
+- Description: Supports the img operation used by the surrounding class.
 
 #### `private String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public DataFlavor[] getTransferDataFlavors()`
-
-- Description: TODO
+- Role: Returns the transfer data flavors.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean isDataFlavorSupported(DataFlavor f)`
-
-- Description: TODO
+- Role: Checks whether the data flavor supported.
+- Description: Returns a boolean result for the described condition.
 
 #### `public Object getTransferData(DataFlavor f)`
-
-- Description: TODO
+- Role: Returns the transfer data.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void lostOwnership(Clipboard c, Transferable t)`
-
-- Description: TODO
+- Role: Performs lost ownership.
+- Description: Supports the lost ownership operation used by the surrounding class.
 
 #### `public Adder(Coord sz)`
-
-- Description: TODO
+- Role: Performs adder.
+- Description: Supports the adder operation used by the surrounding class.
 
 #### `private String mktip()`
-
-- Description: TODO
+- Role: Performs mktip.
+- Description: Supports the mktip operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void create(Supplier<BufferedImage> img)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `private void open(File file)`
-
-- Description: TODO
+- Role: Opens the current resource.
+- Description: Supports the open operation used by the surrounding class.
 
 #### `private void open()`
-
-- Description: TODO
+- Role: Opens the current resource.
+- Description: Supports the open operation used by the surrounding class.
 
 #### `private BufferedImage getpaste(Clipboard c) throws IOException`
-
-- Description: TODO
+- Role: Returns the paste value.
+- Description: Exposes the requested value without mutating state.
 
 #### `private void paste()`
-
-- Description: TODO
+- Role: Performs paste.
+- Description: Supports the paste operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `private void copypal()`
-
-- Description: TODO
+- Role: Performs copypal.
+- Description: Supports the copypal operation used by the surrounding class.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
-
-- Description: TODO
+- Role: Performs mousehover.
+- Description: Supports the mousehover operation used by the surrounding class.
 
 #### `public boolean drophover(Coord c, boolean hovering, Object thing)`
-
-- Description: TODO
+- Role: Performs drophover.
+- Description: Supports the drophover operation used by the surrounding class.
 
 #### `public boolean dropthing(Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs dropthing.
+- Description: Supports the dropthing operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public Image(Coord sz, UID id)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public Image(UID id)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private void craft(boolean master)`
-
-- Description: TODO
+- Role: Performs craft.
+- Description: Supports the craft operation used by the surrounding class.
 
 #### `private void delete0()`
-
-- Description: TODO
+- Role: Performs delete0.
+- Description: Supports the delete0 operation used by the surrounding class.
 
 #### `private void delete()`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `private void copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public DataFlavor[] getTransferDataFlavors()`
-
-- Description: TODO
+- Role: Returns the transfer data flavors.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean isDataFlavorSupported(DataFlavor f)`
-
-- Description: TODO
+- Role: Checks whether the data flavor supported.
+- Description: Returns a boolean result for the described condition.
 
 #### `public BufferedImage getTransferData(DataFlavor f)`
-
-- Description: TODO
+- Role: Returns the transfer data.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void lostOwnership(Clipboard c, Transferable t)`
-
-- Description: TODO
+- Role: Performs lost ownership.
+- Description: Supports the lost ownership operation used by the surrounding class.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
-
-- Description: TODO
+- Role: Performs mousehover.
+- Description: Supports the mousehover operation used by the surrounding class.
 
 #### `public void setinfo(int fields, float outline)`
-
-- Description: TODO
+- Role: Performs setinfo.
+- Description: Supports the setinfo operation used by the surrounding class.
 
 #### `public Preview(int minw, List<Spec> specs, TexL tex)`
-
-- Description: TODO
+- Role: Performs preview.
+- Description: Supports the preview operation used by the surrounding class.
 
 #### `public static Indir<Resource> consres(TexL tex)`
-
-- Description: TODO
+- Role: Performs consres.
+- Description: Supports the consres operation used by the surrounding class.
 
 #### `public void set(Spec spec)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public Spec(Map<String, Object> spec)`
-
-- Description: TODO
+- Role: Performs spec.
+- Description: Supports the spec operation used by the surrounding class.
 
 #### `public static Future<List<Spec>> fetch()`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public Owner(Sprite.Owner bk, Indir<Resource> vres)`
-
-- Description: TODO
+- Role: Performs owner.
+- Description: Supports the owner operation used by the surrounding class.
 
 #### `public Indir<Resource> getres(int id)`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public Indir<Resource> dynres(UID uid)`
-
-- Description: TODO
+- Role: Performs dynres.
+- Description: Supports the dynres operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public Sprite create(Sprite.Owner owner, Indir<Resource> vres)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public View(Coord sz, Spec spec, Indir<Resource> vres)`
-
-- Description: TODO
+- Role: Performs view.
+- Description: Supports the view operation used by the surrounding class.
 
 #### `private void makeproj()`
-
-- Description: TODO
+- Role: Performs makeproj.
+- Description: Supports the makeproj operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `protected FColor clearcolor()`
-
-- Description: TODO
+- Role: Returns the clear color value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Volume3f getbounds(RenderTree.Node spr)`
-
-- Description: TODO
+- Role: Performs getbounds.
+- Description: Supports the getbounds operation used by the surrounding class.
 
 #### `private void updatecam(double dt)`
-
-- Description: TODO
+- Role: Performs updatecam.
+- Description: Supports the updatecam operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render out)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `@SuppressWarnings("deprecation") public Resource getres()`
-
-- Description: TODO
+- Role: Performs suppress warnings.
+- Description: Supports the suppress warnings operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public PreviewWindow(BufferedImage img, List<Preview.Spec> previews)`
-
-- Description: TODO
+- Role: Performs preview window.
+- Description: Supports the preview window operation used by the surrounding class.
 
 #### `public Display(Coord sz)`
-
-- Description: TODO
+- Role: Performs display.
+- Description: Supports the display operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void reqclose()`
-
-- Description: TODO
+- Role: Performs reqclose.
+- Description: Supports the reqclose operation used by the surrounding class.
 
 #### `void prepare() throws IOException`
-
-- Description: TODO
+- Role: Handles the prepare workflow.
+- Description: Supports the prepare operation used by the surrounding class.
 
 #### `void post() throws IOException`
-
-- Description: TODO
+- Role: Handles the post workflow.
+- Description: Supports the post operation used by the surrounding class.
 
 #### `void handle() throws IOException`
-
-- Description: TODO
+- Role: Handles the current event.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `void restore()`
-
-- Description: TODO
+- Role: Performs restore.
+- Description: Supports the restore operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `float prog()`
-
-- Description: TODO
+- Role: Performs prog.
+- Description: Supports the prog operation used by the surrounding class.
 
 #### `String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public void upload()`
-
-- Description: TODO
+- Role: Performs upload.
+- Description: Supports the upload operation used by the surrounding class.
 
 #### `private void arrange()`
-
-- Description: TODO
+- Role: Performs arrange.
+- Description: Supports the arrange operation used by the surrounding class.
 
 #### `private Image find(UID id)`
-
-- Description: TODO
+- Role: Performs find.
+- Description: Supports the find operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

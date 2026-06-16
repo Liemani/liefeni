@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SIWidget`.
 
 ## Role
 
-Represents a styled widget interface.
+Represents the siwidget Haven component.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents a styled widget interface.
 ### Fields
 
 #### `private Tex surf = null`
-
-- Description: TODO
+- Role: Stores the surf value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SIWidget(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new SIWidget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected abstract void draw(BufferedImage buf)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public BufferedImage draw()`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void redraw()`
-
-- Description: TODO
+- Role: Performs redraw.
+- Description: Supports the redraw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

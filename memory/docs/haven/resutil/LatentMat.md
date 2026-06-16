@@ -10,54 +10,55 @@ This file documents the responsibilities and members of `LatentMat`.
 
 ## Role
 
-Represents a latent material helper.
+Provides resource helper logic for latent mat.
 
 ## Nested Types
 
 ### $latent
 
-- Description: TODO
+- Role: Represents $latent within LatentMat.
+- Description: Describes the nested $latent type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<LatentMat> slot = new Slot<>(Slot.Type.DRAW, LatentMat.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Pipe.Op mat`
-
-- Description: TODO
-
-#### `public final String id, act`
-
-- Description: TODO
+- Role: Holds the mat state.
+- Description: Backs the cached state for this file.
 
 #### `public final String id, act`
+- Role: Stores the act value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String id, act`
+- Role: Stores the act value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LatentMat(Pipe.Op mat, String id)`
-
-- Description: TODO
+- Role: Creates a new LatentMat instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public LatentMat(String act)`
-
-- Description: TODO
+- Role: Creates a new LatentMat instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void cons(Material.Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.

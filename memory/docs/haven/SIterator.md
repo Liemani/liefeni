@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SIterator`.
 
 ## Role
 
-Provides a specialized iterator.
+Represents the siterator Haven component.
 
 ## Members
 
@@ -19,31 +19,31 @@ Provides a specialized iterator.
 ### Fields
 
 #### `private int st = 0`
-
-- Description: TODO
+- Role: Stores the st value.
+- Description: Backs the cached state for this file.
 
 #### `private T n`
-
-- Description: TODO
+- Role: Holds the n state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public abstract T snext() throws NoSuchElementException`
-
-- Description: TODO
+- Role: Handles the snext workflow.
+- Description: Supports the snext operation used by the surrounding class.
 
 #### `private void ref()`
-
-- Description: TODO
+- Role: Performs ref.
+- Description: Supports the ref operation used by the surrounding class.
 
 #### `public boolean hasNext()`
-
-- Description: TODO
+- Role: Checks whether the next.
+- Description: Returns a boolean result for the described condition.
 
 #### `public T next()`
-
-- Description: TODO
+- Role: Performs next.
+- Description: Supports the next operation used by the surrounding class.
 
 #### `public void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.

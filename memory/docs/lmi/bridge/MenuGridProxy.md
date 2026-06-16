@@ -10,194 +10,200 @@ This file documents the responsibilities and members of `MenuGridProxy`.
 
 ## Role
 
-Provides a menu-grid injection point for LMI actions.
+Proxies Haven menu-grid actions into LMI hookable callbacks.
 
 ## Nested Types
 
 ### Button
+### Button
+- Role: Represents the button helper used by MenuGridProxy.
 
-- Description: TODO
+- Role: Wraps a custom menu-grid button entry.
+- Description: Describes the nested button type used by the enclosing class.
 
 ### Pagina
+### Pagina
+- Role: Represents the pagina helper used by MenuGridProxy.
 
-- Description: TODO
+- Role: Wraps a custom menu-grid pagina entry.
+- Description: Describes the nested pagina type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final String LMI_PREFIX = "lmi_"`
-
-- Description: TODO
+- Role: Defines the shared lmi prefix constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final String JOB_PREFIX = "lmi_job_"`
-
-- Description: TODO
+- Role: Defines the shared job prefix constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final String EFFECT_PREFIX = "lmi_effect_"`
-
-- Description: TODO
+- Role: Defines the shared effect prefix constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final String DEFAULT_ICON = "paginae/act/landscape"`
-
-- Description: TODO
+- Role: Defines the shared default icon constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final String FOLDER_ICON = "paginae/act/bld"`
-
-- Description: TODO
+- Role: Defines the shared folder icon constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final List<Pagina> _customPaginae = new ArrayList<>()`
-
-- Description: TODO
+- Role: Defines the shared custom paginae constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<String, Pagina> _folderMap = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared folder map constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static Resource _sharedRes`
-
-- Description: TODO
+- Role: Stores the shared res value.
+- Description: Backs the cached state for this file.
 
 #### `private static Resource _folderRes`
-
-- Description: TODO
+- Role: Stores the folder res value.
+- Description: Backs the cached state for this file.
 
 #### `public String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public String description`
-
-- Description: TODO
+- Role: Stores the description value.
+- Description: Backs the cached state for this file.
 
 #### `public String sortKey`
-
-- Description: TODO
+- Role: Stores the sort key value.
+- Description: Backs the cached state for this file.
 
 #### `public Class<?> sourceCls`
-
-- Description: TODO
+- Role: Holds the source cls state.
+- Description: Backs the cached state for this file.
 
 #### `private final MenuGrid.Pagina customParent`
-
-- Description: TODO
+- Role: Stores the custom parent value.
+- Description: Backs the cached state for this file.
 
 #### `private Button customBtn`
-
-- Description: TODO
+- Role: Holds the custom btn state.
+- Description: Backs the cached state for this file.
 
 #### `private Resource iconRes`
-
-- Description: TODO
+- Role: Stores the icon res value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex customTex`
-
-- Description: TODO
+- Role: Stores the custom tex value.
+- Description: Backs the cached state for this file.
 
 #### `private GSprite myspr`
-
-- Description: TODO
+- Role: Holds the myspr state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static boolean isLmi(MenuGrid.Pagina pag)`
-
-- Description: TODO
+- Role: Checks whether the lmi.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static boolean isJob(MenuGrid.Pagina pag)`
-
-- Description: TODO
+- Role: Checks whether the job.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static boolean isEffect(MenuGrid.Pagina pag)`
-
-- Description: TODO
+- Role: Checks whether the effect.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `private static void _buildFromRegistry(Pagina root)`
-
-- Description: TODO
+- Role: Performs  build from registry.
+- Description: Supports the build from registry operation used by the surrounding class.
 
 #### `private static Pagina _ensureFolderPath(String packageName, Pagina root)`
-
-- Description: TODO
+- Role: Performs  ensure folder path.
+- Description: Supports the ensure folder path operation used by the surrounding class.
 
 #### `private static Pagina _getOrCreateFolder(String packageName, Pagina parent)`
-
-- Description: TODO
+- Role: Performs  get or create folder.
+- Description: Supports the get or create folder operation used by the surrounding class.
 
 #### `private static String _callStatic(Class<?> cls, String methodName, String def)`
-
-- Description: TODO
+- Role: Performs  call static.
+- Description: Supports the call static operation used by the surrounding class.
 
 #### `public static void apply()`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static void updateLayout(MenuGrid mg)`
-
-- Description: TODO
+- Role: Updates the layout.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void dumpAllIcons()`
-
-- Description: TODO
+- Role: Dumps all menu-grid icons.
+- Description: Supports the dump all icons operation used by the surrounding class.
 
 #### `public Pagina(String id, MenuGrid.Pagina parent, Resource defRes)`
-
-- Description: TODO
+- Role: Performs pagina.
+- Description: Supports the pagina operation used by the surrounding class.
 
 #### `public void setup(Class<?> cls, String defName)`
-
-- Description: TODO
+- Role: Performs setup.
+- Description: Supports the setup operation used by the surrounding class.
 
 #### `private void _loadCustomIcon(String path)`
-
-- Description: TODO
+- Role: Performs  load custom icon.
+- Description: Supports the load custom icon operation used by the surrounding class.
 
 #### `@Override public MenuGrid.Pagina parent()`
-
-- Description: TODO
+- Role: Performs parent.
+- Description: Supports the parent operation used by the surrounding class.
 
 #### `@Override public MenuGrid.PagButton button()`
-
-- Description: TODO
+- Role: Performs button.
+- Description: Supports the button operation used by the surrounding class.
 
 #### `public Button(Pagina pag)`
-
-- Description: TODO
+- Role: Performs button.
+- Description: Supports the button operation used by the surrounding class.
 
 #### `@Override public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `@Override public MenuGrid.Pagina parent()`
-
-- Description: TODO
+- Role: Performs parent.
+- Description: Supports the parent operation used by the surrounding class.
 
 #### `@Override public KeyMatch hotkey()`
-
-- Description: TODO
+- Role: Performs hotkey.
+- Description: Supports the hotkey operation used by the surrounding class.
 
 #### `@Override public KeyBinding binding()`
-
-- Description: TODO
+- Role: Performs binding.
+- Description: Supports the binding operation used by the surrounding class.
 
 #### `@Override public String sortkey()`
-
-- Description: TODO
+- Role: Performs sortkey.
+- Description: Supports the sortkey operation used by the surrounding class.
 
 #### `@Override public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `@Override public GSprite spr()`
-
-- Description: TODO
+- Role: Performs spr.
+- Description: Supports the spr operation used by the surrounding class.
 
 #### `@Override public void drawmain(GOut g, GSprite spr)`
-
-- Description: TODO
+- Role: Renders the drawmain.
+- Description: Supports the drawmain operation used by the surrounding class.

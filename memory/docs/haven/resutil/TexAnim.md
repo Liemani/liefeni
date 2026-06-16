@@ -10,50 +10,51 @@ This file documents the responsibilities and members of `TexAnim`.
 
 ## Role
 
-Represents texture animation support.
+Provides resource helper logic for tex anim.
 
 ## Nested Types
 
 ### $texrot
 
-- Description: TODO
+- Role: Represents $texrot within TexAnim.
+- Description: Describes the nested $texrot type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<TexAnim> slot = new Slot<TexAnim>(Slot.Type.DRAW, TexAnim.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform cax = new Uniform(VEC2, p -> p.get(slot).ax, slot)`
-
-- Description: TODO
+- Role: Defines the shared cax constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Coord3f ax`
-
-- Description: TODO
+- Role: Stores the ax value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TexAnim(Coord3f ax)`
-
-- Description: TODO
+- Role: Creates a new TexAnim instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void cons(Material.Buffer buf,Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

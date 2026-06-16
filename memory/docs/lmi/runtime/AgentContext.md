@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `AgentContext`.
 
 ## Role
 
-Holds runtime state for its corresponding subsystem.
+Carries runtime context for an agent.
 
 ## Members
 
@@ -19,19 +19,19 @@ Holds runtime state for its corresponding subsystem.
 ### Fields
 
 #### `private final Stack<Coord> moveHistory = new Stack<>()`
-
-- Description: TODO
+- Role: Stores the move history value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void pushBreadcrumb(Coord pos)`
-
-- Description: TODO
+- Role: Performs push breadcrumb.
+- Description: Supports the push breadcrumb operation used by the surrounding class.
 
 #### `public Coord popBreadcrumb()`
-
-- Description: TODO
+- Role: Performs pop breadcrumb.
+- Description: Supports the pop breadcrumb operation used by the surrounding class.
 
 #### `public boolean hasBreadcrumbs()`
-
-- Description: TODO
+- Role: Checks whether the breadcrumbs.
+- Description: Returns a boolean result for the described condition.

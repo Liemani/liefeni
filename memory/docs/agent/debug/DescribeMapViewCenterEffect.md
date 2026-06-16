@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DescribeMapViewCenterEf
 
 ## Role
 
-Provides a debug effect for inspecting the current MapView center and grid metadata.
+Prints the current MapView center and grid metadata for debugging.
 
 ## Members
 
@@ -21,13 +21,13 @@ Provides a debug effect for inspecting the current MapView center and grid metad
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Reports the current MapView center and grid metadata.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `ResID`.
 
 ## Role
 
-Represents a resource identifier.
+Represents the res id Haven component.
 
 ## Nested Types
 
 ### ResolveMapper
 
-- Description: TODO
+- Role: Represents resolve mapper within ResID.
+- Description: Describes the nested resolve mapper type used by the enclosing class.
 
 ## Members
 
@@ -25,79 +26,79 @@ Represents a resource identifier.
 ### Fields
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource.Resolver src`
-
-- Description: TODO
+- Role: Stores the src value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource.Resolver rr`
-
-- Description: TODO
+- Role: Stores the rr value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private ResID(int id, Resource.Resolver src)`
-
-- Description: TODO
+- Role: Creates a new ResID instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private ResID(int id)`
-
-- Description: TODO
+- Role: Creates a new ResID instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static ResID of(int id)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public ResID src(Resource.Resolver src)`
-
-- Description: TODO
+- Role: Performs src.
+- Description: Supports the src operation used by the surrounding class.
 
 #### `public Resource get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public int intValue()`
-
-- Description: TODO
+- Role: Performs int value.
+- Description: Supports the int value operation used by the surrounding class.
 
 #### `public byte byteValue()`
-
-- Description: TODO
+- Role: Performs byte value.
+- Description: Supports the byte value operation used by the surrounding class.
 
 #### `public short shortValue()`
-
-- Description: TODO
+- Role: Performs short value.
+- Description: Supports the short value operation used by the surrounding class.
 
 #### `public long longValue()`
-
-- Description: TODO
+- Role: Performs long value.
+- Description: Supports the long value operation used by the surrounding class.
 
 #### `public float floatValue()`
-
-- Description: TODO
+- Role: Performs float value.
+- Description: Supports the float value operation used by the surrounding class.
 
 #### `public double doubleValue()`
-
-- Description: TODO
+- Role: Performs double value.
+- Description: Supports the double value operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object x)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public ResolveMapper(Resource.Resolver rr)`
-
-- Description: TODO
+- Role: Performs resolve mapper.
+- Description: Supports the resolve mapper operation used by the surrounding class.
 
 #### `public Object apply(Object obj)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

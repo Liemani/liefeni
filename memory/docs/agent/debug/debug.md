@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `debug`.
 
 ## Role
 
-Provides a debug-facing entry point for inspection or experiments.
+Provides debug support for debug.
 
 ## Members
 
@@ -21,17 +21,17 @@ Provides a debug-facing entry point for inspection or experiments.
 ### Methods
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public static String icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public static String sortkey()`
-
-- Description: TODO
+- Role: Performs sortkey.
+- Description: Supports the sortkey operation used by the surrounding class.

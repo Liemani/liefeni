@@ -10,366 +10,373 @@ This file documents the responsibilities and members of `CharWnd`.
 
 ## Role
 
-Displays the character window.
+Represents the char wnd Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within CharWnd.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### AttrWdg
 
-- Description: TODO
+- Role: Represents attr wdg within CharWnd.
+- Description: Describes the nested attr wdg type used by the enclosing class.
 
 ### IconInfo
 
-- Description: TODO
+- Role: Represents icon info within CharWnd.
+- Description: Describes the nested icon info type used by the enclosing class.
 
 ### ImageInfoBox
 
-- Description: TODO
+- Role: Represents image info box within CharWnd.
+- Description: Describes the nested image info box type used by the enclosing class.
 
 ### LoadingTextBox
 
-- Description: TODO
+- Role: Represents loading text box within CharWnd.
+- Description: Describes the nested loading text box type used by the enclosing class.
 
 ### RLabel
 
-- Description: TODO
+- Role: Represents rlabel within CharWnd.
+- Description: Describes the nested rlabel type used by the enclosing class.
 
 ### TabProxy
 
-- Description: TODO
+- Role: Represents tab proxy within CharWnd.
+- Description: Describes the nested tab proxy type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final RichText.Foundry ifnd = new RichText.Foundry(RichText.IMAGESRC, RichText.ImageSource.legacy,`
-
-- Description: TODO
+- Role: Defines the shared ifnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Furnace catf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Window.ctex), UI.scale(3), UI.scale(2), new Color(96, 48, 0))`
-
-- Description: TODO
+- Role: Defines the shared catf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Furnace failf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Resource.loadimg("gfx/hud/fontred")), UI.scale(3), UI.scale(2), new Color(96, 48, 0))`
-
-- Description: TODO
+- Role: Defines the shared failf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry attrf = new Text.Foundry(Text.fraktur.deriveFont((float)Math.floor(UI.scale(18.0)))).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared attrf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final PUtils.Convolution iconfilter = new PUtils.Lanczos(3)`
-
-- Description: TODO
+- Role: Defines the shared iconfilter constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int attrw = BAttrWnd.FoodMeter.frame.sz().x - wbox.bisz().x`
-
-- Description: TODO
+- Role: Defines the shared attrw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color debuff = new Color(255, 128, 128)`
-
-- Description: TODO
+- Role: Defines the shared debuff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color buff = new Color(128, 255, 128)`
-
-- Description: TODO
+- Role: Defines the shared buff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color tbuff = new Color(128, 128, 255)`
-
-- Description: TODO
-
-#### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
-
-- Description: TODO
+- Role: Defines the shared tbuff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
+- Role: Defines the shared every constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
+- Role: Defines the shared every constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int width = UI.scale(255)`
-
-- Description: TODO
+- Role: Defines the shared width constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int height = UI.scale(260)`
-
-- Description: TODO
+- Role: Defines the shared height constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<AttrWdg> ctxr = new OwnerContext.ClassResolver<AttrWdg>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public BAttrWnd battr`
-
-- Description: TODO
+- Role: Holds the battr state.
+- Description: Backs the cached state for this file.
 
 #### `public SAttrWnd sattr`
-
-- Description: TODO
+- Role: Holds the sattr state.
+- Description: Backs the cached state for this file.
 
 #### `public SkillWnd skill`
-
-- Description: TODO
+- Role: Holds the skill state.
+- Description: Backs the cached state for this file.
 
 #### `public FightWnd fight`
-
-- Description: TODO
+- Role: Holds the fight state.
+- Description: Backs the cached state for this file.
 
 #### `public WoundWnd wound`
-
-- Description: TODO
+- Role: Holds the wound state.
+- Description: Backs the cached state for this file.
 
 #### `public QuestWnd quest`
-
-- Description: TODO
-
-#### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-
-- Description: TODO
+- Role: Holds the quest state.
+- Description: Backs the cached state for this file.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-
-- Description: TODO
-
-#### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-
-- Description: TODO
+- Role: Holds the questtab state.
+- Description: Backs the cached state for this file.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-
-- Description: TODO
-
-#### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-
-- Description: TODO
+- Role: Holds the questtab state.
+- Description: Backs the cached state for this file.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
+- Role: Holds the questtab state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
+- Role: Holds the questtab state.
+- Description: Backs the cached state for this file.
+
+#### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
+- Role: Holds the questtab state.
+- Description: Backs the cached state for this file.
+
+#### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
+- Role: Holds the questtab state.
+- Description: Backs the cached state for this file.
 
 #### `public int exp, enc`
-
-- Description: TODO
+- Role: Stores the enc value.
+- Description: Backs the cached state for this file.
 
 #### `public int exp, enc`
-
-- Description: TODO
+- Role: Stores the enc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Class<? extends Widget> tcl`
-
-- Description: TODO
+- Role: Stores the tcl value.
+- Description: Backs the cached state for this file.
 
 #### `public final String id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private Widget tab = null`
-
-- Description: TODO
+- Role: Stores the tab value.
+- Description: Backs the cached state for this file.
 
 #### `private final Supplier<V> val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `private final Function<V, String> fmt`
-
-- Description: TODO
+- Role: Stores the fmt value.
+- Description: Backs the cached state for this file.
 
 #### `private final Function<V, Color> col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `private Coord oc`
-
-- Description: TODO
+- Role: Stores the oc value.
+- Description: Backs the cached state for this file.
 
 #### `private Color lc`
-
-- Description: TODO
+- Role: Stores the lc value.
+- Description: Backs the cached state for this file.
 
 #### `private V lv`
-
-- Description: TODO
+- Role: Holds the lv state.
+- Description: Backs the cached state for this file.
 
 #### `private Tex img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `private Indir<Tex> loading`
-
-- Description: TODO
+- Role: Stores the loading value.
+- Description: Backs the cached state for this file.
 
 #### `private final Scrollbar sb`
-
-- Description: TODO
+- Role: Holds the sb state.
+- Description: Backs the cached state for this file.
 
 #### `public final String nm`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Glob.CAttr attr`
-
-- Description: TODO
+- Role: Stores the attr value.
+- Description: Backs the cached state for this file.
 
 #### `private ItemInfo.Raw rinfo = null`
-
-- Description: TODO
+- Role: Holds the rinfo state.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> binfo = null`
-
-- Description: TODO
+- Role: Caches binfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<ItemInfo> tipinfo`
-
-- Description: TODO
+- Role: Caches tipinfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Tex tipimg = null`
-
-- Description: TODO
+- Role: Stores the tipimg value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TabProxy(Class<? extends Widget> tcl, String id)`
-
-- Description: TODO
+- Role: Performs tab proxy.
+- Description: Supports the tab proxy operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public <T> T getchild(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs getchild.
+- Description: Supports the getchild operation used by the surrounding class.
 
 #### `private RLabel(Supplier<V> val, Function<V, String> fmt, Function<V, Color> col, V ival)`
-
-- Description: TODO
+- Role: Performs rlabel.
+- Description: Supports the rlabel operation used by the surrounding class.
 
 #### `public RLabel(Supplier<V> val, Function<V, String> fmt, Function<V, Color> col)`
-
-- Description: TODO
+- Role: Performs rlabel.
+- Description: Supports the rlabel operation used by the surrounding class.
 
 #### `public RLabel(Supplier<V> val, Function<V, String> fmt, Color col)`
-
-- Description: TODO
+- Role: Performs rlabel.
+- Description: Supports the rlabel operation used by the surrounding class.
 
 #### `private void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `public void settext(String text)`
-
-- Description: TODO
+- Role: Performs settext.
+- Description: Supports the settext operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public static RichText.ImageSource resimg(Resource res)`
-
-- Description: TODO
+- Role: Performs resimg.
+- Description: Supports the resimg operation used by the surrounding class.
 
 #### `public static RichText.Document resdoc(Resource res, String text)`
-
-- Description: TODO
+- Role: Performs resdoc.
+- Description: Supports the resdoc operation used by the surrounding class.
 
 #### `public LoadingTextBox(Coord sz, String text, RichText.Foundry fnd)`
-
-- Description: TODO
+- Role: Performs loading text box.
+- Description: Supports the loading text box operation used by the surrounding class.
 
 #### `public LoadingTextBox(Coord sz, String text, Object... attrs)`
-
-- Description: TODO
+- Role: Performs loading text box.
+- Description: Supports the loading text box operation used by the surrounding class.
 
 #### `public ImageInfoBox(Coord sz)`
-
-- Description: TODO
+- Role: Performs image info box.
+- Description: Supports the image info box operation used by the surrounding class.
 
 #### `public void drawbg(GOut g)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `public Coord marg()`
-
-- Description: TODO
+- Role: Performs marg.
+- Description: Supports the marg operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void set(Tex img)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void set(Indir<Tex> loading)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void draw(BufferedImage img, Graphics g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public static BufferedImage render(BufferedImage base, List<ItemInfo> info)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public AttrWdg(Coord sz, Glob glob, String attr)`
-
-- Description: TODO
+- Role: Performs attr wdg.
+- Description: Supports the attr wdg operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public static <T extends Widget> T settip(T wdg, String resnm)`
-
-- Description: TODO
+- Role: Performs settip.
+- Description: Supports the settip operation used by the surrounding class.
 
 #### `public CharWnd(Glob glob)`
-
-- Description: TODO
+- Role: Creates a new CharWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

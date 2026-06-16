@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `VertexColor`.
 
 ## Role
 
-Represents vertex color state.
+Defines the vertex color render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<VertexColor> slot = new Slot<>(Slot.Type.DRAW, VertexColor.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute color = new Attribute(VEC4, "color")`
-
-- Description: TODO
+- Role: Defines the shared color constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final VertexColor instance = new VertexColor()`
-
-- Description: TODO
+- Role: Defines the shared instance constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final AutoVarying fcolor = new AutoVarying(VEC4)`
-
-- Description: TODO
+- Role: Defines the shared fcolor constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

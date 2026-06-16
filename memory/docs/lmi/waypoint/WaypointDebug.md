@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointDebug`.
 
 ## Role
 
-Hosts waypoint debugging helpers and debug-only entry points.
+Provides waypoint-specific debug helpers.
 
 ## Members
 
@@ -21,13 +21,13 @@ Hosts waypoint debugging helpers and debug-only entry points.
 ### Methods
 
 #### `private WaypointDebug()`
-
-- Description: TODO
+- Role: Creates a new WaypointDebug instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Array<String> lines()`
-
-- Description: TODO
+- Role: Performs lines.
+- Description: Supports the lines operation used by the surrounding class.
 
 #### `private static String _sceneSummary()`
-
-- Description: TODO
+- Role: Performs  scene summary.
+- Description: Supports the scene summary operation used by the surrounding class.

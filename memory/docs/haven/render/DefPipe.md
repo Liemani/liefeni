@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DefPipe`.
 
 ## Role
 
-Represents a default render pipe.
+Defines the def pipe render pipeline component.
 
 ## Members
 
@@ -19,19 +19,19 @@ Represents a default render pipe.
 ### Fields
 
 #### `public boolean[] mask =`
-
-- Description: TODO
+- Role: Tracks whether  is active.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static int[] ret0 = new int[0]`
-
-- Description: TODO
+- Role: Stores the ret0 value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public <T extends State> void put(Slot<? super T> slot, T state)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public int[] maskdiff(DefPipe that)`
-
-- Description: TODO
+- Role: Performs maskdiff.
+- Description: Supports the maskdiff operation used by the surrounding class.

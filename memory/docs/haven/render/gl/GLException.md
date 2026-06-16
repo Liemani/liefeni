@@ -10,25 +10,29 @@ This file documents the responsibilities and members of `GLException`.
 
 ## Role
 
-Represents a GL exception.
+Provides GL backend support for glexception.
 
 ## Nested Types
 
 ### GLInvalidEnumException
 
-- Description: TODO
+- Role: Represents glinvalid enum exception within GLException.
+- Description: Describes the nested glinvalid enum exception type used by the enclosing class.
 
 ### GLInvalidOperationException
 
-- Description: TODO
+- Role: Represents glinvalid operation exception within GLException.
+- Description: Describes the nested glinvalid operation exception type used by the enclosing class.
 
 ### GLInvalidValueException
 
-- Description: TODO
+- Role: Represents glinvalid value exception within GLException.
+- Description: Describes the nested glinvalid value exception type used by the enclosing class.
 
 ### GLOutOfMemoryException
 
-- Description: TODO
+- Role: Represents glout of memory exception within GLException.
+- Description: Describes the nested glout of memory exception type used by the enclosing class.
 
 ## Members
 
@@ -37,63 +41,63 @@ Represents a GL exception.
 ### Fields
 
 #### `public int code`
-
-- Description: TODO
+- Role: Stores the code value.
+- Description: Backs the cached state for this file.
 
 #### `public String str`
-
-- Description: TODO
+- Role: Stores the str value.
+- Description: Backs the cached state for this file.
 
 #### `public String memstats = null`
-
-- Description: TODO
+- Role: Stores the memstats value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GLException(int code)`
-
-- Description: TODO
+- Role: Creates a new GLException instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static String constname(Class<?> cl, int val)`
-
-- Description: TODO
+- Role: Performs constname.
+- Description: Supports the constname operation used by the surrounding class.
 
 #### `public static String constname(int val)`
-
-- Description: TODO
+- Role: Performs constname.
+- Description: Supports the constname operation used by the surrounding class.
 
 #### `public GLInvalidEnumException()`
-
-- Description: TODO
+- Role: Performs glinvalid enum exception.
+- Description: Supports the glinvalid enum exception operation used by the surrounding class.
 
 #### `public GLInvalidValueException()`
-
-- Description: TODO
+- Role: Performs glinvalid value exception.
+- Description: Supports the glinvalid value exception operation used by the surrounding class.
 
 #### `public GLInvalidOperationException()`
-
-- Description: TODO
+- Role: Performs glinvalid operation exception.
+- Description: Supports the glinvalid operation exception operation used by the surrounding class.
 
 #### `public GLOutOfMemoryException()`
-
-- Description: TODO
+- Role: Performs glout of memory exception.
+- Description: Supports the glout of memory exception operation used by the surrounding class.
 
 #### `public void initenv(GLEnvironment env)`
-
-- Description: TODO
+- Role: Performs initenv.
+- Description: Supports the initenv operation used by the surrounding class.
 
 #### `public static GLException glexcfor(int code)`
-
-- Description: TODO
+- Role: Performs glexcfor.
+- Description: Supports the glexcfor operation used by the surrounding class.
 
 #### `public static void checkfor(GL gl, Throwable cause, GLEnvironment env)`
-
-- Description: TODO
+- Role: Performs checkfor.
+- Description: Supports the checkfor operation used by the surrounding class.
 
 #### `public static void checkfor(GL gl, GLEnvironment env)`
-
-- Description: TODO
+- Role: Performs checkfor.
+- Description: Supports the checkfor operation used by the surrounding class.
 
 #### `public void initenv(GLEnvironment env)`
-
-- Description: TODO
+- Role: Performs initenv.
+- Description: Supports the initenv operation used by the surrounding class.

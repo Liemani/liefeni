@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `GPUProfile`.
 
 ## Role
 
-Provides GPU profiling support.
+Represents the gpuprofile Haven component.
 
 ## Nested Types
 
 ### Frame
 
-- Description: TODO
+- Role: Represents frame within GPUProfile.
+- Description: Describes the nested frame type used by the enclosing class.
 
 ### FramePart
 
-- Description: TODO
+- Role: Represents frame part within GPUProfile.
+- Description: Describes the nested frame part type used by the enclosing class.
 
 ### Part
 
-- Description: TODO
+- Role: Represents part within GPUProfile.
+- Description: Describes the nested part type used by the enclosing class.
 
 ## Members
 
@@ -33,103 +36,103 @@ Provides GPU profiling support.
 ### Fields
 
 #### `private final Collection<Frame> waiting = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches waiting entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private long fno = 1`
-
-- Description: TODO
-
-#### `private long f, t`
-
-- Description: TODO
+- Role: Stores the fno value.
+- Description: Backs the cached state for this file.
 
 #### `private long f, t`
+- Role: Stores the t value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private long f, t`
+- Role: Stores the t value.
+- Description: Backs the cached state for this file.
 
 #### `private Part curp`
-
-- Description: TODO
+- Role: Holds the curp state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean fin`
-
-- Description: TODO
+- Role: Tracks the fin flag.
+- Description: Supports the fin operation used by the surrounding class.
 
 #### `boolean done`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `private final Frame frame`
-
-- Description: TODO
+- Role: Holds the frame state.
+- Description: Backs the cached state for this file.
 
 #### `private List<Part> waiting = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches waiting entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public GPUProfile(int hl)`
-
-- Description: TODO
+- Role: Creates a new GPUProfile instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Part(Object nm)`
-
-- Description: TODO
+- Role: Performs part.
+- Description: Supports the part operation used by the surrounding class.
 
 #### `public double f()`
-
-- Description: TODO
+- Role: Performs f.
+- Description: Supports the f operation used by the surrounding class.
 
 #### `public double t()`
-
-- Description: TODO
+- Role: Performs t.
+- Description: Supports the t operation used by the surrounding class.
 
 #### `protected abstract Frame frame()`
-
-- Description: TODO
+- Role: Performs frame.
+- Description: Supports the frame operation used by the surrounding class.
 
 #### `void query(Render out, Consumer<Long> prev)`
-
-- Description: TODO
+- Role: Performs query.
+- Description: Supports the query operation used by the surrounding class.
 
 #### `public Part part(Render out, Object nm)`
-
-- Description: TODO
+- Role: Performs part.
+- Description: Supports the part operation used by the surrounding class.
 
 #### `private Consumer<Long> tfin()`
-
-- Description: TODO
+- Role: Performs tfin.
+- Description: Supports the tfin operation used by the surrounding class.
 
 #### `public void fin(Render out)`
-
-- Description: TODO
+- Role: Performs fin.
+- Description: Supports the fin operation used by the surrounding class.
 
 #### `private FramePart(Object nm, Frame frame)`
-
-- Description: TODO
+- Role: Performs frame part.
+- Description: Supports the frame part operation used by the surrounding class.
 
 #### `protected Frame frame()`
-
-- Description: TODO
+- Role: Performs frame.
+- Description: Supports the frame operation used by the surrounding class.
 
 #### `public Frame(Render out)`
-
-- Description: TODO
+- Role: Performs frame.
+- Description: Supports the frame operation used by the surrounding class.
 
 #### `protected Frame frame()`
-
-- Description: TODO
+- Role: Performs frame.
+- Description: Supports the frame operation used by the surrounding class.
 
 #### `public void fin(Render out)`
-
-- Description: TODO
+- Role: Performs fin.
+- Description: Supports the fin operation used by the surrounding class.
 
 #### `private void fin2()`
-
-- Description: TODO
+- Role: Performs fin2.
+- Description: Supports the fin2 operation used by the surrounding class.
 
 #### `public void check()`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.

@@ -10,60 +10,60 @@ This file documents the responsibilities and members of `ShaderMacro`.
 
 ## Role
 
-Represents a shader macro.
+Represents the shader macro shader-language AST node.
 
 ## Members
 
 ### Constants
 
 #### `public static final ShaderMacro nil = new ShaderMacro()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final WeakHashedSet<ShaderMacro> composed = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Defines the shared composed constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final ShaderMacro dump = new ShaderMacro()`
-
-- Description: TODO
+- Role: Defines the shared dump constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Collection<ShaderMacro> smacs`
-
-- Description: TODO
+- Role: Caches smacs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public Composed(Collection<ShaderMacro> smacs)`
-
-- Description: TODO
+- Role: Performs composed.
+- Description: Supports the composed operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static ShaderMacro compose(Collection<ShaderMacro> smacs)`
-
-- Description: TODO
+- Role: Performs compose.
+- Description: Supports the compose operation used by the surrounding class.
 
 #### `public static ShaderMacro compose(ShaderMacro... smacs)`
-
-- Description: TODO
+- Role: Performs compose.
+- Description: Supports the compose operation used by the surrounding class.

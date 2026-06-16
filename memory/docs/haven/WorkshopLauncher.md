@@ -10,29 +10,34 @@ This file documents the responsibilities and members of `WorkshopLauncher`.
 
 ## Role
 
-Launches workshop-related UI.
+Represents the workshop launcher Haven component.
 
 ## Nested Types
 
 ### Chooser
 
-- Description: TODO
+- Role: Represents chooser within WorkshopLauncher.
+- Description: Describes the nested chooser type used by the enclosing class.
 
 ### ClassUnloader
 
-- Description: TODO
+- Role: Represents class unloader within WorkshopLauncher.
+- Description: Describes the nested class unloader type used by the enclosing class.
 
 ### Client
 
-- Description: TODO
+- Role: Represents client within WorkshopLauncher.
+- Description: Describes the nested client type used by the enclosing class.
 
 ### MessageException
 
-- Description: TODO
+- Role: Represents message exception within WorkshopLauncher.
+- Description: Describes the nested message exception type used by the enclosing class.
 
 ### Updater
 
-- Description: TODO
+- Role: Represents updater within WorkshopLauncher.
+- Description: Describes the nested updater type used by the enclosing class.
 
 ## Members
 
@@ -41,119 +46,119 @@ Launches workshop-related UI.
 ### Fields
 
 #### `public final UGItem item`
-
-- Description: TODO
+- Role: Holds the item state.
+- Description: Backs the cached state for this file.
 
 #### `public final Path path`
-
-- Description: TODO
+- Role: Stores the path value.
+- Description: Backs the cached state for this file.
 
 #### `public final Properties props`
-
-- Description: TODO
+- Role: Holds the props state.
+- Description: Backs the cached state for this file.
 
 #### `public final URI unload`
-
-- Description: TODO
+- Role: Holds the unload state.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Client> clients`
-
-- Description: TODO
+- Role: Caches clients entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private JList clist`
-
-- Description: TODO
+- Role: Caches clist entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private JCheckBox memo`
-
-- Description: TODO
+- Role: Holds the memo state.
+- Description: Backs the cached state for this file.
 
 #### `private JButton lbtn`
-
-- Description: TODO
+- Role: Holds the lbtn state.
+- Description: Backs the cached state for this file.
 
 #### `public final Iterator<UGItem> items`
-
-- Description: TODO
+- Role: Holds the items state.
+- Description: Backs the cached state for this file.
 
 #### `private JProgressBar prog`
-
-- Description: TODO
+- Role: Stores the prog value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Client(UGItem item, Path path, Properties props)`
-
-- Description: TODO
+- Role: Performs client.
+- Description: Supports the client operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public MessageException(String msg)`
-
-- Description: TODO
+- Role: Performs message exception.
+- Description: Supports the message exception operation used by the surrounding class.
 
 #### `public static Path findjvm() throws IOException`
-
-- Description: TODO
+- Role: Handles the findjvm workflow.
+- Description: Supports the findjvm operation used by the surrounding class.
 
 #### `public static void centerwnd(JFrame wnd)`
-
-- Description: TODO
+- Role: Performs centerwnd.
+- Description: Supports the centerwnd operation used by the surrounding class.
 
 #### `public ClassUnloader()`
-
-- Description: TODO
+- Role: Performs class unloader.
+- Description: Supports the class unloader operation used by the surrounding class.
 
 #### `private boolean resunloadp(URL url)`
-
-- Description: TODO
+- Role: Performs resunloadp.
+- Description: Supports the resunloadp operation used by the surrounding class.
 
 #### `public URL getResource(String name)`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public Enumeration<URL> getResources(String name) throws IOException`
-
-- Description: TODO
+- Role: Returns the resources value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException`
-
-- Description: TODO
+- Role: Handles the load class workflow.
+- Description: Supports the load class operation used by the surrounding class.
 
 #### `public static boolean launch(Client cl) throws IOException`
-
-- Description: TODO
+- Role: Handles the launch workflow.
+- Description: Supports the launch operation used by the surrounding class.
 
 #### `public Chooser(List<Client> clients)`
-
-- Description: TODO
+- Role: Performs chooser.
+- Description: Supports the chooser operation used by the surrounding class.
 
 #### `private void save(Client cl)`
-
-- Description: TODO
+- Role: Saves the current data.
+- Description: Saves the current data through the persistence pipeline.
 
 #### `public void claunch(Client cl)`
-
-- Description: TODO
+- Role: Performs claunch.
+- Description: Supports the claunch operation used by the surrounding class.
 
 #### `public Updater(Collection<UGItem> items)`
-
-- Description: TODO
+- Role: Performs updater.
+- Description: Supports the updater operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static boolean launchlast(Collection<Client> clients)`
-
-- Description: TODO
+- Role: Performs launchlast.
+- Description: Supports the launchlast operation used by the surrounding class.
 
 #### `public static void main2(String[] args)`
-
-- Description: TODO
+- Role: Performs main2.
+- Description: Supports the main2 operation used by the surrounding class.
 
 #### `public static void main(final String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.

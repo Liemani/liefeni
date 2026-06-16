@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `ChatInputMonitor`.
 
 ## Role
 
-Observes a narrow slice of runtime state for automation.
+Monitors chat input events for agent hooks.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object lock = new Object()`
-
-- Description: TODO
+- Role: Defines the shared lock constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static boolean waitingAreaChat = false`
-
-- Description: TODO
+- Role: Tracks the waiting area chat flag.
+- Description: Supports the waiting area chat operation used by the surrounding class.
 
 #### `private static String capturedAreaChat = null`
-
-- Description: TODO
+- Role: Stores the captured area chat value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private ChatInputMonitor()`
-
-- Description: TODO
+- Role: Creates a new ChatInputMonitor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public static String waitAreaChat()`
-
-- Description: TODO
+- Role: Performs wait area chat.
+- Description: Supports the wait area chat operation used by the surrounding class.
 
 #### `public static void capture(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs capture.
+- Description: Supports the capture operation used by the surrounding class.

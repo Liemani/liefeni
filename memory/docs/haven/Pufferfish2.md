@@ -10,134 +10,135 @@ This file documents the responsibilities and members of `Pufferfish2`.
 
 ## Role
 
-Provides a bitset or packing helper.
+Represents the pufferfish2 Haven component.
 
 ## Nested Types
 
 ### Instance
 
-- Description: TODO
+- Role: Represents instance within Pufferfish2.
+- Description: Describes the nested instance type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Utils.BinAscii ENCODING = new Utils.Base64("./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", '\0')`
-
-- Description: TODO
+- Role: Defines the shared encoding constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final long[] IV =`
-
-- Description: TODO
+- Role: Defines the shared pufferfish2 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Digest.Algorithm DIGEST = Digest.SHA512`
-
-- Description: TODO
+- Role: Defines the shared digest constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int DIGEST_LENGTH = DIGEST.diglen()`
-
-- Description: TODO
+- Role: Defines the shared digest length constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int SBOX_N = 4`
-
-- Description: TODO
+- Role: Defines the shared sbox n constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final int cost_t, cost_m`
-
-- Description: TODO
+- Role: Stores the cost m value.
+- Description: Backs the cached state for this file.
 
 #### `private final int cost_t, cost_m`
-
-- Description: TODO
-
-#### `private final int log2_sbox_sz, sbox_sz`
-
-- Description: TODO
+- Role: Stores the cost m value.
+- Description: Backs the cached state for this file.
 
 #### `private final int log2_sbox_sz, sbox_sz`
+- Role: Stores the sbox sz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int log2_sbox_sz, sbox_sz`
+- Role: Stores the sbox sz value.
+- Description: Backs the cached state for this file.
 
 #### `private final long[][] S`
-
-- Description: TODO
+- Role: Stores the s value.
+- Description: Backs the cached state for this file.
 
 #### `private final long[] P = new long[18]`
-
-- Description: TODO
-
-#### `private long L = 0, R = 0`
-
-- Description: TODO
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
 #### `private long L = 0, R = 0`
+- Role: Stores the l value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private long L = 0, R = 0`
+- Role: Stores the l value.
+- Description: Backs the cached state for this file.
 
 #### `private long[] salt_u64`
-
-- Description: TODO
+- Role: Stores the salt u64 value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private static long[] b2l(byte[] buf)`
-
-- Description: TODO
+- Role: Performs b2l.
+- Description: Supports the b2l operation used by the surrounding class.
 
 #### `private static byte[] l2b(long[] buf)`
-
-- Description: TODO
+- Role: Performs l2b.
+- Description: Supports the l2b operation used by the surrounding class.
 
 #### `private static byte[] HMAC(byte[] key, byte[] data)`
-
-- Description: TODO
+- Role: Performs hmac.
+- Description: Supports the hmac operation used by the surrounding class.
 
 #### `private byte[] HASH_SBOX(byte[] x)`
-
-- Description: TODO
+- Role: Performs hash sbox.
+- Description: Supports the hash sbox operation used by the surrounding class.
 
 #### `private long F(long x)`
-
-- Description: TODO
+- Role: Performs f.
+- Description: Supports the f operation used by the surrounding class.
 
 #### `private void ENCIPHER()`
-
-- Description: TODO
+- Role: Performs encipher.
+- Description: Supports the encipher operation used by the surrounding class.
 
 #### `private void EXPANDSTATE(long[] buf, long a, long b, int c, int d)`
-
-- Description: TODO
+- Role: Performs expandstate.
+- Description: Supports the expandstate operation used by the surrounding class.
 
 #### `private void EXPANDSTATE_NULL(long[] buf, int a, int b)`
-
-- Description: TODO
+- Role: Performs expandstate null.
+- Description: Supports the expandstate null operation used by the surrounding class.
 
 #### `private void ENCRYPT_P()`
-
-- Description: TODO
+- Role: Performs encrypt p.
+- Description: Supports the encrypt p operation used by the surrounding class.
 
 #### `private void ENCRYPT_S()`
-
-- Description: TODO
+- Role: Performs encrypt s.
+- Description: Supports the encrypt s operation used by the surrounding class.
 
 #### `private void REKEY(byte[] key)`
-
-- Description: TODO
+- Role: Performs rekey.
+- Description: Supports the rekey operation used by the surrounding class.
 
 #### `public Instance(int cost_t, int cost_m)`
-
-- Description: TODO
+- Role: Performs instance.
+- Description: Supports the instance operation used by the surrounding class.
 
 #### `public byte[] hash(byte[] key_r, byte[] salt_r)`
-
-- Description: TODO
+- Role: Performs hash.
+- Description: Supports the hash operation used by the surrounding class.
 
 #### `public static byte[] hash(byte[] key, byte[] salt, int t, int m)`
-
-- Description: TODO
+- Role: Performs hash.
+- Description: Supports the hash operation used by the surrounding class.
 
 #### `public static void main(String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.

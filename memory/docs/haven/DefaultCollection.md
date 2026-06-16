@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DefaultCollection`.
 
 ## Role
 
-Provides a collection with default value behavior.
+Represents the default collection Haven component.
 
 ## Members
 
@@ -21,49 +21,49 @@ Provides a collection with default value behavior.
 ### Methods
 
 #### `public default int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public default boolean isEmpty()`
-
-- Description: TODO
+- Role: Checks whether the empty.
+- Description: Returns a boolean result for the described condition.
 
 #### `public default void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public default boolean remove(Object el)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public default boolean add(E el)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public default boolean contains(Object o)`
-
-- Description: TODO
+- Role: Performs contains.
+- Description: Supports the contains operation used by the surrounding class.
 
 #### `public default boolean retainAll(Collection<?> c)`
-
-- Description: TODO
+- Role: Performs retain all.
+- Description: Supports the retain all operation used by the surrounding class.
 
 #### `public default boolean removeAll(Collection<?> c)`
-
-- Description: TODO
+- Role: Removes the all.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public default boolean addAll(Collection<? extends E> c)`
-
-- Description: TODO
+- Role: Adds the all.
+- Description: Adds the all to the current collection or state.
 
 #### `public default boolean containsAll(Collection<?> c)`
-
-- Description: TODO
+- Role: Performs contains all.
+- Description: Supports the contains all operation used by the surrounding class.
 
 #### `public default <T> T[] toArray(T[] buf)`
-
-- Description: TODO
+- Role: Performs to array.
+- Description: Supports the to array operation used by the surrounding class.
 
 #### `public default Object[] toArray()`
-
-- Description: TODO
+- Role: Performs to array.
+- Description: Supports the to array operation used by the surrounding class.

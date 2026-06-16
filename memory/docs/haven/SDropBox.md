@@ -10,146 +10,148 @@ This file documents the responsibilities and members of `SDropBox`.
 
 ## Role
 
-Displays a styled drop box widget.
+Represents the sdrop box Haven component.
 
 ## Nested Types
 
 ### Item
 
-- Description: TODO
+- Role: Represents item within SDropBox.
+- Description: Describes the nested item type used by the enclosing class.
 
 ### SDropList
 
-- Description: TODO
+- Role: Represents sdrop list within SDropBox.
+- Description: Describes the nested sdrop list type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex dropimg = Resource.loadtex("gfx/hud/drop")`
-
-- Description: TODO
+- Role: Defines the shared dropimg constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int listh,itemh`
-
-- Description: TODO
+- Role: Stores the sdrop box state.
+- Description: Backs the cached state for this file.
 
 #### `public final int listh,itemh`
-
-- Description: TODO
+- Role: Stores the sdrop box state.
+- Description: Backs the cached state for this file.
 
 #### `protected final ACheckBox drop`
-
-- Description: TODO
+- Role: Holds the drop state.
+- Description: Backs the cached state for this file.
 
 #### `private SDropList dl`
-
-- Description: TODO
+- Role: Caches dl entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private W curitem`
-
-- Description: TODO
+- Role: Holds the curitem state.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab grab = null`
-
-- Description: TODO
+- Role: Stores the grab value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `protected SDropList()`
-
-- Description: TODO
+- Role: Performs sdrop list.
+- Description: Supports the sdrop list operation used by the surrounding class.
 
 #### `private Item(I item, W child)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `protected List<? extends I> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Widget makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public void add()`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public void change(I item)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `protected void drawbg(GOut g)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, I item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `protected boolean unselect(int btn)`
-
-- Description: TODO
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `public SDropBox(int w, int listh, int itemh)`
-
-- Description: TODO
+- Role: Creates a new SDropBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected ACheckBox makedrop()`
-
-- Description: TODO
+- Role: Performs makedrop.
+- Description: Supports the makedrop operation used by the surrounding class.
 
 #### `public void change(I item)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public void drop(boolean st)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `protected void drawbg(GOut g)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `protected void ldrawbg(GOut g, Area area)`
-
-- Description: TODO
+- Role: Performs ldrawbg.
+- Description: Supports the ldrawbg operation used by the surrounding class.
 
 #### `protected void ldrawbg(GOut g, I item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs ldrawbg.
+- Description: Supports the ldrawbg operation used by the surrounding class.
 
 #### `protected void ldrawsel(GOut g, I item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs ldrawsel.
+- Description: Supports the ldrawsel operation used by the surrounding class.
 
 #### `protected void ldrawslot(GOut g, I item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs ldrawslot.
+- Description: Supports the ldrawslot operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public static <I> SDropBox<I, Widget> of(int w, int listh, int itemh, List<? extends I> items, BiFunction<? super I, ? super Coord, ? extends Widget> render, Consumer<? super I> change)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.

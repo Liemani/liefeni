@@ -10,64 +10,64 @@ This file documents the responsibilities and members of `GLPipeState`.
 
 ## Role
 
-Represents GL pipe state.
+Provides GL backend support for glpipe state.
 
 ## Members
 
 ### Constants
 
 #### `public static final GLPipeState<Viewport> viewport = new GLPipeState<Viewport>(States.viewport)`
-
-- Description: TODO
+- Role: Defines the shared viewport constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<Scissor> scissor = new GLPipeState<Scissor>(States.scissor)`
-
-- Description: TODO
+- Role: Defines the shared scissor constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<Facecull> facecull = new GLPipeState<Facecull>(States.facecull)`
-
-- Description: TODO
+- Role: Defines the shared facecull constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<Depthtest> depthtest = new GLPipeState<Depthtest>(States.depthtest)`
-
-- Description: TODO
+- Role: Defines the shared depthtest constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<State> maskdepth = new GLPipeState<State>(States.maskdepth.slot)`
-
-- Description: TODO
+- Role: Defines the shared maskdepth constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<LineWidth> linewidth = new GLPipeState<LineWidth>(States.linewidth)`
-
-- Description: TODO
+- Role: Defines the shared linewidth constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<DepthBias> depthbias = new GLPipeState<DepthBias>(States.depthbias)`
-
-- Description: TODO
+- Role: Defines the shared depthbias constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<?>[] all =`
-
-- Description: TODO
+- Role: Defines the shared glpipe state constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final GLPipeState<?>[] matching`
-
-- Description: TODO
+- Role: Defines the shared matching constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public State.Slot<? extends T> slot`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public abstract void apply(GLEnvironment env, BGL gl, T from, T to)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void apply(GLEnvironment env, BGL gl, T to)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public GLPipeState(State.Slot<? extends T> slot)`
-
-- Description: TODO
+- Role: Creates a new GLPipeState instance.
+- Description: Constructs the instance and initializes its default state.

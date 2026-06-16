@@ -10,94 +10,96 @@ This file documents the responsibilities and members of `Server`.
 
 ## Role
 
-Represents a resource script server.
+Integrates Haven rendering-server support for server.
 
 ## Nested Types
 
 ### Client
 
-- Description: TODO
+- Role: Represents client within Server.
+- Description: Describes the nested client type used by the enclosing class.
 
 ### Command
 
-- Description: TODO
+- Role: Represents command within Server.
+- Description: Describes the nested command type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Map<String, Command> commands = new HashMap<String, Command>()`
-
-- Description: TODO
+- Role: Defines the shared commands constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final ServerSocket sk`
-
-- Description: TODO
+- Role: Holds the sk state.
+- Description: Backs the cached state for this file.
 
 #### `private final Random rng = new SecureRandom()`
-
-- Description: TODO
+- Role: Holds the rng state.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] key`
-
-- Description: TODO
+- Role: Stores the key value.
+- Description: Backs the cached state for this file.
 
 #### `private final InputStream in`
-
-- Description: TODO
+- Role: Holds the in state.
+- Description: Backs the cached state for this file.
 
 #### `private final OutputStream out`
-
-- Description: TODO
+- Role: Holds the out state.
+- Description: Backs the cached state for this file.
 
 #### `private byte[] nonce = null`
-
-- Description: TODO
+- Role: Stores the nonce value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean auth = false`
-
-- Description: TODO
+- Role: Tracks the auth flag.
+- Description: Supports the auth operation used by the surrounding class.
 
 ### Methods
 
 #### `public Object[] run(Client cl, Object... args) throws InterruptedException`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private Client(InputStream in, OutputStream out, boolean auth)`
-
-- Description: TODO
+- Role: Performs client.
+- Description: Supports the client operation used by the surrounding class.
 
 #### `private Client(Socket sk) throws IOException`
-
-- Description: TODO
+- Role: Handles the client workflow.
+- Description: Supports the client operation used by the surrounding class.
 
 #### `byte[] read(InputStream in, int bytes) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public Server(int port, byte[] key) throws IOException`
-
-- Description: TODO
+- Role: Creates a new Server instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Server()`
-
-- Description: TODO
+- Role: Creates a new Server instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void stdio()`
-
-- Description: TODO
+- Role: Performs stdio.
+- Description: Supports the stdio operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

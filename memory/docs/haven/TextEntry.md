@@ -10,178 +10,179 @@ This file documents the responsibilities and members of `TextEntry`.
 
 ## Role
 
-Displays a text entry widget.
+Represents the text entry Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within TextEntry.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Color defcol = new Color(255, 205, 109), dirtycol = new Color(255, 232, 209)`
-
-- Description: TODO
+- Role: Defines the shared defcol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color defcol = new Color(255, 205, 109), dirtycol = new Color(255, 232, 209)`
-
-- Description: TODO
+- Role: Defines the shared defcol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color selcol = new Color(24, 80, 192)`
-
-- Description: TODO
+- Role: Defines the shared selcol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry fnd = new Text.Foundry(Text.serif, 12).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared fnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex lcap = Resource.loadtex("gfx/hud/text/l")`
-
-- Description: TODO
+- Role: Defines the shared lcap constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex rcap = Resource.loadtex("gfx/hud/text/r")`
-
-- Description: TODO
+- Role: Defines the shared rcap constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex mext = Resource.loadtex("gfx/hud/text/m")`
-
-- Description: TODO
+- Role: Defines the shared mext constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex caret = Resource.loadtex("gfx/hud/text/caret")`
-
-- Description: TODO
+- Role: Defines the shared caret constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int toffx = lcap.sz().x`
-
-- Description: TODO
+- Role: Defines the shared toffx constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord coff = UI.scale(new Coord(-2, 0))`
-
-- Description: TODO
+- Role: Defines the shared coff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int wmarg = lcap.sz().x + rcap.sz().x + UI.scale(1)`
-
-- Description: TODO
+- Role: Defines the shared wmarg constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public boolean dshow = false`
-
-- Description: TODO
+- Role: Tracks the dshow flag.
+- Description: Supports the dshow operation used by the surrounding class.
 
 #### `public ReadLine buf`
-
-- Description: TODO
+- Role: Holds the buf state.
+- Description: Backs the cached state for this file.
 
 #### `public int sx`
-
-- Description: TODO
+- Role: Stores the sx value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean pw = false`
-
-- Description: TODO
+- Role: Tracks the pw flag.
+- Description: Supports the pw operation used by the surrounding class.
 
 #### `private boolean dirty = false`
-
-- Description: TODO
+- Role: Tracks whether dirty is dirty.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private double focusstart`
-
-- Description: TODO
+- Role: Stores the focusstart value.
+- Description: Backs the cached state for this file.
 
 #### `private Text.Line tcache = null`
-
-- Description: TODO
+- Role: Stores the tcache value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab d = null`
-
-- Description: TODO
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void settext(String text)`
-
-- Description: TODO
+- Role: Performs settext.
+- Description: Supports the settext operation used by the surrounding class.
 
 #### `public void rsettext(String text)`
-
-- Description: TODO
+- Role: Performs rsettext.
+- Description: Supports the rsettext operation used by the surrounding class.
 
 #### `public void commit()`
-
-- Description: TODO
+- Role: Performs commit.
+- Description: Supports the commit operation used by the surrounding class.
 
 #### `public void uimsg(String name, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `protected String dtext()`
-
-- Description: TODO
+- Role: Performs dtext.
+- Description: Supports the dtext operation used by the surrounding class.
 
 #### `protected void redraw()`
-
-- Description: TODO
+- Role: Performs redraw.
+- Description: Supports the redraw operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public TextEntry(int w, String deftext)`
-
-- Description: TODO
+- Role: Creates a new TextEntry instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void changed()`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public void activate(String text)`
-
-- Description: TODO
+- Role: Performs activate.
+- Description: Supports the activate operation used by the surrounding class.
 
 #### `public void done(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public void changed(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs changed.
+- Description: Supports the changed operation used by the surrounding class.
 
 #### `public boolean gkeytype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Performs gkeytype.
+- Description: Supports the gkeytype operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent e)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public void gotfocus()`
-
-- Description: TODO
+- Role: Performs gotfocus.
+- Description: Supports the gotfocus operation used by the surrounding class.
 
 #### `public void resize(int w)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Prioritized`.
 
 ## Role
 
-Marks a value as prioritized.
+Represents the prioritized Haven component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Marks a value as prioritized.
 ### Methods
 
 #### `public int priority()`
-
-- Description: TODO
+- Role: Performs priority.
+- Description: Supports the priority operation used by the surrounding class.

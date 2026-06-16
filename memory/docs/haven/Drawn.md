@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Drawn`.
 
 ## Role
 
-Marks something as already drawn or drawable state.
+Represents the drawn Haven component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Marks something as already drawn or drawable state.
 ### Methods
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.

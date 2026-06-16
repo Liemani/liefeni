@@ -10,270 +10,274 @@ This file documents the responsibilities and members of `ShadowMap`.
 
 ## Role
 
-Represents shadow map state.
+Represents the shadow map Haven component.
 
 ## Nested Types
 
 ### $maskshadow
 
-- Description: TODO
+- Role: Represents $maskshadow within ShadowMap.
+- Description: Describes the nested $maskshadow type used by the enclosing class.
 
 ### Shader
 
-- Description: TODO
+- Role: Represents shader within ShadowMap.
+- Description: Describes the nested shader type used by the enclosing class.
 
 ### ShadowList
 
-- Description: TODO
+- Role: Represents shadow list within ShadowMap.
+- Description: Describes the nested shadow list type used by the enclosing class.
 
 ### Shadowslot
 
-- Description: TODO
+- Role: Represents shadowslot within ShadowMap.
+- Description: Describes the nested shadowslot type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Pipe.Op shadowbasic = Pipe.Op.compose(new States.Depthtest(States.Depthtest.Test.LE),`
-
-- Description: TODO
-
-#### `static final int idx_bas = 0, idx_back = 1`
-
-- Description: TODO
+- Role: Defines the shared shadowbasic constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final int idx_bas = 0, idx_back = 1`
+- Role: Defines the shared idx bas constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `static final int idx_bas = 0, idx_back = 1`
+- Role: Defines the shared idx bas constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform txf = new Uniform(MAT4, p ->`
-
-- Description: TODO
+- Role: Defines the shared txf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform sl = new Uniform(INT, p ->`
-
-- Description: TODO
+- Role: Defines the shared sl constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform map = new Uniform(SAMPLER2D, p -> p.get(smap).lsamp, smap)`
-
-- Description: TODO
+- Role: Defines the shared map constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying stc = new AutoVarying(VEC4)`
-
-- Description: TODO
+- Role: Defines the shared stc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Defines the shared interned constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final static Slot<ShadowMap> smap = new Slot<ShadowMap>(Slot.Type.DRAW, ShadowMap.class)`
-
-- Description: TODO
+- Role: Caches smap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final static State.StandAlone maskshadow = new State.StandAlone(Slot.Type.GEOM)`
-
-- Description: TODO
+- Role: Holds the maskshadow state.
+- Description: Backs the cached state for this file.
 
 #### `public final Texture2D lbuf`
-
-- Description: TODO
+- Role: Stores the lbuf value.
+- Description: Backs the cached state for this file.
 
 #### `public final Texture2D.Sampler2D lsamp`
-
-- Description: TODO
+- Role: Stores the lsamp value.
+- Description: Backs the cached state for this file.
 
 #### `private final Projection lproj`
-
-- Description: TODO
+- Role: Holds the lproj state.
+- Description: Backs the cached state for this file.
 
 #### `private final Pipe.Op basic`
-
-- Description: TODO
+- Role: Holds the basic state.
+- Description: Backs the cached state for this file.
 
 #### `private DirLight light`
-
-- Description: TODO
+- Role: Holds the light state.
+- Description: Backs the cached state for this file.
 
 #### `private Camera lcam`
-
-- Description: TODO
+- Role: Holds the lcam state.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe.Op curbasic`
-
-- Description: TODO
+- Role: Holds the curbasic state.
+- Description: Backs the cached state for this file.
 
 #### `private final static Matrix4f texbias = new Matrix4f(0.5f, 0.0f, 0.0f, 0.5f,`
-
-- Description: TODO
+- Role: Holds the texbias state.
+- Description: Backs the cached state for this file.
 
 #### `private final RenderList.Adapter master`
-
-- Description: TODO
+- Role: Caches master entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final ProxyPipe basic = new ProxyPipe()`
-
-- Description: TODO
+- Role: Holds the basic state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Slot<? extends Rendered>, Shadowslot> slots = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private DrawList back = null`
-
-- Description: TODO
+- Role: Caches back entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private DefPipe curbasic = null`
-
-- Description: TODO
+- Role: Holds the curbasic state.
+- Description: Backs the cached state for this file.
 
 #### `public final Slot<? extends Rendered> bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public final Function.Def shcalc`
-
-- Description: TODO
+- Role: Holds the shcalc state.
+- Description: Backs the cached state for this file.
 
 #### `private final Object id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `public final Shader shader`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void cons(Material.Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public ShadowMap(Coord res, float size, float depth, float dthr)`
-
-- Description: TODO
+- Role: Creates a new ShadowMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private ShadowMap(ShadowMap that)`
-
-- Description: TODO
+- Role: Creates a new ShadowMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public ShadowList(RenderList.Adapter master)`
-
-- Description: TODO
+- Role: Performs shadow list.
+- Description: Supports the shadow list operation used by the surrounding class.
 
 #### `public Shadowslot(Slot<? extends Rendered> bk)`
-
-- Description: TODO
+- Role: Performs shadowslot.
+- Description: Supports the shadowslot operation used by the surrounding class.
 
 #### `public Rendered obj()`
-
-- Description: TODO
+- Role: Performs obj.
+- Description: Supports the obj operation used by the surrounding class.
 
 #### `public GroupPipe state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public Pipe group(int idx)`
-
-- Description: TODO
+- Role: Performs group.
+- Description: Supports the group operation used by the surrounding class.
 
 #### `public int gstate(int id)`
-
-- Description: TODO
+- Role: Performs gstate.
+- Description: Supports the gstate operation used by the surrounding class.
 
 #### `public int nstates()`
-
-- Description: TODO
+- Role: Performs nstates.
+- Description: Supports the nstates operation used by the surrounding class.
 
 #### `public void add(Slot<? extends Rendered> slot)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(Slot<? extends Rendered> slot)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void update(Slot<? extends Rendered> slot)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void update(Pipe group, int[] statemask)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Locked lock()`
-
-- Description: TODO
+- Role: Performs lock.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `public Iterable<? extends Slot<?>> slots()`
-
-- Description: TODO
+- Role: Performs slots.
+- Description: Supports the slots operation used by the surrounding class.
 
 #### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(RenderList<?> list)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void basic(Pipe.Op st)`
-
-- Description: TODO
+- Role: Performs basic.
+- Description: Supports the basic operation used by the surrounding class.
 
 #### `public void draw(Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public ShadowMap light(DirLight light)`
-
-- Description: TODO
+- Role: Performs light.
+- Description: Supports the light operation used by the surrounding class.
 
 #### `public boolean haspos()`
-
-- Description: TODO
+- Role: Performs haspos.
+- Description: Supports the haspos operation used by the surrounding class.
 
 #### `public ShadowMap setpos(Coord3f base, Coord3f dir)`
-
-- Description: TODO
+- Role: Performs setpos.
+- Description: Supports the setpos operation used by the surrounding class.
 
 #### `public void update(Render out, ShadowList data)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `private Shader(double xd, double yd, int res, double thr)`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static Shader get(double xd, double yd, int res, double thr)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.

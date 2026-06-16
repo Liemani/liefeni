@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DrawList`.
 
 ## Role
 
-Represents a draw list.
+Defines the draw list render pipeline component.
 
 ## Members
 
@@ -21,13 +21,13 @@ Represents a draw list.
 ### Methods
 
 #### `public void draw(Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public default String stats()`
-
-- Description: TODO
+- Role: Performs stats.
+- Description: Supports the stats operation used by the surrounding class.
 
 #### `public default DrawList desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.

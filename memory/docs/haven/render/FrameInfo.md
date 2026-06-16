@@ -10,48 +10,48 @@ This file documents the responsibilities and members of `FrameInfo`.
 
 ## Role
 
-Represents frame information.
+Defines the frame info render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<FrameInfo> slot = new Slot<>(Slot.Type.SYS, FrameInfo.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform u_time = new Uniform(Type.FLOAT, "time", p ->`
-
-- Description: TODO
+- Role: Defines the shared u time constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final double time`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public FrameInfo(double time)`
-
-- Description: TODO
+- Role: Creates a new FrameInfo instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FrameInfo()`
-
-- Description: TODO
+- Role: Creates a new FrameInfo instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static Expression time()`
-
-- Description: TODO
+- Role: Performs time.
+- Description: Supports the time operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

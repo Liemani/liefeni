@@ -10,36 +10,36 @@ This file documents the responsibilities and members of `Tonemapper`.
 
 ## Role
 
-Provides tonemapping support.
+Represents the tonemapper Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final State justgamma = new RUtils.AdHoc(prog ->`
-
-- Description: TODO
+- Role: Defines the shared justgamma constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final State draw`
-
-- Description: TODO
+- Role: Holds the draw state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Tonemapper(State draw)`
-
-- Description: TODO
+- Role: Creates a new Tonemapper instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void run(GOut g, Texture2D.Sampler2D in)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public FrameFormat outformat(FrameFormat in)`
-
-- Description: TODO
+- Role: Performs outformat.
+- Description: Supports the outformat operation used by the surrounding class.

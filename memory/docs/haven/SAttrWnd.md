@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `SAttrWnd`.
 
 ## Role
 
-Displays a skill or stat attribute window.
+Represents the sattr wnd Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within SAttrWnd.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### SAttr
 
-- Description: TODO
+- Role: Represents sattr within SAttrWnd.
+- Description: Describes the nested sattr type used by the enclosing class.
 
 ### StudyInfo
 
-- Description: TODO
+- Role: Represents study info within SAttrWnd.
+- Description: Describes the nested study info type used by the enclosing class.
 
 ## Members
 
@@ -33,147 +36,147 @@ Displays a skill or stat attribute window.
 ### Fields
 
 #### `public final Collection<SAttr> attrs`
-
-- Description: TODO
+- Role: Caches attrs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Coord studyc`
-
-- Description: TODO
+- Role: Stores the studyc value.
+- Description: Backs the cached state for this file.
 
 #### `private CharWnd chr`
-
-- Description: TODO
+- Role: Stores the chr value.
+- Description: Backs the cached state for this file.
 
 #### `private int scost`
-
-- Description: TODO
+- Role: Stores the scost value.
+- Description: Backs the cached state for this file.
 
 #### `public final Text rnm`
-
-- Description: TODO
+- Role: Stores the rnm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color bg`
-
-- Description: TODO
-
-#### `public int tbv, cost`
-
-- Description: TODO
+- Role: Stores the bg value.
+- Description: Backs the cached state for this file.
 
 #### `public int tbv, cost`
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int tbv, cost`
+- Role: Stores the cost value.
+- Description: Backs the cached state for this file.
 
 #### `private final IButton add, sub`
-
-- Description: TODO
+- Role: Holds the sub state.
+- Description: Backs the cached state for this file.
 
 #### `private final IButton add, sub`
-
-- Description: TODO
+- Role: Holds the sub state.
+- Description: Backs the cached state for this file.
 
 #### `private Text ct`
-
-- Description: TODO
-
-#### `private int cbv, ccv`
-
-- Description: TODO
+- Role: Stores the ct value.
+- Description: Backs the cached state for this file.
 
 #### `private int cbv, ccv`
+- Role: Stores the ccv value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int cbv, ccv`
+- Role: Stores the ccv value.
+- Description: Backs the cached state for this file.
 
 #### `public final Widget study`
-
-- Description: TODO
-
-#### `public int texp, tw, tenc`
-
-- Description: TODO
+- Role: Stores the study value.
+- Description: Backs the cached state for this file.
 
 #### `public int texp, tw, tenc`
-
-- Description: TODO
+- Role: Stores the tenc value.
+- Description: Backs the cached state for this file.
 
 #### `public int texp, tw, tenc`
+- Role: Stores the tenc value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int texp, tw, tenc`
+- Role: Stores the tenc value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private SAttr(Glob glob, String attr, Color bg)`
-
-- Description: TODO
+- Role: Performs sattr.
+- Description: Supports the sattr operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private void updcost()`
-
-- Description: TODO
+- Role: Performs updcost.
+- Description: Supports the updcost operation used by the surrounding class.
 
 #### `public void adj(int a)`
-
-- Description: TODO
+- Role: Performs adj.
+- Description: Supports the adj operation used by the surrounding class.
 
 #### `public void reset()`
-
-- Description: TODO
+- Role: Performs reset.
+- Description: Supports the reset operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public RLabel<?> explabel()`
-
-- Description: TODO
+- Role: Performs explabel.
+- Description: Supports the explabel operation used by the surrounding class.
 
 #### `public RLabel<?> enclabel()`
-
-- Description: TODO
+- Role: Performs enclabel.
+- Description: Supports the enclabel operation used by the surrounding class.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `private StudyInfo(Coord sz, Widget study)`
-
-- Description: TODO
+- Role: Performs study info.
+- Description: Supports the study info operation used by the surrounding class.
 
 #### `private void upd()`
-
-- Description: TODO
+- Role: Performs upd.
+- Description: Supports the upd operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `private void buy()`
-
-- Description: TODO
+- Role: Performs buy.
+- Description: Supports the buy operation used by the surrounding class.
 
 #### `private void reset()`
-
-- Description: TODO
+- Role: Performs reset.
+- Description: Supports the reset operation used by the surrounding class.
 
 #### `public SAttrWnd(Glob glob)`
-
-- Description: TODO
+- Role: Creates a new SAttrWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.

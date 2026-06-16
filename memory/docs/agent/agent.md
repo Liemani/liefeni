@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `agent`.
 
 ## Role
 
-Provides a package-level registry entry for the corresponding agent category.
+Defines metadata for the agent agent package.
 
 ## Members
 
@@ -21,13 +21,13 @@ Provides a package-level registry entry for the corresponding agent category.
 ### Methods
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public static String icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.

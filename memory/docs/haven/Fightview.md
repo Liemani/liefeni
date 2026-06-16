@@ -10,330 +10,337 @@ This file documents the responsibilities and members of `Fightview`.
 
 ## Role
 
-Displays fight view information.
+Represents the fightview Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Fightview.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Mainrel
 
-- Description: TODO
+- Role: Represents mainrel within Fightview.
+- Description: Describes the nested mainrel type used by the enclosing class.
 
 ### Notfound
 
-- Description: TODO
+- Role: Represents notfound within Fightview.
+- Description: Describes the nested notfound type used by the enclosing class.
 
 ### ObInfo
 
-- Description: TODO
+- Role: Represents ob info within Fightview.
+- Description: Describes the nested ob info type used by the enclosing class.
 
 ### Relation
 
-- Description: TODO
+- Role: Represents relation within Fightview.
+- Description: Describes the nested relation type used by the enclosing class.
 
 ### Relbox
 
-- Description: TODO
+- Role: Represents relbox within Fightview.
+- Description: Describes the nested relbox type used by the enclosing class.
 
 ### Rellist
 
-- Description: TODO
+- Role: Represents rellist within Fightview.
+- Description: Describes the nested rellist type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex bg = Resource.loadtex("gfx/hud/bosq")`
-
-- Description: TODO
+- Role: Defines the shared bg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int height = 5`
-
-- Description: TODO
+- Role: Defines the shared height constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int ymarg = UI.scale(5)`
-
-- Description: TODO
+- Role: Defines the shared ymarg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int width = UI.scale(175)`
-
-- Description: TODO
+- Role: Defines the shared width constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord avasz = Coord.of(bg.sz().y - UI.scale(6))`
-
-- Description: TODO
+- Role: Defines the shared avasz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cavac = new Coord(width - Avaview.dasz.x - UI.scale(10), UI.scale(10))`
-
-- Description: TODO
+- Role: Defines the shared cavac constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cgivec = new Coord(cavac.x - UI.scale(35), cavac.y)`
-
-- Description: TODO
+- Role: Defines the shared cgivec constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cpursc = new Coord(cavac.x - UI.scale(75), cgivec.y + UI.scale(35))`
-
-- Description: TODO
+- Role: Defines the shared cpursc constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final LinkedList<Relation> lsrel = new LinkedList<Relation>()`
-
-- Description: TODO
+- Role: Caches lsrel entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Bufflist buffs = add(new Bufflist())`
-
-- Description: TODO
+- Role: Holds the buffs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<Long, Widget> obinfo = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches obinfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Rellist lsdisp`
-
-- Description: TODO
+- Role: Holds the lsdisp state.
+- Description: Backs the cached state for this file.
 
 #### `public Relation current = null`
-
-- Description: TODO
-
-#### `public Indir<Resource> blk, batk, iatk`
-
-- Description: TODO
+- Role: Holds the current state.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> blk, batk, iatk`
-
-- Description: TODO
+- Role: Stores the iatk value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> blk, batk, iatk`
+- Role: Stores the iatk value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Indir<Resource> blk, batk, iatk`
+- Role: Stores the iatk value.
+- Description: Backs the cached state for this file.
 
 #### `public double atkcs, atkct`
-
-- Description: TODO
+- Role: Stores the atkct value.
+- Description: Backs the cached state for this file.
 
 #### `public double atkcs, atkct`
-
-- Description: TODO
+- Role: Stores the atkct value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> lastact = null`
-
-- Description: TODO
+- Role: Stores the lastact value.
+- Description: Backs the cached state for this file.
 
 #### `public double lastuse = 0`
-
-- Description: TODO
+- Role: Stores the lastuse value.
+- Description: Backs the cached state for this file.
 
 #### `public Mainrel curdisp`
-
-- Description: TODO
+- Role: Holds the curdisp state.
+- Description: Backs the cached state for this file.
 
 #### `private List<Relation> nonmain = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches nonmain entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final long gobid`
-
-- Description: TODO
+- Role: Stores the gobid value.
+- Description: Backs the cached state for this file.
 
 #### `public final Bufflist buffs = add(new Bufflist())`
-
-- Description: TODO
+- Role: Holds the buffs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Bufflist relbuffs = add(new Bufflist())`
-
-- Description: TODO
-
-#### `public int gst, ip, oip`
-
-- Description: TODO
+- Role: Holds the relbuffs state.
+- Description: Backs the cached state for this file.
 
 #### `public int gst, ip, oip`
-
-- Description: TODO
+- Role: Stores the oip value.
+- Description: Backs the cached state for this file.
 
 #### `public int gst, ip, oip`
+- Role: Stores the oip value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int gst, ip, oip`
+- Role: Stores the oip value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> lastact = null`
-
-- Description: TODO
+- Role: Stores the lastact value.
+- Description: Backs the cached state for this file.
 
 #### `public double lastuse = 0`
-
-- Description: TODO
+- Role: Stores the lastuse value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean invalid = false`
-
-- Description: TODO
-
-#### `public final Relation rel`
-
-- Description: TODO
-
-#### `public final Avaview ava`
-
-- Description: TODO
-
-#### `public final GiveButton give`
-
-- Description: TODO
-
-#### `public final Button purs`
-
-- Description: TODO
+- Role: Tracks whether invalid is valid.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final Relation rel`
-
-- Description: TODO
+- Role: Holds the rel state.
+- Description: Backs the cached state for this file.
 
 #### `public final Avaview ava`
-
-- Description: TODO
+- Role: Holds the ava state.
+- Description: Backs the cached state for this file.
 
 #### `public final GiveButton give`
-
-- Description: TODO
+- Role: Holds the give state.
+- Description: Backs the cached state for this file.
 
 #### `public final Button purs`
+- Role: Holds the purs state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Relation rel`
+- Role: Holds the rel state.
+- Description: Backs the cached state for this file.
+
+#### `public final Avaview ava`
+- Role: Holds the ava state.
+- Description: Backs the cached state for this file.
+
+#### `public final GiveButton give`
+- Role: Holds the give state.
+- Description: Backs the cached state for this file.
+
+#### `public final Button purs`
+- Role: Holds the purs state.
+- Description: Backs the cached state for this file.
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Relation(long gobid)`
-
-- Description: TODO
+- Role: Performs relation.
+- Description: Supports the relation operation used by the surrounding class.
 
 #### `public void give(int state)`
-
-- Description: TODO
+- Role: Performs give.
+- Description: Supports the give operation used by the surrounding class.
 
 #### `public void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void use(Indir<Resource> act)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public Relbox(Relation rel)`
-
-- Description: TODO
+- Role: Performs relbox.
+- Description: Supports the relbox operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `public Rellist(int h)`
-
-- Description: TODO
+- Role: Performs rellist.
+- Description: Supports the rellist operation used by the surrounding class.
 
 #### `protected List<Relation> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Relbox makeitem(Relation rel, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, Relation item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `protected boolean unselect(int button)`
-
-- Description: TODO
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `public Mainrel(Relation rel)`
-
-- Description: TODO
+- Role: Performs mainrel.
+- Description: Supports the mainrel operation used by the surrounding class.
 
 #### `private void lpack()`
-
-- Description: TODO
+- Role: Performs lpack.
+- Description: Supports the lpack operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `public void use(Indir<Resource> act)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Fightview()`
-
-- Description: TODO
+- Role: Creates a new Fightview instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public Widget obinfo(long gobid, boolean creat)`
-
-- Description: TODO
+- Role: Performs obinfo.
+- Description: Supports the obinfo operation used by the surrounding class.
 
 #### `public <T extends Widget> T obinfo(long gobid, Class<T> cl, boolean creat)`
-
-- Description: TODO
+- Role: Performs obinfo.
+- Description: Supports the obinfo operation used by the surrounding class.
 
 #### `public default int prio()`
-
-- Description: TODO
+- Role: Performs prio.
+- Description: Supports the prio operation used by the surrounding class.
 
 #### `public default Coord2d grav()`
-
-- Description: TODO
+- Role: Performs grav.
+- Description: Supports the grav operation used by the surrounding class.
 
 #### `private void layout()`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `private void updrel()`
-
-- Description: TODO
+- Role: Performs updrel.
+- Description: Supports the updrel operation used by the surrounding class.
 
 #### `private void setcur(Relation rel)`
-
-- Description: TODO
+- Role: Performs setcur.
+- Description: Supports the setcur operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public Notfound(long id)`
-
-- Description: TODO
+- Role: Performs notfound.
+- Description: Supports the notfound operation used by the surrounding class.
 
 #### `private Relation getrel(long gobid)`
-
-- Description: TODO
+- Role: Performs getrel.
+- Description: Supports the getrel operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

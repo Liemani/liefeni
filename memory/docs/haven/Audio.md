@@ -10,486 +10,497 @@ This file documents the responsibilities and members of `Audio`.
 
 ## Role
 
-Handles audio device and playback support.
+Implements audio playback, mixing, and resampling support.
 
 ## Nested Types
 
 ### CS
 
-- Description: TODO
+- Role: Represents cs within Audio.
+- Description: Describes the nested cs type used by the enclosing class.
 
 ### Clip
 
-- Description: TODO
+- Role: Represents clip within Audio.
+- Description: Describes the nested clip type used by the enclosing class.
 
 ### LDump
 
-- Description: TODO
+- Role: Represents ldump within Audio.
+- Description: Describes the nested ldump type used by the enclosing class.
 
 ### Mixer
 
-- Description: TODO
+- Role: Represents mixer within Audio.
+- Description: Describes the nested mixer type used by the enclosing class.
 
 ### Monitor
 
-- Description: TODO
+- Role: Represents monitor within Audio.
+- Description: Describes the nested monitor type used by the enclosing class.
 
 ### PCMClip
 
-- Description: TODO
+- Role: Represents pcmclip within Audio.
+- Description: Describes the nested pcmclip type used by the enclosing class.
 
 ### Player
 
-- Description: TODO
+- Role: Represents player within Audio.
+- Description: Describes the nested player type used by the enclosing class.
 
 ### Repeater
 
-- Description: TODO
+- Role: Represents repeater within Audio.
+- Description: Describes the nested repeater type used by the enclosing class.
 
 ### Resampler
 
-- Description: TODO
+- Role: Represents resampler within Audio.
+- Description: Describes the nested resampler type used by the enclosing class.
 
 ### VolAdjust
 
-- Description: TODO
+- Role: Represents vol adjust within Audio.
+- Description: Describes the nested vol adjust type used by the enclosing class.
 
 ### VorbisClip
 
-- Description: TODO
+- Role: Represents vorbis clip within Audio.
+- Description: Describes the nested vorbis clip type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<String> outname = Config.Variable.prop("haven.audio-output", "")`
-
-- Description: TODO
+- Role: Defines the shared outname constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AudioFormat fmt = new AudioFormat(44100, 16, 2, true, false)`
-
-- Description: TODO
+- Role: Defines the shared fmt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Class<Clip> clip = Clip.class`
-
-- Description: TODO
-
-#### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-
-- Description: TODO
+- Role: Defines the shared clip constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-
-- Description: TODO
-
-#### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-
-- Description: TODO
+- Role: Defines the shared un8 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
+- Role: Defines the shared un8 constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
+- Role: Defines the shared un8 constant.
+- Description: Shared constant used by the rest of the class.
+
+#### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
+- Role: Defines the shared un8 constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public static boolean enabled = true`
-
-- Description: TODO
+- Role: Tracks whether enabled is enabled.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public static double volume = Double.parseDouble(Utils.getpref("sfxvol", "1.0"))`
-
-- Description: TODO
+- Role: Stores the volume value.
+- Description: Backs the cached state for this file.
 
 #### `private static int bufsize = Utils.getprefi("audiobuf", Math.round(fmt.getSampleRate() * 0.05f)) * fmt.getFrameSize()`
-
-- Description: TODO
+- Role: Stores the bufsize value.
+- Description: Backs the cached state for this file.
 
 #### `private static Player player`
-
-- Description: TODO
+- Role: Holds the player state.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean cont`
-
-- Description: TODO
+- Role: Tracks the cont flag.
+- Description: Supports the cont operation used by the surrounding class.
 
 #### `private final Collection<CS> clips = new LinkedList<CS>()`
-
-- Description: TODO
+- Role: Caches clips entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final InputStream clip`
-
-- Description: TODO
-
-#### `public final int sch, sfmt, ssz`
-
-- Description: TODO
+- Role: Holds the clip state.
+- Description: Backs the cached state for this file.
 
 #### `public final int sch, sfmt, ssz`
-
-- Description: TODO
+- Role: Stores the ssz value.
+- Description: Backs the cached state for this file.
 
 #### `public final int sch, sfmt, ssz`
+- Role: Stores the ssz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int sch, sfmt, ssz`
+- Role: Stores the ssz value.
+- Description: Backs the cached state for this file.
 
 #### `public int size = -1`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] dbuf = new byte[256]`
-
-- Description: TODO
-
-#### `private int head = 0, tail = 0`
-
-- Description: TODO
+- Role: Stores the dbuf value.
+- Description: Backs the cached state for this file.
 
 #### `private int head = 0, tail = 0`
+- Role: Stores the head value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int head = 0, tail = 0`
+- Role: Stores the head value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean eof = false`
-
-- Description: TODO
+- Role: Tracks the eof flag.
+- Description: Supports the eof operation used by the surrounding class.
 
 #### `public final VorbisStream clip`
-
-- Description: TODO
+- Role: Holds the clip state.
+- Description: Backs the cached state for this file.
 
 #### `private float[][] data = new float[1][0]`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private int dp = 0`
-
-- Description: TODO
+- Role: Stores the dp value.
+- Description: Backs the cached state for this file.
 
 #### `public final CS bk`
-
-- Description: TODO
-
-#### `public double vol = 1.0, bal = 0.0`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public double vol = 1.0, bal = 0.0`
+- Role: Stores the vol value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double vol = 1.0, bal = 0.0`
+- Role: Stores the vol value.
+- Description: Backs the cached state for this file.
 
 #### `private double[] cvol =`
-
-- Description: TODO
+- Role: Stores the audio state.
+- Description: Backs the cached state for this file.
 
 #### `public final CS bk`
-
-- Description: TODO
-
-#### `public double irate, orate`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public double irate, orate`
+- Role: Stores the orate value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double irate, orate`
+- Role: Stores the orate value.
+- Description: Backs the cached state for this file.
 
 #### `public double sp = 1.0`
-
-- Description: TODO
+- Role: Stores the sp value.
+- Description: Backs the cached state for this file.
 
 #### `private double ack`
-
-- Description: TODO
-
-#### `private double[] lval =`
-
-- Description: TODO
+- Role: Stores the ack value.
+- Description: Backs the cached state for this file.
 
 #### `private double[] lval =`
+- Role: Stores the audio state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private double[] lval =`
+- Role: Stores the audio state.
+- Description: Backs the cached state for this file.
 
 #### `private double[][] data =`
-
-- Description: TODO
-
-#### `private int dp = 0, dl = 0`
-
-- Description: TODO
+- Role: Stores the audio state.
+- Description: Backs the cached state for this file.
 
 #### `private int dp = 0, dl = 0`
+- Role: Stores the dp value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int dp = 0, dl = 0`
+- Role: Stores the dp value.
+- Description: Backs the cached state for this file.
 
 #### `public final CS bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean eof = false`
-
-- Description: TODO
+- Role: Tracks the eof flag.
+- Description: Supports the eof operation used by the surrounding class.
 
 #### `private CS cur = null`
-
-- Description: TODO
+- Role: Holds the cur state.
+- Description: Backs the cached state for this file.
 
 #### `public final CS bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `private double val = 0.0`
-
-- Description: TODO
-
-#### `private int n = 0, iv`
-
-- Description: TODO
+- Role: Stores the val value.
+- Description: Backs the cached state for this file.
 
 #### `private int n = 0, iv`
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int n = 0, iv`
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `private final CS stream`
-
-- Description: TODO
+- Role: Holds the stream state.
+- Description: Backs the cached state for this file.
 
 #### `private final int nch`
-
-- Description: TODO
+- Role: Stores the nch value.
+- Description: Backs the cached state for this file.
 
 #### `private volatile boolean reopen = false`
-
-- Description: TODO
+- Role: Tracks whether reopen is open.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static Map<Resource, Clip> resclips = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches resclips entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public static void setvolume(double volume)`
-
-- Description: TODO
+- Role: Performs setvolume.
+- Description: Supports the setvolume operation used by the surrounding class.
 
 #### `public int get(double[][] buf, int len)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public CS stream()`
-
-- Description: TODO
+- Role: Performs stream.
+- Description: Supports the stream operation used by the surrounding class.
 
 #### `public default String layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.
 
 #### `public default double bvol()`
-
-- Description: TODO
+- Role: Performs bvol.
+- Description: Supports the bvol operation used by the surrounding class.
 
 #### `public Mixer(boolean continuous)`
-
-- Description: TODO
+- Role: Performs mixer.
+- Description: Supports the mixer operation used by the surrounding class.
 
 #### `public Mixer()`
-
-- Description: TODO
+- Role: Performs mixer.
+- Description: Supports the mixer operation used by the surrounding class.
 
 #### `public int get(double[][] dst, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void add(CS clip)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void stop(CS clip)`
-
-- Description: TODO
+- Role: Stops the current workflow.
+- Description: Supports the stop operation used by the surrounding class.
 
 #### `public boolean playing(CS clip)`
-
-- Description: TODO
+- Role: Performs playing.
+- Description: Supports the playing operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public boolean empty()`
-
-- Description: TODO
+- Role: Performs empty.
+- Description: Supports the empty operation used by the surrounding class.
 
 #### `public Collection<CS> current()`
-
-- Description: TODO
+- Role: Performs current.
+- Description: Supports the current operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public PCMClip(InputStream clip, int nch, int sfmt)`
-
-- Description: TODO
+- Role: Performs pcmclip.
+- Description: Supports the pcmclip operation used by the surrounding class.
 
 #### `public PCMClip size(int size)`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `private int read(byte[] buf, int off, int len)`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int get(double[][] dst, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static CS fromwav(InputStream clip) throws IOException`
-
-- Description: TODO
+- Role: Handles the fromwav workflow.
+- Description: Supports the fromwav operation used by the surrounding class.
 
 #### `private static int u8(InputStream clip) throws IOException`
-
-- Description: TODO
+- Role: Handles the u8 workflow.
+- Description: Supports the u8 operation used by the surrounding class.
 
 #### `private static int u16(InputStream clip) throws IOException`
-
-- Description: TODO
+- Role: Handles the u16 workflow.
+- Description: Supports the u16 operation used by the surrounding class.
 
 #### `private static int s32(InputStream clip) throws IOException`
-
-- Description: TODO
+- Role: Handles the s32 workflow.
+- Description: Supports the s32 operation used by the surrounding class.
 
 #### `public VorbisClip(VorbisStream clip)`
-
-- Description: TODO
+- Role: Performs vorbis clip.
+- Description: Supports the vorbis clip operation used by the surrounding class.
 
 #### `public VorbisClip(InputStream bs) throws IOException`
-
-- Description: TODO
+- Role: Handles the vorbis clip workflow.
+- Description: Supports the vorbis clip operation used by the surrounding class.
 
 #### `public int get(double[][] dst, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public VolAdjust(CS bk, double vol)`
-
-- Description: TODO
+- Role: Performs vol adjust.
+- Description: Supports the vol adjust operation used by the surrounding class.
 
 #### `public VolAdjust(CS bk)`
-
-- Description: TODO
+- Role: Performs vol adjust.
+- Description: Supports the vol adjust operation used by the surrounding class.
 
 #### `public int get(double[][] dst, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Resampler(CS bk, double irate, double orate)`
-
-- Description: TODO
+- Role: Performs resampler.
+- Description: Supports the resampler operation used by the surrounding class.
 
 #### `public Resampler(CS bk, double irate)`
-
-- Description: TODO
+- Role: Performs resampler.
+- Description: Supports the resampler operation used by the surrounding class.
 
 #### `public Resampler(CS bk)`
-
-- Description: TODO
+- Role: Performs resampler.
+- Description: Supports the resampler operation used by the surrounding class.
 
 #### `public int get(double[][] dst, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Resampler sp(double sp)`
-
-- Description: TODO
+- Role: Performs sp.
+- Description: Supports the sp operation used by the surrounding class.
 
 #### `public Monitor(CS bk)`
-
-- Description: TODO
+- Role: Performs monitor.
+- Description: Supports the monitor operation used by the surrounding class.
 
 #### `public int get(double[][] dst, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `protected void eof()`
-
-- Description: TODO
+- Role: Performs eof.
+- Description: Supports the eof operation used by the surrounding class.
 
 #### `public void finwait() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the finwait workflow.
+- Description: Supports the finwait operation used by the surrounding class.
 
 #### `public int get(double[][] buf, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `protected abstract CS cons()`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public LDump(CS bk, int iv)`
-
-- Description: TODO
+- Role: Performs ldump.
+- Description: Supports the ldump operation used by the surrounding class.
 
 #### `public LDump(CS bk)`
-
-- Description: TODO
+- Role: Performs ldump.
+- Description: Supports the ldump operation used by the surrounding class.
 
 #### `public int get(double[][] buf, int ns)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `Player(CS stream)`
-
-- Description: TODO
+- Role: Handles the player workflow.
+- Description: Supports the player operation used by the surrounding class.
 
 #### `private int fillbuf(byte[] dst, int off, int len)`
-
-- Description: TODO
+- Role: Performs fillbuf.
+- Description: Supports the fillbuf operation used by the surrounding class.
 
 #### `static SourceDataLine getline() throws LineUnavailableException`
-
-- Description: TODO
+- Role: Returns the line value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `void reopen(boolean async)`
-
-- Description: TODO
+- Role: Performs reopen.
+- Description: Supports the reopen operation used by the surrounding class.
 
 #### `private static Player ckpl(boolean creat)`
-
-- Description: TODO
+- Role: Performs ckpl.
+- Description: Supports the ckpl operation used by the surrounding class.
 
 #### `public static void play(CS clip)`
-
-- Description: TODO
+- Role: Performs play.
+- Description: Supports the play operation used by the surrounding class.
 
 #### `public static void stop(CS clip)`
-
-- Description: TODO
+- Role: Stops the current workflow.
+- Description: Supports the stop operation used by the surrounding class.
 
 #### `public static Clip resclip(Resource res)`
-
-- Description: TODO
+- Role: Performs resclip.
+- Description: Supports the resclip operation used by the surrounding class.
 
 #### `public static CS fromres(Resource res)`
-
-- Description: TODO
+- Role: Performs fromres.
+- Description: Supports the fromres operation used by the surrounding class.
 
 #### `public static void play(Resource res)`
-
-- Description: TODO
+- Role: Performs play.
+- Description: Supports the play operation used by the surrounding class.
 
 #### `public static int bufsize()`
-
-- Description: TODO
+- Role: Performs bufsize.
+- Description: Supports the bufsize operation used by the surrounding class.
 
 #### `public static void bufsize(int nsz, boolean async)`
-
-- Description: TODO
+- Role: Performs bufsize.
+- Description: Supports the bufsize operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

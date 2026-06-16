@@ -10,20 +10,20 @@ This file documents the responsibilities and members of `EmptyWaypointResult`.
 
 ## Role
 
-Carries a typed result payload for waypoint work.
+Provides waypoint persistence support for empty waypoint result.
 
 ## Members
 
 ### Constants
 
 #### `public static final EmptyWaypointResult INSTANCE = new EmptyWaypointResult()`
-
-- Description: TODO
+- Role: Defines the shared instance constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `private EmptyWaypointResult()`
-
-- Description: TODO
+- Role: Creates a new EmptyWaypointResult instance.
+- Description: Constructs the instance and initializes its default state.

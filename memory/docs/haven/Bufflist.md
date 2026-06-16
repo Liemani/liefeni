@@ -10,50 +10,51 @@ This file documents the responsibilities and members of `Bufflist`.
 
 ## Role
 
-Displays a list of buffs.
+Represents the bufflist Haven component.
 
 ## Nested Types
 
 ### Managed
 
-- Description: TODO
+- Role: Represents managed within Bufflist.
+- Description: Describes the nested managed type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int margin = UI.scale(2)`
-
-- Description: TODO
+- Role: Defines the shared margin constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int num = 5`
-
-- Description: TODO
+- Role: Defines the shared num constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public void move(Coord c, double off)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public Bufflist()`
-
-- Description: TODO
+- Role: Creates a new Bufflist instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void arrange(Widget imm)`
-
-- Description: TODO
+- Role: Performs arrange.
+- Description: Supports the arrange operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void cdestroy(Widget ch)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.

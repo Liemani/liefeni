@@ -10,1018 +10,1039 @@ This file documents the responsibilities and members of `GameUI`.
 
 ## Role
 
-Composes the main in-game UI.
+Owns the main in-game UI state.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within GameUI.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Anim
 
-- Description: TODO
+- Role: Represents anim within GameUI.
+- Description: Describes the nested anim type used by the enclosing class.
 
 ### Belt
 
-- Description: TODO
+- Role: Represents belt within GameUI.
+- Description: Describes the nested belt type used by the enclosing class.
 
 ### BeltSlot
 
-- Description: TODO
+- Role: Represents belt slot within GameUI.
+- Description: Describes the nested belt slot type used by the enclosing class.
 
 ### CornerMap
 
-- Description: TODO
+- Role: Represents corner map within GameUI.
+- Description: Describes the nested corner map type used by the enclosing class.
 
 ### DraggedItem
 
-- Description: TODO
+- Role: Represents dragged item within GameUI.
+- Description: Describes the nested dragged item type used by the enclosing class.
 
 ### FKeyBelt
 
-- Description: TODO
+- Role: Represents fkey belt within GameUI.
+- Description: Describes the nested fkey belt type used by the enclosing class.
 
 ### GobTrans
 
-- Description: TODO
+- Role: Represents gob trans within GameUI.
+- Description: Describes the nested gob trans type used by the enclosing class.
 
 ### Hidepanel
 
-- Description: TODO
+- Role: Represents hidepanel within GameUI.
+- Description: Describes the nested hidepanel type used by the enclosing class.
 
 ### Hidewnd
 
-- Description: TODO
+- Role: Represents hidewnd within GameUI.
+- Description: Describes the nested hidewnd type used by the enclosing class.
 
 ### LogMessage
 
-- Description: TODO
+- Role: Represents log message within GameUI.
+- Description: Describes the nested log message type used by the enclosing class.
 
 ### MainMenu
 
-- Description: TODO
+- Role: Represents main menu within GameUI.
+- Description: Describes the nested main menu type used by the enclosing class.
 
 ### MapMenu
 
-- Description: TODO
+- Role: Represents map menu within GameUI.
+- Description: Describes the nested map menu type used by the enclosing class.
 
 ### MenuButton
 
-- Description: TODO
+- Role: Represents menu button within GameUI.
+- Description: Describes the nested menu button type used by the enclosing class.
 
 ### MenuCheckBox
 
-- Description: TODO
+- Role: Represents menu check box within GameUI.
+- Description: Describes the nested menu check box type used by the enclosing class.
 
 ### NKeyBelt
 
-- Description: TODO
+- Role: Represents nkey belt within GameUI.
+- Description: Describes the nested nkey belt type used by the enclosing class.
 
 ### PagBeltSlot
 
-- Description: TODO
+- Role: Represents pag belt slot within GameUI.
+- Description: Describes the nested pag belt slot type used by the enclosing class.
 
 ### Progress
 
-- Description: TODO
+- Role: Represents progress within GameUI.
+- Description: Describes the nested progress type used by the enclosing class.
 
 ### ResBeltSlot
 
-- Description: TODO
+- Role: Represents res belt slot within GameUI.
+- Description: Describes the nested res belt slot type used by the enclosing class.
 
 ### TButton
 
-- Description: TODO
+- Role: Represents tbutton within GameUI.
+- Description: Describes the nested tbutton type used by the enclosing class.
 
 ### Zergwnd
 
-- Description: TODO
+- Role: Represents zergwnd within GameUI.
+- Description: Describes the nested zergwnd type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final int blpw = UI.scale(142), brpw = UI.scale(142)`
-
-- Description: TODO
+- Role: Defines the shared blpw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int blpw = UI.scale(142), brpw = UI.scale(142)`
-
-- Description: TODO
+- Role: Defines the shared blpw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<ResBeltSlot> beltctxr = new OwnerContext.ClassResolver<ResBeltSlot>()`
-
-- Description: TODO
+- Role: Defines the shared beltctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_srch = KeyBinding.get("scm-srch", KeyMatch.forchar('Z', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb srch constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final double time = 0.1`
-
-- Description: TODO
+- Role: Defines the shared time constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Resource.Anim progt = Resource.local().loadwait("gfx/hud/prog").layer(Resource.animc)`
-
-- Description: TODO
+- Role: Defines the shared progt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int fitmarg = UI.scale(100)`
-
-- Description: TODO
+- Role: Defines the shared fitmarg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_inv = KeyBinding.get("inv", KeyMatch.forcode(KeyEvent.VK_TAB, 0))`
-
-- Description: TODO
+- Role: Defines the shared kb inv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_equ = KeyBinding.get("equ", KeyMatch.forchar('E', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb equ constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_chr = KeyBinding.get("chr", KeyMatch.forchar('T', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb chr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_bud = KeyBinding.get("bud", KeyMatch.forchar('B', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb bud constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_opt = KeyBinding.get("opt", KeyMatch.forchar('O', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb opt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex menubg = Resource.loadtex("gfx/hud/rbtn-bg")`
-
-- Description: TODO
+- Role: Defines the shared menubg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_map = KeyBinding.get("map", KeyMatch.forchar('A', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb map constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_claim = KeyBinding.get("ol-claim", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb claim constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_vil = KeyBinding.get("ol-vil", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb vil constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_rlm = KeyBinding.get("ol-rlm", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb rlm constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_ico = KeyBinding.get("map-icons", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb ico constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex mapmenubg = Resource.loadtex("gfx/hud/lbtn-bg")`
-
-- Description: TODO
+- Role: Defines the shared mapmenubg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_shoot = KeyBinding.get("screenshot", KeyMatch.forchar('S', KeyMatch.M))`
-
-- Description: TODO
+- Role: Defines the shared kb shoot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_chat = KeyBinding.get("chat-toggle", KeyMatch.forchar('C', KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb chat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_hide = KeyBinding.get("ui-toggle", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb hide constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_logout = KeyBinding.get("logout", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb logout constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_switchchr = KeyBinding.get("logout-cs", KeyMatch.nil)`
-
-- Description: TODO
+- Role: Defines the shared kb switchchr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex nkeybg = Resource.loadtex("gfx/hud/hb-main")`
-
-- Description: TODO
+- Role: Defines the shared nkeybg constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final String chrid, genus`
-
-- Description: TODO
+- Role: Stores the genus value.
+- Description: Backs the cached state for this file.
 
 #### `public final String chrid, genus`
-
-- Description: TODO
+- Role: Stores the genus value.
+- Description: Backs the cached state for this file.
 
 #### `public final long plid`
-
-- Description: TODO
-
-#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-
-- Description: TODO
+- Role: Stores the plid value.
+- Description: Backs the cached state for this file.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-
-- Description: TODO
-
-#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-
-- Description: TODO
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-
-- Description: TODO
-
-#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-
-- Description: TODO
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-
-- Description: TODO
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
+
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
+
+#### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
+- Role: Holds the menupanel state.
+- Description: Backs the cached state for this file.
 
 #### `public Widget portrait`
-
-- Description: TODO
+- Role: Stores the portrait value.
+- Description: Backs the cached state for this file.
 
 #### `public MenuGrid menu`
-
-- Description: TODO
+- Role: Stores the menu value.
+- Description: Backs the cached state for this file.
 
 #### `public MapView map`
-
-- Description: TODO
+- Role: Stores the map value.
+- Description: Backs the cached state for this file.
 
 #### `public GobIcon.Settings iconconf`
-
-- Description: TODO
+- Role: Stores the iconconf value.
+- Description: Backs the cached state for this file.
 
 #### `public MiniMap mmap`
-
-- Description: TODO
+- Role: Caches mmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Fightview fv`
-
-- Description: TODO
+- Role: Holds the fv state.
+- Description: Backs the cached state for this file.
 
 #### `private List<Widget> meters = new LinkedList<Widget>()`
-
-- Description: TODO
+- Role: Caches meters entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Text lastmsg`
-
-- Description: TODO
+- Role: Stores the lastmsg value.
+- Description: Backs the cached state for this file.
 
 #### `private double msgtime`
-
-- Description: TODO
-
-#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-
-- Description: TODO
+- Role: Stores the msgtime value.
+- Description: Backs the cached state for this file.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-
-- Description: TODO
-
-#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-
-- Description: TODO
+- Role: Holds the iconwnd state.
+- Description: Backs the cached state for this file.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-
-- Description: TODO
+- Role: Holds the iconwnd state.
+- Description: Backs the cached state for this file.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
+- Role: Holds the iconwnd state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
+- Role: Holds the iconwnd state.
+- Description: Backs the cached state for this file.
+
+#### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
+- Role: Holds the iconwnd state.
+- Description: Backs the cached state for this file.
 
 #### `private Coord makewndc = Utils.getprefc("makewndc", new Coord(400, 200))`
-
-- Description: TODO
+- Role: Stores the makewndc value.
+- Description: Backs the cached state for this file.
 
 #### `public Inventory maininv`
-
-- Description: TODO
+- Role: Holds the maininv state.
+- Description: Backs the cached state for this file.
 
 #### `public CharWnd chrwdg`
-
-- Description: TODO
+- Role: Stores the chrwdg value.
+- Description: Backs the cached state for this file.
 
 #### `public MapWnd mapfile`
-
-- Description: TODO
+- Role: Holds the mapfile state.
+- Description: Backs the cached state for this file.
 
 #### `private Widget qqview`
-
-- Description: TODO
+- Role: Stores the qqview value.
+- Description: Backs the cached state for this file.
 
 #### `public BuddyWnd buddies`
-
-- Description: TODO
+- Role: Holds the buddies state.
+- Description: Backs the cached state for this file.
 
 #### `private final Zergwnd zerg`
-
-- Description: TODO
+- Role: Holds the zerg state.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<Polity> polities = new ArrayList<Polity>()`
-
-- Description: TODO
+- Role: Caches polities entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public HelpWnd help`
-
-- Description: TODO
+- Role: Holds the help state.
+- Description: Backs the cached state for this file.
 
 #### `public OptWnd opts`
-
-- Description: TODO
+- Role: Holds the opts state.
+- Description: Backs the cached state for this file.
 
 #### `public Collection<DraggedItem> hand = new LinkedList<DraggedItem>()`
-
-- Description: TODO
+- Role: Caches hand entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public WItem vhand`
-
-- Description: TODO
+- Role: Holds the vhand state.
+- Description: Backs the cached state for this file.
 
 #### `public ChatUI chat`
-
-- Description: TODO
+- Role: Stores the chat value.
+- Description: Backs the cached state for this file.
 
 #### `public ChatUI.Channel syslog`
-
-- Description: TODO
+- Role: Stores the syslog value.
+- Description: Backs the cached state for this file.
 
 #### `public Progress prog = null`
-
-- Description: TODO
+- Role: Stores the prog value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean afk = false`
-
-- Description: TODO
+- Role: Tracks the afk flag.
+- Description: Supports the afk operation used by the surrounding class.
 
 #### `public BeltSlot[] belt = new BeltSlot[144]`
-
-- Description: TODO
+- Role: Holds the belt state.
+- Description: Backs the cached state for this file.
 
 #### `public Belt beltwdg`
-
-- Description: TODO
+- Role: Holds the beltwdg state.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<Integer, String> polowners = new HashMap<Integer, String>()`
-
-- Description: TODO
+- Role: Caches polowners entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Bufflist buffs`
-
-- Description: TODO
+- Role: Holds the buffs state.
+- Description: Backs the cached state for this file.
 
 #### `public final int idx`
-
-- Description: TODO
+- Role: Stores the idx value.
+- Description: Backs the cached state for this file.
 
 #### `public final ResData rdt`
-
-- Description: TODO
+- Role: Holds the rdt state.
+- Description: Backs the cached state for this file.
 
 #### `private GSprite spr = null`
-
-- Description: TODO
+- Role: Holds the spr state.
+- Description: Backs the cached state for this file.
 
 #### `public final MenuGrid.Pagina pag`
-
-- Description: TODO
+- Role: Stores the pag value.
+- Description: Backs the cached state for this file.
 
 #### `private final Coord minimapc`
-
-- Description: TODO
+- Role: Stores the minimapc value.
+- Description: Backs the cached state for this file.
 
 #### `private final Coord menugridc`
-
-- Description: TODO
+- Role: Stores the menugridc value.
+- Description: Backs the cached state for this file.
 
 #### `private final IButton[] fold_br = new IButton[4]`
-
-- Description: TODO
+- Role: Holds the fold br state.
+- Description: Backs the cached state for this file.
 
 #### `private final IButton[] fold_bl = new IButton[4]`
-
-- Description: TODO
+- Role: Holds the fold bl state.
+- Description: Backs the cached state for this file.
 
 #### `public final String id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord g`
-
-- Description: TODO
+- Role: Stores the g value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Coord> base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean tvis`
-
-- Description: TODO
+- Role: Tracks the tvis flag.
+- Description: Supports the tvis operation used by the surrounding class.
 
 #### `private double cur`
-
-- Description: TODO
+- Role: Stores the cur value.
+- Description: Backs the cached state for this file.
 
 #### `Tabs tabs = new Tabs(Coord.z, Coord.z, this)`
-
-- Description: TODO
-
-#### `final TButton kin, pol, pol2`
-
-- Description: TODO
+- Role: Holds the tabs state.
+- Description: Backs the cached state for this file.
 
 #### `final TButton kin, pol, pol2`
-
-- Description: TODO
+- Role: Holds the pol2 state.
+- Description: Backs the cached state for this file.
 
 #### `final TButton kin, pol, pol2`
+- Role: Holds the pol2 state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final TButton kin, pol, pol2`
+- Role: Holds the pol2 state.
+- Description: Backs the cached state for this file.
 
 #### `Tabs.Tab tab = null`
-
-- Description: TODO
+- Role: Holds the tab state.
+- Description: Backs the cached state for this file.
 
 #### `final Tex inv`
-
-- Description: TODO
+- Role: Stores the inv value.
+- Description: Backs the cached state for this file.
 
 #### `final GItem item`
-
-- Description: TODO
+- Role: Holds the item state.
+- Description: Backs the cached state for this file.
 
 #### `final Coord dc`
-
-- Description: TODO
+- Role: Stores the dc value.
+- Description: Backs the cached state for this file.
 
 #### `private final BMap<String, Window> wndids = new HashBMap<String, Window>()`
-
-- Description: TODO
+- Role: Caches wndids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MapView map`
-
-- Description: TODO
+- Role: Stores the map value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gobid`
-
-- Description: TODO
+- Role: Stores the gobid value.
+- Description: Backs the cached state for this file.
 
 #### `public final Window wnd`
-
-- Description: TODO
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
 #### `private Coord oc`
-
-- Description: TODO
+- Role: Stores the oc value.
+- Description: Backs the cached state for this file.
 
 #### `public double prog`
-
-- Description: TODO
+- Role: Stores the prog value.
+- Description: Backs the cached state for this file.
 
 #### `private TexI curi`
-
-- Description: TODO
+- Role: Stores the curi value.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-
-- Description: TODO
+- Role: Caches cmdmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Coord lastsavegrid = null`
-
-- Description: TODO
+- Role: Stores the lastsavegrid value.
+- Description: Backs the cached state for this file.
 
 #### `private int lastsaveseq = -1`
-
-- Description: TODO
+- Role: Stores the lastsaveseq value.
+- Description: Backs the cached state for this file.
 
 #### `private double lastwndsave = 0`
-
-- Description: TODO
+- Role: Stores the lastwndsave value.
+- Description: Backs the cached state for this file.
 
 #### `private int uimode = 1`
-
-- Description: TODO
+- Role: Stores the uimode value.
+- Description: Backs the cached state for this file.
 
 #### `public final int beltkeys[] =`
-
-- Description: TODO
-
-#### `public int curbelt = 0`
-
-- Description: TODO
+- Role: Stores the game ui state.
+- Description: Backs the cached state for this file.
 
 #### `public int curbelt = 0`
+- Role: Stores the curbelt value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int curbelt = 0`
+- Role: Stores the curbelt value.
+- Description: Backs the cached state for this file.
 
 #### `final Coord pagoff = UI.scale(new Coord(5, 25))`
-
-- Description: TODO
+- Role: Stores the pagoff value.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-
-- Description: TODO
+- Role: Caches cmdmap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public BeltSlot(int idx)`
-
-- Description: TODO
+- Role: Performs belt slot.
+- Description: Supports the belt slot operation used by the surrounding class.
 
 #### `public abstract void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public abstract void use(MenuGrid.Interaction iact)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public ResBeltSlot(int idx, ResData rdt)`
-
-- Description: TODO
+- Role: Performs res belt slot.
+- Description: Supports the res belt slot operation used by the surrounding class.
 
 #### `public GSprite spr()`
-
-- Description: TODO
+- Role: Performs spr.
+- Description: Supports the spr operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void use(MenuGrid.Interaction iact)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public Resource getres()`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `private GameUI wdg()`
-
-- Description: TODO
+- Role: Performs wdg.
+- Description: Supports the wdg operation used by the surrounding class.
 
 #### `public PagBeltSlot(int idx, MenuGrid.Pagina pag)`
-
-- Description: TODO
+- Role: Performs pag belt slot.
+- Description: Supports the pag belt slot operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void use(MenuGrid.Interaction iact)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public static MenuGrid.Pagina resolve(MenuGrid scm, Indir<Resource> resid)`
-
-- Description: TODO
+- Role: Resolves the target value.
+- Description: Supports the resolve operation used by the surrounding class.
 
 #### `public BeltSlot mkbeltslot(int idx, ResData rdt)`
-
-- Description: TODO
+- Role: Performs mkbeltslot.
+- Description: Supports the mkbeltslot operation used by the surrounding class.
 
 #### `public Belt(Coord sz)`
-
-- Description: TODO
+- Role: Performs belt.
+- Description: Supports the belt operation used by the surrounding class.
 
 #### `public void act(int idx, MenuGrid.Interaction iact)`
-
-- Description: TODO
+- Role: Performs act.
+- Description: Supports the act operation used by the surrounding class.
 
 #### `public void keyact(int slot)`
-
-- Description: TODO
+- Role: Performs keyact.
+- Description: Supports the keyact operation used by the surrounding class.
 
 #### `public abstract int beltslot(Coord c)`
-
-- Description: TODO
+- Role: Performs beltslot.
+- Description: Supports the beltslot operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean drop(Coord c, Coord ul)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public boolean iteminteract(Coord c, Coord ul)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.
 
 #### `public boolean dropthing(Coord c, Object thing)`
-
-- Description: TODO
+- Role: Performs dropthing.
+- Description: Supports the dropthing operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public GameUI(String chrid, long plid, String genus)`
-
-- Description: TODO
+- Role: Creates a new GameUI instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `private void menubuttons(Widget bg)`
-
-- Description: TODO
+- Role: Performs menubuttons.
+- Description: Supports the menubuttons operation used by the surrounding class.
 
 #### `private void updfold(boolean reset)`
-
-- Description: TODO
+- Role: Performs updfold.
+- Description: Supports the updfold operation used by the surrounding class.
 
 #### `private void foldbuttons()`
-
-- Description: TODO
+- Role: Performs foldbuttons.
+- Description: Supports the foldbuttons operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public Hidepanel(String id, Indir<Coord> base, Coord g)`
-
-- Description: TODO
+- Role: Performs hidepanel.
+- Description: Supports the hidepanel operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T child)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord base()`
-
-- Description: TODO
+- Role: Performs base.
+- Description: Supports the base operation used by the surrounding class.
 
 #### `public void move(double a)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void move()`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void presize()`
-
-- Description: TODO
+- Role: Performs presize.
+- Description: Supports the presize operation used by the surrounding class.
 
 #### `public void cresize(Widget ch)`
-
-- Description: TODO
+- Role: Performs cresize.
+- Description: Supports the cresize operation used by the surrounding class.
 
 #### `public boolean mshow(final boolean vis)`
-
-- Description: TODO
+- Role: Performs mshow.
+- Description: Supports the mshow operation used by the surrounding class.
 
 #### `public boolean mshow()`
-
-- Description: TODO
+- Role: Performs mshow.
+- Description: Supports the mshow operation used by the surrounding class.
 
 #### `public boolean cshow(boolean vis)`
-
-- Description: TODO
+- Role: Performs cshow.
+- Description: Supports the cshow operation used by the surrounding class.
 
 #### `public void cdestroy(Widget w)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public Hidewnd(Coord sz, String cap, boolean lg)`
-
-- Description: TODO
+- Role: Performs hidewnd.
+- Description: Supports the hidewnd operation used by the surrounding class.
 
 #### `public Hidewnd(Coord sz, String cap)`
-
-- Description: TODO
+- Role: Performs hidewnd.
+- Description: Supports the hidewnd operation used by the surrounding class.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `TButton(String nm, boolean g)`
-
-- Description: TODO
+- Role: Handles the tbutton workflow.
+- Description: Supports the tbutton operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void click()`
-
-- Description: TODO
+- Role: Performs click.
+- Description: Supports the click operation used by the surrounding class.
 
 #### `Zergwnd()`
-
-- Description: TODO
+- Role: Handles the zergwnd workflow.
+- Description: Supports the zergwnd operation used by the surrounding class.
 
 #### `private void repack()`
-
-- Description: TODO
+- Role: Performs repack.
+- Description: Supports the repack operation used by the surrounding class.
 
 #### `Tabs.Tab ntab(Widget ch, TButton btn)`
-
-- Description: TODO
+- Role: Performs ntab.
+- Description: Supports the ntab operation used by the surrounding class.
 
 #### `void dtab(TButton btn)`
-
-- Description: TODO
+- Role: Performs dtab.
+- Description: Supports the dtab operation used by the surrounding class.
 
 #### `void addpol(Polity p)`
-
-- Description: TODO
+- Role: Performs addpol.
+- Description: Supports the addpol operation used by the surrounding class.
 
 #### `DraggedItem(GItem item, Coord dc)`
-
-- Description: TODO
+- Role: Handles the dragged item workflow.
+- Description: Supports the dragged item operation used by the surrounding class.
 
 #### `private void updhand()`
-
-- Description: TODO
+- Role: Performs updhand.
+- Description: Supports the updhand operation used by the surrounding class.
 
 #### `private String mapfilename()`
-
-- Description: TODO
+- Role: Performs mapfilename.
+- Description: Supports the mapfilename operation used by the surrounding class.
 
 #### `public Coord optplacement(Widget child, Coord org)`
-
-- Description: TODO
+- Role: Performs optplacement.
+- Description: Supports the optplacement operation used by the surrounding class.
 
 #### `private void savewndpos()`
-
-- Description: TODO
+- Role: Performs savewndpos.
+- Description: Supports the savewndpos operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public GobTrans(MapView map, long gobid)`
-
-- Description: TODO
+- Role: Performs gob trans.
+- Description: Supports the gob trans operation used by the surrounding class.
 
 #### `private Coord oc()`
-
-- Description: TODO
+- Role: Performs oc.
+- Description: Supports the oc operation used by the surrounding class.
 
 #### `public Anim(Window wnd, boolean hide, Anim from)`
-
-- Description: TODO
+- Role: Performs anim.
+- Description: Supports the anim operation used by the surrounding class.
 
 #### `public void draw(GOut g, Tex tex)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Anim show(Window wnd, Anim hide)`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public Anim hide(Window wnd, Anim show)`
-
-- Description: TODO
+- Role: Performs hide.
+- Description: Supports the hide operation used by the surrounding class.
 
 #### `public void cdestroy(Widget w)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public Progress(double prog)`
-
-- Description: TODO
+- Role: Performs progress.
+- Description: Supports the progress operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public void set(double prog)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private String iconconfname()`
-
-- Description: TODO
+- Role: Performs iconconfname.
+- Description: Supports the iconconfname operation used by the surrounding class.
 
 #### `private GobIcon.Settings loadiconconf()`
-
-- Description: TODO
+- Role: Performs loadiconconf.
+- Description: Supports the loadiconconf operation used by the surrounding class.
 
 #### `public CornerMap(Coord sz, MapFile file)`
-
-- Description: TODO
+- Role: Performs corner map.
+- Description: Supports the corner map operation used by the surrounding class.
 
 #### `public boolean dragp(int button)`
-
-- Description: TODO
+- Role: Performs dragp.
+- Description: Supports the dragp operation used by the surrounding class.
 
 #### `public boolean clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
-
-- Description: TODO
+- Role: Performs clickmarker.
+- Description: Supports the clickmarker operation used by the surrounding class.
 
 #### `public boolean clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
-
-- Description: TODO
+- Role: Performs clickicon.
+- Description: Supports the clickicon operation used by the surrounding class.
 
 #### `public boolean clickloc(Location loc, int button, boolean press)`
-
-- Description: TODO
+- Role: Performs clickloc.
+- Description: Supports the clickloc operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `protected boolean allowzoomout()`
-
-- Description: TODO
+- Role: Performs allowzoomout.
+- Description: Supports the allowzoomout operation used by the surrounding class.
 
 #### `public Map<String, Console.Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.
 
 #### `private void mapfiletick()`
-
-- Description: TODO
+- Role: Performs mapfiletick.
+- Description: Supports the mapfiletick operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `private Coord fitwdg(Widget wdg, Coord c)`
-
-- Description: TODO
+- Role: Performs fitwdg.
+- Description: Supports the fitwdg operation used by the surrounding class.
 
 #### `private void fitwdg(Widget wdg)`
-
-- Description: TODO
+- Role: Performs fitwdg.
+- Description: Supports the fitwdg operation used by the surrounding class.
 
 #### `private boolean wndstate(Window wnd)`
-
-- Description: TODO
+- Role: Performs wndstate.
+- Description: Supports the wndstate operation used by the surrounding class.
 
 #### `private void togglewnd(Window wnd)`
-
-- Description: TODO
+- Role: Performs togglewnd.
+- Description: Supports the togglewnd operation used by the surrounding class.
 
 #### `MenuButton(String base, KeyBinding gkey, String tooltip)`
-
-- Description: TODO
+- Role: Handles the menu button workflow.
+- Description: Supports the menu button operation used by the surrounding class.
 
 #### `MenuCheckBox(String base, KeyBinding gkey, String tooltip)`
-
-- Description: TODO
+- Role: Handles the menu check box workflow.
+- Description: Supports the menu check box operation used by the surrounding class.
 
 #### `public MainMenu()`
-
-- Description: TODO
+- Role: Performs main menu.
+- Description: Supports the main menu operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private void toggleol(String tag, boolean a)`
-
-- Description: TODO
+- Role: Performs toggleol.
+- Description: Supports the toggleol operation used by the surrounding class.
 
 #### `public MapMenu()`
-
-- Description: TODO
+- Role: Performs map menu.
+- Description: Supports the map menu operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.
 
 #### `public void toggleui(int mode)`
-
-- Description: TODO
+- Role: Performs toggleui.
+- Description: Supports the toggleui operation used by the surrounding class.
 
 #### `public void resetui()`
-
-- Description: TODO
+- Role: Performs resetui.
+- Description: Supports the resetui operation used by the surrounding class.
 
 #### `public void toggleui()`
-
-- Description: TODO
+- Role: Performs toggleui.
+- Description: Supports the toggleui operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void presize()`
-
-- Description: TODO
+- Role: Performs presize.
+- Description: Supports the presize operation used by the surrounding class.
 
 #### `public ChatUI.Channel.Message logmessage()`
-
-- Description: TODO
+- Role: Performs logmessage.
+- Description: Supports the logmessage operation used by the surrounding class.
 
 #### `public boolean msg(UI.Notice msg)`
-
-- Description: TODO
+- Role: Displays an in-game message.
+- Description: Supports the msg operation used by the surrounding class.
 
 #### `public void error(String msg)`
-
-- Description: TODO
+- Role: Displays an error message.
+- Description: Supports the error operation used by the surrounding class.
 
 #### `public void act(String... args)`
-
-- Description: TODO
+- Role: Performs act.
+- Description: Supports the act operation used by the surrounding class.
 
 #### `public void act(int mods, Coord mc, Gob gob, String... args)`
-
-- Description: TODO
+- Role: Performs act.
+- Description: Supports the act operation used by the surrounding class.
 
 #### `public FKeyBelt()`
-
-- Description: TODO
+- Role: Performs fkey belt.
+- Description: Supports the fkey belt operation used by the surrounding class.
 
 #### `private Coord beltc(int i)`
-
-- Description: TODO
+- Role: Performs beltc.
+- Description: Supports the beltc operation used by the surrounding class.
 
 #### `public int beltslot(Coord c)`
-
-- Description: TODO
+- Role: Performs beltslot.
+- Description: Supports the beltslot operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.
 
 #### `public NKeyBelt()`
-
-- Description: TODO
+- Role: Performs nkey belt.
+- Description: Supports the nkey belt operation used by the surrounding class.
 
 #### `private Coord beltc(int i)`
-
-- Description: TODO
+- Role: Performs beltc.
+- Description: Supports the beltc operation used by the surrounding class.
 
 #### `public int beltslot(Coord c)`
-
-- Description: TODO
+- Role: Performs beltslot.
+- Description: Supports the beltslot operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.
 
 #### `public Map<String, Console.Command> findcmds()`
-
-- Description: TODO
+- Role: Returns the available console commands.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void alert(String msg)`
-
-- Description: TODO
+- Role: Performs alert.
+- Description: Supports the alert operation used by the surrounding class.
 
 #### `public void print(String msg, Color col)`
-
-- Description: TODO
+- Role: Performs print.
+- Description: Supports the print operation used by the surrounding class.
 
 #### `public void print(String msg)`
-
-- Description: TODO
+- Role: Performs print.
+- Description: Supports the print operation used by the surrounding class.

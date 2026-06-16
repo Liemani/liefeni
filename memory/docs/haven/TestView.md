@@ -10,86 +10,87 @@ This file documents the responsibilities and members of `TestView`.
 
 ## Role
 
-Provides a test rendering view.
+Represents the test view Haven component.
 
 ## Nested Types
 
 ### Quad
 
-- Description: TODO
+- Role: Represents quad within TestView.
+- Description: Describes the nested quad type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `static final FastMesh borkamesh = Resource.remote().loadwait("gfx/test/borka").layer(FastMesh.MeshRes.class).m`
-
-- Description: TODO
+- Role: Defines the shared borkamesh constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Material borkamat = Resource.remote().loadwait("gfx/test/borka").layer(Material.Res.class).get()`
-
-- Description: TODO
+- Role: Defines the shared borkamat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Model data`
-
-- Description: TODO
+- Role: Defines the shared data constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-
-- Description: TODO
-
-#### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-
-- Description: TODO
+- Role: Stores the dist value.
+- Description: Backs the cached state for this file.
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-
-- Description: TODO
+- Role: Stores the dist value.
+- Description: Backs the cached state for this file.
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
+- Role: Stores the dist value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
+- Role: Stores the dist value.
+- Description: Backs the cached state for this file.
 
 #### `final RenderTree.Slot[] borka =`
-
-- Description: TODO
+- Role: Holds the test view state.
+- Description: Backs the cached state for this file.
 
 #### `final Light.PhongLight light = new Light.PhongLight(true, FColor.BLACK, FColor.WHITE, FColor.BLACK, FColor.BLACK, 0)`
-
-- Description: TODO
+- Role: Holds the light state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TestView(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new TestView instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(Pipe state, Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `private void setcam()`
-
-- Description: TODO
+- Role: Performs setcam.
+- Description: Supports the setcam operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `protected FColor clearcolor()`
-
-- Description: TODO
+- Role: Returns the clear color value.
+- Description: Exposes the requested value without mutating state.

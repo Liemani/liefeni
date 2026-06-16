@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Homing`.
 
 ## Role
 
-Represents homing behavior or state.
+Represents the homing Haven component.
 
 ## Nested Types
 
 ### $homing
 
-- Description: TODO
+- Role: Represents $homing within Homing.
+- Description: Describes the nested $homing type used by the enclosing class.
 
 ## Members
 
@@ -25,43 +26,43 @@ Represents homing behavior or state.
 ### Fields
 
 #### `public long tgt`
-
-- Description: TODO
+- Role: Stores the tgt value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord2d tc`
-
-- Description: TODO
-
-#### `public double v, dist`
-
-- Description: TODO
+- Role: Stores the tc value.
+- Description: Backs the cached state for this file.
 
 #### `public double v, dist`
+- Role: Stores the dist value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double v, dist`
+- Role: Stores the dist value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Homing(Gob gob, long tgt, Coord2d tc, double v)`
-
-- Description: TODO
+- Role: Creates a new Homing instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord3f getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `public double getv()`
-
-- Description: TODO
+- Role: Returns the avatar value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void move(Coord2d c)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void ctick(double dt)`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

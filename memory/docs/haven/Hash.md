@@ -10,28 +10,28 @@ This file documents the responsibilities and members of `Hash`.
 
 ## Role
 
-Provides hashing helpers.
+Represents the hash Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Hash<Object> eq = new Hash<Object>()`
-
-- Description: TODO
+- Role: Defines the shared eq constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Hash<Object> id = new Hash<Object>()`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public int hash(T ob)`
-
-- Description: TODO
+- Role: Performs hash.
+- Description: Supports the hash operation used by the surrounding class.
 
 #### `public boolean equal(T x, T y)`
-
-- Description: TODO
+- Role: Performs equal.
+- Description: Supports the equal operation used by the surrounding class.

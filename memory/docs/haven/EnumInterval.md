@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `EnumInterval`.
 
 ## Role
 
-Represents an interval over enum-like values.
+Represents the enum interval Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents an interval over enum-like values.
 ### Fields
 
 #### `private final Class<? extends E> cl`
-
-- Description: TODO
-
-#### `private final E lo, hi`
-
-- Description: TODO
+- Role: Holds the cl state.
+- Description: Backs the cached state for this file.
 
 #### `private final E lo, hi`
+- Role: Holds the hi state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final E lo, hi`
+- Role: Holds the hi state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public EnumInterval(E lo, E hi)`
-
-- Description: TODO
+- Role: Creates a new EnumInterval instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public E get(int i)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public int indexOf(Object o)`
-
-- Description: TODO
+- Role: Performs index of.
+- Description: Supports the index of operation used by the surrounding class.
 
 #### `public boolean contains(Object o)`
-
-- Description: TODO
+- Role: Performs contains.
+- Description: Supports the contains operation used by the surrounding class.

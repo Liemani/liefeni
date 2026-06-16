@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `FromResource`.
 
 ## Role
 
-Loads content from a resource.
+Represents the from resource Haven component.
 
 ## Members
 
@@ -19,19 +19,19 @@ Loads content from a resource.
 ### Fields
 
 #### `public boolean override() default false`
-
-- Description: TODO
+- Role: Tracks the false flag.
+- Description: Supports the override operation used by the surrounding class.
 
 ### Methods
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public int version()`
-
-- Description: TODO
+- Role: Performs version.
+- Description: Supports the version operation used by the surrounding class.
 
 #### `public boolean override() default false`
-
-- Description: TODO
+- Role: Handles the override workflow.
+- Description: Supports the override operation used by the surrounding class.

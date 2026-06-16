@@ -1,12 +1,14 @@
+---
+created: YYYY-MM-DD
+related_work_logs:
+  - "[<work log title>](../work_logs/<work log file>)"
+related_tasks:
+  - "[<task title>](../tasks/<task file>)"
+---
+
 # <결정 제목>
 
-## Meta
-
-- Date: YYYY-MM-DD
-- Related Tasks:
-- [<task file>](../tasks/<task file>)
-- Indexes:
-- [<index file>](../indexes/<index file>)
+<Role of this document>
 
 ## 결정
 

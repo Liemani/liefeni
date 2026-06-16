@@ -10,60 +10,60 @@ This file documents the responsibilities and members of `BaseColor`.
 
 ## Role
 
-Represents a base color state.
+Defines the base color render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<BaseColor> slot = new Slot<>(Slot.Type.DRAW, BaseColor.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform u_color = new Uniform(VEC4, "basecolor", p -> p.get(slot).color, slot)`
-
-- Description: TODO
+- Role: Defines the shared u color constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final FColor color`
-
-- Description: TODO
+- Role: Stores the color value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public BaseColor(FColor color)`
-
-- Description: TODO
+- Role: Creates a new BaseColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BaseColor(float r, float g, float b, float a)`
-
-- Description: TODO
+- Role: Creates a new BaseColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BaseColor(Color color)`
-
-- Description: TODO
+- Role: Creates a new BaseColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BaseColor(int r, int g, int b, int a)`
-
-- Description: TODO
+- Role: Creates a new BaseColor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Color color()`
-
-- Description: TODO
+- Role: Performs color.
+- Description: Supports the color operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

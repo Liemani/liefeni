@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `IDRef`.
 
 ## Role
 
-Represents an identifier reference.
+Represents the idref Haven component.
 
 ## Nested Types
 
 ### WRef
 
-- Description: TODO
+- Role: Represents wref within IDRef.
+- Description: Describes the nested wref type used by the enclosing class.
 
 ## Members
 
@@ -25,43 +26,43 @@ Represents an identifier reference.
 ### Fields
 
 #### `private static Map<Object, WRef> map = new HashMap<Object, WRef>()`
-
-- Description: TODO
+- Role: Caches map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private static ReferenceQueue<IDRef> queue = new ReferenceQueue<IDRef>()`
-
-- Description: TODO
+- Role: Caches queue entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private static int nextseq = 0`
-
-- Description: TODO
+- Role: Stores the nextseq value.
+- Description: Backs the cached state for this file.
 
 #### `private final Object val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `private final int seq`
-
-- Description: TODO
+- Role: Stores the seq value.
+- Description: Backs the cached state for this file.
 
 #### `private final Object val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private IDRef(Object val)`
-
-- Description: TODO
+- Role: Creates a new IDRef instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private WRef(IDRef ref, Object val)`
-
-- Description: TODO
+- Role: Performs wref.
+- Description: Supports the wref operation used by the surrounding class.
 
 #### `public static IDRef intern(Object x)`
-
-- Description: TODO
+- Role: Performs intern.
+- Description: Supports the intern operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

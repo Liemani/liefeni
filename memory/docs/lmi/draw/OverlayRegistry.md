@@ -10,32 +10,32 @@ This file documents the responsibilities and members of `OverlayRegistry`.
 
 ## Role
 
-Registers overlay renderers and keeps overlay lookup organized.
+Tracks available overlay implementations.
 
 ## Members
 
 ### Constants
 
 #### `private static final ArrayList<MapOverlay> overlays = new ArrayList<>()`
-
-- Description: TODO
+- Role: Defines the shared overlays constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `private OverlayRegistry()`
-
-- Description: TODO
+- Role: Creates a new OverlayRegistry instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static synchronized void register(MapOverlay overlay)`
-
-- Description: TODO
+- Role: Performs register.
+- Description: Supports the register operation used by the surrounding class.
 
 #### `public static synchronized void unregister(MapOverlay overlay)`
-
-- Description: TODO
+- Role: Performs unregister.
+- Description: Supports the unregister operation used by the surrounding class.
 
 #### `public static synchronized List<MapOverlay> overlays()`
-
-- Description: TODO
+- Role: Performs overlays.
+- Description: Supports the overlays operation used by the surrounding class.

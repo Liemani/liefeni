@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `ICheckBox`.
 
 ## Role
 
-Represents an image checkbox widget.
+Represents the icheck box Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within ICheckBox.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
@@ -25,71 +26,71 @@ Represents an image checkbox widget.
 ### Fields
 
 #### `public final Tex up, down, hoverup, hoverdown`
-
-- Description: TODO
-
-#### `public final Tex up, down, hoverup, hoverdown`
-
-- Description: TODO
+- Role: Stores the hoverdown value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex up, down, hoverup, hoverdown`
-
-- Description: TODO
+- Role: Stores the hoverdown value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex up, down, hoverup, hoverdown`
+- Role: Stores the hoverdown value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Tex up, down, hoverup, hoverdown`
+- Role: Stores the hoverdown value.
+- Description: Backs the cached state for this file.
 
 #### `private final BufferedImage img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean h`
-
-- Description: TODO
+- Role: Tracks the h flag.
+- Description: Supports the h operation used by the surrounding class.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public ICheckBox(Tex up, Tex down, Tex hoverup, Tex hoverdown)`
-
-- Description: TODO
+- Role: Creates a new ICheckBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ICheckBox(Tex up, Tex down, Tex hover)`
-
-- Description: TODO
+- Role: Creates a new ICheckBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ICheckBox(Tex up, Tex down)`
-
-- Description: TODO
+- Role: Creates a new ICheckBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ICheckBox(String base, String up, String down, String hoverup, String hoverdown)`
-
-- Description: TODO
+- Role: Creates a new ICheckBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ICheckBox(String base, String up, String down, String hover)`
-
-- Description: TODO
+- Role: Creates a new ICheckBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ICheckBox(String base, String up, String down)`
-
-- Description: TODO
+- Role: Creates a new ICheckBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.

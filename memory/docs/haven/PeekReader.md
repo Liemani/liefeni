@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `PeekReader`.
 
 ## Role
 
-Provides a reader with peek support.
+Represents the peek reader Haven component.
 
 ## Members
 
@@ -19,47 +19,47 @@ Provides a reader with peek support.
 ### Fields
 
 #### `private final Reader back`
-
-- Description: TODO
+- Role: Holds the back state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean p = false`
-
-- Description: TODO
+- Role: Tracks the p flag.
+- Description: Supports the p operation used by the surrounding class.
 
 #### `private int la`
-
-- Description: TODO
+- Role: Stores the la value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PeekReader(Reader back)`
-
-- Description: TODO
+- Role: Creates a new PeekReader instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public int read() throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int read(char[] b, int off, int len) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public boolean ready() throws IOException`
-
-- Description: TODO
+- Role: Handles the ready workflow.
+- Description: Supports the ready operation used by the surrounding class.
 
 #### `protected boolean whitespace(char c)`
-
-- Description: TODO
+- Role: Performs whitespace.
+- Description: Supports the whitespace operation used by the surrounding class.
 
 #### `public int peek(boolean skipws) throws IOException`
-
-- Description: TODO
+- Role: Handles the peek workflow.
+- Description: Supports the peek operation used by the surrounding class.
 
 #### `public int peek() throws IOException`
-
-- Description: TODO
+- Role: Handles the peek workflow.
+- Description: Supports the peek operation used by the surrounding class.

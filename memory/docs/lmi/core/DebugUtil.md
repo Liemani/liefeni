@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DebugUtil`.
 
 ## Role
 
-Provides debug-only reflection helpers for object inspection.
+Provides debug-print helpers for inspecting runtime state.
 
 ## Members
 
@@ -21,17 +21,17 @@ Provides debug-only reflection helpers for object inspection.
 ### Methods
 
 #### `private DebugUtil()`
-
-- Description: TODO
+- Role: Creates a new DebugUtil instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void debugPrintObjectFields(Object object)`
-
-- Description: TODO
+- Role: Logs the print object fields.
+- Description: Logs the print object fields for diagnostics and debugging.
 
 #### `private static void _debugPrintObjectFields(Object object, Class<?> classObject, int depth, Set<Object> visited)`
-
-- Description: TODO
+- Role: Performs  debug print object fields.
+- Description: Supports the debug print object fields operation used by the surrounding class.
 
 #### `private static String _formatValue(Field field, Object value)`
-
-- Description: TODO
+- Role: Performs  format value.
+- Description: Supports the format value operation used by the surrounding class.

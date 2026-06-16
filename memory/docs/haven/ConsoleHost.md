@@ -10,92 +10,92 @@ This file documents the responsibilities and members of `ConsoleHost`.
 
 ## Role
 
-Hosts console command execution.
+Represents the console host Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final KeyBinding kb_histprev = KeyBinding.get("history/prev", KeyMatch.forcode(KeyEvent.VK_UP, 0))`
-
-- Description: TODO
+- Role: Defines the shared kb histprev constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_histnext = KeyBinding.get("history/next", KeyMatch.forcode(KeyEvent.VK_DOWN, 0))`
-
-- Description: TODO
+- Role: Defines the shared kb histnext constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public static Text.Foundry cmdfoundry = new Text.Foundry(Text.mono, 12, new java.awt.Color(245, 222, 179))`
-
-- Description: TODO
+- Role: Stores the cmdfoundry value.
+- Description: Backs the cached state for this file.
 
 #### `public ReadLine cmdline = null`
-
-- Description: TODO
+- Role: Holds the cmdline state.
+- Description: Backs the cached state for this file.
 
 #### `private Text.Line cmdtext = null`
-
-- Description: TODO
+- Role: Stores the cmdtext value.
+- Description: Backs the cached state for this file.
 
 #### `private String cmdtextf = null`
-
-- Description: TODO
+- Role: Stores the cmdtextf value.
+- Description: Backs the cached state for this file.
 
 #### `private List<String> history = new ArrayList<String>()`
-
-- Description: TODO
+- Role: Caches history entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int hpos = history.size()`
-
-- Description: TODO
+- Role: Stores the hpos value.
+- Description: Backs the cached state for this file.
 
 #### `private String hcurrent`
-
-- Description: TODO
+- Role: Stores the hcurrent value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab kg`
-
-- Description: TODO
+- Role: Stores the kg value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void done(ReadLine buf)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `private boolean cmdkey(KeyEvent ev)`
-
-- Description: TODO
+- Role: Performs cmdkey.
+- Description: Supports the cmdkey operation used by the surrounding class.
 
 #### `public ConsoleHost(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new ConsoleHost instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ConsoleHost()`
-
-- Description: TODO
+- Role: Creates a new ConsoleHost instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ConsoleHost(UI ui, Coord c, Coord sz)`
-
-- Description: TODO
+- Role: Creates a new ConsoleHost instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void drawcmd(GOut g, Coord c)`
-
-- Description: TODO
+- Role: Performs drawcmd.
+- Description: Supports the drawcmd operation used by the surrounding class.
 
 #### `public void entercmd()`
-
-- Description: TODO
+- Role: Performs entercmd.
+- Description: Supports the entercmd operation used by the surrounding class.
 
 #### `public void cancelcmd()`
-
-- Description: TODO
+- Role: Performs cancelcmd.
+- Description: Supports the cancelcmd operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public abstract void error(String msg)`
-
-- Description: TODO
+- Role: Displays an error message.
+- Description: Supports the error operation used by the surrounding class.

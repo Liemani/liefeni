@@ -10,834 +10,848 @@ This file documents the responsibilities and members of `MiniMap`.
 
 ## Role
 
-Displays the minimap.
+Represents the mini map Haven component.
 
 ## Nested Types
 
 ### CachedImage
 
-- Description: TODO
+- Role: Represents cached image within MiniMap.
+- Description: Describes the nested cached image type used by the enclosing class.
 
 ### DisplayGrid
 
-- Description: TODO
+- Role: Represents display grid within MiniMap.
+- Description: Describes the nested display grid type used by the enclosing class.
 
 ### DisplayIcon
 
-- Description: TODO
+- Role: Represents display icon within MiniMap.
+- Description: Describes the nested display icon type used by the enclosing class.
 
 ### DisplayMarker
 
-- Description: TODO
+- Role: Represents display marker within MiniMap.
+- Description: Describes the nested display marker type used by the enclosing class.
 
 ### Flag
 
-- Description: TODO
+- Role: Represents flag within MiniMap.
+- Description: Describes the nested flag type used by the enclosing class.
 
 ### Location
 
-- Description: TODO
+- Role: Represents location within MiniMap.
+- Description: Describes the nested location type used by the enclosing class.
 
 ### Locator
 
-- Description: TODO
+- Role: Represents locator within MiniMap.
+- Description: Describes the nested locator type used by the enclosing class.
 
 ### MapLocator
 
-- Description: TODO
+- Role: Represents map locator within MiniMap.
+- Description: Describes the nested map locator type used by the enclosing class.
 
 ### MarkerID
 
-- Description: TODO
+- Role: Represents marker id within MiniMap.
+- Description: Describes the nested marker id type used by the enclosing class.
 
 ### MarkerIcon
 
-- Description: TODO
+- Role: Represents marker icon within MiniMap.
+- Description: Describes the nested marker icon type used by the enclosing class.
 
 ### Markers
 
-- Description: TODO
+- Role: Represents markers within MiniMap.
+- Description: Describes the nested markers type used by the enclosing class.
 
 ### Scale2D
 
-- Description: TODO
+- Role: Represents scale2 d within MiniMap.
+- Description: Describes the nested scale2 d type used by the enclosing class.
 
 ### SessionLocator
 
-- Description: TODO
+- Role: Represents session locator within MiniMap.
+- Description: Describes the nested session locator type used by the enclosing class.
 
 ### SpecLocator
 
-- Description: TODO
+- Role: Represents spec locator within MiniMap.
+- Description: Describes the nested spec locator type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex bg = Resource.loadtex("gfx/hud/mmap/ptex")`
-
-- Description: TODO
+- Role: Defines the shared bg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex nomap = Resource.loadtex("gfx/hud/mmap/nomap")`
-
-- Description: TODO
+- Role: Defines the shared nomap constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex plp = ((TexI)Resource.loadtex("gfx/hud/mmap/plp")).filter(Texture.Filter.LINEAR)`
-
-- Description: TODO
+- Role: Defines the shared plp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<MarkerIcon> ctxr = new OwnerContext.ClassResolver<MarkerIcon>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color notifcol = new Color(255, 128, 0, 255)`
-
-- Description: TODO
+- Role: Defines the shared notifcol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Resource res = Resource.local().loadwait("gfx/hud/mmap/flag")`
-
-- Description: TODO
+- Role: Defines the shared res constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Resource.Image fg = res.flayer(Resource.imgc, 0)`
-
-- Description: TODO
+- Role: Defines the shared fg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Resource.Image bg = res.flayer(Resource.imgc, 1)`
-
-- Description: TODO
+- Role: Defines the shared bg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord cc = UI.scale(res.flayer(Resource.negc).cc)`
-
-- Description: TODO
+- Role: Defines the shared cc constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final MapFile file`
-
-- Description: TODO
+- Role: Stores the file value.
+- Description: Backs the cached state for this file.
 
 #### `public Markers markers = new Markers(this)`
-
-- Description: TODO
+- Role: Holds the markers state.
+- Description: Backs the cached state for this file.
 
 #### `public Location curloc`
-
-- Description: TODO
+- Role: Holds the curloc state.
+- Description: Backs the cached state for this file.
 
 #### `public Location sessloc`
-
-- Description: TODO
+- Role: Holds the sessloc state.
+- Description: Backs the cached state for this file.
 
 #### `public GobIcon.Settings iconconf`
-
-- Description: TODO
+- Role: Stores the iconconf value.
+- Description: Backs the cached state for this file.
 
 #### `public List<DisplayIcon> icons = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches icons entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `protected Locator setloc`
-
-- Description: TODO
+- Role: Holds the setloc state.
+- Description: Backs the cached state for this file.
 
 #### `protected boolean follow`
-
-- Description: TODO
-
-#### `protected int zoomlevel = 0, maglevel = 1 << Utils.clip((int)Math.round(Math.log(UI.scale(1.0)) / Math.log(2)), 0, 3)`
-
-- Description: TODO
+- Role: Tracks the follow flag.
+- Description: Supports the follow operation used by the surrounding class.
 
 #### `protected int zoomlevel = 0, maglevel = 1 << Utils.clip((int)Math.round(Math.log(UI.scale(1.0)) / Math.log(2)), 0, 3)`
+- Role: Stores the zoomlevel value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `protected int zoomlevel = 0, maglevel = 1 << Utils.clip((int)Math.round(Math.log(UI.scale(1.0)) / Math.log(2)), 0, 3)`
+- Role: Stores the zoomlevel value.
+- Description: Backs the cached state for this file.
 
 #### `protected DisplayGrid[] display =`
-
-- Description: TODO
-
-#### `protected Area dgext, dtext`
-
-- Description: TODO
+- Role: Holds the mini map state.
+- Description: Backs the cached state for this file.
 
 #### `protected Area dgext, dtext`
+- Role: Holds the dtext state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `protected Area dgext, dtext`
+- Role: Holds the dtext state.
+- Description: Backs the cached state for this file.
 
 #### `protected Segment dseg`
-
-- Description: TODO
-
-#### `protected int dlvl, dmag`
-
-- Description: TODO
+- Role: Stores the dseg value.
+- Description: Backs the cached state for this file.
 
 #### `protected int dlvl, dmag`
+- Role: Stores the dmag value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `protected int dlvl, dmag`
+- Role: Stores the dmag value.
+- Description: Backs the cached state for this file.
 
 #### `protected Location dloc`
-
-- Description: TODO
+- Role: Holds the dloc state.
+- Description: Backs the cached state for this file.
 
 #### `public final Segment seg`
-
-- Description: TODO
+- Role: Stores the seg value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord tc`
-
-- Description: TODO
+- Role: Stores the tc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Session sess`
-
-- Description: TODO
+- Role: Stores the sess value.
+- Description: Backs the cached state for this file.
 
 #### `private MCache.Grid lastgrid = null`
-
-- Description: TODO
+- Role: Caches lastgrid entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Location lastloc`
-
-- Description: TODO
+- Role: Holds the lastloc state.
+- Description: Backs the cached state for this file.
 
 #### `public final MapView mv`
-
-- Description: TODO
+- Role: Stores the mv value.
+- Description: Backs the cached state for this file.
 
 #### `public final long seg`
-
-- Description: TODO
+- Role: Stores the seg value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord tc`
-
-- Description: TODO
+- Role: Stores the tc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Markers o`
-
-- Description: TODO
+- Role: Holds the o state.
+- Description: Backs the cached state for this file.
 
 #### `public final Marker m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `private final Loader loader`
-
-- Description: TODO
+- Role: Holds the loader state.
+- Description: Backs the cached state for this file.
 
 #### `private Loader.Future<GobIcon.Icon> load`
-
-- Description: TODO
+- Role: Stores the load value.
+- Description: Backs the cached state for this file.
 
 #### `private GobIcon.Icon icon`
-
-- Description: TODO
-
-#### `private int lseq, iseq`
-
-- Description: TODO
+- Role: Stores the icon value.
+- Description: Backs the cached state for this file.
 
 #### `private int lseq, iseq`
+- Role: Stores the iseq value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int lseq, iseq`
+- Role: Stores the iseq value.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> info = null`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MiniMap mm`
-
-- Description: TODO
+- Role: Caches mm entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int seq`
-
-- Description: TODO
+- Role: Stores the seq value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Marker, MarkerIcon> icons = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches icons entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private volatile int mseq = -1`
-
-- Description: TODO
+- Role: Stores the mseq value.
+- Description: Backs the cached state for this file.
 
 #### `private volatile Future<?> updater = null`
-
-- Description: TODO
+- Role: Holds the updater state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean loading`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 #### `private Locator sesslocator`
-
-- Description: TODO
+- Role: Holds the sesslocator state.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord cc`
-
-- Description: TODO
+- Role: Stores the cc value.
+- Description: Backs the cached state for this file.
 
 #### `public final float f`
-
-- Description: TODO
+- Role: Stores the f value.
+- Description: Backs the cached state for this file.
 
 #### `public final GobIcon attr`
-
-- Description: TODO
+- Role: Stores the attr value.
+- Description: Backs the cached state for this file.
 
 #### `public final Gob gob`
-
-- Description: TODO
+- Role: Stores the gob value.
+- Description: Backs the cached state for this file.
 
 #### `public final GobIcon.Icon icon`
-
-- Description: TODO
+- Role: Stores the icon value.
+- Description: Backs the cached state for this file.
 
 #### `public final GobIcon.Setting conf`
-
-- Description: TODO
+- Role: Stores the conf value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord2d rc = null`
-
-- Description: TODO
+- Role: Stores the rc value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord sc = null`
-
-- Description: TODO
+- Role: Stores the sc value.
+- Description: Backs the cached state for this file.
 
 #### `public double ang = 0.0`
-
-- Description: TODO
+- Role: Stores the ang value.
+- Description: Backs the cached state for this file.
 
 #### `public int z`
-
-- Description: TODO
-
-#### `public double stime, ntime`
-
-- Description: TODO
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `public double stime, ntime`
+- Role: Stores the ntime value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double stime, ntime`
+- Role: Stores the ntime value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean notify`
-
-- Description: TODO
+- Role: Tracks the notify flag.
+- Description: Supports the notify operation used by the surrounding class.
 
 #### `private Consumer<UI> snotify`
-
-- Description: TODO
+- Role: Stores the snotify value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean markchecked`
-
-- Description: TODO
+- Role: Tracks the markchecked flag.
+- Description: Supports the markchecked operation used by the surrounding class.
 
 #### `public final Marker mark`
-
-- Description: TODO
+- Role: Holds the mark state.
+- Description: Backs the cached state for this file.
 
 #### `public final Color col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final MiniMap mm`
-
-- Description: TODO
+- Role: Caches mm entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Marker m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `public Coord sc = null`
-
-- Description: TODO
+- Role: Stores the sc value.
+- Description: Backs the cached state for this file.
 
 #### `private int tseq = -1`
-
-- Description: TODO
+- Role: Stores the tseq value.
+- Description: Backs the cached state for this file.
 
 #### `private BufferedImage tooltip = null`
-
-- Description: TODO
+- Role: Stores the tooltip value.
+- Description: Backs the cached state for this file.
 
 #### `public final MiniMap mm`
-
-- Description: TODO
+- Role: Caches mm entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final MapFile file`
-
-- Description: TODO
+- Role: Stores the file value.
+- Description: Backs the cached state for this file.
 
 #### `public final Segment seg`
-
-- Description: TODO
+- Role: Stores the seg value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord sc`
-
-- Description: TODO
+- Role: Stores the sc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Area mapext`
-
-- Description: TODO
+- Role: Holds the mapext state.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<? extends DataGrid> gref`
-
-- Description: TODO
+- Role: Stores the gref value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord dc`
-
-- Description: TODO
+- Role: Stores the dc value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex img = null`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `private Defer.Future<Tex> nextimg = null`
-
-- Description: TODO
+- Role: Stores the nextimg value.
+- Description: Backs the cached state for this file.
 
 #### `final Function<DataGrid, Defer.Future<Tex>> src`
-
-- Description: TODO
+- Role: Stores the src value.
+- Description: Backs the cached state for this file.
 
 #### `DataGrid cgrid`
-
-- Description: TODO
+- Role: Stores the cgrid value.
+- Description: Backs the cached state for this file.
 
 #### `Defer.Future<Tex> next`
-
-- Description: TODO
+- Role: Stores the next value.
+- Description: Backs the cached state for this file.
 
 #### `Tex img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `private CachedImage img_c`
-
-- Description: TODO
+- Role: Stores the img c value.
+- Description: Backs the cached state for this file.
 
 #### `private Map<String, CachedImage> olimg_c = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches olimg c entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Collection<DisplayMarker> markers = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches markers entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int markerseq = -1`
-
-- Description: TODO
+- Role: Stores the markerseq value.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab drag`
-
-- Description: TODO
+- Role: Stores the drag value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean dragging`
-
-- Description: TODO
-
-#### `private Coord dsc, dmc`
-
-- Description: TODO
+- Role: Tracks the dragging flag.
+- Description: Supports the dragging operation used by the surrounding class.
 
 #### `private Coord dsc, dmc`
+- Role: Stores the dmc value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Coord dsc, dmc`
+- Role: Stores the dmc value.
+- Description: Backs the cached state for this file.
 
 #### `private Location dsloc`
-
-- Description: TODO
+- Role: Holds the dsloc state.
+- Description: Backs the cached state for this file.
 
 #### `private DisplayIcon dsicon`
-
-- Description: TODO
+- Role: Holds the dsicon state.
+- Description: Backs the cached state for this file.
 
 #### `private DisplayMarker dsmark`
-
-- Description: TODO
+- Role: Holds the dsmark state.
+- Description: Backs the cached state for this file.
 
 #### `private String lasttname = null`
-
-- Description: TODO
+- Role: Stores the lasttname value.
+- Description: Backs the cached state for this file.
 
 #### `private Object lastobjid = null`
-
-- Description: TODO
+- Role: Holds the lastobjid state.
+- Description: Backs the cached state for this file.
 
 #### `private Tex lasttip = null`
-
-- Description: TODO
+- Role: Stores the lasttip value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public MiniMap(Coord sz, MapFile file)`
-
-- Description: TODO
+- Role: Creates a new MiniMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public MiniMap(MapFile file)`
-
-- Description: TODO
+- Role: Creates a new MiniMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `public Location(Segment seg, Coord tc)`
-
-- Description: TODO
+- Role: Performs location.
+- Description: Supports the location operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `Location locate(MapFile file) throws Loading`
-
-- Description: TODO
+- Role: Handles the locate workflow.
+- Description: Supports the locate operation used by the surrounding class.
 
 #### `public SessionLocator(Session sess)`
-
-- Description: TODO
+- Role: Performs session locator.
+- Description: Supports the session locator operation used by the surrounding class.
 
 #### `public Location locate(MapFile file)`
-
-- Description: TODO
+- Role: Performs locate.
+- Description: Supports the locate operation used by the surrounding class.
 
 #### `public MapLocator(MapView mv)`
-
-- Description: TODO
+- Role: Performs map locator.
+- Description: Supports the map locator operation used by the surrounding class.
 
 #### `public Location locate(MapFile file)`
-
-- Description: TODO
+- Role: Performs locate.
+- Description: Supports the locate operation used by the surrounding class.
 
 #### `public SpecLocator(long seg, Coord tc)`
-
-- Description: TODO
+- Role: Performs spec locator.
+- Description: Supports the spec locator operation used by the surrounding class.
 
 #### `public Location locate(MapFile file)`
-
-- Description: TODO
+- Role: Performs locate.
+- Description: Supports the locate operation used by the surrounding class.
 
 #### `public MarkerIcon(Markers o, Marker m)`
-
-- Description: TODO
+- Role: Performs marker icon.
+- Description: Supports the marker icon operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `private GobIcon.Icon create()`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private void ckload()`
-
-- Description: TODO
+- Role: Performs ckload.
+- Description: Supports the ckload operation used by the surrounding class.
 
 #### `private void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public GobIcon.Icon icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `private Markers(MiniMap mm)`
-
-- Description: TODO
+- Role: Performs markers.
+- Description: Supports the markers operation used by the surrounding class.
 
 #### `private void update0()`
-
-- Description: TODO
+- Role: Performs update0.
+- Description: Supports the update0 operation used by the surrounding class.
 
 #### `private void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public MarkerIcon get(Marker m)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Collection<? extends MarkerIcon> known()`
-
-- Description: TODO
+- Role: Performs known.
+- Description: Supports the known operation used by the surrounding class.
 
 #### `public void center(Location loc)`
-
-- Description: TODO
+- Role: Performs center.
+- Description: Supports the center operation used by the surrounding class.
 
 #### `public Location resolve(Locator loc)`
-
-- Description: TODO
+- Role: Resolves the target value.
+- Description: Supports the resolve operation used by the surrounding class.
 
 #### `public Coord xlate(Location loc)`
-
-- Description: TODO
+- Role: Performs xlate.
+- Description: Supports the xlate operation used by the surrounding class.
 
 #### `public Location xlate(Coord sc)`
-
-- Description: TODO
+- Role: Performs xlate.
+- Description: Supports the xlate operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void center(Locator loc)`
-
-- Description: TODO
+- Role: Performs center.
+- Description: Supports the center operation used by the surrounding class.
 
 #### `public void follow(Locator loc)`
-
-- Description: TODO
+- Role: Performs follow.
+- Description: Supports the follow operation used by the surrounding class.
 
 #### `public Scale2D(Coord cc, float f)`
-
-- Description: TODO
+- Role: Performs scale2 d.
+- Description: Supports the scale2 d operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public DisplayIcon(GobIcon attr, GobIcon.Setting conf)`
-
-- Description: TODO
+- Role: Performs display icon.
+- Description: Supports the display icon operation used by the surrounding class.
 
 #### `public void update(Coord2d rc, double ang)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void dispupdate()`
-
-- Description: TODO
+- Role: Performs dispupdate.
+- Description: Supports the dispupdate operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean force()`
-
-- Description: TODO
+- Role: Performs force.
+- Description: Supports the force operation used by the surrounding class.
 
 #### `public MarkerID(Gob gob, Marker mark)`
-
-- Description: TODO
+- Role: Performs marker id.
+- Description: Supports the marker id operation used by the surrounding class.
 
 #### `public static Gob find(OCache oc, Marker mark)`
-
-- Description: TODO
+- Role: Performs find.
+- Description: Supports the find operation used by the surrounding class.
 
 #### `public Flag(OwnerContext owner, Color col, String name)`
-
-- Description: TODO
+- Role: Performs flag.
+- Description: Supports the flag operation used by the surrounding class.
 
 #### `public String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public BufferedImage image()`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public void draw(GOut g, Coord c)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public Object[] id()`
-
-- Description: TODO
+- Role: Performs id.
+- Description: Supports the id operation used by the surrounding class.
 
 #### `public DisplayMarker(MiniMap mm, Marker marker)`
-
-- Description: TODO
+- Role: Performs display marker.
+- Description: Supports the display marker operation used by the surrounding class.
 
 #### `public GobIcon.Icon icon()`
-
-- Description: TODO
+- Role: Performs icon.
+- Description: Supports the icon operation used by the surrounding class.
 
 #### `public void dispupdate()`
-
-- Description: TODO
+- Role: Performs dispupdate.
+- Description: Supports the dispupdate operation used by the surrounding class.
 
 #### `public void draw(GOut g, Coord c)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public BufferedImage tooltip()`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public DisplayGrid(MiniMap mm, Segment seg, Coord sc, int lvl, Indir<? extends DataGrid> gref)`
-
-- Description: TODO
+- Role: Performs display grid.
+- Description: Supports the display grid operation used by the surrounding class.
 
 #### `CachedImage(Function<DataGrid, Defer.Future<Tex>> src)`
-
-- Description: TODO
+- Role: Handles the cached image workflow.
+- Description: Supports the cached image operation used by the surrounding class.
 
 #### `public Tex get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Tex img()`
-
-- Description: TODO
+- Role: Performs img.
+- Description: Supports the img operation used by the surrounding class.
 
 #### `public Tex olimg(String tag)`
-
-- Description: TODO
+- Role: Performs olimg.
+- Description: Supports the olimg operation used by the surrounding class.
 
 #### `public Collection<DisplayMarker> markers(boolean remark)`
-
-- Description: TODO
+- Role: Performs markers.
+- Description: Supports the markers operation used by the surrounding class.
 
 #### `private Coord l2dscale(Coord c)`
-
-- Description: TODO
+- Role: Performs l2dscale.
+- Description: Supports the l2dscale operation used by the surrounding class.
 
 #### `private Coord d2lscale(Coord c)`
-
-- Description: TODO
+- Role: Performs d2lscale.
+- Description: Supports the d2lscale operation used by the surrounding class.
 
 #### `public Coord st2c(Coord tc)`
-
-- Description: TODO
+- Role: Performs st2c.
+- Description: Supports the st2c operation used by the surrounding class.
 
 #### `public Coord p2c(Coord2d pc)`
-
-- Description: TODO
+- Role: Performs p2c.
+- Description: Supports the p2c operation used by the surrounding class.
 
 #### `private void redisplay(Location loc)`
-
-- Description: TODO
+- Role: Performs redisplay.
+- Description: Supports the redisplay operation used by the surrounding class.
 
 #### `public void drawgrid(GOut g, Coord ul, DisplayGrid disp)`
-
-- Description: TODO
+- Role: Performs drawgrid.
+- Description: Supports the drawgrid operation used by the surrounding class.
 
 #### `public void drawmap(GOut g)`
-
-- Description: TODO
+- Role: Performs drawmap.
+- Description: Supports the drawmap operation used by the surrounding class.
 
 #### `public void drawmarkers(GOut g)`
-
-- Description: TODO
+- Role: Performs drawmarkers.
+- Description: Supports the drawmarkers operation used by the surrounding class.
 
 #### `public List<DisplayIcon> findicons(Collection<? extends DisplayIcon> prev)`
-
-- Description: TODO
+- Role: Performs findicons.
+- Description: Supports the findicons operation used by the surrounding class.
 
 #### `public void drawicons(GOut g)`
-
-- Description: TODO
+- Role: Performs drawicons.
+- Description: Supports the drawicons operation used by the surrounding class.
 
 #### `public void remparty()`
-
-- Description: TODO
+- Role: Performs remparty.
+- Description: Supports the remparty operation used by the surrounding class.
 
 #### `public void drawparty(GOut g)`
-
-- Description: TODO
+- Role: Performs drawparty.
+- Description: Supports the drawparty operation used by the surrounding class.
 
 #### `public void drawparts(GOut g)`
-
-- Description: TODO
+- Role: Performs drawparts.
+- Description: Supports the drawparts operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private static boolean hascomplete(DisplayGrid[] disp, Area dext, Coord c)`
-
-- Description: TODO
+- Role: Performs hascomplete.
+- Description: Supports the hascomplete operation used by the surrounding class.
 
 #### `protected boolean allowzoomout()`
-
-- Description: TODO
+- Role: Performs allowzoomout.
+- Description: Supports the allowzoomout operation used by the surrounding class.
 
 #### `public DisplayIcon iconat(Coord c)`
-
-- Description: TODO
+- Role: Performs iconat.
+- Description: Supports the iconat operation used by the surrounding class.
 
 #### `public DisplayGrid gridat(Coord sc)`
-
-- Description: TODO
+- Role: Performs gridat.
+- Description: Supports the gridat operation used by the surrounding class.
 
 #### `public DisplayMarker findmarker(Marker rm)`
-
-- Description: TODO
+- Role: Performs findmarker.
+- Description: Supports the findmarker operation used by the surrounding class.
 
 #### `public DisplayMarker markerat(Coord tc)`
-
-- Description: TODO
+- Role: Performs markerat.
+- Description: Supports the markerat operation used by the surrounding class.
 
 #### `public void markobjs()`
-
-- Description: TODO
+- Role: Performs markobjs.
+- Description: Supports the markobjs operation used by the surrounding class.
 
 #### `public boolean filter(DisplayIcon icon)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public boolean filter(DisplayMarker marker)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public boolean clickloc(Location loc, int button, boolean press)`
-
-- Description: TODO
+- Role: Performs clickloc.
+- Description: Supports the clickloc operation used by the surrounding class.
 
 #### `public boolean clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
-
-- Description: TODO
+- Role: Performs clickicon.
+- Description: Supports the clickicon operation used by the surrounding class.
 
 #### `public boolean clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
-
-- Description: TODO
+- Role: Performs clickmarker.
+- Description: Supports the clickmarker operation used by the surrounding class.
 
 #### `public boolean dragp(int button)`
-
-- Description: TODO
+- Role: Performs dragp.
+- Description: Supports the dragp operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
-
-- Description: TODO
+- Role: Performs mousehover.
+- Description: Supports the mousehover operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void mvclick(MapView mv, Coord mc, Location loc, Gob gob, int button)`
-
-- Description: TODO
+- Role: Performs mvclick.
+- Description: Supports the mvclick operation used by the surrounding class.

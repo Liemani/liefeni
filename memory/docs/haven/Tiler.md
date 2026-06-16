@@ -10,262 +10,272 @@ This file documents the responsibilities and members of `Tiler`.
 
 ## Role
 
-Represents a tile helper.
+Represents the tiler Haven component.
 
 ## Nested Types
 
 ### CTrans
 
-- Description: TODO
+- Role: Represents ctrans within Tiler.
+- Description: Describes the nested ctrans type used by the enclosing class.
 
 ### FactMaker
 
-- Description: TODO
+- Role: Represents fact maker within Tiler.
+- Description: Describes the nested fact maker type used by the enclosing class.
 
 ### Factory
 
-- Description: TODO
+- Role: Represents factory within Tiler.
+- Description: Describes the nested factory type used by the enclosing class.
 
 ### Key
 
-- Description: TODO
+- Role: Represents key within Tiler.
+- Description: Describes the nested key type used by the enclosing class.
 
 ### MCons
 
-- Description: TODO
+- Role: Represents mcons within Tiler.
+- Description: Describes the nested mcons type used by the enclosing class.
 
 ### MPart
 
-- Description: TODO
+- Role: Represents mpart within Tiler.
+- Description: Describes the nested mpart type used by the enclosing class.
 
 ### MapZSurface
 
-- Description: TODO
+- Role: Represents map zsurface within Tiler.
+- Description: Describes the nested map zsurface type used by the enclosing class.
 
 ### ResName
 
-- Description: TODO
+- Role: Represents res name within Tiler.
+- Description: Describes the nested res name type used by the enclosing class.
 
 ### SModel
 
-- Description: TODO
+- Role: Represents smodel within Tiler.
+- Description: Describes the nested smodel type used by the enclosing class.
 
 ### VertFactory
 
-- Description: TODO
+- Role: Represents vert factory within Tiler.
+- Description: Describes the nested vert factory type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final float[] ctcx =`
-
-- Description: TODO
+- Role: Defines the shared tiler constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final float[] ctcx =`
-
-- Description: TODO
-
-#### `public static final int[] rdiag =`
-
-- Description: TODO
+- Role: Defines the shared tiler constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int[] rdiag =`
+- Role: Defines the shared tiler constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final int[] rdiag =`
+- Role: Defines the shared tiler constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MCons nil = new MCons()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final VertFactory id = new VertFactory()`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<String, Factory> rnames = new TreeMap<String, Factory>()`
-
-- Description: TODO
+- Role: Defines the shared rnames constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int id`
-
-- Description: TODO
-
-#### `public Coord lc, gc`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord lc, gc`
+- Role: Stores the gc value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Coord lc, gc`
+- Role: Stores the gc value.
+- Description: Backs the cached state for this file.
 
 #### `public Surface.Vertex[] v`
-
-- Description: TODO
-
-#### `public float[] tcx, tcy`
-
-- Description: TODO
+- Role: Stores the v value.
+- Description: Backs the cached state for this file.
 
 #### `public float[] tcx, tcy`
+- Role: Stores the tcy value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public float[] tcx, tcy`
+- Role: Stores the tcy value.
+- Description: Backs the cached state for this file.
 
 #### `public int[] f`
-
-- Description: TODO
+- Role: Stores the f value.
+- Description: Backs the cached state for this file.
 
 #### `public Pipe.Op mat = null`
-
-- Description: TODO
+- Role: Holds the mat state.
+- Description: Backs the cached state for this file.
 
 #### `private final VertFactory f`
-
-- Description: TODO
+- Role: Holds the f state.
+- Description: Backs the cached state for this file.
 
 #### `private final MeshVertex[] map`
-
-- Description: TODO
+- Role: Stores the map value.
+- Description: Backs the cached state for this file.
 
 #### `public final NodeWrap mat`
-
-- Description: TODO
+- Role: Stores the mat value.
+- Description: Backs the cached state for this file.
 
 #### `public final VertFactory f`
-
-- Description: TODO
+- Role: Holds the f state.
+- Description: Backs the cached state for this file.
 
 #### `private final int hash`
-
-- Description: TODO
+- Role: Stores the hash value.
+- Description: Backs the cached state for this file.
 
 #### `public final MapMesh m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Tiler(int id)`
-
-- Description: TODO
+- Role: Creates a new Tiler instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public MPart(Coord lc, Coord gc, Surface.Vertex[] v, float[] tcx, float[] tcy, int[] f)`
-
-- Description: TODO
+- Role: Performs mpart.
+- Description: Supports the mpart operation used by the surrounding class.
 
 #### `public MPart(MPart... parts)`
-
-- Description: TODO
+- Role: Performs mpart.
+- Description: Supports the mpart operation used by the surrounding class.
 
 #### `protected void mapvertices(MPart[] parts, int[][] vmap)`
-
-- Description: TODO
+- Role: Performs mapvertices.
+- Description: Supports the mapvertices operation used by the surrounding class.
 
 #### `public Pipe.Op mcomb(Pipe.Op mat)`
-
-- Description: TODO
+- Role: Performs mcomb.
+- Description: Supports the mcomb operation used by the surrounding class.
 
 #### `public static MPart splitquad(Coord lc, Coord gc, Surface.Vertex[] corners, boolean diag)`
-
-- Description: TODO
+- Role: Performs splitquad.
+- Description: Supports the splitquad operation used by the surrounding class.
 
 #### `public void faces(MapMesh m, MPart desc)`
-
-- Description: TODO
+- Role: Performs faces.
+- Description: Supports the faces operation used by the surrounding class.
 
 #### `public MCons tcons(int z, int bmask, int cmask)`
-
-- Description: TODO
+- Role: Performs tcons.
+- Description: Supports the tcons operation used by the surrounding class.
 
 #### `public MeshVertex make(MeshBuf buf, MPart d, int i)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public SModel(MapMesh m, NodeWrap mat, VertFactory f)`
-
-- Description: TODO
+- Role: Performs smodel.
+- Description: Supports the smodel operation used by the surrounding class.
 
 #### `public MeshVertex get(MPart d, int i)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public MeshVertex[] get(MPart d)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Key(NodeWrap mat, VertFactory f)`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object x)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public SModel make(MapMesh m)`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public static SModel get(MapMesh m, NodeWrap mat, VertFactory f)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static void flatmodel(MapMesh m, Coord lc)`
-
-- Description: TODO
+- Role: Performs flatmodel.
+- Description: Supports the flatmodel operation used by the surrounding class.
 
 #### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs model.
+- Description: Supports the model operation used by the surrounding class.
 
 #### `public void lay(MapMesh m, Coord lc, Coord gc, MCons cons, boolean cover)`
-
-- Description: TODO
+- Role: Performs lay.
+- Description: Supports the lay operation used by the surrounding class.
 
 #### `public abstract void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-
-- Description: TODO
+- Role: Performs lay.
+- Description: Supports the lay operation used by the surrounding class.
 
 #### `public abstract void trans(MapMesh m, Random rnd, Tiler gt, Coord lc, Coord gc, int z, int bmask, int cmask)`
-
-- Description: TODO
+- Role: Performs trans.
+- Description: Supports the trans operation used by the surrounding class.
 
 #### `public MapZSurface(MapMesh m)`
-
-- Description: TODO
+- Role: Performs map zsurface.
+- Description: Supports the map zsurface operation used by the surrounding class.
 
 #### `public double getz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getz.
+- Description: Supports the getz operation used by the surrounding class.
 
 #### `public MCache.ZSurface getsurf(MapMesh m, MCache.SurfaceID id)`
-
-- Description: TODO
+- Role: Returns the surface id for the supplied surface name.
+- Description: Maps a surface name to the corresponding `MCache.SurfaceID` value.
 
 #### `public Pipe.Op clickstate()`
-
-- Description: TODO
+- Role: Performs clickstate.
+- Description: Supports the clickstate operation used by the surrounding class.
 
 #### `public Pipe.Op drawstate(Glob glob, Coord3f c)`
-
-- Description: TODO
+- Role: Performs drawstate.
+- Description: Supports the drawstate operation used by the surrounding class.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public Tiler create(int id, Tileset set)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public String value()`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public static Factory byname(String name)`
-
-- Description: TODO
+- Role: Performs byname.
+- Description: Supports the byname operation used by the surrounding class.

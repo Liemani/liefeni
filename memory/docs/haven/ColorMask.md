@@ -10,44 +10,44 @@ This file documents the responsibilities and members of `ColorMask`.
 
 ## Role
 
-Provides a color mask helper.
+Represents the color mask Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<ColorMask> slot = new Slot<ColorMask>(Slot.Type.DRAW, ColorMask.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform ccol = new Uniform(VEC4, p -> p.get(slot).col, slot)`
-
-- Description: TODO
+- Role: Defines the shared ccol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro sh = prog ->`
-
-- Description: TODO
+- Role: Defines the shared sh constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final FColor col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ColorMask(FColor col)`
-
-- Description: TODO
+- Role: Creates a new ColorMask instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ColorMask(Color col)`
-
-- Description: TODO
+- Role: Creates a new ColorMask instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

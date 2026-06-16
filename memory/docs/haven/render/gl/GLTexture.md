@@ -10,29 +10,34 @@ This file documents the responsibilities and members of `GLTexture`.
 
 ## Role
 
-Represents a GL texture.
+Provides GL backend support for gltexture.
 
 ## Nested Types
 
 ### Tex2D
 
-- Description: TODO
+- Role: Represents tex2 d within GLTexture.
+- Description: Describes the nested tex2 d type used by the enclosing class.
 
 ### Tex2DArray
 
-- Description: TODO
+- Role: Represents tex2 darray within GLTexture.
+- Description: Describes the nested tex2 darray type used by the enclosing class.
 
 ### Tex2DMS
 
-- Description: TODO
+- Role: Represents tex2 dms within GLTexture.
+- Description: Describes the nested tex2 dms type used by the enclosing class.
 
 ### Tex3D
 
-- Description: TODO
+- Role: Represents tex3 d within GLTexture.
+- Description: Describes the nested tex3 d type used by the enclosing class.
 
 ### TexCube
 
-- Description: TODO
+- Role: Represents tex cube within GLTexture.
+- Description: Describes the nested tex cube type used by the enclosing class.
 
 ## Members
 
@@ -41,259 +46,259 @@ Represents a GL texture.
 ### Fields
 
 #### `protected int id, state = 0`
-
-- Description: TODO
+- Role: Stores the state value.
+- Description: Backs the cached state for this file.
 
 #### `protected int id, state = 0`
-
-- Description: TODO
+- Role: Stores the state value.
+- Description: Backs the cached state for this file.
 
 #### `Collection<GLFrameBuffer> fbos = null`
-
-- Description: TODO
+- Role: Caches fbos entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final WeakReference<Texture2D> desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `Sampler2D sampler`
-
-- Description: TODO
+- Role: Holds the sampler state.
+- Description: Backs the cached state for this file.
 
 #### `private final WeakReference<Texture3D> desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `Sampler3D sampler`
-
-- Description: TODO
+- Role: Holds the sampler state.
+- Description: Backs the cached state for this file.
 
 #### `private final WeakReference<Texture2DArray> desc`
-
-- Description: TODO
+- Role: Caches desc entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `Sampler2DArray sampler`
-
-- Description: TODO
+- Role: Caches sampler entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final WeakReference<Texture2DMS> desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `private final WeakReference<TextureCube> desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `SamplerCube sampler`
-
-- Description: TODO
+- Role: Holds the sampler state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GLTexture(GLEnvironment env)`
-
-- Description: TODO
+- Role: Creates a new GLTexture instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `protected void dispose0()`
-
-- Description: TODO
+- Role: Performs dispose0.
+- Description: Supports the dispose0 operation used by the surrounding class.
 
 #### `public abstract void bind(BGL gl)`
-
-- Description: TODO
+- Role: Performs bind.
+- Description: Supports the bind operation used by the surrounding class.
 
 #### `public abstract void unbind(BGL gl)`
-
-- Description: TODO
+- Role: Performs unbind.
+- Description: Supports the unbind operation used by the surrounding class.
 
 #### `static int magfilter(Sampler smp)`
-
-- Description: TODO
+- Role: Performs magfilter.
+- Description: Supports the magfilter operation used by the surrounding class.
 
 #### `static int minfilter(Sampler smp)`
-
-- Description: TODO
+- Role: Performs minfilter.
+- Description: Supports the minfilter operation used by the surrounding class.
 
 #### `static int wrapmode(Texture.Wrapping w)`
-
-- Description: TODO
+- Role: Performs wrapmode.
+- Description: Supports the wrapmode operation used by the surrounding class.
 
 #### `public static boolean glattribint(NumberFormat fmt)`
-
-- Description: TODO
+- Role: Performs glattribint.
+- Description: Supports the glattribint operation used by the surrounding class.
 
 #### `static int texifmt(Texture data)`
-
-- Description: TODO
+- Role: Performs texifmt.
+- Description: Supports the texifmt operation used by the surrounding class.
 
 #### `static int texefmt1(VectorFormat ifmt, VectorFormat efmt, Swizzle perm)`
-
-- Description: TODO
+- Role: Performs texefmt1.
+- Description: Supports the texefmt1 operation used by the surrounding class.
 
 #### `static int texefmt2(VectorFormat ifmt, VectorFormat efmt)`
-
-- Description: TODO
+- Role: Performs texefmt2.
+- Description: Supports the texefmt2 operation used by the surrounding class.
 
 #### `static int texface(TextureCube.Face face)`
-
-- Description: TODO
+- Role: Performs texface.
+- Description: Supports the texface operation used by the surrounding class.
 
 #### `public abstract Texture desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public Tex2D(GLEnvironment env, Texture2D data, FillBuffers.Array[] pixels)`
-
-- Description: TODO
+- Role: Performs tex2 d.
+- Description: Supports the tex2 d operation used by the surrounding class.
 
 #### `public static Tex2D create(GLEnvironment env, Texture2D data)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void setsampler(Sampler2D data)`
-
-- Description: TODO
+- Role: Performs setsampler.
+- Description: Supports the setsampler operation used by the surrounding class.
 
 #### `public void bind(BGL gl)`
-
-- Description: TODO
+- Role: Performs bind.
+- Description: Supports the bind operation used by the surrounding class.
 
 #### `public void unbind(BGL gl)`
-
-- Description: TODO
+- Role: Performs unbind.
+- Description: Supports the unbind operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Texture2D desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public Tex3D(GLEnvironment env, Texture3D data, FillBuffers.Array[] pixels)`
-
-- Description: TODO
+- Role: Performs tex3 d.
+- Description: Supports the tex3 d operation used by the surrounding class.
 
 #### `public static Tex3D create(GLEnvironment env, Texture3D data)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void setsampler(Sampler3D data)`
-
-- Description: TODO
+- Role: Performs setsampler.
+- Description: Supports the setsampler operation used by the surrounding class.
 
 #### `public void bind(BGL gl)`
-
-- Description: TODO
+- Role: Performs bind.
+- Description: Supports the bind operation used by the surrounding class.
 
 #### `public void unbind(BGL gl)`
-
-- Description: TODO
+- Role: Performs unbind.
+- Description: Supports the unbind operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Texture3D desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public Tex2DArray(GLEnvironment env, Texture2DArray data, FillBuffers.Array[][] pixels)`
-
-- Description: TODO
+- Role: Performs tex2 darray.
+- Description: Supports the tex2 darray operation used by the surrounding class.
 
 #### `public static Tex2DArray create(GLEnvironment env, Texture2DArray data)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void setsampler(Sampler2DArray data)`
-
-- Description: TODO
+- Role: Performs setsampler.
+- Description: Supports the setsampler operation used by the surrounding class.
 
 #### `public void bind(BGL gl)`
-
-- Description: TODO
+- Role: Performs bind.
+- Description: Supports the bind operation used by the surrounding class.
 
 #### `public void unbind(BGL gl)`
-
-- Description: TODO
+- Role: Performs unbind.
+- Description: Supports the unbind operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Texture2DArray desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public Tex2DMS(GLEnvironment env, Texture2DMS data)`
-
-- Description: TODO
+- Role: Performs tex2 dms.
+- Description: Supports the tex2 dms operation used by the surrounding class.
 
 #### `public static Tex2DMS create(GLEnvironment env, Texture2DMS data)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void setsampler(Sampler2DMS data)`
-
-- Description: TODO
+- Role: Performs setsampler.
+- Description: Supports the setsampler operation used by the surrounding class.
 
 #### `public void bind(BGL gl)`
-
-- Description: TODO
+- Role: Performs bind.
+- Description: Supports the bind operation used by the surrounding class.
 
 #### `public void unbind(BGL gl)`
-
-- Description: TODO
+- Role: Performs unbind.
+- Description: Supports the unbind operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Texture2DMS desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public TexCube(GLEnvironment env, TextureCube data, CubeImage[] images, FillBuffers.Array[] pixels)`
-
-- Description: TODO
+- Role: Performs tex cube.
+- Description: Supports the tex cube operation used by the surrounding class.
 
 #### `public static TexCube create(GLEnvironment env, TextureCube data)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void setsampler(SamplerCube data)`
-
-- Description: TODO
+- Role: Performs setsampler.
+- Description: Supports the setsampler operation used by the surrounding class.
 
 #### `public void bind(BGL gl)`
-
-- Description: TODO
+- Role: Performs bind.
+- Description: Supports the bind operation used by the surrounding class.
 
 #### `public void unbind(BGL gl)`
-
-- Description: TODO
+- Role: Performs unbind.
+- Description: Supports the unbind operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public TextureCube desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.

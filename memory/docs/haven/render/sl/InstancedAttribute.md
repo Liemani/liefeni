@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `InstancedAttribute`.
 
 ## Role
 
-Represents an instanced attribute.
+Represents the instanced attribute shader-language AST node.
 
 ## Members
 
@@ -21,25 +21,25 @@ Represents an instanced attribute.
 ### Methods
 
 #### `public InstancedAttribute(Type type, Symbol name)`
-
-- Description: TODO
+- Role: Creates a new InstancedAttribute instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public InstancedAttribute(Type type, String infix)`
-
-- Description: TODO
+- Role: Creates a new InstancedAttribute instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public InstancedAttribute(Type type)`
-
-- Description: TODO
+- Role: Creates a new InstancedAttribute instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public abstract VectorFormat attrfmt()`
-
-- Description: TODO
+- Role: Performs attrfmt.
+- Description: Supports the attrfmt operation used by the surrounding class.
 
 #### `public int attrsize()`
-
-- Description: TODO
+- Role: Performs attrsize.
+- Description: Supports the attrsize operation used by the surrounding class.
 
 #### `public abstract void attrfill(ByteBuffer buf, int offset, Pipe state)`
-
-- Description: TODO
+- Role: Performs attrfill.
+- Description: Supports the attrfill operation used by the surrounding class.

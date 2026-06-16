@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Hook`.
 
 ## Role
 
-Acts as the narrow Haven-to-LMI bridge for concrete event callbacks.
+Receives Haven callbacks and forwards them into LMI bridge actions.
 
 ## Members
 
@@ -21,97 +21,97 @@ Acts as the narrow Haven-to-LMI bridge for concrete event callbacks.
 ### Methods
 
 #### `public static void didMsgReceive(int id, String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles the received message callback.
+- Description: Supports the did msg receive operation used by the surrounding class.
 
 #### `private static void _recursivePrintObject(int indent, Object... args)`
-
-- Description: TODO
+- Role: Recursively prints nested object values for debugging.
+- Description: Supports the recursive print object operation used by the surrounding class.
 
 #### `private static void _indent(int indent)`
-
-- Description: TODO
+- Role: Writes indentation for debug output.
+- Description: Supports the indent operation used by the surrounding class.
 
 #### `public static void willMsgSend(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles the outgoing message callback.
+- Description: Supports the will msg send operation used by the surrounding class.
 
 #### `public static void willQueueMessage(int seq)`
-
-- Description: TODO
+- Role: Handles the queued message callback.
+- Description: Supports the will queue message operation used by the surrounding class.
 
 #### `public static void didGetACK(RMessage rMessage)`
-
-- Description: TODO
+- Role: Handles the ACK callback.
+- Description: Supports the did get ack operation used by the surrounding class.
 
 #### `public static void newWidgetDidAdded(Widget widget)`
-
-- Description: TODO
+- Role: Handles the widget-added callback.
+- Description: Supports the new widget did added operation used by the surrounding class.
 
 #### `public static void flowerMenuDidDestroyed()`
-
-- Description: TODO
+- Role: Handles the flower menu destruction callback.
+- Description: Supports the flower menu did destroyed operation used by the surrounding class.
 
 #### `public static void progressDidAdded(GameUI.Progress widget)`
-
-- Description: TODO
+- Role: Handles the progress widget callback.
+- Description: Supports the progress did added operation used by the surrounding class.
 
 #### `public static void progressDidDestroyed()`
-
-- Description: TODO
+- Role: Handles the progress widget destruction callback.
+- Description: Supports the progress did destroyed operation used by the surrounding class.
 
 #### `public static boolean menuGridWillUse(MenuGrid.PagButton button)`
-
-- Description: TODO
+- Role: Handles the menu grid use callback.
+- Description: Supports the menu grid will use operation used by the surrounding class.
 
 #### `public static boolean willPaginaDropToBelt(MenuGrid.Pagina pag)`
-
-- Description: TODO
+- Role: Handles the pagina drop callback.
+- Description: Supports the will pagina drop to belt operation used by the surrounding class.
 
 #### `public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData)`
-
-- Description: TODO
+- Role: Handles the click callback.
+- Description: Supports the did clicked operation used by the surrounding class.
 
 #### `public static boolean areaDidSelected(Coord first, Coord second)`
-
-- Description: TODO
+- Role: Handles the area selection callback.
+- Description: Supports the area did selected operation used by the surrounding class.
 
 #### `public static void keyDidDown(java.awt.event.KeyEvent keyEvent)`
-
-- Description: TODO
+- Role: Handles the key-down callback.
+- Description: Supports the key did down operation used by the surrounding class.
 
 #### `public static void remoteUIDidConstructed(RemoteUI remoteUI)`
-
-- Description: TODO
+- Role: Handles the remote UI construction callback.
+- Description: Supports the remote uidid constructed operation used by the surrounding class.
 
 #### `public static void mapViewDidDraw(MapView mapView, GOut g)`
-
-- Description: TODO
+- Role: Handles the map view draw callback.
+- Description: Supports the map view did draw operation used by the surrounding class.
 
 #### `public static void mapViewGobsDidFinishLoading(MapView mapView)`
-
-- Description: TODO
+- Role: Handles the map view loading callback.
+- Description: Supports the map view gobs did finish loading operation used by the surrounding class.
 
 #### `public static void didEnterPortal()`
-
-- Description: TODO
+- Role: Handles the portal-entry callback.
+- Description: Supports the did enter portal operation used by the surrounding class.
 
 #### `public static void didSpeak(long gobId, String msg)`
-
-- Description: TODO
+- Role: Handles the speech callback.
+- Description: Supports the did speak operation used by the surrounding class.
 
 #### `public static void plobDidPlaced(MapView.Plob plob)`
-
-- Description: TODO
+- Role: Handles the plob placement callback.
+- Description: Supports the plob did placed operation used by the surrounding class.
 
 #### `private static void _captureEnteringPortal(int mouseButton, ClickData clickData)`
-
-- Description: TODO
+- Role: Captures the entering portal from a click event.
+- Description: Supports the capture entering portal operation used by the surrounding class.
 
 #### `private static String _gobResname(ClickData clickData)`
-
-- Description: TODO
+- Role: Returns the gob resource name from click data.
+- Description: Exposes the requested value without mutating state.
 
 #### `private static Coord _gobPosition(ClickData clickData)`
-
-- Description: TODO
+- Role: Returns the gob position from click data.
+- Description: Exposes the requested value without mutating state.

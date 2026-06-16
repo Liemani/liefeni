@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ResData`.
 
 ## Role
 
-Holds resource data.
+Represents the res data Haven component.
 
 ## Members
 
@@ -19,39 +19,39 @@ Holds resource data.
 ### Fields
 
 #### `public Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public MessageBuf sdt`
-
-- Description: TODO
+- Role: Holds the sdt state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ResData(Indir<Resource> res, Message sdt)`
-
-- Description: TODO
+- Role: Creates a new ResData instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ResData clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object other)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static List<ResData> wrap(List<? extends Indir<Resource>> in)`
-
-- Description: TODO
+- Role: Performs wrap.
+- Description: Supports the wrap operation used by the surrounding class.
 
 #### `public static ResData[] wrap(Indir<Resource>[] in)`
-
-- Description: TODO
+- Role: Performs wrap.
+- Description: Supports the wrap operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

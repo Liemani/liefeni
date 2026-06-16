@@ -10,1074 +10,1080 @@ This file documents the responsibilities and members of `Utils`.
 
 ## Role
 
-Provides broad Haven utility helpers.
+Represents the utils Haven component.
 
 ## Nested Types
 
 ### AddressFormatException
 
-- Description: TODO
+- Role: Represents address format exception within Utils.
+- Description: Describes the nested address format exception type used by the enclosing class.
 
 ### Base64
 
-- Description: TODO
+- Role: Represents base64 within Utils.
+- Description: Describes the nested base64 type used by the enclosing class.
 
 ### BinAscii
 
-- Description: TODO
+- Role: Represents bin ascii within Utils.
+- Description: Describes the nested bin ascii type used by the enclosing class.
 
 ### IOFunction
 
-- Description: TODO
+- Role: Represents iofunction within Utils.
+- Description: Describes the nested iofunction type used by the enclosing class.
 
 ### MapBuilder
 
-- Description: TODO
+- Role: Represents map builder within Utils.
+- Description: Describes the nested map builder type used by the enclosing class.
 
 ### Range
 
-- Description: TODO
+- Role: Represents range within Utils.
+- Description: Describes the nested range type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final java.nio.charset.Charset utf8 = java.nio.charset.Charset.forName("UTF-8")`
-
-- Description: TODO
+- Role: Defines the shared utf8 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final java.nio.charset.Charset ascii = java.nio.charset.Charset.forName("US-ASCII")`
-
-- Description: TODO
+- Role: Defines the shared ascii constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final java.awt.image.ColorModel rgbm = java.awt.image.ColorModel.getRGBdefault()`
-
-- Description: TODO
+- Role: Defines the shared rgbm constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Config.Variable<String> prefspec = Config.Variable.prop("haven.prefspec", "hafen")`
-
-- Description: TODO
+- Role: Defines the shared prefspec constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BinAscii hex = new BinAscii()`
-
-- Description: TODO
+- Role: Defines the shared hex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final BinAscii bprint = new BinAscii()`
-
-- Description: TODO
+- Role: Defines the shared bprint constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Base64 b64 = new Base64("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", '=')`
-
-- Description: TODO
+- Role: Defines the shared b64 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Base64 b64np = new Base64(b64.set, '\0')`
-
-- Description: TODO
+- Role: Defines the shared b64np constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Base64 ub64 = new Base64("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_", '\0')`
-
-- Description: TODO
+- Role: Defines the shared ub64 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color[] vgapal`
-
-- Description: TODO
+- Role: Defines the shared vgapal constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final long rtimeoff = System.nanoTime()`
-
-- Description: TODO
+- Role: Defines the shared rtimeoff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Comparator<Object> idcmp = new Comparator<Object>()`
-
-- Description: TODO
+- Role: Defines the shared idcmp constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static Preferences prefs = null`
-
-- Description: TODO
+- Role: Holds the prefs state.
+- Description: Backs the cached state for this file.
 
 #### `public final String set`
-
-- Description: TODO
+- Role: Stores the set value.
+- Description: Backs the cached state for this file.
 
 #### `public final char pad`
-
-- Description: TODO
+- Role: Stores the pad value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] rev`
-
-- Description: TODO
+- Role: Stores the rev value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<K, V> bk`
-
-- Description: TODO
-
-#### `public final int min, max, step`
-
-- Description: TODO
+- Role: Caches bk entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int min, max, step`
-
-- Description: TODO
+- Role: Stores the step value.
+- Description: Backs the cached state for this file.
 
 #### `public final int min, max, step`
+- Role: Stores the step value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int min, max, step`
+- Role: Stores the step value.
+- Description: Backs the cached state for this file.
 
 #### `public final String addr, type`
-
-- Description: TODO
+- Role: Stores the type value.
+- Description: Backs the cached state for this file.
 
 #### `public final String addr, type`
-
-- Description: TODO
+- Role: Stores the type value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `static Coord imgsz(BufferedImage img)`
-
-- Description: TODO
+- Role: Performs imgsz.
+- Description: Supports the imgsz operation used by the surrounding class.
 
 #### `public static boolean checkhit(BufferedImage img, Coord c, int thres)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public static boolean checkhit(BufferedImage img, Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public static void defer(final Runnable r)`
-
-- Description: TODO
+- Role: Performs defer.
+- Description: Supports the defer operation used by the surrounding class.
 
 #### `public static URI uri(String uri)`
-
-- Description: TODO
+- Role: Performs uri.
+- Description: Supports the uri operation used by the surrounding class.
 
 #### `public static URL url(URI uri)`
-
-- Description: TODO
+- Role: Performs url.
+- Description: Supports the url operation used by the surrounding class.
 
 #### `public static URL url(String url)`
-
-- Description: TODO
+- Role: Performs url.
+- Description: Supports the url operation used by the surrounding class.
 
 #### `public static Path path(String path)`
-
-- Description: TODO
+- Role: Performs path.
+- Description: Supports the path operation used by the surrounding class.
 
 #### `public static Path pj(Path base, String... els)`
-
-- Description: TODO
+- Role: Performs pj.
+- Description: Supports the pj operation used by the surrounding class.
 
 #### `public static Path srcpath(Class<?> cl)`
-
-- Description: TODO
+- Role: Performs srcpath.
+- Description: Supports the srcpath operation used by the surrounding class.
 
 #### `public static SocketChannel connect(String host, int port) throws IOException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public static SocketChannel connect(NamedSocketAddress addr) throws IOException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public static int drawtext(Graphics g, String text, Coord c)`
-
-- Description: TODO
+- Role: Performs drawtext.
+- Description: Supports the drawtext operation used by the surrounding class.
 
 #### `static Coord textsz(Graphics g, String text)`
-
-- Description: TODO
+- Role: Performs textsz.
+- Description: Supports the textsz operation used by the surrounding class.
 
 #### `static void aligntext(Graphics g, String text, Coord c, double ax, double ay)`
-
-- Description: TODO
+- Role: Performs aligntext.
+- Description: Supports the aligntext operation used by the surrounding class.
 
 #### `public static String fpformat(int num, int div, int dec)`
-
-- Description: TODO
+- Role: Performs fpformat.
+- Description: Supports the fpformat operation used by the surrounding class.
 
 #### `public static String thformat(long num)`
-
-- Description: TODO
+- Role: Performs thformat.
+- Description: Supports the thformat operation used by the surrounding class.
 
 #### `public static String odformat(double num, int md)`
-
-- Description: TODO
+- Role: Performs odformat.
+- Description: Supports the odformat operation used by the surrounding class.
 
 #### `public static String odformat2(double num, int md)`
-
-- Description: TODO
+- Role: Performs odformat2.
+- Description: Supports the odformat2 operation used by the surrounding class.
 
 #### `static void line(Graphics g, Coord c1, Coord c2)`
-
-- Description: TODO
+- Role: Performs line.
+- Description: Supports the line operation used by the surrounding class.
 
 #### `static void AA(Graphics g)`
-
-- Description: TODO
+- Role: Performs aa.
+- Description: Supports the aa operation used by the surrounding class.
 
 #### `public static Random mkrandoom(long seed)`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public static double fgrandoom(Random rnd)`
-
-- Description: TODO
+- Role: Performs fgrandoom.
+- Description: Supports the fgrandoom operation used by the surrounding class.
 
 #### `private static Map<Object, Object> sysprefs()`
-
-- Description: TODO
+- Role: Performs sysprefs.
+- Description: Supports the sysprefs operation used by the surrounding class.
 
 #### `public static Preferences prefs()`
-
-- Description: TODO
+- Role: Performs prefs.
+- Description: Supports the prefs operation used by the surrounding class.
 
 #### `public static String getpref(String prefname, String def)`
-
-- Description: TODO
+- Role: Performs getpref.
+- Description: Supports the getpref operation used by the surrounding class.
 
 #### `public static void setpref(String prefname, String val)`
-
-- Description: TODO
+- Role: Performs setpref.
+- Description: Supports the setpref operation used by the surrounding class.
 
 #### `public static int getprefi(String prefname, int def)`
-
-- Description: TODO
+- Role: Performs getprefi.
+- Description: Supports the getprefi operation used by the surrounding class.
 
 #### `public static void setprefi(String prefname, int val)`
-
-- Description: TODO
+- Role: Performs setprefi.
+- Description: Supports the setprefi operation used by the surrounding class.
 
 #### `public static double getprefd(String prefname, double def)`
-
-- Description: TODO
+- Role: Performs getprefd.
+- Description: Supports the getprefd operation used by the surrounding class.
 
 #### `public static void setprefd(String prefname, double val)`
-
-- Description: TODO
+- Role: Performs setprefd.
+- Description: Supports the setprefd operation used by the surrounding class.
 
 #### `public static boolean getprefb(String prefname, boolean def)`
-
-- Description: TODO
+- Role: Performs getprefb.
+- Description: Supports the getprefb operation used by the surrounding class.
 
 #### `public static void setprefb(String prefname, boolean val)`
-
-- Description: TODO
+- Role: Performs setprefb.
+- Description: Supports the setprefb operation used by the surrounding class.
 
 #### `public static Coord getprefc(String prefname, Coord def)`
-
-- Description: TODO
+- Role: Performs getprefc.
+- Description: Supports the getprefc operation used by the surrounding class.
 
 #### `public static void setprefc(String prefname, Coord val)`
-
-- Description: TODO
+- Role: Performs setprefc.
+- Description: Supports the setprefc operation used by the surrounding class.
 
 #### `public static byte[] getprefb(String prefname, byte[] def)`
-
-- Description: TODO
+- Role: Performs getprefb.
+- Description: Supports the getprefb operation used by the surrounding class.
 
 #### `public static void setprefb(String prefname, byte[] val)`
-
-- Description: TODO
+- Role: Performs setprefb.
+- Description: Supports the setprefb operation used by the surrounding class.
 
 #### `public static List<String> getprefsl(String prefname, String[] def)`
-
-- Description: TODO
+- Role: Performs getprefsl.
+- Description: Supports the getprefsl operation used by the surrounding class.
 
 #### `public static void setprefsl(String prefname, Iterable<? extends CharSequence> val)`
-
-- Description: TODO
+- Role: Performs setprefsl.
+- Description: Supports the setprefsl operation used by the surrounding class.
 
 #### `public static String getprop(String propname, String def)`
-
-- Description: TODO
+- Role: Performs getprop.
+- Description: Supports the getprop operation used by the surrounding class.
 
 #### `public static String sv(Object arg)`
-
-- Description: TODO
+- Role: Performs sv.
+- Description: Supports the sv operation used by the surrounding class.
 
 #### `public static List<?> olv(Object arg)`
-
-- Description: TODO
+- Role: Performs olv.
+- Description: Supports the olv operation used by the surrounding class.
 
 #### `public static Object[] oav(Object arg)`
-
-- Description: TODO
+- Role: Performs oav.
+- Description: Supports the oav operation used by the surrounding class.
 
 #### `public static int iv(Object arg)`
-
-- Description: TODO
+- Role: Performs iv.
+- Description: Supports the iv operation used by the surrounding class.
 
 #### `public static long uiv(Object arg)`
-
-- Description: TODO
+- Role: Performs uiv.
+- Description: Supports the uiv operation used by the surrounding class.
 
 #### `public static float fv(Object arg)`
-
-- Description: TODO
+- Role: Performs fv.
+- Description: Supports the fv operation used by the surrounding class.
 
 #### `public static double dv(Object arg)`
-
-- Description: TODO
+- Role: Performs dv.
+- Description: Supports the dv operation used by the surrounding class.
 
 #### `public static boolean bv(Object arg)`
-
-- Description: TODO
+- Role: Performs bv.
+- Description: Supports the bv operation used by the surrounding class.
 
 #### `public static Indir<Resource> irv(Object arg)`
-
-- Description: TODO
+- Role: Performs irv.
+- Description: Supports the irv operation used by the surrounding class.
 
 #### `public static Resource resv(Object arg)`
-
-- Description: TODO
+- Role: Performs resv.
+- Description: Supports the resv operation used by the surrounding class.
 
 #### `public static <K, V> Map<K, V> mapdecn(Object ob, Class<K> kt, Class<V> vt)`
-
-- Description: TODO
+- Role: Performs mapdecn.
+- Description: Supports the mapdecn operation used by the surrounding class.
 
 #### `public static Map<Object, Object> mapdecn(Object ob)`
-
-- Description: TODO
+- Role: Performs mapdecn.
+- Description: Supports the mapdecn operation used by the surrounding class.
 
 #### `public static Object mapencn(Map<?, ?> map)`
-
-- Description: TODO
+- Role: Performs mapencn.
+- Description: Supports the mapencn operation used by the surrounding class.
 
 #### `public static <K, V> Map<K, V> mapdecf(Object ob, Class<K> kt, Class<V> vt)`
-
-- Description: TODO
+- Role: Performs mapdecf.
+- Description: Supports the mapdecf operation used by the surrounding class.
 
 #### `public static Map<Object, Object> mapdecf(Object ob)`
-
-- Description: TODO
+- Role: Performs mapdecf.
+- Description: Supports the mapdecf operation used by the surrounding class.
 
 #### `public static Object mapencf(Map<?, ?> map)`
-
-- Description: TODO
+- Role: Performs mapencf.
+- Description: Supports the mapencf operation used by the surrounding class.
 
 #### `public static int sb(int n, int b)`
-
-- Description: TODO
+- Role: Performs sb.
+- Description: Supports the sb operation used by the surrounding class.
 
 #### `public static long sb(long n, int b)`
-
-- Description: TODO
+- Role: Performs sb.
+- Description: Supports the sb operation used by the surrounding class.
 
 #### `public static int ub(byte b)`
-
-- Description: TODO
+- Role: Performs ub.
+- Description: Supports the ub operation used by the surrounding class.
 
 #### `public static byte sb(int b)`
-
-- Description: TODO
+- Role: Performs sb.
+- Description: Supports the sb operation used by the surrounding class.
 
 #### `public static byte f2s8(float v)`
-
-- Description: TODO
+- Role: Performs f2s8.
+- Description: Supports the f2s8 operation used by the surrounding class.
 
 #### `public static byte f2u8(float v)`
-
-- Description: TODO
+- Role: Performs f2u8.
+- Description: Supports the f2u8 operation used by the surrounding class.
 
 #### `public static long uint32(int n)`
-
-- Description: TODO
+- Role: Performs uint32.
+- Description: Supports the uint32 operation used by the surrounding class.
 
 #### `public static int uint16d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs uint16d.
+- Description: Supports the uint16d operation used by the surrounding class.
 
 #### `public static int int16d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs int16d.
+- Description: Supports the int16d operation used by the surrounding class.
 
 #### `public static long uint32d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs uint32d.
+- Description: Supports the uint32d operation used by the surrounding class.
 
 #### `public static void uint32e(long num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs uint32e.
+- Description: Supports the uint32e operation used by the surrounding class.
 
 #### `public static int int32d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs int32d.
+- Description: Supports the int32d operation used by the surrounding class.
 
 #### `public static long int64d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs int64d.
+- Description: Supports the int64d operation used by the surrounding class.
 
 #### `public static int intvard(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs intvard.
+- Description: Supports the intvard operation used by the surrounding class.
 
 #### `public static void int64e(long num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs int64e.
+- Description: Supports the int64e operation used by the surrounding class.
 
 #### `public static void int32e(int num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs int32e.
+- Description: Supports the int32e operation used by the surrounding class.
 
 #### `public static void uint16e(int num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs uint16e.
+- Description: Supports the uint16e operation used by the surrounding class.
 
 #### `public static void int16e(short num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs int16e.
+- Description: Supports the int16e operation used by the surrounding class.
 
 #### `public static String strd(byte[] buf, int[] off)`
-
-- Description: TODO
+- Role: Performs strd.
+- Description: Supports the strd operation used by the surrounding class.
 
 #### `public static double floatd(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs floatd.
+- Description: Supports the floatd operation used by the surrounding class.
 
 #### `public static float float32d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs float32d.
+- Description: Supports the float32d operation used by the surrounding class.
 
 #### `public static double float64d(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs float64d.
+- Description: Supports the float64d operation used by the surrounding class.
 
 #### `public static void float32e(float num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs float32e.
+- Description: Supports the float32e operation used by the surrounding class.
 
 #### `public static void float64e(double num, byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs float64e.
+- Description: Supports the float64e operation used by the surrounding class.
 
 #### `public static void float9995d(int word, float[] ret)`
-
-- Description: TODO
+- Role: Performs float9995d.
+- Description: Supports the float9995d operation used by the surrounding class.
 
 #### `public static float hfdec(short bits)`
-
-- Description: TODO
+- Role: Performs hfdec.
+- Description: Supports the hfdec operation used by the surrounding class.
 
 #### `public static short hfenc(float f)`
-
-- Description: TODO
+- Role: Performs hfenc.
+- Description: Supports the hfenc operation used by the surrounding class.
 
 #### `public static float mfdec(byte bits)`
-
-- Description: TODO
+- Role: Performs mfdec.
+- Description: Supports the mfdec operation used by the surrounding class.
 
 #### `public static byte mfenc(float f)`
-
-- Description: TODO
+- Role: Performs mfenc.
+- Description: Supports the mfenc operation used by the surrounding class.
 
 #### `public static void uvec2oct(float[] buf, float x, float y, float z)`
-
-- Description: TODO
+- Role: Performs uvec2oct.
+- Description: Supports the uvec2oct operation used by the surrounding class.
 
 #### `public static void oct2uvec(float[] buf, float x, float y)`
-
-- Description: TODO
+- Role: Performs oct2uvec.
+- Description: Supports the oct2uvec operation used by the surrounding class.
 
 #### `public static Coord3f oct2uvec(float x, float y)`
-
-- Description: TODO
+- Role: Performs oct2uvec.
+- Description: Supports the oct2uvec operation used by the surrounding class.
 
 #### `public String enc(byte[] data)`
-
-- Description: TODO
+- Role: Performs enc.
+- Description: Supports the enc operation used by the surrounding class.
 
 #### `public byte[] dec(String data)`
-
-- Description: TODO
+- Role: Performs dec.
+- Description: Supports the dec operation used by the surrounding class.
 
 #### `public static char num2hex(int num, boolean upper)`
-
-- Description: TODO
+- Role: Performs num2hex.
+- Description: Supports the num2hex operation used by the surrounding class.
 
 #### `public static int hex2num(char hex)`
-
-- Description: TODO
+- Role: Performs hex2num.
+- Description: Supports the hex2num operation used by the surrounding class.
 
 #### `public Base64(String set, char pad)`
-
-- Description: TODO
+- Role: Performs base64.
+- Description: Supports the base64 operation used by the surrounding class.
 
 #### `public String enc(byte[] in)`
-
-- Description: TODO
+- Role: Performs enc.
+- Description: Supports the enc operation used by the surrounding class.
 
 #### `public byte[] dec(String in)`
-
-- Description: TODO
+- Role: Performs dec.
+- Description: Supports the dec operation used by the surrounding class.
 
 #### `public static String[] splitwords(String text)`
-
-- Description: TODO
+- Role: Performs splitwords.
+- Description: Supports the splitwords operation used by the surrounding class.
 
 #### `public static String[] splitlines(String text)`
-
-- Description: TODO
+- Role: Performs splitlines.
+- Description: Supports the splitlines operation used by the surrounding class.
 
 #### `static int atoi(String a)`
-
-- Description: TODO
+- Role: Performs atoi.
+- Description: Supports the atoi operation used by the surrounding class.
 
 #### `static void readtileof(InputStream in) throws IOException`
-
-- Description: TODO
+- Role: Handles the readtileof workflow.
+- Description: Supports the readtileof operation used by the surrounding class.
 
 #### `public static byte[] readall(InputStream in) throws IOException`
-
-- Description: TODO
+- Role: Handles the readall workflow.
+- Description: Supports the readall operation used by the surrounding class.
 
 #### `public T run() throws IOException`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static <T> T ioretry(IOFunction<? extends T> task) throws IOException`
-
-- Description: TODO
+- Role: Handles the ioretry workflow.
+- Description: Supports the ioretry operation used by the surrounding class.
 
 #### `private static void dumptg(ThreadGroup tg, PrintWriter out, int indent)`
-
-- Description: TODO
+- Role: Performs dumptg.
+- Description: Supports the dumptg operation used by the surrounding class.
 
 #### `public static void dumptg(ThreadGroup tg, PrintWriter out)`
-
-- Description: TODO
+- Role: Performs dumptg.
+- Description: Supports the dumptg operation used by the surrounding class.
 
 #### `public static void dumparr(Object[] arr, PrintStream out, boolean term)`
-
-- Description: TODO
+- Role: Performs dumparr.
+- Description: Supports the dumparr operation used by the surrounding class.
 
 #### `public static void dumparr(double[] arr, PrintStream out, boolean term)`
-
-- Description: TODO
+- Role: Performs dumparr.
+- Description: Supports the dumparr operation used by the surrounding class.
 
 #### `public static void dumparr(float[] arr, PrintStream out, boolean term)`
-
-- Description: TODO
+- Role: Performs dumparr.
+- Description: Supports the dumparr operation used by the surrounding class.
 
 #### `public static void dumparr(long[] arr, PrintStream out, boolean term)`
-
-- Description: TODO
+- Role: Performs dumparr.
+- Description: Supports the dumparr operation used by the surrounding class.
 
 #### `public static void dumparr(int[] arr, PrintStream out, boolean term)`
-
-- Description: TODO
+- Role: Performs dumparr.
+- Description: Supports the dumparr operation used by the surrounding class.
 
 #### `public static void dumparr(short[] arr, PrintStream out, boolean term)`
-
-- Description: TODO
+- Role: Performs dumparr.
+- Description: Supports the dumparr operation used by the surrounding class.
 
 #### `public static void hexdump(byte[] arr, PrintStream out, int width)`
-
-- Description: TODO
+- Role: Performs hexdump.
+- Description: Supports the hexdump operation used by the surrounding class.
 
 #### `public static void hexdump(ByteBuffer arr, PrintStream out, int width)`
-
-- Description: TODO
+- Role: Performs hexdump.
+- Description: Supports the hexdump operation used by the surrounding class.
 
 #### `public static String titlecase(String str)`
-
-- Description: TODO
+- Role: Performs titlecase.
+- Description: Supports the titlecase operation used by the surrounding class.
 
 #### `public static Color contrast(Color col)`
-
-- Description: TODO
+- Role: Performs contrast.
+- Description: Supports the contrast operation used by the surrounding class.
 
 #### `public static Color clipcol(int r, int g, int b, int a)`
-
-- Description: TODO
+- Role: Performs clipcol.
+- Description: Supports the clipcol operation used by the surrounding class.
 
 #### `public static Color col16(int col)`
-
-- Description: TODO
+- Role: Performs col16.
+- Description: Supports the col16 operation used by the surrounding class.
 
 #### `public static BufferedImage outline(BufferedImage img, Color col)`
-
-- Description: TODO
+- Role: Performs outline.
+- Description: Supports the outline operation used by the surrounding class.
 
 #### `public static BufferedImage outline2(BufferedImage img, Color col)`
-
-- Description: TODO
+- Role: Performs outline2.
+- Description: Supports the outline2 operation used by the surrounding class.
 
 #### `public static int floordiv(int a, int b)`
-
-- Description: TODO
+- Role: Performs floordiv.
+- Description: Supports the floordiv operation used by the surrounding class.
 
 #### `public static int floormod(int a, int b)`
-
-- Description: TODO
+- Role: Performs floormod.
+- Description: Supports the floormod operation used by the surrounding class.
 
 #### `public static int floordiv(float a, float b)`
-
-- Description: TODO
+- Role: Performs floordiv.
+- Description: Supports the floordiv operation used by the surrounding class.
 
 #### `public static int floordiv(double a, double b)`
-
-- Description: TODO
+- Role: Performs floordiv.
+- Description: Supports the floordiv operation used by the surrounding class.
 
 #### `public static float floormod(float a, float b)`
-
-- Description: TODO
+- Role: Performs floormod.
+- Description: Supports the floormod operation used by the surrounding class.
 
 #### `public static double floormod(double a, double b)`
-
-- Description: TODO
+- Role: Performs floormod.
+- Description: Supports the floormod operation used by the surrounding class.
 
 #### `public static double cangle(double a)`
-
-- Description: TODO
+- Role: Performs cangle.
+- Description: Supports the cangle operation used by the surrounding class.
 
 #### `public static double cangle2(double a)`
-
-- Description: TODO
+- Role: Performs cangle2.
+- Description: Supports the cangle2 operation used by the surrounding class.
 
 #### `public static double clip(double d, double min, double max)`
-
-- Description: TODO
+- Role: Performs clip.
+- Description: Supports the clip operation used by the surrounding class.
 
 #### `public static float clip(float d, float min, float max)`
-
-- Description: TODO
+- Role: Performs clip.
+- Description: Supports the clip operation used by the surrounding class.
 
 #### `public static int clip(int i, int min, int max)`
-
-- Description: TODO
+- Role: Performs clip.
+- Description: Supports the clip operation used by the surrounding class.
 
 #### `public static double clipnorm(double d, double min, double max)`
-
-- Description: TODO
+- Role: Performs clipnorm.
+- Description: Supports the clipnorm operation used by the surrounding class.
 
 #### `public static <E, O extends Comparable<? super O>> E max(Collection<E> from, Function<? super E, O> key)`
-
-- Description: TODO
+- Role: Performs max.
+- Description: Supports the max operation used by the surrounding class.
 
 #### `public static <E, O extends Comparable<? super O>> E min(Collection<E> from, Function<? super E, O> key)`
-
-- Description: TODO
+- Role: Performs min.
+- Description: Supports the min operation used by the surrounding class.
 
 #### `public static <E extends Comparable<? super E>> E max(Collection<E> from)`
-
-- Description: TODO
+- Role: Performs max.
+- Description: Supports the max operation used by the surrounding class.
 
 #### `public static <E extends Comparable<? super E>> E min(Collection<E> from)`
-
-- Description: TODO
+- Role: Performs min.
+- Description: Supports the min operation used by the surrounding class.
 
 #### `public static float gcd(float x, float y, float E)`
-
-- Description: TODO
+- Role: Performs gcd.
+- Description: Supports the gcd operation used by the surrounding class.
 
 #### `public static float smoothstep(float d)`
-
-- Description: TODO
+- Role: Performs smoothstep.
+- Description: Supports the smoothstep operation used by the surrounding class.
 
 #### `public static double smoothstep(double d)`
-
-- Description: TODO
+- Role: Performs smoothstep.
+- Description: Supports the smoothstep operation used by the surrounding class.
 
 #### `public static Color blendcol(Color in, Color bl)`
-
-- Description: TODO
+- Role: Performs blendcol.
+- Description: Supports the blendcol operation used by the surrounding class.
 
 #### `public static Color blendcol(Color x, Color y, double a)`
-
-- Description: TODO
+- Role: Performs blendcol.
+- Description: Supports the blendcol operation used by the surrounding class.
 
 #### `public static Color colmul(Color a, Color b)`
-
-- Description: TODO
+- Role: Performs colmul.
+- Description: Supports the colmul operation used by the surrounding class.
 
 #### `public static Color preblend(Color c1, Color c2)`
-
-- Description: TODO
+- Role: Performs preblend.
+- Description: Supports the preblend operation used by the surrounding class.
 
 #### `public static void serialize(Object obj, OutputStream out) throws IOException`
-
-- Description: TODO
+- Role: Handles the serialize workflow.
+- Description: Supports the serialize operation used by the surrounding class.
 
 #### `public static byte[] serialize(Object obj)`
-
-- Description: TODO
+- Role: Performs serialize.
+- Description: Supports the serialize operation used by the surrounding class.
 
 #### `public static Object deserialize(InputStream in) throws IOException`
-
-- Description: TODO
+- Role: Handles the deserialize workflow.
+- Description: Supports the deserialize operation used by the surrounding class.
 
 #### `public static Object deserialize(byte[] buf)`
-
-- Description: TODO
+- Role: Performs deserialize.
+- Description: Supports the deserialize operation used by the surrounding class.
 
 #### `public static boolean parsebool(String s)`
-
-- Description: TODO
+- Role: Performs parsebool.
+- Description: Supports the parsebool operation used by the surrounding class.
 
 #### `public static boolean eq(Object a, Object b)`
-
-- Description: TODO
+- Role: Performs eq.
+- Description: Supports the eq operation used by the surrounding class.
 
 #### `public static boolean parsebool(String s, boolean def)`
-
-- Description: TODO
+- Role: Performs parsebool.
+- Description: Supports the parsebool operation used by the surrounding class.
 
 #### `public static FloatBuffer bufcp(float[] a)`
-
-- Description: TODO
+- Role: Performs bufcp.
+- Description: Supports the bufcp operation used by the surrounding class.
 
 #### `public static ShortBuffer bufcp(short[] a)`
-
-- Description: TODO
+- Role: Performs bufcp.
+- Description: Supports the bufcp operation used by the surrounding class.
 
 #### `public static FloatBuffer bufcp(FloatBuffer a)`
-
-- Description: TODO
+- Role: Performs bufcp.
+- Description: Supports the bufcp operation used by the surrounding class.
 
 #### `public static IntBuffer bufcp(IntBuffer a)`
-
-- Description: TODO
+- Role: Performs bufcp.
+- Description: Supports the bufcp operation used by the surrounding class.
 
 #### `public static ByteBuffer mkbbuf(int n)`
-
-- Description: TODO
+- Role: Performs mkbbuf.
+- Description: Supports the mkbbuf operation used by the surrounding class.
 
 #### `public static FloatBuffer mkfbuf(int n)`
-
-- Description: TODO
+- Role: Performs mkfbuf.
+- Description: Supports the mkfbuf operation used by the surrounding class.
 
 #### `public static ShortBuffer mksbuf(int n)`
-
-- Description: TODO
+- Role: Performs mksbuf.
+- Description: Supports the mksbuf operation used by the surrounding class.
 
 #### `public static IntBuffer mkibuf(int n)`
-
-- Description: TODO
+- Role: Performs mkibuf.
+- Description: Supports the mkibuf operation used by the surrounding class.
 
 #### `public static ByteBuffer wbbuf(int n)`
-
-- Description: TODO
+- Role: Performs wbbuf.
+- Description: Supports the wbbuf operation used by the surrounding class.
 
 #### `public static IntBuffer wibuf(int n)`
-
-- Description: TODO
+- Role: Performs wibuf.
+- Description: Supports the wibuf operation used by the surrounding class.
 
 #### `public static FloatBuffer wfbuf(int n)`
-
-- Description: TODO
+- Role: Performs wfbuf.
+- Description: Supports the wfbuf operation used by the surrounding class.
 
 #### `public static ShortBuffer wsbuf(int n)`
-
-- Description: TODO
+- Role: Performs wsbuf.
+- Description: Supports the wsbuf operation used by the surrounding class.
 
 #### `public static FloatBuffer wbufcp(FloatBuffer a)`
-
-- Description: TODO
+- Role: Performs wbufcp.
+- Description: Supports the wbufcp operation used by the surrounding class.
 
 #### `public static IntBuffer wbufcp(IntBuffer a)`
-
-- Description: TODO
+- Role: Performs wbufcp.
+- Description: Supports the wbufcp operation used by the surrounding class.
 
 #### `public static ByteBuffer growbuf(ByteBuffer buf, int req)`
-
-- Description: TODO
+- Role: Performs growbuf.
+- Description: Supports the growbuf operation used by the surrounding class.
 
 #### `public static float[] c2fa(Color c)`
-
-- Description: TODO
+- Role: Performs c2fa.
+- Description: Supports the c2fa operation used by the surrounding class.
 
 #### `public static <T> T[] mkarray(Class<T> cl, int len)`
-
-- Description: TODO
+- Role: Performs mkarray.
+- Description: Supports the mkarray operation used by the surrounding class.
 
 #### `public static <T> T[] splice(T[] src, int off, int len)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static <T> T[] splice(T[] src, int off)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static byte[] splice(byte[] src, int off, int len)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static byte[] splice(byte[] src, int off)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static float[] splice(float[] src, int off, int len)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static float[] splice(float[] src, int off)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static double[] splice(double[] src, int off, int len)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static double[] splice(double[] src, int off)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static int[] splice(int[] src, int off, int len)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static int[] splice(int[] src, int off)`
-
-- Description: TODO
+- Role: Performs splice.
+- Description: Supports the splice operation used by the surrounding class.
 
 #### `public static <T> T[] cast(Object[] a, Class<T> cl)`
-
-- Description: TODO
+- Role: Performs cast.
+- Description: Supports the cast operation used by the surrounding class.
 
 #### `public static <T> T[] extend(T[] src, int off, int nl)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static <T> T[] extend(T[] src, int nl)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static <T, E extends T> T[] extend(T[] src, E ne)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static <T, E extends T> T[] extend(T[] src, E[] ne)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static int[] extend(int[] src, int nl)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static double[] extend(double[] src, int nl)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static float[] extend(float[] src, int nl)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static short[] extend(short[] src, int nl)`
-
-- Description: TODO
+- Role: Performs extend.
+- Description: Supports the extend operation used by the surrounding class.
 
 #### `public static byte[] concat(byte[]... parts)`
-
-- Description: TODO
+- Role: Performs concat.
+- Description: Supports the concat operation used by the surrounding class.
 
 #### `public static <T> T el(Iterable<T> c)`
-
-- Description: TODO
+- Role: Performs el.
+- Description: Supports the el operation used by the surrounding class.
 
 #### `public static <T> T take(Iterable<T> c)`
-
-- Description: TODO
+- Role: Performs take.
+- Description: Supports the take operation used by the surrounding class.
 
 #### `public static <K, V> V pop(Map<K, V> map, K key, V def)`
-
-- Description: TODO
+- Role: Applies avatar description updates.
+- Description: Supports the pop operation used by the surrounding class.
 
 #### `public static <E> Set<E> union(Set<? extends E> a, Set<? extends E> b)`
-
-- Description: TODO
+- Role: Performs union.
+- Description: Supports the union operation used by the surrounding class.
 
 #### `public static <E> Set<E> isect(Set<? extends E> a, Set<?> b)`
-
-- Description: TODO
+- Role: Performs isect.
+- Description: Supports the isect operation used by the surrounding class.
 
 #### `public static <E> Set<E> setdiff(Set<? extends E> a, Set<?> b)`
-
-- Description: TODO
+- Role: Performs setdiff.
+- Description: Supports the setdiff operation used by the surrounding class.
 
 #### `public static <E> Set<E> symdiff(Set<? extends E> a, Set<? extends E> b)`
-
-- Description: TODO
+- Role: Performs symdiff.
+- Description: Supports the symdiff operation used by the surrounding class.
 
 #### `public static <T> List<T> reversed(List<T> ls)`
-
-- Description: TODO
+- Role: Performs reversed.
+- Description: Supports the reversed operation used by the surrounding class.
 
 #### `public static <T> int index(T[] arr, T el)`
-
-- Description: TODO
+- Role: Performs index.
+- Description: Supports the index operation used by the surrounding class.
 
 #### `public static boolean strcheck(String str, IntPredicate p)`
-
-- Description: TODO
+- Role: Performs strcheck.
+- Description: Supports the strcheck operation used by the surrounding class.
 
 #### `public static <T> T find(Iterable<? extends T> in, Predicate<? super T> p)`
-
-- Description: TODO
+- Role: Performs find.
+- Description: Supports the find operation used by the surrounding class.
 
 #### `public static <T> T or(Supplier<T>... vals)`
-
-- Description: TODO
+- Role: Performs or.
+- Description: Supports the or operation used by the surrounding class.
 
 #### `public static <T> void clean(Collection<T> c, Consumer<? super T> clean)`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public static <T> T construct(Constructor<T> cons, Object... args)`
-
-- Description: TODO
+- Role: Performs construct.
+- Description: Supports the construct operation used by the surrounding class.
 
 #### `public static <T> T construct(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs construct.
+- Description: Supports the construct operation used by the surrounding class.
 
 #### `public static Object invoke(Method mth, Object ob, Object... args)`
-
-- Description: TODO
+- Role: Performs invoke.
+- Description: Supports the invoke operation used by the surrounding class.
 
 #### `public static <R> Function<Object[], R> consfun(Class<R> cl, Class<?>... args) throws NoSuchMethodException`
-
-- Description: TODO
+- Role: Handles the consfun workflow.
+- Description: Supports the consfun operation used by the surrounding class.
 
 #### `public static <R> Function<Object[], R> smthfun(Class<?> cl, String name, Class<R> rtype, Class<?>...args) throws NoSuchMethodException`
-
-- Description: TODO
+- Role: Handles the smthfun workflow.
+- Description: Supports the smthfun operation used by the surrounding class.
 
 #### `public static String urlencode(String in)`
-
-- Description: TODO
+- Role: Performs urlencode.
+- Description: Supports the urlencode operation used by the surrounding class.
 
 #### `public static URI uriparam(URI base, Object... pars)`
-
-- Description: TODO
+- Role: Performs uriparam.
+- Description: Supports the uriparam operation used by the surrounding class.
 
 #### `public static <C> C hascause(Throwable t, Class<C> c)`
-
-- Description: TODO
+- Role: Performs hascause.
+- Description: Supports the hascause operation used by the surrounding class.
 
 #### `public static double ntime()`
-
-- Description: TODO
+- Role: Performs ntime.
+- Description: Supports the ntime operation used by the surrounding class.
 
 #### `public static double rtime()`
-
-- Description: TODO
+- Role: Performs rtime.
+- Description: Supports the rtime operation used by the surrounding class.
 
 #### `public MapBuilder(Map<K, V> bk)`
-
-- Description: TODO
+- Role: Performs map builder.
+- Description: Supports the map builder operation used by the surrounding class.
 
 #### `public MapBuilder<K, V> put(K k, V v)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public Map<K, V> map()`
-
-- Description: TODO
+- Role: Performs map.
+- Description: Supports the map operation used by the surrounding class.
 
 #### `public static <K, V> MapBuilder<K, V> map()`
-
-- Description: TODO
+- Role: Performs map.
+- Description: Supports the map operation used by the surrounding class.
 
 #### `public static <K, V> Map<K, V> index(Collection<? extends V> values, Function<? super V, ? extends K> key)`
-
-- Description: TODO
+- Role: Performs index.
+- Description: Supports the index operation used by the surrounding class.
 
 #### `public Range(int min, int max, int step)`
-
-- Description: TODO
+- Role: Performs range.
+- Description: Supports the range operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Integer get(int idx)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static List<Integer> range(int min, int max, int step)`
-
-- Description: TODO
+- Role: Performs range.
+- Description: Supports the range operation used by the surrounding class.
 
 #### `public static List<Integer> range(int min, int max)`
-
-- Description: TODO
+- Role: Performs range.
+- Description: Supports the range operation used by the surrounding class.
 
 #### `public static List<Integer> range(int max)`
-
-- Description: TODO
+- Role: Performs range.
+- Description: Supports the range operation used by the surrounding class.
 
 #### `public static <T> Indir<T> cache(Indir<T> src)`
-
-- Description: TODO
+- Role: Performs cache.
+- Description: Supports the cache operation used by the surrounding class.
 
 #### `public static <V, R> Indir<R> transform(Supplier<? extends V> val, Function<? super V, ? extends R> xf)`
-
-- Description: TODO
+- Role: Performs transform.
+- Description: Supports the transform operation used by the surrounding class.
 
 #### `public static <F, T> Iterator<T> map(Iterator<F> from, Function<? super F, ? extends T> fn)`
-
-- Description: TODO
+- Role: Performs map.
+- Description: Supports the map operation used by the surrounding class.
 
 #### `public static <E> Iterator<E> filter(Iterator<E> from, Predicate<? super E> filter)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public static void checkirq() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the checkirq workflow.
+- Description: Supports the checkirq operation used by the surrounding class.
 
 #### `public static <T, F> Iterator<T> filter(Iterator<F> from, Class<T> filter)`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public static <E, T extends Collection<E>> T merge(T dst, Iterable<? extends E> a, Iterable<? extends E> b, Comparator<? super E> cmp)`
-
-- Description: TODO
+- Role: Performs merge.
+- Description: Supports the merge operation used by the surrounding class.
 
 #### `public static <T> Optional<T> ocast(Object x, Class<T> cl)`
-
-- Description: TODO
+- Role: Performs ocast.
+- Description: Supports the ocast operation used by the surrounding class.
 
 #### `public static int sidcmp(Object a, Object b)`
-
-- Description: TODO
+- Role: Performs sidcmp.
+- Description: Supports the sidcmp operation used by the surrounding class.
 
 #### `public static Object formatter(String fmt, Object... args)`
-
-- Description: TODO
+- Role: Performs formatter.
+- Description: Supports the formatter operation used by the surrounding class.
 
 #### `public static Object formatter(Supplier<String> str)`
-
-- Description: TODO
+- Role: Performs formatter.
+- Description: Supports the formatter operation used by the surrounding class.
 
 #### `public AddressFormatException(String message, CharSequence addr, String type)`
-
-- Description: TODO
+- Role: Performs address format exception.
+- Description: Supports the address format exception operation used by the surrounding class.
 
 #### `public AddressFormatException(String message, CharSequence addr, String type, Throwable cause)`
-
-- Description: TODO
+- Role: Performs address format exception.
+- Description: Supports the address format exception operation used by the surrounding class.
 
 #### `public String getMessage()`
-
-- Description: TODO
+- Role: Returns the message.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Inet4Address in4_pton(CharSequence as)`
-
-- Description: TODO
+- Role: Performs in4 pton.
+- Description: Supports the in4 pton operation used by the surrounding class.
 
 #### `public static InetAddress in6_pton(CharSequence as)`
-
-- Description: TODO
+- Role: Performs in6 pton.
+- Description: Supports the in6 pton operation used by the surrounding class.
 
 #### `public static InetAddress inet_pton(CharSequence as)`
-
-- Description: TODO
+- Role: Performs inet pton.
+- Description: Supports the inet pton operation used by the surrounding class.
 
 #### `public static int compare(Object[] a, Object[] b)`
-
-- Description: TODO
+- Role: Performs compare.
+- Description: Supports the compare operation used by the surrounding class.

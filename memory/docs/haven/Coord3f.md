@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Coord3f`.
 
 ## Role
 
-Provides 3D floating-point coordinates.
+Represents a 3D floating-point coordinate.
 
 ## Members
 
@@ -19,175 +19,175 @@ Provides 3D floating-point coordinates.
 ### Fields
 
 #### `public float x, y, z`
-
-- Description: TODO
-
-#### `public float x, y, z`
-
-- Description: TODO
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `public float x, y, z`
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public float x, y, z`
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord3f o = new Coord3f(0, 0, 0)`
-
-- Description: TODO
+- Role: Stores the o value.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord3f xu = of(1, 0, 0)`
-
-- Description: TODO
+- Role: Stores the xu value.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord3f yu = of(0, 1, 0)`
-
-- Description: TODO
+- Role: Stores the yu value.
+- Description: Backs the cached state for this file.
 
 #### `public static Coord3f zu = of(0, 0, 1)`
-
-- Description: TODO
+- Role: Stores the zu value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Coord3f(float x, float y, float z)`
-
-- Description: TODO
+- Role: Creates a new Coord3f instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord3f(Coord3f c)`
-
-- Description: TODO
+- Role: Creates a new Coord3f instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord3f(Coord c)`
-
-- Description: TODO
+- Role: Creates a new Coord3f instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Coord3f of(float x, float y, float z)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord3f of(Coord3f c)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord3f of(HomoCoord4f c)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord3f of(Coord c)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public boolean equals(Coord3f o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public Coord3f add(float ax, float ay, float az)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord3f add(Coord3f b)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord3f sadd(float e, float a, float r)`
-
-- Description: TODO
+- Role: Performs sadd.
+- Description: Supports the sadd operation used by the surrounding class.
 
 #### `public Coord3f neg()`
-
-- Description: TODO
+- Role: Performs neg.
+- Description: Supports the neg operation used by the surrounding class.
 
 #### `public Coord3f sub(float ax, float ay, float az)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Coord3f sub(Coord3f b)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Coord3f mul(float f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord3f mul(float X, float Y, float Z)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord3f mul(Coord3f b)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord3f div(float f)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord3f div(float X, float Y, float Z)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord3f div(Coord3f b)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord3f inv()`
-
-- Description: TODO
+- Role: Performs inv.
+- Description: Supports the inv operation used by the surrounding class.
 
 #### `public Coord3f invy()`
-
-- Description: TODO
+- Role: Performs invy.
+- Description: Supports the invy operation used by the surrounding class.
 
 #### `public float dmul(float X, float Y, float Z)`
-
-- Description: TODO
+- Role: Performs dmul.
+- Description: Supports the dmul operation used by the surrounding class.
 
 #### `public float dmul(Coord3f b)`
-
-- Description: TODO
+- Role: Performs dmul.
+- Description: Supports the dmul operation used by the surrounding class.
 
 #### `public Coord3f cmul(float X, float Y, float Z)`
-
-- Description: TODO
+- Role: Performs cmul.
+- Description: Supports the cmul operation used by the surrounding class.
 
 #### `public Coord3f cmul(Coord3f b)`
-
-- Description: TODO
+- Role: Performs cmul.
+- Description: Supports the cmul operation used by the surrounding class.
 
 #### `public Coord3f rot(Coord3f p, float a)`
-
-- Description: TODO
+- Role: Performs rot.
+- Description: Supports the rot operation used by the surrounding class.
 
 #### `public float abs()`
-
-- Description: TODO
+- Role: Performs abs.
+- Description: Supports the abs operation used by the surrounding class.
 
 #### `public Coord3f norm()`
-
-- Description: TODO
+- Role: Performs norm.
+- Description: Supports the norm operation used by the surrounding class.
 
 #### `public float dist(Coord3f o)`
-
-- Description: TODO
+- Role: Performs dist.
+- Description: Supports the dist operation used by the surrounding class.
 
 #### `public float xyangle(Coord3f o)`
-
-- Description: TODO
+- Role: Performs xyangle.
+- Description: Supports the xyangle operation used by the surrounding class.
 
 #### `public float[] to3a()`
-
-- Description: TODO
+- Role: Performs to3a.
+- Description: Supports the to3a operation used by the surrounding class.
 
 #### `public float[] to4a(float w)`
-
-- Description: TODO
+- Role: Performs to4a.
+- Description: Supports the to4a operation used by the surrounding class.
 
 #### `public Coord round2()`
-
-- Description: TODO
+- Role: Performs round2.
+- Description: Supports the round2 operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

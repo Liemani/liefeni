@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointWriteRequest`.
 
 ## Role
 
-Defines a unit of work for waypoint persistence.
+Provides waypoint persistence support for waypoint write request.
 
 ## Members
 

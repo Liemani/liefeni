@@ -10,228 +10,228 @@ This file documents the responsibilities and members of `Coord2d`.
 
 ## Role
 
-Provides double-precision coordinate math.
+Represents a 2D floating-point coordinate.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord2d z = new Coord2d(0, 0)`
-
-- Description: TODO
+- Role: Defines the shared z constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public double x, y`
-
-- Description: TODO
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
 #### `public double x, y`
-
-- Description: TODO
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Coord2d(double x, double y)`
-
-- Description: TODO
+- Role: Creates a new Coord2d instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord2d(Coord c)`
-
-- Description: TODO
+- Role: Creates a new Coord2d instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord2d(Coord3f c)`
-
-- Description: TODO
+- Role: Creates a new Coord2d instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord2d()`
-
-- Description: TODO
+- Role: Creates a new Coord2d instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Coord2d of(double x, double y)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord2d of(double x)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord2d of(Coord c)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Coord2d of(Coord3f c)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public boolean equals(double X, double Y)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public int compareTo(Coord2d c)`
-
-- Description: TODO
+- Role: Performs compare to.
+- Description: Supports the compare to operation used by the surrounding class.
 
 #### `public Coord2d add(double X, double Y)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord2d add(Coord2d b)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Coord2d inv()`
-
-- Description: TODO
+- Role: Performs inv.
+- Description: Supports the inv operation used by the surrounding class.
 
 #### `public Coord2d perp()`
-
-- Description: TODO
+- Role: Performs perp.
+- Description: Supports the perp operation used by the surrounding class.
 
 #### `public Coord2d sub(double X, double Y)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Coord2d sub(Coord2d b)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Coord2d mul(double f)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord2d mul(double X, double Y)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord2d mul(Coord2d b)`
-
-- Description: TODO
+- Role: Performs mul.
+- Description: Supports the mul operation used by the surrounding class.
 
 #### `public Coord2d div(double f)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord2d div(double X, double Y)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public Coord2d div(Coord2d b)`
-
-- Description: TODO
+- Role: Performs div.
+- Description: Supports the div operation used by the surrounding class.
 
 #### `public double dmul(double X, double Y)`
-
-- Description: TODO
+- Role: Performs dmul.
+- Description: Supports the dmul operation used by the surrounding class.
 
 #### `public double dmul(Coord2d b)`
-
-- Description: TODO
+- Role: Performs dmul.
+- Description: Supports the dmul operation used by the surrounding class.
 
 #### `public Coord round()`
-
-- Description: TODO
+- Role: Performs round.
+- Description: Supports the round operation used by the surrounding class.
 
 #### `public Coord2d roundf()`
-
-- Description: TODO
+- Role: Performs roundf.
+- Description: Supports the roundf operation used by the surrounding class.
 
 #### `public Coord round(double X, double Y)`
-
-- Description: TODO
+- Role: Performs round.
+- Description: Supports the round operation used by the surrounding class.
 
 #### `public Coord round(Coord2d f)`
-
-- Description: TODO
+- Role: Performs round.
+- Description: Supports the round operation used by the surrounding class.
 
 #### `public Coord floor()`
-
-- Description: TODO
+- Role: Performs floor.
+- Description: Supports the floor operation used by the surrounding class.
 
 #### `public Coord2d floorf()`
-
-- Description: TODO
+- Role: Performs floorf.
+- Description: Supports the floorf operation used by the surrounding class.
 
 #### `public Coord floor(double X, double Y)`
-
-- Description: TODO
+- Role: Performs floor.
+- Description: Supports the floor operation used by the surrounding class.
 
 #### `public Coord floor(Coord2d f)`
-
-- Description: TODO
+- Role: Performs floor.
+- Description: Supports the floor operation used by the surrounding class.
 
 #### `public Coord ceil()`
-
-- Description: TODO
+- Role: Performs ceil.
+- Description: Supports the ceil operation used by the surrounding class.
 
 #### `public Coord2d ceilf()`
-
-- Description: TODO
+- Role: Performs ceilf.
+- Description: Supports the ceilf operation used by the surrounding class.
 
 #### `public Coord ceil(double X, double Y)`
-
-- Description: TODO
+- Role: Performs ceil.
+- Description: Supports the ceil operation used by the surrounding class.
 
 #### `public Coord ceil(Coord2d f)`
-
-- Description: TODO
+- Role: Performs ceil.
+- Description: Supports the ceil operation used by the surrounding class.
 
 #### `public Coord2d mod()`
-
-- Description: TODO
+- Role: Performs mod.
+- Description: Supports the mod operation used by the surrounding class.
 
 #### `public Coord2d mod(double X, double Y)`
-
-- Description: TODO
+- Role: Performs mod.
+- Description: Supports the mod operation used by the surrounding class.
 
 #### `public Coord2d mod(Coord2d f)`
-
-- Description: TODO
+- Role: Performs mod.
+- Description: Supports the mod operation used by the surrounding class.
 
 #### `public double angle(Coord2d o)`
-
-- Description: TODO
+- Role: Performs angle.
+- Description: Supports the angle operation used by the surrounding class.
 
 #### `public double dist(Coord2d o)`
-
-- Description: TODO
+- Role: Performs dist.
+- Description: Supports the dist operation used by the surrounding class.
 
 #### `public double abs()`
-
-- Description: TODO
+- Role: Performs abs.
+- Description: Supports the abs operation used by the surrounding class.
 
 #### `public Coord2d norm(double n)`
-
-- Description: TODO
+- Role: Performs norm.
+- Description: Supports the norm operation used by the surrounding class.
 
 #### `public Coord2d norm()`
-
-- Description: TODO
+- Role: Performs norm.
+- Description: Supports the norm operation used by the surrounding class.
 
 #### `public Coord2d rot(double a)`
-
-- Description: TODO
+- Role: Performs rot.
+- Description: Supports the rot operation used by the surrounding class.
 
 #### `public static Coord2d sc(double a, double r)`
-
-- Description: TODO
+- Role: Performs sc.
+- Description: Supports the sc operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Coord2d(Coord2d c)`
-
-- Description: TODO
+- Role: Creates a new Coord2d instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean equals(Coord2d c)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.

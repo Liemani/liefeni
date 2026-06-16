@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `GLFence`.
 
 ## Role
 
-Represents a GL fence object.
+Provides GL backend support for glfence.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents a GL fence object.
 ### Fields
 
 #### `public final Consumer<GL> callback`
-
-- Description: TODO
+- Role: Holds the callback state.
+- Description: Backs the cached state for this file.
 
 #### `protected long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GLFence(GLEnvironment env, Consumer<GL> callback)`
-
-- Description: TODO
+- Role: Creates a new GLFence instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public boolean check(GL gl)`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public void abort()`
-
-- Description: TODO
+- Role: Performs abort.
+- Description: Supports the abort operation used by the surrounding class.
 
 #### `public void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.

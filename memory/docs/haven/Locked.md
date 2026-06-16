@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Locked`.
 
 ## Role
 
-Represents a locked value or state.
+Represents the locked Haven component.
 
 ## Members
 
@@ -19,23 +19,23 @@ Represents a locked value or state.
 ### Fields
 
 #### `private final Lock lk`
-
-- Description: TODO
+- Role: Holds the lk state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean held`
-
-- Description: TODO
+- Role: Tracks the held flag.
+- Description: Supports the held operation used by the surrounding class.
 
 ### Methods
 
 #### `public Locked(Lock lk)`
-
-- Description: TODO
+- Role: Creates a new Locked instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void unlock()`
-
-- Description: TODO
+- Role: Performs unlock.
+- Description: Supports the unlock operation used by the surrounding class.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

@@ -10,98 +10,101 @@ This file documents the responsibilities and members of `OverTex`.
 
 ## Role
 
-Represents an overlaid texture helper.
+Provides resource helper logic for over tex.
 
 ## Nested Types
 
 ### $ctex
 
-- Description: TODO
+- Role: Represents $ctex within OverTex.
+- Description: Describes the nested $ctex type used by the enclosing class.
 
 ### CDecode
 
-- Description: TODO
+- Role: Represents cdecode within OverTex.
+- Description: Describes the nested cdecode type used by the enclosing class.
 
 ### OTexC
 
-- Description: TODO
+- Role: Represents otex c within OverTex.
+- Description: Describes the nested otex c type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<OverTex> slot = new Slot<OverTex>(Slot.Type.DRAW, OverTex.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute otexc = new Attribute(VEC2, "otexc")`
-
-- Description: TODO
+- Role: Defines the shared otexc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform ctex = new Uniform(SAMPLER2D, p -> p.get(slot).tex, slot)`
-
-- Description: TODO
+- Role: Defines the shared ctex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Function, ShaderMacro> shcache = new HashMap<Function, ShaderMacro>()`
-
-- Description: TODO
+- Role: Defines the shared shcache constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying rtexcoord = new AutoVarying(VEC2, "s_otexc")`
-
-- Description: TODO
+- Role: Defines the shared rtexcoord constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public static boolean otexdb = false`
-
-- Description: TODO
+- Role: Tracks the otexdb flag.
+- Description: Supports the otexdb operation used by the surrounding class.
 
 #### `private final ShaderMacro shader`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `public final Sampler2D tex`
-
-- Description: TODO
+- Role: Holds the tex state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static ValBlock.Value texcoord(FragmentContext fctx)`
-
-- Description: TODO
+- Role: Performs texcoord.
+- Description: Supports the texcoord operation used by the surrounding class.
 
 #### `private static ShaderMacro shfor(final Function blend)`
-
-- Description: TODO
+- Role: Performs shfor.
+- Description: Supports the shfor operation used by the surrounding class.
 
 #### `public OverTex(Sampler2D tex, Function blend)`
-
-- Description: TODO
+- Role: Creates a new OverTex instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public OverTex(Sampler2D tex)`
-
-- Description: TODO
+- Role: Creates a new OverTex instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void cons(Material.Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public OTexC(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs otex c.
+- Description: Supports the otex c operation used by the surrounding class.
 
 #### `public OTexC(Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs otex c.
+- Description: Supports the otex c operation used by the surrounding class.
 
 #### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.

@@ -10,106 +10,107 @@ This file documents the responsibilities and members of `Profdisp`.
 
 ## Role
 
-Displays profile data.
+Represents the profdisp Haven component.
 
 ## Nested Types
 
 ### Buffer
 
-- Description: TODO
+- Role: Represents buffer within Profdisp.
+- Description: Describes the nested buffer type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Resource.Image markimg = Resource.loadrimg("gfx/hud/arwmark")`
-
-- Description: TODO
+- Role: Defines the shared markimg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color[] cols = Utils.vgapal`
-
-- Description: TODO
+- Role: Defines the shared cols constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int h = UI.scale(80)`
-
-- Description: TODO
+- Role: Defines the shared h constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final String[] units =`
-
-- Description: TODO
+- Role: Defines the shared profdisp constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Profile prof`
-
-- Description: TODO
+- Role: Stores the prof value.
+- Description: Backs the cached state for this file.
 
 #### `public double mt = 0.05`
-
-- Description: TODO
+- Role: Stores the mt value.
+- Description: Backs the cached state for this file.
 
 #### `private double dscale = 0`
-
-- Description: TODO
+- Role: Stores the dscale value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex sscl = null`
-
-- Description: TODO
+- Role: Stores the sscl value.
+- Description: Backs the cached state for this file.
 
 #### `private int[] mark = new int[0]`
-
-- Description: TODO
+- Role: Stores the mark value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex tex`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `private final Texture2D btex`
-
-- Description: TODO
+- Role: Stores the btex value.
+- Description: Backs the cached state for this file.
 
 #### `private Buffer display`
-
-- Description: TODO
+- Role: Stores the display value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Profdisp(Profile prof)`
-
-- Description: TODO
+- Role: Creates a new Profdisp instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Buffer()`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `private void draw(ByteBuffer buf, double scale)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void update(Render r, double scale)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public String tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.

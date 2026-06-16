@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Frame`.
 
 ## Role
 
-Represents a framed widget or UI helper.
+Represents the frame Haven component.
 
 ## Members
 
@@ -19,63 +19,63 @@ Represents a framed widget or UI helper.
 ### Fields
 
 #### `public final IBox box`
-
-- Description: TODO
+- Role: Holds the box state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Frame(Coord sz, boolean inner, IBox box)`
-
-- Description: TODO
+- Role: Creates a new Frame instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Frame(Coord sz, boolean inner)`
-
-- Description: TODO
+- Role: Creates a new Frame instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Frame around(Widget parent, Area area, IBox box)`
-
-- Description: TODO
+- Role: Performs around.
+- Description: Supports the around operation used by the surrounding class.
 
 #### `public static Frame around(Widget parent, Area area)`
-
-- Description: TODO
+- Role: Performs around.
+- Description: Supports the around operation used by the surrounding class.
 
 #### `public static Frame around(Widget parent, Iterable<? extends Widget> wl)`
-
-- Description: TODO
+- Role: Performs around.
+- Description: Supports the around operation used by the surrounding class.
 
 #### `public static Frame around(Widget parent, Widget... ch)`
-
-- Description: TODO
+- Role: Performs around.
+- Description: Supports the around operation used by the surrounding class.
 
 #### `public static Frame with(Widget child, boolean resize)`
-
-- Description: TODO
+- Role: Performs with.
+- Description: Supports the with operation used by the surrounding class.
 
 #### `public Coord inner()`
-
-- Description: TODO
+- Role: Performs inner.
+- Description: Supports the inner operation used by the surrounding class.
 
 #### `public Coord xlate(Coord c, boolean in)`
-
-- Description: TODO
+- Role: Performs xlate.
+- Description: Supports the xlate operation used by the surrounding class.
 
 #### `public Position getpos(String nm)`
-
-- Description: TODO
+- Role: Performs getpos.
+- Description: Supports the getpos operation used by the surrounding class.
 
 #### `public void drawframe(GOut g)`
-
-- Description: TODO
+- Role: Performs drawframe.
+- Description: Supports the drawframe operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public <T extends Widget> T addin(T child)`
-
-- Description: TODO
+- Role: Performs addin.
+- Description: Supports the addin operation used by the surrounding class.

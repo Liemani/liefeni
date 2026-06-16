@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `FillBuffer`.
 
 ## Role
 
-Represents a fill buffer.
+Defines the fill buffer render pipeline component.
 
 ## Members
 
@@ -21,17 +21,17 @@ Represents a fill buffer.
 ### Methods
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public boolean compatible(Environment env)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public ByteBuffer push()`
-
-- Description: TODO
+- Role: Performs push.
+- Description: Supports the push operation used by the surrounding class.
 
 #### `public void pull(ByteBuffer buf)`
-
-- Description: TODO
+- Role: Performs pull.
+- Description: Supports the pull operation used by the surrounding class.

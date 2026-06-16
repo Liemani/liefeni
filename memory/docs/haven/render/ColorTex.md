@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `ColorTex`.
 
 ## Role
 
-Represents a color texture.
+Defines the color tex render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<ColorTex> slot = new Slot<>(Slot.Type.DRAW, ColorTex.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute texc = Tex2D.texc`
-
-- Description: TODO
+- Role: Defines the shared texc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Texture2D.Sampler2D data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ColorTex(Texture2D.Sampler2D data)`
-
-- Description: TODO
+- Role: Creates a new ColorTex instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LmiLifecycle`.
 
 ## Role
 
-Owns process, session, world, and widget lifecycle entry points.
+Owns lifecycle transitions across session, world, and widget events.
 
 ## Members
 
@@ -19,67 +19,67 @@ Owns process, session, world, and widget lifecycle entry points.
 ### Fields
 
 #### `private static boolean isProcessInitialized`
-
-- Description: TODO
+- Role: Tracks whether the process initialized is initialized.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static boolean isWorldEntered`
-
-- Description: TODO
+- Role: Tracks whether the world entered is entered.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static boolean isWidgetsEntered`
-
-- Description: TODO
+- Role: Tracks whether the widgets entered is entered.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 ### Methods
 
 #### `private LmiLifecycle()`
-
-- Description: TODO
+- Role: Creates a new LmiLifecycle instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static synchronized void initProcess()`
-
-- Description: TODO
+- Role: Initializes the LMI process lifecycle.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static synchronized void enterSession(Session session)`
-
-- Description: TODO
+- Role: Enters the current session.
+- Description: Enters the current session and updates lifecycle state accordingly.
 
 #### `public static synchronized void leaveSession(Session session)`
-
-- Description: TODO
+- Role: Leaves the current session.
+- Description: Leaves the current session and updates lifecycle state accordingly.
 
 #### `public static synchronized void setRootWidget(RootWidget rootWidget)`
-
-- Description: TODO
+- Role: Updates the root widget reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static synchronized void setGameUI(GameUI gameUI)`
-
-- Description: TODO
+- Role: Updates the game UI reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static synchronized void setMenuGrid(haven.MenuGrid menuGrid)`
-
-- Description: TODO
+- Role: Updates the menu grid reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static synchronized void setMapView(MapView mapView)`
-
-- Description: TODO
+- Role: Updates the map view reference.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static synchronized void enterWorld(MapView mapView)`
-
-- Description: TODO
+- Role: Enters the current world.
+- Description: Enters the current world and updates lifecycle state accordingly.
 
 #### `public static synchronized void leaveWorld()`
-
-- Description: TODO
+- Role: Leaves the current world.
+- Description: Leaves the current world and updates lifecycle state accordingly.
 
 #### `public static synchronized void syncWidgets()`
-
-- Description: TODO
+- Role: Synchronizes widget state.
+- Description: Supports the sync widgets operation used by the surrounding class.
 
 #### `public static synchronized void leaveWidgets()`
-
-- Description: TODO
+- Role: Leaves the widget tree.
+- Description: Leaves the widget tree and updates lifecycle state accordingly.
 
 #### `private static boolean _widgetsReady()`
-
-- Description: TODO
+- Role: Checks whether the widget tree is ready.
+- Description: Returns a boolean result for the described condition.

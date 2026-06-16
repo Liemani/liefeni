@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SslHelper`.
 
 ## Role
 
-Provides SSL helper routines.
+Represents the ssl helper Haven component.
 
 ## Members
 
@@ -19,87 +19,87 @@ Provides SSL helper routines.
 ### Fields
 
 #### `private KeyStore creds, trusted`
-
-- Description: TODO
+- Role: Stores the trusted value.
+- Description: Backs the cached state for this file.
 
 #### `private KeyStore creds, trusted`
-
-- Description: TODO
+- Role: Stores the trusted value.
+- Description: Backs the cached state for this file.
 
 #### `private SSLContext ctx = null`
-
-- Description: TODO
+- Role: Stores the ctx value.
+- Description: Backs the cached state for this file.
 
 #### `private SSLSocketFactory sfac = null`
-
-- Description: TODO
+- Role: Holds the sfac state.
+- Description: Backs the cached state for this file.
 
 #### `private int tserial = 0`
-
-- Description: TODO
+- Role: Stores the tserial value.
+- Description: Backs the cached state for this file.
 
 #### `private char[] pw`
-
-- Description: TODO
+- Role: Stores the pw value.
+- Description: Backs the cached state for this file.
 
 #### `private HostnameVerifier ver = null`
-
-- Description: TODO
+- Role: Holds the ver state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SslHelper()`
-
-- Description: TODO
+- Role: Creates a new SslHelper instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private synchronized SSLContext ctx()`
-
-- Description: TODO
+- Role: Performs ctx.
+- Description: Supports the ctx operation used by the surrounding class.
 
 #### `private synchronized SSLSocketFactory sfac()`
-
-- Description: TODO
+- Role: Performs sfac.
+- Description: Supports the sfac operation used by the surrounding class.
 
 #### `private void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public synchronized void trust(Certificate cert)`
-
-- Description: TODO
+- Role: Performs trust.
+- Description: Supports the trust operation used by the surrounding class.
 
 #### `public static Certificate loadX509(InputStream in) throws IOException, CertificateException`
-
-- Description: TODO
+- Role: Handles the load x509 workflow.
+- Description: Supports the load x509 operation used by the surrounding class.
 
 #### `public static Collection<? extends Certificate> loadX509s(InputStream in) throws IOException, CertificateException`
-
-- Description: TODO
+- Role: Handles the load x509s workflow.
+- Description: Supports the load x509s operation used by the surrounding class.
 
 #### `public void trust(InputStream in) throws IOException, CertificateException`
-
-- Description: TODO
+- Role: Handles the trust workflow.
+- Description: Supports the trust operation used by the surrounding class.
 
 #### `public synchronized void loadCredsPkcs12(InputStream in, char[] pw) throws IOException, CertificateException`
-
-- Description: TODO
+- Role: Handles the load creds pkcs12 workflow.
+- Description: Supports the load creds pkcs12 operation used by the surrounding class.
 
 #### `public SSLEngine engine(String host, int port)`
-
-- Description: TODO
+- Role: Performs engine.
+- Description: Supports the engine operation used by the surrounding class.
 
 #### `public HttpsURLConnection connect(URL url) throws IOException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public HttpsURLConnection connect(String url) throws IOException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public void ignoreName()`
-
-- Description: TODO
+- Role: Performs ignore name.
+- Description: Supports the ignore name operation used by the surrounding class.
 
 #### `public boolean hasCreds()`
-
-- Description: TODO
+- Role: Checks whether the creds.
+- Description: Returns a boolean result for the described condition.

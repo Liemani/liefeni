@@ -10,94 +10,95 @@ This file documents the responsibilities and members of `ISBox`.
 
 ## Role
 
-Represents an icon/text box widget.
+Represents the isbox Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within ISBox.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Color bgcol = new Color(43, 51, 44, 127)`
-
-- Description: TODO
+- Role: Defines the shared bgcol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final IBox box = new IBox.Scaled("gfx/hud/bosq", "tl", "tr", "bl", "br", "el", "er", "et", "eb")`
-
-- Description: TODO
+- Role: Defines the shared box constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord defsz = UI.scale(145, 42)`
-
-- Description: TODO
+- Role: Defines the shared defsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry lf = new Text.Foundry(Text.fraktur, 22, Color.WHITE).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared lf constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `private Text label`
-
-- Description: TODO
+- Role: Stores the label value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private void setlabel(int rem, int av, int bi)`
-
-- Description: TODO
+- Role: Performs setlabel.
+- Description: Supports the setlabel operation used by the surrounding class.
 
 #### `public ISBox(Indir<Resource> res, int rem, int av, int bi)`
-
-- Description: TODO
+- Role: Creates a new ISBox instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public int count()`
-
-- Description: TODO
+- Role: Performs count.
+- Description: Supports the count operation used by the surrounding class.
 
 #### `public int capacity()`
-
-- Description: TODO
+- Role: Performs capacity.
+- Description: Supports the capacity operation used by the surrounding class.
 
 #### `public void transfer()`
-
-- Description: TODO
+- Role: Performs transfer.
+- Description: Supports the transfer operation used by the surrounding class.

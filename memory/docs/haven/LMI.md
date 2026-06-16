@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LMI`.
 
 ## Role
 
-Provides the LMI package entry or bootstrap marker.
+Represents the lmi Haven component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Provides the LMI package entry or bootstrap marker.
 ### Methods
 
 #### `public static List<LayerMeter.Meter> meterValues(IMeter meter)`
-
-- Description: TODO
+- Role: Performs meter values.
+- Description: Supports the meter values operation used by the surrounding class.

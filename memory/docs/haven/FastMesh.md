@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `FastMesh`.
 
 ## Role
 
-Provides a fast mesh data structure.
+Represents the fast mesh Haven component.
 
 ## Nested Types
 
 ### Instanced
 
-- Description: TODO
+- Role: Represents instanced within FastMesh.
+- Description: Describes the nested instanced type used by the enclosing class.
 
 ### MeshRes
 
-- Description: TODO
+- Role: Represents mesh res within FastMesh.
+- Description: Describes the nested mesh res type used by the enclosing class.
 
 ### ResourceMesh
 
-- Description: TODO
+- Role: Represents resource mesh within FastMesh.
+- Description: Describes the nested resource mesh type used by the enclosing class.
 
 ## Members
 
@@ -33,211 +36,211 @@ Provides a fast mesh data structure.
 ### Fields
 
 #### `public final VertexBuf vert`
-
-- Description: TODO
+- Role: Stores the vert value.
+- Description: Backs the cached state for this file.
 
 #### `public final ShortBuffer indb`
-
-- Description: TODO
+- Role: Stores the indb value.
+- Description: Backs the cached state for this file.
 
 #### `public final int num`
-
-- Description: TODO
+- Role: Stores the num value.
+- Description: Backs the cached state for this file.
 
 #### `public final Model model`
-
-- Description: TODO
+- Role: Holds the model state.
+- Description: Backs the cached state for this file.
 
 #### `private Volume3f bounds`
-
-- Description: TODO
+- Role: Holds the bounds state.
+- Description: Backs the cached state for this file.
 
 #### `public final InstanceBatch bat`
-
-- Description: TODO
+- Role: Holds the bat state.
+- Description: Backs the cached state for this file.
 
 #### `private final InstanceBatch.AttributeData attr`
-
-- Description: TODO
+- Role: Holds the attr state.
+- Description: Backs the cached state for this file.
 
 #### `private final Layout fmt`
-
-- Description: TODO
+- Role: Holds the fmt state.
+- Description: Backs the cached state for this file.
 
 #### `private VertexArray data`
-
-- Description: TODO
+- Role: Caches data entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Model model`
-
-- Description: TODO
+- Role: Holds the model state.
+- Description: Backs the cached state for this file.
 
 #### `private int ninst`
-
-- Description: TODO
+- Role: Stores the ninst value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final MeshRes info`
-
-- Description: TODO
+- Role: Holds the info state.
+- Description: Backs the cached state for this file.
 
 #### `public transient FastMesh m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `public transient Material.Res mat`
-
-- Description: TODO
+- Role: Holds the mat state.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<String, Object> info`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private transient short[] tmp`
-
-- Description: TODO
+- Role: Stores the tmp value.
+- Description: Backs the cached state for this file.
 
 #### `private int vbufid`
-
-- Description: TODO
+- Role: Stores the vbufid value.
+- Description: Backs the cached state for this file.
 
 #### `@Deprecated public final Map<String, String> rdat`
-
-- Description: TODO
+- Role: Caches rdat entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `@Deprecated public final int ref`
-
-- Description: TODO
+- Role: Stores the ref value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public FastMesh(VertexBuf vert, ShortBuffer ind)`
-
-- Description: TODO
+- Role: Creates a new FastMesh instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FastMesh(VertexBuf vert, short[] ind)`
-
-- Description: TODO
+- Role: Creates a new FastMesh instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private FillBuffer indfill(Indices ibuf, Environment env)`
-
-- Description: TODO
+- Role: Performs indfill.
+- Description: Supports the indfill operation used by the surrounding class.
 
 #### `private void cbounds()`
-
-- Description: TODO
+- Role: Performs cbounds.
+- Description: Supports the cbounds operation used by the surrounding class.
 
 #### `public Volume3f bounds()`
-
-- Description: TODO
+- Role: Performs bounds.
+- Description: Supports the bounds operation used by the surrounding class.
 
 #### `public Coord3f nbounds()`
-
-- Description: TODO
+- Role: Performs nbounds.
+- Description: Supports the nbounds operation used by the surrounding class.
 
 #### `public Coord3f pbounds()`
-
-- Description: TODO
+- Role: Performs pbounds.
+- Description: Supports the pbounds operation used by the surrounding class.
 
 #### `public void draw(Pipe context, Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `private Layout mkfmt(Layout.Input[] ifmt)`
-
-- Description: TODO
+- Role: Performs mkfmt.
+- Description: Supports the mkfmt operation used by the surrounding class.
 
 #### `private VertexArray mkdata(Layout.Input[] ifmt, VertexArray.Buffer ibuf)`
-
-- Description: TODO
+- Role: Performs mkdata.
+- Description: Supports the mkdata operation used by the surrounding class.
 
 #### `private Instanced(InstanceBatch bat)`
-
-- Description: TODO
+- Role: Performs instanced.
+- Description: Supports the instanced operation used by the surrounding class.
 
 #### `public void draw(Pipe context, Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private void modupdate(boolean batupd)`
-
-- Description: TODO
+- Role: Performs modupdate.
+- Description: Supports the modupdate operation used by the surrounding class.
 
 #### `private void vertupdate()`
-
-- Description: TODO
+- Role: Performs vertupdate.
+- Description: Supports the vertupdate operation used by the surrounding class.
 
 #### `public void iupdate(int idx)`
-
-- Description: TODO
+- Role: Performs iupdate.
+- Description: Supports the iupdate operation used by the surrounding class.
 
 #### `public void itrim(int idx)`
-
-- Description: TODO
+- Role: Performs itrim.
+- Description: Supports the itrim operation used by the surrounding class.
 
 #### `public void commit(Render g)`
-
-- Description: TODO
+- Role: Performs commit.
+- Description: Supports the commit operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Rendered.Instanced instancify(InstanceBatch bat)`
-
-- Description: TODO
+- Role: Performs instancify.
+- Description: Supports the instancify operation used by the surrounding class.
 
 #### `public ResourceMesh(VertexBuf vert, short[] ind, MeshRes info)`
-
-- Description: TODO
+- Role: Performs resource mesh.
+- Description: Supports the resource mesh operation used by the surrounding class.
 
 #### `public Map<String, Object> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private static int decdelta(Message buf, boolean[] pickp)`
-
-- Description: TODO
+- Role: Performs decdelta.
+- Description: Supports the decdelta operation used by the surrounding class.
 
 #### `private static void unstrip(Message buf, short[] ind)`
-
-- Description: TODO
+- Role: Performs unstrip.
+- Description: Supports the unstrip operation used by the surrounding class.
 
 #### `public MeshRes(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs mesh res.
+- Description: Supports the mesh res operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Integer layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.
 
 #### `public Map<String, Object> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

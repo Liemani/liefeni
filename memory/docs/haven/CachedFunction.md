@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `CachedFunction`.
 
 ## Role
 
-Caches the result of a function.
+Represents the cached function Haven component.
 
 ## Nested Types
 
 ### Cache
 
-- Description: TODO
+- Role: Represents cache within CachedFunction.
+- Description: Describes the nested cache type used by the enclosing class.
 
 ## Members
 
@@ -25,39 +26,39 @@ Caches the result of a function.
 ### Fields
 
 #### `public final Function<P, R> back`
-
-- Description: TODO
+- Role: Holds the back state.
+- Description: Backs the cached state for this file.
 
 #### `public final Consumer<? super R> dispose`
-
-- Description: TODO
+- Role: Holds the dispose state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<P, R> cache`
-
-- Description: TODO
+- Role: Caches cache entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final int size`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public CachedFunction(int size, Function<P, R> back, Consumer<? super R> dispose)`
-
-- Description: TODO
+- Role: Creates a new CachedFunction instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public CachedFunction(int size, Function<P, R> back)`
-
-- Description: TODO
+- Role: Creates a new CachedFunction instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Cache(int size)`
-
-- Description: TODO
+- Role: Performs cache.
+- Description: Supports the cache operation used by the surrounding class.
 
 #### `protected boolean removeEldestEntry(Map.Entry<P, R> eldest)`
-
-- Description: TODO
+- Role: Removes the eldest entry.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public R apply(P param)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `PortalMonitor`.
 
 ## Role
 
-Observes a narrow slice of runtime state for automation.
+Monitors portal-related runtime events.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object lock = new Object()`
-
-- Description: TODO
+- Role: Defines the shared lock constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static long enteredGeneration = 0L`
-
-- Description: TODO
+- Role: Stores the entered generation value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private PortalMonitor()`
-
-- Description: TODO
+- Role: Creates a new PortalMonitor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public static long generation()`
-
-- Description: TODO
+- Role: Performs generation.
+- Description: Supports the generation operation used by the surrounding class.
 
 #### `public static void waitNextEnter(long previousGeneration)`
-
-- Description: TODO
+- Role: Performs wait next enter.
+- Description: Supports the wait next enter operation used by the surrounding class.
 
 #### `public static void notifyDidEnterPortal()`
-
-- Description: TODO
+- Role: Performs notify did enter portal.
+- Description: Supports the notify did enter portal operation used by the surrounding class.

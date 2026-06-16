@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SegmentResolver`.
 
 ## Role
 
-Turns raw runtime data into a structured waypoint runtime object.
+Resolves waypoint recording segments from runtime input.
 
 ## Members
 
@@ -21,9 +21,9 @@ Turns raw runtime data into a structured waypoint runtime object.
 ### Methods
 
 #### `private SegmentResolver()`
-
-- Description: TODO
+- Role: Creates a new SegmentResolver instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `static SegmentResolution resolve(Connection conn, RecordingSegment segment) throws SQLException`
-
-- Description: TODO
+- Role: Coordinates resolve persistence or lookup.
+- Description: Supports the resolve operation used by the surrounding class.

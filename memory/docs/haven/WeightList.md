@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WeightList`.
 
 ## Role
 
-Provides a weighted list.
+Represents the weight list Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Provides a weighted list.
 ### Fields
 
 #### `List<T> c`
-
-- Description: TODO
+- Role: Caches c entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `List<Integer> w`
-
-- Description: TODO
+- Role: Caches w entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `int tw = 0`
-
-- Description: TODO
+- Role: Stores the tw value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public WeightList()`
-
-- Description: TODO
+- Role: Creates a new WeightList instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void add(T c, int w)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public T pick(int p)`
-
-- Description: TODO
+- Role: Performs pick.
+- Description: Supports the pick operation used by the surrounding class.
 
 #### `public T pick(Random gen)`
-
-- Description: TODO
+- Role: Performs pick.
+- Description: Supports the pick operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DTarget`.
 
 ## Role
 
-Defines a drop target contract.
+Represents the dtarget Haven component.
 
 ## Members
 
@@ -19,71 +19,71 @@ Defines a drop target contract.
 ### Fields
 
 #### `public final ItemDrag src`
-
-- Description: TODO
+- Role: Holds the src state.
+- Description: Backs the cached state for this file.
 
 #### `public final ItemEvent root`
-
-- Description: TODO
+- Role: Holds the root state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean handled`
-
-- Description: TODO
+- Role: Tracks the handled flag.
+- Description: Supports the handled operation used by the surrounding class.
 
 ### Methods
 
 #### `public default boolean drop(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public default boolean iteminteract(Coord cc, Coord ul)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.
 
 #### `public default boolean drop(Drop ev)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public default boolean iteminteract(Interact ev)`
-
-- Description: TODO
+- Role: Performs iteminteract.
+- Description: Supports the iteminteract operation used by the surrounding class.
 
 #### `public ItemEvent(Coord c, ItemDrag src)`
-
-- Description: TODO
+- Role: Performs item event.
+- Description: Supports the item event operation used by the surrounding class.
 
 #### `public ItemEvent(ItemEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs item event.
+- Description: Supports the item event operation used by the surrounding class.
 
 #### `public Drop(Coord c, ItemDrag src)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public Drop(Drop from, Coord c)`
-
-- Description: TODO
+- Role: Performs drop.
+- Description: Supports the drop operation used by the surrounding class.
 
 #### `public Drop derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public Interact(Coord c, ItemDrag src)`
-
-- Description: TODO
+- Role: Performs interact.
+- Description: Supports the interact operation used by the surrounding class.
 
 #### `public Interact(Interact from, Coord c)`
-
-- Description: TODO
+- Role: Performs interact.
+- Description: Supports the interact operation used by the surrounding class.
 
 #### `public Interact derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.

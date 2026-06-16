@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `FileCache`.
 
 ## Role
 
-Caches files on disk.
+Represents the file cache Haven component.
 
 ## Members
 
@@ -19,31 +19,31 @@ Caches files on disk.
 ### Fields
 
 #### `private final Path base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public FileCache(Path base)`
-
-- Description: TODO
+- Role: Creates a new FileCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static FileCache foruser()`
-
-- Description: TODO
+- Role: Performs foruser.
+- Description: Supports the foruser operation used by the surrounding class.
 
 #### `private Path forres(String nm)`
-
-- Description: TODO
+- Role: Performs forres.
+- Description: Supports the forres operation used by the surrounding class.
 
 #### `public OutputStream store(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the store workflow.
+- Description: Supports the store operation used by the surrounding class.
 
 #### `public InputStream fetch(String name) throws IOException`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `DeadlockWatchdog`.
 
 ## Role
 
-Detects potential deadlocks.
+Represents the deadlock watchdog Haven component.
 
 ## Nested Types
 
 ### DeadlockException
 
-- Description: TODO
+- Role: Represents deadlock exception within DeadlockWatchdog.
+- Description: Describes the nested deadlock exception type used by the enclosing class.
 
 ### ThreadState
 
-- Description: TODO
+- Role: Represents thread state within DeadlockWatchdog.
+- Description: Describes the nested thread state type used by the enclosing class.
 
 ## Members
 
@@ -29,55 +31,55 @@ Detects potential deadlocks.
 ### Fields
 
 #### `private boolean running = true`
-
-- Description: TODO
+- Role: Tracks the running flag.
+- Description: Supports the running operation used by the surrounding class.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final StackTraceElement[] trace`
-
-- Description: TODO
+- Role: Holds the trace state.
+- Description: Backs the cached state for this file.
 
 #### `public final String[] locks`
-
-- Description: TODO
+- Role: Stores the locks value.
+- Description: Backs the cached state for this file.
 
 #### `public final int[] lockdepth`
-
-- Description: TODO
+- Role: Stores the lockdepth value.
+- Description: Backs the cached state for this file.
 
 #### `public final ThreadState[] threads`
-
-- Description: TODO
+- Role: Holds the threads state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public DeadlockWatchdog(ThreadGroup tg)`
-
-- Description: TODO
+- Role: Creates a new DeadlockWatchdog instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public DeadlockWatchdog()`
-
-- Description: TODO
+- Role: Creates a new DeadlockWatchdog instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ThreadState(ThreadInfo mi)`
-
-- Description: TODO
+- Role: Performs thread state.
+- Description: Supports the thread state operation used by the surrounding class.
 
 #### `public DeadlockException(ThreadState[] threads)`
-
-- Description: TODO
+- Role: Performs deadlock exception.
+- Description: Supports the deadlock exception operation used by the surrounding class.
 
 #### `protected void report(ThreadInfo[] threads)`
-
-- Description: TODO
+- Role: Performs report.
+- Description: Supports the report operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void quit()`
-
-- Description: TODO
+- Role: Performs quit.
+- Description: Supports the quit operation used by the surrounding class.

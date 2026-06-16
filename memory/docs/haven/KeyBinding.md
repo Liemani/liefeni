@@ -10,90 +10,91 @@ This file documents the responsibilities and members of `KeyBinding`.
 
 ## Role
 
-Defines a key binding.
+Represents the key binding Haven component.
 
 ## Nested Types
 
 ### Bindable
 
-- Description: TODO
+- Role: Represents bindable within KeyBinding.
+- Description: Describes the nested bindable type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<String, KeyBinding> bindings = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared bindings constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final String id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final KeyMatch defkey`
-
-- Description: TODO
+- Role: Holds the defkey state.
+- Description: Backs the cached state for this file.
 
 #### `public final int modign`
-
-- Description: TODO
+- Role: Stores the modign value.
+- Description: Backs the cached state for this file.
 
 #### `public KeyMatch key`
-
-- Description: TODO
+- Role: Holds the key state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private KeyBinding(String id, KeyMatch defkey, int modign)`
-
-- Description: TODO
+- Role: Creates a new KeyBinding instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void set(KeyMatch key)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public boolean set()`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public KeyMatch key()`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public static KeyBinding get(String id, KeyMatch defkey, int modign)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static KeyBinding get(String id, KeyMatch defkey)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static KeyBinding get(String id)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public KeyBinding getbinding(Coord cc)`
-
-- Description: TODO
+- Role: Performs getbinding.
+- Description: Supports the getbinding operation used by the surrounding class.
 
 #### `public BindingQuery(Coord c)`
-
-- Description: TODO
+- Role: Performs binding query.
+- Description: Supports the binding query operation used by the surrounding class.
 
 #### `public BindingQuery(BindingQuery from, Coord c)`
-
-- Description: TODO
+- Role: Performs binding query.
+- Description: Supports the binding query operation used by the surrounding class.
 
 #### `public BindingQuery derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public static KeyBinding getbinding(Widget wdg, Coord c)`
-
-- Description: TODO
+- Role: Performs getbinding.
+- Description: Supports the getbinding operation used by the surrounding class.

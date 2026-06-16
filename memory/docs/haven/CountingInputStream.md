@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `CountingInputStream`.
 
 ## Role
 
-Counts bytes while reading an input stream.
+Represents the counting input stream Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Counts bytes while reading an input stream.
 ### Fields
 
 #### `public final InputStream bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public long pos = 0`
-
-- Description: TODO
+- Role: Stores the pos value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public CountingInputStream(InputStream bk)`
-
-- Description: TODO
+- Role: Creates a new CountingInputStream instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void update(long num)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public long skip(long len) throws IOException`
-
-- Description: TODO
+- Role: Handles the skip workflow.
+- Description: Supports the skip operation used by the surrounding class.
 
 #### `public int read(byte[] buf, int off, int len) throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public int read() throws IOException`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public void close() throws IOException`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.

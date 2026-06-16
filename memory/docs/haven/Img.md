@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Img`.
 
 ## Role
 
-Displays an image widget.
+Represents the img Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Img.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
@@ -25,47 +26,47 @@ Displays an image widget.
 ### Fields
 
 #### `private Tex img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `private BufferedImage rimg`
-
-- Description: TODO
-
-#### `public boolean hit = false, opaque = false`
-
-- Description: TODO
+- Role: Stores the rimg value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean hit = false, opaque = false`
+- Role: Tracks the hit flag.
+- Description: Supports the hit operation used by the surrounding class.
 
-- Description: TODO
+#### `public boolean hit = false, opaque = false`
+- Role: Tracks the hit flag.
+- Description: Supports the hit operation used by the surrounding class.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void setimg(Tex img)`
-
-- Description: TODO
+- Role: Performs setimg.
+- Description: Supports the setimg operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Img(Tex img)`
-
-- Description: TODO
+- Role: Creates a new Img instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void uimsg(String name, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.

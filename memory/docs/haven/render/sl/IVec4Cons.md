@@ -10,36 +10,36 @@ This file documents the responsibilities and members of `IVec4Cons`.
 
 ## Role
 
-Represents an int vec4 constructor.
+Represents the ivec4 cons shader-language AST node.
 
 ## Members
 
 ### Constants
 
 #### `public static final IVec4Cons z = new IVec4Cons(IntLiteral.z, IntLiteral.z, IntLiteral.z, IntLiteral.z)`
-
-- Description: TODO
+- Role: Defines the shared z constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final IVec4Cons u = new IVec4Cons(IntLiteral.u, IntLiteral.u, IntLiteral.u, IntLiteral.u)`
-
-- Description: TODO
+- Role: Defines the shared u constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Expression[] els`
-
-- Description: TODO
+- Role: Holds the els state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public IVec4Cons(Expression... els)`
-
-- Description: TODO
+- Role: Creates a new IVec4Cons instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

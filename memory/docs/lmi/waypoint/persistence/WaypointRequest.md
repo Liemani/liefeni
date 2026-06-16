@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointRequest`.
 
 ## Role
 
-Defines a unit of work for waypoint persistence.
+Provides waypoint persistence support for waypoint request.
 
 ## Members
 
@@ -21,5 +21,5 @@ Defines a unit of work for waypoint persistence.
 ### Methods
 
 #### `R execute(Connection conn) throws Exception`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.

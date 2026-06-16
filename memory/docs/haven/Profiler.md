@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `Profiler`.
 
 ## Role
 
-Provides profiling support.
+Represents the profiler Haven component.
 
 ## Nested Types
 
 ### Function
 
-- Description: TODO
+- Role: Represents function within Profiler.
+- Description: Describes the nested function type used by the enclosing class.
 
 ### Loop
 
-- Description: TODO
+- Role: Represents loop within Profiler.
+- Description: Describes the nested loop type used by the enclosing class.
 
 ### Sampler
 
-- Description: TODO
+- Role: Represents sampler within Profiler.
+- Description: Describes the nested sampler type used by the enclosing class.
 
 ## Members
 
@@ -33,135 +36,135 @@ Provides profiling support.
 ### Fields
 
 #### `private static Loop loop`
-
-- Description: TODO
+- Role: Holds the loop state.
+- Description: Backs the cached state for this file.
 
 #### `public final Thread th`
-
-- Description: TODO
+- Role: Holds the th state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean enabled`
-
-- Description: TODO
-
-#### `public final String cl, nm`
-
-- Description: TODO
+- Role: Tracks whether enabled is enabled.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final String cl, nm`
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String cl, nm`
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public int dticks, iticks`
-
-- Description: TODO
+- Role: Stores the iticks value.
+- Description: Backs the cached state for this file.
 
 #### `public int dticks, iticks`
-
-- Description: TODO
+- Role: Stores the iticks value.
+- Description: Backs the cached state for this file.
 
 #### `public Map<Function, Integer> tticks = new HashMap<Function, Integer>()`
-
-- Description: TODO
+- Role: Caches tticks entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Map<Function, Integer> fticks = new HashMap<Function, Integer>()`
-
-- Description: TODO
+- Role: Caches fticks entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Map<Integer, Integer> lticks = new HashMap<Integer, Integer>()`
-
-- Description: TODO
+- Role: Caches lticks entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int hc = 0`
-
-- Description: TODO
+- Role: Stores the hc value.
+- Description: Backs the cached state for this file.
 
 #### `private Map<Function, Function> funs = new HashMap<Function, Function>()`
-
-- Description: TODO
+- Role: Caches funs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int nticks = 0`
-
-- Description: TODO
+- Role: Stores the nticks value.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<Profiler> current = new LinkedList<Profiler>()`
-
-- Description: TODO
+- Role: Caches current entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Thread th`
-
-- Description: TODO
+- Role: Holds the th state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Profiler(Thread th)`
-
-- Description: TODO
+- Role: Creates a new Profiler instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Profiler()`
-
-- Description: TODO
+- Role: Creates a new Profiler instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void enable()`
-
-- Description: TODO
+- Role: Performs enable.
+- Description: Supports the enable operation used by the surrounding class.
 
 #### `public void disable()`
-
-- Description: TODO
+- Role: Performs disable.
+- Description: Supports the disable operation used by the surrounding class.
 
 #### `public Function(String cl, String nm)`
-
-- Description: TODO
+- Role: Performs function.
+- Description: Supports the function operation used by the surrounding class.
 
 #### `public Function(StackTraceElement f)`
-
-- Description: TODO
+- Role: Performs function.
+- Description: Supports the function operation used by the surrounding class.
 
 #### `public boolean equals(Object bp)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `private Function getfun(StackTraceElement f)`
-
-- Description: TODO
+- Role: Performs getfun.
+- Description: Supports the getfun operation used by the surrounding class.
 
 #### `protected void tick(StackTraceElement[] bt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void outputlp(OutputStream out, String cl, String fnm)`
-
-- Description: TODO
+- Role: Performs outputlp.
+- Description: Supports the outputlp operation used by the surrounding class.
 
 #### `public void output(OutputStream out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public void output(String path)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `Loop()`
-
-- Description: TODO
+- Role: Handles the loop workflow.
+- Description: Supports the loop operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private Sampler(Thread th)`
-
-- Description: TODO
+- Role: Performs sampler.
+- Description: Supports the sampler operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static void sample(Thread th)`
-
-- Description: TODO
+- Role: Performs sample.
+- Description: Supports the sample operation used by the surrounding class.

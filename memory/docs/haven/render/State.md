@@ -10,130 +10,136 @@ This file documents the responsibilities and members of `State`.
 
 ## Role
 
-Represents a render state.
+Defines the state render pipeline component.
 
 ## Nested Types
 
 ### Instancable
 
-- Description: TODO
+- Role: Represents instancable within State.
+- Description: Describes the nested instancable type used by the enclosing class.
 
 ### Instancer
 
-- Description: TODO
+- Role: Represents instancer within State.
+- Description: Describes the nested instancer type used by the enclosing class.
 
 ### Slot
 
-- Description: TODO
+- Role: Represents slot within State.
+- Description: Describes the nested slot type used by the enclosing class.
 
 ### Slots
 
-- Description: TODO
+- Role: Represents slots within State.
+- Description: Describes the nested slots type used by the enclosing class.
 
 ### StandAlone
 
-- Description: TODO
+- Role: Represents stand alone within State.
+- Description: Describes the nested stand alone type used by the enclosing class.
 
 ### Type
 
-- Description: TODO
+- Role: Represents type within State.
+- Description: Describes the nested type type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final ShaderMacro mkinstanced = prog ->`
-
-- Description: TODO
+- Role: Defines the shared mkinstanced constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `static Slots slots = new Slots(new Slot<?>[0])`
-
-- Description: TODO
+- Role: Holds the slots state.
+- Description: Backs the cached state for this file.
 
 #### `public final Type type`
-
-- Description: TODO
+- Role: Holds the type state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Class<T> scl`
-
-- Description: TODO
+- Role: Holds the scl state.
+- Description: Backs the cached state for this file.
 
 #### `private int depid = -1`
-
-- Description: TODO
+- Role: Stores the depid value.
+- Description: Backs the cached state for this file.
 
 #### `public Instancable<T> instanced`
-
-- Description: TODO
+- Role: Holds the instanced state.
+- Description: Backs the cached state for this file.
 
 #### `public final Slot<?>[] idlist`
-
-- Description: TODO
+- Role: Holds the idlist state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pipe.Op nil = p -> p.put(this, null)`
-
-- Description: TODO
+- Role: Holds the nil state.
+- Description: Backs the cached state for this file.
 
 #### `public final Slot<StandAlone> slot`
-
-- Description: TODO
+- Role: Holds the slot state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Slots(Slot<?>[] idlist)`
-
-- Description: TODO
+- Role: Performs slots.
+- Description: Supports the slots operation used by the surrounding class.
 
 #### `public Slot(Type type, Class<T> scl)`
-
-- Description: TODO
+- Role: Performs slot.
+- Description: Supports the slot operation used by the surrounding class.
 
 #### `public Slot<T> instanced(Instancable<T> inst)`
-
-- Description: TODO
+- Role: Performs instanced.
+- Description: Supports the instanced operation used by the surrounding class.
 
 #### `public static Slot<?> byid(int id)`
-
-- Description: TODO
+- Role: Performs byid.
+- Description: Supports the byid operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public static int numslots()`
-
-- Description: TODO
+- Role: Performs numslots.
+- Description: Supports the numslots operation used by the surrounding class.
 
 #### `public T inststate(T uinst, InstanceBatch batch)`
-
-- Description: TODO
+- Role: Performs inststate.
+- Description: Supports the inststate operation used by the surrounding class.
 
 #### `public static <S extends State> Instancer<S> dummy()`
-
-- Description: TODO
+- Role: Performs dummy.
+- Description: Supports the dummy operation used by the surrounding class.
 
 #### `public Instancer<T> instid(T uinst)`
-
-- Description: TODO
+- Role: Performs instid.
+- Description: Supports the instid operation used by the surrounding class.
 
 #### `public static <S extends State> Instancable<S> dummy()`
-
-- Description: TODO
+- Role: Performs dummy.
+- Description: Supports the dummy operation used by the surrounding class.
 
 #### `public abstract ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public StandAlone(Slot.Type type)`
-
-- Description: TODO
+- Role: Performs stand alone.
+- Description: Supports the stand alone operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

@@ -1,8 +1,6 @@
-# Task
+# `REQ-WP-003`: world enter 직후 현재 player grid를 자동 저장하는 흐름 만들기
 
-## Title
-
-`REQ-WP-003`: world enter 직후 현재 player grid를 자동 저장하는 흐름 만들기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

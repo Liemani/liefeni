@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointPortalResolver`
 
 ## Role
 
-Turns raw runtime data into a structured waypoint runtime object.
+Resolves waypoint portals from runtime input.
 
 ## Members
 
@@ -21,9 +21,9 @@ Turns raw runtime data into a structured waypoint runtime object.
 ### Methods
 
 #### `private WaypointPortalResolver()`
-
-- Description: TODO
+- Role: Creates a new WaypointPortalResolver instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static Gob closestCounterpartGob(String entryPortalResname)`
-
-- Description: TODO
+- Role: Performs closest counterpart gob.
+- Description: Supports the closest counterpart gob operation used by the surrounding class.

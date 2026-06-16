@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LockDebugList`.
 
 ## Role
 
-Provides a debug list for lock tracking.
+Represents the lock debug list Haven component.
 
 ## Members
 
@@ -19,67 +19,67 @@ Provides a debug list for lock tracking.
 ### Fields
 
 #### `public final List<E> back`
-
-- Description: TODO
+- Role: Caches back entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Object monitor = null`
-
-- Description: TODO
+- Role: Holds the monitor state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LockDebugList(List<E> back)`
-
-- Description: TODO
+- Role: Creates a new LockDebugList instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void check()`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `public LockDebugList<E> monitor(Object monitor)`
-
-- Description: TODO
+- Role: Performs monitor.
+- Description: Supports the monitor operation used by the surrounding class.
 
 #### `public E get(int i)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Iterator<E> iterator()`
-
-- Description: TODO
+- Role: Performs iterator.
+- Description: Supports the iterator operation used by the surrounding class.
 
 #### `public ListIterator<E> listIterator()`
-
-- Description: TODO
+- Role: Performs list iterator.
+- Description: Supports the list iterator operation used by the surrounding class.
 
 #### `public ListIterator<E> listIterator(int i)`
-
-- Description: TODO
+- Role: Performs list iterator.
+- Description: Supports the list iterator operation used by the surrounding class.
 
 #### `public boolean add(E el)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(int i, E el)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public E set(int i, E el)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public E remove(int i)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public boolean remove(Object el)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.

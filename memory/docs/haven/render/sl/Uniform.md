@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `Uniform`.
 
 ## Role
 
-Represents a shader uniform.
+Represents the uniform shader-language AST node.
 
 ## Nested Types
 
 ### Data
 
-- Description: TODO
+- Role: Represents data within Uniform.
+- Description: Describes the nested data type used by the enclosing class.
 
 ### Def
 
-- Description: TODO
+- Role: Represents def within Uniform.
+- Description: Describes the nested def type used by the enclosing class.
 
 ## Members
 
@@ -29,47 +31,47 @@ Represents a shader uniform.
 ### Fields
 
 #### `public final Function<Pipe, Object> value`
-
-- Description: TODO
+- Role: Holds the value state.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<State.Slot<?>> deps`
-
-- Description: TODO
+- Role: Caches deps entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Function<Pipe, T> value`
-
-- Description: TODO
+- Role: Holds the value state.
+- Description: Backs the cached state for this file.
 
 #### `public final State.Slot<?>[] deps`
-
-- Description: TODO
+- Role: Holds the deps state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Uniform(Type type, Symbol name, Function<Pipe, Object> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Creates a new Uniform instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Uniform(Type type, String infix, Function<Pipe, Object> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Creates a new Uniform instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Uniform(Type type, Function<Pipe, Object> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Creates a new Uniform instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public void use(Context ctx)`
-
-- Description: TODO
+- Role: Performs use.
+- Description: Supports the use operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Data(Function<Pipe, T> value, State.Slot<?>... deps)`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.

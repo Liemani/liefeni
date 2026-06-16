@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RecordingClick`.
 
 ## Role
 
-Provides the `RecordingClick` functionality.
+Represents waypoint model data for recording click.
 
 ## Members
 
@@ -19,39 +19,39 @@ Provides the `RecordingClick` functionality.
 ### Fields
 
 #### `public final int index`
-
-- Description: TODO
+- Role: Stores the index value.
+- Description: Backs the cached state for this file.
 
 #### `public final int x`
-
-- Description: TODO
+- Role: Stores the x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int y`
-
-- Description: TODO
+- Role: Stores the y value.
+- Description: Backs the cached state for this file.
 
 #### `public final int mouseButton`
-
-- Description: TODO
+- Role: Stores the mouse button value.
+- Description: Backs the cached state for this file.
 
 #### `public final Long gobId`
-
-- Description: TODO
+- Role: Stores the gob id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Integer meshId`
-
-- Description: TODO
+- Role: Stores the mesh id value.
+- Description: Backs the cached state for this file.
 
 #### `public final String gobResname`
-
-- Description: TODO
+- Role: Stores the gob resname value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean isPortal`
-
-- Description: TODO
+- Role: Tracks the is portal flag.
+- Description: Supports the is portal operation used by the surrounding class.
 
 ### Methods
 
 #### `public RecordingClick(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname)`
-
-- Description: TODO
+- Role: Creates a new RecordingClick instance.
+- Description: Constructs the instance and initializes its default state.

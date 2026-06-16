@@ -10,110 +10,113 @@ This file documents the responsibilities and members of `KeywordArgs`.
 
 ## Role
 
-Stores keyword argument mappings.
+Represents the keyword args Haven component.
 
 ## Nested Types
 
 ### FormatException
 
-- Description: TODO
+- Role: Represents format exception within KeywordArgs.
+- Description: Describes the nested format exception type used by the enclosing class.
 
 ### MissingArgumentException
 
-- Description: TODO
+- Role: Represents missing argument exception within KeywordArgs.
+- Description: Describes the nested missing argument exception type used by the enclosing class.
 
 ### Parser
 
-- Description: TODO
+- Role: Represents parser within KeywordArgs.
+- Description: Describes the nested parser type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Map<Character, Parser> formats = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared formats constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Map<String, Object> parsed = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches parsed entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Object[] argv`
-
-- Description: TODO
+- Role: Holds the argv state.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource.Pool respool`
-
-- Description: TODO
+- Role: Stores the respool value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object[] argv`
-
-- Description: TODO
+- Role: Holds the argv state.
+- Description: Backs the cached state for this file.
 
 #### `public final int p`
-
-- Description: TODO
+- Role: Stores the p value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object[] argv`
-
-- Description: TODO
+- Role: Holds the argv state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public KeywordArgs(Object[] argv, Map<Character, Parser> extrafmt, Resource.Pool respool, String... pos)`
-
-- Description: TODO
+- Role: Creates a new KeywordArgs instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public KeywordArgs(Object[] argv, Resource.Pool respool, String... pos)`
-
-- Description: TODO
+- Role: Creates a new KeywordArgs instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public KeywordArgs(Object[] argv, Map<Character, Parser> extrafmt, String... pos)`
-
-- Description: TODO
+- Role: Creates a new KeywordArgs instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public KeywordArgs(Object[] argv, String... pos)`
-
-- Description: TODO
+- Role: Creates a new KeywordArgs instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public FormatException(String name, KeywordArgs buf, int p)`
-
-- Description: TODO
+- Role: Performs format exception.
+- Description: Supports the format exception operation used by the surrounding class.
 
 #### `public Pair<Object, Integer> parse(KeywordArgs args, String spec, int a)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `protected int parse(String spec, Map<Character, Parser> extra, int a)`
-
-- Description: TODO
+- Role: Performs parse.
+- Description: Supports the parse operation used by the surrounding class.
 
 #### `public boolean has(String nm)`
-
-- Description: TODO
+- Role: Performs has.
+- Description: Supports the has operation used by the surrounding class.
 
 #### `public Object get(String nm, Object def)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public MissingArgumentException(String name, Object[] argv)`
-
-- Description: TODO
+- Role: Performs missing argument exception.
+- Description: Supports the missing argument exception operation used by the surrounding class.
 
 #### `public Object get(String nm)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Optional<Object> oget(String nm)`
-
-- Description: TODO
+- Role: Performs oget.
+- Description: Supports the oget operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

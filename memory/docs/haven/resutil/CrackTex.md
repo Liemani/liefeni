@@ -10,118 +10,119 @@ This file documents the responsibilities and members of `CrackTex`.
 
 ## Role
 
-Represents a cracked texture helper.
+Provides resource helper logic for crack tex.
 
 ## Nested Types
 
 ### Decoder
 
-- Description: TODO
+- Role: Represents decoder within CrackTex.
+- Description: Describes the nested decoder type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<CrackTex> slot = new Slot<>(Slot.Type.DRAW, CrackTex.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int texsz = 256`
-
-- Description: TODO
+- Role: Defines the shared texsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Sampler3D[] imgs`
-
-- Description: TODO
+- Role: Defines the shared imgs constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform u_tex = new Uniform(SAMPLER3D, "cracktex", p -> p.get(slot).img, slot)`
-
-- Description: TODO
+- Role: Defines the shared u tex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform u_col = new Uniform(VEC3, "crackcol", p -> p.get(slot).color, slot)`
-
-- Description: TODO
+- Role: Defines the shared u col constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final InstancedUniform u_rot = new InstancedUniform.Vec4("crackrot", p -> p.get(slot).rot, slot)`
-
-- Description: TODO
+- Role: Defines the shared u rot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Sampler3D, Instancer<CrackTex>> instids = new WeakHashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared instids constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Sampler3D img`
-
-- Description: TODO
+- Role: Holds the img state.
+- Description: Backs the cached state for this file.
 
 #### `public final Color color`
-
-- Description: TODO
+- Role: Stores the color value.
+- Description: Backs the cached state for this file.
 
 #### `public final float[] rot`
-
-- Description: TODO
+- Role: Stores the rot value.
+- Description: Backs the cached state for this file.
 
 #### `public final Supplier<InputStream> src`
-
-- Description: TODO
+- Role: Holds the src state.
+- Description: Backs the cached state for this file.
 
 #### `private Defer.Future<FillBuffer[]> decode`
-
-- Description: TODO
+- Role: Stores the decode value.
+- Description: Backs the cached state for this file.
 
 #### `private FillBuffer[] data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Decoder(Supplier<InputStream> src)`
-
-- Description: TODO
+- Role: Performs decoder.
+- Description: Supports the decoder operation used by the surrounding class.
 
 #### `private FillBuffer[] decode(Texture3D tex, Environment env)`
-
-- Description: TODO
+- Role: Performs decode.
+- Description: Supports the decode operation used by the surrounding class.
 
 #### `public FillBuffer fill(Texture.Image img, Environment env)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public void done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public static Sampler3D loadtex(Supplier<InputStream> fp)`
-
-- Description: TODO
+- Role: Performs loadtex.
+- Description: Supports the loadtex operation used by the surrounding class.
 
 #### `public CrackTex(Sampler3D img, Color color, Coord3f rax, float rang)`
-
-- Description: TODO
+- Role: Creates a new CrackTex instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public CrackTex(Sampler3D img, Color color)`
-
-- Description: TODO
+- Role: Creates a new CrackTex instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `private Instancer<CrackTex> instancer()`
-
-- Description: TODO
+- Role: Performs instancer.
+- Description: Supports the instancer operation used by the surrounding class.
 
 #### `public InstancedAttribute[] attribs()`
-
-- Description: TODO
+- Role: Performs attribs.
+- Description: Supports the attribs operation used by the surrounding class.

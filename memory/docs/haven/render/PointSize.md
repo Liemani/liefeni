@@ -10,40 +10,40 @@ This file documents the responsibilities and members of `PointSize`.
 
 ## Role
 
-Represents point size state.
+Defines the point size render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<State> slot = new Slot<>(Slot.Type.GEOM, State.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Uniform u_ptsz = new Uniform(Type.FLOAT, "pointsize", p -> ((PointSize)p.get(slot)).sz, slot)`
-
-- Description: TODO
+- Role: Defines the shared u ptsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final float sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PointSize(float sz)`
-
-- Description: TODO
+- Role: Creates a new PointSize instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

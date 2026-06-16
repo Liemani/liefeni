@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `InvestigateGobBoundingB
 
 ## Role
 
-Provides a debug job for inspecting or measuring runtime state.
+Investigates gob bounding-box height for debugging.
 
 ## Members
 
@@ -21,13 +21,13 @@ Provides a debug job for inspecting or measuring runtime state.
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private void _carryHeight(Gob gob, Coord putPoint)`
-
-- Description: TODO
+- Role: Performs  carry height.
+- Description: Supports the carry height operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

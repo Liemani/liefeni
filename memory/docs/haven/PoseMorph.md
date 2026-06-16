@@ -10,186 +10,192 @@ This file documents the responsibilities and members of `PoseMorph`.
 
 ## Role
 
-Represents pose morphing support.
+Represents the pose morph Haven component.
 
 ## Nested Types
 
 ### $Res
 
-- Description: TODO
+- Role: Represents $res within PoseMorph.
+- Description: Describes the nested $res type used by the enclosing class.
 
 ### BoneData
 
-- Description: TODO
+- Role: Represents bone data within PoseMorph.
+- Description: Describes the nested bone data type used by the enclosing class.
 
 ### Morphed
 
-- Description: TODO
+- Role: Represents morphed within PoseMorph.
+- Description: Describes the nested morphed type used by the enclosing class.
 
 ### Old$Res
 
-- Description: TODO
+- Role: Represents old$res within PoseMorph.
+- Description: Describes the nested old$res type used by the enclosing class.
 
 ### Shader
 
-- Description: TODO
+- Role: Represents shader within PoseMorph.
+- Description: Describes the nested shader type used by the enclosing class.
 
 ### WeightData
 
-- Description: TODO
+- Role: Represents weight data within PoseMorph.
+- Description: Describes the nested weight data type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final State.Slot<Morphed> slot = new State.Slot<>(State.Slot.Type.GEOM, Morphed.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute vba = new Attribute(IVEC4, "vba")`
-
-- Description: TODO
+- Role: Defines the shared vba constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute vbw = new Attribute(VEC4, "vbw")`
-
-- Description: TODO
+- Role: Defines the shared vbw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Defines the shared interned constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Pose pose`
-
-- Description: TODO
+- Role: Holds the pose state.
+- Description: Backs the cached state for this file.
 
 #### `private final int[] bperm`
-
-- Description: TODO
+- Role: Stores the bperm value.
+- Description: Backs the cached state for this file.
 
 #### `private Morphed last`
-
-- Description: TODO
+- Role: Holds the last state.
+- Description: Backs the cached state for this file.
 
 #### `private int lastseq`
-
-- Description: TODO
+- Role: Stores the lastseq value.
+- Description: Backs the cached state for this file.
 
 #### `final int nb`
-
-- Description: TODO
+- Role: Stores the nb value.
+- Description: Backs the cached state for this file.
 
 #### `final Uniform bo`
-
-- Description: TODO
-
-#### `final Function skanp, skand`
-
-- Description: TODO
+- Role: Holds the bo state.
+- Description: Backs the cached state for this file.
 
 #### `final Function skanp, skand`
+- Role: Holds the skand state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final Function skanp, skand`
+- Role: Holds the skand state.
+- Description: Backs the cached state for this file.
 
 #### `public final float[][] offs`
-
-- Description: TODO
+- Role: Stores the offs value.
+- Description: Backs the cached state for this file.
 
 #### `private final ShaderMacro shader`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `public final String[] names`
-
-- Description: TODO
+- Role: Stores the names value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private static int[] mkperm(Skeleton skel, BoneData bd)`
-
-- Description: TODO
+- Role: Performs mkperm.
+- Description: Supports the mkperm operation used by the surrounding class.
 
 #### `public PoseMorph(Pose pose, FastMesh mesh)`
-
-- Description: TODO
+- Role: Creates a new PoseMorph instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static boolean boned(FastMesh mesh)`
-
-- Description: TODO
+- Role: Performs boned.
+- Description: Supports the boned operation used by the surrounding class.
 
 #### `public static String boneidp(FastMesh mesh)`
-
-- Description: TODO
+- Role: Performs boneidp.
+- Description: Supports the boneidp operation used by the surrounding class.
 
 #### `public Morphed state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `Shader(int nb)`
-
-- Description: TODO
+- Role: Handles the shader workflow.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `Function skan(boolean pos)`
-
-- Description: TODO
+- Role: Performs skan.
+- Description: Supports the skan operation used by the surrounding class.
 
 #### `public void morph(ValBlock.Value val, MeshMorph.MorphType type, VertexContext vctx)`
-
-- Description: TODO
+- Role: Performs morph.
+- Description: Supports the morph operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static Shader get(int nb)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Morphed(float[][] offs)`
-
-- Description: TODO
+- Role: Performs morphed.
+- Description: Supports the morphed operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public BoneData(int apv, IntBuffer data, String[] names)`
-
-- Description: TODO
+- Role: Performs bone data.
+- Description: Supports the bone data operation used by the surrounding class.
 
 #### `public WeightData(int apv, FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs weight data.
+- Description: Supports the weight data operation used by the surrounding class.
 
 #### `private static void read(Collection<VertexBuf.AttribData> dst, Message buf, int nv, int mba, NumberFormat fmt)`
-
-- Description: TODO
-
-#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Reads the target data.
+- Description: Supports the read operation used by the surrounding class.
 
 #### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
-- Description: TODO
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public static void sortweights(FloatBuffer bw, IntBuffer ba, int mba)`
-
-- Description: TODO
+- Role: Performs sortweights.
+- Description: Supports the sortweights operation used by the surrounding class.
 
 #### `public static void normweights(FloatBuffer bw, IntBuffer ba, int mba)`
-
-- Description: TODO
+- Role: Performs normweights.
+- Description: Supports the normweights operation used by the surrounding class.

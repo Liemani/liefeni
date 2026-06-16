@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Array`.
 
 ## Role
 
-Provides small array helper routines.
+Provides small array helpers for LMI runtime code.
 
 ## Members
 
@@ -21,57 +21,57 @@ Provides small array helper routines.
 ### Methods
 
 #### `public Array()`
-
-- Description: TODO
+- Role: Creates a new Array instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Array(int capacity)`
-
-- Description: TODO
+- Role: Creates a new Array instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean isEmpty()`
-
-- Description: TODO
+- Role: Checks whether the empty.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int count()`
-
-- Description: TODO
+- Role: Performs count.
+- Description: Supports the count operation used by the surrounding class.
 
 #### `public E subscript(int index)`
-
-- Description: TODO
+- Role: Performs subscript.
+- Description: Supports the subscript operation used by the surrounding class.
 
 #### `public E first()`
-
-- Description: TODO
+- Role: Performs first.
+- Description: Supports the first operation used by the surrounding class.
 
 #### `public E last()`
-
-- Description: TODO
+- Role: Performs last.
+- Description: Supports the last operation used by the surrounding class.
 
 #### `public void append(E element)`
-
-- Description: TODO
+- Role: Performs append.
+- Description: Supports the append operation used by the surrounding class.
 
 #### `public E removeFirst()`
-
-- Description: TODO
+- Role: Removes the first.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void removeAllWhere(Predicate<E> predicate)`
-
-- Description: TODO
+- Role: Removes the all where.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public boolean containsWhere(Predicate<E> predicate)`
-
-- Description: TODO
+- Role: Performs contains where.
+- Description: Supports the contains where operation used by the surrounding class.
 
 #### `public E removeLast()`
-
-- Description: TODO
+- Role: Removes the last.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void removeAll()`
-
-- Description: TODO
+- Role: Removes the all.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public Array<E> compactMap(UnaryOperator<E> transform)`
-
-- Description: TODO
+- Role: Performs compact map.
+- Description: Supports the compact map operation used by the surrounding class.

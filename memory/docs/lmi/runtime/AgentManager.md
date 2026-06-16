@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `AgentManager`.
 
 ## Role
 
-Coordinates subsystem state and routes work through the appropriate boundary.
+Coordinates agent registration and execution.
 
 ## Members
 
@@ -21,45 +21,45 @@ Coordinates subsystem state and routes work through the appropriate boundary.
 ### Methods
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `private static PrintWriter out()`
-
-- Description: TODO
+- Role: Performs out.
+- Description: Supports the out operation used by the surrounding class.
 
 #### `public static void run(String[] args)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private static void handleAgentOption(String[] args)`
-
-- Description: TODO
+- Role: Handles the agent option.
+- Description: Supports the handle agent option operation used by the surrounding class.
 
 #### `private static void handleDriveOption(String[] args)`
-
-- Description: TODO
+- Role: Handles the drive option.
+- Description: Supports the handle drive option operation used by the surrounding class.
 
 #### `private static void printMainHelp()`
-
-- Description: TODO
+- Role: Logs the main help.
+- Description: Logs the main help for diagnostics and debugging.
 
 #### `private static void printOptionHelp(String opt)`
-
-- Description: TODO
+- Role: Logs the option help.
+- Description: Logs the option help for diagnostics and debugging.
 
 #### `private static void printJobHelp(Class<? extends Job> jobClass)`
-
-- Description: TODO
+- Role: Logs the job help.
+- Description: Logs the job help for diagnostics and debugging.
 
 #### `public static Map<String, Class<? extends Job>> getJobMap()`
-
-- Description: TODO
+- Role: Returns the job map.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static boolean isRunning()`
-
-- Description: TODO
+- Role: Checks whether the running.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void interrupt()`
-
-- Description: TODO
+- Role: Performs interrupt.
+- Description: Supports the interrupt operation used by the surrounding class.

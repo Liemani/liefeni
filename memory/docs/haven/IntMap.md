@@ -10,118 +10,119 @@ This file documents the responsibilities and members of `IntMap`.
 
 ## Role
 
-Provides an integer-keyed map.
+Represents the int map Haven component.
 
 ## Nested Types
 
 ### IteredEntry
 
-- Description: TODO
+- Role: Represents itered entry within IntMap.
+- Description: Describes the nested itered entry type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object nil = new Object()`
-
-- Description: TODO
+- Role: Defines the shared nil constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private Object[] vals`
-
-- Description: TODO
+- Role: Holds the vals state.
+- Description: Backs the cached state for this file.
 
 #### `private int sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `private final int k`
-
-- Description: TODO
+- Role: Stores the k value.
+- Description: Backs the cached state for this file.
 
 #### `private Set<Entry<Integer, V>> entries = null`
-
-- Description: TODO
+- Role: Caches entries entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public IntMap(int capacity)`
-
-- Description: TODO
+- Role: Creates a new IntMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IntMap()`
-
-- Description: TODO
+- Role: Creates a new IntMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public IntMap(Map<Integer, V> m)`
-
-- Description: TODO
+- Role: Creates a new IntMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Object icast(V v)`
-
-- Description: TODO
+- Role: Performs icast.
+- Description: Supports the icast operation used by the surrounding class.
 
 #### `private V ocast(Object v)`
-
-- Description: TODO
+- Role: Performs ocast.
+- Description: Supports the ocast operation used by the surrounding class.
 
 #### `public boolean containsKey(int k)`
-
-- Description: TODO
+- Role: Performs contains key.
+- Description: Supports the contains key operation used by the surrounding class.
 
 #### `public boolean containsKey(Object k)`
-
-- Description: TODO
+- Role: Performs contains key.
+- Description: Supports the contains key operation used by the surrounding class.
 
 #### `private IteredEntry(int k)`
-
-- Description: TODO
+- Role: Performs itered entry.
+- Description: Supports the itered entry operation used by the surrounding class.
 
 #### `public Integer getKey()`
-
-- Description: TODO
+- Role: Returns the key.
+- Description: Exposes the requested value without mutating state.
 
 #### `public V getValue()`
-
-- Description: TODO
+- Role: Returns the value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public V setValue(V nv)`
-
-- Description: TODO
+- Role: Sets the value.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public Set<Entry<Integer, V>> entrySet()`
-
-- Description: TODO
+- Role: Performs entry set.
+- Description: Supports the entry set operation used by the surrounding class.
 
 #### `public V get(int k)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public V get(Object k)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public V put(int k, V v)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public V put(Integer k, V v)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public V remove(int k)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public V remove(Integer k)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.

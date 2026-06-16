@@ -10,234 +10,248 @@ This file documents the responsibilities and members of `Material`.
 
 ## Role
 
-Represents render material data.
+Represents the material Haven component.
 
 ## Nested Types
 
 ### $blend
 
-- Description: TODO
+- Role: Represents $blend within Material.
+- Description: Describes the nested $blend type used by the enclosing class.
 
 ### $maskcol
 
-- Description: TODO
+- Role: Represents $maskcol within Material.
+- Description: Describes the nested $maskcol type used by the enclosing class.
 
 ### $maskdepth
 
-- Description: TODO
+- Role: Represents $maskdepth within Material.
+- Description: Describes the nested $maskdepth type used by the enclosing class.
 
 ### $mlink
 
-- Description: TODO
+- Role: Represents $mlink within Material.
+- Description: Describes the nested $mlink type used by the enclosing class.
 
 ### $nofacecull
 
-- Description: TODO
+- Role: Represents $nofacecull within Material.
+- Description: Describes the nested $nofacecull type used by the enclosing class.
 
 ### $order
 
-- Description: TODO
+- Role: Represents $order within Material.
+- Description: Describes the nested $order type used by the enclosing class.
 
 ### $vcol
 
-- Description: TODO
+- Role: Represents $vcol within Material.
+- Description: Describes the nested $vcol type used by the enclosing class.
 
 ### Buffer
 
-- Description: TODO
+- Role: Represents buffer within Material.
+- Description: Describes the nested buffer type used by the enclosing class.
 
 ### Factory
 
-- Description: TODO
+- Role: Represents factory within Material.
+- Description: Describes the nested factory type used by the enclosing class.
 
 ### Owner
 
-- Description: TODO
+- Role: Represents owner within Material.
+- Description: Describes the nested owner type used by the enclosing class.
 
 ### Res
 
-- Description: TODO
+- Role: Represents res within Material.
+- Description: Describes the nested res type used by the enclosing class.
 
 ### ResMaterial
 
-- Description: TODO
+- Role: Represents res material within Material.
+- Description: Describes the nested res material type used by the enclosing class.
 
 ### Spec
 
-- Description: TODO
+- Role: Represents spec within Material.
+- Description: Describes the nested spec type used by the enclosing class.
 
 ### SpecName
 
-- Description: TODO
+- Role: Represents spec name within Material.
+- Description: Describes the nested spec name type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Pipe.Op nofacecull = (p -> p.put(States.facecull, null))`
-
-- Description: TODO
+- Role: Defines the shared nofacecull constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<String, Spec> rnames = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared rnames constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Pipe.Op states, dynstates`
-
-- Description: TODO
+- Role: Holds the dynstates state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pipe.Op states, dynstates`
-
-- Description: TODO
+- Role: Holds the dynstates state.
+- Description: Backs the cached state for this file.
 
 #### `final Pipe.Op mask = p -> p.put(FragColor.slot, null)`
-
-- Description: TODO
+- Role: Holds the mask state.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource res`
-
-- Description: TODO
-
-#### `public final List<Pipe.Op> states, dynstates`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Pipe.Op> states, dynstates`
+- Role: Caches dynstates entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
-- Description: TODO
+#### `public final List<Pipe.Op> states, dynstates`
+- Role: Caches dynstates entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final List<Object[]> left`
-
-- Description: TODO
+- Role: Caches left entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final Res info`
-
-- Description: TODO
+- Role: Holds the info state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private transient Material m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `private transient Buffer cons`
-
-- Description: TODO
+- Role: Stores the cons value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void cons(Buffer buf, Object... args)`
-
-- Description: TODO
-
-#### `public void cons(Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public void cons(Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public void cons(Buffer buf, Object... args)`
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
-- Description: TODO
+#### `public void cons(Buffer buf, Object... args)`
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `private static BlendMode.Function fn(Resource res, char desc)`
-
-- Description: TODO
+- Role: Performs fn.
+- Description: Supports the fn operation used by the surrounding class.
 
 #### `private static BlendMode.Factor fac(Resource res, char desc)`
-
-- Description: TODO
-
-#### `public void cons(Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs fac.
+- Description: Supports the fac operation used by the surrounding class.
 
 #### `public void cons(Buffer buf, Object... args)`
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
-- Description: TODO
+#### `public void cons(Buffer buf, Object... args)`
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public Material(Pipe.Op[] states, Pipe.Op[] dynstates)`
-
-- Description: TODO
+- Role: Creates a new Material instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Material(Pipe.Op... states)`
-
-- Description: TODO
+- Role: Creates a new Material instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public Wrapping apply(RenderTree.Node r)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void cons(Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public Material create(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public static Material fromres(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Performs fromres.
+- Description: Supports the fromres operation used by the surrounding class.
 
 #### `public Buffer(Resource res, List<Object[]> specs)`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `public void cons(Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public String value()`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public ResMaterial(Pipe.Op[] states, Pipe.Op[] dynstates, Res info)`
-
-- Description: TODO
+- Role: Performs res material.
+- Description: Supports the res material operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Res(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs res.
+- Description: Supports the res operation used by the surrounding class.
 
 #### `public Spec findspec(String nm)`
-
-- Description: TODO
+- Role: Performs findspec.
+- Description: Supports the findspec operation used by the surrounding class.
 
 #### `public Material get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Integer layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LValue`.
 
 ## Role
 
-Represents a logical assignable value.
+Represents the lvalue shader-language AST node.
 
 ## Members
 

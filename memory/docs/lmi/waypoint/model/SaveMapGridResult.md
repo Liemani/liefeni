@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SaveMapGridResult`.
 
 ## Role
 
-Carries a typed result payload for waypoint work.
+Represents the result of save map grid result.
 
 ## Members
 
@@ -19,27 +19,27 @@ Carries a typed result payload for waypoint work.
 ### Fields
 
 #### `public final long mapGridId`
-
-- Description: TODO
+- Role: Stores the map grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long mapSegmentId`
-
-- Description: TODO
+- Role: Stores the map segment id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long havenGridId`
-
-- Description: TODO
+- Role: Stores the haven grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localX`
-
-- Description: TODO
+- Role: Stores the local x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localY`
-
-- Description: TODO
+- Role: Stores the local y value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SaveMapGridResult(long mapGridId, long mapSegmentId, long havenGridId, int localX, int localY)`
-
-- Description: TODO
+- Role: Creates a new SaveMapGridResult instance.
+- Description: Constructs the instance and initializes its default state.

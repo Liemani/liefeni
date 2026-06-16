@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DumpBot`.
 
 ## Role
 
-Provides a bot-style test helper.
+Provides a Haven test helper for dump bot.
 
 ## Members
 
@@ -21,17 +21,17 @@ Provides a bot-style test helper.
 ### Methods
 
 #### `public DumpBot(TestClient c)`
-
-- Description: TODO
+- Role: Creates a new DumpBot instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void newwdg(int id, Widget w, Object... args)`
-
-- Description: TODO
+- Role: Performs newwdg.
+- Description: Supports the newwdg operation used by the surrounding class.
 
 #### `public void dstwdg(int id, Widget w)`
-
-- Description: TODO
+- Role: Performs dstwdg.
+- Description: Supports the dstwdg operation used by the surrounding class.
 
 #### `public void uimsg(int id, Widget w, String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

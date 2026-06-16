@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Render`.
 
 ## Role
 
-Provides render execution support.
+Defines the render render pipeline component.
 
 ## Members
 
@@ -21,61 +21,61 @@ Provides render execution support.
 ### Methods
 
 #### `public Environment env()`
-
-- Description: TODO
+- Role: Performs env.
+- Description: Supports the env operation used by the surrounding class.
 
 #### `public void submit(Render sub)`
-
-- Description: TODO
+- Role: Performs submit.
+- Description: Supports the submit operation used by the surrounding class.
 
 #### `public void draw(Pipe pipe, Model data)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void clear(Pipe pipe, FragData buf, FColor val)`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public void clear(Pipe pipe, double val)`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public <T extends DataBuffer> void update(T buf, DataBuffer.PartFiller<? super T> data, int from, int to)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public <T extends DataBuffer> void update(T buf, DataBuffer.Filler<? super T> data)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void pget(Pipe pipe, FragData buf, Area area, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
-
-- Description: TODO
+- Role: Performs pget.
+- Description: Supports the pget operation used by the surrounding class.
 
 #### `public void pget(Texture.Image img, VectorFormat fmt, ByteBuffer dstbuf, Consumer<ByteBuffer> callback)`
-
-- Description: TODO
+- Role: Performs pget.
+- Description: Supports the pget operation used by the surrounding class.
 
 #### `public void timestamp(Consumer<Long> callback)`
-
-- Description: TODO
+- Role: Performs timestamp.
+- Description: Supports the timestamp operation used by the surrounding class.
 
 #### `public void fence(Runnable callback)`
-
-- Description: TODO
+- Role: Performs fence.
+- Description: Supports the fence operation used by the surrounding class.
 
 #### `public default void draw1(Pipe pipe, Model data)`
-
-- Description: TODO
+- Role: Performs draw1.
+- Description: Supports the draw1 operation used by the surrounding class.
 
 #### `public default void draw(Pipe pipe, Model.Mode mode, short[] ind, VertexArray.Layout fmt, int n, float[] data)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public default void pget(Pipe pipe, FragData buf, Area area, VectorFormat fmt, Consumer<ByteBuffer> callback)`
-
-- Description: TODO
+- Role: Performs pget.
+- Description: Supports the pget operation used by the surrounding class.
 
 #### `public default void pget(Texture.Image img, VectorFormat fmt, Consumer<ByteBuffer> callback)`
-
-- Description: TODO
+- Role: Performs pget.
+- Description: Supports the pget operation used by the surrounding class.

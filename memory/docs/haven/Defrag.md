@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Defrag`.
 
 ## Role
 
-Provides file or cache defragmentation support.
+Represents the defrag Haven component.
 
 ## Members
 
@@ -19,47 +19,47 @@ Provides file or cache defragmentation support.
 ### Fields
 
 #### `byte[] blob`
-
-- Description: TODO
+- Role: Stores the blob value.
+- Description: Backs the cached state for this file.
 
 #### `int len`
-
-- Description: TODO
+- Role: Stores the len value.
+- Description: Backs the cached state for this file.
 
 #### `long last = 0`
-
-- Description: TODO
-
-#### `final int[] ms1 = new int[20], ms2 = new int[20]`
-
-- Description: TODO
+- Role: Stores the last value.
+- Description: Backs the cached state for this file.
 
 #### `final int[] ms1 = new int[20], ms2 = new int[20]`
+- Role: Stores the ms1 value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final int[] ms1 = new int[20], ms2 = new int[20]`
+- Role: Stores the ms1 value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Defrag(int len)`
-
-- Description: TODO
+- Role: Creates a new Defrag instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void addm(int m1, int m2)`
-
-- Description: TODO
+- Role: Performs addm.
+- Description: Supports the addm operation used by the surrounding class.
 
 #### `public void add(byte[] blob, int boff, int blen, int off)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void add(byte[] blob, int off)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public boolean done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public Message msg()`
-
-- Description: TODO
+- Role: Displays an in-game message.
+- Description: Supports the msg operation used by the surrounding class.

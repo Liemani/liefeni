@@ -1,8 +1,6 @@
-# Task
+# `current-grid-bootstrap`: [current-grid-bootstrap](../wiki/current-grid-bootstrap.md) 설계를 코드로 반영하기
 
-## Title
-
-`current-grid-bootstrap`: [current-grid-bootstrap](../wiki/current-grid-bootstrap.md) 설계를 코드로 반영하기
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

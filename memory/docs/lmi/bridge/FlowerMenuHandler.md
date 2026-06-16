@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `FlowerMenuHandler`.
 
 ## Role
 
-Wraps flower menu interaction handling.
+Handles Haven flower menu lifecycle and forwards selection callbacks.
 
 ## Members
 
@@ -19,51 +19,51 @@ Wraps flower menu interaction handling.
 ### Fields
 
 #### `private static haven.FlowerMenu _widget`
-
-- Description: TODO
+- Role: Holds the widget state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static void setWidget(haven.FlowerMenu widget)`
-
-- Description: TODO
+- Role: Sets the widget.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void clearWidget()`
-
-- Description: TODO
+- Role: Clears the widget.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public static void choose(Gob gob, int meshId, String name)`
-
-- Description: TODO
+- Role: Performs choose.
+- Description: Supports the choose operation used by the surrounding class.
 
 #### `private static void _open(Gob gob, int meshId)`
-
-- Description: TODO
+- Role: Performs  open.
+- Description: Supports the open operation used by the surrounding class.
 
 #### `private static void _waitFlowerMenuOpening()`
-
-- Description: TODO
+- Role: Performs  wait flower menu opening.
+- Description: Supports the wait flower menu opening operation used by the surrounding class.
 
 #### `private static boolean _isAdded()`
-
-- Description: TODO
+- Role: Performs  is added.
+- Description: Supports the is added operation used by the surrounding class.
 
 #### `private static void _close()`
-
-- Description: TODO
+- Role: Performs  close.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `private static void _choose(String name)`
-
-- Description: TODO
+- Role: Performs  choose.
+- Description: Supports the choose operation used by the surrounding class.
 
 #### `private static void _sendChoosePetalMessage(int index)`
-
-- Description: TODO
+- Role: Performs  send choose petal message.
+- Description: Supports the send choose petal message operation used by the surrounding class.
 
 #### `private static void _sendInteractMessage(Gob gob, int meshId)`
-
-- Description: TODO
+- Role: Performs  send interact message.
+- Description: Supports the send interact message operation used by the surrounding class.
 
 #### `private static void _sendCloseMessage()`
-
-- Description: TODO
+- Role: Performs  send close message.
+- Description: Supports the send close message operation used by the surrounding class.

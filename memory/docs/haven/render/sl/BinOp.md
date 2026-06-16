@@ -10,65 +10,79 @@ This file documents the responsibilities and members of `BinOp`.
 
 ## Role
 
-Represents a binary shader operation.
+Represents the bin op shader-language AST node.
 
 ## Nested Types
 
 ### And
 
-- Description: TODO
+- Role: Represents and within BinOp.
+- Description: Describes the nested and type used by the enclosing class.
 
 ### BitAnd
 
-- Description: TODO
+- Role: Represents bit and within BinOp.
+- Description: Describes the nested bit and type used by the enclosing class.
 
 ### BitOr
 
-- Description: TODO
+- Role: Represents bit or within BinOp.
+- Description: Describes the nested bit or type used by the enclosing class.
 
 ### Div
 
-- Description: TODO
+- Role: Represents div within BinOp.
+- Description: Describes the nested div type used by the enclosing class.
 
 ### Eq
 
-- Description: TODO
+- Role: Represents eq within BinOp.
+- Description: Describes the nested eq type used by the enclosing class.
 
 ### Ge
 
-- Description: TODO
+- Role: Represents ge within BinOp.
+- Description: Describes the nested ge type used by the enclosing class.
 
 ### Gt
 
-- Description: TODO
+- Role: Represents gt within BinOp.
+- Description: Describes the nested gt type used by the enclosing class.
 
 ### LShift
 
-- Description: TODO
+- Role: Represents lshift within BinOp.
+- Description: Describes the nested lshift type used by the enclosing class.
 
 ### Le
 
-- Description: TODO
+- Role: Represents le within BinOp.
+- Description: Describes the nested le type used by the enclosing class.
 
 ### Lt
 
-- Description: TODO
+- Role: Represents lt within BinOp.
+- Description: Describes the nested lt type used by the enclosing class.
 
 ### Ne
 
-- Description: TODO
+- Role: Represents ne within BinOp.
+- Description: Describes the nested ne type used by the enclosing class.
 
 ### Or
 
-- Description: TODO
+- Role: Represents or within BinOp.
+- Description: Describes the nested or type used by the enclosing class.
 
 ### RShift
 
-- Description: TODO
+- Role: Represents rshift within BinOp.
+- Description: Describes the nested rshift type used by the enclosing class.
 
 ### Sub
 
-- Description: TODO
+- Role: Represents sub within BinOp.
+- Description: Describes the nested sub type used by the enclosing class.
 
 ## Members
 
@@ -77,139 +91,139 @@ Represents a binary shader operation.
 ### Fields
 
 #### `public final Expression lhs, rhs`
-
-- Description: TODO
+- Role: Holds the rhs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Expression lhs, rhs`
-
-- Description: TODO
+- Role: Holds the rhs state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public BinOp(Expression lhs, Expression rhs)`
-
-- Description: TODO
+- Role: Creates a new BinOp instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public abstract String form()`
-
-- Description: TODO
+- Role: Performs form.
+- Description: Supports the form operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
-
-#### `public static class Eq extends BinOp`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.
 
 #### `public static class Eq extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Eq extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Ne extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Ne extends BinOp`
-
-- Description: TODO
-
-#### `public static class Lt extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Lt extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Lt extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Gt extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Gt extends BinOp`
-
-- Description: TODO
-
-#### `public static class Le extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Le extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Le extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Ge extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Ge extends BinOp`
-
-- Description: TODO
-
-#### `public static class Or extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Or extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Or extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class And extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class And extends BinOp`
-
-- Description: TODO
-
-#### `public static class BitOr extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class BitOr extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class BitOr extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class BitAnd extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class BitAnd extends BinOp`
-
-- Description: TODO
-
-#### `public static class Sub extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Sub extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class Sub extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Div extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class Div extends BinOp`
-
-- Description: TODO
-
-#### `public static class LShift extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class LShift extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
-- Description: TODO
+#### `public static class LShift extends BinOp`
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class RShift extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.
 
 #### `public static class RShift extends BinOp`
-
-- Description: TODO
+- Role: Handles the bin op workflow.
+- Description: Supports the bin op operation used by the surrounding class.

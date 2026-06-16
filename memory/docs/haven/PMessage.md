@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `PMessage`.
 
 ## Role
 
-Represents a protocol message payload.
+Represents the pmessage Haven component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a protocol message payload.
 ### Fields
 
 #### `public int type`
-
-- Description: TODO
+- Role: Stores the type value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PMessage(int type, byte[] blob, int off, int len)`
-
-- Description: TODO
+- Role: Creates a new PMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PMessage(int type, byte[] blob)`
-
-- Description: TODO
+- Role: Creates a new PMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PMessage(int type)`
-
-- Description: TODO
+- Role: Creates a new PMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PMessage(int type, Message msg, int len)`
-
-- Description: TODO
+- Role: Creates a new PMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PMessage(int type, Message msg)`
-
-- Description: TODO
+- Role: Creates a new PMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PMessage(PMessage msg)`
-
-- Description: TODO
+- Role: Creates a new PMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PMessage clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.

@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `BlendMode`.
 
 ## Role
 
-Represents a blending mode.
+Defines the blend mode render pipeline component.
 
 ## Nested Types
 
 ### Factor
 
-- Description: TODO
+- Role: Represents factor within BlendMode.
+- Description: Describes the nested factor type used by the enclosing class.
 
 ### Function
 
-- Description: TODO
+- Role: Represents function within BlendMode.
+- Description: Describes the nested function type used by the enclosing class.
 
 ## Members
 
@@ -29,67 +31,67 @@ Represents a blending mode.
 ### Fields
 
 #### `public final Function cfn, afn`
-
-- Description: TODO
+- Role: Holds the afn state.
+- Description: Backs the cached state for this file.
 
 #### `public final Function cfn, afn`
-
-- Description: TODO
-
-#### `public final Factor csrc, cdst, asrc, adst`
-
-- Description: TODO
+- Role: Holds the afn state.
+- Description: Backs the cached state for this file.
 
 #### `public final Factor csrc, cdst, asrc, adst`
-
-- Description: TODO
-
-#### `public final Factor csrc, cdst, asrc, adst`
-
-- Description: TODO
+- Role: Holds the adst state.
+- Description: Backs the cached state for this file.
 
 #### `public final Factor csrc, cdst, asrc, adst`
+- Role: Holds the adst state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Factor csrc, cdst, asrc, adst`
+- Role: Holds the adst state.
+- Description: Backs the cached state for this file.
+
+#### `public final Factor csrc, cdst, asrc, adst`
+- Role: Holds the adst state.
+- Description: Backs the cached state for this file.
 
 #### `public final FColor color`
-
-- Description: TODO
+- Role: Stores the color value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public BlendMode(Function cfn, Factor csrc, Factor cdst, Function afn, Factor asrc, Factor adst, FColor color)`
-
-- Description: TODO
+- Role: Creates a new BlendMode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BlendMode(Function cfn, Factor csrc, Factor cdst, Function afn, Factor asrc, Factor adst)`
-
-- Description: TODO
+- Role: Creates a new BlendMode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BlendMode(Factor csrc, Factor cdst, Factor asrc, Factor adst)`
-
-- Description: TODO
+- Role: Creates a new BlendMode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BlendMode(Function fn, Factor src, Factor dst)`
-
-- Description: TODO
+- Role: Creates a new BlendMode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BlendMode(Factor src, Factor dst)`
-
-- Description: TODO
+- Role: Creates a new BlendMode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public BlendMode()`
-
-- Description: TODO
+- Role: Creates a new BlendMode instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

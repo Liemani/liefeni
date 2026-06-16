@@ -10,58 +10,60 @@ This file documents the responsibilities and members of `GenFun`.
 
 ## Role
 
-Provides generic function dispatch support.
+Represents the gen fun Haven component.
 
 ## Nested Types
 
 ### Handler
 
-- Description: TODO
+- Role: Represents handler within GenFun.
+- Description: Describes the nested handler type used by the enclosing class.
 
 ### MissingImplementationException
 
-- Description: TODO
+- Role: Represents missing implementation exception within GenFun.
+- Description: Describes the nested missing implementation exception type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final InvocationHandler passthrough = new InvocationHandler()`
-
-- Description: TODO
+- Role: Defines the shared passthrough constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Class<T> iface`
-
-- Description: TODO
+- Role: Holds the iface state.
+- Description: Backs the cached state for this file.
 
 #### `public final T call`
-
-- Description: TODO
+- Role: Holds the call state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Class<?>, T> cache = new java.util.concurrent.ConcurrentHashMap<>()`
-
-- Description: TODO
+- Role: Caches cache entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Class<?>, T> registry = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches registry entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public GenFun(Class<T> iface)`
-
-- Description: TODO
+- Role: Creates a new GenFun instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public GenFun<T> register(Class<?> cl, T impl)`
-
-- Description: TODO
+- Role: Performs register.
+- Description: Supports the register operation used by the surrounding class.
 
 #### `public MissingImplementationException(GenFun function, Object target)`
-
-- Description: TODO
+- Role: Performs missing implementation exception.
+- Description: Supports the missing implementation exception operation used by the surrounding class.
 
 #### `public Object invoke(Object proxy, Method method, Object[] args)`
-
-- Description: TODO
+- Role: Performs invoke.
+- Description: Supports the invoke operation used by the surrounding class.

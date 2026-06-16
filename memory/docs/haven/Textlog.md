@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Textlog`.
 
 ## Role
 
-Displays a scrolling text log.
+Represents the textlog Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Textlog.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
@@ -25,83 +26,83 @@ Displays a scrolling text log.
 ### Fields
 
 #### `static Tex texpap = Resource.loadtex("gfx/hud/texpap")`
-
-- Description: TODO
+- Role: Stores the texpap value.
+- Description: Backs the cached state for this file.
 
 #### `static Tex schain = Resource.loadtex("gfx/hud/schain")`
-
-- Description: TODO
+- Role: Stores the schain value.
+- Description: Backs the cached state for this file.
 
 #### `static Tex sflarp = Resource.loadtex("gfx/hud/sflarp")`
-
-- Description: TODO
+- Role: Stores the sflarp value.
+- Description: Backs the cached state for this file.
 
 #### `static RichText.Foundry fnd = new RichText.Foundry(TextAttribute.FAMILY, "SansSerif", TextAttribute.SIZE, UI.scale(9f), TextAttribute.FOREGROUND, Color.BLACK)`
-
-- Description: TODO
+- Role: Stores the fnd value.
+- Description: Backs the cached state for this file.
 
 #### `List<Text> lines`
-
-- Description: TODO
-
-#### `int maxy, cury`
-
-- Description: TODO
+- Role: Caches lines entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `int maxy, cury`
+- Role: Stores the cury value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `int maxy, cury`
+- Role: Stores the cury value.
+- Description: Backs the cached state for this file.
 
 #### `int margin = UI.scale(3)`
-
-- Description: TODO
+- Role: Stores the margin value.
+- Description: Backs the cached state for this file.
 
 #### `UI.Grab sdrag = null`
-
-- Description: TODO
+- Role: Stores the sdrag value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Textlog(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new Textlog instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void append(String line, Color col)`
-
-- Description: TODO
+- Role: Performs append.
+- Description: Supports the append operation used by the surrounding class.
 
 #### `public void append(String line)`
-
-- Description: TODO
+- Role: Performs append.
+- Description: Supports the append operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `private void update(Coord c)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.

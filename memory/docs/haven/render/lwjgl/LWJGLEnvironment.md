@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `LWJGLEnvironment`.
 
 ## Role
 
-Represents an LWJGL render environment.
+Adapts the render backend to LWJGL for lwjglenvironment.
 
 ## Nested Types
 
 ### LWJGLCaps
 
-- Description: TODO
+- Role: Represents lwjglcaps within LWJGLEnvironment.
+- Description: Describes the nested lwjglcaps type used by the enclosing class.
 
 ## Members
 
@@ -25,31 +26,31 @@ Represents an LWJGL render environment.
 ### Fields
 
 #### `public final boolean coreprof`
-
-- Description: TODO
+- Role: Tracks the coreprof flag.
+- Description: Supports the coreprof operation used by the surrounding class.
 
 ### Methods
 
 #### `public LWJGLEnvironment(Area wnd)`
-
-- Description: TODO
+- Role: Creates a new LWJGLEnvironment instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public LWJGLCaps(GL gl, LWJGLEnvironment env)`
-
-- Description: TODO
+- Role: Performs lwjglcaps.
+- Description: Supports the lwjglcaps operation used by the surrounding class.
 
 #### `public void checkreq()`
-
-- Description: TODO
+- Role: Performs checkreq.
+- Description: Supports the checkreq operation used by the surrounding class.
 
 #### `public LWJGLCaps mkcaps(GL initgl)`
-
-- Description: TODO
+- Role: Performs mkcaps.
+- Description: Supports the mkcaps operation used by the surrounding class.
 
 #### `public SysBuffer malloc(int sz)`
-
-- Description: TODO
+- Role: Performs malloc.
+- Description: Supports the malloc operation used by the surrounding class.
 
 #### `public SysBuffer subsume(ByteBuffer data, int sz)`
-
-- Description: TODO
+- Role: Performs subsume.
+- Description: Supports the subsume operation used by the surrounding class.

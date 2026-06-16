@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WpSegmentRecord`.
 
 ## Role
 
-Represents a low-level waypoint persistence record.
+Represents a persisted waypoint database record for wp segment record.
 
 ## Members
 
@@ -19,23 +19,23 @@ Represents a low-level waypoint persistence record.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long edgeId`
-
-- Description: TODO
+- Role: Stores the edge id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int step`
-
-- Description: TODO
+- Role: Stores the step value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public WpSegmentRecord(long id, long edgeId, long gridId, int step)`
-
-- Description: TODO
+- Role: Creates a new WpSegmentRecord instance.
+- Description: Constructs the instance and initializes its default state.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RandomSource`.
 
 ## Role
 
-Provides a random source.
+Represents the random source Haven component.
 
 ## Members
 
@@ -21,5 +21,5 @@ Provides a random source.
 ### Methods
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.

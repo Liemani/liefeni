@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LmiOverlay`.
 
 ## Role
 
-Renders a draw-time overlay for the corresponding subsystem.
+Provides the base LMI overlay drawing support.
 
 ## Members
 
@@ -21,9 +21,9 @@ Renders a draw-time overlay for the corresponding subsystem.
 ### Methods
 
 #### `private LmiOverlay()`
-
-- Description: TODO
+- Role: Creates a new LmiOverlay instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void draw(MapView mapView, GOut g)`
-
-- Description: TODO
+- Role: Renders the draw.
+- Description: Supports the draw operation used by the surrounding class.

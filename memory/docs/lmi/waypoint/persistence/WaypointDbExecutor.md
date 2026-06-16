@@ -10,86 +10,89 @@ This file documents the responsibilities and members of `WaypointDbExecutor`.
 
 ## Role
 
-Serializes waypoint DB work onto the dedicated worker thread.
+Serializes waypoint database work onto a dedicated executor thread.
 
 ## Nested Types
 
 ### Task
+### Task
+- Role: Represents the task helper used by WaypointDbExecutor.
 
-- Description: TODO
+- Role: Wraps one queued waypoint database task.
+- Description: Describes the nested task type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object lock = new Object()`
-
-- Description: TODO
+- Role: Defines the shared lock constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final BlockingQueue<Task<?>> queue = new LinkedBlockingQueue<>()`
-
-- Description: TODO
+- Role: Defines the shared queue constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static Thread thread`
-
-- Description: TODO
+- Role: Coordinates asynchronous waypoint db executor work.
+- Description: Supports the thread operation used by the surrounding class.
 
 #### `private static boolean initialized`
-
-- Description: TODO
+- Role: Tracks whether initialized is initialized.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static Connection connection`
-
-- Description: TODO
+- Role: Holds the connection state.
+- Description: Backs the cached state for this file.
 
 #### `private final WaypointRequest<R> request`
-
-- Description: TODO
+- Role: Stores the request value.
+- Description: Backs the cached state for this file.
 
 #### `private final WaypointResultHandler<R> handler`
-
-- Description: TODO
+- Role: Coordinates asynchronous waypoint db executor work.
+- Description: Supports the handler operation used by the surrounding class.
 
 ### Methods
 
 #### `private WaypointDbExecutor()`
-
-- Description: TODO
+- Role: Creates a new WaypointDbExecutor instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public static <R extends WaypointResult> void submitRead(`
-
-- Description: TODO
+- Role: Handles the submit read workflow.
+- Description: Supports the submit read operation used by the surrounding class.
 
 #### `public static <R extends WaypointResult> void submitWrite(`
-
-- Description: TODO
+- Role: Handles the submit write workflow.
+- Description: Supports the submit write operation used by the surrounding class.
 
 #### `public static void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `private static void runLoop()`
-
-- Description: TODO
+- Role: Runs the loop.
+- Description: Supports the run loop operation used by the surrounding class.
 
 #### `private static Connection connection() throws Exception`
-
-- Description: TODO
+- Role: Handles the connection workflow.
+- Description: Supports the connection operation used by the surrounding class.
 
 #### `private static void closeConnection()`
-
-- Description: TODO
+- Role: Closes the connection.
+- Description: Supports the close connection operation used by the surrounding class.
 
 #### `private Task(WaypointRequest<R> request, WaypointResultHandler<R> handler)`
-
-- Description: TODO
+- Role: Performs task.
+- Description: Supports the task operation used by the surrounding class.
 
 #### `private void execute(Connection conn)`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.

@@ -10,29 +10,34 @@ This file documents the responsibilities and members of `CacheMap`.
 
 ## Role
 
-Provides a cache-backed map implementation.
+Represents the cache map Haven component.
 
 ## Nested Types
 
 ### IteredEntry
 
-- Description: TODO
+- Role: Represents itered entry within CacheMap.
+- Description: Describes the nested itered entry type used by the enclosing class.
 
 ### Ref
 
-- Description: TODO
+- Role: Represents ref within CacheMap.
+- Description: Describes the nested ref type used by the enclosing class.
 
 ### RefType
 
-- Description: TODO
+- Role: Represents ref type within CacheMap.
+- Description: Describes the nested ref type type used by the enclosing class.
 
 ### SRef
 
-- Description: TODO
+- Role: Represents sref within CacheMap.
+- Description: Describes the nested sref type used by the enclosing class.
 
 ### WRef
 
-- Description: TODO
+- Role: Represents wref within CacheMap.
+- Description: Describes the nested wref type used by the enclosing class.
 
 ## Members
 
@@ -41,123 +46,123 @@ Provides a cache-backed map implementation.
 ### Fields
 
 #### `private final Map<K, Reference<V>> back`
-
-- Description: TODO
+- Role: Caches back entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final ReferenceQueue<V> cleanq = new ReferenceQueue<V>()`
-
-- Description: TODO
+- Role: Caches cleanq entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final RefType reftype`
-
-- Description: TODO
-
-#### `final K key`
-
-- Description: TODO
+- Role: Holds the reftype state.
+- Description: Backs the cached state for this file.
 
 #### `final K key`
+- Role: Holds the key state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final K key`
+- Role: Holds the key state.
+- Description: Backs the cached state for this file.
 
 #### `private final K k`
-
-- Description: TODO
+- Role: Holds the k state.
+- Description: Backs the cached state for this file.
 
 #### `private V v`
-
-- Description: TODO
+- Role: Holds the v state.
+- Description: Backs the cached state for this file.
 
 #### `private Set<Entry<K, V>> entries = null`
-
-- Description: TODO
+- Role: Caches entries entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `K key()`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `SRef(K key, V val, ReferenceQueue<V> queue)`
-
-- Description: TODO
+- Role: Handles the sref workflow.
+- Description: Supports the sref operation used by the surrounding class.
 
 #### `public K key()`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `WRef(K key, V val, ReferenceQueue<V> queue)`
-
-- Description: TODO
+- Role: Handles the wref workflow.
+- Description: Supports the wref operation used by the surrounding class.
 
 #### `public K key()`
-
-- Description: TODO
+- Role: Performs key.
+- Description: Supports the key operation used by the surrounding class.
 
 #### `public abstract <K, V> Reference<V> mkref(K k, V v, ReferenceQueue<V> cleanq)`
-
-- Description: TODO
+- Role: Performs mkref.
+- Description: Supports the mkref operation used by the surrounding class.
 
 #### `public CacheMap(RefType type)`
-
-- Description: TODO
+- Role: Creates a new CacheMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public CacheMap()`
-
-- Description: TODO
+- Role: Creates a new CacheMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public CacheMap(Map<K, V> m)`
-
-- Description: TODO
+- Role: Creates a new CacheMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean containsKey(Object k)`
-
-- Description: TODO
+- Role: Performs contains key.
+- Description: Supports the contains key operation used by the surrounding class.
 
 #### `private IteredEntry(K k, V v)`
-
-- Description: TODO
+- Role: Performs itered entry.
+- Description: Supports the itered entry operation used by the surrounding class.
 
 #### `public K getKey()`
-
-- Description: TODO
+- Role: Returns the key.
+- Description: Exposes the requested value without mutating state.
 
 #### `public V getValue()`
-
-- Description: TODO
+- Role: Returns the value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public V setValue(V nv)`
-
-- Description: TODO
+- Role: Sets the value.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public Set<Entry<K, V>> entrySet()`
-
-- Description: TODO
+- Role: Performs entry set.
+- Description: Supports the entry set operation used by the surrounding class.
 
 #### `private void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public V get(Object k)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public V put(K k, V v)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `private V remove0(Object k)`
-
-- Description: TODO
+- Role: Performs remove0.
+- Description: Supports the remove0 operation used by the surrounding class.
 
 #### `public V remove(Object k)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.

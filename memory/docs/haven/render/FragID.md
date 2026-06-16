@@ -10,102 +10,103 @@ This file documents the responsibilities and members of `FragID`.
 
 ## Role
 
-Represents a fragment identifier.
+Defines the frag id render pipeline component.
 
 ## Nested Types
 
 ### ID
 
-- Description: TODO
+- Role: Represents id within FragID.
+- Description: Describes the nested id type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<FragID> tex = new Slot<>(Slot.Type.SYS, FragID.class)`
-
-- Description: TODO
+- Role: Defines the shared tex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Slot<ID> id = new Slot<>(Slot.Type.DRAW, ID.class)`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final FragData fragid = new FragData(Type.INT, "fragid", p -> p.get(tex).image, tex)`
-
-- Description: TODO
+- Role: Defines the shared fragid constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final InstancedUniform uid = new InstancedUniform.Int("id", p ->`
-
-- Description: TODO
+- Role: Defines the shared uid constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Instancer<ID> instancer = new Instancer<ID>()`
-
-- Description: TODO
+- Role: Defines the shared instancer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying transfer = new AutoVarying(Type.INT)`
-
-- Description: TODO
+- Role: Defines the shared transfer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog -> fragid(prog.fctx).force()`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final T image`
-
-- Description: TODO
+- Role: Holds the image state.
+- Description: Backs the cached state for this file.
 
 #### `public final int val`
-
-- Description: TODO
+- Role: Stores the val value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public FragID(T image)`
-
-- Description: TODO
+- Role: Creates a new FragID instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ID(int val)`
-
-- Description: TODO
+- Role: Performs id.
+- Description: Supports the id operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public InstancedAttribute[] attribs()`
-
-- Description: TODO
+- Role: Performs attribs.
+- Description: Supports the attribs operation used by the surrounding class.
 
 #### `public static Value fragid(FragmentContext fctx)`
-
-- Description: TODO
+- Role: Performs fragid.
+- Description: Supports the fragid operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.

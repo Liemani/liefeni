@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Texture3D`.
 
 ## Role
 
-Represents a 3D texture.
+Defines the texture3 d render pipeline component.
 
 ## Nested Types
 
 ### Sampler3D
 
-- Description: TODO
+- Role: Represents sampler3 d within Texture3D.
+- Description: Describes the nested sampler3 d type used by the enclosing class.
 
 ## Members
 
@@ -25,47 +26,47 @@ Represents a 3D texture.
 ### Fields
 
 #### `public final int w, h, d`
-
-- Description: TODO
-
-#### `public final int w, h, d`
-
-- Description: TODO
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `public final int w, h, d`
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int w, h, d`
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `private final boolean pot`
-
-- Description: TODO
+- Role: Tracks the pot flag.
+- Description: Supports the pot operation used by the surrounding class.
 
 ### Methods
 
 #### `public Texture3D(int w, int h, int d, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
-
-- Description: TODO
+- Role: Creates a new Texture3D instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Texture3D(int w, int h, int d, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
-
-- Description: TODO
+- Role: Creates a new Texture3D instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Image<Texture3D> image(int level)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public Collection<Image<Texture3D>> images()`
-
-- Description: TODO
+- Role: Performs images.
+- Description: Supports the images operation used by the surrounding class.
 
 #### `public Sampler3D(Texture3D tex)`
-
-- Description: TODO
+- Role: Performs sampler3 d.
+- Description: Supports the sampler3 d operation used by the surrounding class.
 
 #### `public Sampler3D sampler()`
-
-- Description: TODO
+- Role: Performs sampler.
+- Description: Supports the sampler operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

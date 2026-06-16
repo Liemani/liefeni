@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WrapMode`.
 
 ## Role
 
-Represents text or render wrap modes.
+Represents the wrap mode Haven component.
 
 ## Members
 
@@ -19,11 +19,11 @@ Represents text or render wrap modes.
 ### Fields
 
 #### `public final boolean ends`
-
-- Description: TODO
+- Role: Tracks the ends flag.
+- Description: Supports the ends operation used by the surrounding class.
 
 ### Methods
 
 #### `WrapMode(boolean ends)`
-
-- Description: TODO
+- Role: Creates a new WrapMode instance.
+- Description: Constructs the instance and initializes its default state.

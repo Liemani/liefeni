@@ -1,8 +1,6 @@
-# Task
+# portal transition 후 waypoint refresh / resident grid 갱신 확인
 
-## Title
-
-portal transition 후 waypoint refresh / resident grid 갱신 확인
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

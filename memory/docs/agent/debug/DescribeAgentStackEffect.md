@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DescribeAgentStackEffec
 
 ## Role
 
-Provides a debug effect for inspecting or mutating runtime state.
+Prints the current agent stack for debugging.
 
 ## Members
 
@@ -21,9 +21,9 @@ Provides a debug effect for inspecting or mutating runtime state.
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.

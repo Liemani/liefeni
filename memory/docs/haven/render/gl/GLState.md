@@ -10,36 +10,36 @@ This file documents the responsibilities and members of `GLState`.
 
 ## Role
 
-Represents a GL state.
+Provides GL backend support for glstate.
 
 ## Members
 
 ### Constants
 
 #### `public static final Class<? extends GLState>[] slots = (Class<? extends GLState>[])new Class[]`
-
-- Description: TODO
+- Role: Defines the shared slots constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `public static int slotidx(Class<? extends GLState> cl)`
-
-- Description: TODO
+- Role: Performs slotidx.
+- Description: Supports the slotidx operation used by the surrounding class.
 
 #### `public abstract void apply(BGL gl)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public abstract void unapply(BGL gl)`
-
-- Description: TODO
+- Role: Performs unapply.
+- Description: Supports the unapply operation used by the surrounding class.
 
 #### `public abstract int slotidx()`
-
-- Description: TODO
+- Role: Performs slotidx.
+- Description: Supports the slotidx operation used by the surrounding class.
 
 #### `public void applyto(BGL gl, GLState to)`
-
-- Description: TODO
+- Role: Performs applyto.
+- Description: Supports the applyto operation used by the surrounding class.

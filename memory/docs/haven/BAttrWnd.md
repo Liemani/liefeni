@@ -10,458 +10,468 @@ This file documents the responsibilities and members of `BAttrWnd`.
 
 ## Role
 
-Displays body attribute information.
+Represents the battr wnd Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within BAttrWnd.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Attr
 
-- Description: TODO
+- Role: Represents attr within BAttrWnd.
+- Description: Describes the nested attr type used by the enclosing class.
 
 ### Constipations
 
-- Description: TODO
+- Role: Represents constipations within BAttrWnd.
+- Description: Describes the nested constipations type used by the enclosing class.
 
 ### El
 
-- Description: TODO
+- Role: Represents el within BAttrWnd.
+- Description: Describes the nested el type used by the enclosing class.
 
 ### Event
 
-- Description: TODO
+- Role: Represents event within BAttrWnd.
+- Description: Describes the nested event type used by the enclosing class.
 
 ### FoodMeter
 
-- Description: TODO
+- Role: Represents food meter within BAttrWnd.
+- Description: Describes the nested food meter type used by the enclosing class.
 
 ### GlutMeter
 
-- Description: TODO
+- Role: Represents glut meter within BAttrWnd.
+- Description: Describes the nested glut meter type used by the enclosing class.
 
 ### Item
 
-- Description: TODO
+- Role: Represents item within BAttrWnd.
+- Description: Describes the nested item type used by the enclosing class.
 
 ### ItemIcon
 
-- Description: TODO
+- Role: Represents item icon within BAttrWnd.
+- Description: Describes the nested item icon type used by the enclosing class.
 
 ### Reordered
 
-- Description: TODO
+- Role: Represents reordered within BAttrWnd.
+- Description: Describes the nested reordered type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final PUtils.Convolution tflt = new PUtils.Hanning(1)`
-
-- Description: TODO
+- Role: Defines the shared tflt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color hilit = new Color(255, 255, 0, 48)`
-
-- Description: TODO
-
-#### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
-
-- Description: TODO
+- Role: Defines the shared hilit constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
-
-- Description: TODO
+- Role: Defines the shared buffed constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
+- Role: Defines the shared buffed constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final Color buffed = new Color(160, 255, 160), full = new Color(250, 230, 64), none = new Color(250, 19, 43)`
+- Role: Defines the shared buffed constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Comparator<El> ecmp = (a, b) ->`
-
-- Description: TODO
+- Role: Defines the shared ecmp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex frame = Resource.loadtex("gfx/hud/chr/foodm")`
-
-- Description: TODO
-
-#### `public static final Coord marg = new Coord(5, 5), trmg = new Coord(10, 10)`
-
-- Description: TODO
+- Role: Defines the shared frame constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord marg = new Coord(5, 5), trmg = new Coord(10, 10)`
+- Role: Defines the shared marg constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final Coord marg = new Coord(5, 5), trmg = new Coord(10, 10)`
+- Role: Defines the shared marg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Comparator<El> dcmp = new Comparator<El>()`
-
-- Description: TODO
+- Role: Defines the shared dcmp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex frame = Resource.loadtex("gfx/hud/chr/glutm")`
-
-- Description: TODO
+- Role: Defines the shared frame constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord marg = new Coord(5, 5)`
-
-- Description: TODO
+- Role: Defines the shared marg constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final List<Attr> attrs`
-
-- Description: TODO
+- Role: Caches attrs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final FoodMeter feps`
-
-- Description: TODO
+- Role: Stores the feps value.
+- Description: Backs the cached state for this file.
 
 #### `public final Constipations cons`
-
-- Description: TODO
+- Role: Holds the cons state.
+- Description: Backs the cached state for this file.
 
 #### `public final GlutMeter glut`
-
-- Description: TODO
+- Role: Stores the glut value.
+- Description: Backs the cached state for this file.
 
 #### `public final Text rnm`
-
-- Description: TODO
+- Role: Stores the rnm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Tex img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color bg`
-
-- Description: TODO
+- Role: Stores the bg value.
+- Description: Backs the cached state for this file.
 
 #### `private double lvlt = 0.0`
-
-- Description: TODO
+- Role: Stores the lvlt value.
+- Description: Backs the cached state for this file.
 
 #### `private Text ct`
-
-- Description: TODO
-
-#### `private int cbv = -1, ccv = -1`
-
-- Description: TODO
+- Role: Stores the ct value.
+- Description: Backs the cached state for this file.
 
 #### `private int cbv = -1, ccv = -1`
+- Role: Stores the cbv value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int cbv = -1, ccv = -1`
+- Role: Stores the cbv value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<El> els = new ArrayList<El>()`
-
-- Description: TODO
+- Role: Caches els entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final ResData t`
-
-- Description: TODO
+- Role: Holds the t state.
+- Description: Backs the cached state for this file.
 
 #### `public double a`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean hl`
-
-- Description: TODO
+- Role: Tracks the hl flag.
+- Description: Supports the hl operation used by the surrounding class.
 
 #### `private final List<T> back`
-
-- Description: TODO
+- Role: Caches back entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Comparator<? super T> cmp`
-
-- Description: TODO
+- Role: Holds the cmp state.
+- Description: Backs the cached state for this file.
 
 #### `private Integer[] order =`
-
-- Description: TODO
+- Role: Holds the battr wnd state.
+- Description: Backs the cached state for this file.
 
 #### `private final Reordered<El> oels = new Reordered<>(els, ecmp)`
-
-- Description: TODO
+- Role: Holds the oels state.
+- Description: Backs the cached state for this file.
 
 #### `public final ItemSpec spec`
-
-- Description: TODO
+- Role: Holds the spec state.
+- Description: Backs the cached state for this file.
 
 #### `public final El el`
-
-- Description: TODO
-
-#### `private Widget nm, a`
-
-- Description: TODO
+- Role: Holds the el state.
+- Description: Backs the cached state for this file.
 
 #### `private Widget nm, a`
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Widget nm, a`
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private double da = Double.NaN`
-
-- Description: TODO
+- Role: Stores the da value.
+- Description: Backs the cached state for this file.
 
 #### `private ItemInfo.InfoTip lasttip = null`
-
-- Description: TODO
+- Role: Holds the lasttip state.
+- Description: Backs the cached state for this file.
 
 #### `public double cap`
-
-- Description: TODO
+- Role: Stores the cap value.
+- Description: Backs the cached state for this file.
 
 #### `public List<El> els = new LinkedList<El>()`
-
-- Description: TODO
-
-#### `private List<El> enew = null, etr = null`
-
-- Description: TODO
+- Role: Caches els entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private List<El> enew = null, etr = null`
+- Role: Caches enew entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
-- Description: TODO
+#### `private List<El> enew = null, etr = null`
+- Role: Caches enew entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Indir<Resource> trev = null`
-
-- Description: TODO
+- Role: Stores the trev value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex trol`
-
-- Description: TODO
+- Role: Stores the trol value.
+- Description: Backs the cached state for this file.
 
 #### `private double trtm = 0`
-
-- Description: TODO
+- Role: Stores the trtm value.
+- Description: Backs the cached state for this file.
 
 #### `public final Color col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 #### `public final String nm`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `public final int sort`
-
-- Description: TODO
+- Role: Stores the sort value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public double a`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private Event ev = null`
-
-- Description: TODO
+- Role: Holds the ev state.
+- Description: Backs the cached state for this file.
 
 #### `private Tex rtip = null`
-
-- Description: TODO
-
-#### `public Color fg = Color.BLACK, bg = Color.BLACK`
-
-- Description: TODO
+- Role: Stores the rtip value.
+- Description: Backs the cached state for this file.
 
 #### `public Color fg = Color.BLACK, bg = Color.BLACK`
+- Role: Stores the fg value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `public double glut, lglut, gmod`
-
-- Description: TODO
-
-#### `public double glut, lglut, gmod`
-
-- Description: TODO
+#### `public Color fg = Color.BLACK, bg = Color.BLACK`
+- Role: Stores the fg value.
+- Description: Backs the cached state for this file.
 
 #### `public double glut, lglut, gmod`
+- Role: Stores the gmod value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double glut, lglut, gmod`
+- Role: Stores the gmod value.
+- Description: Backs the cached state for this file.
+
+#### `public double glut, lglut, gmod`
+- Role: Stores the gmod value.
+- Description: Backs the cached state for this file.
 
 #### `public String lbl`
-
-- Description: TODO
+- Role: Stores the lbl value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex rtip = null`
-
-- Description: TODO
+- Role: Stores the rtip value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private Attr(Glob glob, String attr, Color bg)`
-
-- Description: TODO
+- Role: Performs attr.
+- Description: Supports the attr operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void lvlup()`
-
-- Description: TODO
+- Role: Performs lvlup.
+- Description: Supports the lvlup operation used by the surrounding class.
 
 #### `public El(ResData t, double a)`
-
-- Description: TODO
+- Role: Performs el.
+- Description: Supports the el operation used by the surrounding class.
 
 #### `public void update(double a)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Constipations(Coord sz)`
-
-- Description: TODO
+- Role: Performs constipations.
+- Description: Supports the constipations operation used by the surrounding class.
 
 #### `public Reordered(List<T> back, Comparator<? super T> cmp)`
-
-- Description: TODO
+- Role: Performs reordered.
+- Description: Supports the reordered operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public T get(int i)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `protected List<El> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Widget makeitem(El el, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public ItemIcon(Coord sz, ItemSpec spec)`
-
-- Description: TODO
+- Role: Performs item icon.
+- Description: Supports the item icon operation used by the surrounding class.
 
 #### `protected BufferedImage img()`
-
-- Description: TODO
+- Role: Performs img.
+- Description: Supports the img operation used by the surrounding class.
 
 #### `protected String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `protected PUtils.Convolution filter()`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `public Item(Coord sz, El el)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `private void update()`
-
-- Description: TODO
-
-#### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
-- Description: TODO
+#### `public void draw(GOut g)`
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, El el, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `public boolean unselect(int button)`
-
-- Description: TODO
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `public void update(ResData t, double a)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Event(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs event.
+- Description: Supports the event operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public El(Indir<Resource> res, double a)`
-
-- Description: TODO
+- Role: Performs el.
+- Description: Supports the el operation used by the surrounding class.
 
 #### `public Event ev()`
-
-- Description: TODO
+- Role: Performs ev.
+- Description: Supports the ev operation used by the surrounding class.
 
 #### `public FoodMeter()`
-
-- Description: TODO
+- Role: Performs food meter.
+- Description: Supports the food meter operation used by the surrounding class.
 
 #### `private BufferedImage mktrol(List<El> els, Indir<Resource> trev)`
-
-- Description: TODO
+- Role: Performs mktrol.
+- Description: Supports the mktrol operation used by the surrounding class.
 
 #### `private void drawels(GOut g, List<El> els, int alpha)`
-
-- Description: TODO
+- Role: Performs drawels.
+- Description: Supports the drawels operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void update(Object... args)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void trig(Indir<Resource> ev)`
-
-- Description: TODO
+- Role: Performs trig.
+- Description: Supports the trig operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public GlutMeter()`
-
-- Description: TODO
+- Role: Performs glut meter.
+- Description: Supports the glut meter operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void update(Object... args)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public BAttrWnd(Glob glob)`
-
-- Description: TODO
+- Role: Creates a new BAttrWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

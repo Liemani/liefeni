@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `TexSI`.
 
 ## Role
 
-Represents a subimage texture.
+Represents the tex si Haven component.
 
 ## Members
 
@@ -19,27 +19,27 @@ Represents a subimage texture.
 ### Fields
 
 #### `public final Tex parent`
-
-- Description: TODO
-
-#### `public final Coord ul, br`
-
-- Description: TODO
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord ul, br`
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Coord ul, br`
+- Role: Stores the br value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public TexSI(Tex parent, Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Creates a new TexSI instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.

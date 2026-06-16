@@ -10,62 +10,63 @@ This file documents the responsibilities and members of `EnvMap`.
 
 ## Role
 
-Represents an environment map helper.
+Provides resource helper logic for env map.
 
 ## Nested Types
 
 ### $envref
 
-- Description: TODO
+- Role: Represents $envref within EnvMap.
+- Description: Describes the nested $envref type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<EnvMap> slot = new Slot<EnvMap>(Slot.Type.DRAW, EnvMap.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform csky = new Uniform(SAMPLERCUBE, p -> p.get(slot).sky, slot)`
-
-- Description: TODO
+- Role: Defines the shared csky constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform ccol = new Uniform(VEC3, p -> p.get(slot).col, slot)`
-
-- Description: TODO
+- Role: Defines the shared ccol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform icam = new Uniform(MAT3, p -> Homo3D.camxf(p).transpose().trim3(), Homo3D.cam)`
-
-- Description: TODO
+- Role: Defines the shared icam constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final SamplerCube sky = WaterTile.sky`
-
-- Description: TODO
+- Role: Defines the shared sky constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final float[] col`
-
-- Description: TODO
+- Role: Stores the col value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public EnvMap(Color col)`
-
-- Description: TODO
+- Role: Creates a new EnvMap instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void cons(Material.Buffer buf, Object... args)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

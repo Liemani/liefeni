@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Texture2DArray`.
 
 ## Role
 
-Represents a 2D texture array.
+Defines the texture2 darray render pipeline component.
 
 ## Nested Types
 
 ### Sampler2DArray
 
-- Description: TODO
+- Role: Represents sampler2 darray within Texture2DArray.
+- Description: Describes the nested sampler2 darray type used by the enclosing class.
 
 ## Members
 
@@ -25,43 +26,43 @@ Represents a 2D texture array.
 ### Fields
 
 #### `public final int w, h`
-
-- Description: TODO
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
 #### `public final int w, h`
-
-- Description: TODO
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
 #### `private final boolean pot`
-
-- Description: TODO
+- Role: Tracks the pot flag.
+- Description: Supports the pot operation used by the surrounding class.
 
 ### Methods
 
 #### `public Texture2DArray(int w, int h, int n, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
-
-- Description: TODO
+- Role: Creates a new Texture2DArray instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Texture2DArray(int w, int h, int n, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
-
-- Description: TODO
+- Role: Creates a new Texture2DArray instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ArrayImage<Texture2DArray> image(int layer, int miplevel)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public Collection<ArrayImage<Texture2DArray>> images()`
-
-- Description: TODO
+- Role: Performs images.
+- Description: Supports the images operation used by the surrounding class.
 
 #### `public Sampler2DArray(Texture2DArray tex)`
-
-- Description: TODO
+- Role: Performs sampler2 darray.
+- Description: Supports the sampler2 darray operation used by the surrounding class.
 
 #### `public Sampler2DArray sampler()`
-
-- Description: TODO
+- Role: Performs sampler.
+- Description: Supports the sampler operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

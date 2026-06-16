@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Waitable`.
 
 ## Role
 
-Defines a waitable contract.
+Represents the waitable Haven component.
 
 ## Nested Types
 
 ### Waiter
 
-- Description: TODO
+- Role: Represents waiter within Waitable.
+- Description: Describes the nested waiter type used by the enclosing class.
 
 ## Members
 
@@ -25,115 +26,115 @@ Defines a waitable contract.
 ### Fields
 
 #### `public static Waiting dummy = new Waiting()`
-
-- Description: TODO
+- Role: Holds the dummy state.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<Waiter> waiters = null`
-
-- Description: TODO
+- Role: Caches waiters entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `final Runnable callback`
-
-- Description: TODO
+- Role: Holds the callback state.
+- Description: Backs the cached state for this file.
 
 #### `private final Waiting[] ops`
-
-- Description: TODO
+- Role: Holds the ops state.
+- Description: Backs the cached state for this file.
 
 #### `private final Runnable callback`
-
-- Description: TODO
-
-#### `private boolean done = false, ready = false`
-
-- Description: TODO
+- Role: Holds the callback state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean done = false, ready = false`
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
-- Description: TODO
+#### `private boolean done = false, ready = false`
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public final Runnable callback`
-
-- Description: TODO
+- Role: Holds the callback state.
+- Description: Backs the cached state for this file.
 
 #### `private Waiting cw`
-
-- Description: TODO
+- Role: Holds the cw state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void waitfor(Runnable callback, Consumer<Waiting> reg)`
-
-- Description: TODO
+- Role: Performs waitfor.
+- Description: Supports the waitfor operation used by the surrounding class.
 
 #### `public void cancel()`
-
-- Description: TODO
+- Role: Performs cancel.
+- Description: Supports the cancel operation used by the surrounding class.
 
 #### `Waiter(Runnable callback)`
-
-- Description: TODO
+- Role: Handles the waiter workflow.
+- Description: Supports the waiter operation used by the surrounding class.
 
 #### `public void cancel()`
-
-- Description: TODO
+- Role: Performs cancel.
+- Description: Supports the cancel operation used by the surrounding class.
 
 #### `public void wnotify()`
-
-- Description: TODO
+- Role: Performs wnotify.
+- Description: Supports the wnotify operation used by the surrounding class.
 
 #### `private Waiter add(Waiter w)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Waiter add(Runnable callback)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void waitfor(Runnable callback, Consumer<Waiting> reg)`
-
-- Description: TODO
+- Role: Performs waitfor.
+- Description: Supports the waitfor operation used by the surrounding class.
 
 #### `public Disjunction(Runnable callback, Waitable... ops)`
-
-- Description: TODO
+- Role: Performs disjunction.
+- Description: Supports the disjunction operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void cancel()`
-
-- Description: TODO
+- Role: Performs cancel.
+- Description: Supports the cancel operation used by the surrounding class.
 
 #### `public static void or(Runnable callback, Consumer<Waiting> reg, Waitable... ops)`
-
-- Description: TODO
+- Role: Performs or.
+- Description: Supports the or operation used by the surrounding class.
 
 #### `public Checker(Runnable callback)`
-
-- Description: TODO
+- Role: Performs checker.
+- Description: Supports the checker operation used by the surrounding class.
 
 #### `protected abstract Object monitor()`
-
-- Description: TODO
+- Role: Performs monitor.
+- Description: Supports the monitor operation used by the surrounding class.
 
 #### `protected abstract boolean check()`
-
-- Description: TODO
+- Role: Performs check.
+- Description: Supports the check operation used by the surrounding class.
 
 #### `protected abstract Waiting add()`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Checker addi()`
-
-- Description: TODO
+- Role: Performs addi.
+- Description: Supports the addi operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void cancel()`
-
-- Description: TODO
+- Role: Performs cancel.
+- Description: Supports the cancel operation used by the surrounding class.

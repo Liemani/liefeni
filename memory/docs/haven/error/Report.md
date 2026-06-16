@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Report`.
 
 ## Role
 
-Represents an error report.
+Handles Haven error reporting for report.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents an error report.
 ### Fields
 
 #### `private boolean reported = false`
-
-- Description: TODO
+- Role: Tracks the reported flag.
+- Description: Supports the reported operation used by the surrounding class.
 
 #### `public final Throwable t`
-
-- Description: TODO
+- Role: Holds the t state.
+- Description: Backs the cached state for this file.
 
 #### `public final long time`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<String, Object> props = new HashMap<String, Object>()`
-
-- Description: TODO
+- Role: Caches props entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public Report(Throwable t)`
-
-- Description: TODO
+- Role: Creates a new Report instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `synchronized void join() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the join workflow.
+- Description: Supports the join operation used by the surrounding class.
 
 #### `synchronized void done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Moving`.
 
 ## Role
 
-Represents movement behavior or state.
+Represents the moving Haven component.
 
 ## Members
 
@@ -21,21 +21,21 @@ Represents movement behavior or state.
 ### Methods
 
 #### `public Moving(Gob gob)`
-
-- Description: TODO
+- Role: Creates a new Moving instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void move(Coord2d c)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public abstract Coord3f getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `public abstract double getv()`
-
-- Description: TODO
+- Role: Returns the avatar value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Object staticp()`
-
-- Description: TODO
+- Role: Performs staticp.
+- Description: Supports the staticp operation used by the surrounding class.

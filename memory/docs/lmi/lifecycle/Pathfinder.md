@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Pathfinder`.
 
 ## Role
 
-Hosts pathfinding initialization and helpers.
+Coordinates pathfinding requests across the current world state.
 
 ## Members
 
@@ -19,115 +19,115 @@ Hosts pathfinding initialization and helpers.
 ### Fields
 
 #### `private static Coord _mapOrigin`
-
-- Description: TODO
+- Role: Stores the map origin value.
+- Description: Backs the cached state for this file.
 
 #### `private static boolean[][] _map`
-
-- Description: TODO
+- Role: Tracks the map flag.
+- Description: Supports the map operation used by the surrounding class.
 
 #### `private static Coord _destination`
-
-- Description: TODO
+- Role: Stores the destination value.
+- Description: Backs the cached state for this file.
 
 #### `private static Coord[][] _directionMap`
-
-- Description: TODO
+- Role: Stores the direction map value.
+- Description: Backs the cached state for this file.
 
 #### `private static TreeMap<Integer, LinkedList<Coord>> _searchPriorityMap`
-
-- Description: TODO
+- Role: Caches search priority map entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private static Coord _origin`
-
-- Description: TODO
+- Role: Stores the origin value.
+- Description: Backs the cached state for this file.
 
 #### `private static Coord _currentMoveCoord`
-
-- Description: TODO
+- Role: Stores the current move coord value.
+- Description: Backs the cached state for this file.
 
 #### `private static Coord _lastMoveWorldLocation`
-
-- Description: TODO
+- Role: Stores the last move world location value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `private static boolean _isBlocked(Coord coord)`
-
-- Description: TODO
+- Role: Performs  is blocked.
+- Description: Supports the is blocked operation used by the surrounding class.
 
 #### `private static Coord _getDirection(Coord coord)`
-
-- Description: TODO
+- Role: Performs  get direction.
+- Description: Supports the get direction operation used by the surrounding class.
 
 #### `private static void _setDirection(Coord coord, Coord direction)`
-
-- Description: TODO
+- Role: Performs  set direction.
+- Description: Supports the set direction operation used by the surrounding class.
 
 #### `private static void _addDistanceMap(Coord coord)`
-
-- Description: TODO
+- Role: Performs  add distance map.
+- Description: Supports the add distance map operation used by the surrounding class.
 
 #### `public static void move(Coord destination)`
-
-- Description: TODO
+- Role: Performs move.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public static void move(Gob gob)`
-
-- Description: TODO
+- Role: Performs move.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `private static void _setMap()`
-
-- Description: TODO
+- Role: Performs  set map.
+- Description: Supports the set map operation used by the surrounding class.
 
 #### `private static Coord _calculateMapOrigin()`
-
-- Description: TODO
+- Role: Performs  calculate map origin.
+- Description: Supports the calculate map origin operation used by the surrounding class.
 
 #### `private static void _scanMap(Coord mapOrigin)`
-
-- Description: TODO
+- Role: Performs  scan map.
+- Description: Supports the scan map operation used by the surrounding class.
 
 #### `private static Array<Gob> _getObstaclArray()`
-
-- Description: TODO
+- Role: Performs  get obstacl array.
+- Description: Supports the get obstacl array operation used by the surrounding class.
 
 #### `private static void _findAndMove()`
-
-- Description: TODO
+- Role: Performs  find and move.
+- Description: Supports the find and move operation used by the surrounding class.
 
 #### `private static void _findPath()`
-
-- Description: TODO
+- Role: Performs  find path.
+- Description: Supports the find path operation used by the surrounding class.
 
 #### `private static void _reset()`
-
-- Description: TODO
+- Role: Performs  reset.
+- Description: Supports the reset operation used by the surrounding class.
 
 #### `private static void _search(Coord node)`
-
-- Description: TODO
+- Role: Performs  search.
+- Description: Supports the search operation used by the surrounding class.
 
 #### `private static void _printMap()`
-
-- Description: TODO
+- Role: Performs  print map.
+- Description: Supports the print map operation used by the surrounding class.
 
 #### `private static void _pathMove()`
-
-- Description: TODO
+- Role: Performs  path move.
+- Description: Supports the path move operation used by the surrounding class.
 
 #### `private static void _correct()`
-
-- Description: TODO
+- Role: Performs  correct.
+- Description: Supports the correct operation used by the surrounding class.
 
 #### `private static void _clear()`
-
-- Description: TODO
+- Role: Performs  clear.
+- Description: Supports the clear operation used by the surrounding class.
 
 #### `private static Coord _transformMapCoord(Coord coord)`
-
-- Description: TODO
+- Role: Performs  transform map coord.
+- Description: Supports the transform map coord operation used by the surrounding class.

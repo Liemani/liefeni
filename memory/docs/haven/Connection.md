@@ -10,494 +10,509 @@ This file documents the responsibilities and members of `Connection`.
 
 ## Role
 
-Represents a network connection.
+Represents the connection Haven component.
 
 ## Nested Types
 
 ### Close
 
-- Description: TODO
+- Role: Represents close within Connection.
+- Description: Describes the nested close type used by the enclosing class.
 
 ### Connect
 
-- Description: TODO
+- Role: Represents connect within Connection.
+- Description: Describes the nested connect type used by the enclosing class.
 
 ### Crypto
 
-- Description: TODO
+- Role: Represents crypto within Connection.
+- Description: Describes the nested crypto type used by the enclosing class.
 
 ### DecryptException
 
-- Description: TODO
+- Role: Represents decrypt exception within Connection.
+- Description: Describes the nested decrypt exception type used by the enclosing class.
 
 ### Main
 
-- Description: TODO
+- Role: Represents main within Connection.
+- Description: Describes the nested main type used by the enclosing class.
 
 ### ObjAck
 
-- Description: TODO
+- Role: Represents obj ack within Connection.
+- Description: Describes the nested obj ack type used by the enclosing class.
 
 ### SessionAuthError
 
-- Description: TODO
+- Role: Represents session auth error within Connection.
+- Description: Describes the nested session auth error type used by the enclosing class.
 
 ### SessionBusyError
 
-- Description: TODO
+- Role: Represents session busy error within Connection.
+- Description: Describes the nested session busy error type used by the enclosing class.
 
 ### SessionConnError
 
-- Description: TODO
+- Role: Represents session conn error within Connection.
+- Description: Describes the nested session conn error type used by the enclosing class.
 
 ### SessionError
 
-- Description: TODO
+- Role: Represents session error within Connection.
+- Description: Describes the nested session error type used by the enclosing class.
 
 ### SessionExprError
 
-- Description: TODO
+- Role: Represents session expr error within Connection.
+- Description: Describes the nested session expr error type used by the enclosing class.
 
 ### SessionPVerError
 
-- Description: TODO
+- Role: Represents session pver error within Connection.
+- Description: Describes the nested session pver error type used by the enclosing class.
 
 ### Stats
 
-- Description: TODO
+- Role: Represents stats within Connection.
+- Description: Describes the nested stats type used by the enclosing class.
 
 ### Task
 
-- Description: TODO
+- Role: Represents task within Connection.
+- Description: Describes the nested task type used by the enclosing class.
 
 ### Worker
 
-- Description: TODO
+- Role: Represents worker within Connection.
+- Description: Describes the nested worker type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<Boolean> encrypt = Config.Variable.propb("haven.hcrypt", false)`
-
-- Description: TODO
+- Role: Defines the shared encrypt constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final double ACK_HOLD = 0.030`
-
-- Description: TODO
-
-#### `private static final double OBJACK_HOLD = 0.08, OBJACK_HOLD_MAX = 0.5`
-
-- Description: TODO
+- Role: Defines the shared ack hold constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final double OBJACK_HOLD = 0.08, OBJACK_HOLD_MAX = 0.5`
+- Role: Defines the shared objack hold constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `private static final double OBJACK_HOLD = 0.08, OBJACK_HOLD_MAX = 0.5`
+- Role: Defines the shared objack hold constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final String[] apfx =`
-
-- Description: TODO
+- Role: Defines the shared connection constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final SocketAddress server`
-
-- Description: TODO
+- Role: Holds the server state.
+- Description: Backs the cached state for this file.
 
 #### `public final Stats stats = new Stats()`
-
-- Description: TODO
+- Role: Holds the stats state.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<Callback> cbs = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches cbs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final DatagramChannel sk`
-
-- Description: TODO
+- Role: Holds the sk state.
+- Description: Backs the cached state for this file.
 
 #### `private final Selector sel`
-
-- Description: TODO
+- Role: Holds the sel state.
+- Description: Backs the cached state for this file.
 
 #### `private final SelectionKey key`
-
-- Description: TODO
+- Role: Holds the key state.
+- Description: Backs the cached state for this file.
 
 #### `private Worker worker`
-
-- Description: TODO
+- Role: Holds the worker state.
+- Description: Backs the cached state for this file.
 
 #### `private int tseq`
-
-- Description: TODO
+- Role: Stores the tseq value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean alive = true`
-
-- Description: TODO
+- Role: Tracks the alive flag.
+- Description: Supports the alive operation used by the surrounding class.
 
 #### `private Crypto crypt`
-
-- Description: TODO
+- Role: Holds the crypt state.
+- Description: Backs the cached state for this file.
 
 #### `private final Cipher cipher`
-
-- Description: TODO
-
-#### `private final Key tkey, rkey`
-
-- Description: TODO
+- Role: Holds the cipher state.
+- Description: Backs the cached state for this file.
 
 #### `private final Key tkey, rkey`
+- Role: Holds the rkey state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final Key tkey, rkey`
+- Role: Holds the rkey state.
+- Description: Backs the cached state for this file.
 
 #### `private final NavigableSet<Long> rseqs = new TreeSet<>()`
-
-- Description: TODO
+- Role: Caches rseqs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private long tseq`
-
-- Description: TODO
+- Role: Stores the tseq value.
+- Description: Backs the cached state for this file.
 
 #### `private final double[] rpltimes = new double[32]`
-
-- Description: TODO
-
-#### `private long ptx, prx, pretx`
-
-- Description: TODO
+- Role: Stores the rpltimes value.
+- Description: Backs the cached state for this file.
 
 #### `private long ptx, prx, pretx`
-
-- Description: TODO
+- Role: Stores the pretx value.
+- Description: Backs the cached state for this file.
 
 #### `private long ptx, prx, pretx`
+- Role: Stores the pretx value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `private long btx, brx, prerx, prorx`
-
-- Description: TODO
-
-#### `private long btx, brx, prerx, prorx`
-
-- Description: TODO
+#### `private long ptx, prx, pretx`
+- Role: Stores the pretx value.
+- Description: Backs the cached state for this file.
 
 #### `private long btx, brx, prerx, prorx`
-
-- Description: TODO
+- Role: Stores the prorx value.
+- Description: Backs the cached state for this file.
 
 #### `private long btx, brx, prerx, prorx`
+- Role: Stores the prorx value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private long btx, brx, prerx, prorx`
+- Role: Stores the prorx value.
+- Description: Backs the cached state for this file.
+
+#### `private long btx, brx, prerx, prorx`
+- Role: Stores the prorx value.
+- Description: Backs the cached state for this file.
 
 #### `private int rplhead = 0, nrpls = 0`
-
-- Description: TODO
+- Role: Stores the rplhead value.
+- Description: Backs the cached state for this file.
 
 #### `private int rplhead = 0, nrpls = 0`
-
-- Description: TODO
-
-#### `private double srtt, rttv`
-
-- Description: TODO
+- Role: Stores the rplhead value.
+- Description: Backs the cached state for this file.
 
 #### `private double srtt, rttv`
+- Role: Stores the rttv value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private double srtt, rttv`
+- Role: Stores the rttv value.
+- Description: Backs the cached state for this file.
 
 #### `private Task init`
-
-- Description: TODO
+- Role: Holds the init state.
+- Description: Backs the cached state for this file.
 
 #### `private final ByteBuffer recvbuf = ByteBuffer.allocate(65536)`
-
-- Description: TODO
+- Role: Stores the recvbuf value.
+- Description: Backs the cached state for this file.
 
 #### `private final List<RMessage> pending = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches pending entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final PMessage msg`
-
-- Description: TODO
+- Role: Holds the msg state.
+- Description: Backs the cached state for this file.
 
 #### `private int result = -1`
-
-- Description: TODO
+- Role: Stores the result value.
+- Description: Backs the cached state for this file.
 
 #### `private Throwable cause`
-
-- Description: TODO
+- Role: Holds the cause state.
+- Description: Backs the cached state for this file.
 
 #### `private String message`
-
-- Description: TODO
+- Role: Stores the message value.
+- Description: Backs the cached state for this file.
 
 #### `private Crypto crypt`
-
-- Description: TODO
+- Role: Holds the crypt state.
+- Description: Backs the cached state for this file.
 
 #### `long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `int frame`
-
-- Description: TODO
-
-#### `double frecv, lrecv`
-
-- Description: TODO
+- Role: Stores the frame value.
+- Description: Backs the cached state for this file.
 
 #### `double frecv, lrecv`
+- Role: Stores the lrecv value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `double frecv, lrecv`
+- Role: Stores the lrecv value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Short, RMessage> waiting = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches waiting entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Long, ObjAck> objacks = new HashMap<>()`
-
-- Description: TODO
-
-#### `private double now, lasttx`
-
-- Description: TODO
+- Role: Caches objacks entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private double now, lasttx`
+- Role: Stores the lasttx value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private double now, lasttx`
+- Role: Stores the lasttx value.
+- Description: Backs the cached state for this file.
 
 #### `private short rseq, ackseq`
-
-- Description: TODO
+- Role: Stores the ackseq value.
+- Description: Backs the cached state for this file.
 
 #### `private short rseq, ackseq`
-
-- Description: TODO
+- Role: Stores the ackseq value.
+- Description: Backs the cached state for this file.
 
 #### `private double acktime = -1`
-
-- Description: TODO
+- Role: Stores the acktime value.
+- Description: Backs the cached state for this file.
 
 #### `private byte[] fragbuf = null`
-
-- Description: TODO
+- Role: Stores the fragbuf value.
+- Description: Backs the cached state for this file.
 
 #### `private int fragtype`
-
-- Description: TODO
+- Role: Stores the fragtype value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean sawclose`
-
-- Description: TODO
+- Role: Tracks the sawclose flag.
+- Description: Supports the sawclose operation used by the surrounding class.
 
 #### `public final int code`
-
-- Description: TODO
+- Role: Stores the code value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Connection(SocketAddress server)`
-
-- Description: TODO
+- Role: Creates a new Connection instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Connection add(Callback cb)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public DecryptException(String msg, Throwable cause)`
-
-- Description: TODO
+- Role: Performs decrypt exception.
+- Description: Supports the decrypt exception operation used by the surrounding class.
 
 #### `public DecryptException(String msg)`
-
-- Description: TODO
+- Role: Performs decrypt exception.
+- Description: Supports the decrypt exception operation used by the surrounding class.
 
 #### `private static boolean supported()`
-
-- Description: TODO
+- Role: Performs supported.
+- Description: Supports the supported operation used by the surrounding class.
 
 #### `private Crypto(byte[] cookie, byte[] salt)`
-
-- Description: TODO
+- Role: Performs crypto.
+- Description: Supports the crypto operation used by the surrounding class.
 
 #### `public synchronized byte[] encrypt(byte[] msg)`
-
-- Description: TODO
+- Role: Performs encrypt.
+- Description: Supports the encrypt operation used by the surrounding class.
 
 #### `public synchronized byte[] decrypt(byte[] msg) throws DecryptException`
-
-- Description: TODO
+- Role: Handles the decrypt workflow.
+- Description: Supports the decrypt operation used by the surrounding class.
 
 #### `public PMessage encrypt(PMessage msg)`
-
-- Description: TODO
+- Role: Performs encrypt.
+- Description: Supports the encrypt operation used by the surrounding class.
 
 #### `public PMessage decrypt(MessageBuf msg) throws DecryptException`
-
-- Description: TODO
+- Role: Handles the decrypt workflow.
+- Description: Supports the decrypt operation used by the surrounding class.
 
 #### `private void addreply(double time)`
-
-- Description: TODO
+- Role: Performs addreply.
+- Description: Supports the addreply operation used by the surrounding class.
 
 #### `private String abbr(String fmt, double n)`
-
-- Description: TODO
+- Role: Performs abbr.
+- Description: Supports the abbr operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private Worker(Task init)`
-
-- Description: TODO
+- Role: Performs worker.
+- Description: Supports the worker operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public Task run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private void start(Task init)`
-
-- Description: TODO
+- Role: Starts the current workflow.
+- Description: Supports the start operation used by the surrounding class.
 
 #### `public boolean alive()`
-
-- Description: TODO
+- Role: Performs alive.
+- Description: Supports the alive operation used by the surrounding class.
 
 #### `private PMessage recv() throws IOException`
-
-- Description: TODO
+- Role: Handles the recv workflow.
+- Description: Supports the recv operation used by the surrounding class.
 
 #### `public void send(ByteBuffer msg)`
-
-- Description: TODO
+- Role: Sends the current message.
+- Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `public void send(PMessage msg)`
-
-- Description: TODO
+- Role: Sends the current message.
+- Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `private boolean select(double timeout) throws IOException`
-
-- Description: TODO
+- Role: Handles the select workflow.
+- Description: Supports the select operation used by the surrounding class.
 
 #### `private void wake()`
-
-- Description: TODO
+- Role: Performs wake.
+- Description: Supports the wake operation used by the surrounding class.
 
 #### `private Connect(String username, boolean encrypt, byte[] cookie, Object... args)`
-
-- Description: TODO
+- Role: Performs connect.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `public Task run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `ObjAck(long id, int frame, double recv)`
-
-- Description: TODO
+- Role: Handles the obj ack workflow.
+- Description: Supports the obj ack operation used by the surrounding class.
 
 #### `private void handlerel(PMessage msg)`
-
-- Description: TODO
+- Role: Performs handlerel.
+- Description: Supports the handlerel operation used by the surrounding class.
 
 #### `private void gotrel(RMessage msg)`
-
-- Description: TODO
+- Role: Performs gotrel.
+- Description: Supports the gotrel operation used by the surrounding class.
 
 #### `private void sendack(short seq)`
-
-- Description: TODO
+- Role: Performs sendack.
+- Description: Supports the sendack operation used by the surrounding class.
 
 #### `private void gotack(short seq)`
-
-- Description: TODO
+- Role: Performs gotack.
+- Description: Supports the gotack operation used by the surrounding class.
 
 #### `private void gotmapdata(MessageBuf msg)`
-
-- Description: TODO
+- Role: Performs gotmapdata.
+- Description: Supports the gotmapdata operation used by the surrounding class.
 
 #### `private void gotobjdata(Message msg)`
-
-- Description: TODO
+- Role: Performs gotobjdata.
+- Description: Supports the gotobjdata operation used by the surrounding class.
 
 #### `private void handlemsg(PMessage msg)`
-
-- Description: TODO
+- Role: Performs handlemsg.
+- Description: Supports the handlemsg operation used by the surrounding class.
 
 #### `private double min2(double a, double b)`
-
-- Description: TODO
+- Role: Performs min2.
+- Description: Supports the min2 operation used by the surrounding class.
 
 #### `private double sendpending()`
-
-- Description: TODO
+- Role: Performs sendpending.
+- Description: Supports the sendpending operation used by the surrounding class.
 
 #### `private double sendobjacks()`
-
-- Description: TODO
+- Role: Performs sendobjacks.
+- Description: Supports the sendobjacks operation used by the surrounding class.
 
 #### `public Task run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private Close(boolean sawclose)`
-
-- Description: TODO
+- Role: Performs close.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public Task run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void queuemsg(PMessage pmsg)`
-
-- Description: TODO
+- Role: Performs queuemsg.
+- Description: Supports the queuemsg operation used by the surrounding class.
 
 #### `public boolean encrypted()`
-
-- Description: TODO
+- Role: Performs encrypted.
+- Description: Supports the encrypted operation used by the surrounding class.
 
 #### `public SessionError(int code, String reason)`
-
-- Description: TODO
+- Role: Performs session error.
+- Description: Supports the session error operation used by the surrounding class.
 
 #### `public SessionError(String reason)`
-
-- Description: TODO
+- Role: Performs session error.
+- Description: Supports the session error operation used by the surrounding class.
 
 #### `public SessionAuthError()`
-
-- Description: TODO
+- Role: Performs session auth error.
+- Description: Supports the session auth error operation used by the surrounding class.
 
 #### `public SessionBusyError()`
-
-- Description: TODO
+- Role: Performs session busy error.
+- Description: Supports the session busy error operation used by the surrounding class.
 
 #### `public SessionConnError()`
-
-- Description: TODO
+- Role: Performs session conn error.
+- Description: Supports the session conn error operation used by the surrounding class.
 
 #### `public SessionPVerError()`
-
-- Description: TODO
+- Role: Performs session pver error.
+- Description: Supports the session pver error operation used by the surrounding class.
 
 #### `public SessionExprError()`
-
-- Description: TODO
+- Role: Performs session expr error.
+- Description: Supports the session expr error operation used by the surrounding class.
 
 #### `public void connect(String username, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the connect workflow.
+- Description: Supports the connect operation used by the surrounding class.

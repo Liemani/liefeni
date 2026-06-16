@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `Model`.
 
 ## Role
 
-Represents a render model.
+Defines the model render pipeline component.
 
 ## Nested Types
 
 ### Indices
 
-- Description: TODO
+- Role: Represents indices within Model.
+- Description: Describes the nested indices type used by the enclosing class.
 
 ### Mode
 
-- Description: TODO
+- Role: Represents mode within Model.
+- Description: Describes the nested mode type used by the enclosing class.
 
 ## Members
 
@@ -29,115 +31,115 @@ Represents a render model.
 ### Fields
 
 #### `public final Mode mode`
-
-- Description: TODO
+- Role: Holds the mode state.
+- Description: Backs the cached state for this file.
 
 #### `public final VertexArray va`
-
-- Description: TODO
+- Role: Caches va entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Indices ind`
-
-- Description: TODO
-
-#### `public final int f, n`
-
-- Description: TODO
+- Role: Holds the ind state.
+- Description: Backs the cached state for this file.
 
 #### `public final int f, n`
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int f, n`
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `public final int ninst`
-
-- Description: TODO
+- Role: Stores the ninst value.
+- Description: Backs the cached state for this file.
 
 #### `public Disposable ro`
-
-- Description: TODO
+- Role: Holds the ro state.
+- Description: Backs the cached state for this file.
 
 #### `public Object desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 #### `public final NumberFormat fmt`
-
-- Description: TODO
+- Role: Holds the fmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final int n`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `public final Usage usage`
-
-- Description: TODO
+- Role: Holds the usage state.
+- Description: Backs the cached state for this file.
 
 #### `public final Filler<? super Indices> init`
-
-- Description: TODO
+- Role: Holds the init state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean shared = false`
-
-- Description: TODO
+- Role: Tracks the shared flag.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public Disposable ro`
-
-- Description: TODO
+- Role: Holds the ro state.
+- Description: Backs the cached state for this file.
 
 #### `public Object desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Model(Mode mode, VertexArray va, Indices ind, int f, int n, int ninst)`
-
-- Description: TODO
+- Role: Creates a new Model instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Model(Mode mode, VertexArray va, Indices ind, int f, int n)`
-
-- Description: TODO
+- Role: Creates a new Model instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Model(Mode mode, VertexArray va, Indices ind)`
-
-- Description: TODO
+- Role: Creates a new Model instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Indices(int n, NumberFormat fmt, Usage usage, Filler<? super Indices> init)`
-
-- Description: TODO
+- Role: Performs indices.
+- Description: Supports the indices operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Indices shared()`
-
-- Description: TODO
+- Role: Performs shared.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Indices desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void draw(Pipe state, Render out)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Model desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.

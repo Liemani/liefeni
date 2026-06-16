@@ -10,78 +10,79 @@ This file documents the responsibilities and members of `LWJGLBuffer`.
 
 ## Role
 
-Represents an LWJGL buffer.
+Adapts the render backend to LWJGL for lwjglbuffer.
 
 ## Nested Types
 
 ### Cleanup
 
-- Description: TODO
+- Role: Represents cleanup within LWJGLBuffer.
+- Description: Describes the nested cleanup type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final boolean LEAK_CHECK = false`
-
-- Description: TODO
+- Role: Defines the shared leak check constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private ByteBuffer data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private final Cleanup clean`
-
-- Description: TODO
+- Role: Holds the clean state.
+- Description: Backs the cached state for this file.
 
 #### `private final Throwable init = LEAK_CHECK ? new Throwable() : null`
-
-- Description: TODO
+- Role: Holds the init state.
+- Description: Backs the cached state for this file.
 
 #### `private final ByteBuffer data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private final Runnable fin`
-
-- Description: TODO
+- Role: Holds the fin state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean clean`
-
-- Description: TODO
+- Role: Tracks the clean flag.
+- Description: Supports the clean operation used by the surrounding class.
 
 ### Methods
 
 #### `Cleanup(LWJGLBuffer ob)`
-
-- Description: TODO
+- Role: Handles the cleanup workflow.
+- Description: Supports the cleanup operation used by the surrounding class.
 
 #### `public void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public LWJGLBuffer(LWJGLEnvironment env, int sz)`
-
-- Description: TODO
+- Role: Creates a new LWJGLBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ByteBuffer data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `protected boolean leakcheck()`
-
-- Description: TODO
+- Role: Performs leakcheck.
+- Description: Supports the leakcheck operation used by the surrounding class.

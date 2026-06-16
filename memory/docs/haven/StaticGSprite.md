@@ -10,36 +10,36 @@ This file documents the responsibilities and members of `StaticGSprite`.
 
 ## Role
 
-Represents a static game sprite.
+Represents the static gsprite Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Factory fact = new Factory()`
-
-- Description: TODO
+- Role: Defines the shared fact constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Resource.Image img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public StaticGSprite(Owner owner, Resource.Image img)`
-
-- Description: TODO
+- Role: Creates a new StaticGSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public BufferedImage image()`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.

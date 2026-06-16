@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `HeapBuffer`.
 
 ## Role
 
-Represents a heap-backed buffer.
+Provides GL backend support for heap buffer.
 
 ## Members
 
@@ -19,15 +19,15 @@ Represents a heap-backed buffer.
 ### Fields
 
 #### `public SysBuffer mem`
-
-- Description: TODO
+- Role: Stores the mem value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public <T extends DataBuffer> HeapBuffer(GLEnvironment env, T obj, DataBuffer.Filler<? super T> init)`
-
-- Description: TODO
+- Role: Creates a new HeapBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

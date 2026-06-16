@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LoadEdgesByGraphResult`
 
 ## Role
 
-Carries a typed result payload for waypoint work.
+Represents the result of load edges by graph result.
 
 ## Members
 
@@ -19,15 +19,15 @@ Carries a typed result payload for waypoint work.
 ### Fields
 
 #### `public final long graphId`
-
-- Description: TODO
+- Role: Stores the graph id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Array<WpEdge> edges`
-
-- Description: TODO
+- Role: Caches edges entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public LoadEdgesByGraphResult(long graphId, Array<WpEdge> edges)`
-
-- Description: TODO
+- Role: Creates a new LoadEdgesByGraphResult instance.
+- Description: Constructs the instance and initializes its default state.

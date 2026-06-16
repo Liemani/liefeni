@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Mul`.
 
 ## Role
 
-Represents a multiplication expression.
+Represents the mul shader-language AST node.
 
 ## Members
 
@@ -19,19 +19,19 @@ Represents a multiplication expression.
 ### Fields
 
 #### `public final Expression[] terms`
-
-- Description: TODO
+- Role: Holds the terms state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Mul(Expression... terms)`
-
-- Description: TODO
+- Role: Creates a new Mul instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

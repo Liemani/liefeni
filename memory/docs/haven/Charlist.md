@@ -10,218 +10,222 @@ This file documents the responsibilities and members of `Charlist`.
 
 ## Role
 
-Displays the character selection list.
+Represents the charlist Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Charlist.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Boxlist
 
-- Description: TODO
+- Role: Represents boxlist within Charlist.
+- Description: Describes the nested boxlist type used by the enclosing class.
 
 ### Char
 
-- Description: TODO
+- Role: Represents char within Charlist.
+- Description: Describes the nested char type used by the enclosing class.
 
 ### Charbox
 
-- Description: TODO
+- Role: Represents charbox within Charlist.
+- Description: Describes the nested charbox type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord bsz = UI.scale(289, 96)`
-
-- Description: TODO
+- Role: Defines the shared bsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Furnace nf = new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 20).aa(true), Window.ctex), UI.scale(2), UI.scale(2), Color.BLACK)`
-
-- Description: TODO
+- Role: Defines the shared nf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Furnace df = new PUtils.BlurFurn(Button.tf, UI.scale(2), UI.scale(2), Color.BLACK)`
-
-- Description: TODO
+- Role: Defines the shared df constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int margin = UI.scale(6)`
-
-- Description: TODO
+- Role: Defines the shared margin constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int btnw = UI.scale(100)`
-
-- Description: TODO
+- Role: Defines the shared btnw constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final int height`
-
-- Description: TODO
-
-#### `public final IButton sau, sad`
-
-- Description: TODO
+- Role: Stores the height value.
+- Description: Backs the cached state for this file.
 
 #### `public final IButton sau, sad`
+- Role: Holds the sad state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final IButton sau, sad`
+- Role: Holds the sad state.
+- Description: Backs the cached state for this file.
 
 #### `public final List<Char> chars = new ArrayList<Char>()`
-
-- Description: TODO
+- Role: Caches chars entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Boxlist list`
-
-- Description: TODO
+- Role: Holds the list state.
+- Description: Backs the cached state for this file.
 
 #### `public Avaview avalink`
-
-- Description: TODO
+- Role: Holds the avalink state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean dirty`
-
-- Description: TODO
+- Role: Tracks whether dirty is dirty.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private boolean showdisc`
-
-- Description: TODO
+- Role: Tracks the showdisc flag.
+- Description: Supports the showdisc operation used by the surrounding class.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public String disc`
-
-- Description: TODO
+- Role: Stores the disc value.
+- Description: Backs the cached state for this file.
 
 #### `public Composited.Desc avadesc`
-
-- Description: TODO
+- Role: Holds the avadesc state.
+- Description: Backs the cached state for this file.
 
 #### `public Resource.Resolver avamap`
-
-- Description: TODO
+- Role: Stores the avamap value.
+- Description: Backs the cached state for this file.
 
 #### `public Collection<ResData> avaposes`
-
-- Description: TODO
+- Role: Caches avaposes entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Char chr`
-
-- Description: TODO
+- Role: Stores the chr value.
+- Description: Backs the cached state for this file.
 
 #### `public final Avaview ava`
-
-- Description: TODO
-
-#### `public final ILabel name, disc`
-
-- Description: TODO
+- Role: Holds the ava state.
+- Description: Backs the cached state for this file.
 
 #### `public final ILabel name, disc`
+- Role: Stores the disc value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final ILabel name, disc`
+- Role: Stores the disc value.
+- Description: Backs the cached state for this file.
 
 #### `private int scrolltgt = -1`
-
-- Description: TODO
+- Role: Stores the scrolltgt value.
+- Description: Backs the cached state for this file.
 
 #### `private double scrollval = -1`
-
-- Description: TODO
+- Role: Stores the scrollval value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Charlist(int height)`
-
-- Description: TODO
+- Role: Creates a new Charlist instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Char(String name)`
-
-- Description: TODO
+- Role: Performs char.
+- Description: Supports the char operation used by the surrounding class.
 
 #### `public void ava(Composited.Desc desc, Resource.Resolver resmap, Collection<ResData> poses)`
-
-- Description: TODO
+- Role: Performs ava.
+- Description: Supports the ava operation used by the surrounding class.
 
 #### `public Charbox(Char chr)`
-
-- Description: TODO
+- Role: Performs charbox.
+- Description: Supports the charbox operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public Boxlist(int h)`
-
-- Description: TODO
+- Role: Performs boxlist.
+- Description: Supports the boxlist operation used by the surrounding class.
 
 #### `protected List<Char> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Charbox makeitem(Char chr, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, Char item, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `protected boolean unselect(int button)`
-
-- Description: TODO
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `protected boolean autoscroll()`
-
-- Description: TODO
+- Role: Performs autoscroll.
+- Description: Supports the autoscroll operation used by the surrounding class.
 
 #### `public void change(Char chr)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `private void checkdisc()`
-
-- Description: TODO
+- Role: Performs checkdisc.
+- Description: Supports the checkdisc operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void scroll(int amount)`
-
-- Description: TODO
+- Role: Performs scroll.
+- Description: Supports the scroll operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.

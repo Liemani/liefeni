@@ -10,290 +10,298 @@ This file documents the responsibilities and members of `Finalizer`.
 
 ## Role
 
-Handles finalization helpers.
+Represents the finalizer Haven component.
 
 ## Nested Types
 
 ### Cleaner
 
-- Description: TODO
+- Role: Represents cleaner within Finalizer.
+- Description: Describes the nested cleaner type used by the enclosing class.
 
 ### Disposer
 
-- Description: TODO
+- Role: Represents disposer within Finalizer.
+- Description: Describes the nested disposer type used by the enclosing class.
 
 ### Entry
 
-- Description: TODO
+- Role: Represents entry within Finalizer.
+- Description: Describes the nested entry type used by the enclosing class.
 
 ### Formattable
 
-- Description: TODO
+- Role: Represents formattable within Finalizer.
+- Description: Describes the nested formattable type used by the enclosing class.
 
 ### LeakCheck
 
-- Description: TODO
+- Role: Represents leak check within Finalizer.
+- Description: Describes the nested leak check type used by the enclosing class.
 
 ### Ref
 
-- Description: TODO
+- Role: Represents ref within Finalizer.
+- Description: Describes the nested ref type used by the enclosing class.
 
 ### Reference
 
-- Description: TODO
+- Role: Represents reference within Finalizer.
+- Description: Describes the nested reference type used by the enclosing class.
 
 ### Snapshot
 
-- Description: TODO
+- Role: Represents snapshot within Finalizer.
+- Description: Describes the nested snapshot type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<ThreadGroup, Finalizer> groups = new WeakHashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared groups constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static boolean CHECK_CYCLES = false`
-
-- Description: TODO
+- Role: Tracks the check cycles flag.
+- Description: Supports the check cycles operation used by the surrounding class.
 
 #### `private final ReferenceQueue<Object> queue = new ReferenceQueue<>()`
-
-- Description: TODO
+- Role: Caches queue entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Function<Runnable, Thread> ctx`
-
-- Description: TODO
+- Role: Holds the ctx state.
+- Description: Backs the cached state for this file.
 
 #### `private Thread th`
-
-- Description: TODO
+- Role: Holds the th state.
+- Description: Backs the cached state for this file.
 
 #### `private Ref list`
-
-- Description: TODO
+- Role: Holds the list state.
+- Description: Backs the cached state for this file.
 
 #### `private int n`
-
-- Description: TODO
+- Role: Stores the n value.
+- Description: Backs the cached state for this file.
 
 #### `final Cleaner action`
-
-- Description: TODO
+- Role: Holds the action state.
+- Description: Backs the cached state for this file.
 
 #### `boolean linked`
-
-- Description: TODO
-
-#### `Ref next, prev`
-
-- Description: TODO
+- Role: Tracks the linked flag.
+- Description: Supports the linked operation used by the surrounding class.
 
 #### `Ref next, prev`
+- Role: Holds the prev state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `Ref next, prev`
+- Role: Holds the prev state.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<Entry> refs`
-
-- Description: TODO
+- Role: Caches refs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final String desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `private Ref ref`
-
-- Description: TODO
+- Role: Holds the ref state.
+- Description: Backs the cached state for this file.
 
 #### `private static boolean leaking = false`
-
-- Description: TODO
+- Role: Tracks the leaking flag.
+- Description: Supports the leaking operation used by the surrounding class.
 
 #### `public final String desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `private final Runnable fin`
-
-- Description: TODO
+- Role: Holds the fin state.
+- Description: Backs the cached state for this file.
 
 #### `private final Class<?> cls`
-
-- Description: TODO
+- Role: Holds the cls state.
+- Description: Backs the cached state for this file.
 
 #### `private final Throwable create`
-
-- Description: TODO
+- Role: Holds the create state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean clean = false`
-
-- Description: TODO
+- Role: Tracks the clean flag.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public final Disposable tgt`
-
-- Description: TODO
+- Role: Holds the tgt state.
+- Description: Backs the cached state for this file.
 
 #### `public final T ob`
-
-- Description: TODO
+- Role: Holds the ob state.
+- Description: Backs the cached state for this file.
 
 #### `private final Runnable clean`
-
-- Description: TODO
+- Role: Holds the clean state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Finalizer(Function<Runnable, Thread> ctx)`
-
-- Description: TODO
+- Role: Creates a new Finalizer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Finalizer()`
-
-- Description: TODO
+- Role: Creates a new Finalizer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public String format()`
-
-- Description: TODO
+- Role: Performs format.
+- Description: Supports the format operation used by the surrounding class.
 
 #### `Ref(Object x, Cleaner action)`
-
-- Description: TODO
+- Role: Handles the ref workflow.
+- Description: Supports the ref operation used by the surrounding class.
 
 #### `private void add()`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `private void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `private void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `private void ckrun()`
-
-- Description: TODO
+- Role: Performs ckrun.
+- Description: Supports the ckrun operation used by the surrounding class.
 
 #### `public Runnable add(Object x, Cleaner action)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public static Finalizer get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public static Runnable finalize(Object x, Cleaner action)`
-
-- Description: TODO
+- Role: Performs finalize.
+- Description: Supports the finalize operation used by the surrounding class.
 
 #### `private Entry(Ref ref)`
-
-- Description: TODO
+- Role: Performs entry.
+- Description: Supports the entry operation used by the surrounding class.
 
 #### `public boolean equals(Entry that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `private Snapshot(Finalizer from)`
-
-- Description: TODO
+- Role: Performs snapshot.
+- Description: Supports the snapshot operation used by the surrounding class.
 
 #### `public Snapshot weaken()`
-
-- Description: TODO
+- Role: Performs weaken.
+- Description: Supports the weaken operation used by the surrounding class.
 
 #### `public String summary()`
-
-- Description: TODO
+- Role: Performs summary.
+- Description: Supports the summary operation used by the surrounding class.
 
 #### `public String delta(Snapshot prev)`
-
-- Description: TODO
+- Role: Performs delta.
+- Description: Supports the delta operation used by the surrounding class.
 
 #### `public Snapshot snapshot()`
-
-- Description: TODO
+- Role: Performs snapshot.
+- Description: Supports the snapshot operation used by the surrounding class.
 
 #### `private static void checkcycle(Object ref, Object root)`
-
-- Description: TODO
+- Role: Performs checkcycle.
+- Description: Supports the checkcycle operation used by the surrounding class.
 
 #### `public LeakCheck(Object guarded, String desc)`
-
-- Description: TODO
+- Role: Performs leak check.
+- Description: Supports the leak check operation used by the surrounding class.
 
 #### `public LeakCheck(Object guarded)`
-
-- Description: TODO
+- Role: Performs leak check.
+- Description: Supports the leak check operation used by the surrounding class.
 
 #### `public void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String format()`
-
-- Description: TODO
+- Role: Performs format.
+- Description: Supports the format operation used by the surrounding class.
 
 #### `public static Disposable leakcheck(Object guarded, String desc)`
-
-- Description: TODO
+- Role: Performs leakcheck.
+- Description: Supports the leakcheck operation used by the surrounding class.
 
 #### `public static Disposable leakcheck(Object guarded)`
-
-- Description: TODO
+- Role: Performs leakcheck.
+- Description: Supports the leakcheck operation used by the surrounding class.
 
 #### `public Disposer(Disposable tgt)`
-
-- Description: TODO
+- Role: Performs disposer.
+- Description: Supports the disposer operation used by the surrounding class.
 
 #### `public void clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public String format()`
-
-- Description: TODO
+- Role: Performs format.
+- Description: Supports the format operation used by the surrounding class.
 
 #### `public Reference(T ob)`
-
-- Description: TODO
+- Role: Performs reference.
+- Description: Supports the reference operation used by the surrounding class.
 
 #### `public T get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

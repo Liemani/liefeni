@@ -10,196 +10,196 @@ This file documents the responsibilities and members of `SkelSprite`.
 
 ## Role
 
-Represents a skeletal sprite.
+Represents the skel sprite Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final float ipollen = 0.3f`
-
-- Description: TODO
+- Role: Defines the shared ipollen constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Factory fact = new Factory()`
-
-- Description: TODO
+- Role: Defines the shared fact constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<SkelSprite> ctxr = new OwnerContext.ClassResolver<SkelSprite>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<MeshAnim.Res, MeshAnim.Animation> nomaids = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared nomaids constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Skeleton.ResPose, PoseMod> initmodids = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared initmodids constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `rigid = new BaseColor(FColor.GREEN),`
-
-- Description: TODO
+- Role: Holds the base color state.
+- Description: Backs the cached state for this file.
 
 #### `morphed = new BaseColor(FColor.RED),`
-
-- Description: TODO
+- Role: Holds the base color state.
+- Description: Backs the cached state for this file.
 
 #### `unboned = new BaseColor(FColor.YELLOW)`
-
-- Description: TODO
+- Role: Holds the base color state.
+- Description: Backs the cached state for this file.
 
 #### `public static boolean bonedb = false`
-
-- Description: TODO
+- Role: Tracks the bonedb flag.
+- Description: Supports the bonedb operation used by the surrounding class.
 
 #### `public final Skeleton skel`
-
-- Description: TODO
+- Role: Holds the skel state.
+- Description: Backs the cached state for this file.
 
 #### `public final Pose pose`
-
-- Description: TODO
+- Role: Holds the pose state.
+- Description: Backs the cached state for this file.
 
 #### `public PoseMod[] mods = new PoseMod[0]`
-
-- Description: TODO
+- Role: Holds the mods state.
+- Description: Backs the cached state for this file.
 
 #### `public MeshAnim.Animation[] manims = new MeshAnim.Animation[0]`
-
-- Description: TODO
+- Role: Holds the manims state.
+- Description: Backs the cached state for this file.
 
 #### `public int curfl`
-
-- Description: TODO
+- Role: Stores the curfl value.
+- Description: Backs the cached state for this file.
 
 #### `protected final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Pose oldpose`
-
-- Description: TODO
+- Role: Holds the oldpose state.
+- Description: Backs the cached state for this file.
 
 #### `private float ipold`
-
-- Description: TODO
+- Role: Stores the ipold value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean stat = true`
-
-- Description: TODO
+- Role: Tracks the stat flag.
+- Description: Supports the stat operation used by the surrounding class.
 
 #### `private RenderTree.Node[] parts`
-
-- Description: TODO
+- Role: Stores the parts value.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<Runnable> tickparts = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches tickparts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Collection<Consumer<Render>> gtickparts = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches gtickparts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Map<MeshAnim.Res, MeshAnim.Animation> maids = nomaids`
-
-- Description: TODO
+- Role: Caches maids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Map<Skeleton.ResPose, PoseMod> modids = initmodids`
-
-- Description: TODO
+- Role: Caches modids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public SkelSprite(Owner owner, Resource res, int fl)`
-
-- Description: TODO
+- Role: Creates a new SkelSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SkelSprite(Owner owner, Resource res)`
-
-- Description: TODO
+- Role: Creates a new SkelSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public SkelSprite(Owner owner, Resource res, Message sdt)`
-
-- Description: TODO
+- Role: Creates a new SkelSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void parts(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs parts.
+- Description: Supports the parts operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Random mkrandoom()`
-
-- Description: TODO
+- Role: Creates a random appearance context.
+- Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public Collection<Location.Chain> getloc()`
-
-- Description: TODO
+- Role: Returns the avatar location.
+- Description: Exposes the requested value without mutating state.
 
 #### `public double getv()`
-
-- Description: TODO
+- Role: Returns the avatar value.
+- Description: Exposes the requested value without mutating state.
 
 #### `protected RenderTree.Node animwrap(Pipe.Op.Wrapping wrap, Collection<Runnable> tbuf, Collection<Consumer<Render>> gbuf)`
-
-- Description: TODO
+- Role: Performs animwrap.
+- Description: Supports the animwrap operation used by the surrounding class.
 
 #### `public void iparts(int mask, Collection<RenderTree.Node> rbuf, Collection<Runnable> tbuf, Collection<Consumer<Render>> gbuf)`
-
-- Description: TODO
+- Role: Performs iparts.
+- Description: Supports the iparts operation used by the surrounding class.
 
 #### `private void chparts(int mask)`
-
-- Description: TODO
+- Role: Performs chparts.
+- Description: Supports the chparts operation used by the surrounding class.
 
 #### `private void rebuild()`
-
-- Description: TODO
+- Role: Performs rebuild.
+- Description: Supports the rebuild operation used by the surrounding class.
 
 #### `private void chmanims(int mask)`
-
-- Description: TODO
+- Role: Performs chmanims.
+- Description: Supports the chmanims operation used by the surrounding class.
 
 #### `private void chposes(int mask)`
-
-- Description: TODO
+- Role: Changes the active pose set.
+- Description: Supports the chposes operation used by the surrounding class.
 
 #### `public void update(int fl)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void update(Message sdt)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public boolean tick(double ddt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
-
-- Description: TODO
+- Role: Performs eqpoint.
+- Description: Supports the eqpoint operation used by the surrounding class.

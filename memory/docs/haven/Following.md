@@ -10,17 +10,19 @@ This file documents the responsibilities and members of `Following`.
 
 ## Role
 
-Represents follow behavior or state.
+Represents the following Haven component.
 
 ## Nested Types
 
 ### $follow
 
-- Description: TODO
+- Role: Represents $follow within Following.
+- Description: Describes the nested $follow type used by the enclosing class.
 
 ### XfResolver
 
-- Description: TODO
+- Role: Represents xf resolver within Following.
+- Description: Describes the nested xf resolver type used by the enclosing class.
 
 ## Members
 
@@ -29,79 +31,79 @@ Represents follow behavior or state.
 ### Fields
 
 #### `public final long tgt`
-
-- Description: TODO
+- Role: Stores the tgt value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> xfres`
-
-- Description: TODO
+- Role: Stores the xfres value.
+- Description: Backs the cached state for this file.
 
 #### `public final String xfname`
-
-- Description: TODO
+- Role: Stores the xfname value.
+- Description: Backs the cached state for this file.
 
 #### `private double lastv = 0.0`
-
-- Description: TODO
+- Role: Stores the lastv value.
+- Description: Backs the cached state for this file.
 
 #### `final Gob tgt`
-
-- Description: TODO
+- Role: Stores the tgt value.
+- Description: Backs the cached state for this file.
 
 #### `Supplier<? extends Pipe.Op> xf = null`
-
-- Description: TODO
-
-#### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
-
-- Description: TODO
+- Role: Holds the xf state.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
-
-- Description: TODO
+- Role: Holds the xf state.
+- Description: Backs the cached state for this file.
 
 #### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
+- Role: Holds the xf state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
+- Role: Holds the xf state.
+- Description: Backs the cached state for this file.
 
 #### `private XfResolver bxf = null`
-
-- Description: TODO
+- Role: Holds the bxf state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Following(Gob gob, long tgt, Indir<Resource> xfres, String xfname)`
-
-- Description: TODO
+- Role: Creates a new Following instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Gob followingTarget()`
-
-- Description: TODO
+- Role: Performs following target.
+- Description: Supports the following target operation used by the surrounding class.
 
 #### `public Coord3f getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `public double getv()`
-
-- Description: TODO
+- Role: Returns the avatar value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Gob tgt()`
-
-- Description: TODO
+- Role: Performs tgt.
+- Description: Supports the tgt operation used by the surrounding class.
 
 #### `XfResolver(Gob tgt)`
-
-- Description: TODO
+- Role: Handles the xf resolver workflow.
+- Description: Supports the xf resolver operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public Pipe.Op xf()`
-
-- Description: TODO
+- Role: Performs xf.
+- Description: Supports the xf operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

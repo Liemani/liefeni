@@ -10,1430 +10,1472 @@ This file documents the responsibilities and members of `Widget`.
 
 ## Role
 
-Defines the base UI widget.
+Represents a Haven UI widget and event target.
 
 ## Nested Types
 
 ### $ACont
 
-- Description: TODO
+- Role: Represents $acont within Widget.
+- Description: Describes the nested $acont type used by the enclosing class.
 
 ### $CCont
 
-- Description: TODO
+- Role: Represents $ccont within Widget.
+- Description: Describes the nested $ccont type used by the enclosing class.
 
 ### $Cont
 
-- Description: TODO
+- Role: Represents $cont within Widget.
+- Description: Describes the nested $cont type used by the enclosing class.
 
 ### $FCont
 
-- Description: TODO
+- Role: Represents $fcont within Widget.
+- Description: Describes the nested $fcont type used by the enclosing class.
 
 ### AlignPanel
 
-- Description: TODO
+- Role: Represents align panel within Widget.
+- Description: Describes the nested align panel type used by the enclosing class.
 
 ### Anim
 
-- Description: TODO
+- Role: Represents anim within Widget.
+- Description: Describes the nested anim type used by the enclosing class.
 
 ### Children
 
-- Description: TODO
+- Role: Represents children within Widget.
+- Description: Describes the nested children type used by the enclosing class.
 
 ### CursorQuery
 
-- Description: TODO
+- Role: Represents cursor query within Widget.
+- Description: Describes the nested cursor query type used by the enclosing class.
 
 ### Event
 
-- Description: TODO
+- Role: Represents event within Widget.
+- Description: Describes the nested event type used by the enclosing class.
 
 ### FactMaker
 
-- Description: TODO
+- Role: Represents fact maker within Widget.
+- Description: Describes the nested fact maker type used by the enclosing class.
 
 ### Factory
 
-- Description: TODO
+- Role: Represents factory within Widget.
+- Description: Describes the nested factory type used by the enclosing class.
 
 ### FocusChangeEvent
 
-- Description: TODO
+- Role: Represents focus change event within Widget.
+- Description: Describes the nested focus change event type used by the enclosing class.
 
 ### FocusedKeyEvent
 
-- Description: TODO
+- Role: Represents focused key event within Widget.
+- Description: Describes the nested focused key event type used by the enclosing class.
 
 ### GTickEvent
 
-- Description: TODO
+- Role: Represents gtick event within Widget.
+- Description: Describes the nested gtick event type used by the enclosing class.
 
 ### GlobKeyEvent
 
-- Description: TODO
+- Role: Represents glob key event within Widget.
+- Description: Describes the nested glob key event type used by the enclosing class.
 
 ### GotFocusEvent
 
-- Description: TODO
+- Role: Represents got focus event within Widget.
+- Description: Describes the nested got focus event type used by the enclosing class.
 
 ### Handler
 
-- Description: TODO
+- Role: Represents handler within Widget.
+- Description: Describes the nested handler type used by the enclosing class.
 
 ### HandlerMaker
 
-- Description: TODO
+- Role: Represents handler maker within Widget.
+- Description: Describes the nested handler maker type used by the enclosing class.
 
 ### KbdEvent
 
-- Description: TODO
+- Role: Represents kbd event within Widget.
+- Description: Describes the nested kbd event type used by the enclosing class.
 
 ### KeyDownEvent
 
-- Description: TODO
+- Role: Represents key down event within Widget.
+- Description: Describes the nested key down event type used by the enclosing class.
 
 ### KeyUpEvent
 
-- Description: TODO
+- Role: Represents key up event within Widget.
+- Description: Describes the nested key up event type used by the enclosing class.
 
 ### KeyboundTip
 
-- Description: TODO
+- Role: Represents keybound tip within Widget.
+- Description: Describes the nested keybound tip type used by the enclosing class.
 
 ### LostFocusEvent
 
-- Description: TODO
+- Role: Represents lost focus event within Widget.
+- Description: Describes the nested lost focus event type used by the enclosing class.
 
 ### MessageEvent
 
-- Description: TODO
+- Role: Represents message event within Widget.
+- Description: Describes the nested message event type used by the enclosing class.
 
 ### MessageHandler
 
-- Description: TODO
+- Role: Represents message handler within Widget.
+- Description: Describes the nested message handler type used by the enclosing class.
 
 ### MouseActionEvent
 
-- Description: TODO
+- Role: Represents mouse action event within Widget.
+- Description: Describes the nested mouse action event type used by the enclosing class.
 
 ### MouseButtonEvent
 
-- Description: TODO
+- Role: Represents mouse button event within Widget.
+- Description: Describes the nested mouse button event type used by the enclosing class.
 
 ### MouseDownEvent
 
-- Description: TODO
+- Role: Represents mouse down event within Widget.
+- Description: Describes the nested mouse down event type used by the enclosing class.
 
 ### MouseEvent
 
-- Description: TODO
+- Role: Represents mouse event within Widget.
+- Description: Describes the nested mouse event type used by the enclosing class.
 
 ### MouseHoverEvent
 
-- Description: TODO
+- Role: Represents mouse hover event within Widget.
+- Description: Describes the nested mouse hover event type used by the enclosing class.
 
 ### MouseMoveEvent
 
-- Description: TODO
+- Role: Represents mouse move event within Widget.
+- Description: Describes the nested mouse move event type used by the enclosing class.
 
 ### MouseUpEvent
 
-- Description: TODO
+- Role: Represents mouse up event within Widget.
+- Description: Describes the nested mouse up event type used by the enclosing class.
 
 ### MouseWheelEvent
 
-- Description: TODO
+- Role: Represents mouse wheel event within Widget.
+- Description: Describes the nested mouse wheel event type used by the enclosing class.
 
 ### NormAnim
 
-- Description: TODO
+- Role: Represents norm anim within Widget.
+- Description: Describes the nested norm anim type used by the enclosing class.
 
 ### PaginaTip
 
-- Description: TODO
+- Role: Represents pagina tip within Widget.
+- Description: Describes the nested pagina tip type used by the enclosing class.
 
 ### PointerEvent
 
-- Description: TODO
+- Role: Represents pointer event within Widget.
+- Description: Describes the nested pointer event type used by the enclosing class.
 
 ### Position
 
-- Description: TODO
+- Role: Represents position within Widget.
+- Description: Describes the nested position type used by the enclosing class.
 
 ### QueryEvent
 
-- Description: TODO
+- Role: Represents query event within Widget.
+- Description: Describes the nested query event type used by the enclosing class.
 
 ### RName
 
-- Description: TODO
+- Role: Represents rname within Widget.
+- Description: Describes the nested rname type used by the enclosing class.
 
 ### RelposError
 
-- Description: TODO
+- Role: Represents relpos error within Widget.
+- Description: Describes the nested relpos error type used by the enclosing class.
 
 ### TickEvent
 
-- Description: TODO
+- Role: Represents tick event within Widget.
+- Description: Describes the nested tick event type used by the enclosing class.
 
 ### TooltipQuery
 
-- Description: TODO
+- Role: Represents tooltip query within Widget.
+- Description: Describes the nested tooltip query type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final KeyMatch key_act = KeyMatch.forcode(KeyEvent.VK_ENTER, 0)`
-
-- Description: TODO
+- Role: Defines the shared key act constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyMatch key_esc = KeyMatch.forcode(KeyEvent.VK_ESCAPE, 0)`
-
-- Description: TODO
+- Role: Defines the shared key esc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyMatch key_tab = KeyMatch.forcode(KeyEvent.VK_TAB, 0)`
-
-- Description: TODO
+- Role: Defines the shared key tab constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Resource defcurs = Resource.local().loadwait("gfx/hud/curs/arw")`
-
-- Description: TODO
+- Role: Defines the shared defcurs constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Integer, Integer> gkeys = Utils.<Integer, Integer>map().`
-
-- Description: TODO
+- Role: Defines the shared gkeys constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final OwnerContext.ClassResolver<Widget> wdgctx = new OwnerContext.ClassResolver<Widget>()`
-
-- Description: TODO
+- Role: Defines the shared wdgctx constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public UI ui`
-
-- Description: TODO
-
-#### `public Coord c, sz`
-
-- Description: TODO
+- Role: Stores the UI value.
+- Description: Backs the cached state for this file.
 
 #### `public Coord c, sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Coord c, sz`
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public int z`
-
-- Description: TODO
-
-#### `public Widget next, prev, child, lchild, parent`
-
-- Description: TODO
+- Role: Stores the z value.
+- Description: Backs the cached state for this file.
 
 #### `public Widget next, prev, child, lchild, parent`
-
-- Description: TODO
-
-#### `public Widget next, prev, child, lchild, parent`
-
-- Description: TODO
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
 #### `public Widget next, prev, child, lchild, parent`
-
-- Description: TODO
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
 #### `public Widget next, prev, child, lchild, parent`
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Widget next, prev, child, lchild, parent`
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
+
+#### `public Widget next, prev, child, lchild, parent`
+- Role: Stores the parent value.
+- Description: Backs the cached state for this file.
 
 #### `public int childseq`
-
-- Description: TODO
-
-#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
-
-- Description: TODO
+- Role: Stores the childseq value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
-
-- Description: TODO
-
-#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
-
-- Description: TODO
+- Role: Tracks the focustab flag.
+- Description: Supports the focustab operation used by the surrounding class.
 
 #### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
+- Role: Tracks the focustab flag.
+- Description: Supports the focustab operation used by the surrounding class.
 
-- Description: TODO
+#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
+- Role: Tracks the focustab flag.
+- Description: Supports the focustab operation used by the surrounding class.
+
+#### `public boolean focustab = false, focusctl = false, hasfocus = false, visible = true`
+- Role: Tracks the focustab flag.
+- Description: Supports the focustab operation used by the surrounding class.
 
 #### `private boolean attached = false`
-
-- Description: TODO
-
-#### `public boolean canfocus = false, autofocus = false`
-
-- Description: TODO
+- Role: Tracks the attached flag.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `public boolean canfocus = false, autofocus = false`
+- Role: Tracks the canfocus flag.
+- Description: Supports the canfocus operation used by the surrounding class.
 
-- Description: TODO
+#### `public boolean canfocus = false, autofocus = false`
+- Role: Tracks the canfocus flag.
+- Description: Supports the canfocus operation used by the surrounding class.
 
 #### `public boolean canactivate = false, cancancel = false`
-
-- Description: TODO
+- Role: Tracks the canactivate flag.
+- Description: Supports the canactivate operation used by the surrounding class.
 
 #### `public boolean canactivate = false, cancancel = false`
-
-- Description: TODO
+- Role: Tracks the canactivate flag.
+- Description: Supports the canactivate operation used by the surrounding class.
 
 #### `public Widget focused`
-
-- Description: TODO
+- Role: Stores the focused value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> cursor = null`
-
-- Description: TODO
+- Role: Stores the cursor value.
+- Description: Backs the cached state for this file.
 
 #### `public Object tooltip = null`
-
-- Description: TODO
+- Role: Holds the tooltip state.
+- Description: Backs the cached state for this file.
 
 #### `public KeyMatch gkey`
-
-- Description: TODO
+- Role: Holds the gkey state.
+- Description: Backs the cached state for this file.
 
 #### `public KeyBinding kb_gkey`
-
-- Description: TODO
+- Role: Holds the kb gkey state.
+- Description: Backs the cached state for this file.
 
 #### `static Map<String, Factory> types = new TreeMap<String, Factory>()`
-
-- Description: TODO
+- Role: Caches types entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private static boolean inited = false`
-
-- Description: TODO
+- Role: Tracks the inited flag.
+- Description: Supports the inited operation used by the surrounding class.
 
 #### `public final String spec`
-
-- Description: TODO
+- Role: Stores the spec value.
+- Description: Backs the cached state for this file.
 
 #### `public final int pos`
-
-- Description: TODO
+- Role: Stores the pos value.
+- Description: Backs the cached state for this file.
 
 #### `public final Stack<Object> stack`
-
-- Description: TODO
-
-#### `public boolean propagate, grabbed`
-
-- Description: TODO
+- Role: Holds the stack state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean propagate, grabbed`
+- Role: Tracks the grabbed flag.
+- Description: Supports the grabbed operation used by the surrounding class.
 
-- Description: TODO
+#### `public boolean propagate, grabbed`
+- Role: Tracks the grabbed flag.
+- Description: Supports the grabbed operation used by the surrounding class.
 
 #### `public Widget handling, target`
-
-- Description: TODO
+- Role: Stores the target value.
+- Description: Backs the cached state for this file.
 
 #### `public Widget handling, target`
-
-- Description: TODO
+- Role: Stores the target value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean phandled`
-
-- Description: TODO
+- Role: Tracks the phandled flag.
+- Description: Supports the phandled operation used by the surrounding class.
 
 #### `private List<EventHandler.Listener<?>> listening = null`
-
-- Description: TODO
+- Role: Caches listening entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final double dt`
-
-- Description: TODO
+- Role: Stores the dt value.
+- Description: Backs the cached state for this file.
 
 #### `public final haven.render.Render out`
-
-- Description: TODO
+- Role: Holds the out state.
+- Description: Backs the cached state for this file.
 
 #### `public final String msg`
-
-- Description: TODO
+- Role: Stores the msg value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object[] args`
-
-- Description: TODO
+- Role: Holds the args state.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord c`
-
-- Description: TODO
+- Role: Stores the c value.
+- Description: Backs the cached state for this file.
 
 #### `public final int b`
-
-- Description: TODO
+- Role: Stores the b value.
+- Description: Backs the cached state for this file.
 
 #### `public final int a`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `public final double s`
-
-- Description: TODO
+- Role: Stores the s value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean hovering`
-
-- Description: TODO
+- Role: Tracks the hovering flag.
+- Description: Supports the hovering operation used by the surrounding class.
 
 #### `public final KeyEvent awt`
-
-- Description: TODO
-
-#### `public final int code, mods`
-
-- Description: TODO
+- Role: Holds the awt state.
+- Description: Backs the cached state for this file.
 
 #### `public final int code, mods`
+- Role: Stores the mods value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int code, mods`
+- Role: Stores the mods value.
+- Description: Backs the cached state for this file.
 
 #### `public final char c`
-
-- Description: TODO
+- Role: Stores the c value.
+- Description: Backs the cached state for this file.
 
 #### `public final QueryEvent<R> root`
-
-- Description: TODO
+- Role: Holds the root state.
+- Description: Backs the cached state for this file.
 
 #### `public R ret`
-
-- Description: TODO
+- Role: Holds the ret state.
+- Description: Backs the cached state for this file.
 
 #### `public final TooltipQuery root`
-
-- Description: TODO
+- Role: Holds the root state.
+- Description: Backs the cached state for this file.
 
 #### `public final Widget last`
-
-- Description: TODO
+- Role: Stores the last value.
+- Description: Backs the cached state for this file.
 
 #### `public Object ret`
-
-- Description: TODO
+- Role: Holds the ret state.
+- Description: Backs the cached state for this file.
 
 #### `public Widget from`
-
-- Description: TODO
+- Role: Stores the from value.
+- Description: Backs the cached state for this file.
 
 #### `public final String title`
-
-- Description: TODO
+- Role: Stores the title value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean tiptitle`
-
-- Description: TODO
+- Role: Tracks the tiptitle flag.
+- Description: Supports the tiptitle operation used by the surrounding class.
 
 #### `private Tex rend`
-
-- Description: TODO
+- Role: Stores the rend value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean hasrend = false`
-
-- Description: TODO
+- Role: Tracks the hasrend flag.
+- Description: Supports the hasrend operation used by the surrounding class.
 
 #### `public final String base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean rich`
-
-- Description: TODO
+- Role: Tracks the rich flag.
+- Description: Supports the rich operation used by the surrounding class.
 
 #### `private Tex rend = null`
-
-- Description: TODO
+- Role: Stores the rend value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean hrend = false`
-
-- Description: TODO
+- Role: Tracks the hrend flag.
+- Description: Supports the hrend operation used by the surrounding class.
 
 #### `private KeyMatch rkey = null`
-
-- Description: TODO
+- Role: Holds the rkey state.
+- Description: Backs the cached state for this file.
 
 #### `public final Collection<Anim> anims = new LinkedList<Anim>()`
-
-- Description: TODO
+- Role: Caches anims entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Collection<Anim> nanims = new LinkedList<Anim>()`
-
-- Description: TODO
+- Role: Caches nanims entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private double a = 0.0`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private final double s`
-
-- Description: TODO
+- Role: Stores the s value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public String value()`
-
-- Description: TODO
-
-#### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
-- Description: TODO
+#### `public Widget create(UI ui, Object[] args)`
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected abstract Coord getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T child)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void cresize(Widget ch)`
-
-- Description: TODO
+- Role: Performs cresize.
+- Description: Supports the cresize operation used by the surrounding class.
 
 #### `public void presize()`
-
-- Description: TODO
+- Role: Performs presize.
+- Description: Supports the presize operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public Widget create(UI ui, final Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Widget create(UI ui, Object[] par)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public FactMaker()`
-
-- Description: TODO
+- Role: Performs fact maker.
+- Description: Supports the fact maker operation used by the surrounding class.
 
 #### `public static void initnames()`
-
-- Description: TODO
+- Role: Performs initnames.
+- Description: Supports the initnames operation used by the surrounding class.
 
 #### `public static Factory gettype3(String name)`
-
-- Description: TODO
+- Role: Performs gettype3.
+- Description: Supports the gettype3 operation used by the surrounding class.
 
 #### `public static Factory gettype2(String name) throws InterruptedException`
-
-- Description: TODO
+- Role: Returns the type2 value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Factory gettype(String name)`
-
-- Description: TODO
+- Role: Performs gettype.
+- Description: Supports the gettype operation used by the surrounding class.
 
 #### `public Widget(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new Widget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Widget()`
-
-- Description: TODO
+- Role: Creates a new Widget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Widget(UI ui, Coord c, Coord sz)`
-
-- Description: TODO
+- Role: Creates a new Widget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void attach(UI ui)`
-
-- Description: TODO
+- Role: Performs attach.
+- Description: Supports the attach operation used by the surrounding class.
 
 #### `protected void attached()`
-
-- Description: TODO
+- Role: Performs attached.
+- Description: Supports the attached operation used by the surrounding class.
 
 #### `private <T extends Widget> T add0(T child)`
-
-- Description: TODO
+- Role: Performs add0.
+- Description: Supports the add0 operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T child)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T child, Coord c)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T child, int x, int y)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public <T extends Widget> T adda(T child, int x, int y, double ax, double ay)`
-
-- Description: TODO
+- Role: Performs adda.
+- Description: Supports the adda operation used by the surrounding class.
 
 #### `public <T extends Widget> T adda(T child, Coord c, double ax, double ay)`
-
-- Description: TODO
+- Role: Performs adda.
+- Description: Supports the adda operation used by the surrounding class.
 
 #### `public <T extends Widget> T adda(T child, double ax, double ay)`
-
-- Description: TODO
+- Role: Performs adda.
+- Description: Supports the adda operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public RelposError(Throwable cause, String spec, int pos, Stack<Object> stack)`
-
-- Description: TODO
+- Role: Performs relpos error.
+- Description: Supports the relpos error operation used by the surrounding class.
 
 #### `public String getMessage()`
-
-- Description: TODO
+- Role: Returns the message.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Coord relpos(String spec, Object self, Object[] args, int off)`
-
-- Description: TODO
+- Role: Performs relpos.
+- Description: Supports the relpos operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void link()`
-
-- Description: TODO
+- Role: Performs link.
+- Description: Supports the link operation used by the surrounding class.
 
 #### `public void linkfirst()`
-
-- Description: TODO
+- Role: Performs linkfirst.
+- Description: Supports the linkfirst operation used by the surrounding class.
 
 #### `public void unlink()`
-
-- Description: TODO
+- Role: Performs unlink.
+- Description: Supports the unlink operation used by the surrounding class.
 
 #### `public Coord xlate(Coord c, boolean in)`
-
-- Description: TODO
+- Role: Performs xlate.
+- Description: Supports the xlate operation used by the surrounding class.
 
 #### `public Coord parentpos(Widget in)`
-
-- Description: TODO
+- Role: Performs parentpos.
+- Description: Supports the parentpos operation used by the surrounding class.
 
 #### `public Coord parentpos(Widget in, Coord c)`
-
-- Description: TODO
+- Role: Performs parentpos.
+- Description: Supports the parentpos operation used by the surrounding class.
 
 #### `public Coord rootpos()`
-
-- Description: TODO
+- Role: Performs rootpos.
+- Description: Supports the rootpos operation used by the surrounding class.
 
 #### `public Coord rootpos(Coord c)`
-
-- Description: TODO
+- Role: Performs rootpos.
+- Description: Supports the rootpos operation used by the surrounding class.
 
 #### `public Coord rootxlate(Coord c)`
-
-- Description: TODO
+- Role: Performs rootxlate.
+- Description: Supports the rootxlate operation used by the surrounding class.
 
 #### `public boolean hasparent(Widget w2)`
-
-- Description: TODO
+- Role: Performs hasparent.
+- Description: Supports the hasparent operation used by the surrounding class.
 
 #### `public void gotfocus()`
-
-- Description: TODO
+- Role: Performs gotfocus.
+- Description: Supports the gotfocus operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void rdispose()`
-
-- Description: TODO
+- Role: Performs rdispose.
+- Description: Supports the rdispose operation used by the surrounding class.
 
 #### `public void remove()`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void reqdestroy()`
-
-- Description: TODO
+- Role: Performs reqdestroy.
+- Description: Supports the reqdestroy operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public void cdestroy(Widget w)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public int wdgid()`
-
-- Description: TODO
+- Role: Performs wdgid.
+- Description: Supports the wdgid operation used by the surrounding class.
 
 #### `public void lostfocus()`
-
-- Description: TODO
+- Role: Performs lostfocus.
+- Description: Supports the lostfocus operation used by the surrounding class.
 
 #### `public void setfocus(Widget w)`
-
-- Description: TODO
+- Role: Performs setfocus.
+- Description: Supports the setfocus operation used by the surrounding class.
 
 #### `public void setcanfocus(boolean canfocus)`
-
-- Description: TODO
+- Role: Performs setcanfocus.
+- Description: Supports the setcanfocus operation used by the surrounding class.
 
 #### `public void newfocusable(Widget w)`
-
-- Description: TODO
+- Role: Performs newfocusable.
+- Description: Supports the newfocusable operation used by the surrounding class.
 
 #### `public void delfocusable(Widget w)`
-
-- Description: TODO
+- Role: Performs delfocusable.
+- Description: Supports the delfocusable operation used by the surrounding class.
 
 #### `private void findfocus()`
-
-- Description: TODO
+- Role: Performs findfocus.
+- Description: Supports the findfocus operation used by the surrounding class.
 
 #### `public void setfocusctl(boolean focusctl)`
-
-- Description: TODO
+- Role: Performs setfocusctl.
+- Description: Supports the setfocusctl operation used by the surrounding class.
 
 #### `public void setfocustab(boolean focustab)`
-
-- Description: TODO
+- Role: Performs setfocustab.
+- Description: Supports the setfocustab operation used by the surrounding class.
 
 #### `public HandlerMaker()`
-
-- Description: TODO
+- Role: Performs handler maker.
+- Description: Supports the handler maker operation used by the surrounding class.
 
 #### `public void handle(Widget tgt, Object... args)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void wdgmsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-
-- Description: TODO
+- Role: Performs wdgmsg.
+- Description: Supports the wdgmsg operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void tick(TickEvent ev)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void gtick(haven.render.Render out)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public void gtick(GTickEvent ev)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public void draw(GOut g, boolean strict)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean checkhit(Coord c)`
-
-- Description: TODO
+- Role: Performs checkhit.
+- Description: Supports the checkhit operation used by the surrounding class.
 
 #### `public Event()`
-
-- Description: TODO
+- Role: Performs event.
+- Description: Supports the event operation used by the surrounding class.
 
 #### `public Event(Event from)`
-
-- Description: TODO
+- Role: Performs event.
+- Description: Supports the event operation used by the surrounding class.
 
 #### `public Event grabbed(boolean g)`
-
-- Description: TODO
+- Role: Performs grabbed.
+- Description: Supports the grabbed operation used by the surrounding class.
 
 #### `protected abstract boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `public void stop()`
-
-- Description: TODO
+- Role: Stops the current workflow.
+- Description: Supports the stop operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public boolean propagate(Widget from)`
-
-- Description: TODO
+- Role: Performs propagate.
+- Description: Supports the propagate operation used by the surrounding class.
 
 #### `public boolean fpropagate(Widget from)`
-
-- Description: TODO
+- Role: Performs fpropagate.
+- Description: Supports the fpropagate operation used by the surrounding class.
 
 #### `public boolean dispatch(Widget w)`
-
-- Description: TODO
+- Role: Performs dispatch.
+- Description: Supports the dispatch operation used by the surrounding class.
 
 #### `public <E> void listen(Class<E> t, EventHandler<? super E> h)`
-
-- Description: TODO
+- Role: Performs listen.
+- Description: Supports the listen operation used by the surrounding class.
 
 #### `public boolean deafen(EventHandler<?> h)`
-
-- Description: TODO
+- Role: Performs deafen.
+- Description: Supports the deafen operation used by the surrounding class.
 
 #### `public <H extends EventHandler<?>> H listening(Class<H> cl)`
-
-- Description: TODO
+- Role: Performs listening.
+- Description: Supports the listening operation used by the surrounding class.
 
 #### `public boolean handle(Event ev)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public TickEvent(double dt)`
-
-- Description: TODO
+- Role: Performs tick event.
+- Description: Supports the tick event operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public GTickEvent(haven.render.Render out)`
-
-- Description: TODO
+- Role: Performs gtick event.
+- Description: Supports the gtick event operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public MessageEvent(String msg, Object[] args)`
-
-- Description: TODO
+- Role: Performs message event.
+- Description: Supports the message event operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public PointerEvent(Coord c)`
-
-- Description: TODO
+- Role: Performs pointer event.
+- Description: Supports the pointer event operation used by the surrounding class.
 
 #### `public PointerEvent(PointerEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs pointer event.
+- Description: Supports the pointer event operation used by the surrounding class.
 
 #### `public abstract PointerEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `public MouseEvent(Coord c)`
-
-- Description: TODO
+- Role: Performs mouse event.
+- Description: Supports the mouse event operation used by the surrounding class.
 
 #### `public MouseEvent(MouseEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse event.
+- Description: Supports the mouse event operation used by the surrounding class.
 
 #### `public MouseActionEvent(Coord c)`
-
-- Description: TODO
+- Role: Performs mouse action event.
+- Description: Supports the mouse action event operation used by the surrounding class.
 
 #### `public MouseActionEvent(MouseEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse action event.
+- Description: Supports the mouse action event operation used by the surrounding class.
 
 #### `public MouseButtonEvent(Coord c, int b)`
-
-- Description: TODO
+- Role: Performs mouse button event.
+- Description: Supports the mouse button event operation used by the surrounding class.
 
 #### `public MouseButtonEvent(MouseButtonEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse button event.
+- Description: Supports the mouse button event operation used by the surrounding class.
 
 #### `public abstract MouseButtonEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `public MouseDownEvent(Coord c, int b)`
-
-- Description: TODO
+- Role: Performs mouse down event.
+- Description: Supports the mouse down event operation used by the surrounding class.
 
 #### `public MouseDownEvent(MouseDownEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse down event.
+- Description: Supports the mouse down event operation used by the surrounding class.
 
 #### `public MouseDownEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public MouseUpEvent(Coord c, int b)`
-
-- Description: TODO
+- Role: Performs mouse up event.
+- Description: Supports the mouse up event operation used by the surrounding class.
 
 #### `public MouseUpEvent(MouseUpEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse up event.
+- Description: Supports the mouse up event operation used by the surrounding class.
 
 #### `public MouseUpEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public MouseMoveEvent(Coord c)`
-
-- Description: TODO
+- Role: Performs mouse move event.
+- Description: Supports the mouse move event operation used by the surrounding class.
 
 #### `public MouseMoveEvent(MouseMoveEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse move event.
+- Description: Supports the mouse move event operation used by the surrounding class.
 
 #### `public MouseMoveEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `public boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public MouseWheelEvent(Coord c, int a, double s)`
-
-- Description: TODO
+- Role: Performs mouse wheel event.
+- Description: Supports the mouse wheel event operation used by the surrounding class.
 
 #### `public MouseWheelEvent(MouseWheelEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse wheel event.
+- Description: Supports the mouse wheel event operation used by the surrounding class.
 
 #### `public MouseWheelEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `public boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public MouseHoverEvent(Coord c)`
-
-- Description: TODO
+- Role: Performs mouse hover event.
+- Description: Supports the mouse hover event operation used by the surrounding class.
 
 #### `public MouseHoverEvent(MouseHoverEvent from, Coord c)`
-
-- Description: TODO
+- Role: Performs mouse hover event.
+- Description: Supports the mouse hover event operation used by the surrounding class.
 
 #### `public MouseHoverEvent derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `public MouseHoverEvent hovering(boolean h)`
-
-- Description: TODO
+- Role: Performs hovering.
+- Description: Supports the hovering operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public KbdEvent(KeyEvent awt)`
-
-- Description: TODO
+- Role: Performs kbd event.
+- Description: Supports the kbd event operation used by the surrounding class.
 
 #### `public FocusedKeyEvent(KeyEvent awt)`
-
-- Description: TODO
+- Role: Performs focused key event.
+- Description: Supports the focused key event operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `public KeyDownEvent(KeyEvent awt)`
-
-- Description: TODO
+- Role: Performs key down event.
+- Description: Supports the key down event operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public KeyUpEvent(KeyEvent awt)`
-
-- Description: TODO
+- Role: Performs key up event.
+- Description: Supports the key up event operation used by the surrounding class.
 
 #### `public boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public GlobKeyEvent(KeyEvent awt)`
-
-- Description: TODO
+- Role: Performs glob key event.
+- Description: Supports the glob key event operation used by the surrounding class.
 
 #### `protected boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public boolean propagation(Widget from)`
-
-- Description: TODO
+- Role: Performs propagation.
+- Description: Supports the propagation operation used by the surrounding class.
 
 #### `public QueryEvent(Coord c)`
-
-- Description: TODO
+- Role: Performs query event.
+- Description: Supports the query event operation used by the surrounding class.
 
 #### `public QueryEvent(QueryEvent<R> from, Coord c)`
-
-- Description: TODO
+- Role: Performs query event.
+- Description: Supports the query event operation used by the surrounding class.
 
 #### `public boolean set(R ret)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `protected R defvalue()`
-
-- Description: TODO
+- Role: Performs defvalue.
+- Description: Supports the defvalue operation used by the surrounding class.
 
 #### `public TooltipQuery(Coord c, Widget last)`
-
-- Description: TODO
+- Role: Performs tooltip query.
+- Description: Supports the tooltip query operation used by the surrounding class.
 
 #### `public TooltipQuery(TooltipQuery from, Coord c)`
-
-- Description: TODO
+- Role: Performs tooltip query.
+- Description: Supports the tooltip query operation used by the surrounding class.
 
 #### `public TooltipQuery derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `public boolean set(Object ret, Widget from)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `public CursorQuery(Coord c)`
-
-- Description: TODO
+- Role: Performs cursor query.
+- Description: Supports the cursor query operation used by the surrounding class.
 
 #### `public CursorQuery(CursorQuery from, Coord c)`
-
-- Description: TODO
+- Role: Performs cursor query.
+- Description: Supports the cursor query operation used by the surrounding class.
 
 #### `public CursorQuery derive(Coord c)`
-
-- Description: TODO
+- Role: Performs derive.
+- Description: Supports the derive operation used by the surrounding class.
 
 #### `public boolean getcurs(CursorQuery ev)`
-
-- Description: TODO
+- Role: Returns the current cursor state.
+- Description: Exposes the requested value without mutating state.
 
 #### `protected boolean shandle(Widget w)`
-
-- Description: TODO
+- Role: Performs shandle.
+- Description: Supports the shandle operation used by the surrounding class.
 
 #### `protected Object defvalue()`
-
-- Description: TODO
+- Role: Performs defvalue.
+- Description: Supports the defvalue operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-
-- Description: TODO
+- Role: Performs mouseup.
+- Description: Supports the mouseup operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-
-- Description: TODO
+- Role: Performs mousemove.
+- Description: Supports the mousemove operation used by the surrounding class.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
-
-- Description: TODO
+- Role: Performs mousehover.
+- Description: Supports the mousehover operation used by the surrounding class.
 
 #### `public static KeyMatch gkeymatch(int gkey)`
-
-- Description: TODO
+- Role: Performs gkeymatch.
+- Description: Supports the gkeymatch operation used by the surrounding class.
 
 #### `public boolean gkeytype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Performs gkeytype.
+- Description: Supports the gkeytype operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public boolean keyup(KeyUpEvent ev)`
-
-- Description: TODO
+- Role: Performs keyup.
+- Description: Supports the keyup operation used by the surrounding class.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.
 
 #### `public Widget setgkey(KeyMatch gkey)`
-
-- Description: TODO
+- Role: Performs setgkey.
+- Description: Supports the setgkey operation used by the surrounding class.
 
 #### `public Widget setgkey(KeyBinding gkey)`
-
-- Description: TODO
+- Role: Performs setgkey.
+- Description: Supports the setgkey operation used by the surrounding class.
 
 #### `public Area area()`
-
-- Description: TODO
+- Role: Performs area.
+- Description: Supports the area operation used by the surrounding class.
 
 #### `public Area parentarea(Widget in)`
-
-- Description: TODO
+- Role: Performs parentarea.
+- Description: Supports the parentarea operation used by the surrounding class.
 
 #### `public Area rootarea()`
-
-- Description: TODO
+- Role: Performs rootarea.
+- Description: Supports the rootarea operation used by the surrounding class.
 
 #### `public Coord contentsz()`
-
-- Description: TODO
+- Role: Performs contentsz.
+- Description: Supports the contentsz operation used by the surrounding class.
 
 #### `public void pack()`
-
-- Description: TODO
+- Role: Performs pack.
+- Description: Supports the pack operation used by the surrounding class.
 
 #### `public void move(Coord c)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void z(int z)`
-
-- Description: TODO
+- Role: Performs z.
+- Description: Supports the z operation used by the surrounding class.
 
 #### `public void move(Area a)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void resize(int x, int y)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void resizew(int w)`
-
-- Description: TODO
+- Role: Performs resizew.
+- Description: Supports the resizew operation used by the surrounding class.
 
 #### `public void resizeh(int h)`
-
-- Description: TODO
+- Role: Performs resizeh.
+- Description: Supports the resizeh operation used by the surrounding class.
 
 #### `public void cresize(Widget ch)`
-
-- Description: TODO
+- Role: Performs cresize.
+- Description: Supports the cresize operation used by the surrounding class.
 
 #### `public void presize()`
-
-- Description: TODO
+- Role: Performs presize.
+- Description: Supports the presize operation used by the surrounding class.
 
 #### `public Position(int x, int y)`
-
-- Description: TODO
+- Role: Returns the local player world position.
+- Description: Returns the current world-space position of the local player.
 
 #### `public Position(Coord c)`
-
-- Description: TODO
+- Role: Returns the local player world position.
+- Description: Returns the current world-space position of the local player.
 
 #### `public Position add(int X, int Y)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Position add(Coord c)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Position adds(int x, int y)`
-
-- Description: TODO
+- Role: Performs adds.
+- Description: Supports the adds operation used by the surrounding class.
 
 #### `public Position adds(Coord c)`
-
-- Description: TODO
+- Role: Performs adds.
+- Description: Supports the adds operation used by the surrounding class.
 
 #### `public Position sub(int X, int Y)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Position sub(Coord c)`
-
-- Description: TODO
+- Role: Performs sub.
+- Description: Supports the sub operation used by the surrounding class.
 
 #### `public Position subs(int x, int y)`
-
-- Description: TODO
+- Role: Performs subs.
+- Description: Supports the subs operation used by the surrounding class.
 
 #### `public Position subs(Coord c)`
-
-- Description: TODO
+- Role: Performs subs.
+- Description: Supports the subs operation used by the surrounding class.
 
 #### `public Position x(int X)`
-
-- Description: TODO
+- Role: Performs x.
+- Description: Supports the x operation used by the surrounding class.
 
 #### `public Position y(int Y)`
-
-- Description: TODO
+- Role: Performs y.
+- Description: Supports the y operation used by the surrounding class.
 
 #### `public Position xs(int x)`
-
-- Description: TODO
+- Role: Performs xs.
+- Description: Supports the xs operation used by the surrounding class.
 
 #### `public Position ys(int y)`
-
-- Description: TODO
+- Role: Performs ys.
+- Description: Supports the ys operation used by the surrounding class.
 
 #### `public Position getpos(String nm)`
-
-- Description: TODO
+- Role: Performs getpos.
+- Description: Supports the getpos operation used by the surrounding class.
 
 #### `public Position pos(String nm)`
-
-- Description: TODO
+- Role: Performs pos.
+- Description: Supports the pos operation used by the surrounding class.
 
 #### `public Coord addhlp(Coord c, int pad, Widget... children)`
-
-- Description: TODO
+- Role: Performs addhlp.
+- Description: Supports the addhlp operation used by the surrounding class.
 
 #### `public int addhlp(Coord c, int pad, int w, Widget... children)`
-
-- Description: TODO
+- Role: Performs addhlp.
+- Description: Supports the addhlp operation used by the surrounding class.
 
 #### `public int addhl(Coord c, int w, Widget... children)`
-
-- Description: TODO
+- Role: Performs addhl.
+- Description: Supports the addhl operation used by the surrounding class.
 
 #### `public Coord addvlp(Coord c, int pad, Widget... children)`
-
-- Description: TODO
+- Role: Performs addvlp.
+- Description: Supports the addvlp operation used by the surrounding class.
 
 #### `public int addvlp(Coord c, int pad, int h, Widget... children)`
-
-- Description: TODO
+- Role: Performs addvlp.
+- Description: Supports the addvlp operation used by the surrounding class.
 
 #### `public int addvl(Coord c, int h, Widget... children)`
-
-- Description: TODO
+- Role: Performs addvl.
+- Description: Supports the addvl operation used by the surrounding class.
 
 #### `public void raise()`
-
-- Description: TODO
+- Role: Performs raise.
+- Description: Supports the raise operation used by the surrounding class.
 
 #### `public void lower()`
-
-- Description: TODO
+- Role: Performs lower.
+- Description: Supports the lower operation used by the surrounding class.
 
 #### `public <T> T getchild(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs getchild.
+- Description: Supports the getchild operation used by the surrounding class.
 
 #### `public <T extends Widget> T findchild(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs findchild.
+- Description: Supports the findchild operation used by the surrounding class.
 
 #### `public Widget rprev()`
-
-- Description: TODO
+- Role: Performs rprev.
+- Description: Supports the rprev operation used by the surrounding class.
 
 #### `public Widget rnext()`
-
-- Description: TODO
+- Role: Performs rnext.
+- Description: Supports the rnext operation used by the surrounding class.
 
 #### `protected Children()`
-
-- Description: TODO
+- Role: Performs children.
+- Description: Supports the children operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public ListIterator<Widget> listIterator(int idx)`
-
-- Description: TODO
+- Role: Performs list iterator.
+- Description: Supports the list iterator operation used by the surrounding class.
 
 #### `public List<Widget> children()`
-
-- Description: TODO
+- Role: Performs children.
+- Description: Supports the children operation used by the surrounding class.
 
 #### `public <T extends Widget> Set<T> children(final Class<T> cl)`
-
-- Description: TODO
+- Role: Performs children.
+- Description: Supports the children operation used by the surrounding class.
 
 #### `public PaginaTip(Indir<Resource> res, String title)`
-
-- Description: TODO
+- Role: Performs pagina tip.
+- Description: Supports the pagina tip operation used by the surrounding class.
 
 #### `public PaginaTip(Indir<Resource> res, boolean tiptitle)`
-
-- Description: TODO
+- Role: Performs pagina tip.
+- Description: Supports the pagina tip operation used by the surrounding class.
 
 #### `public PaginaTip(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs pagina tip.
+- Description: Supports the pagina tip operation used by the surrounding class.
 
 #### `public Tex get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public KeyboundTip(String base, boolean rich)`
-
-- Description: TODO
+- Role: Performs keybound tip.
+- Description: Supports the keybound tip operation used by the surrounding class.
 
 #### `public KeyboundTip(String base)`
-
-- Description: TODO
+- Role: Performs keybound tip.
+- Description: Supports the keybound tip operation used by the surrounding class.
 
 #### `public KeyboundTip()`
-
-- Description: TODO
+- Role: Performs keybound tip.
+- Description: Supports the keybound tip operation used by the surrounding class.
 
 #### `public Tex get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean tooltip(TooltipQuery ev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public Widget settip(String text, boolean rich)`
-
-- Description: TODO
+- Role: Performs settip.
+- Description: Supports the settip operation used by the surrounding class.
 
 #### `public Widget settip(String text)`
-
-- Description: TODO
+- Role: Performs settip.
+- Description: Supports the settip operation used by the surrounding class.
 
 #### `public <T extends Widget> T getparent(Class<T> cl)`
-
-- Description: TODO
+- Role: Performs getparent.
+- Description: Supports the getparent operation used by the surrounding class.
 
 #### `public void hide()`
-
-- Description: TODO
+- Role: Performs hide.
+- Description: Supports the hide operation used by the surrounding class.
 
 #### `public void show()`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public boolean show(boolean show)`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.
 
 #### `public boolean visible()`
-
-- Description: TODO
+- Role: Returns whether the widget is visible.
+- Description: Controls whether the overlay participates in rendering.
 
 #### `public boolean tvisible()`
-
-- Description: TODO
+- Role: Performs tvisible.
+- Description: Supports the tvisible operation used by the surrounding class.
 
 #### `public <T extends Anim> void clearanims(Class<T> type)`
-
-- Description: TODO
+- Role: Performs clearanims.
+- Description: Supports the clearanims operation used by the surrounding class.
 
 #### `public Anim()`
-
-- Description: TODO
+- Role: Performs anim.
+- Description: Supports the anim operation used by the surrounding class.
 
 #### `public void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public abstract boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public NormAnim(double s)`
-
-- Description: TODO
+- Role: Performs norm anim.
+- Description: Supports the norm anim operation used by the surrounding class.
 
 #### `public boolean tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public abstract void ntick(double a)`
-
-- Description: TODO
+- Role: Performs ntick.
+- Description: Supports the ntick operation used by the surrounding class.
 
 #### `public <T extends Widget> T getChildOf(Class<T> c)`
-
-- Description: TODO
+- Role: Returns the child of.
+- Description: Exposes the requested value without mutating state.

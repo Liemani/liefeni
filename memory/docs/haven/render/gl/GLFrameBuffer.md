@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `GLFrameBuffer`.
 
 ## Role
 
-Represents a GL framebuffer.
+Provides GL backend support for glframe buffer.
 
 ## Nested Types
 
 ### Attach2D
 
-- Description: TODO
+- Role: Represents attach2 d within GLFrameBuffer.
+- Description: Describes the nested attach2 d type used by the enclosing class.
 
 ### Attachment
 
-- Description: TODO
+- Role: Represents attachment within GLFrameBuffer.
+- Description: Describes the nested attachment type used by the enclosing class.
 
 ### FormatException
 
-- Description: TODO
+- Role: Represents format exception within GLFrameBuffer.
+- Description: Describes the nested format exception type used by the enclosing class.
 
 ## Members
 
@@ -33,119 +36,119 @@ Represents a GL framebuffer.
 ### Fields
 
 #### `public final Attachment[] color`
-
-- Description: TODO
+- Role: Holds the color state.
+- Description: Backs the cached state for this file.
 
 #### `public final Attachment depth`
-
-- Description: TODO
+- Role: Holds the depth state.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `private int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `public final VectorFormat[] cfmt`
-
-- Description: TODO
+- Role: Holds the cfmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final VectorFormat dfmt`
-
-- Description: TODO
+- Role: Holds the dfmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final GLTexture tex`
-
-- Description: TODO
-
-#### `public final int level, w, h`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `public final int level, w, h`
-
-- Description: TODO
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
 #### `public final int level, w, h`
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int level, w, h`
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GLFrameBuffer(GLEnvironment env, Attachment[] color, Attachment depth)`
-
-- Description: TODO
+- Role: Creates a new GLFrameBuffer instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `private void register(GLTexture tex)`
-
-- Description: TODO
+- Role: Performs register.
+- Description: Supports the register operation used by the surrounding class.
 
 #### `private void register()`
-
-- Description: TODO
+- Role: Performs register.
+- Description: Supports the register operation used by the surrounding class.
 
 #### `private void unregister(GLTexture tex)`
-
-- Description: TODO
+- Role: Performs unregister.
+- Description: Supports the unregister operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public FormatException(String message, GLFrameBuffer fbo)`
-
-- Description: TODO
+- Role: Performs format exception.
+- Description: Supports the format exception operation used by the surrounding class.
 
 #### `public Attachment(GLTexture tex)`
-
-- Description: TODO
+- Role: Performs attachment.
+- Description: Supports the attachment operation used by the surrounding class.
 
 #### `public abstract void attach(BGL gl, GLFrameBuffer fbo, int point)`
-
-- Description: TODO
+- Role: Performs attach.
+- Description: Supports the attach operation used by the surrounding class.
 
 #### `public abstract Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public Attach2D(GLTexture.Tex2D tex, Texture.Image<Texture2D> img)`
-
-- Description: TODO
+- Role: Performs attach2 d.
+- Description: Supports the attach2 d operation used by the surrounding class.
 
 #### `public void attach(BGL gl, GLFrameBuffer fbo, int point)`
-
-- Description: TODO
+- Role: Performs attach.
+- Description: Supports the attach operation used by the surrounding class.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static Attachment prepimg(GLEnvironment env, Texture.Image<?> img)`
-
-- Description: TODO
+- Role: Performs prepimg.
+- Description: Supports the prepimg operation used by the surrounding class.

@@ -10,402 +10,406 @@ This file documents the responsibilities and members of `Lighting`.
 
 ## Role
 
-Represents lighting state.
+Defines the lighting render pipeline component.
 
 ## Nested Types
 
 ### Compiler
 
-- Description: TODO
+- Role: Represents compiler within Lighting.
+- Description: Describes the nested compiler type used by the enclosing class.
 
 ### GridLights
 
-- Description: TODO
+- Role: Represents grid lights within Lighting.
+- Description: Describes the nested grid lights type used by the enclosing class.
 
 ### Params
 
-- Description: TODO
+- Role: Represents params within Lighting.
+- Description: Describes the nested params type used by the enclosing class.
 
 ### Shader
 
-- Description: TODO
+- Role: Represents shader within Lighting.
+- Description: Describes the nested shader type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final State.Slot<State> lights = new State.Slot<>(State.Slot.Type.SYS, State.class)`
-
-- Description: TODO
+- Role: Defines the shared lights constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Struct s_light = Struct.make(new Symbol.Shared("light"),`
-
-- Description: TODO
+- Role: Defines the shared s light constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final boolean unroll = true`
-
-- Description: TODO
+- Role: Defines the shared unroll constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int defmax = 4`
-
-- Description: TODO
+- Role: Defines the shared defmax constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final boolean visnlights = false`
-
-- Description: TODO
+- Role: Defines the shared visnlights constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final boolean stats = false`
-
-- Description: TODO
+- Role: Defines the shared stats constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int defmax = 16`
-
-- Description: TODO
+- Role: Defines the shared defmax constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Hash<short[]> sahash = new Hash<short[]>()`
-
-- Description: TODO
+- Role: Defines the shared sahash constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Coord3f[] clipcorn =`
-
-- Description: TODO
+- Role: Defines the shared lighting constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform u_bboxm = new Uniform(VEC3, "lboxm", p -> ((GridLights)p.get(lights)).bboxm(), lights)`
-
-- Description: TODO
+- Role: Defines the shared u bboxm constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform u_bboxk = new Uniform(VEC3, "lboxk", p -> ((GridLights)p.get(lights)).bboxk(), lights)`
-
-- Description: TODO
+- Role: Defines the shared u bboxk constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform u_lstex = new Uniform(USAMPLER2D, "lstex", p -> ((GridLights)p.get(lights)).lstex, lights)`
-
-- Description: TODO
+- Role: Defines the shared u lstex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform u_ldtex = new Uniform(SAMPLER2D, "ldtex", p -> ((GridLights)p.get(lights)).ldtex, lights)`
-
-- Description: TODO
+- Role: Defines the shared u ldtex constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Expression idx, lpar`
-
-- Description: TODO
+- Role: Holds the lpar state.
+- Description: Backs the cached state for this file.
 
 #### `public Expression idx, lpar`
-
-- Description: TODO
+- Role: Holds the lpar state.
+- Description: Backs the cached state for this file.
 
 #### `private final Object[][] list`
-
-- Description: TODO
+- Role: Holds the list state.
+- Description: Backs the cached state for this file.
 
 #### `public int maxlights = defmax`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `public final int maxlights`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `private static WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Caches interned entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private ShaderMacro shader = null`
-
-- Description: TODO
-
-#### `public final int w, h, d`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `public final int w, h, d`
-
-- Description: TODO
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `public final int w, h, d`
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `public final int wb, hb, db`
-
-- Description: TODO
-
-#### `public final int wb, hb, db`
-
-- Description: TODO
+#### `public final int w, h, d`
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `public final int wb, hb, db`
+- Role: Stores the db value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int wb, hb, db`
+- Role: Stores the db value.
+- Description: Backs the cached state for this file.
+
+#### `public final int wb, hb, db`
+- Role: Stores the db value.
+- Description: Backs the cached state for this file.
 
 #### `public int maxlights = defmax`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `private final int lswb`
-
-- Description: TODO
+- Role: Stores the lswb value.
+- Description: Backs the cached state for this file.
 
 #### `private GridLights last`
-
-- Description: TODO
+- Role: Stores the last value.
+- Description: Backs the cached state for this file.
 
 #### `final Volume3f bbox`
-
-- Description: TODO
-
-#### `final Coord3f gsz, szf`
-
-- Description: TODO
+- Role: Holds the bbox state.
+- Description: Backs the cached state for this file.
 
 #### `final Coord3f gsz, szf`
+- Role: Stores the szf value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `final Coord3f gsz, szf`
+- Role: Stores the szf value.
+- Description: Backs the cached state for this file.
 
 #### `final Collection<Short> global = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches global entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `final short[] grid = new short[w * h * d]`
-
-- Description: TODO
+- Role: Stores the grid value.
+- Description: Backs the cached state for this file.
 
 #### `short[] listbuf = new short[256]`
-
-- Description: TODO
+- Role: Stores the listbuf value.
+- Description: Backs the cached state for this file.
 
 #### `int lboff = 0`
-
-- Description: TODO
+- Role: Stores the lboff value.
+- Description: Backs the cached state for this file.
 
 #### `short[][] lists = new short[][]`
-
-- Description: TODO
+- Role: Stores the lists value.
+- Description: Backs the cached state for this file.
 
 #### `short[][] table = new short[32][]`
-
-- Description: TODO
+- Role: Stores the table value.
+- Description: Backs the cached state for this file.
 
 #### `int nlists = 1`
-
-- Description: TODO
+- Role: Stores the nlists value.
+- Description: Backs the cached state for this file.
 
 #### `int maxlist = 0`
-
-- Description: TODO
-
-#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
+- Role: Stores the maxlist value.
+- Description: Backs the cached state for this file.
 
 #### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
-
-#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
-
-#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
-
-#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
-
-- Description: TODO
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `private final int w, h, d, wb, hb, db, lswb, maxlights`
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
+
+#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
+
+#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
+
+#### `private final int w, h, d, wb, hb, db, lswb, maxlights`
+- Role: Stores the maxlights value.
+- Description: Backs the cached state for this file.
 
 #### `private static WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Caches interned entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private ShaderMacro shader = null`
-
-- Description: TODO
-
-#### `public final Texture2D.Sampler2D ldtex, lstex`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `public final Texture2D.Sampler2D ldtex, lstex`
+- Role: Stores the lstex value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Texture2D.Sampler2D ldtex, lstex`
+- Role: Stores the lstex value.
+- Description: Backs the cached state for this file.
 
 #### `public final Volume3f bbox`
-
-- Description: TODO
+- Role: Holds the bbox state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public abstract void construct(Block blk, java.util.function.Function<Params, Statement> body)`
-
-- Description: TODO
+- Role: Performs construct.
+- Description: Supports the construct operation used by the surrounding class.
 
 #### `public Params(Expression idx, Expression lpar)`
-
-- Description: TODO
+- Role: Performs params.
+- Description: Supports the params operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public SimpleLights(Object[][] lights)`
-
-- Description: TODO
+- Role: Performs simple lights.
+- Description: Supports the simple lights operation used by the surrounding class.
 
 #### `public Shader(int maxlights)`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Shader o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static ShaderMacro get(int maxlights)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public LightGrid(int w, int h, int d)`
-
-- Description: TODO
+- Role: Performs light grid.
+- Description: Supports the light grid operation used by the surrounding class.
 
 #### `Compiler(Projection proj)`
-
-- Description: TODO
+- Role: Handles the compiler workflow.
+- Description: Supports the compiler operation used by the surrounding class.
 
 #### `int us(short v)`
-
-- Description: TODO
+- Role: Performs us.
+- Description: Supports the us operation used by the surrounding class.
 
 #### `void rehash(int nlen)`
-
-- Description: TODO
+- Role: Performs rehash.
+- Description: Supports the rehash operation used by the surrounding class.
 
 #### `void ckrehash()`
-
-- Description: TODO
+- Role: Performs ckrehash.
+- Description: Supports the ckrehash operation used by the surrounding class.
 
 #### `short addlist(short[] plist, short add)`
-
-- Description: TODO
+- Role: Performs addlist.
+- Description: Supports the addlist operation used by the surrounding class.
 
 #### `short getlist(short[] plist, short add)`
-
-- Description: TODO
+- Role: Performs getlist.
+- Description: Supports the getlist operation used by the surrounding class.
 
 #### `void addpoint(int idx, Object[] light, float[] pos)`
-
-- Description: TODO
+- Role: Performs addpoint.
+- Description: Supports the addpoint operation used by the surrounding class.
 
 #### `void addglobal(int idx, Object[] light)`
-
-- Description: TODO
+- Role: Performs addglobal.
+- Description: Supports the addglobal operation used by the surrounding class.
 
 #### `void addlight(int idx, Object[] light)`
-
-- Description: TODO
+- Role: Performs addlight.
+- Description: Supports the addlight operation used by the surrounding class.
 
 #### `void compact()`
-
-- Description: TODO
+- Role: Performs compact.
+- Description: Supports the compact operation used by the surrounding class.
 
 #### `void dump()`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `public State compile(Object[][] lights, Projection proj)`
-
-- Description: TODO
+- Role: Performs compile.
+- Description: Supports the compile operation used by the surrounding class.
 
 #### `Shader(LightGrid pars)`
-
-- Description: TODO
+- Role: Handles the shader workflow.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Shader o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `private static ShaderMacro get(LightGrid pars)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public GridLights(Object[][] lights, Volume3f bbox, short[] grid, short[] lists, int listlen)`
-
-- Description: TODO
+- Role: Performs grid lights.
+- Description: Supports the grid lights operation used by the surrounding class.
 
 #### `private Texture2D listtex(short[] grid, short[] lists, int listlen)`
-
-- Description: TODO
+- Role: Performs listtex.
+- Description: Supports the listtex operation used by the surrounding class.
 
 #### `private Texture2D lighttex(Object[][] lights)`
-
-- Description: TODO
+- Role: Performs lighttex.
+- Description: Supports the lighttex operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public Coord3f bboxm()`
-
-- Description: TODO
+- Role: Performs bboxm.
+- Description: Supports the bboxm operation used by the surrounding class.
 
 #### `public Coord3f bboxk()`
-
-- Description: TODO
+- Role: Performs bboxk.
+- Description: Supports the bboxk operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

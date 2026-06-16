@@ -10,41 +10,40 @@ This file documents the responsibilities and members of `WaypointGridResolver`.
 
 ## Role
 
-Resolves a Haven grid into waypoint runtime grid data.
-Keeps the resolved grid cache keyed by Haven grid id.
+Resolves current Haven grid metadata for waypoint operations.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<Long, ResolvedGrid> resolvedByHavenGridId = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared resolved by haven grid id constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 ### Methods
 
 #### `private WaypointGridResolver()`
-
-- Description: TODO
+- Role: Creates a new WaypointGridResolver instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static synchronized void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public static synchronized ResolvedGrid resolveGrid(Coord gc)`
-
-- Description: TODO
+- Role: Coordinates resolve grid persistence or lookup.
+- Description: Supports the resolve grid operation used by the surrounding class.
 
 #### `static synchronized ResolvedGrid resolvedGrid(long havenGridId)`
-
-- Description: TODO
+- Role: Coordinates resolved grid persistence or lookup.
+- Description: Supports the resolved grid operation used by the surrounding class.
 
 #### `static synchronized void putResolvedGrid(long havenGridId, ResolvedGrid grid)`
-
-- Description: TODO
+- Role: Performs put resolved grid.
+- Description: Supports the put resolved grid operation used by the surrounding class.
 
 #### `private static MapFile mapFile()`
-
-- Description: TODO
+- Role: Performs map file.
+- Description: Supports the map file operation used by the surrounding class.

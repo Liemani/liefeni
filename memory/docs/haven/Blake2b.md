@@ -10,206 +10,207 @@ This file documents the responsibilities and members of `Blake2b`.
 
 ## Role
 
-Provides BLAKE2b hashing support.
+Represents the blake2b Haven component.
 
 ## Nested Types
 
 ### State
 
-- Description: TODO
+- Role: Represents state within Blake2b.
+- Description: Describes the nested state type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int BLOCKBYTES = 128`
-
-- Description: TODO
+- Role: Defines the shared blockbytes constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OUTBYTES = 64`
-
-- Description: TODO
+- Role: Defines the shared outbytes constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int KEYBYTES = 64`
-
-- Description: TODO
+- Role: Defines the shared keybytes constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int SALTBYTES = 16`
-
-- Description: TODO
+- Role: Defines the shared saltbytes constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int PERSONALBYTES = 16`
-
-- Description: TODO
+- Role: Defines the shared personalbytes constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final long IV[] =`
-
-- Description: TODO
+- Role: Defines the shared blake2b constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final byte Σ[][] =`
-
-- Description: TODO
+- Role: Defines the shared blake2b constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private final int digest_length`
-
-- Description: TODO
+- Role: Stores the digest length value.
+- Description: Backs the cached state for this file.
 
 #### `private final int key_length`
-
-- Description: TODO
-
-#### `private final int fanout = 1, depth = 1`
-
-- Description: TODO
+- Role: Stores the key length value.
+- Description: Backs the cached state for this file.
 
 #### `private final int fanout = 1, depth = 1`
+- Role: Stores the fanout value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int fanout = 1, depth = 1`
+- Role: Stores the fanout value.
+- Description: Backs the cached state for this file.
 
 #### `private final int leaf_length = 0, node_offset = 0`
-
-- Description: TODO
+- Role: Stores the leaf length value.
+- Description: Backs the cached state for this file.
 
 #### `private final int leaf_length = 0, node_offset = 0`
-
-- Description: TODO
-
-#### `private final int xof_length = 0, node_depth = 0`
-
-- Description: TODO
+- Role: Stores the leaf length value.
+- Description: Backs the cached state for this file.
 
 #### `private final int xof_length = 0, node_depth = 0`
+- Role: Stores the xof length value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final int xof_length = 0, node_depth = 0`
+- Role: Stores the xof length value.
+- Description: Backs the cached state for this file.
 
 #### `private final int inner_length = 0`
-
-- Description: TODO
+- Role: Stores the inner length value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] salt = new byte[SALTBYTES]`
-
-- Description: TODO
+- Role: Stores the salt value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] personal = new byte[PERSONALBYTES]`
-
-- Description: TODO
+- Role: Stores the personal value.
+- Description: Backs the cached state for this file.
 
 #### `private State zygote = null`
-
-- Description: TODO
+- Role: Holds the zygote state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean first = true`
-
-- Description: TODO
+- Role: Tracks the first flag.
+- Description: Supports the first operation used by the surrounding class.
 
 #### `private final long[] h = new long[8]`
-
-- Description: TODO
+- Role: Stores the h value.
+- Description: Backs the cached state for this file.
 
 #### `private final long[] t = new long[2]`
-
-- Description: TODO
+- Role: Stores the t value.
+- Description: Backs the cached state for this file.
 
 #### `private final long[] f = new long[2]`
-
-- Description: TODO
+- Role: Stores the f value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] buf = new byte[BLOCKBYTES]`
-
-- Description: TODO
+- Role: Stores the buf value.
+- Description: Backs the cached state for this file.
 
 #### `private final int outlen = digest_length`
-
-- Description: TODO
+- Role: Stores the outlen value.
+- Description: Backs the cached state for this file.
 
 #### `private int buflen = 0`
-
-- Description: TODO
+- Role: Stores the buflen value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean last_node = false`
-
-- Description: TODO
+- Role: Tracks the last node flag.
+- Description: Supports the last node operation used by the surrounding class.
 
 ### Methods
 
 #### `public Blake2b(int digest_length, byte[] key, byte[] salt, byte[] personal)`
-
-- Description: TODO
+- Role: Creates a new Blake2b instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Blake2b(byte[] key)`
-
-- Description: TODO
+- Role: Creates a new Blake2b instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Blake2b(int digest_length)`
-
-- Description: TODO
+- Role: Creates a new Blake2b instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Blake2b()`
-
-- Description: TODO
+- Role: Creates a new Blake2b instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int diglen()`
-
-- Description: TODO
+- Role: Performs diglen.
+- Description: Supports the diglen operation used by the surrounding class.
 
 #### `public int blocklen()`
-
-- Description: TODO
+- Role: Performs blocklen.
+- Description: Supports the blocklen operation used by the surrounding class.
 
 #### `public Digest get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private byte[] packed()`
-
-- Description: TODO
+- Role: Performs packed.
+- Description: Supports the packed operation used by the surrounding class.
 
 #### `private State()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `private State(State from)`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `private void increment_counter(long inc)`
-
-- Description: TODO
+- Role: Performs increment counter.
+- Description: Supports the increment counter operation used by the surrounding class.
 
 #### `private void set_lastnode()`
-
-- Description: TODO
+- Role: Sets the lastnode.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `private boolean is_lastblock()`
-
-- Description: TODO
+- Role: Checks whether the lastblock.
+- Description: Returns a boolean result for the described condition.
 
 #### `private void set_lastblock()`
-
-- Description: TODO
+- Role: Sets the lastblock.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `private void G(long[] m, long[] v, int r, int i, int a, int b, int c, int d)`
-
-- Description: TODO
+- Role: Performs g.
+- Description: Supports the g operation used by the surrounding class.
 
 #### `private void ROUND(long[] m, long[] v, int r)`
-
-- Description: TODO
+- Role: Performs round.
+- Description: Supports the round operation used by the surrounding class.
 
 #### `private void compress(byte[] buf, int off)`
-
-- Description: TODO
+- Role: Performs compress.
+- Description: Supports the compress operation used by the surrounding class.
 
 #### `public Digest update(byte[] src, int off, int len)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public byte[] digest()`
-
-- Description: TODO
+- Role: Performs digest.
+- Description: Supports the digest operation used by the surrounding class.
 
 #### `public State copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.

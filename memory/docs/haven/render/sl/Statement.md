@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Statement`.
 
 ## Role
 
-Represents a shader statement.
+Represents the statement shader-language AST node.
 
 ## Members
 
@@ -21,5 +21,5 @@ Represents a shader statement.
 ### Methods
 
 #### `public static Statement expr(final Expression e)`
-
-- Description: TODO
+- Role: Performs expr.
+- Description: Supports the expr operation used by the surrounding class.

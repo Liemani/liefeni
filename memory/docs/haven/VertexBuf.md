@@ -10,262 +10,276 @@ This file documents the responsibilities and members of `VertexBuf`.
 
 ## Role
 
-Stores vertex buffers.
+Represents the vertex buf Haven component.
 
 ## Nested Types
 
 ### AttribData
 
-- Description: TODO
+- Role: Represents attrib data within VertexBuf.
+- Description: Describes the nested attrib data type used by the enclosing class.
 
 ### ColorData
 
-- Description: TODO
+- Role: Represents color data within VertexBuf.
+- Description: Describes the nested color data type used by the enclosing class.
 
 ### ColorDecode
 
-- Description: TODO
+- Role: Represents color decode within VertexBuf.
+- Description: Describes the nested color decode type used by the enclosing class.
 
 ### DataCons
 
-- Description: TODO
+- Role: Represents data cons within VertexBuf.
+- Description: Describes the nested data cons type used by the enclosing class.
 
 ### FloatData
 
-- Description: TODO
+- Role: Represents float data within VertexBuf.
+- Description: Describes the nested float data type used by the enclosing class.
 
 ### IntData
 
-- Description: TODO
+- Role: Represents int data within VertexBuf.
+- Description: Describes the nested int data type used by the enclosing class.
 
 ### NormalData
 
-- Description: TODO
+- Role: Represents normal data within VertexBuf.
+- Description: Describes the nested normal data type used by the enclosing class.
 
 ### NormalDecode
 
-- Description: TODO
+- Role: Represents normal decode within VertexBuf.
+- Description: Describes the nested normal decode type used by the enclosing class.
 
 ### ResName
 
-- Description: TODO
+- Role: Represents res name within VertexBuf.
+- Description: Describes the nested res name type used by the enclosing class.
 
 ### TexelData
 
-- Description: TODO
+- Role: Represents texel data within VertexBuf.
+- Description: Describes the nested texel data type used by the enclosing class.
 
 ### TexelDecode
 
-- Description: TODO
+- Role: Represents texel decode within VertexBuf.
+- Description: Describes the nested texel decode type used by the enclosing class.
 
 ### VertexData
 
-- Description: TODO
+- Role: Represents vertex data within VertexBuf.
+- Description: Describes the nested vertex data type used by the enclosing class.
 
 ### VertexDecode
 
-- Description: TODO
+- Role: Represents vertex decode within VertexBuf.
+- Description: Describes the nested vertex decode type used by the enclosing class.
 
 ### VertexRes
 
-- Description: TODO
+- Role: Represents vertex res within VertexBuf.
+- Description: Describes the nested vertex res type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<String, DataCons> rnames = new TreeMap<String, DataCons>()`
-
-- Description: TODO
+- Role: Defines the shared rnames constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final AttribData[] bufs`
-
-- Description: TODO
+- Role: Holds the bufs state.
+- Description: Backs the cached state for this file.
 
 #### `public final int num`
-
-- Description: TODO
+- Role: Stores the num value.
+- Description: Backs the cached state for this file.
 
 #### `private VertexArray data = null`
-
-- Description: TODO
+- Role: Caches data entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private VertexArray.Buffer dbuf = null`
-
-- Description: TODO
+- Role: Caches dbuf entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Attribute attr`
-
-- Description: TODO
+- Role: Holds the attr state.
+- Description: Backs the cached state for this file.
 
 #### `public final VectorFormat elfmt`
-
-- Description: TODO
+- Role: Holds the elfmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final FloatBuffer data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `public final IntBuffer data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `public transient final VertexBuf b`
-
-- Description: TODO
+- Role: Stores the b value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public VertexBuf(AttribData... bufs)`
-
-- Description: TODO
+- Role: Creates a new VertexBuf instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public <T extends AttribData> T buf(Class<T> type)`
-
-- Description: TODO
+- Role: Performs buf.
+- Description: Supports the buf operation used by the surrounding class.
 
 #### `private static Layout fmtfor(AttribData[] allbufs)`
-
-- Description: TODO
+- Role: Performs fmtfor.
+- Description: Supports the fmtfor operation used by the surrounding class.
 
 #### `protected VertexArray fmtdata()`
-
-- Description: TODO
+- Role: Performs fmtdata.
+- Description: Supports the fmtdata operation used by the surrounding class.
 
 #### `public VertexArray data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `private FillBuffer fill(VertexArray.Buffer vbuf, Environment env)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public void update(Render g)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public AttribData(Attribute attr, VectorFormat elfmt)`
-
-- Description: TODO
+- Role: Performs attrib data.
+- Description: Supports the attrib data operation used by the surrounding class.
 
 #### `public abstract void data(ByteBuffer dst, int offset, int stride)`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public abstract int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public FloatData(Attribute attr, int n, FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs float data.
+- Description: Supports the float data operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public void data(ByteBuffer bdst, int offset, int stride)`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public IntData(Attribute attr, int n, IntBuffer data)`
-
-- Description: TODO
+- Role: Performs int data.
+- Description: Supports the int data operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public void data(ByteBuffer bdst, int offset, int stride)`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public VertexData(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs vertex data.
+- Description: Supports the vertex data operation used by the surrounding class.
 
 #### `public VertexData(Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs vertex data.
+- Description: Supports the vertex data operation used by the surrounding class.
 
 #### `public void cons(Collection<AttribData> dst, Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public NormalData(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs normal data.
+- Description: Supports the normal data operation used by the surrounding class.
 
 #### `public NormalData(Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs normal data.
+- Description: Supports the normal data operation used by the surrounding class.
 
 #### `public void cons(Collection<AttribData> dst, Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public ColorData(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs color data.
+- Description: Supports the color data operation used by the surrounding class.
 
 #### `public ColorData(Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs color data.
+- Description: Supports the color data operation used by the surrounding class.
 
 #### `public void cons(Collection<AttribData> dst, Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public TexelData(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs texel data.
+- Description: Supports the texel data operation used by the surrounding class.
 
 #### `public TexelData(Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs texel data.
+- Description: Supports the texel data operation used by the surrounding class.
 
 #### `public void cons(Collection<AttribData> dst, Resource res, Message buf, int nv)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String value()`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public void cons(Collection<AttribData> dst, Resource res, Message buf, int nvert)`
-
-- Description: TODO
+- Role: Performs cons.
+- Description: Supports the cons operation used by the surrounding class.
 
 #### `public static FloatBuffer loadbuf(FloatBuffer dst, Message buf)`
-
-- Description: TODO
+- Role: Performs loadbuf.
+- Description: Supports the loadbuf operation used by the surrounding class.
 
 #### `public static FloatBuffer loadbuf2(FloatBuffer dst, Message buf)`
-
-- Description: TODO
+- Role: Performs loadbuf2.
+- Description: Supports the loadbuf2 operation used by the surrounding class.
 
 #### `private VertexRes(Resource res, VertexBuf b)`
-
-- Description: TODO
+- Role: Performs vertex res.
+- Description: Supports the vertex res operation used by the surrounding class.
 
 #### `public VertexRes(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs vertex res.
+- Description: Supports the vertex res operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public Integer layerid()`
-
-- Description: TODO
+- Role: Performs layerid.
+- Description: Supports the layerid operation used by the surrounding class.

@@ -10,362 +10,370 @@ This file documents the responsibilities and members of `MeshAnim`.
 
 ## Role
 
-Represents mesh animation support.
+Represents the mesh anim Haven component.
 
 ## Nested Types
 
 ### Animated
 
-- Description: TODO
+- Role: Represents animated within MeshAnim.
+- Description: Describes the nested animated type used by the enclosing class.
 
 ### Animation
 
-- Description: TODO
+- Role: Represents animation within MeshAnim.
+- Description: Describes the nested animation type used by the enclosing class.
 
 ### Frame
 
-- Description: TODO
+- Role: Represents frame within MeshAnim.
+- Description: Describes the nested frame type used by the enclosing class.
 
 ### Instanced
 
-- Description: TODO
+- Role: Represents instanced within MeshAnim.
+- Description: Describes the nested instanced type used by the enclosing class.
 
 ### RandAnimation
 
-- Description: TODO
+- Role: Represents rand animation within MeshAnim.
+- Description: Describes the nested rand animation type used by the enclosing class.
 
 ### Res
 
-- Description: TODO
+- Role: Represents res within MeshAnim.
+- Description: Describes the nested res type used by the enclosing class.
 
 ### SeqAnimation
 
-- Description: TODO
+- Role: Represents seq animation within MeshAnim.
+- Description: Describes the nested seq animation type used by the enclosing class.
 
 ### Shader
 
-- Description: TODO
+- Role: Represents shader within MeshAnim.
+- Description: Describes the nested shader type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final State.Slot<MeshAnim> anim = new State.Slot<>(State.Slot.Type.GEOM, MeshAnim.class)`
-
-- Description: TODO
+- Role: Defines the shared anim constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final State.Slot<Animated> frame = new State.Slot<>(State.Slot.Type.GEOM, Animated.class)`
-
-- Description: TODO
+- Role: Defines the shared frame constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Uniform pdata = new Uniform(SAMPLER2D, "panim", p -> p.get(anim).ptex(), anim)`
-
-- Description: TODO
+- Role: Defines the shared pdata constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Uniform ndata = new Uniform(SAMPLER2D, "nanim", p ->`
-
-- Description: TODO
+- Role: Defines the shared ndata constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Uniform voff = new Uniform(IVEC2, "voff", p ->`
-
-- Description: TODO
+- Role: Defines the shared voff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final InstancedUniform frames = new InstancedUniform.IVec2("frames", p ->`
-
-- Description: TODO
+- Role: Defines the shared frames constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final InstancedUniform ipol = new InstancedUniform.Float1("ipol", p -> p.get(frame).a, frame)`
-
-- Description: TODO
+- Role: Defines the shared ipol constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
-
-- Description: TODO
+- Role: Defines the shared interned constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Frame[] frames`
-
-- Description: TODO
+- Role: Holds the frames state.
+- Description: Backs the cached state for this file.
 
 #### `public final float len`
-
-- Description: TODO
-
-#### `public final int minv, maxv`
-
-- Description: TODO
+- Role: Stores the len value.
+- Description: Backs the cached state for this file.
 
 #### `public final int minv, maxv`
+- Role: Stores the maxv value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int minv, maxv`
+- Role: Stores the maxv value.
+- Description: Backs the cached state for this file.
 
 #### `public final float time`
-
-- Description: TODO
+- Role: Stores the time value.
+- Description: Backs the cached state for this file.
 
 #### `public final int[] idx`
-
-- Description: TODO
-
-#### `public final float[] pos, nrm`
-
-- Description: TODO
+- Role: Stores the idx value.
+- Description: Backs the cached state for this file.
 
 #### `public final float[] pos, nrm`
+- Role: Stores the nrm value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final float[] pos, nrm`
+- Role: Stores the nrm value.
+- Description: Backs the cached state for this file.
 
 #### `public final int minv, maxv`
-
-- Description: TODO
+- Role: Stores the maxv value.
+- Description: Backs the cached state for this file.
 
 #### `public final int minv, maxv`
-
-- Description: TODO
-
-#### `private Texture2D.Sampler2D ptex = null, ntex = null`
-
-- Description: TODO
+- Role: Stores the maxv value.
+- Description: Backs the cached state for this file.
 
 #### `private Texture2D.Sampler2D ptex = null, ntex = null`
+- Role: Stores the ptex value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Texture2D.Sampler2D ptex = null, ntex = null`
+- Role: Stores the ptex value.
+- Description: Backs the cached state for this file.
 
 #### `final boolean nrm`
-
-- Description: TODO
+- Role: Tracks the nrm flag.
+- Description: Supports the nrm operation used by the surrounding class.
 
 #### `final Object id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `public final MeshAnim anim`
-
-- Description: TODO
-
-#### `public final int ff, tf`
-
-- Description: TODO
+- Role: Holds the anim state.
+- Description: Backs the cached state for this file.
 
 #### `public final int ff, tf`
+- Role: Stores the tf value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int ff, tf`
+- Role: Stores the tf value.
+- Description: Backs the cached state for this file.
 
 #### `public final float a`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `private Instanced ianim = null`
-
-- Description: TODO
+- Role: Holds the ianim state.
+- Description: Backs the cached state for this file.
 
 #### `private final Instancer<Animated> instancer = (ast, bat) ->`
-
-- Description: TODO
+- Role: Holds the instancer state.
+- Description: Backs the cached state for this file.
 
 #### `private ShaderMacro shader = null`
-
-- Description: TODO
+- Role: Holds the shader state.
+- Description: Backs the cached state for this file.
 
 #### `private int cf`
-
-- Description: TODO
-
-#### `private float flen, ftm`
-
-- Description: TODO
+- Role: Stores the cf value.
+- Description: Backs the cached state for this file.
 
 #### `private float flen, ftm`
+- Role: Stores the ftm value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private float flen, ftm`
+- Role: Stores the ftm value.
+- Description: Backs the cached state for this file.
 
 #### `private float fl, fp`
-
-- Description: TODO
+- Role: Stores the fp value.
+- Description: Backs the cached state for this file.
 
 #### `private float fl, fp`
-
-- Description: TODO
-
-#### `private int cfi, nfi`
-
-- Description: TODO
+- Role: Stores the fp value.
+- Description: Backs the cached state for this file.
 
 #### `private int cfi, nfi`
+- Role: Stores the nfi value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int cfi, nfi`
+- Role: Stores the nfi value.
+- Description: Backs the cached state for this file.
 
 #### `private final Random rnd = new Random()`
-
-- Description: TODO
+- Role: Holds the rnd state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final MeshAnim a`
-
-- Description: TODO
+- Role: Holds the a state.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean rnd`
-
-- Description: TODO
+- Role: Tracks the rnd flag.
+- Description: Supports the rnd operation used by the surrounding class.
 
 ### Methods
 
 #### `public MeshAnim(Frame[] frames, float len)`
-
-- Description: TODO
+- Role: Creates a new MeshAnim instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Frame(float time, int[] idx, float[] pos, float[] nrm)`
-
-- Description: TODO
+- Role: Performs frame.
+- Description: Supports the frame operation used by the surrounding class.
 
 #### `public boolean hasnrm()`
-
-- Description: TODO
+- Role: Performs hasnrm.
+- Description: Supports the hasnrm operation used by the surrounding class.
 
 #### `private Texture2D dtex(boolean pos)`
-
-- Description: TODO
+- Role: Performs dtex.
+- Description: Supports the dtex operation used by the surrounding class.
 
 #### `public Texture2D.Sampler2D ptex()`
-
-- Description: TODO
+- Role: Performs ptex.
+- Description: Supports the ptex operation used by the surrounding class.
 
 #### `public Texture2D.Sampler2D ntex()`
-
-- Description: TODO
+- Role: Performs ntex.
+- Description: Supports the ntex operation used by the surrounding class.
 
 #### `Shader(boolean nrm)`
-
-- Description: TODO
+- Role: Handles the shader workflow.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `Function off(VertexContext vctx, boolean pos)`
-
-- Description: TODO
+- Role: Performs off.
+- Description: Supports the off operation used by the surrounding class.
 
 #### `public void modify(ProgramContext prog)`
-
-- Description: TODO
+- Role: Performs modify.
+- Description: Supports the modify operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static Shader get(boolean nrm)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Animated(MeshAnim anim, int ff, int tf, float a)`
-
-- Description: TODO
+- Role: Performs animated.
+- Description: Supports the animated operation used by the surrounding class.
 
 #### `int foff()`
-
-- Description: TODO
+- Role: Performs foff.
+- Description: Supports the foff operation used by the surrounding class.
 
 #### `int toff()`
-
-- Description: TODO
+- Role: Performs toff.
+- Description: Supports the toff operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public InstancedAttribute[] attribs()`
-
-- Description: TODO
+- Role: Performs attribs.
+- Description: Supports the attribs operation used by the surrounding class.
 
 #### `Instanced(MeshAnim anim)`
-
-- Description: TODO
-
-#### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Handles the instanced workflow.
+- Description: Supports the instanced operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
-- Description: TODO
+#### `public ShaderMacro shader()`
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public abstract Animated state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public abstract boolean tick(float dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public abstract void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public MeshAnim desc()`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public SeqAnimation()`
-
-- Description: TODO
+- Role: Performs seq animation.
+- Description: Supports the seq animation operation used by the surrounding class.
 
 #### `public boolean tick(float dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public Animated state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public RandAnimation()`
-
-- Description: TODO
+- Role: Performs rand animation.
+- Description: Supports the rand animation operation used by the surrounding class.
 
 #### `private void setfr(int fi)`
-
-- Description: TODO
+- Role: Performs setfr.
+- Description: Supports the setfr operation used by the surrounding class.
 
 #### `public boolean tick(float dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public void age()`
-
-- Description: TODO
+- Role: Performs age.
+- Description: Supports the age operation used by the surrounding class.
 
 #### `public Animated state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public boolean animp(FastMesh mesh)`
-
-- Description: TODO
+- Role: Performs animp.
+- Description: Supports the animp operation used by the surrounding class.
 
 #### `public Res(Resource res, Message buf)`
-
-- Description: TODO
+- Role: Performs res.
+- Description: Supports the res operation used by the surrounding class.
 
 #### `public Animation make()`
-
-- Description: TODO
+- Role: Performs make.
+- Description: Supports the make operation used by the surrounding class.
 
 #### `public void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.

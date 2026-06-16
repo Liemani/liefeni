@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `LMIException`.
 
 ## Role
 
-Represents LMI-specific failure conditions.
+Represents an LMI-specific runtime error.
 
 ## Members
 
@@ -19,15 +19,15 @@ Represents LMI-specific failure conditions.
 ### Fields
 
 #### `public ExceptionReason reason`
-
-- Description: TODO
+- Role: Holds the reason state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public LMIException(ExceptionReason reason)`
-
-- Description: TODO
+- Role: Creates a new LMIException instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

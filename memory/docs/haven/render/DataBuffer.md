@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DataBuffer`.
 
 ## Role
 
-Represents a data buffer.
+Defines the data buffer render pipeline component.
 
 ## Members
 
@@ -21,57 +21,57 @@ Represents a data buffer.
 ### Methods
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public FillBuffer fill(T buf, Environment env)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public default void done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(ByteBuffer data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(ShortBuffer data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(IntBuffer data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(byte[] data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(short[] data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(int[] data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> of(float[] data)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static Filler<DataBuffer> zero()`
-
-- Description: TODO
+- Role: Performs zero.
+- Description: Supports the zero operation used by the surrounding class.
 
 #### `public FillBuffer fill(T buf, Environment env, int from, int to)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public default FillBuffer fill(T buf, Environment env)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.

@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `OrderList`.
 
 ## Role
 
-Represents an ordered list of shader items.
+Represents the order list shader-language AST node.
 
 ## Nested Types
 
 ### Element
 
-- Description: TODO
+- Role: Represents element within OrderList.
+- Description: Describes the nested element type used by the enclosing class.
 
 ## Members
 
@@ -25,39 +26,39 @@ Represents an ordered list of shader items.
 ### Fields
 
 #### `private final List<Element> bk = new ArrayList<Element>()`
-
-- Description: TODO
+- Role: Caches bk entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean sorted`
-
-- Description: TODO
+- Role: Tracks the sorted flag.
+- Description: Supports the sorted operation used by the surrounding class.
 
 #### `final E e`
-
-- Description: TODO
+- Role: Holds the e state.
+- Description: Backs the cached state for this file.
 
 #### `final int o`
-
-- Description: TODO
+- Role: Stores the o value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `Element(E e, int o)`
-
-- Description: TODO
+- Role: Handles the element workflow.
+- Description: Supports the element operation used by the surrounding class.
 
 #### `public int compareTo(Element b)`
-
-- Description: TODO
+- Role: Performs compare to.
+- Description: Supports the compare to operation used by the surrounding class.
 
 #### `public boolean add(E e, int o)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Iterator<E> iterator()`
-
-- Description: TODO
+- Role: Performs iterator.
+- Description: Supports the iterator operation used by the surrounding class.

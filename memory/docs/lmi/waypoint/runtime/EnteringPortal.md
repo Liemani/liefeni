@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `EnteringPortal`.
 
 ## Role
 
-Represents a portal-related waypoint concept.
+Coordinates waypoint runtime state for entering portal.
 
 ## Members
 
@@ -19,27 +19,27 @@ Represents a portal-related waypoint concept.
 ### Fields
 
 #### `public final long graphId`
-
-- Description: TODO
+- Role: Stores the graph id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localX`
-
-- Description: TODO
+- Role: Stores the local x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localY`
-
-- Description: TODO
+- Role: Stores the local y value.
+- Description: Backs the cached state for this file.
 
 #### `public final String resname`
-
-- Description: TODO
+- Role: Stores the resname value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public EnteringPortal(long graphId, long gridId, int localX, int localY, String resname)`
-
-- Description: TODO
+- Role: Creates a new EnteringPortal instance.
+- Description: Constructs the instance and initializes its default state.

@@ -1,8 +1,6 @@
-# Task
+# 새 DB 파일에서 첫 world enter 후 `map_segment` / `map_grid`가 자동으로 쌓이는지 확인
 
-## Title
-
-새 DB 파일에서 첫 world enter 후 `map_segment` / `map_grid`가 자동으로 쌓이는지 확인
+이 task는 관련된 작업 단위를 추적한다.
 
 ## Meta
 

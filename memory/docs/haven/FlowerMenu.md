@@ -10,194 +10,199 @@ This file documents the responsibilities and members of `FlowerMenu`.
 
 ## Role
 
-Displays the flower menu interaction widget.
+Represents the in-game flower menu.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within FlowerMenu.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### Cancel
 
-- Description: TODO
+- Role: Represents cancel within FlowerMenu.
+- Description: Describes the nested cancel type used by the enclosing class.
 
 ### Chosen
 
-- Description: TODO
+- Role: Represents chosen within FlowerMenu.
+- Description: Describes the nested chosen type used by the enclosing class.
 
 ### Opening
 
-- Description: TODO
+- Role: Represents opening within FlowerMenu.
+- Description: Describes the nested opening type used by the enclosing class.
 
 ### Petal
 
-- Description: TODO
+- Role: Represents petal within FlowerMenu.
+- Description: Describes the nested petal type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Color pink = new Color(255, 0, 128)`
-
-- Description: TODO
+- Role: Defines the shared pink constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color ptc = Color.YELLOW`
-
-- Description: TODO
+- Role: Defines the shared ptc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry ptf = new Text.Foundry(Text.dfont, 12)`
-
-- Description: TODO
+- Role: Defines the shared ptf constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final IBox pbox = Window.wbox`
-
-- Description: TODO
+- Role: Defines the shared pbox constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex pbg = Window.bg`
-
-- Description: TODO
-
-#### `public static final int ph = UI.scale(30), ppl = 8`
-
-- Description: TODO
+- Role: Defines the shared pbg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int ph = UI.scale(30), ppl = 8`
+- Role: Defines the shared ph constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final int ph = UI.scale(30), ppl = 8`
+- Role: Defines the shared ph constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Petal[] opts`
-
-- Description: TODO
-
-#### `private UI.Grab mg, kg`
-
-- Description: TODO
+- Role: Holds the opts state.
+- Description: Backs the cached state for this file.
 
 #### `private UI.Grab mg, kg`
+- Role: Stores the kg value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private UI.Grab mg, kg`
+- Role: Stores the kg value.
+- Description: Backs the cached state for this file.
 
 #### `public String name`
-
-- Description: TODO
-
-#### `public double ta, tr`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public double ta, tr`
+- Role: Stores the tr value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public double ta, tr`
+- Role: Stores the tr value.
+- Description: Backs the cached state for this file.
 
 #### `public int num`
-
-- Description: TODO
+- Role: Stores the num value.
+- Description: Backs the cached state for this file.
 
 #### `private Text text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `private double a = 1`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `Petal chosen`
-
-- Description: TODO
+- Role: Holds the chosen state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Petal(String name)`
-
-- Description: TODO
+- Role: Performs petal.
+- Description: Supports the petal operation used by the surrounding class.
 
 #### `public void move(Coord c)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void move(double a, double r)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public Area ta(Coord tc)`
-
-- Description: TODO
+- Role: Performs ta.
+- Description: Supports the ta operation used by the surrounding class.
 
 #### `public Area ta(double a, double r)`
-
-- Description: TODO
+- Role: Performs ta.
+- Description: Supports the ta operation used by the surrounding class.
 
 #### `private static double nxf(double a)`
-
-- Description: TODO
+- Role: Performs nxf.
+- Description: Supports the nxf operation used by the surrounding class.
 
 #### `Opening()`
-
-- Description: TODO
+- Role: Handles the opening workflow.
+- Description: Supports the opening operation used by the surrounding class.
 
 #### `public void ntick(double s)`
-
-- Description: TODO
+- Role: Performs ntick.
+- Description: Supports the ntick operation used by the surrounding class.
 
 #### `Chosen(Petal c)`
-
-- Description: TODO
+- Role: Handles the chosen workflow.
+- Description: Supports the chosen operation used by the surrounding class.
 
 #### `public void ntick(double s)`
-
-- Description: TODO
+- Role: Performs ntick.
+- Description: Supports the ntick operation used by the surrounding class.
 
 #### `Cancel()`
-
-- Description: TODO
+- Role: Handles the cancel workflow.
+- Description: Supports the cancel operation used by the surrounding class.
 
 #### `public void ntick(double s)`
-
-- Description: TODO
+- Role: Performs ntick.
+- Description: Supports the ntick operation used by the surrounding class.
 
 #### `private void organize(Petal[] opts)`
-
-- Description: TODO
+- Role: Performs organize.
+- Description: Supports the organize operation used by the surrounding class.
 
 #### `public FlowerMenu(String... options)`
-
-- Description: TODO
+- Role: Creates a new FlowerMenu instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-
-- Description: TODO
+- Role: Performs keydown.
+- Description: Supports the keydown operation used by the surrounding class.
 
 #### `public void choose(Petal option)`
-
-- Description: TODO
+- Role: Performs choose.
+- Description: Supports the choose operation used by the surrounding class.

@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `GLDoubleBuffer`.
 
 ## Role
 
-Represents a double-buffered GL resource.
+Provides GL backend support for gldouble buffer.
 
 ## Nested Types
 
 ### Buffered
 
-- Description: TODO
+- Role: Represents buffered within GLDoubleBuffer.
+- Description: Describes the nested buffered type used by the enclosing class.
 
 ## Members
 
@@ -25,43 +26,43 @@ Represents a double-buffered GL resource.
 ### Fields
 
 #### `private List<Buffered> changed = null`
-
-- Description: TODO
+- Role: Caches changed entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int prevsz = 16`
-
-- Description: TODO
-
-#### `private BufferBGL cur, next`
-
-- Description: TODO
+- Role: Stores the prevsz value.
+- Description: Backs the cached state for this file.
 
 #### `private BufferBGL cur, next`
+- Role: Stores the next value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private BufferBGL cur, next`
+- Role: Stores the next value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public void abort()`
-
-- Description: TODO
+- Role: Performs abort.
+- Description: Supports the abort operation used by the surrounding class.
 
 #### `public void update(BufferBGL gl)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public boolean get(long timeout) throws InterruptedException`
-
-- Description: TODO
+- Role: Returns the  value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void put()`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public void put(BGL gl)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.

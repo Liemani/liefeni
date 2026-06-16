@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SystemDrop`.
 
 ## Role
 
-Represents a system drop target or payload.
+Represents the system drop Haven component.
 
 ## Members
 
@@ -21,17 +21,17 @@ Represents a system drop target or payload.
 ### Methods
 
 #### `public boolean supports(DataFlavor f)`
-
-- Description: TODO
+- Role: Performs supports.
+- Description: Supports the supports operation used by the surrounding class.
 
 #### `public Object receive(DataFlavor f) throws IOException`
-
-- Description: TODO
+- Role: Receives the current message.
+- Description: Supports the receive operation used by the surrounding class.
 
 #### `public static SystemDrop of(DropTargetDragEvent ev)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static SystemDrop of(DropTargetDropEvent ev)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.

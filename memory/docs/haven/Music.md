@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `Music`.
 
 ## Role
 
-Handles music playback.
+Represents the music Haven component.
 
 ## Nested Types
 
 ### Player
 
-- Description: TODO
+- Role: Represents player within Music.
+- Description: Describes the nested player type used by the enclosing class.
 
 ## Members
 
@@ -25,63 +26,63 @@ Handles music playback.
 ### Fields
 
 #### `private static Player player`
-
-- Description: TODO
+- Role: Holds the player state.
+- Description: Backs the cached state for this file.
 
 #### `public static boolean enabled = true`
-
-- Description: TODO
+- Role: Tracks whether enabled is enabled.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static boolean debug = false`
-
-- Description: TODO
+- Role: Tracks the debug flag.
+- Description: Supports the debug operation used by the surrounding class.
 
 #### `private Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `private Thread waitfor`
-
-- Description: TODO
+- Role: Holds the waitfor state.
+- Description: Backs the cached state for this file.
 
 #### `private Sequencer seq`
-
-- Description: TODO
+- Role: Holds the seq state.
+- Description: Backs the cached state for this file.
 
 #### `private Synthesizer synth`
-
-- Description: TODO
+- Role: Holds the synth state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean done`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `private boolean loop = false`
-
-- Description: TODO
+- Role: Tracks the loop flag.
+- Description: Supports the loop operation used by the surrounding class.
 
 ### Methods
 
 #### `private static void debug(String str)`
-
-- Description: TODO
+- Role: Performs debug.
+- Description: Supports the debug operation used by the surrounding class.
 
 #### `private Player(Indir<Resource> res, Thread waitfor)`
-
-- Description: TODO
+- Role: Performs player.
+- Description: Supports the player operation used by the surrounding class.
 
 #### `public void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static void play(Indir<Resource> res, boolean loop)`
-
-- Description: TODO
+- Role: Performs play.
+- Description: Supports the play operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.
 
 #### `public static void enable(boolean enabled)`
-
-- Description: TODO
+- Role: Performs enable.
+- Description: Supports the enable operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `CSprite`.
 
 ## Role
 
-Represents a compiled sprite helper.
+Provides resource helper logic for csprite.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a compiled sprite helper.
 ### Fields
 
 #### `private final Coord3f cc`
-
-- Description: TODO
+- Role: Stores the cc value.
+- Description: Backs the cached state for this file.
 
 #### `private final List<RenderTree.Node> parts = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches parts entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Random rnd`
-
-- Description: TODO
+- Role: Holds the rnd state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public CSprite(Owner owner, Resource res)`
-
-- Description: TODO
+- Role: Creates a new CSprite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addpart(Location loc, Pipe.Op mat, RenderTree.Node part)`
-
-- Description: TODO
+- Role: Performs addpart.
+- Description: Supports the addpart operation used by the surrounding class.
 
 #### `public void addpart(float xo, float yo, float a, Pipe.Op mat, RenderTree.Node part)`
-
-- Description: TODO
+- Role: Performs addpart.
+- Description: Supports the addpart operation used by the surrounding class.
 
 #### `public void addpart(float xo, float yo, Pipe.Op mat, RenderTree.Node part)`
-
-- Description: TODO
+- Role: Performs addpart.
+- Description: Supports the addpart operation used by the surrounding class.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.

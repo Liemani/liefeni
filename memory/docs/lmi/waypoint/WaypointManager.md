@@ -10,216 +10,216 @@ This file documents the responsibilities and members of `WaypointManager`.
 
 ## Role
 
-Coordinates waypoint runtime state, grid resolution, refresh, and async preload requests.
+Owns waypoint runtime coordination and high-level entry points.
 
 ## Members
 
 ### Constants
 
 #### `private static final WaypointRuntimeContext runtimeContext = new WaypointRuntimeContext()`
-
-- Description: TODO
+- Role: Defines the shared runtime context constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ManagedObjectContext managedNodeContext = runtimeContext.managedNodeContext()`
-
-- Description: TODO
+- Role: Defines the shared managed node context constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static boolean refreshRequested`
-
-- Description: TODO
+- Role: Tracks whether refresh has been requested.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static Long pendingGraphResolveGridId`
-
-- Description: TODO
+- Role: Stores the pending graph resolve grid id value.
+- Description: Backs the cached state for this file.
 
 #### `private static Long lastResolvedGraphGridId`
-
-- Description: TODO
+- Role: Stores the last resolved graph grid id value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private WaypointManager()`
-
-- Description: TODO
+- Role: Creates a new WaypointManager instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static void clear()`
-
-- Description: TODO
+- Role: Clears waypoint manager state.
+- Description: Removes the associated value from the current runtime state.
 
 #### `public static Long currentGraphId()`
-
-- Description: TODO
+- Role: Returns the current graph ID.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Long activeGraphId()`
-
-- Description: TODO
+- Role: Returns the active graph ID.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void setCurrentGraphId(Long graphId)`
-
-- Description: TODO
+- Role: Sets the current graph ID.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static EnteringPortal enteringPortal()`
-
-- Description: TODO
+- Role: Returns the currently captured entering portal.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void captureEnteringPortal(Coord world, String resname)`
-
-- Description: TODO
+- Role: Captures the entering portal.
+- Description: Supports the capture entering portal operation used by the surrounding class.
 
 #### `public static Array<ResolvedNode> nearbyNodes()`
-
-- Description: TODO
+- Role: Returns nearby waypoint nodes.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Array<ResolvedPoint> nearbyPoints()`
-
-- Description: TODO
+- Role: Returns nearby waypoint points.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Array<ManagedWpNode> selectedManagedNodes()`
-
-- Description: TODO
+- Role: Returns the selected managed waypoint nodes.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static WaypointScene scene()`
-
-- Description: TODO
+- Role: Returns the current waypoint scene.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Array<WpNode> nodes(long graphId)`
-
-- Description: TODO
+- Role: Returns the nodes for the supplied graph.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static WpNode findNode(long nodeId)`
-
-- Description: TODO
+- Role: Finds a waypoint node by node ID.
+- Description: Supports the find node operation used by the surrounding class.
 
 #### `public static WpNode findNodeByGraphAndGridLocal(long graphId, long gridId, int localX, int localY)`
-
-- Description: TODO
+- Role: Finds a waypoint node by graph and local grid coordinates.
+- Description: Supports the find node by graph and grid local operation used by the surrounding class.
 
 #### `public static GridPosition gridPositionOfWorld(Coord world)`
-
-- Description: TODO
+- Role: Returns the grid position for the given world coordinate.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static GridPosition currentGridPosition()`
-
-- Description: TODO
+- Role: Returns the current grid position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void setNodes(long graphId, Array<WpNode> nodes)`
-
-- Description: TODO
+- Role: Updates the node cache for the supplied graph.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void appendNode(WpNode node)`
-
-- Description: TODO
+- Role: Appends a node to the waypoint graph.
+- Description: Appends a node to the waypoint graph to the current collection or state.
 
 #### `public static void appendEdge(long graphId, WpEdge edge)`
-
-- Description: TODO
+- Role: Appends an edge to the waypoint graph.
+- Description: Appends an edge to the waypoint graph to the current collection or state.
 
 #### `public static void appendSegment(WpSegment segment)`
-
-- Description: TODO
+- Role: Appends a segment to the waypoint graph.
+- Description: Appends a segment to the waypoint graph to the current collection or state.
 
 #### `public static void appendPoint(WpSegment segment, WpPoint point)`
-
-- Description: TODO
+- Role: Appends a point to the waypoint graph.
+- Description: Appends a point to the waypoint graph to the current collection or state.
 
 #### `public static boolean nodesLoaded(long graphId)`
-
-- Description: TODO
+- Role: Checks whether the graph nodes are loaded.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void preloadNodes(long graphId)`
-
-- Description: TODO
+- Role: Preloads the graph nodes.
+- Description: Preloads the graph nodes so callers can reuse the cached data.
 
 #### `public static Array<WpEdge> edgesByGraph(long graphId)`
-
-- Description: TODO
+- Role: Returns the edges for the supplied graph.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void setEdgesByGraph(long graphId, Array<WpEdge> edges)`
-
-- Description: TODO
+- Role: Updates the edge cache for the supplied graph.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static boolean edgesByGraphLoaded(long graphId)`
-
-- Description: TODO
+- Role: Checks whether the graph edges are loaded.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void preloadEdgesByGraph(long graphId)`
-
-- Description: TODO
+- Role: Preloads the graph edges.
+- Description: Preloads the graph edges so callers can reuse the cached data.
 
 #### `public static Array<WpSegment> segmentsByGrid(long graphId, long gridId)`
-
-- Description: TODO
+- Role: Returns the segments for the supplied graph grid.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void setSegmentsByGrid(long graphId, long gridId, Array<WpSegment> segments)`
-
-- Description: TODO
+- Role: Updates the segment cache for the supplied graph grid.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static boolean segmentsByGridLoaded(long graphId, long gridId)`
-
-- Description: TODO
+- Role: Checks whether the graph grid segments are loaded.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void preloadSegmentsByGrid(long graphId, long gridId)`
-
-- Description: TODO
+- Role: Preloads the graph grid segments.
+- Description: Preloads the graph grid segments so callers can reuse the cached data.
 
 #### `public static Array<WpPoint> pointsByGrid(long graphId, long gridId)`
-
-- Description: TODO
+- Role: Returns the points for the supplied graph grid.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void setPointsByGrid(long graphId, long gridId, Array<WpPoint> points)`
-
-- Description: TODO
+- Role: Updates the point cache for the supplied graph grid.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static boolean pointsByGridLoaded(long graphId, long gridId)`
-
-- Description: TODO
+- Role: Checks whether the graph grid points are loaded.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void preloadPointsByGrid(long graphId, long gridId)`
-
-- Description: TODO
+- Role: Preloads the graph grid points.
+- Description: Preloads the graph grid points so callers can reuse the cached data.
 
 #### `public static Array<WpSegment> residentSegments(long edgeId)`
-
-- Description: TODO
+- Role: Returns the resident segments for the supplied edge.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static Array<WpPoint> residentPoints(long segmentId)`
-
-- Description: TODO
+- Role: Returns the resident points for the supplied segment.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static ResolvedNode nearestNode()`
-
-- Description: TODO
+- Role: Returns the nearest waypoint node.
+- Description: Exposes the requested value without mutating state.
 
 #### `public static void refresh()`
-
-- Description: TODO
+- Role: Refreshes waypoint manager state.
+- Description: Supports the refresh operation used by the surrounding class.
 
 #### `public static void requestRefresh()`
-
-- Description: TODO
+- Role: Requests a waypoint refresh.
+- Description: Requests a waypoint refresh from the underlying runtime.
 
 #### `public static void processRefreshRequests()`
-
-- Description: TODO
+- Role: Processes pending waypoint refresh requests.
+- Description: Processes pending waypoint refresh requests on the owning worker or lifecycle path.
 
 #### `private static void _resolveActiveGraph(GridPosition position)`
-
-- Description: TODO
+- Role: Resolves the active waypoint graph for the supplied position.
+- Description: Supports the resolve active graph operation used by the surrounding class.
 
 #### `private static WpNode _nearestNode(Array<WpNode> nodes, int localX, int localY)`
-
-- Description: TODO
+- Role: Finds the nearest waypoint node from the supplied list.
+- Description: Supports the nearest node operation used by the surrounding class.
 
 #### `private static Coord _selfPosition()`
-
-- Description: TODO
+- Role: Returns the current self position.
+- Description: Exposes the requested value without mutating state.
 
 #### `private static boolean _sameBounds(WaypointGridBounds a, WaypointGridBounds b)`
-
-- Description: TODO
+- Role: Checks whether two waypoint grid bounds are equal.
+- Description: Returns a boolean result for the described condition.
 
 #### `private static void _syncResidentGrids(WaypointGridBounds bounds)`
-
-- Description: TODO
+- Role: Performs  sync resident grids.
+- Description: Supports the sync resident grids operation used by the surrounding class.

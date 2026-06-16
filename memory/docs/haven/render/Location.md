@@ -10,134 +10,135 @@ This file documents the responsibilities and members of `Location`.
 
 ## Role
 
-Represents a render location.
+Defines the location render pipeline component.
 
 ## Nested Types
 
 ### Chain
 
-- Description: TODO
+- Role: Represents chain within Location.
+- Description: Describes the nested chain type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Instancer<Chain> instancer = new Instancer<Chain>()`
-
-- Description: TODO
+- Role: Defines the shared instancer constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Location nullrot = new Location(Transform.nullrot)`
-
-- Description: TODO
+- Role: Defines the shared nullrot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Location onlyxl = new Location(Matrix4f.id)`
-
-- Description: TODO
+- Role: Defines the shared onlyxl constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final String id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Location loc`
-
-- Description: TODO
+- Role: Holds the loc state.
+- Description: Backs the cached state for this file.
 
 #### `public final Chain p`
-
-- Description: TODO
+- Role: Holds the p state.
+- Description: Backs the cached state for this file.
 
 #### `private Matrix4f bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Location(Function<Matrix4f, Matrix4f> xf, String id)`
-
-- Description: TODO
+- Role: Creates a new Location instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Location(Matrix4f xf, String id)`
-
-- Description: TODO
+- Role: Creates a new Location instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Location(Function<Matrix4f, Matrix4f> xf)`
-
-- Description: TODO
+- Role: Creates a new Location instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Location(Matrix4f xf)`
-
-- Description: TODO
+- Role: Creates a new Location instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private Chain(Location loc, Chain p)`
-
-- Description: TODO
+- Role: Performs chain.
+- Description: Supports the chain operation used by the surrounding class.
 
 #### `public Matrix4f fin(Matrix4f o)`
-
-- Description: TODO
+- Role: Performs fin.
+- Description: Supports the fin operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public Chain back(String id)`
-
-- Description: TODO
+- Role: Performs back.
+- Description: Supports the back operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public InstancedAttribute[] attribs()`
-
-- Description: TODO
+- Role: Performs attribs.
+- Description: Supports the attribs operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static Chain back(Pipe p, String id)`
-
-- Description: TODO
+- Role: Performs back.
+- Description: Supports the back operation used by the surrounding class.
 
 #### `public static Chain goback(Pipe p, String id)`
-
-- Description: TODO
+- Role: Performs goback.
+- Description: Supports the goback operation used by the surrounding class.
 
 #### `public static Pipe.Op goback(String id)`
-
-- Description: TODO
+- Role: Performs goback.
+- Description: Supports the goback operation used by the surrounding class.
 
 #### `public static Location xlate(Coord3f c)`
-
-- Description: TODO
+- Role: Performs xlate.
+- Description: Supports the xlate operation used by the surrounding class.
 
 #### `public static Location rot(Coord3f axis, float angle)`
-
-- Description: TODO
+- Role: Performs rot.
+- Description: Supports the rot operation used by the surrounding class.
 
 #### `public static Location scale(float x, float y, float z)`
-
-- Description: TODO
+- Role: Performs scale.
+- Description: Supports the scale operation used by the surrounding class.
 
 #### `public static Location scale(Coord3f c)`
-
-- Description: TODO
+- Role: Performs scale.
+- Description: Supports the scale operation used by the surrounding class.
 
 #### `public static Location scale(float s)`
-
-- Description: TODO
+- Role: Performs scale.
+- Description: Supports the scale operation used by the surrounding class.

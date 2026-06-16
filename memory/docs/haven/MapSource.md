@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `MapSource`.
 
 ## Role
 
-Provides a map data source.
+Represents the map source Haven component.
 
 ## Members
 
@@ -21,25 +21,25 @@ Provides a map data source.
 ### Methods
 
 #### `public int gettile(Coord tc)`
-
-- Description: TODO
+- Role: Performs gettile.
+- Description: Supports the gettile operation used by the surrounding class.
 
 #### `public double getfz(Coord tc)`
-
-- Description: TODO
+- Role: Performs getfz.
+- Description: Supports the getfz operation used by the surrounding class.
 
 #### `public Tileset tileset(int t)`
-
-- Description: TODO
+- Role: Performs tileset.
+- Description: Supports the tileset operation used by the surrounding class.
 
 #### `public Tiler tiler(int t)`
-
-- Description: TODO
+- Role: Performs tiler.
+- Description: Supports the tiler operation used by the surrounding class.
 
 #### `static BufferedImage tileimg(MapSource m, BufferedImage[] texes, int t)`
-
-- Description: TODO
+- Role: Performs tileimg.
+- Description: Supports the tileimg operation used by the surrounding class.
 
 #### `public static BufferedImage drawmap(MapSource m, Area a)`
-
-- Description: TODO
+- Role: Performs drawmap.
+- Description: Supports the drawmap operation used by the surrounding class.

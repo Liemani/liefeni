@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DescribeWaypointVisible
 
 ## Role
 
-Provides a debug effect for inspecting or mutating runtime state.
+Prints waypoint visible bounds for debugging.
 
 ## Members
 
@@ -21,25 +21,25 @@ Provides a debug effect for inspecting or mutating runtime state.
 ### Methods
 
 #### `public void execute()`
-
-- Description: TODO
+- Role: Executes the operation.
+- Description: Supports the execute operation used by the surrounding class.
 
 #### `public static String name()`
-
-- Description: TODO
+- Role: Performs name.
+- Description: Supports the name operation used by the surrounding class.
 
 #### `public static String info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `private static int _view(MapView mapView)`
-
-- Description: TODO
+- Role: Performs  view.
+- Description: Supports the view operation used by the surrounding class.
 
 #### `private static Area _cutArea(Coord centerTile, int view)`
-
-- Description: TODO
+- Role: Computes the cut area around the current center.
+- Description: Supports the cut area operation used by the surrounding class.
 
 #### `private static Area _reqTileArea(Coord centerTile, int view)`
-
-- Description: TODO
+- Role: Computes the requested tile area around the current center.
+- Description: Supports the req tile area operation used by the surrounding class.

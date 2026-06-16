@@ -10,182 +10,184 @@ This file documents the responsibilities and members of `Config`.
 
 ## Role
 
-Holds client configuration and option access.
+Represents the config Haven component.
 
 ## Nested Types
 
 ### Services
 
-- Description: TODO
+- Role: Represents services within Config.
+- Description: Describes the nested services type used by the enclosing class.
 
 ### Variable
 
-- Description: TODO
+- Role: Represents variable within Config.
+- Description: Describes the nested variable type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Properties jarprops = getjarprops()`
-
-- Description: TODO
+- Role: Defines the shared jarprops constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final String confid = jarprops.getProperty("config.client-id", "unknown")`
-
-- Description: TODO
+- Role: Defines the shared confid constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Variable<Boolean> par = Variable.def(() -> true)`
-
-- Description: TODO
+- Role: Defines the shared par constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Variable<URI> directory = Config.Variable.propu("haven.svcdir", "")`
-
-- Description: TODO
+- Role: Defines the shared directory constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Properties localprops = getlocalprops()`
-
-- Description: TODO
+- Role: Holds the localprops state.
+- Description: Backs the cached state for this file.
 
 #### `private static Config global = null`
-
-- Description: TODO
+- Role: Holds the global state.
+- Description: Backs the cached state for this file.
 
 #### `public final Function<Config, T> init`
-
-- Description: TODO
+- Role: Holds the init state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean inited = false`
-
-- Description: TODO
+- Role: Tracks the inited flag.
+- Description: Supports the inited operation used by the surrounding class.
 
 #### `private T val`
-
-- Description: TODO
+- Role: Holds the val state.
+- Description: Backs the cached state for this file.
 
 #### `public final URI rel`
-
-- Description: TODO
+- Role: Holds the rel state.
+- Description: Backs the cached state for this file.
 
 #### `public final Properties props`
-
-- Description: TODO
+- Role: Holds the props state.
+- Description: Backs the cached state for this file.
 
 #### `private static Services global = null`
-
-- Description: TODO
+- Role: Holds the global state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static Config get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private static Properties getjarprops()`
-
-- Description: TODO
+- Role: Performs getjarprops.
+- Description: Supports the getjarprops operation used by the surrounding class.
 
 #### `private static Properties getlocalprops()`
-
-- Description: TODO
+- Role: Performs getlocalprops.
+- Description: Supports the getlocalprops operation used by the surrounding class.
 
 #### `public String getprop(String name, String def)`
-
-- Description: TODO
+- Role: Performs getprop.
+- Description: Supports the getprop operation used by the surrounding class.
 
 #### `public static final Path parsepath(String p)`
-
-- Description: TODO
+- Role: Performs parsepath.
+- Description: Supports the parsepath operation used by the surrounding class.
 
 #### `public static final URI parseuri(String url)`
-
-- Description: TODO
+- Role: Performs parseuri.
+- Description: Supports the parseuri operation used by the surrounding class.
 
 #### `private Variable(Function<Config, T> init)`
-
-- Description: TODO
+- Role: Performs variable.
+- Description: Supports the variable operation used by the surrounding class.
 
 #### `public T get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void set(T val)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public static <V> Variable<V> def(Supplier<V> defval)`
-
-- Description: TODO
+- Role: Performs def.
+- Description: Supports the def operation used by the surrounding class.
 
 #### `public static <V> Variable<V> prop(String name, Function<String, V> parse, Supplier<V> defval)`
-
-- Description: TODO
+- Role: Performs prop.
+- Description: Supports the prop operation used by the surrounding class.
 
 #### `public static Variable<String> prop(String name, String defval)`
-
-- Description: TODO
+- Role: Performs prop.
+- Description: Supports the prop operation used by the surrounding class.
 
 #### `public static Variable<Integer> propi(String name, int defval)`
-
-- Description: TODO
+- Role: Performs propi.
+- Description: Supports the propi operation used by the surrounding class.
 
 #### `public static Variable<Boolean> propb(String name, boolean defval)`
-
-- Description: TODO
+- Role: Performs propb.
+- Description: Supports the propb operation used by the surrounding class.
 
 #### `public static Variable<Double> propf(String name, Double defval)`
-
-- Description: TODO
+- Role: Performs propf.
+- Description: Supports the propf operation used by the surrounding class.
 
 #### `public static Variable<byte[]> propb(String name, byte[] defval)`
-
-- Description: TODO
+- Role: Performs propb.
+- Description: Supports the propb operation used by the surrounding class.
 
 #### `public static Variable<NamedSocketAddress> proph(String name, int defport, NamedSocketAddress defval)`
-
-- Description: TODO
+- Role: Performs proph.
+- Description: Supports the proph operation used by the surrounding class.
 
 #### `public static Variable<URI> propu(String name, URI defval)`
-
-- Description: TODO
+- Role: Performs propu.
+- Description: Supports the propu operation used by the surrounding class.
 
 #### `public static Variable<URI> propu(String name, String defval)`
-
-- Description: TODO
+- Role: Performs propu.
+- Description: Supports the propu operation used by the surrounding class.
 
 #### `public static Variable<Path> propp(String name, Path defval)`
-
-- Description: TODO
+- Role: Performs propp.
+- Description: Supports the propp operation used by the surrounding class.
 
 #### `public static Variable<Path> propp(String name, String defval)`
-
-- Description: TODO
+- Role: Performs propp.
+- Description: Supports the propp operation used by the surrounding class.
 
 #### `public Services(URI rel, Properties props)`
-
-- Description: TODO
+- Role: Performs services.
+- Description: Supports the services operation used by the surrounding class.
 
 #### `private static Services fetch(URI uri)`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public static Services get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public URI geturi(String name)`
-
-- Description: TODO
+- Role: Performs geturi.
+- Description: Supports the geturi operation used by the surrounding class.
 
 #### `public static Variable<URI> var(String name, String defval)`
-
-- Description: TODO
+- Role: Performs var.
+- Description: Supports the var operation used by the surrounding class.
 
 #### `private static void usage(PrintStream out)`
-
-- Description: TODO
+- Role: Performs usage.
+- Description: Supports the usage operation used by the surrounding class.
 
 #### `public static void cmdline(String[] args)`
-
-- Description: TODO
+- Role: Performs cmdline.
+- Description: Supports the cmdline operation used by the surrounding class.

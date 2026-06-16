@@ -10,170 +10,172 @@ This file documents the responsibilities and members of `Test`.
 
 ## Role
 
-Provides a rendering backend test harness.
+Adapts the render backend to JOGL for test.
 
 ## Nested Types
 
 ### Tex2D
 
-- Description: TODO
+- Role: Represents tex2 d within Test.
+- Description: Describes the nested tex2 d type used by the enclosing class.
 
 ### VertexColor
 
-- Description: TODO
+- Role: Represents vertex color within Test.
+- Description: Describes the nested vertex color type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `static final FColor gay = new FColor(1.0f, 0.0f, 0.5f)`
-
-- Description: TODO
+- Role: Defines the shared gay constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Coord texsz`
-
-- Description: TODO
+- Role: Defines the shared texsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final byte[] texdat`
-
-- Description: TODO
+- Role: Defines the shared texdat constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Texture2D.Sampler2D tex`
-
-- Description: TODO
+- Role: Defines the shared tex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Slot<VertexColor> slot = new Slot<>(Slot.Type.DRAW, VertexColor.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Attribute color = new Attribute(VEC4, "color")`
-
-- Description: TODO
+- Role: Defines the shared color constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final AutoVarying fcolor = new AutoVarying(VEC4)`
-
-- Description: TODO
+- Role: Defines the shared fcolor constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Slot<Tex2D> slot = new Slot<>(Slot.Type.DRAW, Tex2D.class)`
-
-- Description: TODO
+- Role: Defines the shared slot constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Attribute texc = new Attribute(VEC2, "texc")`
-
-- Description: TODO
+- Role: Defines the shared texc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Uniform usmp = new Uniform(SAMPLER2D, "tex2d", p -> p.get(slot).tex, slot)`
-
-- Description: TODO
+- Role: Defines the shared usmp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final AutoVarying ftexc = new AutoVarying(VEC2)`
-
-- Description: TODO
+- Role: Defines the shared ftexc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `GLWindow wnd`
-
-- Description: TODO
+- Role: Holds the wnd state.
+- Description: Backs the cached state for this file.
 
 #### `JOGLEnvironment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `volatile boolean done`
-
-- Description: TODO
+- Role: Tracks the done flag.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `Pipe base`
-
-- Description: TODO
+- Role: Holds the base state.
+- Description: Backs the cached state for this file.
 
 #### `Area shape`
-
-- Description: TODO
+- Role: Holds the shape state.
+- Description: Backs the cached state for this file.
 
 #### `final Texture2D.Sampler2D tex`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `final VertexColor vc = new VertexColor()`
-
-- Description: TODO
+- Role: Stores the vc value.
+- Description: Backs the cached state for this file.
 
 #### `final Texture2D.Sampler2D tbuf = new Texture2D.Sampler2D(new Texture2D(512, 512, DataBuffer.Usage.STATIC, new VectorFormat(4, NumberFormat.UNORM8), null))`
-
-- Description: TODO
+- Role: Stores the tbuf value.
+- Description: Backs the cached state for this file.
 
 #### `final Texture2D dbuf = new Texture2D(512, 512, DataBuffer.Usage.STATIC, Texture.DEPTH, new VectorFormat(1, NumberFormat.FLOAT32), null)`
-
-- Description: TODO
+- Role: Stores the dbuf value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `Test()`
-
-- Description: TODO
+- Role: Creates a new Test instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `void run()`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public static void main(String[] args)`
-
-- Description: TODO
+- Role: Performs main.
+- Description: Supports the main operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `Tex2D(Texture2D.Sampler2D tex)`
-
-- Description: TODO
+- Role: Handles the tex2 d workflow.
+- Description: Supports the tex2 d operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `private void display(Render g)`
-
-- Description: TODO
+- Role: Performs display.
+- Description: Supports the display operation used by the surrounding class.
 
 #### `public void display(GLAutoDrawable wnd)`
-
-- Description: TODO
+- Role: Performs display.
+- Description: Supports the display operation used by the surrounding class.
 
 #### `public void init(GLAutoDrawable wnd)`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `public void dispose(GLAutoDrawable wnd)`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void reshape(GLAutoDrawable wnd, int x, int y, int w, int h)`
-
-- Description: TODO
+- Role: Performs reshape.
+- Description: Supports the reshape operation used by the surrounding class.
 
 #### `public void keyPressed(KeyEvent ev)`
-
-- Description: TODO
+- Role: Performs key pressed.
+- Description: Supports the key pressed operation used by the surrounding class.
 
 #### `public void keyReleased(KeyEvent ev)`
-
-- Description: TODO
+- Role: Performs key released.
+- Description: Supports the key released operation used by the surrounding class.

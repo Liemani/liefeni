@@ -10,258 +10,262 @@ This file documents the responsibilities and members of `Texture`.
 
 ## Role
 
-Represents a texture resource.
+Defines the texture render pipeline component.
 
 ## Nested Types
 
 ### Filter
 
-- Description: TODO
+- Role: Represents filter within Texture.
+- Description: Describes the nested filter type used by the enclosing class.
 
 ### Image
 
-- Description: TODO
+- Role: Represents image within Texture.
+- Description: Describes the nested image type used by the enclosing class.
 
 ### Sampler
 
-- Description: TODO
+- Role: Represents sampler within Texture.
+- Description: Describes the nested sampler type used by the enclosing class.
 
 ### Wrapping
 
-- Description: TODO
+- Role: Represents wrapping within Texture.
+- Description: Describes the nested wrapping type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final VectorFormat DEPTH = new VectorFormat(1, NumberFormat.DEPTH)`
-
-- Description: TODO
+- Role: Defines the shared depth constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final VectorFormat ifmt, efmt`
-
-- Description: TODO
+- Role: Holds the efmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final VectorFormat ifmt, efmt`
-
-- Description: TODO
+- Role: Holds the efmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final DataBuffer.Usage usage`
-
-- Description: TODO
+- Role: Stores the usage value.
+- Description: Backs the cached state for this file.
 
 #### `public final DataBuffer.Filler<? super Image> init`
-
-- Description: TODO
+- Role: Stores the init value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean srgb = false`
-
-- Description: TODO
+- Role: Tracks the srgb flag.
+- Description: Supports the srgb operation used by the surrounding class.
 
 #### `public Swizzle eperm`
-
-- Description: TODO
+- Role: Holds the eperm state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean shared = false`
-
-- Description: TODO
+- Role: Tracks the shared flag.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public Disposable ro`
-
-- Description: TODO
+- Role: Holds the ro state.
+- Description: Backs the cached state for this file.
 
 #### `public Object desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 #### `public final T tex`
-
-- Description: TODO
-
-#### `public final int w, h, d`
-
-- Description: TODO
+- Role: Holds the tex state.
+- Description: Backs the cached state for this file.
 
 #### `public final int w, h, d`
-
-- Description: TODO
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `public final int w, h, d`
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int w, h, d`
+- Role: Stores the d value.
+- Description: Backs the cached state for this file.
 
 #### `public final int level`
-
-- Description: TODO
+- Role: Stores the level value.
+- Description: Backs the cached state for this file.
 
 #### `public final T tex`
-
-- Description: TODO
-
-#### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
-
-- Description: TODO
+- Role: Holds the tex state.
+- Description: Backs the cached state for this file.
 
 #### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
-
-- Description: TODO
+- Role: Holds the magfilter state.
+- Description: Backs the cached state for this file.
 
 #### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
+- Role: Holds the magfilter state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
-
-#### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
-
-- Description: TODO
-
-#### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
-
-- Description: TODO
+#### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
+- Role: Holds the magfilter state.
+- Description: Backs the cached state for this file.
 
 #### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
+- Role: Holds the swrap state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
+- Role: Holds the swrap state.
+- Description: Backs the cached state for this file.
+
+#### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
+- Role: Holds the swrap state.
+- Description: Backs the cached state for this file.
 
 #### `public float anisotropy = 0.0f`
-
-- Description: TODO
+- Role: Stores the anisotropy value.
+- Description: Backs the cached state for this file.
 
 #### `public FColor border = FColor.BLACK`
-
-- Description: TODO
+- Role: Stores the border value.
+- Description: Backs the cached state for this file.
 
 #### `public Disposable ro`
-
-- Description: TODO
+- Role: Holds the ro state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Texture(DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
-
-- Description: TODO
+- Role: Creates a new Texture instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Image(T tex, int w, int h, int d, int level)`
-
-- Description: TODO
+- Role: Performs image.
+- Description: Supports the image operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public boolean equals(Image that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public abstract Collection<? extends Image<? extends Texture>> images()`
-
-- Description: TODO
+- Role: Performs images.
+- Description: Supports the images operation used by the surrounding class.
 
 #### `public abstract Sampler<? extends Texture> sampler()`
-
-- Description: TODO
+- Role: Performs sampler.
+- Description: Supports the sampler operation used by the surrounding class.
 
 #### `public Texture srgb()`
-
-- Description: TODO
+- Role: Performs srgb.
+- Description: Supports the srgb operation used by the surrounding class.
 
 #### `public Texture eperm(Swizzle eperm)`
-
-- Description: TODO
+- Role: Performs eperm.
+- Description: Supports the eperm operation used by the surrounding class.
 
 #### `public Texture shared()`
-
-- Description: TODO
+- Role: Performs shared.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public Sampler(T tex)`
-
-- Description: TODO
+- Role: Performs sampler.
+- Description: Supports the sampler operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public Sampler<T> magfilter(Filter v)`
-
-- Description: TODO
+- Role: Performs magfilter.
+- Description: Supports the magfilter operation used by the surrounding class.
 
 #### `public Sampler<T> minfilter(Filter v)`
-
-- Description: TODO
+- Role: Performs minfilter.
+- Description: Supports the minfilter operation used by the surrounding class.
 
 #### `public Sampler<T> mipfilter(Filter v)`
-
-- Description: TODO
+- Role: Performs mipfilter.
+- Description: Supports the mipfilter operation used by the surrounding class.
 
 #### `public Sampler<T> swrap(Wrapping v)`
-
-- Description: TODO
+- Role: Performs swrap.
+- Description: Supports the swrap operation used by the surrounding class.
 
 #### `public Sampler<T> twrap(Wrapping v)`
-
-- Description: TODO
+- Role: Performs twrap.
+- Description: Supports the twrap operation used by the surrounding class.
 
 #### `public Sampler<T> rwrap(Wrapping v)`
-
-- Description: TODO
+- Role: Performs rwrap.
+- Description: Supports the rwrap operation used by the surrounding class.
 
 #### `public Sampler<T> wrapmode(Wrapping v)`
-
-- Description: TODO
+- Role: Performs wrapmode.
+- Description: Supports the wrapmode operation used by the surrounding class.
 
 #### `public Sampler<T> anisotropy(float v)`
-
-- Description: TODO
+- Role: Performs anisotropy.
+- Description: Supports the anisotropy operation used by the surrounding class.
 
 #### `public Sampler<T> border(FColor v)`
-
-- Description: TODO
+- Role: Performs border.
+- Description: Supports the border operation used by the surrounding class.
 
 #### `public Sampler<T> copy(Sampler<?> that)`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public int parhash()`
-
-- Description: TODO
+- Role: Performs parhash.
+- Description: Supports the parhash operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean parequals(Sampler<?> that)`
-
-- Description: TODO
+- Role: Performs parequals.
+- Description: Supports the parequals operation used by the surrounding class.
 
 #### `private boolean equals(Sampler<?> that)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `String descfmt()`
-
-- Description: TODO
+- Role: Performs descfmt.
+- Description: Supports the descfmt operation used by the surrounding class.
 
 #### `public Texture desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.

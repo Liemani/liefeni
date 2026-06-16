@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `RecordingSessionPlanner
 
 ## Role
 
-Plans a waypoint recording or runtime workflow.
+Plans waypoint recording sessions from runtime input.
 
 ## Members
 
@@ -21,21 +21,21 @@ Plans a waypoint recording or runtime workflow.
 ### Methods
 
 #### `private RecordingSessionPlanner()`
-
-- Description: TODO
+- Role: Creates a new RecordingSessionPlanner instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `static RecordingSession plan(RecordingSession session)`
-
-- Description: TODO
+- Role: Performs plan.
+- Description: Supports the plan operation used by the surrounding class.
 
 #### `private static RecordingSegment _copySegmentHeader(RecordingSegment original, int index)`
-
-- Description: TODO
+- Role: Performs  copy segment header.
+- Description: Supports the copy segment header operation used by the surrounding class.
 
 #### `private static boolean _isPortalClick(RecordingClick click)`
-
-- Description: TODO
+- Role: Performs  is portal click.
+- Description: Supports the is portal click operation used by the surrounding class.
 
 #### `private static void _resolvePendingPortalTransition(RecordingSegment current, PendingPortalTransition pending)`
-
-- Description: TODO
+- Role: Performs  resolve pending portal transition.
+- Description: Supports the resolve pending portal transition operation used by the surrounding class.

@@ -10,25 +10,29 @@ This file documents the responsibilities and members of `Composite`.
 
 ## Role
 
-Represents a composite game object or UI helper.
+Represents the composite Haven component.
 
 ## Nested Types
 
 ### $cmpequ
 
-- Description: TODO
+- Role: Represents $cmpequ within Composite.
+- Description: Describes the nested $cmpequ type used by the enclosing class.
 
 ### $cmpmod
 
-- Description: TODO
+- Role: Represents $cmpmod within Composite.
+- Description: Describes the nested $cmpmod type used by the enclosing class.
 
 ### $cmppose
 
-- Description: TODO
+- Role: Represents $cmppose within Composite.
+- Description: Describes the nested $cmppose type used by the enclosing class.
 
 ### $composite
 
-- Description: TODO
+- Role: Represents $composite within Composite.
+- Description: Describes the nested $composite type used by the enclosing class.
 
 ## Members
 
@@ -37,159 +41,159 @@ Represents a composite game object or UI helper.
 ### Fields
 
 #### `public final static float ipollen = 0.2f`
-
-- Description: TODO
+- Role: Stores the ipollen value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> base`
-
-- Description: TODO
+- Role: Stores the base value.
+- Description: Backs the cached state for this file.
 
 #### `public final Resource baseres`
-
-- Description: TODO
+- Role: Stores the baseres value.
+- Description: Backs the cached state for this file.
 
 #### `public final Composited comp`
-
-- Description: TODO
+- Role: Holds the comp state.
+- Description: Backs the cached state for this file.
 
 #### `public int pseq = -1`
-
-- Description: TODO
+- Role: Stores the pseq value.
+- Description: Backs the cached state for this file.
 
 #### `public List<MD> nmod`
-
-- Description: TODO
+- Role: Caches nmod entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public List<ED> nequ`
-
-- Description: TODO
-
-#### `private Collection<ResData> nposes = null, tposes = null`
-
-- Description: TODO
+- Role: Caches nequ entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Collection<ResData> nposes = null, tposes = null`
+- Role: Caches nposes entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
-- Description: TODO
+#### `private Collection<ResData> nposes = null, tposes = null`
+- Role: Caches nposes entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean nposesold, retainequ = false`
-
-- Description: TODO
+- Role: Tracks the retainequ flag.
+- Description: Supports the retainequ operation used by the surrounding class.
 
 #### `private boolean nposesold, retainequ = false`
-
-- Description: TODO
+- Role: Tracks the retainequ flag.
+- Description: Supports the retainequ operation used by the surrounding class.
 
 #### `private float tptime`
-
-- Description: TODO
+- Role: Stores the tptime value.
+- Description: Backs the cached state for this file.
 
 #### `private WrapMode tpmode`
-
-- Description: TODO
+- Role: Holds the tpmode state.
+- Description: Backs the cached state for this file.
 
 #### `public String[] poseResNames = null`
-
-- Description: TODO
+- Role: Stores the pose res names value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Composite(Gob gob, Indir<Resource> base)`
-
-- Description: TODO
+- Role: Creates a new Composite instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void added(RenderTree.Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public static List<PoseMod> loadposes(Collection<ResData> rl, Skeleton.ModOwner owner, Skeleton skel, boolean old)`
-
-- Description: TODO
+- Role: Performs loadposes.
+- Description: Supports the loadposes operation used by the surrounding class.
 
 #### `private List<PoseMod> loadposes(Collection<ResData> rl, Skeleton skel, boolean old)`
-
-- Description: TODO
+- Role: Performs loadposes.
+- Description: Supports the loadposes operation used by the surrounding class.
 
 #### `private List<PoseMod> loadposes(Collection<ResData> rl, Skeleton skel, WrapMode mode)`
-
-- Description: TODO
+- Role: Performs loadposes.
+- Description: Supports the loadposes operation used by the surrounding class.
 
 #### `private void updequ()`
-
-- Description: TODO
+- Role: Performs updequ.
+- Description: Supports the updequ operation used by the surrounding class.
 
 #### `public void ctick(double dt)`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public Resource getres()`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
-
-- Description: TODO
+- Role: Performs eqpoint.
+- Description: Supports the eqpoint operation used by the surrounding class.
 
 #### `public void chposes(Collection<ResData> poses, boolean interp)`
-
-- Description: TODO
+- Role: Changes the active pose set.
+- Description: Supports the chposes operation used by the surrounding class.
 
 #### `public void tposes(Collection<ResData> poses, WrapMode mode, float time)`
-
-- Description: TODO
+- Role: Performs tposes.
+- Description: Supports the tposes operation used by the surrounding class.
 
 #### `public void chmod(List<MD> mod)`
-
-- Description: TODO
+- Role: Performs chmod.
+- Description: Supports the chmod operation used by the surrounding class.
 
 #### `public void chequ(List<ED> equ)`
-
-- Description: TODO
+- Role: Performs chequ.
+- Description: Supports the chequ operation used by the surrounding class.
 
 #### `public Object staticp()`
-
-- Description: TODO
-
-#### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Performs staticp.
+- Description: Supports the staticp operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
-
-#### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
-- Description: TODO
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
+
+#### `public void apply(Gob g, OCache.AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public String baseResName()`
-
-- Description: TODO
+- Role: Performs base res name.
+- Description: Supports the base res name operation used by the surrounding class.
 
 #### `public Stream<String> equResNames()`
-
-- Description: TODO
+- Role: Performs equ res names.
+- Description: Supports the equ res names operation used by the surrounding class.
 
 #### `public Stream<String> modResNames()`
-
-- Description: TODO
+- Role: Performs mod res names.
+- Description: Supports the mod res names operation used by the surrounding class.
 
 #### `public Stream<String> poseResNames()`
-
-- Description: TODO
+- Role: Performs pose res names.
+- Description: Supports the pose res names operation used by the surrounding class.
 
 #### `private void _setPoseResNames(Collection<ResData> resDatas)`
-
-- Description: TODO
+- Role: Performs  set pose res names.
+- Description: Supports the set pose res names operation used by the surrounding class.
 
 #### `private String _safeGetRes(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs  safe get res.
+- Description: Supports the safe get res operation used by the surrounding class.

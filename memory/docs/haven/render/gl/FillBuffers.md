@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `FillBuffers`.
 
 ## Role
 
-Allocates fill buffers.
+Provides GL backend support for fill buffers.
 
 ## Nested Types
 
 ### Array
 
-- Description: TODO
+- Role: Represents array within FillBuffers.
+- Description: Describes the nested array type used by the enclosing class.
 
 ## Members
 
@@ -25,51 +26,51 @@ Allocates fill buffers.
 ### Fields
 
 #### `private final GLEnvironment env`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `private final int sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean pushed = false`
-
-- Description: TODO
+- Role: Tracks the pushed flag.
+- Description: Supports the pushed operation used by the surrounding class.
 
 #### `private SysBuffer mem = null`
-
-- Description: TODO
+- Role: Stores the mem value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Array(GLEnvironment env, int sz)`
-
-- Description: TODO
+- Role: Performs array.
+- Description: Supports the array operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public boolean compatible(Environment env)`
-
-- Description: TODO
+- Role: Performs compatible.
+- Description: Supports the compatible operation used by the surrounding class.
 
 #### `public ByteBuffer push()`
-
-- Description: TODO
+- Role: Performs push.
+- Description: Supports the push operation used by the surrounding class.
 
 #### `public void pull(ByteBuffer buf)`
-
-- Description: TODO
+- Role: Performs pull.
+- Description: Supports the pull operation used by the surrounding class.
 
 #### `public SysBuffer mem()`
-
-- Description: TODO
+- Role: Performs mem.
+- Description: Supports the mem operation used by the surrounding class.
 
 #### `public ByteBuffer data()`
-
-- Description: TODO
+- Role: Performs data.
+- Description: Supports the data operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

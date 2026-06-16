@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ProxyPipe`.
 
 ## Role
 
-Represents a proxy render pipe.
+Defines the proxy pipe render pipeline component.
 
 ## Members
 
@@ -19,35 +19,35 @@ Represents a proxy render pipe.
 ### Fields
 
 #### `private Pipe bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ProxyPipe(Pipe bk)`
-
-- Description: TODO
+- Role: Creates a new ProxyPipe instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ProxyPipe()`
-
-- Description: TODO
+- Role: Creates a new ProxyPipe instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public <T extends State> T get(Slot<T> slot)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public State[] states()`
-
-- Description: TODO
+- Role: Performs states.
+- Description: Supports the states operation used by the surrounding class.
 
 #### `public Pipe copy()`
-
-- Description: TODO
+- Role: Performs copy.
+- Description: Supports the copy operation used by the surrounding class.
 
 #### `public Pipe update(Pipe np)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public int[] dupdate(Pipe np)`
-
-- Description: TODO
+- Role: Performs dupdate.
+- Description: Supports the dupdate operation used by the surrounding class.

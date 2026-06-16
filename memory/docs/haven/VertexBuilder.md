@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `VertexBuilder`.
 
 ## Role
 
-Builds vertex data.
+Represents the vertex builder Haven component.
 
 ## Nested Types
 
 ### LayoutBuilder
 
-- Description: TODO
+- Role: Represents layout builder within VertexBuilder.
+- Description: Describes the nested layout builder type used by the enclosing class.
 
 ## Members
 
@@ -25,103 +26,103 @@ Builds vertex data.
 ### Fields
 
 #### `public final Layout fmt`
-
-- Description: TODO
+- Role: Holds the fmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final int vsz`
-
-- Description: TODO
+- Role: Stores the vsz value.
+- Description: Backs the cached state for this file.
 
 #### `private final byte[] cur`
-
-- Description: TODO
+- Role: Stores the cur value.
+- Description: Backs the cached state for this file.
 
 #### `private int vn = 0`
-
-- Description: TODO
+- Role: Stores the vn value.
+- Description: Backs the cached state for this file.
 
 #### `private byte[] data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private final List<Attribute> attr = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches attr entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final List<VectorFormat> efmt = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches efmt entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final int bufidx`
-
-- Description: TODO
+- Role: Stores the bufidx value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public VertexBuilder(Layout fmt)`
-
-- Description: TODO
+- Role: Creates a new VertexBuilder instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public VertexBuilder set(int a, int el, float v)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public VertexBuilder set(int a, float... v)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public VertexBuilder set(int a, Coord3f c)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public VertexBuilder set(int a, FColor c)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public VertexBuilder set(int a, java.awt.Color c)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public int voff()`
-
-- Description: TODO
+- Role: Performs voff.
+- Description: Supports the voff operation used by the surrounding class.
 
 #### `public int emit()`
-
-- Description: TODO
+- Role: Performs emit.
+- Description: Supports the emit operation used by the surrounding class.
 
 #### `public VertexBuilder emitm()`
-
-- Description: TODO
+- Role: Performs emitm.
+- Description: Supports the emitm operation used by the surrounding class.
 
 #### `public byte[] fina()`
-
-- Description: TODO
+- Role: Performs fina.
+- Description: Supports the fina operation used by the surrounding class.
 
 #### `public VertexArray finv()`
-
-- Description: TODO
+- Role: Performs finv.
+- Description: Supports the finv operation used by the surrounding class.
 
 #### `public LayoutBuilder(int bufidx)`
-
-- Description: TODO
+- Role: Performs layout builder.
+- Description: Supports the layout builder operation used by the surrounding class.
 
 #### `public LayoutBuilder()`
-
-- Description: TODO
+- Role: Performs layout builder.
+- Description: Supports the layout builder operation used by the surrounding class.
 
 #### `public LayoutBuilder add(Attribute attr, VectorFormat efmt)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Layout fin()`
-
-- Description: TODO
+- Role: Performs fin.
+- Description: Supports the fin operation used by the surrounding class.
 
 #### `public VertexBuilder buf()`
-
-- Description: TODO
+- Role: Performs buf.
+- Description: Supports the buf operation used by the surrounding class.
 
 #### `public static LayoutBuilder fmt()`
-
-- Description: TODO
+- Role: Performs fmt.
+- Description: Supports the fmt operation used by the surrounding class.

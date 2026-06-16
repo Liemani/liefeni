@@ -10,86 +10,87 @@ This file documents the responsibilities and members of `Speedget`.
 
 ## Role
 
-Displays a speed control widget.
+Represents the speedget Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Speedget.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex imgs[][]`
-
-- Description: TODO
+- Role: Defines the shared speedget constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final String tips[]`
-
-- Description: TODO
+- Role: Stores the speedget state.
+- Description: Backs the cached state for this file.
 
 #### `public static final Coord tsz`
-
-- Description: TODO
+- Role: Defines the shared tsz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_speedup = KeyBinding.get("speed-up", KeyMatch.forchar('R', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb speedup constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding kb_speeddn = KeyBinding.get("speed-down", KeyMatch.forchar('R', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.S | KeyMatch.C))`
-
-- Description: TODO
+- Role: Defines the shared kb speeddn constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final KeyBinding[] kb_speeds =`
-
-- Description: TODO
+- Role: Defines the shared speedget constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public int cur, max`
-
-- Description: TODO
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
 #### `public int cur, max`
-
-- Description: TODO
+- Role: Stores the max value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Speedget(int cur, int max)`
-
-- Description: TODO
+- Role: Creates a new Speedget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void set(int s)`
-
-- Description: TODO
+- Role: Performs set.
+- Description: Supports the set operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
-
-- Description: TODO
+- Role: Handles a global key event.
+- Description: Supports the globtype operation used by the surrounding class.

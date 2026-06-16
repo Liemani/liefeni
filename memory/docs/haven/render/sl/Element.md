@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Element`.
 
 ## Role
 
-Represents a shader AST element.
+Represents the element shader-language AST node.
 
 ## Members
 
@@ -21,9 +21,9 @@ Represents a shader AST element.
 ### Methods
 
 #### `public abstract void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

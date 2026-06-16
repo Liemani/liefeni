@@ -10,88 +10,88 @@ This file documents the responsibilities and members of `RMessage`.
 
 ## Role
 
-Represents a received network message.
+Represents the rmessage Haven component.
 
 ## Members
 
 ### Constants
 
 #### `public static final int RMSG_NEWWDG = 0`
-
-- Description: TODO
+- Role: Defines the shared rmsg newwdg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_WDGMSG = 1`
-
-- Description: TODO
+- Role: Defines the shared rmsg wdgmsg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_DSTWDG = 2`
-
-- Description: TODO
+- Role: Defines the shared rmsg dstwdg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_MAPIV = 3`
-
-- Description: TODO
+- Role: Defines the shared rmsg mapiv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_GLOBLOB = 4`
-
-- Description: TODO
+- Role: Defines the shared rmsg globlob constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_RESID = 6`
-
-- Description: TODO
+- Role: Defines the shared rmsg resid constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_SESSKEY = 13`
-
-- Description: TODO
+- Role: Defines the shared rmsg sesskey constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_FRAGMENT = 14`
-
-- Description: TODO
+- Role: Defines the shared rmsg fragment constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_ADDWDG = 15`
-
-- Description: TODO
+- Role: Defines the shared rmsg addwdg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_WDGBAR = 16`
-
-- Description: TODO
+- Role: Defines the shared rmsg wdgbar constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int RMSG_USERAGENT = 17`
-
-- Description: TODO
+- Role: Defines the shared rmsg useragent constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public double first = 0, last = 0`
-
-- Description: TODO
+- Role: Stores the first value.
+- Description: Backs the cached state for this file.
 
 #### `public double first = 0, last = 0`
-
-- Description: TODO
+- Role: Stores the first value.
+- Description: Backs the cached state for this file.
 
 #### `public int retx = 0`
-
-- Description: TODO
+- Role: Stores the retx value.
+- Description: Backs the cached state for this file.
 
 #### `public int seq`
-
-- Description: TODO
+- Role: Stores the seq value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public RMessage(int type, byte[] blob, int off, int len)`
-
-- Description: TODO
+- Role: Creates a new RMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RMessage(int type, byte[] blob)`
-
-- Description: TODO
+- Role: Creates a new RMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RMessage(int type)`
-
-- Description: TODO
+- Role: Creates a new RMessage instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public RMessage(PMessage msg)`
-
-- Description: TODO
+- Role: Creates a new RMessage instance.
+- Description: Constructs the instance and initializes its default state.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Scrollable`.
 
 ## Role
 
-Defines a scrollable contract.
+Represents the scrollable Haven component.
 
 ## Members
 
@@ -21,17 +21,17 @@ Defines a scrollable contract.
 ### Methods
 
 #### `public int scrollmin()`
-
-- Description: TODO
+- Role: Performs scrollmin.
+- Description: Supports the scrollmin operation used by the surrounding class.
 
 #### `public int scrollmax()`
-
-- Description: TODO
+- Role: Performs scrollmax.
+- Description: Supports the scrollmax operation used by the surrounding class.
 
 #### `public int scrollval()`
-
-- Description: TODO
+- Role: Performs scrollval.
+- Description: Supports the scrollval operation used by the surrounding class.
 
 #### `public void scrollval(int val)`
-
-- Description: TODO
+- Role: Performs scrollval.
+- Description: Supports the scrollval operation used by the surrounding class.

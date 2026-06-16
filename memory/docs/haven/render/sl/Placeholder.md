@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Placeholder`.
 
 ## Role
 
-Represents a placeholder shader element.
+Represents the placeholder shader-language AST node.
 
 ## Members
 
@@ -19,23 +19,23 @@ Represents a placeholder shader element.
 ### Fields
 
 #### `public final String comment`
-
-- Description: TODO
+- Role: Stores the comment value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Placeholder(String comment)`
-
-- Description: TODO
+- Role: Creates a new Placeholder instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Placeholder()`
-
-- Description: TODO
+- Role: Creates a new Placeholder instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

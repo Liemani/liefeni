@@ -10,58 +10,59 @@ This file documents the responsibilities and members of `Speaking`.
 
 ## Role
 
-Represents speaking or speech state.
+Represents the speaking Haven component.
 
 ## Nested Types
 
 ### $speak
 
-- Description: TODO
+- Role: Represents $speak within Speaking.
+- Description: Describes the nested $speak type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final IBox.Images sb = new IBox.Scaled("gfx/hud/emote", "tl", "tr", "bl", "br", "el", "er", "et", "eb")`
-
-- Description: TODO
+- Role: Defines the shared sb constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex svans = Resource.loadtex("gfx/hud/emote/svans")`
-
-- Description: TODO
+- Role: Defines the shared svans constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int sx = UI.scale(5)`
-
-- Description: TODO
+- Role: Defines the shared sx constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public float zo`
-
-- Description: TODO
+- Role: Stores the zo value.
+- Description: Backs the cached state for this file.
 
 #### `public Text text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Speaking(Gob gob, float zo, String text)`
-
-- Description: TODO
+- Role: Creates a new Speaking instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void update(String text)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void draw(GOut g, Coord c)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void draw(GOut g, Pipe state)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.

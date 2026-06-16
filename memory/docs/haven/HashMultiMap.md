@@ -10,13 +10,14 @@ This file documents the responsibilities and members of `HashMultiMap`.
 
 ## Role
 
-Provides a hashed multimap.
+Represents the hash multi map Haven component.
 
 ## Nested Types
 
 ### TaggedList
 
-- Description: TODO
+- Role: Represents tagged list within HashMultiMap.
+- Description: Describes the nested tagged list type used by the enclosing class.
 
 ## Members
 
@@ -25,47 +26,47 @@ Provides a hashed multimap.
 ### Fields
 
 #### `private final HashMap<K, Object> bk = new HashMap<>()`
-
-- Description: TODO
+- Role: Caches bk entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int size = 0`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<V> values = null`
-
-- Description: TODO
+- Role: Caches values entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public void put(K key, V value)`
-
-- Description: TODO
+- Role: Performs put.
+- Description: Supports the put operation used by the surrounding class.
 
 #### `public V remove(K key, V value)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public Collection<V> removeall(K key)`
-
-- Description: TODO
+- Role: Performs removeall.
+- Description: Supports the removeall operation used by the surrounding class.
 
 #### `public V pop(K key)`
-
-- Description: TODO
+- Role: Applies avatar description updates.
+- Description: Supports the pop operation used by the surrounding class.
 
 #### `public V get(K key)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Collection<V> getall(K key)`
-
-- Description: TODO
+- Role: Performs getall.
+- Description: Supports the getall operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Collection<V> values()`
-
-- Description: TODO
+- Role: Performs values.
+- Description: Supports the values operation used by the surrounding class.

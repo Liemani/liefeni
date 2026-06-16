@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointResult`.
 
 ## Role
 
-Carries a typed result payload for waypoint work.
+Provides waypoint persistence support for waypoint result.
 
 ## Members
 

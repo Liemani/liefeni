@@ -10,49 +10,59 @@ This file documents the responsibilities and members of `GLProgram`.
 
 ## Role
 
-Represents a GL program.
+Provides GL backend support for glprogram.
 
 ## Nested Types
 
 ### AttrID
 
-- Description: TODO
+- Role: Represents attr id within GLProgram.
+- Description: Describes the nested attr id type used by the enclosing class.
 
 ### Dump
 
-- Description: TODO
+- Role: Represents dump within GLProgram.
+- Description: Describes the nested dump type used by the enclosing class.
 
 ### LinkException
 
-- Description: TODO
+- Role: Represents link exception within GLProgram.
+- Description: Describes the nested link exception type used by the enclosing class.
 
 ### ProgOb
 
-- Description: TODO
+- Role: Represents prog ob within GLProgram.
+- Description: Describes the nested prog ob type used by the enclosing class.
 
 ### ProgramException
 
-- Description: TODO
+- Role: Represents program exception within GLProgram.
+- Description: Describes the nested program exception type used by the enclosing class.
 
 ### ShaderException
 
-- Description: TODO
+- Role: Represents shader exception within GLProgram.
+- Description: Describes the nested shader exception type used by the enclosing class.
 
 ### ShaderOb
 
-- Description: TODO
+- Role: Represents shader ob within GLProgram.
+- Description: Describes the nested shader ob type used by the enclosing class.
 
 ### UniformID
 
-- Description: TODO
+- Role: Represents uniform id within GLProgram.
+- Description: Describes the nested uniform id type used by the enclosing class.
 
 ### UnknownExternException
 
-- Description: TODO
+- Role: Represents unknown extern exception within GLProgram.
+- Description: Describes the nested unknown extern exception type used by the enclosing class.
 
 ### VarID
 
-- Description: TODO
+- Role: Represents var id within GLProgram.
+- Description: Describes the nested var id type used by the enclosing class.
 
 ## Members
 
@@ -61,331 +71,331 @@ Represents a GL program.
 ### Fields
 
 #### `public static boolean dumpall = false`
-
-- Description: TODO
+- Role: Tracks the dumpall flag.
+- Description: Supports the dumpall operation used by the surrounding class.
 
 #### `public final GLEnvironment env`
-
-- Description: TODO
-
-#### `public final String vsrc, fsrc`
-
-- Description: TODO
+- Role: Holds the env state.
+- Description: Backs the cached state for this file.
 
 #### `public final String vsrc, fsrc`
+- Role: Stores the fsrc value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String vsrc, fsrc`
+- Role: Stores the fsrc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Uniform[] uniforms`
-
-- Description: TODO
+- Role: Holds the uniforms state.
+- Description: Backs the cached state for this file.
 
 #### `public final FragData[] fragdata`
-
-- Description: TODO
+- Role: Holds the fragdata state.
+- Description: Backs the cached state for this file.
 
 #### `public final int[][] umap`
-
-- Description: TODO
+- Role: Stores the umap value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean[] fmap`
-
-- Description: TODO
+- Role: Tracks the fmap flag.
+- Description: Supports the fmap operation used by the surrounding class.
 
 #### `public final Attribute[] attribs`
-
-- Description: TODO
+- Role: Holds the attribs state.
+- Description: Backs the cached state for this file.
 
 #### `public final Map<Uniform, Integer> samplerids`
-
-- Description: TODO
+- Role: Caches samplerids entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Uniform[] samplers`
-
-- Description: TODO
+- Role: Holds the samplers state.
+- Description: Backs the cached state for this file.
 
 #### `public final AtomicInteger locked = new AtomicInteger(0)`
-
-- Description: TODO
+- Role: Stores the locked value.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Uniform, String> unifnms`
-
-- Description: TODO
+- Role: Caches unifnms entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final Map<Attribute, AttrID> amap`
-
-- Description: TODO
+- Role: Caches amap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final String[] fragnms`
-
-- Description: TODO
+- Role: Stores the fragnms value.
+- Description: Backs the cached state for this file.
 
 #### `private ProgOb glp`
-
-- Description: TODO
+- Role: Stores the glp value.
+- Description: Backs the cached state for this file.
 
 #### `boolean disposed = false`
-
-- Description: TODO
+- Role: Tracks the disposed flag.
+- Description: Supports the disposed operation used by the surrounding class.
 
 #### `public final int type`
-
-- Description: TODO
+- Role: Stores the type value.
+- Description: Backs the cached state for this file.
 
 #### `public final String text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `public final String info`
-
-- Description: TODO
+- Role: Stores the info value.
+- Description: Backs the cached state for this file.
 
 #### `public final int type`
-
-- Description: TODO
+- Role: Stores the type value.
+- Description: Backs the cached state for this file.
 
 #### `public final String text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `private int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Dump program`
-
-- Description: TODO
-
-#### `public final String type, symbol`
-
-- Description: TODO
+- Role: Holds the program state.
+- Description: Backs the cached state for this file.
 
 #### `public final String type, symbol`
+- Role: Stores the symbol value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String type, symbol`
+- Role: Stores the symbol value.
+- Description: Backs the cached state for this file.
 
 #### `public final String info`
-
-- Description: TODO
+- Role: Stores the info value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `protected int id = -1`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final ShaderOb[] shaders`
-
-- Description: TODO
+- Role: Holds the shaders state.
+- Description: Backs the cached state for this file.
 
 #### `private int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public UniformID[] sub = null`
-
-- Description: TODO
+- Role: Holds the sub state.
+- Description: Backs the cached state for this file.
 
 #### `public int sampler = -1`
-
-- Description: TODO
+- Role: Stores the sampler value.
+- Description: Backs the cached state for this file.
 
 #### `private final transient Map<Uniform, UniformID> umap = new IdentityHashMap<>()`
-
-- Description: TODO
-
-#### `public final String vsrc, fsrc`
-
-- Description: TODO
+- Role: Caches umap entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final String vsrc, fsrc`
+- Role: Stores the fsrc value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String vsrc, fsrc`
+- Role: Stores the fsrc value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
-
-#### `public final String[] fragnms, attrnms`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final String[] fragnms, attrnms`
+- Role: Stores the attrnms value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String[] fragnms, attrnms`
+- Role: Stores the attrnms value.
+- Description: Backs the cached state for this file.
 
 #### `public final int[] attrlocs`
-
-- Description: TODO
+- Role: Stores the attrlocs value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public GLProgram(GLEnvironment env, ProgramContext ctx)`
-
-- Description: TODO
+- Role: Creates a new GLProgram instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static int attrsize(Attribute attr)`
-
-- Description: TODO
+- Role: Performs attrsize.
+- Description: Supports the attrsize operation used by the surrounding class.
 
 #### `public static GLProgram build(GLEnvironment env, Collection<ShaderMacro> mods)`
-
-- Description: TODO
+- Role: Performs build.
+- Description: Supports the build operation used by the surrounding class.
 
 #### `public ShaderException(String msg, ShaderOb shader, String info)`
-
-- Description: TODO
+- Role: Performs shader exception.
+- Description: Supports the shader exception operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public ShaderOb(GLEnvironment env, int type, String text)`
-
-- Description: TODO
+- Role: Performs shader ob.
+- Description: Supports the shader ob operation used by the surrounding class.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public ProgramException(String msg, GLProgram program)`
-
-- Description: TODO
+- Role: Performs program exception.
+- Description: Supports the program exception operation used by the surrounding class.
 
 #### `public UnknownExternException(String msg, GLProgram program, String type, String symbol)`
-
-- Description: TODO
+- Role: Performs unknown extern exception.
+- Description: Supports the unknown extern exception operation used by the surrounding class.
 
 #### `public LinkException(String msg, GLProgram program, String info)`
-
-- Description: TODO
+- Role: Performs link exception.
+- Description: Supports the link exception operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private AttrID(String name, int id)`
-
-- Description: TODO
+- Role: Performs attr id.
+- Description: Supports the attr id operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `private VarID(String name)`
-
-- Description: TODO
+- Role: Performs var id.
+- Description: Supports the var id operation used by the surrounding class.
 
 #### `public abstract int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public ProgOb(GLEnvironment env, ShaderOb... shaders)`
-
-- Description: TODO
+- Role: Performs prog ob.
+- Description: Supports the prog ob operation used by the surrounding class.
 
 #### `private UniformID uniresolve(Type type, String name)`
-
-- Description: TODO
+- Role: Performs uniresolve.
+- Description: Supports the uniresolve operation used by the surrounding class.
 
 #### `public void create(GL gl)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-
-- Description: TODO
+- Role: Performs delete.
+- Description: Supports the delete operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `private UniformID(String name)`
-
-- Description: TODO
+- Role: Performs uniform id.
+- Description: Supports the uniform id operation used by the surrounding class.
 
 #### `public void run(GL gl)`
-
-- Description: TODO
+- Role: Runs the job.
+- Description: Supports the run operation used by the surrounding class.
 
 #### `public int glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public UniformID cuniform(Uniform var)`
-
-- Description: TODO
+- Role: Performs cuniform.
+- Description: Supports the cuniform operation used by the surrounding class.
 
 #### `public ProgOb glid()`
-
-- Description: TODO
+- Role: Performs glid.
+- Description: Supports the glid operation used by the surrounding class.
 
 #### `public static void apply(BGL gl, GLProgram from, GLProgram to)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public AttrID cattrib(Attribute var)`
-
-- Description: TODO
+- Role: Performs cattrib.
+- Description: Supports the cattrib operation used by the surrounding class.
 
 #### `public AttrID attrib(Attribute var)`
-
-- Description: TODO
+- Role: Performs attrib.
+- Description: Supports the attrib operation used by the surrounding class.
 
 #### `public ProgOb.UniformID cuniform(Uniform var)`
-
-- Description: TODO
+- Role: Performs cuniform.
+- Description: Supports the cuniform operation used by the surrounding class.
 
 #### `public ProgOb.UniformID uniform(Uniform var)`
-
-- Description: TODO
+- Role: Performs uniform.
+- Description: Supports the uniform operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void lock()`
-
-- Description: TODO
+- Role: Performs lock.
+- Description: Supports the lock operation used by the surrounding class.
 
 #### `public void unlock()`
-
-- Description: TODO
+- Role: Performs unlock.
+- Description: Supports the unlock operation used by the surrounding class.
 
 #### `public Dump(GLProgram prog)`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.
 
 #### `public Dump dump()`
-
-- Description: TODO
+- Role: Performs dump.
+- Description: Supports the dump operation used by the surrounding class.

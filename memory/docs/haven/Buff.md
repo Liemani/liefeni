@@ -10,186 +10,189 @@ This file documents the responsibilities and members of `Buff`.
 
 ## Role
 
-Represents a buff or status effect widget or data type.
+Represents the buff Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within Buff.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### AMeterInfo
 
-- Description: TODO
+- Role: Represents ameter info within Buff.
+- Description: Describes the nested ameter info type used by the enclosing class.
 
 ### AMeterTip
 
-- Description: TODO
+- Role: Represents ameter tip within Buff.
+- Description: Describes the nested ameter tip type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry nfnd = new Text.Foundry(Text.dfont, 10)`
-
-- Description: TODO
+- Role: Defines the shared nfnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex frame = Resource.loadtex("gfx/hud/buffs/frame")`
-
-- Description: TODO
+- Role: Defines the shared frame constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex cframe = Resource.loadtex("gfx/hud/buffs/cframe")`
-
-- Description: TODO
+- Role: Defines the shared cframe constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Tex ameter = Resource.loadtex("gfx/hud/buffs/cframe-m")`
-
-- Description: TODO
+- Role: Defines the shared ameter constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord imgoff = UI.scale(3, 3)`
-
-- Description: TODO
-
-#### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
-
-- Description: TODO
+- Role: Defines the shared imgoff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
+- Role: Defines the shared ameterx1 constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
+- Role: Defines the shared ameterx1 constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int textw = UI.scale(200)`
-
-- Description: TODO
+- Role: Defines the shared textw constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final OwnerContext.ClassResolver<Buff> ctxr = new OwnerContext.ClassResolver<Buff>()`
-
-- Description: TODO
+- Role: Defines the shared ctxr constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `protected int a = 255`
-
-- Description: TODO
+- Role: Stores the a value.
+- Description: Backs the cached state for this file.
 
 #### `protected boolean dest = false`
-
-- Description: TODO
+- Role: Tracks the dest flag.
+- Description: Supports the dest operation used by the surrounding class.
 
 #### `private ItemInfo.Raw rawinfo = null`
-
-- Description: TODO
+- Role: Holds the rawinfo state.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> info = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches info entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final AttrCache<Double> ameteri = new AttrCache<>(this::info, AttrCache.map1(AMeterInfo.class, minf -> minf::ameter))`
-
-- Description: TODO
+- Role: Caches ameteri entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final AttrCache<Tex> nmeteri = new AttrCache<>(this::info, AttrCache.map1s(GItem.NumberInfo.class, ninf -> new TexI(GItem.NumberInfo.numrender(ninf.itemnum(), ninf.numcolor()))))`
-
-- Description: TODO
+- Role: Caches nmeteri entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final AttrCache<Double> cmeteri = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
-
-- Description: TODO
+- Role: Caches cmeteri entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private double hoverstart`
-
-- Description: TODO
-
-#### `private Tex shorttip, longtip`
-
-- Description: TODO
+- Role: Stores the hoverstart value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex shorttip, longtip`
+- Role: Stores the longtip value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Tex shorttip, longtip`
+- Role: Stores the longtip value.
+- Description: Backs the cached state for this file.
 
 #### `private List<ItemInfo> ttinfo = null`
-
-- Description: TODO
+- Role: Caches ttinfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public Buff(Indir<Resource> res)`
-
-- Description: TODO
+- Role: Creates a new Buff instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Resource resource()`
-
-- Description: TODO
+- Role: Performs resource.
+- Description: Supports the resource operation used by the surrounding class.
 
 #### `public <T> T context(Class<T> cl)`
-
-- Description: TODO
+- Role: Returns the avatar owner context.
+- Description: Exposes the requested value without mutating state.
 
 #### `public List<ItemInfo> info()`
-
-- Description: TODO
+- Role: Performs info.
+- Description: Supports the info operation used by the surrounding class.
 
 #### `public double ameter()`
-
-- Description: TODO
+- Role: Performs ameter.
+- Description: Supports the ameter operation used by the surrounding class.
 
 #### `public AMeterTip(Owner owner)`
-
-- Description: TODO
+- Role: Performs ameter tip.
+- Description: Supports the ameter tip operation used by the surrounding class.
 
 #### `public void layout(Layout l)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public int order()`
-
-- Description: TODO
+- Role: Performs order.
+- Description: Supports the order operation used by the surrounding class.
 
 #### `public Tip shortvar()`
-
-- Description: TODO
+- Role: Performs shortvar.
+- Description: Supports the shortvar operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `private BufferedImage shorttip()`
-
-- Description: TODO
+- Role: Performs shorttip.
+- Description: Supports the shorttip operation used by the surrounding class.
 
 #### `private BufferedImage longtip()`
-
-- Description: TODO
+- Role: Performs longtip.
+- Description: Supports the longtip operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void reqdestroy()`
-
-- Description: TODO
+- Role: Performs reqdestroy.
+- Description: Supports the reqdestroy operation used by the surrounding class.
 
 #### `public void move(Coord c, double off)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void move(Coord c)`
-
-- Description: TODO
+- Role: Moves the current state.
+- Description: Supports the move operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.

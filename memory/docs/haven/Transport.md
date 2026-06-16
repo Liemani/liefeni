@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Transport`.
 
 ## Role
 
-Represents transport or movement state.
+Represents the transport Haven component.
 
 ## Members
 
@@ -19,111 +19,111 @@ Represents transport or movement state.
 ### Fields
 
 #### `public final Writer out`
-
-- Description: TODO
+- Role: Holds the out state.
+- Description: Backs the cached state for this file.
 
 #### `private final double epoch`
-
-- Description: TODO
+- Role: Stores the epoch value.
+- Description: Backs the cached state for this file.
 
 #### `public final BufferedReader in`
-
-- Description: TODO
+- Role: Stores the in value.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<Callback> cbs = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches cbs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean closed = false`
-
-- Description: TODO
+- Role: Tracks whether closed is closed.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 ### Methods
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public void queuemsg(PMessage pmsg)`
-
-- Description: TODO
+- Role: Performs queuemsg.
+- Description: Supports the queuemsg operation used by the surrounding class.
 
 #### `public void send(PMessage msg)`
-
-- Description: TODO
+- Role: Sends the current message.
+- Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `public Transport add(Callback cb)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public default void closed()`
-
-- Description: TODO
+- Role: Performs closed.
+- Description: Supports the closed operation used by the surrounding class.
 
 #### `public default void handle(PMessage msg)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public default void handle(OCache.ObjDelta delta)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public default void mapdata(Message msg)`
-
-- Description: TODO
+- Role: Performs mapdata.
+- Description: Supports the mapdata operation used by the surrounding class.
 
 #### `public Recorder(Writer out)`
-
-- Description: TODO
+- Role: Performs recorder.
+- Description: Supports the recorder operation used by the surrounding class.
 
 #### `private void printf(String format, Object... args)`
-
-- Description: TODO
+- Role: Performs printf.
+- Description: Supports the printf operation used by the surrounding class.
 
 #### `public void closed()`
-
-- Description: TODO
+- Role: Performs closed.
+- Description: Supports the closed operation used by the surrounding class.
 
 #### `public void handle(PMessage msg)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public void handle(OCache.ObjDelta msg)`
-
-- Description: TODO
+- Role: Performs handle.
+- Description: Supports the handle operation used by the surrounding class.
 
 #### `public void mapdata(Message msg)`
-
-- Description: TODO
+- Role: Performs mapdata.
+- Description: Supports the mapdata operation used by the surrounding class.
 
 #### `public Playback(Reader in)`
-
-- Description: TODO
+- Role: Performs playback.
+- Description: Supports the playback operation used by the surrounding class.
 
 #### `public Playback add(Callback cb)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public void queuemsg(PMessage pmsg)`
-
-- Description: TODO
+- Role: Performs queuemsg.
+- Description: Supports the queuemsg operation used by the surrounding class.
 
 #### `public void send(PMessage msg)`
-
-- Description: TODO
+- Role: Sends the current message.
+- Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `private String[] split(String text)`
-
-- Description: TODO
+- Role: Performs split.
+- Description: Supports the split operation used by the surrounding class.
 
 #### `private void play()`
-
-- Description: TODO
+- Role: Performs play.
+- Description: Supports the play operation used by the surrounding class.
 
 #### `public void start()`
-
-- Description: TODO
+- Role: Starts the current workflow.
+- Description: Supports the start operation used by the surrounding class.

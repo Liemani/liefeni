@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WpEdge`.
 
 ## Role
 
-Represents a waypoint edge value or runtime cache entry.
+Represents a waypoint edge domain object.
 
 ## Members
 
@@ -19,47 +19,47 @@ Represents a waypoint edge value or runtime cache entry.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long graphId`
-
-- Description: TODO
+- Role: Stores the graph id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long node0Id`
-
-- Description: TODO
+- Role: Stores the node0 id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long node1Id`
-
-- Description: TODO
+- Role: Stores the node1 id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int direction`
-
-- Description: TODO
+- Role: Stores the direction value.
+- Description: Backs the cached state for this file.
 
 #### `public final double timeCost`
-
-- Description: TODO
+- Role: Stores the time cost value.
+- Description: Backs the cached state for this file.
 
 #### `public final double fatigueCost`
-
-- Description: TODO
+- Role: Stores the fatigue cost value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private WpEdge(long id, long graphId, long node0Id, long node1Id, int direction, double timeCost, double fatigueCost)`
-
-- Description: TODO
+- Role: Creates a new WpEdge instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static WpEdge of(long id, long graphId, long node0Id, long node1Id, int direction, double timeCost, double fatigueCost)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static WpEdge fromRecord(WpEdgeRecord record)`
-
-- Description: TODO
+- Role: Performs from record.
+- Description: Supports the from record operation used by the surrounding class.
 
 #### `public long otherNodeId(long nodeId)`
-
-- Description: TODO
+- Role: Performs other node id.
+- Description: Supports the other node id operation used by the surrounding class.

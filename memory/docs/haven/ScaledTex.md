@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `ScaledTex`.
 
 ## Role
 
-Represents a scaled texture.
+Represents the scaled tex Haven component.
 
 ## Members
 
@@ -19,47 +19,47 @@ Represents a scaled texture.
 ### Fields
 
 #### `private final T impl`
-
-- Description: TODO
+- Role: Holds the impl state.
+- Description: Backs the cached state for this file.
 
 #### `private final Coord sz`
-
-- Description: TODO
+- Role: Stores the sz value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ScaledTex(T impl, Coord sz)`
-
-- Description: TODO
+- Role: Creates a new ScaledTex instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public T impl()`
-
-- Description: TODO
+- Role: Performs impl.
+- Description: Supports the impl operation used by the surrounding class.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public void render(GOut g, Coord dul, Coord dbr, Coord tul, Coord tbr)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public void render(GOut g, Coord c)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public void crender(GOut g, Coord c, Coord dsz, Coord cul, Coord cbr)`
-
-- Description: TODO
+- Role: Performs crender.
+- Description: Supports the crender operation used by the surrounding class.
 
 #### `public void crender(GOut g, Coord c, Coord ul, Coord br)`
-
-- Description: TODO
+- Role: Performs crender.
+- Description: Supports the crender operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.

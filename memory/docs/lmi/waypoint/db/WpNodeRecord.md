@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WpNodeRecord`.
 
 ## Role
 
-Represents a low-level waypoint persistence record.
+Represents a persisted waypoint database record for wp node record.
 
 ## Members
 
@@ -19,31 +19,31 @@ Represents a low-level waypoint persistence record.
 ### Fields
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long graphId`
-
-- Description: TODO
+- Role: Stores the graph id value.
+- Description: Backs the cached state for this file.
 
 #### `public final long gridId`
-
-- Description: TODO
+- Role: Stores the grid id value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localX`
-
-- Description: TODO
+- Role: Stores the local x value.
+- Description: Backs the cached state for this file.
 
 #### `public final int localY`
-
-- Description: TODO
+- Role: Stores the local y value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public WpNodeRecord(long id, long graphId, long gridId, int localX, int localY, String name)`
-
-- Description: TODO
+- Role: Creates a new WpNodeRecord instance.
+- Description: Constructs the instance and initializes its default state.

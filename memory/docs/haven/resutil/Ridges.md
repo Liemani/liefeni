@@ -10,290 +10,293 @@ This file documents the responsibilities and members of `Ridges`.
 
 ## Role
 
-Represents ridge rendering helpers.
+Provides resource helper logic for ridges.
 
 ## Nested Types
 
 ### RPart
 
-- Description: TODO
+- Role: Represents rpart within Ridges.
+- Description: Describes the nested rpart type used by the enclosing class.
 
 ### RidgeTile
 
-- Description: TODO
+- Role: Represents ridge tile within Ridges.
+- Description: Describes the nested ridge tile type used by the enclosing class.
 
 ### TexCons
 
-- Description: TODO
+- Role: Represents tex cons within Ridges.
+- Description: Describes the nested tex cons type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final float EPSILON = 0.01f`
-
-- Description: TODO
+- Role: Defines the shared epsilon constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final MapMesh.DataID<Ridges> id = MapMesh.makeid(Ridges.class)`
-
-- Description: TODO
+- Role: Defines the shared id constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final double segh = 8`
-
-- Description: TODO
+- Role: Defines the shared segh constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Coord tilesz = MCache.tilesz2`
-
-- Description: TODO
+- Role: Defines the shared tilesz constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Coord[] tecs =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Coord[] tccs =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int[] srfi =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int[] d1rfi =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int[] d2rfi =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int[] cg1rfi =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final int[] cg2rfi =`
-
-- Description: TODO
+- Role: Defines the shared ridges constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `static final Tiler.MCons testcons = new Tiler.MCons()`
-
-- Description: TODO
+- Role: Defines the shared testcons constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final MapMesh m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `private final MapMesh.MapSurface ms`
-
-- Description: TODO
+- Role: Holds the ms state.
+- Description: Backs the cached state for this file.
 
 #### `private final boolean[] breaks`
-
-- Description: TODO
-
-#### `private Vertex[][] edges, edgec`
-
-- Description: TODO
+- Role: Tracks the breaks flag.
+- Description: Supports the breaks operation used by the surrounding class.
 
 #### `private Vertex[][] edges, edgec`
+- Role: Stores the edgec value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Vertex[][] edges, edgec`
+- Role: Stores the edgec value.
+- Description: Backs the cached state for this file.
 
 #### `private float[] edgeo`
-
-- Description: TODO
-
-#### `private final MPart[] gnd, ridge`
-
-- Description: TODO
+- Role: Stores the edgeo value.
+- Description: Backs the cached state for this file.
 
 #### `private final MPart[] gnd, ridge`
+- Role: Holds the ridge state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final MPart[] gnd, ridge`
+- Role: Holds the ridge state.
+- Description: Backs the cached state for this file.
 
 #### `public float[] rcx, rcy`
-
-- Description: TODO
+- Role: Stores the rcy value.
+- Description: Backs the cached state for this file.
 
 #### `public float[] rcx, rcy`
-
-- Description: TODO
+- Role: Stores the rcy value.
+- Description: Backs the cached state for this file.
 
 #### `public int[] rn`
-
-- Description: TODO
-
-#### `public int[][] ledge, uedge`
-
-- Description: TODO
+- Role: Stores the rn value.
+- Description: Backs the cached state for this file.
 
 #### `public int[][] ledge, uedge`
+- Role: Stores the uedge value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int[][] ledge, uedge`
+- Role: Stores the uedge value.
+- Description: Backs the cached state for this file.
 
 #### `public float[] rh`
-
-- Description: TODO
+- Role: Stores the rh value.
+- Description: Backs the cached state for this file.
 
 #### `public final Pipe.Op mat`
-
-- Description: TODO
+- Role: Holds the mat state.
+- Description: Backs the cached state for this file.
 
 #### `public final float texh`
-
-- Description: TODO
+- Role: Stores the texh value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public double breakz()`
-
-- Description: TODO
+- Role: Performs breakz.
+- Description: Supports the breakz operation used by the surrounding class.
 
 #### `public RPart(Coord lc, Coord gc, Surface.Vertex[] v, float[] tcx, float[] tcy, int[] f, float[] rcx, float[] rcy, int[] rn, float[] rh, int[][] ledge, int[][] uedge)`
-
-- Description: TODO
+- Role: Performs rpart.
+- Description: Supports the rpart operation used by the surrounding class.
 
 #### `public RPart(RPart... parts)`
-
-- Description: TODO
+- Role: Performs rpart.
+- Description: Supports the rpart operation used by the surrounding class.
 
 #### `private void mapridges(RPart[] parts, int[][] vmap)`
-
-- Description: TODO
+- Role: Performs mapridges.
+- Description: Supports the mapridges operation used by the surrounding class.
 
 #### `protected void mapvertices(MPart[] mparts, int[][] vmap)`
-
-- Description: TODO
+- Role: Performs mapvertices.
+- Description: Supports the mapvertices operation used by the surrounding class.
 
 #### `private int eo(int x, int y, int e)`
-
-- Description: TODO
+- Role: Performs eo.
+- Description: Supports the eo operation used by the surrounding class.
 
 #### `private int eo(Coord c, int e)`
-
-- Description: TODO
+- Role: Performs eo.
+- Description: Supports the eo operation used by the surrounding class.
 
 #### `private boolean[] breaks()`
-
-- Description: TODO
+- Role: Performs breaks.
+- Description: Supports the breaks operation used by the surrounding class.
 
 #### `private static Coord3f dc(float m, int d)`
-
-- Description: TODO
+- Role: Performs dc.
+- Description: Supports the dc operation used by the surrounding class.
 
 #### `private boolean edgelc(Coord tc, int e)`
-
-- Description: TODO
+- Role: Performs edgelc.
+- Description: Supports the edgelc operation used by the surrounding class.
 
 #### `private Vertex[] makeedge(Coord tc, int e)`
-
-- Description: TODO
+- Role: Performs makeedge.
+- Description: Supports the makeedge operation used by the surrounding class.
 
 #### `private Vertex[] ensureedge(Coord tc, int e)`
-
-- Description: TODO
+- Role: Performs ensureedge.
+- Description: Supports the ensureedge operation used by the surrounding class.
 
 #### `public Ridges(MapMesh m)`
-
-- Description: TODO
+- Role: Creates a new Ridges instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public boolean[] breaks(Coord tc)`
-
-- Description: TODO
+- Role: Performs breaks.
+- Description: Supports the breaks operation used by the surrounding class.
 
 #### `private float[] tczs(Coord tc)`
-
-- Description: TODO
+- Role: Performs tczs.
+- Description: Supports the tczs operation used by the surrounding class.
 
 #### `private static int isend(boolean[] b)`
-
-- Description: TODO
+- Role: Performs isend.
+- Description: Supports the isend operation used by the surrounding class.
 
 #### `private static int isdiag(boolean[] b)`
-
-- Description: TODO
+- Role: Performs isdiag.
+- Description: Supports the isdiag operation used by the surrounding class.
 
 #### `private int isdiag2(Coord tc, boolean[] b)`
-
-- Description: TODO
+- Role: Performs isdiag2.
+- Description: Supports the isdiag2 operation used by the surrounding class.
 
 #### `private void mkfaces(Vertex[] va, int[] fa)`
-
-- Description: TODO
+- Role: Performs mkfaces.
+- Description: Supports the mkfaces operation used by the surrounding class.
 
 #### `private RPart connect(Coord tc, Vertex[] l, Vertex[] r)`
-
-- Description: TODO
+- Role: Performs connect.
+- Description: Supports the connect operation used by the surrounding class.
 
 #### `private void modelcap(Coord tc, int dir)`
-
-- Description: TODO
+- Role: Performs modelcap.
+- Description: Supports the modelcap operation used by the surrounding class.
 
 #### `private void modelstraight(Coord tc, int dir)`
-
-- Description: TODO
+- Role: Performs modelstraight.
+- Description: Supports the modelstraight operation used by the surrounding class.
 
 #### `private void modeldiag1(Coord tc, int dir)`
-
-- Description: TODO
+- Role: Performs modeldiag1.
+- Description: Supports the modeldiag1 operation used by the surrounding class.
 
 #### `private void modeldiag2(Coord tc, int dir)`
-
-- Description: TODO
+- Role: Performs modeldiag2.
+- Description: Supports the modeldiag2 operation used by the surrounding class.
 
 #### `private static Coord3f zmatch(Coord3f[] cl, float z)`
-
-- Description: TODO
+- Role: Performs zmatch.
+- Description: Supports the zmatch operation used by the surrounding class.
 
 #### `private Vertex[] colzmatch(Coord3f[] cl, float lo, float hi)`
-
-- Description: TODO
+- Role: Performs colzmatch.
+- Description: Supports the colzmatch operation used by the surrounding class.
 
 #### `private static float[] mktcx(Vertex[] v, Coord pc)`
-
-- Description: TODO
+- Role: Performs mktcx.
+- Description: Supports the mktcx operation used by the surrounding class.
 
 #### `private static float[] mktcy(Vertex[] v, Coord pc)`
-
-- Description: TODO
+- Role: Performs mktcy.
+- Description: Supports the mktcy operation used by the surrounding class.
 
 #### `private void modelcomplex(Coord tc, boolean[] breaks)`
-
-- Description: TODO
+- Role: Performs modelcomplex.
+- Description: Supports the modelcomplex operation used by the surrounding class.
 
 #### `public boolean model(Coord tc)`
-
-- Description: TODO
+- Role: Performs model.
+- Description: Supports the model operation used by the surrounding class.
 
 #### `public TexCons(Pipe.Op mat, float texh)`
-
-- Description: TODO
+- Role: Performs tex cons.
+- Description: Supports the tex cons operation used by the surrounding class.
 
 #### `public void faces(MapMesh m, MPart mdesc)`
-
-- Description: TODO
+- Role: Performs faces.
+- Description: Supports the faces operation used by the surrounding class.
 
 #### `public boolean laygnd(Coord tc, Tiler.MCons cons)`
-
-- Description: TODO
+- Role: Performs laygnd.
+- Description: Supports the laygnd operation used by the surrounding class.
 
 #### `public boolean layridge(Coord tc, Tiler.MCons cons)`
-
-- Description: TODO
+- Role: Performs layridge.
+- Description: Supports the layridge operation used by the surrounding class.
 
 #### `public RPart getrdesc(Coord tc)`
-
-- Description: TODO
+- Role: Performs getrdesc.
+- Description: Supports the getrdesc operation used by the surrounding class.
 
 #### `public boolean clean()`
-
-- Description: TODO
+- Role: Performs clean.
+- Description: Supports the clean operation used by the surrounding class.
 
 #### `public static boolean brokenp(MapSource map, Coord tc)`
-
-- Description: TODO
+- Role: Performs brokenp.
+- Description: Supports the brokenp operation used by the surrounding class.
 
 #### `public static float edgeoff(MCache map, Coord tc, int edge, boolean hi)`
-
-- Description: TODO
+- Role: Performs edgeoff.
+- Description: Supports the edgeoff operation used by the surrounding class.

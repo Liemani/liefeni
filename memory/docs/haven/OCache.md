@@ -10,430 +10,442 @@ This file documents the responsibilities and members of `OCache`.
 
 ## Role
 
-Caches world gobs and object state.
+Caches observed gob state from network updates.
 
 ## Nested Types
 
 ### $move
 
-- Description: TODO
+- Role: Represents $move within OCache.
+- Description: Describes the nested $move type used by the enclosing class.
 
 ### $overlay
 
-- Description: TODO
+- Role: Represents $overlay within OCache.
+- Description: Describes the nested $overlay type used by the enclosing class.
 
 ### $resattr
 
-- Description: TODO
+- Role: Represents $resattr within OCache.
+- Description: Describes the nested $resattr type used by the enclosing class.
 
 ### AttrDelta
 
-- Description: TODO
+- Role: Represents attr delta within OCache.
+- Description: Describes the nested attr delta type used by the enclosing class.
 
 ### ChangeCallback
 
-- Description: TODO
+- Role: Represents change callback within OCache.
+- Description: Describes the nested change callback type used by the enclosing class.
 
 ### Delta
 
-- Description: TODO
+- Role: Represents delta within OCache.
+- Description: Describes the nested delta type used by the enclosing class.
 
 ### DeltaType
 
-- Description: TODO
+- Role: Represents delta type within OCache.
+- Description: Describes the nested delta type type used by the enclosing class.
 
 ### FixedPlace
 
-- Description: TODO
+- Role: Represents fixed place within OCache.
+- Description: Describes the nested fixed place type used by the enclosing class.
 
 ### GobInfo
 
-- Description: TODO
+- Role: Represents gob info within OCache.
+- Description: Describes the nested gob info type used by the enclosing class.
 
 ### ObjDelta
 
-- Description: TODO
+- Role: Represents obj delta within OCache.
+- Description: Describes the nested obj delta type used by the enclosing class.
 
 ### OlSprite
 
-- Description: TODO
+- Role: Represents ol sprite within OCache.
+- Description: Describes the nested ol sprite type used by the enclosing class.
 
 ### Virtual
 
-- Description: TODO
+- Role: Represents virtual within OCache.
+- Description: Describes the nested virtual type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int OD_REM = 0`
-
-- Description: TODO
+- Role: Defines the shared od rem constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_MOVE = 1`
-
-- Description: TODO
+- Role: Defines the shared od move constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_RES = 2`
-
-- Description: TODO
+- Role: Defines the shared od res constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_LINBEG = 3`
-
-- Description: TODO
+- Role: Defines the shared od linbeg constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_LINSTEP = 4`
-
-- Description: TODO
+- Role: Defines the shared od linstep constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_SPEECH = 5`
-
-- Description: TODO
+- Role: Defines the shared od speech constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_COMPOSE = 6`
-
-- Description: TODO
+- Role: Defines the shared od compose constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_ZOFF = 7`
-
-- Description: TODO
+- Role: Defines the shared od zoff constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_LUMIN = 8`
-
-- Description: TODO
+- Role: Defines the shared od lumin constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_AVATAR = 9`
-
-- Description: TODO
+- Role: Defines the shared od avatar constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_FOLLOW = 10`
-
-- Description: TODO
+- Role: Defines the shared od follow constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_HOMING = 11`
-
-- Description: TODO
+- Role: Defines the shared od homing constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_OVERLAY = 12`
-
-- Description: TODO
+- Role: Defines the shared od overlay constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_HEALTH = 14`
-
-- Description: TODO
+- Role: Defines the shared od health constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_CMPPOSE = 16`
-
-- Description: TODO
+- Role: Defines the shared od cmppose constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_CMPMOD = 17`
-
-- Description: TODO
+- Role: Defines the shared od cmpmod constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_CMPEQU = 18`
-
-- Description: TODO
+- Role: Defines the shared od cmpequ constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_ICON = 19`
-
-- Description: TODO
+- Role: Defines the shared od icon constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_RESATTR = 20`
-
-- Description: TODO
+- Role: Defines the shared od resattr constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int OD_END = 255`
-
-- Description: TODO
+- Role: Defines the shared od end constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int[] compodmap =`
-
-- Description: TODO
+- Role: Defines the shared ocache constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Coord2d posres = Coord2d.of(0x1.0p-10, 0x1.0p-10).mul(11, 11)`
-
-- Description: TODO
+- Role: Defines the shared posres constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Map<Integer, Delta> deltas = new HashMap<>()`
-
-- Description: TODO
+- Role: Defines the shared deltas constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private Collection<Collection<Gob>> local = new LinkedList<Collection<Gob>>()`
-
-- Description: TODO
+- Role: Caches local entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private MultiMap<Long, Gob> objs = new HashMultiMap<Long, Gob>()`
-
-- Description: TODO
+- Role: Caches objs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Glob glob`
-
-- Description: TODO
+- Role: Stores the glob value.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<ChangeCallback> cbs = new WeakList<ChangeCallback>()`
-
-- Description: TODO
+- Role: Caches cbs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private java.util.concurrent.atomic.AtomicLong nextvirt = new java.util.concurrent.atomic.AtomicLong(-1)`
-
-- Description: TODO
+- Role: Stores the nextvirt value.
+- Description: Backs the cached state for this file.
 
 #### `public final Coord3f fc`
-
-- Description: TODO
+- Role: Stores the fc value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public byte[] sdt`
-
-- Description: TODO
+- Role: Stores the sdt value.
+- Description: Backs the cached state for this file.
 
 #### `public final long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final LinkedList<AttrDelta> pending = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches pending entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int frame`
-
-- Description: TODO
-
-#### `public boolean nremoved, added, gremoved, virtual`
-
-- Description: TODO
+- Role: Stores the frame value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean nremoved, added, gremoved, virtual`
-
-- Description: TODO
-
-#### `public boolean nremoved, added, gremoved, virtual`
-
-- Description: TODO
+- Role: Tracks the virtual flag.
+- Description: Supports the virtual operation used by the surrounding class.
 
 #### `public boolean nremoved, added, gremoved, virtual`
+- Role: Tracks the virtual flag.
+- Description: Supports the virtual operation used by the surrounding class.
 
-- Description: TODO
+#### `public boolean nremoved, added, gremoved, virtual`
+- Role: Tracks the virtual flag.
+- Description: Supports the virtual operation used by the surrounding class.
+
+#### `public boolean nremoved, added, gremoved, virtual`
+- Role: Tracks the virtual flag.
+- Description: Supports the virtual operation used by the surrounding class.
 
 #### `public Gob gob`
-
-- Description: TODO
+- Role: Stores the gob value.
+- Description: Backs the cached state for this file.
 
 #### `public Loader.Future<?> applier`
-
-- Description: TODO
+- Role: Holds the applier state.
+- Description: Backs the cached state for this file.
 
 #### `private final Map<Long, GobInfo> netinfo = new HashMap<>()`
-
-- Description: TODO
-
-#### `public int fl, frame`
-
-- Description: TODO
+- Role: Caches netinfo entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int fl, frame`
+- Role: Stores the frame value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public int fl, frame`
+- Role: Stores the frame value.
+- Description: Backs the cached state for this file.
 
 #### `public int initframe`
-
-- Description: TODO
+- Role: Stores the initframe value.
+- Description: Backs the cached state for this file.
 
 #### `public long id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final List<AttrDelta> attrs = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches attrs entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public boolean rem = false`
-
-- Description: TODO
+- Role: Tracks the rem flag.
+- Description: Supports the rem operation used by the surrounding class.
 
 #### `public boolean old`
-
-- Description: TODO
+- Role: Tracks the old flag.
+- Description: Supports the old operation used by the surrounding class.
 
 #### `private ArrayList<Gob> _gobArray= new ArrayList<Gob>()`
-
-- Description: TODO
+- Role: Caches gob array entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 ### Methods
 
 #### `public void added(Gob ob)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(Gob ob)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public OCache(Glob glob)`
-
-- Description: TODO
+- Role: Creates a new OCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public synchronized void callback(ChangeCallback cb)`
-
-- Description: TODO
+- Role: Performs callback.
+- Description: Supports the callback operation used by the surrounding class.
 
 #### `public synchronized void uncallback(ChangeCallback cb)`
-
-- Description: TODO
+- Role: Performs uncallback.
+- Description: Supports the uncallback operation used by the surrounding class.
 
 #### `public void add(Gob ob)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(Gob ob)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void ctick(double dt)`
-
-- Description: TODO
+- Role: Performs ctick.
+- Description: Supports the ctick operation used by the surrounding class.
 
 #### `public void gtick(Render g)`
-
-- Description: TODO
+- Role: Advances the drawable state for the current render tick.
+- Description: Updates per-frame drawable state during the render loop.
 
 #### `public Iterator<Gob> iterator()`
-
-- Description: TODO
+- Role: Performs iterator.
+- Description: Supports the iterator operation used by the surrounding class.
 
 #### `public void ladd(Collection<Gob> gob)`
-
-- Description: TODO
+- Role: Performs ladd.
+- Description: Supports the ladd operation used by the surrounding class.
 
 #### `public void lrem(Collection<Gob> gob)`
-
-- Description: TODO
+- Role: Performs lrem.
+- Description: Supports the lrem operation used by the surrounding class.
 
 #### `public synchronized Gob getgob(long id)`
-
-- Description: TODO
+- Role: Performs getgob.
+- Description: Supports the getgob operation used by the surrounding class.
 
 #### `public Virtual(Coord2d c, double a)`
-
-- Description: TODO
+- Role: Performs virtual.
+- Description: Supports the virtual operation used by the surrounding class.
 
 #### `public FixedPlace(Coord3f fc, double a)`
-
-- Description: TODO
+- Role: Performs fixed place.
+- Description: Supports the fixed place operation used by the surrounding class.
 
 #### `public FixedPlace()`
-
-- Description: TODO
+- Role: Performs fixed place.
+- Description: Supports the fixed place operation used by the surrounding class.
 
 #### `public Coord3f getc()`
-
-- Description: TODO
+- Role: Performs getc.
+- Description: Supports the getc operation used by the surrounding class.
 
 #### `protected Pipe.Op getmapstate(Coord3f pc)`
-
-- Description: TODO
+- Role: Performs getmapstate.
+- Description: Supports the getmapstate operation used by the surrounding class.
 
 #### `public void apply(Gob gob, AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static Indir<Resource> getres(Gob gob, int id)`
-
-- Description: TODO
+- Role: Returns the resource.
+- Description: Exposes the resource that backs this wrapper.
 
 #### `public int value()`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public void apply(Gob g, AttrDelta msg)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public OlSprite(Indir<Resource> res, byte[] sdt)`
-
-- Description: TODO
+- Role: Performs ol sprite.
+- Description: Supports the ol sprite operation used by the surrounding class.
 
 #### `public Sprite create(Sprite.Owner owner)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public String toString()`
-
-- Description: TODO
-
-#### `public void apply(Gob g, AttrDelta msg)`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public void apply(Gob g, AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
-- Description: TODO
+#### `public void apply(Gob g, AttrDelta msg)`
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public GobInfo(long id, int frame)`
-
-- Description: TODO
+- Role: Performs gob info.
+- Description: Supports the gob info operation used by the surrounding class.
 
 #### `private void apply()`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public void checkdirty(boolean interrupt)`
-
-- Description: TODO
+- Role: Performs checkdirty.
+- Description: Supports the checkdirty operation used by the surrounding class.
 
 #### `private GobInfo netremove(long id, int frame)`
-
-- Description: TODO
+- Role: Performs netremove.
+- Description: Supports the netremove operation used by the surrounding class.
 
 #### `private GobInfo netget(long id, int frame)`
-
-- Description: TODO
+- Role: Performs netget.
+- Description: Supports the netget operation used by the surrounding class.
 
 #### `public ObjDelta(int fl, long id, int frame)`
-
-- Description: TODO
+- Role: Performs obj delta.
+- Description: Supports the obj delta operation used by the surrounding class.
 
 #### `public ObjDelta(ObjDelta from)`
-
-- Description: TODO
+- Role: Performs obj delta.
+- Description: Supports the obj delta operation used by the surrounding class.
 
 #### `public ObjDelta()`
-
-- Description: TODO
+- Role: Performs obj delta.
+- Description: Supports the obj delta operation used by the surrounding class.
 
 #### `public ObjDelta clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public AttrDelta(ObjDelta od, int type, byte[] blob)`
-
-- Description: TODO
+- Role: Performs attr delta.
+- Description: Supports the attr delta operation used by the surrounding class.
 
 #### `public AttrDelta(ObjDelta od, int type, Message blob, int len)`
-
-- Description: TODO
+- Role: Performs attr delta.
+- Description: Supports the attr delta operation used by the surrounding class.
 
 #### `public AttrDelta(AttrDelta from)`
-
-- Description: TODO
+- Role: Performs attr delta.
+- Description: Supports the attr delta operation used by the surrounding class.
 
 #### `public AttrDelta clone()`
-
-- Description: TODO
+- Role: Performs clone.
+- Description: Supports the clone operation used by the surrounding class.
 
 #### `public GobInfo receive(ObjDelta delta)`
-
-- Description: TODO
+- Role: Receives the current message.
+- Description: Supports the receive operation used by the surrounding class.
 
 #### `public ArrayList<Gob> gobArray()`
-
-- Description: TODO
+- Role: Performs gob array.
+- Description: Supports the gob array operation used by the surrounding class.
 
 #### `private void _setGobArray(ArrayList<Gob> gobArray)`
-
-- Description: TODO
+- Role: Performs  set gob array.
+- Description: Supports the set gob array operation used by the surrounding class.

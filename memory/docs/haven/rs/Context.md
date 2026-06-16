@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Context`.
 
 ## Role
 
-Represents a resource script context.
+Integrates Haven rendering-server support for context.
 
 ## Members
 
@@ -21,9 +21,9 @@ Represents a resource script context.
 ### Methods
 
 #### `public Environment env()`
-
-- Description: TODO
+- Role: Performs env.
+- Description: Supports the env operation used by the surrounding class.
 
 #### `public static Context getdefault()`
-
-- Description: TODO
+- Role: Performs getdefault.
+- Description: Supports the getdefault operation used by the surrounding class.

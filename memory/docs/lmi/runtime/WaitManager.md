@@ -10,56 +10,56 @@ This file documents the responsibilities and members of `WaitManager`.
 
 ## Role
 
-Coordinates subsystem state and routes work through the appropriate boundary.
+Coordinates deferred waits across the runtime.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object lock = new Object()`
-
-- Description: TODO
+- Role: Defines the shared lock constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `private static volatile int _lastSentSeq = -1`
-
-- Description: TODO
+- Role: Stores the last sent seq value.
+- Description: Backs the cached state for this file.
 
 #### `private static volatile int _lastAckedSeq = -1`
-
-- Description: TODO
+- Role: Stores the last acked seq value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static void init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `private static boolean isAcked(int seq)`
-
-- Description: TODO
+- Role: Checks whether the acked.
+- Description: Returns a boolean result for the described condition.
 
 #### `public static void updateSentSeq(int seq)`
-
-- Description: TODO
+- Role: Updates the sent seq.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void waitACK()`
-
-- Description: TODO
+- Role: Performs wait ack.
+- Description: Supports the wait ack operation used by the surrounding class.
 
 #### `public static void waitResponse()`
-
-- Description: TODO
+- Role: Performs wait response.
+- Description: Supports the wait response operation used by the surrounding class.
 
 #### `public static void updateAckedSeq(int seq)`
-
-- Description: TODO
+- Role: Updates the acked seq.
+- Description: Mutates the owning object to keep runtime state in sync.
 
 #### `public static void sleepPolling()`
-
-- Description: TODO
+- Role: Performs sleep polling.
+- Description: Supports the sleep polling operation used by the surrounding class.
 
 #### `public static void sleep(long timeout)`
-
-- Description: TODO
+- Role: Performs sleep.
+- Description: Supports the sleep operation used by the surrounding class.

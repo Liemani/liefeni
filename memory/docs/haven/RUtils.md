@@ -10,210 +10,216 @@ This file documents the responsibilities and members of `RUtils`.
 
 ## Role
 
-Provides runtime utilities.
+Represents the rutils Haven component.
 
 ## Nested Types
 
 ### AdHoc
 
-- Description: TODO
+- Role: Represents ad hoc within RUtils.
+- Description: Describes the nested ad hoc type used by the enclosing class.
 
 ### ComposedNode
 
-- Description: TODO
+- Role: Represents composed node within RUtils.
+- Description: Describes the nested composed node type used by the enclosing class.
 
 ### CubeFill
 
-- Description: TODO
+- Role: Represents cube fill within RUtils.
+- Description: Describes the nested cube fill type used by the enclosing class.
 
 ### GeomAdHoc
 
-- Description: TODO
+- Role: Represents geom ad hoc within RUtils.
+- Description: Describes the nested geom ad hoc type used by the enclosing class.
 
 ### StateNode
 
-- Description: TODO
+- Role: Represents state node within RUtils.
+- Description: Describes the nested state node type used by the enclosing class.
 
 ### StateTickNode
 
-- Description: TODO
+- Role: Represents state tick node within RUtils.
+- Description: Describes the nested state tick node type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `private static final int[][] deforder =`
-
-- Description: TODO
+- Role: Defines the shared rutils constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final State.Slot<State> adhoc = new State.Slot<>(State.Slot.Type.DRAW, State.class)`
-
-- Description: TODO
+- Role: Defines the shared adhoc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final State.Slot<State> adhocg = new State.Slot<State>(State.Slot.Type.GEOM, State.class)`
-
-- Description: TODO
+- Role: Defines the shared adhocg constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final R r`
-
-- Description: TODO
+- Role: Holds the r state.
+- Description: Backs the cached state for this file.
 
 #### `private final Collection<Slot> slots = new ArrayList<>(1)`
-
-- Description: TODO
+- Role: Caches slots entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private Op cstate`
-
-- Description: TODO
+- Role: Holds the cstate state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean inited = false`
-
-- Description: TODO
+- Role: Tracks the inited flag.
+- Description: Supports the inited operation used by the surrounding class.
 
 #### `public final Supplier<BufferedImage> src`
-
-- Description: TODO
+- Role: Stores the src value.
+- Description: Backs the cached state for this file.
 
 #### `public final int[][] order`
-
-- Description: TODO
+- Role: Stores the order value.
+- Description: Backs the cached state for this file.
 
 #### `private BufferedImage data`
-
-- Description: TODO
-
-#### `private final ShaderMacro sh`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private final ShaderMacro sh`
+- Role: Holds the sh state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private final ShaderMacro sh`
+- Role: Holds the sh state.
+- Description: Backs the cached state for this file.
 
 #### `private final Node[] children`
-
-- Description: TODO
+- Role: Stores the children value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public static Collection<Slot> multiadd(Collection<Slot> slots, Node node)`
-
-- Description: TODO
+- Role: Performs multiadd.
+- Description: Supports the multiadd operation used by the surrounding class.
 
 #### `public static void multirem(Collection<Slot> slots)`
-
-- Description: TODO
+- Role: Performs multirem.
+- Description: Supports the multirem operation used by the surrounding class.
 
 #### `public static void readd(Collection<Slot> slots, Consumer<Slot> add, Runnable revert)`
-
-- Description: TODO
+- Role: Performs readd.
+- Description: Supports the readd operation used by the surrounding class.
 
 #### `public StateNode(R r)`
-
-- Description: TODO
+- Role: Performs state node.
+- Description: Supports the state node operation used by the surrounding class.
 
 #### `protected abstract Op state()`
-
-- Description: TODO
+- Role: Performs state.
+- Description: Supports the state operation used by the surrounding class.
 
 #### `public void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void added(Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void removed(Slot slot)`
-
-- Description: TODO
+- Role: Performs removed.
+- Description: Supports the removed operation used by the surrounding class.
 
 #### `public static <R extends RenderTree.Node> StateNode<R> of(R r, Supplier<? extends Op> st)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public StateTickNode(R r)`
-
-- Description: TODO
+- Role: Performs state tick node.
+- Description: Supports the state tick node operation used by the surrounding class.
 
 #### `public TickList.Ticking ticker()`
-
-- Description: TODO
+- Role: Performs ticker.
+- Description: Supports the ticker operation used by the surrounding class.
 
 #### `public void autotick(double dt)`
-
-- Description: TODO
+- Role: Performs autotick.
+- Description: Supports the autotick operation used by the surrounding class.
 
 #### `public static <R extends RenderTree.Node> StateTickNode<R> of(R r, Supplier<? extends Op> st)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public CubeFill(Supplier<BufferedImage> src)`
-
-- Description: TODO
+- Role: Performs cube fill.
+- Description: Supports the cube fill operation used by the surrounding class.
 
 #### `private Coord osz()`
-
-- Description: TODO
+- Role: Performs osz.
+- Description: Supports the osz operation used by the surrounding class.
 
 #### `private BufferedImage getsrc(TextureCube tex)`
-
-- Description: TODO
+- Role: Performs getsrc.
+- Description: Supports the getsrc operation used by the surrounding class.
 
 #### `public FillBuffer fill(Image gimg, Environment env)`
-
-- Description: TODO
+- Role: Performs fill.
+- Description: Supports the fill operation used by the surrounding class.
 
 #### `public void done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public TextureCube mktex()`
-
-- Description: TODO
+- Role: Performs mktex.
+- Description: Supports the mktex operation used by the surrounding class.
 
 #### `public AdHoc(ShaderMacro sh)`
-
-- Description: TODO
+- Role: Performs ad hoc.
+- Description: Supports the ad hoc operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public GeomAdHoc(ShaderMacro sh)`
-
-- Description: TODO
+- Role: Performs geom ad hoc.
+- Description: Supports the geom ad hoc operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe buf)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public ComposedNode(Node... children)`
-
-- Description: TODO
+- Role: Performs composed node.
+- Description: Supports the composed node operation used by the surrounding class.
 
 #### `public void added(Slot slot)`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public static Node compose(Node... children)`
-
-- Description: TODO
+- Role: Performs compose.
+- Description: Supports the compose operation used by the surrounding class.
 
 #### `public static Node compose(Collection<? extends Node> children)`
-
-- Description: TODO
+- Role: Performs compose.
+- Description: Supports the compose operation used by the surrounding class.

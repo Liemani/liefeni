@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DesktopBrowser`.
 
 ## Role
 
-Opens browser content through the desktop.
+Represents the desktop browser Haven component.
 
 ## Members
 
@@ -19,19 +19,19 @@ Opens browser content through the desktop.
 ### Fields
 
 #### `private final Desktop desktop`
-
-- Description: TODO
+- Role: Holds the desktop state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `private DesktopBrowser(Desktop desktop)`
-
-- Description: TODO
+- Role: Creates a new DesktopBrowser instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public static DesktopBrowser create()`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public void show(URL url)`
-
-- Description: TODO
+- Role: Performs show.
+- Description: Supports the show operation used by the surrounding class.

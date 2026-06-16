@@ -10,72 +10,72 @@ This file documents the responsibilities and members of `Ortho2D`.
 
 ## Role
 
-Represents an orthographic 2D projection.
+Defines the ortho2 d render pipeline component.
 
 ## Members
 
 ### Constants
 
 #### `public static final Attribute pos = new Attribute(VEC2, "opos2d").primary()`
-
-- Description: TODO
+- Role: Defines the shared pos constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform kv = new Uniform(VEC2, "k2d", p -> ((Ortho2D)p.get(States.vxf)).k, States.vxf)`
-
-- Description: TODO
+- Role: Defines the shared kv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Uniform mv = new Uniform(VEC2, "m2d", p -> ((Ortho2D)p.get(States.vxf)).m, States.vxf)`
-
-- Description: TODO
+- Role: Defines the shared mv constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog ->`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final float l, u, r, b`
-
-- Description: TODO
-
-#### `public final float l, u, r, b`
-
-- Description: TODO
+- Role: Stores the b value.
+- Description: Backs the cached state for this file.
 
 #### `public final float l, u, r, b`
-
-- Description: TODO
+- Role: Stores the b value.
+- Description: Backs the cached state for this file.
 
 #### `public final float l, u, r, b`
+- Role: Stores the b value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final float l, u, r, b`
+- Role: Stores the b value.
+- Description: Backs the cached state for this file.
 
 #### `private final float[] k, m`
-
-- Description: TODO
+- Role: Stores the m value.
+- Description: Backs the cached state for this file.
 
 #### `private final float[] k, m`
-
-- Description: TODO
+- Role: Stores the m value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Ortho2D(float l, float u, float r, float b)`
-
-- Description: TODO
+- Role: Creates a new Ortho2D instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Ortho2D(Area area)`
-
-- Description: TODO
+- Role: Creates a new Ortho2D instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.

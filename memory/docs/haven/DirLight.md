@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `DirLight`.
 
 ## Role
 
-Represents a directional light source.
+Represents the dir light Haven component.
 
 ## Members
 
@@ -19,27 +19,27 @@ Represents a directional light source.
 ### Fields
 
 #### `public float[] dir`
-
-- Description: TODO
+- Role: Stores the dir value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public DirLight(FColor col, Coord3f dir)`
-
-- Description: TODO
+- Role: Creates a new DirLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public DirLight(Color col, Coord3f dir)`
-
-- Description: TODO
+- Role: Creates a new DirLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public DirLight(FColor amb, FColor dif, FColor spc, Coord3f dir)`
-
-- Description: TODO
+- Role: Creates a new DirLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public DirLight(Color amb, Color dif, Color spc, Coord3f dir)`
-
-- Description: TODO
+- Role: Creates a new DirLight instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Object[] params(GroupPipe state)`
-
-- Description: TODO
+- Role: Performs params.
+- Description: Supports the params operation used by the surrounding class.

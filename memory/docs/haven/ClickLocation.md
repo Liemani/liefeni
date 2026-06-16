@@ -10,62 +10,63 @@ This file documents the responsibilities and members of `ClickLocation`.
 
 ## Role
 
-Describes where a click occurred.
+Represents the click location Haven component.
 
 ## Nested Types
 
 ### LocData
 
-- Description: TODO
+- Role: Represents loc data within ClickLocation.
+- Description: Describes the nested loc data type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<ClickLocation> tex = new Slot<>(Slot.Type.SYS, ClickLocation.class)`
-
-- Description: TODO
+- Role: Defines the shared tex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final FragData fragloc = new FragData(Type.VEC2, "fragloc", p -> p.get(tex).image, tex)`
-
-- Description: TODO
+- Role: Defines the shared fragloc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Attribute vertex = new Attribute(VEC2, "location")`
-
-- Description: TODO
+- Role: Defines the shared vertex constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final AutoVarying vertloc = new AutoVarying(VEC2)`
-
-- Description: TODO
+- Role: Defines the shared vertloc constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final ShaderMacro shader = prog -> fragloc(prog.fctx).force()`
-
-- Description: TODO
+- Role: Defines the shared shader constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final T image`
-
-- Description: TODO
+- Role: Holds the image state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public ClickLocation(T image)`
-
-- Description: TODO
+- Role: Creates a new ClickLocation instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void apply(Pipe p)`
-
-- Description: TODO
+- Role: Applies the menu-grid proxy changes.
+- Description: Supports the apply operation used by the surrounding class.
 
 #### `public static Value fragloc(FragmentContext fctx)`
-
-- Description: TODO
+- Role: Performs fragloc.
+- Description: Supports the fragloc operation used by the surrounding class.
 
 #### `public ShaderMacro shader()`
-
-- Description: TODO
+- Role: Performs shader.
+- Description: Supports the shader operation used by the surrounding class.
 
 #### `public LocData(FloatBuffer data)`
-
-- Description: TODO
+- Role: Performs loc data.
+- Description: Supports the loc data operation used by the surrounding class.

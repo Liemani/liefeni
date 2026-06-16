@@ -10,29 +10,34 @@ This file documents the responsibilities and members of `SListWidget`.
 
 ## Role
 
-Represents a styled list widget base.
+Represents the slist widget Haven component.
 
 ## Nested Types
 
 ### FromRes
 
-- Description: TODO
+- Role: Represents from res within SListWidget.
+- Description: Describes the nested from res type used by the enclosing class.
 
 ### IconText
 
-- Description: TODO
+- Role: Represents icon text within SListWidget.
+- Description: Describes the nested icon text type used by the enclosing class.
 
 ### ItemFactory
 
-- Description: TODO
+- Role: Represents item factory within SListWidget.
+- Description: Describes the nested item factory type used by the enclosing class.
 
 ### ItemWidget
 
-- Description: TODO
+- Role: Represents item widget within SListWidget.
+- Description: Describes the nested item widget type used by the enclosing class.
 
 ### TextItem
 
-- Description: TODO
+- Role: Represents text item within SListWidget.
+- Description: Describes the nested text item type used by the enclosing class.
 
 ## Members
 
@@ -41,179 +46,179 @@ Represents a styled list widget base.
 ### Fields
 
 #### `public I sel`
-
-- Description: TODO
+- Role: Holds the sel state.
+- Description: Backs the cached state for this file.
 
 #### `public final SListWidget<I, ?> list`
-
-- Description: TODO
+- Role: Stores the list value.
+- Description: Backs the cached state for this file.
 
 #### `public final I item`
-
-- Description: TODO
+- Role: Holds the item state.
+- Description: Backs the cached state for this file.
 
 #### `private Text.Slug text = null`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex img = null`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `private Text.Slug text = null`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SListWidget(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new SListWidget instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected abstract List<? extends I> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected abstract W makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public W makeitem(I item, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public void change(I item)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `public ItemWidget(SListWidget<I, ?> list, Coord sz, I item)`
-
-- Description: TODO
+- Role: Performs item widget.
+- Description: Supports the item widget operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public TextItem(Coord sz)`
-
-- Description: TODO
+- Role: Performs text item.
+- Description: Supports the text item operation used by the surrounding class.
 
 #### `public TextItem(int w)`
-
-- Description: TODO
+- Role: Performs text item.
+- Description: Supports the text item operation used by the surrounding class.
 
 #### `protected abstract String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `protected int margin()`
-
-- Description: TODO
+- Role: Performs margin.
+- Description: Supports the margin operation used by the surrounding class.
 
 #### `protected Text.Forge foundry()`
-
-- Description: TODO
+- Role: Performs foundry.
+- Description: Supports the foundry operation used by the surrounding class.
 
 #### `protected boolean valid(String text)`
-
-- Description: TODO
+- Role: Performs valid.
+- Description: Supports the valid operation used by the surrounding class.
 
 #### `protected void drawtext(GOut g)`
-
-- Description: TODO
+- Role: Performs drawtext.
+- Description: Supports the drawtext operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void invalidate()`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public static TextItem of(Coord sz, Text.Forge fnd, Supplier<String> text)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static TextItem of(Coord sz, Supplier<String> text)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public IconText(Coord sz)`
-
-- Description: TODO
+- Role: Performs icon text.
+- Description: Supports the icon text operation used by the surrounding class.
 
 #### `public IconText(int w)`
-
-- Description: TODO
+- Role: Performs icon text.
+- Description: Supports the icon text operation used by the surrounding class.
 
 #### `protected abstract BufferedImage img()`
-
-- Description: TODO
+- Role: Performs img.
+- Description: Supports the img operation used by the surrounding class.
 
 #### `protected abstract String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `protected int margin()`
-
-- Description: TODO
+- Role: Performs margin.
+- Description: Supports the margin operation used by the surrounding class.
 
 #### `protected Text.Forge foundry()`
-
-- Description: TODO
+- Role: Performs foundry.
+- Description: Supports the foundry operation used by the surrounding class.
 
 #### `protected boolean valid(String text)`
-
-- Description: TODO
+- Role: Performs valid.
+- Description: Supports the valid operation used by the surrounding class.
 
 #### `protected PUtils.Convolution filter()`
-
-- Description: TODO
+- Role: Performs filter.
+- Description: Supports the filter operation used by the surrounding class.
 
 #### `protected void drawicon(GOut g)`
-
-- Description: TODO
+- Role: Performs drawicon.
+- Description: Supports the drawicon operation used by the surrounding class.
 
 #### `protected void drawtext(GOut g)`
-
-- Description: TODO
+- Role: Performs drawtext.
+- Description: Supports the drawtext operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public void invalidate()`
-
-- Description: TODO
+- Role: Performs invalidate.
+- Description: Supports the invalidate operation used by the surrounding class.
 
 #### `public FromRes(Coord sz, Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs from res.
+- Description: Supports the from res operation used by the surrounding class.
 
 #### `public BufferedImage img()`
-
-- Description: TODO
+- Role: Performs img.
+- Description: Supports the img operation used by the surrounding class.
 
 #### `public String text()`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `public static IconText of(Coord sz, Indir<Resource> res)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static IconText of(Coord sz, Supplier<BufferedImage> img, Supplier<String> text)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.

@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `SteamCache`.
 
 ## Role
 
-Caches Steam resources.
+Represents the steam cache Haven component.
 
 ## Members
 
@@ -19,23 +19,23 @@ Caches Steam resources.
 ### Fields
 
 #### `private final Steam api`
-
-- Description: TODO
+- Role: Holds the api state.
+- Description: Backs the cached state for this file.
 
 #### `private final String prefix`
-
-- Description: TODO
+- Role: Stores the prefix value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public SteamCache(Steam api)`
-
-- Description: TODO
+- Role: Creates a new SteamCache instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public InputStream fetch(String name) throws IOException`
-
-- Description: TODO
+- Role: Fetches the target value.
+- Description: Supports the fetch operation used by the surrounding class.
 
 #### `public OutputStream store(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the store workflow.
+- Description: Supports the store operation used by the surrounding class.

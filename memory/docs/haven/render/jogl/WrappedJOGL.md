@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WrappedJOGL`.
 
 ## Role
 
-Wraps JOGL rendering integration.
+Adapts the render backend to JOGL for wrapped jogl.
 
 ## Members
 
@@ -21,5 +21,5 @@ Wraps JOGL rendering integration.
 ### Methods
 
 #### `public GL getGL()`
-
-- Description: TODO
+- Role: Returns the gl.
+- Description: Exposes the requested value without mutating state.

@@ -10,502 +10,515 @@ This file documents the responsibilities and members of `QuestWnd`.
 
 ## Role
 
-Displays the quest window.
+Represents the quest wnd Haven component.
 
 ## Nested Types
 
 ### $_
 
-- Description: TODO
+- Role: Represents $ within QuestWnd.
+- Description: Describes the nested $  type used by the enclosing class.
 
 ### $quest
 
-- Description: TODO
+- Role: Represents $quest within QuestWnd.
+- Description: Describes the nested $quest type used by the enclosing class.
 
 ### Box
 
-- Description: TODO
+- Role: Represents box within QuestWnd.
+- Description: Describes the nested box type used by the enclosing class.
 
 ### CondWidget
 
-- Description: TODO
+- Role: Represents cond widget within QuestWnd.
+- Description: Describes the nested cond widget type used by the enclosing class.
 
 ### Condition
 
-- Description: TODO
+- Role: Represents condition within QuestWnd.
+- Description: Describes the nested condition type used by the enclosing class.
 
 ### DefaultBox
 
-- Description: TODO
+- Role: Represents default box within QuestWnd.
+- Description: Describes the nested default box type used by the enclosing class.
 
 ### DefaultCond
 
-- Description: TODO
+- Role: Represents default cond within QuestWnd.
+- Description: Describes the nested default cond type used by the enclosing class.
 
 ### Info
 
-- Description: TODO
+- Role: Represents info within QuestWnd.
+- Description: Describes the nested info type used by the enclosing class.
 
 ### Item
 
-- Description: TODO
+- Role: Represents item within QuestWnd.
+- Description: Describes the nested item type used by the enclosing class.
 
 ### QVInfo
 
-- Description: TODO
+- Role: Represents qvinfo within QuestWnd.
+- Description: Describes the nested qvinfo type used by the enclosing class.
 
 ### QView
 
-- Description: TODO
+- Role: Represents qview within QuestWnd.
+- Description: Describes the nested qview type used by the enclosing class.
 
 ### Quest
 
-- Description: TODO
+- Role: Represents quest within QuestWnd.
+- Description: Describes the nested quest type used by the enclosing class.
 
 ### QuestList
 
-- Description: TODO
+- Role: Represents quest list within QuestWnd.
+- Description: Describes the nested quest list type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final int QST_PEND = 0, QST_DONE = 1, QST_FAIL = 2, QST_DISABLED = 3`
-
-- Description: TODO
-
-#### `public static final int QST_PEND = 0, QST_DONE = 1, QST_FAIL = 2, QST_DISABLED = 3`
-
-- Description: TODO
+- Role: Defines the shared qst pend constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int QST_PEND = 0, QST_DONE = 1, QST_FAIL = 2, QST_DISABLED = 3`
-
-- Description: TODO
+- Role: Defines the shared qst pend constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final int QST_PEND = 0, QST_DONE = 1, QST_FAIL = 2, QST_DISABLED = 3`
+- Role: Defines the shared qst pend constant.
+- Description: Shared constant used by the rest of the class.
 
-- Description: TODO
+#### `public static final int QST_PEND = 0, QST_DONE = 1, QST_FAIL = 2, QST_DISABLED = 3`
+- Role: Defines the shared qst pend constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color[] stcol =`
-
-- Description: TODO
+- Role: Defines the shared quest wnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final char[] stsym =`
-
-- Description: TODO
+- Role: Defines the shared quest wnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex qcmp = catf.render("Quest completed").tex()`
-
-- Description: TODO
+- Role: Defines the shared qcmp constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `private static final Tex qfail = failf.render("Quest failed").tex()`
-
-- Description: TODO
+- Role: Defines the shared qfail constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Furnace qtfnd = new BlurFurn(new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true), 2, 1, Color.BLACK)`
-
-- Description: TODO
+- Role: Defines the shared qtfnd constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Text.Foundry qcfnd = new Text.Foundry(Text.sans, 12).aa(true)`
-
-- Description: TODO
+- Role: Defines the shared qcfnd constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Widget questbox`
-
-- Description: TODO
-
-#### `public final QuestList cqst, dqst`
-
-- Description: TODO
+- Role: Stores the questbox value.
+- Description: Backs the cached state for this file.
 
 #### `public final QuestList cqst, dqst`
+- Role: Caches dqst entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
-- Description: TODO
+#### `public final QuestList cqst, dqst`
+- Role: Caches dqst entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public Quest.Info quest`
-
-- Description: TODO
+- Role: Holds the quest state.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public String title`
-
-- Description: TODO
+- Role: Stores the title value.
+- Description: Backs the cached state for this file.
 
 #### `public int done`
-
-- Description: TODO
+- Role: Stores the done value.
+- Description: Backs the cached state for this file.
 
 #### `public int mtime`
-
-- Description: TODO
+- Role: Stores the mtime value.
+- Description: Backs the cached state for this file.
 
 #### `public final String desc`
-
-- Description: TODO
+- Role: Stores the desc value.
+- Description: Backs the cached state for this file.
 
 #### `public int done`
-
-- Description: TODO
+- Role: Stores the done value.
+- Description: Backs the cached state for this file.
 
 #### `public String status`
-
-- Description: TODO
+- Role: Stores the status value.
+- Description: Backs the cached state for this file.
 
 #### `public Object[] wdata = null`
-
-- Description: TODO
+- Role: Holds the wdata state.
+- Description: Backs the cached state for this file.
 
 #### `public final Condition cond`
-
-- Description: TODO
+- Role: Holds the cond state.
+- Description: Backs the cached state for this file.
 
 #### `public Text text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `public final int id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `public final Indir<Resource> res`
-
-- Description: TODO
+- Role: Stores the res value.
+- Description: Backs the cached state for this file.
 
 #### `public final String title`
-
-- Description: TODO
+- Role: Stores the title value.
+- Description: Backs the cached state for this file.
 
 #### `public Condition[] cond =`
-
-- Description: TODO
+- Role: Holds the quest wnd state.
+- Description: Backs the cached state for this file.
 
 #### `private QView cqv`
-
-- Description: TODO
+- Role: Holds the cqv state.
+- Description: Backs the cached state for this file.
 
 #### `private QuestWnd qw = null`
-
-- Description: TODO
+- Role: Holds the qw state.
+- Description: Backs the cached state for this file.
 
 #### `public final QVInfo info`
-
-- Description: TODO
+- Role: Holds the info state.
+- Description: Backs the cached state for this file.
 
 #### `private Condition[] ccond`
-
-- Description: TODO
+- Role: Holds the ccond state.
+- Description: Backs the cached state for this file.
 
 #### `private Tex[] rcond =`
-
-- Description: TODO
+- Role: Holds the quest wnd state.
+- Description: Backs the cached state for this file.
 
 #### `private Tex rtitle = null`
-
-- Description: TODO
-
-#### `private Tex glow, glowon`
-
-- Description: TODO
+- Role: Stores the rtitle value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex glow, glowon`
+- Role: Stores the glowon value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Tex glow, glowon`
+- Role: Stores the glowon value.
+- Description: Backs the cached state for this file.
 
 #### `private double glowt = -1`
-
-- Description: TODO
+- Role: Stores the glowt value.
+- Description: Backs the cached state for this file.
 
 #### `private Widget current`
-
-- Description: TODO
+- Role: Stores the current value.
+- Description: Backs the cached state for this file.
 
 #### `private boolean refresh = true`
-
-- Description: TODO
+- Role: Tracks the refresh flag.
+- Description: Supports the refresh operation used by the surrounding class.
 
 #### `public List<Pair<String, String>> options = Collections.emptyList()`
-
-- Description: TODO
+- Role: Caches options entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public CondWidget[] condw =`
-
-- Description: TODO
+- Role: Holds the quest wnd state.
+- Description: Backs the cached state for this file.
 
 #### `public List<Quest> quests = new ArrayList<Quest>()`
-
-- Description: TODO
+- Role: Caches quests entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private boolean loading = false`
-
-- Description: TODO
+- Role: Tracks the loading flag.
+- Description: Supports the loading operation used by the surrounding class.
 
 #### `private final Comparator<Quest> comp = new Comparator<Quest>()`
-
-- Description: TODO
+- Role: Holds the comp state.
+- Description: Backs the cached state for this file.
 
 #### `public final Quest q`
-
-- Description: TODO
+- Role: Holds the q state.
+- Description: Backs the cached state for this file.
 
 #### `private final IconText nm`
-
-- Description: TODO
-
-#### `private Object dres, dtit`
-
-- Description: TODO
+- Role: Stores the nm value.
+- Description: Backs the cached state for this file.
 
 #### `private Object dres, dtit`
+- Role: Holds the dtit state.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private Object dres, dtit`
+- Role: Holds the dtit state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `private Quest(int id, Indir<Resource> res, String title, int done, int mtime)`
-
-- Description: TODO
+- Role: Performs quest.
+- Description: Supports the quest operation used by the surrounding class.
 
 #### `public String title()`
-
-- Description: TODO
+- Role: Performs title.
+- Description: Supports the title operation used by the surrounding class.
 
 #### `public Condition(String desc, int done, String status)`
-
-- Description: TODO
+- Role: Performs condition.
+- Description: Supports the condition operation used by the surrounding class.
 
 #### `public void done(GameUI parent)`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public CondWidget(Condition cond)`
-
-- Description: TODO
+- Role: Performs cond widget.
+- Description: Supports the cond widget operation used by the surrounding class.
 
 #### `public boolean update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public DefaultCond(Condition cond)`
-
-- Description: TODO
+- Role: Performs default cond.
+- Description: Supports the default cond operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public Box(int id, Indir<Resource> res, String title)`
-
-- Description: TODO
+- Role: Performs box.
+- Description: Supports the box operation used by the surrounding class.
 
 #### `protected void added()`
-
-- Description: TODO
+- Role: Performs added.
+- Description: Supports the added operation used by the surrounding class.
 
 #### `public String title()`
-
-- Description: TODO
+- Role: Performs title.
+- Description: Supports the title operation used by the surrounding class.
 
 #### `public Condition[] conds()`
-
-- Description: TODO
+- Role: Performs conds.
+- Description: Supports the conds operation used by the surrounding class.
 
 #### `public int done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public void refresh()`
-
-- Description: TODO
+- Role: Refreshes waypoint manager state.
+- Description: Supports the refresh operation used by the surrounding class.
 
 #### `public String rendertext()`
-
-- Description: TODO
+- Role: Performs rendertext.
+- Description: Supports the rendertext operation used by the surrounding class.
 
 #### `public Condition findcond(String desc)`
-
-- Description: TODO
+- Role: Performs findcond.
+- Description: Supports the findcond operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public void destroy()`
-
-- Description: TODO
+- Role: Performs destroy.
+- Description: Supports the destroy operation used by the surrounding class.
 
 #### `public int questid()`
-
-- Description: TODO
+- Role: Performs questid.
+- Description: Supports the questid operation used by the surrounding class.
 
 #### `public Widget qview()`
-
-- Description: TODO
+- Role: Performs qview.
+- Description: Supports the qview operation used by the surrounding class.
 
 #### `public String title()`
-
-- Description: TODO
+- Role: Performs title.
+- Description: Supports the title operation used by the surrounding class.
 
 #### `public Condition[] conds()`
-
-- Description: TODO
+- Role: Performs conds.
+- Description: Supports the conds operation used by the surrounding class.
 
 #### `public int done()`
-
-- Description: TODO
+- Role: Performs done.
+- Description: Supports the done operation used by the surrounding class.
 
 #### `public QView(QVInfo info)`
-
-- Description: TODO
+- Role: Performs qview.
+- Description: Supports the qview operation used by the surrounding class.
 
 #### `private void resize()`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `private Text ct(Condition c)`
-
-- Description: TODO
+- Role: Performs ct.
+- Description: Supports the ct operation used by the surrounding class.
 
 #### `void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `void update(Condition c)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public DefaultBox(int id, Indir<Resource> res, String title)`
-
-- Description: TODO
+- Role: Performs default box.
+- Description: Supports the default box operation used by the surrounding class.
 
 #### `protected void layouth(Widget cont)`
-
-- Description: TODO
+- Role: Performs layouth.
+- Description: Supports the layouth operation used by the surrounding class.
 
 #### `protected void layoutc(Widget cont)`
-
-- Description: TODO
+- Role: Performs layoutc.
+- Description: Supports the layoutc operation used by the surrounding class.
 
 #### `protected void layouto(Widget cont)`
-
-- Description: TODO
+- Role: Performs layouto.
+- Description: Supports the layouto operation used by the surrounding class.
 
 #### `protected void layout(Widget cont)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public void refresh()`
-
-- Description: TODO
+- Role: Refreshes waypoint manager state.
+- Description: Supports the refresh operation used by the surrounding class.
 
 #### `public void uimsg(String msg, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.
 
 #### `public int questid()`
-
-- Description: TODO
+- Role: Performs questid.
+- Description: Supports the questid operation used by the surrounding class.
 
 #### `public Widget qview()`
-
-- Description: TODO
+- Role: Performs qview.
+- Description: Supports the qview operation used by the surrounding class.
 
 #### `public QuestList(Coord sz)`
-
-- Description: TODO
+- Role: Performs quest list.
+- Description: Supports the quest list operation used by the surrounding class.
 
 #### `protected List<Quest> items()`
-
-- Description: TODO
+- Role: Performs items.
+- Description: Supports the items operation used by the surrounding class.
 
 #### `protected Widget makeitem(Quest q, int idx, Coord sz)`
-
-- Description: TODO
+- Role: Performs makeitem.
+- Description: Supports the makeitem operation used by the surrounding class.
 
 #### `public void tick(double dt)`
-
-- Description: TODO
+- Role: Advances the current state over time.
+- Description: Supports the tick operation used by the surrounding class.
 
 #### `public Item(Coord sz, Quest q)`
-
-- Description: TODO
+- Role: Performs item.
+- Description: Supports the item operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `protected void drawslot(GOut g, Quest q, int idx, Area area)`
-
-- Description: TODO
+- Role: Performs drawslot.
+- Description: Supports the drawslot operation used by the surrounding class.
 
 #### `protected boolean unselect(int button)`
-
-- Description: TODO
+- Role: Performs unselect.
+- Description: Supports the unselect operation used by the surrounding class.
 
 #### `public Quest get(int id)`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public void add(Quest q)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public Quest remove(int id)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public void remove(Quest q)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public QuestWnd()`
-
-- Description: TODO
+- Role: Creates a new QuestWnd instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `public void uimsg(String nm, Object... args)`
-
-- Description: TODO
+- Role: Handles a UI message.
+- Description: Supports the uimsg operation used by the surrounding class.

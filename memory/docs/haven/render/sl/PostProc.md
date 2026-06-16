@@ -10,134 +10,138 @@ This file documents the responsibilities and members of `PostProc`.
 
 ## Role
 
-Represents a post-processing step.
+Represents the post proc shader-language AST node.
 
 ## Nested Types
 
 ### AutoID
 
-- Description: TODO
+- Role: Represents auto id within PostProc.
+- Description: Describes the nested auto id type used by the enclosing class.
 
 ### AutoMacro
 
-- Description: TODO
+- Role: Represents auto macro within PostProc.
+- Description: Describes the nested auto macro type used by the enclosing class.
 
 ### ProcExpression
 
-- Description: TODO
+- Role: Represents proc expression within PostProc.
+- Description: Describes the nested proc expression type used by the enclosing class.
 
 ### Processed
 
-- Description: TODO
+- Role: Represents processed within PostProc.
+- Description: Describes the nested processed type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final AutoID misc = new AutoID("misc", 0)`
-
-- Description: TODO
+- Role: Defines the shared misc constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Object id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `public final Context ctx`
-
-- Description: TODO
+- Role: Stores the ctx value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public final int order`
-
-- Description: TODO
+- Role: Stores the order value.
+- Description: Backs the cached state for this file.
 
 #### `public final Object id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `protected Expression exp = null`
-
-- Description: TODO
+- Role: Holds the exp state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public void process(PostProc proc)`
-
-- Description: TODO
+- Role: Performs process.
+- Description: Supports the process operation used by the surrounding class.
 
 #### `public Object ppid()`
-
-- Description: TODO
+- Role: Performs ppid.
+- Description: Supports the ppid operation used by the surrounding class.
 
 #### `public AutoID(String name, int order)`
-
-- Description: TODO
+- Role: Performs auto id.
+- Description: Supports the auto id operation used by the surrounding class.
 
 #### `public AutoID(int order)`
-
-- Description: TODO
+- Role: Performs auto id.
+- Description: Supports the auto id operation used by the surrounding class.
 
 #### `public void proc(Context ctx)`
-
-- Description: TODO
+- Role: Performs proc.
+- Description: Supports the proc operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public PostProc(Object id, Context ctx)`
-
-- Description: TODO
+- Role: Creates a new PostProc instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PostProc(Object id)`
-
-- Description: TODO
+- Role: Creates a new PostProc instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PostProc()`
-
-- Description: TODO
+- Role: Creates a new PostProc instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public void el(Element el)`
-
-- Description: TODO
+- Role: Performs el.
+- Description: Supports the el operation used by the surrounding class.
 
 #### `public static void autoproc(Context ctx)`
-
-- Description: TODO
+- Role: Performs autoproc.
+- Description: Supports the autoproc operation used by the surrounding class.
 
 #### `public ProcExpression(Object id)`
-
-- Description: TODO
+- Role: Performs proc expression.
+- Description: Supports the proc expression operation used by the surrounding class.
 
 #### `public Object ppid()`
-
-- Description: TODO
+- Role: Performs ppid.
+- Description: Supports the ppid operation used by the surrounding class.
 
 #### `public AutoMacro(Object id)`
-
-- Description: TODO
+- Role: Performs auto macro.
+- Description: Supports the auto macro operation used by the surrounding class.
 
 #### `protected abstract Expression expand(Context ctx)`
-
-- Description: TODO
+- Role: Performs expand.
+- Description: Supports the expand operation used by the surrounding class.
 
 #### `protected Expression expand0(PostProc proc)`
-
-- Description: TODO
+- Role: Performs expand0.
+- Description: Supports the expand0 operation used by the surrounding class.
 
 #### `public void process(PostProc proc)`
-
-- Description: TODO
+- Role: Performs process.
+- Description: Supports the process operation used by the surrounding class.
 
 #### `public void walk(Walker w)`
-
-- Description: TODO
+- Role: Walks the current structure.
+- Description: Supports the walk operation used by the surrounding class.
 
 #### `public void output(Output out)`
-
-- Description: TODO
+- Role: Performs output.
+- Description: Supports the output operation used by the surrounding class.

@@ -10,142 +10,143 @@ This file documents the responsibilities and members of `GridList`.
 
 ## Role
 
-Displays a grid-style list widget.
+Represents the grid list Haven component.
 
 ## Nested Types
 
 ### Group
 
-- Description: TODO
+- Role: Represents group within GridList.
+- Description: Describes the nested group type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Furnace dcatf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 18).aa(true), Window.ctex), 2, 1, new Color(96, 48, 0))`
-
-- Description: TODO
+- Role: Defines the shared dcatf constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final Text.Furnace catf`
-
-- Description: TODO
+- Role: Stores the catf value.
+- Description: Backs the cached state for this file.
 
 #### `public final Scrollbar sb`
-
-- Description: TODO
+- Role: Holds the sb state.
+- Description: Backs the cached state for this file.
 
 #### `public T sel = null`
-
-- Description: TODO
+- Role: Holds the sel state.
+- Description: Backs the cached state for this file.
 
 #### `public int gmarg = 10`
-
-- Description: TODO
+- Role: Stores the gmarg value.
+- Description: Backs the cached state for this file.
 
 #### `private final List<Group> groups = new ArrayList<>()`
-
-- Description: TODO
-
-#### `public final Coord itemsz, marg`
-
-- Description: TODO
+- Role: Caches groups entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public final Coord itemsz, marg`
+- Role: Stores the marg value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final Coord itemsz, marg`
+- Role: Stores the marg value.
+- Description: Backs the cached state for this file.
 
 #### `public final String name`
-
-- Description: TODO
+- Role: Stores the name value.
+- Description: Backs the cached state for this file.
 
 #### `public List<T> items`
-
-- Description: TODO
-
-#### `private int sy, ey`
-
-- Description: TODO
+- Role: Caches items entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private int sy, ey`
+- Role: Stores the ey value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `private int sy, ey`
+- Role: Stores the ey value.
+- Description: Backs the cached state for this file.
 
 #### `private Text rname`
-
-- Description: TODO
+- Role: Stores the rname value.
+- Description: Backs the cached state for this file.
 
 #### `public java.util.function.Function<T, Object> itemtooltip = null`
-
-- Description: TODO
+- Role: Holds the itemtooltip state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Group(Coord itemsz, Coord marg, String name, List<T> items)`
-
-- Description: TODO
+- Role: Performs group.
+- Description: Supports the group operation used by the surrounding class.
 
 #### `public void update(List<T> items)`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Text rname()`
-
-- Description: TODO
+- Role: Performs rname.
+- Description: Supports the rname operation used by the surrounding class.
 
 #### `public GridList(Coord sz)`
-
-- Description: TODO
+- Role: Creates a new GridList instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `protected void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void resize(Coord sz)`
-
-- Description: TODO
+- Role: Performs resize.
+- Description: Supports the resize operation used by the surrounding class.
 
 #### `protected void drawbg(GOut g)`
-
-- Description: TODO
+- Role: Performs drawbg.
+- Description: Supports the drawbg operation used by the surrounding class.
 
 #### `protected void drawsel(GOut g)`
-
-- Description: TODO
+- Role: Performs drawsel.
+- Description: Supports the drawsel operation used by the surrounding class.
 
 #### `protected abstract void drawitem(GOut g, T item)`
-
-- Description: TODO
+- Role: Performs drawitem.
+- Description: Supports the drawitem operation used by the surrounding class.
 
 #### `private static int adjx(int col, int iw, int rw, int ww)`
-
-- Description: TODO
+- Role: Performs adjx.
+- Description: Supports the adjx operation used by the surrounding class.
 
 #### `public void draw(GOut g)`
-
-- Description: TODO
+- Role: Draws the current content.
+- Description: Supports the draw operation used by the surrounding class.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-
-- Description: TODO
+- Role: Performs mousewheel.
+- Description: Supports the mousewheel operation used by the surrounding class.
 
 #### `public T itemat(Coord c)`
-
-- Description: TODO
+- Role: Performs itemat.
+- Description: Supports the itemat operation used by the surrounding class.
 
 #### `public void change(T item)`
-
-- Description: TODO
+- Role: Performs change.
+- Description: Supports the change operation used by the surrounding class.
 
 #### `protected void itemclick(T item, int button)`
-
-- Description: TODO
+- Role: Performs itemclick.
+- Description: Supports the itemclick operation used by the surrounding class.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-
-- Description: TODO
+- Role: Handles mouse-down input.
+- Description: Supports the mousedown operation used by the surrounding class.
 
 #### `public Object tooltip(Coord c, Widget prev)`
-
-- Description: TODO
+- Role: Returns the tooltip for the given cursor position.
+- Description: Exposes the requested value without mutating state.

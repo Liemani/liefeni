@@ -10,21 +10,24 @@ This file documents the responsibilities and members of `VertexArray`.
 
 ## Role
 
-Represents a vertex array.
+Defines the vertex array render pipeline component.
 
 ## Nested Types
 
 ### Buffer
 
-- Description: TODO
+- Role: Represents buffer within VertexArray.
+- Description: Describes the nested buffer type used by the enclosing class.
 
 ### Input
 
-- Description: TODO
+- Role: Represents input within VertexArray.
+- Description: Describes the nested input type used by the enclosing class.
 
 ### Layout
 
-- Description: TODO
+- Role: Represents layout within VertexArray.
+- Description: Describes the nested layout type used by the enclosing class.
 
 ## Members
 
@@ -33,167 +36,167 @@ Represents a vertex array.
 ### Fields
 
 #### `public final Layout fmt`
-
-- Description: TODO
+- Role: Holds the fmt state.
+- Description: Backs the cached state for this file.
 
 #### `public final Buffer[] bufs`
-
-- Description: TODO
+- Role: Stores the bufs value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean shared = false`
-
-- Description: TODO
+- Role: Tracks the shared flag.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public Disposable ro`
-
-- Description: TODO
+- Role: Holds the ro state.
+- Description: Backs the cached state for this file.
 
 #### `public Object desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 #### `public final Input[] inputs`
-
-- Description: TODO
+- Role: Holds the inputs state.
+- Description: Backs the cached state for this file.
 
 #### `public final int nbufs`
-
-- Description: TODO
+- Role: Stores the nbufs value.
+- Description: Backs the cached state for this file.
 
 #### `public final Attribute tgt`
-
-- Description: TODO
+- Role: Holds the tgt state.
+- Description: Backs the cached state for this file.
 
 #### `public final VectorFormat el`
-
-- Description: TODO
-
-#### `public final int buf, offset, stride`
-
-- Description: TODO
+- Role: Holds the el state.
+- Description: Backs the cached state for this file.
 
 #### `public final int buf, offset, stride`
-
-- Description: TODO
+- Role: Stores the stride value.
+- Description: Backs the cached state for this file.
 
 #### `public final int buf, offset, stride`
+- Role: Stores the stride value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final int buf, offset, stride`
+- Role: Stores the stride value.
+- Description: Backs the cached state for this file.
 
 #### `public final boolean instanced`
-
-- Description: TODO
+- Role: Tracks the instanced flag.
+- Description: Supports the instanced operation used by the surrounding class.
 
 #### `public final int size`
-
-- Description: TODO
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 #### `public final Usage usage`
-
-- Description: TODO
+- Role: Holds the usage state.
+- Description: Backs the cached state for this file.
 
 #### `public final Filler<? super Buffer> init`
-
-- Description: TODO
+- Role: Stores the init value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean shared = false`
-
-- Description: TODO
+- Role: Tracks the shared flag.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public Disposable ro`
-
-- Description: TODO
+- Role: Holds the ro state.
+- Description: Backs the cached state for this file.
 
 #### `public Object desc`
-
-- Description: TODO
+- Role: Holds the desc state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public VertexArray(Layout fmt, Buffer... bufs)`
-
-- Description: TODO
+- Role: Creates a new VertexArray instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public int num()`
-
-- Description: TODO
+- Role: Performs num.
+- Description: Supports the num operation used by the surrounding class.
 
 #### `public Layout(Input... inputs)`
-
-- Description: TODO
+- Role: Performs layout.
+- Description: Supports the layout operation used by the surrounding class.
 
 #### `public Input(Attribute tgt, VectorFormat el, int buf, int offset, int stride, boolean instanced)`
-
-- Description: TODO
+- Role: Performs input.
+- Description: Supports the input operation used by the surrounding class.
 
 #### `public Input(Attribute tgt, VectorFormat el, int buf, int offset, int stride)`
-
-- Description: TODO
-
-#### `public int hashCode()`
-
-- Description: TODO
-
-#### `public boolean equals(Object o)`
-
-- Description: TODO
-
-#### `public String toString()`
-
-- Description: TODO
+- Role: Performs input.
+- Description: Supports the input operation used by the surrounding class.
 
 #### `public int hashCode()`
-
-- Description: TODO
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
 
 #### `public boolean equals(Object o)`
-
-- Description: TODO
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
 
 #### `public String toString()`
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
-- Description: TODO
+#### `public int hashCode()`
+- Role: Returns the hash code.
+- Description: Exposes the requested value without mutating state.
+
+#### `public boolean equals(Object o)`
+- Role: Checks whether this value equals another value.
+- Description: Returns a boolean result for the described condition.
+
+#### `public String toString()`
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Buffer(int size, Usage usage, Filler<? super Buffer> init)`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `public Buffer(ByteBuffer data, Usage usage)`
-
-- Description: TODO
+- Role: Performs buffer.
+- Description: Supports the buffer operation used by the surrounding class.
 
 #### `public int size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Buffer shared()`
-
-- Description: TODO
+- Role: Performs shared.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public Buffer desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.
 
 #### `public VertexArray shared()`
-
-- Description: TODO
+- Role: Performs shared.
+- Description: Supports the shared operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public String toString()`
-
-- Description: TODO
+- Role: Returns the string representation.
+- Description: Provides a human-readable representation for debugging and logging.
 
 #### `public VertexArray desc(Object desc)`
-
-- Description: TODO
+- Role: Performs desc.
+- Description: Supports the desc operation used by the surrounding class.

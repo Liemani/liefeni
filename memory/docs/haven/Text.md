@@ -10,370 +10,378 @@ This file documents the responsibilities and members of `Text`.
 
 ## Role
 
-Builds and renders text.
+Represents the text Haven component.
 
 ## Nested Types
 
 ### Forge
 
-- Description: TODO
+- Role: Represents forge within Text.
+- Description: Describes the nested forge type used by the enclosing class.
 
 ### Foundry
 
-- Description: TODO
+- Role: Represents foundry within Text.
+- Description: Describes the nested foundry type used by the enclosing class.
 
 ### Furnace
 
-- Description: TODO
+- Role: Represents furnace within Text.
+- Description: Describes the nested furnace type used by the enclosing class.
 
 ### Line
 
-- Description: TODO
+- Role: Represents line within Text.
+- Description: Describes the nested line type used by the enclosing class.
 
 ### OSlug
 
-- Description: TODO
+- Role: Represents oslug within Text.
+- Description: Describes the nested oslug type used by the enclosing class.
 
 ### OffsetForge
 
-- Description: TODO
+- Role: Represents offset forge within Text.
+- Description: Describes the nested offset forge type used by the enclosing class.
 
 ### Slug
 
-- Description: TODO
+- Role: Represents slug within Text.
+- Description: Describes the nested slug type used by the enclosing class.
 
 ### UText
 
-- Description: TODO
+- Role: Represents utext within Text.
+- Description: Describes the nested utext type used by the enclosing class.
 
 ## Members
 
 ### Constants
 
 #### `public static final Font serif = new Font("Serif", Font.PLAIN, 10)`
-
-- Description: TODO
+- Role: Defines the shared serif constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Font sans = new Font("Sans", Font.PLAIN, 10)`
-
-- Description: TODO
+- Role: Defines the shared sans constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Font mono = new Font("Monospaced", Font.PLAIN, 10)`
-
-- Description: TODO
+- Role: Defines the shared mono constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Font fraktur = Resource.local().loadwait("ui/fraktur").flayer(Resource.Font.class).font`
-
-- Description: TODO
+- Role: Defines the shared fraktur constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Font dfont = sans`
-
-- Description: TODO
+- Role: Defines the shared dfont constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Foundry std`
-
-- Description: TODO
+- Role: Defines the shared std constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color black = Color.BLACK`
-
-- Description: TODO
+- Role: Defines the shared black constant.
+- Description: Shared constant used by the rest of the class.
 
 #### `public static final Color white = Color.WHITE`
-
-- Description: TODO
+- Role: Defines the shared white constant.
+- Description: Shared constant used by the rest of the class.
 
 ### Fields
 
 #### `public final BufferedImage img`
-
-- Description: TODO
+- Role: Stores the img value.
+- Description: Backs the cached state for this file.
 
 #### `public final String text`
-
-- Description: TODO
+- Role: Stores the text value.
+- Description: Backs the cached state for this file.
 
 #### `private Tex tex`
-
-- Description: TODO
+- Role: Stores the tex value.
+- Description: Backs the cached state for this file.
 
 #### `private final FontMetrics m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `private FontMetrics m`
-
-- Description: TODO
+- Role: Holds the m state.
+- Description: Backs the cached state for this file.
 
 #### `public final Font font`
-
-- Description: TODO
+- Role: Holds the font state.
+- Description: Backs the cached state for this file.
 
 #### `public final Color defcol`
-
-- Description: TODO
+- Role: Stores the defcol value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean aa = false`
-
-- Description: TODO
+- Role: Tracks the aa flag.
+- Description: Supports the aa operation used by the surrounding class.
 
 #### `private RichText.Foundry wfnd = null`
-
-- Description: TODO
+- Role: Stores the wfnd value.
+- Description: Backs the cached state for this file.
 
 #### `public final Forge back`
-
-- Description: TODO
+- Role: Holds the back state.
+- Description: Backs the cached state for this file.
 
 #### `public final Slug bk`
-
-- Description: TODO
+- Role: Holds the bk state.
+- Description: Backs the cached state for this file.
 
 #### `public final Furnace fnd`
-
-- Description: TODO
+- Role: Holds the fnd state.
+- Description: Backs the cached state for this file.
 
 #### `private Text cur = null`
-
-- Description: TODO
+- Role: Stores the cur value.
+- Description: Backs the cached state for this file.
 
 #### `private T cv = null`
-
-- Description: TODO
+- Role: Holds the cv state.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public Slug(String text, BufferedImage img)`
-
-- Description: TODO
+- Role: Performs slug.
+- Description: Supports the slug operation used by the surrounding class.
 
 #### `public abstract int baseline()`
-
-- Description: TODO
+- Role: Performs baseline.
+- Description: Supports the baseline operation used by the surrounding class.
 
 #### `public abstract int advance(int pos)`
-
-- Description: TODO
+- Role: Performs advance.
+- Description: Supports the advance operation used by the surrounding class.
 
 #### `public abstract int charat(int x)`
-
-- Description: TODO
+- Role: Performs charat.
+- Description: Supports the charat operation used by the surrounding class.
 
 #### `private Line(String text, BufferedImage img, FontMetrics m)`
-
-- Description: TODO
+- Role: Performs line.
+- Description: Supports the line operation used by the surrounding class.
 
 #### `public Coord base()`
-
-- Description: TODO
+- Role: Performs base.
+- Description: Supports the base operation used by the surrounding class.
 
 #### `public int baseline()`
-
-- Description: TODO
+- Role: Performs baseline.
+- Description: Supports the baseline operation used by the surrounding class.
 
 #### `public int advance(int pos)`
-
-- Description: TODO
+- Role: Performs advance.
+- Description: Supports the advance operation used by the surrounding class.
 
 #### `public int charat(int x)`
-
-- Description: TODO
+- Role: Performs charat.
+- Description: Supports the charat operation used by the surrounding class.
 
 #### `public static int[] findspaces(String text)`
-
-- Description: TODO
+- Role: Performs findspaces.
+- Description: Supports the findspaces operation used by the surrounding class.
 
 #### `public abstract Text render(String text)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public Text renderf(String fmt, Object... args)`
-
-- Description: TODO
+- Role: Performs renderf.
+- Description: Supports the renderf operation used by the surrounding class.
 
 #### `public abstract Slug render(String text)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public abstract int height()`
-
-- Description: TODO
+- Role: Performs height.
+- Description: Supports the height operation used by the surrounding class.
 
 #### `public abstract Coord strsize(String text)`
-
-- Description: TODO
+- Role: Performs strsize.
+- Description: Supports the strsize operation used by the surrounding class.
 
 #### `public Foundry(Font f, Color defcol)`
-
-- Description: TODO
+- Role: Performs foundry.
+- Description: Supports the foundry operation used by the surrounding class.
 
 #### `public Foundry(Font f)`
-
-- Description: TODO
+- Role: Performs foundry.
+- Description: Supports the foundry operation used by the surrounding class.
 
 #### `public Foundry(Font font, int psz, Color defcol)`
-
-- Description: TODO
+- Role: Performs foundry.
+- Description: Supports the foundry operation used by the surrounding class.
 
 #### `public Foundry(Font font, int psz)`
-
-- Description: TODO
+- Role: Performs foundry.
+- Description: Supports the foundry operation used by the surrounding class.
 
 #### `public Foundry aa(boolean aa)`
-
-- Description: TODO
+- Role: Performs aa.
+- Description: Supports the aa operation used by the surrounding class.
 
 #### `public int height()`
-
-- Description: TODO
+- Role: Performs height.
+- Description: Supports the height operation used by the surrounding class.
 
 #### `public Coord strsize(String text)`
-
-- Description: TODO
+- Role: Performs strsize.
+- Description: Supports the strsize operation used by the surrounding class.
 
 #### `public Text renderwrap(String text, Color c, int width)`
-
-- Description: TODO
+- Role: Performs renderwrap.
+- Description: Supports the renderwrap operation used by the surrounding class.
 
 #### `public Text renderwrap(String text, int width)`
-
-- Description: TODO
+- Role: Performs renderwrap.
+- Description: Supports the renderwrap operation used by the surrounding class.
 
 #### `public Line render(String text, Color c)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public Line render(String text)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public Line ellipsize(String text, int w, String e)`
-
-- Description: TODO
+- Role: Performs ellipsize.
+- Description: Supports the ellipsize operation used by the surrounding class.
 
 #### `public Line ellipsize(String text, int w)`
-
-- Description: TODO
+- Role: Performs ellipsize.
+- Description: Supports the ellipsize operation used by the surrounding class.
 
 #### `public static Font fontpxsz(Font font, int pxsz)`
-
-- Description: TODO
+- Role: Performs fontpxsz.
+- Description: Supports the fontpxsz operation used by the surrounding class.
 
 #### `public OffsetForge(Forge back)`
-
-- Description: TODO
+- Role: Performs offset forge.
+- Description: Supports the offset forge operation used by the surrounding class.
 
 #### `protected abstract BufferedImage proc(Slug text)`
-
-- Description: TODO
+- Role: Performs proc.
+- Description: Supports the proc operation used by the surrounding class.
 
 #### `protected abstract Coord tloff()`
-
-- Description: TODO
+- Role: Performs tloff.
+- Description: Supports the tloff operation used by the surrounding class.
 
 #### `protected abstract Coord broff()`
-
-- Description: TODO
+- Role: Performs broff.
+- Description: Supports the broff operation used by the surrounding class.
 
 #### `private OSlug(Slug bk, BufferedImage img)`
-
-- Description: TODO
+- Role: Performs oslug.
+- Description: Supports the oslug operation used by the surrounding class.
 
 #### `public int baseline()`
-
-- Description: TODO
+- Role: Performs baseline.
+- Description: Supports the baseline operation used by the surrounding class.
 
 #### `public int advance(int pos)`
-
-- Description: TODO
+- Role: Performs advance.
+- Description: Supports the advance operation used by the surrounding class.
 
 #### `public int charat(int x)`
-
-- Description: TODO
+- Role: Performs charat.
+- Description: Supports the charat operation used by the surrounding class.
 
 #### `public Slug render(String text)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public int height()`
-
-- Description: TODO
+- Role: Performs height.
+- Description: Supports the height operation used by the surrounding class.
 
 #### `public Coord strsize(String text)`
-
-- Description: TODO
+- Role: Performs strsize.
+- Description: Supports the strsize operation used by the surrounding class.
 
 #### `public static OffsetForge of(Forge back, Coord tloff, Coord broff, Function<? super Slug, ? extends BufferedImage> prod)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public UText(Furnace fnd)`
-
-- Description: TODO
+- Role: Performs utext.
+- Description: Supports the utext operation used by the surrounding class.
 
 #### `protected Text render(String text)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `protected String text(T value)`
-
-- Description: TODO
+- Role: Performs text.
+- Description: Supports the text operation used by the surrounding class.
 
 #### `protected abstract T value()`
-
-- Description: TODO
+- Role: Performs value.
+- Description: Supports the value operation used by the surrounding class.
 
 #### `public Text get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `public Indir<Tex> tex()`
-
-- Description: TODO
+- Role: Performs tex.
+- Description: Supports the tex operation used by the surrounding class.
 
 #### `public static UText forfield(Furnace fnd, final Object obj, String fn)`
-
-- Description: TODO
+- Role: Performs forfield.
+- Description: Supports the forfield operation used by the surrounding class.
 
 #### `public static UText forfield(Object obj, String fn)`
-
-- Description: TODO
+- Role: Performs forfield.
+- Description: Supports the forfield operation used by the surrounding class.
 
 #### `public static <T> UText<T> of(Furnace fnd, Supplier<? extends T> val, Function<? super T, String> fmt)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `public static <T> UText<T> of(Furnace fnd, Supplier<T> val)`
-
-- Description: TODO
+- Role: Performs of.
+- Description: Supports the of operation used by the surrounding class.
 
 #### `protected Text(String text, BufferedImage img)`
-
-- Description: TODO
+- Role: Creates a new Text instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public Coord sz()`
-
-- Description: TODO
+- Role: Performs sz.
+- Description: Supports the sz operation used by the surrounding class.
 
 #### `public static Line render(String text, Color c)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public static Line renderf(Color c, String text, Object... args)`
-
-- Description: TODO
+- Role: Performs renderf.
+- Description: Supports the renderf operation used by the surrounding class.
 
 #### `public static Line render(String text)`
-
-- Description: TODO
+- Role: Performs render.
+- Description: Supports the render operation used by the surrounding class.
 
 #### `public Tex tex()`
-
-- Description: TODO
+- Role: Performs tex.
+- Description: Supports the tex operation used by the surrounding class.
 
 #### `public void dispose()`
-
-- Description: TODO
+- Role: Performs dispose.
+- Description: Supports the dispose operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

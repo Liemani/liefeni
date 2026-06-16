@@ -10,25 +10,29 @@ This file documents the responsibilities and members of `PackCont`.
 
 ## Role
 
-Provides pack container support.
+Represents the pack cont Haven component.
 
 ## Nested Types
 
 ### $linpack
 
-- Description: TODO
+- Role: Represents $linpack within PackCont.
+- Description: Describes the nested $linpack type used by the enclosing class.
 
 ### HPack
 
-- Description: TODO
+- Role: Represents hpack within PackCont.
+- Description: Describes the nested hpack type used by the enclosing class.
 
 ### LinPack
 
-- Description: TODO
+- Role: Represents lin pack within PackCont.
+- Description: Describes the nested lin pack type used by the enclosing class.
 
 ### VPack
 
-- Description: TODO
+- Role: Represents vpack within PackCont.
+- Description: Describes the nested vpack type used by the enclosing class.
 
 ## Members
 
@@ -37,103 +41,103 @@ Provides pack container support.
 ### Fields
 
 #### `public boolean packpar`
-
-- Description: TODO
+- Role: Tracks the packpar flag.
+- Description: Supports the packpar operation used by the surrounding class.
 
 #### `private boolean packed = false`
-
-- Description: TODO
+- Role: Tracks the packed flag.
+- Description: Supports the packed operation used by the surrounding class.
 
 #### `public final List<Widget> order = new ArrayList<>()`
-
-- Description: TODO
+- Role: Caches order entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public int margin = 0`
-
-- Description: TODO
+- Role: Stores the margin value.
+- Description: Backs the cached state for this file.
 
 ### Methods
 
 #### `public PackCont()`
-
-- Description: TODO
+- Role: Creates a new PackCont instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `public PackCont packpar(boolean packpar)`
-
-- Description: TODO
+- Role: Performs packpar.
+- Description: Supports the packpar operation used by the surrounding class.
 
 #### `public <T extends Widget> T add(T child)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void cdestroy(Widget ch)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public void cresize(Widget ch)`
-
-- Description: TODO
+- Role: Performs cresize.
+- Description: Supports the cresize operation used by the surrounding class.
 
 #### `public void pack()`
-
-- Description: TODO
+- Role: Performs pack.
+- Description: Supports the pack operation used by the surrounding class.
 
 #### `private void repack0()`
-
-- Description: TODO
+- Role: Performs repack0.
+- Description: Supports the repack0 operation used by the surrounding class.
 
 #### `protected abstract void repack()`
-
-- Description: TODO
+- Role: Performs repack.
+- Description: Supports the repack operation used by the surrounding class.
 
 #### `public LinPack margin(int margin)`
-
-- Description: TODO
+- Role: Performs margin.
+- Description: Supports the margin operation used by the surrounding class.
 
 #### `protected abstract Coord pad(int p)`
-
-- Description: TODO
+- Role: Performs pad.
+- Description: Supports the pad operation used by the surrounding class.
 
 #### `public <T extends Widget> T last(T child, int pad)`
-
-- Description: TODO
+- Role: Performs last.
+- Description: Supports the last operation used by the surrounding class.
 
 #### `public <T extends Widget> T insert(T child, int p, int pad)`
-
-- Description: TODO
+- Role: Performs insert.
+- Description: Supports the insert operation used by the surrounding class.
 
 #### `public <T extends Widget> T after(T child, Widget after, int pad)`
-
-- Description: TODO
+- Role: Performs after.
+- Description: Supports the after operation used by the surrounding class.
 
 #### `public <T extends Widget> T before(T child, Widget after, int pad)`
-
-- Description: TODO
+- Role: Performs before.
+- Description: Supports the before operation used by the surrounding class.
 
 #### `public void cdestroy(Widget ch)`
-
-- Description: TODO
+- Role: Performs cdestroy.
+- Description: Supports the cdestroy operation used by the surrounding class.
 
 #### `public void addchild(Widget child, Object... args)`
-
-- Description: TODO
-
-#### `protected Coord pad(int p)`
-
-- Description: TODO
-
-#### `protected void repack()`
-
-- Description: TODO
+- Role: Performs addchild.
+- Description: Supports the addchild operation used by the surrounding class.
 
 #### `protected Coord pad(int p)`
-
-- Description: TODO
+- Role: Performs pad.
+- Description: Supports the pad operation used by the surrounding class.
 
 #### `protected void repack()`
+- Role: Performs repack.
+- Description: Supports the repack operation used by the surrounding class.
 
-- Description: TODO
+#### `protected Coord pad(int p)`
+- Role: Performs pad.
+- Description: Supports the pad operation used by the surrounding class.
+
+#### `protected void repack()`
+- Role: Performs repack.
+- Description: Supports the repack operation used by the surrounding class.
 
 #### `public Widget create(UI ui, Object[] args)`
-
-- Description: TODO
+- Role: Creates the target object.
+- Description: Constructs the target object from the supplied inputs.

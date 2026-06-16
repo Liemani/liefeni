@@ -10,53 +10,64 @@ This file documents the responsibilities and members of `Steam`.
 
 ## Role
 
-Integrates with Steam APIs.
+Represents the steam Haven component.
 
 ## Nested Types
 
 ### API
 
-- Description: TODO
+- Role: Represents api within Steam.
+- Description: Describes the nested api type used by the enclosing class.
 
 ### Details
 
-- Description: TODO
+- Role: Represents details within Steam.
+- Description: Describes the nested details type used by the enclosing class.
 
 ### Listener
 
-- Description: TODO
+- Role: Represents listener within Steam.
+- Description: Describes the nested listener type used by the enclosing class.
 
 ### ResultError
 
-- Description: TODO
+- Role: Represents result error within Steam.
+- Description: Describes the nested result error type used by the enclosing class.
 
 ### SteamLibraryLoaderJogl
 
-- Description: TODO
+- Role: Represents steam library loader jogl within Steam.
+- Description: Describes the nested steam library loader jogl type used by the enclosing class.
 
 ### StorageStatus
 
-- Description: TODO
+- Role: Represents storage status within Steam.
+- Description: Describes the nested storage status type used by the enclosing class.
 
 ### SvcError
 
-- Description: TODO
+- Role: Represents svc error within Steam.
+- Description: Describes the nested svc error type used by the enclosing class.
 
 ### UGItem
 
-- Description: TODO
+- Role: Represents ugitem within Steam.
+- Description: Describes the nested ugitem type used by the enclosing class.
 
 ### Update
 
-- Description: TODO
+- Role: Represents update within Steam.
+- Description: Describes the nested update type used by the enclosing class.
 
 ### Waiter
 
-- Description: TODO
+- Role: Represents waiter within Steam.
+- Description: Describes the nested waiter type used by the enclosing class.
 
 ### WebTicket
 
-- Description: TODO
+- Role: Represents web ticket within Steam.
+- Description: Describes the nested web ticket type used by the enclosing class.
 
 ## Members
 
@@ -65,415 +76,415 @@ Integrates with Steam APIs.
 ### Fields
 
 #### `private final Collection<Listener> listening = new CopyOnWriteArrayList<>()`
-
-- Description: TODO
+- Role: Caches listening entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private final API api = new API(this)`
-
-- Description: TODO
+- Role: Holds the api state.
+- Description: Backs the cached state for this file.
 
 #### `public final SteamResult res`
-
-- Description: TODO
+- Role: Holds the res state.
+- Description: Backs the cached state for this file.
 
 #### `private final String id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private final Queue<Object[]> got = new LinkedList<>()`
-
-- Description: TODO
+- Role: Caches got entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `private static Steam instance = null`
-
-- Description: TODO
+- Role: Holds the instance state.
+- Description: Backs the cached state for this file.
 
 #### `final Steam host`
-
-- Description: TODO
+- Role: Holds the host state.
+- Description: Backs the cached state for this file.
 
 #### `final SteamUtils utils = new SteamUtils(new SteamUtilsCallback()`
-
-- Description: TODO
+- Role: Holds the utils state.
+- Description: Backs the cached state for this file.
 
 #### `final SteamFriends friends = new SteamFriends(new SteamFriendsCallback()`
-
-- Description: TODO
+- Role: Holds the friends state.
+- Description: Backs the cached state for this file.
 
 #### `final SteamRemoteStorage rs = new SteamRemoteStorage(new SteamRemoteStorageCallback()`
-
-- Description: TODO
+- Role: Holds the rs state.
+- Description: Backs the cached state for this file.
 
 #### `final SteamUGC ugc = new SteamUGC(new SteamUGCCallback()`
-
-- Description: TODO
+- Role: Holds the ugc state.
+- Description: Backs the cached state for this file.
 
 #### `final SteamUser user = new SteamUser(new SteamUserCallback()`
-
-- Description: TODO
-
-#### `private static boolean loaded = false, inited = false, failed = false`
-
-- Description: TODO
+- Role: Holds the user state.
+- Description: Backs the cached state for this file.
 
 #### `private static boolean loaded = false, inited = false, failed = false`
-
-- Description: TODO
+- Role: Tracks whether loaded is loaded.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static boolean loaded = false, inited = false, failed = false`
+- Role: Tracks whether loaded is loaded.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
-- Description: TODO
+#### `private static boolean loaded = false, inited = false, failed = false`
+- Role: Tracks whether loaded is loaded.
+- Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final byte[] data`
-
-- Description: TODO
+- Role: Stores the data value.
+- Description: Backs the cached state for this file.
 
 #### `private final SteamAuthTicket handle`
-
-- Description: TODO
+- Role: Holds the handle state.
+- Description: Backs the cached state for this file.
 
 #### `private boolean cancelled = false`
-
-- Description: TODO
+- Role: Tracks the cancelled flag.
+- Description: Supports the cancelled operation used by the surrounding class.
 
 #### `private ByteBuffer xfbuf = null`
-
-- Description: TODO
+- Role: Stores the xfbuf value.
+- Description: Backs the cached state for this file.
 
 #### `public final SteamPublishedFileID id`
-
-- Description: TODO
+- Role: Stores the id value.
+- Description: Backs the cached state for this file.
 
 #### `private final SteamUGC.ItemInstallInfo iinf = new SteamUGC.ItemInstallInfo()`
-
-- Description: TODO
+- Role: Holds the iinf state.
+- Description: Backs the cached state for this file.
 
 #### `private final SteamUGC.ItemDownloadInfo dinf = new SteamUGC.ItemDownloadInfo()`
-
-- Description: TODO
+- Role: Holds the dinf state.
+- Description: Backs the cached state for this file.
 
 #### `private Collection<SteamUGC.ItemState> state`
-
-- Description: TODO
+- Role: Caches state entries.
+- Description: Reuses previously computed values to avoid repeated work.
 
 #### `public SteamResult dlresult = SteamResult.OK`
-
-- Description: TODO
-
-#### `public final String title, description`
-
-- Description: TODO
+- Role: Holds the dlresult state.
+- Description: Backs the cached state for this file.
 
 #### `public final String title, description`
+- Role: Stores the description value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public final String title, description`
+- Role: Stores the description value.
+- Description: Backs the cached state for this file.
 
 #### `public final SteamID owner`
-
-- Description: TODO
+- Role: Holds the owner state.
+- Description: Backs the cached state for this file.
 
 #### `private Future<Details> details = null`
-
-- Description: TODO
+- Role: Holds the details state.
+- Description: Backs the cached state for this file.
 
 #### `public final SteamUGCUpdateHandle id`
-
-- Description: TODO
+- Role: Holds the id state.
+- Description: Backs the cached state for this file.
 
 #### `public SteamResult done = null`
-
-- Description: TODO
+- Role: Holds the done state.
+- Description: Backs the cached state for this file.
 
 #### `public boolean agreed`
-
-- Description: TODO
+- Role: Tracks the agreed flag.
+- Description: Supports the agreed operation used by the surrounding class.
 
 #### `public SteamUGC.ItemUpdateStatus state = SteamUGC.ItemUpdateStatus.Invalid`
-
-- Description: TODO
-
-#### `public long prog, size`
-
-- Description: TODO
+- Role: Holds the state state.
+- Description: Backs the cached state for this file.
 
 #### `public long prog, size`
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
-- Description: TODO
+#### `public long prog, size`
+- Role: Stores the size value.
+- Description: Backs the cached state for this file.
 
 #### `public boolean agreed = true`
-
-- Description: TODO
+- Role: Tracks the agreed flag.
+- Description: Supports the agreed operation used by the surrounding class.
 
 ### Methods
 
 #### `public SvcError(String message)`
-
-- Description: TODO
+- Role: Performs svc error.
+- Description: Supports the svc error operation used by the surrounding class.
 
 #### `public SvcError(Throwable cause)`
-
-- Description: TODO
+- Role: Performs svc error.
+- Description: Supports the svc error operation used by the surrounding class.
 
 #### `public SvcError(String message, Throwable cause)`
-
-- Description: TODO
+- Role: Performs svc error.
+- Description: Supports the svc error operation used by the surrounding class.
 
 #### `public ResultError(String message, SteamResult res)`
-
-- Description: TODO
+- Role: Performs result error.
+- Description: Supports the result error operation used by the surrounding class.
 
 #### `public void callback(String id, Object[] args)`
-
-- Description: TODO
+- Role: Performs callback.
+- Description: Supports the callback operation used by the surrounding class.
 
 #### `public void add(Listener l)`
-
-- Description: TODO
+- Role: Performs add.
+- Description: Supports the add operation used by the surrounding class.
 
 #### `public void remove(Listener l)`
-
-- Description: TODO
+- Role: Performs remove.
+- Description: Supports the remove operation used by the surrounding class.
 
 #### `public Waiter(String id)`
-
-- Description: TODO
+- Role: Performs waiter.
+- Description: Supports the waiter operation used by the surrounding class.
 
 #### `public void callback(String id, Object[] args)`
-
-- Description: TODO
+- Role: Performs callback.
+- Description: Supports the callback operation used by the surrounding class.
 
 #### `public Object[] get() throws InterruptedException`
-
-- Description: TODO
+- Role: Returns the  value.
+- Description: Exposes the requested value without mutating state.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `private void post(String cbid, Object... args)`
-
-- Description: TODO
+- Role: Performs post.
+- Description: Supports the post operation used by the surrounding class.
 
 #### `public boolean loadLibrary(String nm)`
-
-- Description: TODO
+- Role: Returns the library.
+- Description: Exposes the requested value without mutating state.
 
 #### `private Steam()`
-
-- Description: TODO
+- Role: Creates a new Steam instance.
+- Description: Constructs the instance and initializes its default state.
 
 #### `private void listen()`
-
-- Description: TODO
+- Role: Performs listen.
+- Description: Supports the listen operation used by the surrounding class.
 
 #### `public static synchronized Steam get()`
-
-- Description: TODO
+- Role: Performs get.
+- Description: Supports the get operation used by the surrounding class.
 
 #### `private API(Steam host)`
-
-- Description: TODO
+- Role: Performs api.
+- Description: Supports the api operation used by the surrounding class.
 
 #### `private static synchronized boolean init()`
-
-- Description: TODO
+- Role: Performs init.
+- Description: Supports the init operation used by the surrounding class.
 
 #### `int fileRead(String name, ByteBuffer buf) throws IOException`
-
-- Description: TODO
+- Role: Handles the file read workflow.
+- Description: Supports the file read operation used by the surrounding class.
 
 #### `void fileWrite(String name, ByteBuffer data) throws IOException`
-
-- Description: TODO
+- Role: Handles the file write workflow.
+- Description: Supports the file write operation used by the surrounding class.
 
 #### `public synchronized int appid()`
-
-- Description: TODO
+- Role: Performs appid.
+- Description: Supports the appid operation used by the surrounding class.
 
 #### `public synchronized int userid()`
-
-- Description: TODO
+- Role: Performs userid.
+- Description: Supports the userid operation used by the surrounding class.
 
 #### `public synchronized String displayname()`
-
-- Description: TODO
+- Role: Performs displayname.
+- Description: Supports the displayname operation used by the surrounding class.
 
 #### `public synchronized void browse(URI uri, boolean modal)`
-
-- Description: TODO
+- Role: Performs browse.
+- Description: Supports the browse operation used by the surrounding class.
 
 #### `public synchronized void overlaypos(String pos)`
-
-- Description: TODO
+- Role: Performs overlaypos.
+- Description: Supports the overlaypos operation used by the surrounding class.
 
 #### `public synchronized void setrp(String key, String val)`
-
-- Description: TODO
+- Role: Performs setrp.
+- Description: Supports the setrp operation used by the surrounding class.
 
 #### `public void setparty(String pid, int sz)`
-
-- Description: TODO
+- Role: Performs setparty.
+- Description: Supports the setparty operation used by the surrounding class.
 
 #### `private WebTicket(SteamAuthTicket handle, byte[] data)`
-
-- Description: TODO
+- Role: Performs web ticket.
+- Description: Supports the web ticket operation used by the surrounding class.
 
 #### `public void close()`
-
-- Description: TODO
+- Role: Closes the current resource.
+- Description: Supports the close operation used by the surrounding class.
 
 #### `public WebTicket webticket() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the webticket workflow.
+- Description: Supports the webticket operation used by the surrounding class.
 
 #### `public StorageStatus checkstorage()`
-
-- Description: TODO
+- Role: Performs checkstorage.
+- Description: Supports the checkstorage operation used by the surrounding class.
 
 #### `public void enablestorage(boolean on)`
-
-- Description: TODO
+- Role: Performs enablestorage.
+- Description: Supports the enablestorage operation used by the surrounding class.
 
 #### `private void checkcloud() throws IOException`
-
-- Description: TODO
+- Role: Handles the checkcloud workflow.
+- Description: Supports the checkcloud operation used by the surrounding class.
 
 #### `private ByteBuffer xfbuf(int sz)`
-
-- Description: TODO
+- Role: Performs xfbuf.
+- Description: Supports the xfbuf operation used by the surrounding class.
 
 #### `public synchronized byte[] readfile(String name) throws IOException`
-
-- Description: TODO
+- Role: Handles the readfile workflow.
+- Description: Supports the readfile operation used by the surrounding class.
 
 #### `public synchronized void writefile(String name, byte[] data) throws IOException`
-
-- Description: TODO
+- Role: Handles the writefile workflow.
+- Description: Supports the writefile operation used by the surrounding class.
 
 #### `public UGItem(SteamPublishedFileID id)`
-
-- Description: TODO
+- Role: Performs ugitem.
+- Description: Supports the ugitem operation used by the surrounding class.
 
 #### `public long fid()`
-
-- Description: TODO
+- Role: Performs fid.
+- Description: Supports the fid operation used by the surrounding class.
 
 #### `public void update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public Path path()`
-
-- Description: TODO
+- Role: Performs path.
+- Description: Supports the path operation used by the surrounding class.
 
 #### `public void download(boolean prioritized)`
-
-- Description: TODO
+- Role: Performs download.
+- Description: Supports the download operation used by the surrounding class.
 
 #### `public boolean installed()`
-
-- Description: TODO
+- Role: Performs installed.
+- Description: Supports the installed operation used by the surrounding class.
 
 #### `public boolean stale()`
-
-- Description: TODO
+- Role: Performs stale.
+- Description: Supports the stale operation used by the surrounding class.
 
 #### `public boolean fetching()`
-
-- Description: TODO
+- Role: Performs fetching.
+- Description: Supports the fetching operation used by the surrounding class.
 
 #### `public boolean pending()`
-
-- Description: TODO
+- Role: Performs pending.
+- Description: Supports the pending operation used by the surrounding class.
 
 #### `public long got()`
-
-- Description: TODO
+- Role: Performs got.
+- Description: Supports the got operation used by the surrounding class.
 
 #### `public long size()`
-
-- Description: TODO
+- Role: Performs size.
+- Description: Supports the size operation used by the surrounding class.
 
 #### `public Details(SteamUGCDetails info)`
-
-- Description: TODO
+- Role: Performs details.
+- Description: Supports the details operation used by the surrounding class.
 
 #### `public Future<Details> details()`
-
-- Description: TODO
+- Role: Performs details.
+- Description: Supports the details operation used by the surrounding class.
 
 #### `public Update()`
-
-- Description: TODO
+- Role: Performs update.
+- Description: Supports the update operation used by the surrounding class.
 
 #### `public void title(String title)`
-
-- Description: TODO
+- Role: Performs title.
+- Description: Supports the title operation used by the surrounding class.
 
 #### `public void description(String desc)`
-
-- Description: TODO
+- Role: Performs description.
+- Description: Supports the description operation used by the surrounding class.
 
 #### `public void metadata(String data)`
-
-- Description: TODO
+- Role: Performs metadata.
+- Description: Supports the metadata operation used by the surrounding class.
 
 #### `public void tags(String... tags)`
-
-- Description: TODO
+- Role: Performs tags.
+- Description: Supports the tags operation used by the surrounding class.
 
 #### `public void contents(Path dir)`
-
-- Description: TODO
+- Role: Performs contents.
+- Description: Supports the contents operation used by the surrounding class.
 
 #### `public void preview(Path file)`
-
-- Description: TODO
+- Role: Performs preview.
+- Description: Supports the preview operation used by the surrounding class.
 
 #### `public void setprivate()`
-
-- Description: TODO
+- Role: Performs setprivate.
+- Description: Supports the setprivate operation used by the surrounding class.
 
 #### `public void setfriendsonly()`
-
-- Description: TODO
+- Role: Performs setfriendsonly.
+- Description: Supports the setfriendsonly operation used by the surrounding class.
 
 #### `public void setpublic()`
-
-- Description: TODO
+- Role: Performs setpublic.
+- Description: Supports the setpublic operation used by the surrounding class.
 
 #### `public void submit(String message)`
-
-- Description: TODO
+- Role: Performs submit.
+- Description: Supports the submit operation used by the surrounding class.
 
 #### `public void callback(String id, Object[] args)`
-
-- Description: TODO
+- Role: Performs callback.
+- Description: Supports the callback operation used by the surrounding class.
 
 #### `public void getprogress()`
-
-- Description: TODO
+- Role: Performs getprogress.
+- Description: Supports the getprogress operation used by the surrounding class.
 
 #### `public URI legalurl()`
-
-- Description: TODO
+- Role: Performs legalurl.
+- Description: Supports the legalurl operation used by the surrounding class.
 
 #### `public UGItem ugitem(long id)`
-
-- Description: TODO
+- Role: Performs ugitem.
+- Description: Supports the ugitem operation used by the surrounding class.
 
 #### `public Collection<UGItem> ugitems()`
-
-- Description: TODO
+- Role: Performs ugitems.
+- Description: Supports the ugitems operation used by the surrounding class.
 
 #### `public UGItem mkugitem() throws InterruptedException`
-
-- Description: TODO
+- Role: Handles the mkugitem workflow.
+- Description: Supports the mkugitem operation used by the surrounding class.
 
 #### `public void ugqueryitems(Collection<UGItem> items)`
-
-- Description: TODO
+- Role: Performs ugqueryitems.
+- Description: Supports the ugqueryitems operation used by the surrounding class.
 
 #### `public static void main(String[] args) throws Exception`
-
-- Description: TODO
+- Role: Handles the main workflow.
+- Description: Supports the main operation used by the surrounding class.

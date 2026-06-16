@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `Toplevel`.
 
 ## Role
 
-Represents a shader top-level node.
+Represents the toplevel shader-language AST node.
 
 ## Members
 

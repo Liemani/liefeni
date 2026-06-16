@@ -10,7 +10,7 @@ This file documents the responsibilities and members of `WaypointResultHandler`.
 
 ## Role
 
-Provides the `WaypointResultHandler` functionality.
+Provides waypoint persistence support for waypoint result handler.
 
 ## Members
 
@@ -21,9 +21,9 @@ Provides the `WaypointResultHandler` functionality.
 ### Methods
 
 #### `void onSuccess(R result)`
-
-- Description: TODO
+- Role: Performs on success.
+- Description: Supports the on success operation used by the surrounding class.
 
 #### `void onFailure(Exception error)`
-
-- Description: TODO
+- Role: Performs on failure.
+- Description: Supports the on failure operation used by the surrounding class.
