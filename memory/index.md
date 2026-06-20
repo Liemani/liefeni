@@ -1,19 +1,22 @@
+---
+created: 2026-06-18
+---
+
 # Index
 
-이 문서는 프로젝트 메모리의 진입점입니다.
-프로젝트의 현재 상태, 작업, 의사결정 및 참고 자료를 탐색하기 위한 시작점으로 사용됩니다.
+이 문서는 `project-name/memory/` 안에서 어디로 가야 하는지 안내하는 진입점입니다.
 
-## Operations
+## Core
+- [ideas](records/ideas/index.md): 아직 작업으로 확정되지 않은 방향
+- [issues](records/issues/index.md): 해결이 필요한 문제와 마찰
+- [tasks](records/tasks/index.md): 실행 단위의 작업
+- [decisions](records/decisions/index.md): 선택과 판단의 기록
 
-- [ideas](ideas/index.md)
-- [issues](issues/index.md)
-- [tasks](tasks/index.md)
-- [decisions](decisions/index.md)
-- [docs](docs/index.md)
-- [indexes](indexes/index.md)
-- [rules](rules.md)
-- [templates](templates/index.md)
+## Reference
+- [wiki](record/wiki/index.md): 맥락과 참고 문서
+- [docs](records/docs/index.md): 보조 문서와 일반 문서
+- [indexes](indexes/index.md): 묶음형 네비게이션
 
-## References
-
-- [wiki](wiki/index.md)
+## Support
+- [AGENTS.md](AGENTS.md): 에이전트 온보딩 안내
+- [system](system/index.md): 메모리 시스템의 원칙과 템플릿

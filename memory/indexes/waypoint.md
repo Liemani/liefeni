@@ -43,10 +43,10 @@
 
 ## Wiki
 
-- [waypoint.md](../wiki/waypoint.md)
-- [waypoint-db.md](../wiki/waypoint-db.md)
-- [map-icons.md](../wiki/map-icons.md)
+- [waypoint.md](../record/wiki/waypoint.md)
+- [waypoint-db.md](../record/wiki/waypoint-db.md)
+- [map-icons.md](../record/wiki/map-icons.md)
 
 ## Wiki
 
-- [current-grid-bootstrap.md](../wiki/current-grid-bootstrap.md)
+- [current-grid-bootstrap.md](../record/wiki/current-grid-bootstrap.md)

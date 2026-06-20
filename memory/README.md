@@ -6,7 +6,7 @@
 
 - `README.md`: 저장소 구조 설명
 - `ideas/`, `issues/`, `tasks/`, `decisions/`, `docs/`, `indexes/`, `templates/`: 작업 운영 체계
-- `wiki/`: 구조 설명, 개념 정리, 긴 문맥을 정리하는 설명 문서 영역
+- `record/wiki/`: 구조 설명, 개념 정리, 긴 문맥을 정리하는 설명 문서 영역
 
 ## Start Here
 
