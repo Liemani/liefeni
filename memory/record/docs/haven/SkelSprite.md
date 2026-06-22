@@ -1,5 +1,5 @@
 ---
-source: [SkelSprite.java](../../../src/haven/SkelSprite.java)
+source: [SkelSprite.java](../../../../src/haven/SkelSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,120 +13,125 @@ Represents the skel sprite Haven component.
 ### Constants
 
 #### `public static final float ipollen = 0.3f`
-- Role: Defines the shared ipollen constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the ipollen value.
+- Description: Caches the `ipollen` value for reuse.
+- Value: `0.3f`
 
 #### `public static final Factory fact = new Factory()`
-- Role: Defines the shared fact constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fact operation.
+- Description: Implements the factory operation.
+- Value: `new Factory()`
 
 #### `private static final OwnerContext.ClassResolver<SkelSprite> ctxr = new OwnerContext.ClassResolver<SkelSprite>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<skel sprite> ctxr = new owner context.class resolver<skel sprite>() operation.
+- Value: `new OwnerContext.ClassResolver<SkelSprite>()`
 
 #### `private static final Map<MeshAnim.Res, MeshAnim.Animation> nomaids = new HashMap<>()`
-- Role: Defines the shared nomaids constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nomaids operation.
+- Description: Implements the private static final map<mesh anim.res, mesh anim.animation> nomaids = new hash map<>() operation.
+- Value: `new HashMap<>()`
 
 #### `private static final Map<Skeleton.ResPose, PoseMod> initmodids = new HashMap<>()`
-- Role: Defines the shared initmodids constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the initmodids operation.
+- Description: Implements the private static final map<skeleton.res pose, pose mod> initmodids = new hash map<>() operation.
+- Value: `new HashMap<>()`
 
 ### Fields
 
 #### `rigid = new BaseColor(FColor.GREEN),`
-- Role: Holds the base color state.
-- Description: Backs the cached state for this file.
+- Role: Implements the rigid operation.
+- Description: Implements the base color operation.
 
 #### `morphed = new BaseColor(FColor.RED),`
-- Role: Holds the base color state.
-- Description: Backs the cached state for this file.
+- Role: Implements the morphed operation.
+- Description: Implements the base color operation.
 
 #### `unboned = new BaseColor(FColor.YELLOW)`
-- Role: Holds the base color state.
-- Description: Backs the cached state for this file.
+- Role: Implements the unboned operation.
+- Description: Implements the base color operation.
 
 #### `public static boolean bonedb = false`
 - Role: Tracks the bonedb flag.
-- Description: Supports the bonedb operation used by the surrounding class.
+- Description: Caches the `bonedb` value for reuse.
 
 #### `public final Skeleton skel`
-- Role: Holds the skel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skel value.
+- Description: Caches the `skel` value for reuse.
 
 #### `public final Pose pose`
-- Role: Holds the pose state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pose value.
+- Description: Caches the `pose` value for reuse.
 
 #### `public PoseMod[] mods = new PoseMod[0]`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mods value.
+- Description: Caches the `mods` value for reuse.
 
 #### `public MeshAnim.Animation[] manims = new MeshAnim.Animation[0]`
-- Role: Holds the manims state.
-- Description: Backs the cached state for this file.
+- Role: Caches the manims value.
+- Description: Caches the `manims` value for reuse.
 
 #### `public int curfl`
-- Role: Stores the curfl value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curfl value.
+- Description: Caches the `curfl` value for reuse.
 
 #### `protected final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the slots operation.
+- Description: Implements the protected final collection<render tree.slot> slots = new array list<>(1) operation.
 
 #### `private Pose oldpose`
-- Role: Holds the oldpose state.
-- Description: Backs the cached state for this file.
+- Role: Caches the oldpose value.
+- Description: Caches the `oldpose` value for reuse.
 
 #### `private float ipold`
-- Role: Stores the ipold value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ipold value.
+- Description: Caches the `ipold` value for reuse.
 
 #### `private boolean stat = true`
 - Role: Tracks the stat flag.
-- Description: Supports the stat operation used by the surrounding class.
+- Description: Caches the `stat` value for reuse.
 
 #### `private RenderTree.Node[] parts`
-- Role: Stores the parts value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parts value.
+- Description: Caches the `parts` value for reuse.
 
 #### `private Collection<Runnable> tickparts = Collections.emptyList()`
-- Role: Caches tickparts entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Advances the parts state.
+- Description: Advances the parts state.
 
 #### `private Collection<Consumer<Render>> gtickparts = Collections.emptyList()`
-- Role: Caches gtickparts entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the gtickparts operation.
+- Description: Implements the empty list operation.
 
 #### `private Map<MeshAnim.Res, MeshAnim.Animation> maids = nomaids`
-- Role: Caches maids entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the maids value.
+- Description: Caches the `maids` value for reuse.
 
 #### `private Map<Skeleton.ResPose, PoseMod> modids = initmodids`
-- Role: Caches modids entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the modids value.
+- Description: Caches the `modids` value for reuse.
 
 ### Methods
 
 #### `public SkelSprite(Owner owner, Resource res, int fl)`
 - Role: Creates a new SkelSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SkelSprite instance from the supplied inputs.
 
 #### `public SkelSprite(Owner owner, Resource res)`
 - Role: Creates a new SkelSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SkelSprite instance from the supplied inputs.
 
 #### `public SkelSprite(Owner owner, Resource res, Message sdt)`
 - Role: Creates a new SkelSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SkelSprite instance from the supplied inputs.
 
 #### `private void parts(RenderTree.Slot slot)`
-- Role: Performs parts.
-- Description: Supports the parts operation used by the surrounding class.
+- Role: Handles the parts path.
+- Description: Implements the parts operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
@@ -134,68 +139,68 @@ Represents the skel sprite Haven component.
 
 #### `public Collection<Location.Chain> getloc()`
 - Role: Returns the avatar location.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the loc.
 
 #### `public double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `protected RenderTree.Node animwrap(Pipe.Op.Wrapping wrap, Collection<Runnable> tbuf, Collection<Consumer<Render>> gbuf)`
-- Role: Performs animwrap.
-- Description: Supports the animwrap operation used by the surrounding class.
+- Role: Handles the animwrap path.
+- Description: Implements the animwrap operation.
 
 #### `public void iparts(int mask, Collection<RenderTree.Node> rbuf, Collection<Runnable> tbuf, Collection<Consumer<Render>> gbuf)`
-- Role: Performs iparts.
-- Description: Supports the iparts operation used by the surrounding class.
+- Role: Handles the iparts path.
+- Description: Implements the iparts operation.
 
 #### `private void chparts(int mask)`
-- Role: Performs chparts.
-- Description: Supports the chparts operation used by the surrounding class.
+- Role: Handles the chparts path.
+- Description: Implements the chparts operation.
 
 #### `private void rebuild()`
-- Role: Performs rebuild.
-- Description: Supports the rebuild operation used by the surrounding class.
+- Role: Handles the rebuild path.
+- Description: Implements the rebuild operation.
 
 #### `private void chmanims(int mask)`
-- Role: Performs chmanims.
-- Description: Supports the chmanims operation used by the surrounding class.
+- Role: Handles the chmanims path.
+- Description: Implements the chmanims operation.
 
 #### `private void chposes(int mask)`
 - Role: Changes the active pose set.
-- Description: Supports the chposes operation used by the surrounding class.
+- Description: Implements the chposes operation.
 
 #### `public void update(int fl)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void update(Message sdt)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public void age()`
-- Role: Performs age.
-- Description: Supports the age operation used by the surrounding class.
+- Role: Advances the sprite to its mature state.
+- Description: Advances the sprite to its mature state.
 
 #### `public boolean tick(double ddt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
 - Description: Updates per-frame drawable state during the render loop.
 
 #### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Handles the eqpoint path.
+- Description: Implements the eqpoint operation.

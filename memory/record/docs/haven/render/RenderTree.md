@@ -1,5 +1,5 @@
 ---
-source: [RenderTree.java](../../../../src/haven/render/RenderTree.java)
+source: [RenderTree.java](../../../../../src/haven/render/RenderTree.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,111 +12,114 @@ Defines the render tree render pipeline component.
 
 ### Client
 
-- Role: Represents client within RenderTree.
-- Description: Describes the nested client type used by the enclosing class.
+- Role: Tracks one render-list client.
+- Description: Connects a render tree slot type to a consumer list.
 
 ### DepInfo
 
-- Role: Represents dep info within RenderTree.
-- Description: Describes the nested dep info type used by the enclosing class.
+- Role: Captures dependency state.
+- Description: Stores the defined and read render states for one tree slot.
 
 ### DepPipe
 
-- Role: Represents dep pipe within RenderTree.
-- Description: Describes the nested dep pipe type used by the enclosing class.
+- Role: Records pipe dependencies.
+- Description: Wraps a pipe while tracking state reads and writes during evaluation.
 
 ### Inheritance
 
-- Role: Represents inheritance within RenderTree.
-- Description: Describes the nested inheritance type used by the enclosing class.
+- Role: Represents inherited pipe state.
+- Description: Provides the resolved group pipes inherited by a tree slot.
 
 ### Node
 
-- Role: Represents node within RenderTree.
-- Description: Describes the nested node type used by the enclosing class.
+- Role: Represents one render-tree node.
+- Description: Marks a node that can be inserted into the render tree.
 
 ### Slot
 
-- Role: Represents slot within RenderTree.
-- Description: Describes the nested slot type used by the enclosing class.
+- Role: Represents one tree slot handle.
+- Description: Connects render-tree operations to a slot entry in the list.
 
 ### SlotPipe
 
-- Role: Represents slot pipe within RenderTree.
-- Description: Describes the nested slot pipe type used by the enclosing class.
+- Role: Caches a slot-local pipe.
+- Description: Reuses the current dependency state while preserving identity across updates.
 
 ### SlotRemoved
 
-- Role: Represents slot removed within RenderTree.
-- Description: Describes the nested slot removed type used by the enclosing class.
+- Role: Signals slot removal.
+- Description: Marks that a render-tree slot has already been detached.
 
 ### StaticPipe
 
-- Role: Represents static pipe within RenderTree.
-- Description: Describes the nested static pipe type used by the enclosing class.
+- Role: Caches a locked pipe.
+- Description: Keeps a stable pipe for state-locked slots.
 
 ### TreeSlot
 
-- Role: Represents tree slot within RenderTree.
-- Description: Describes the nested tree slot type used by the enclosing class.
+- Role: Stores one render-tree slot.
+- Description: Holds the tree node, dependency state, and child relationships.
 
 ## Members
 
 ### Constants
 
 #### `private static final WeakHashedSet<DepInfo> interned = new WeakHashedSet<>(Hash.eq)`
-- Role: Defines the shared interned constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the interned operation.
+- Description: Implements the private static final weak hashed set<dep info> interned = new weak hashed set<>(hash.eq) operation.
+- Value: `new WeakHashedSet<>(Hash.eq)`
 
 #### `private static final Map<DepInfo, Reference<StaticPipe>> interned = new WeakHashMap<>()`
-- Role: Defines the shared interned constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the interned operation.
+- Description: Implements the private static final map<dep info, reference<static pipe>> interned = new weak hash map<>() operation.
+- Value: `new WeakHashMap<>()`
 
 #### `public static final Node nil = new Nil()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the nil operation.
+- Value: `new Nil()`
 
 ### Fields
 
 #### `private final Lock lock = new ReentrantLock()`
 - Role: Synchronizes access to the reentrant lock state.
-- Description: Supports the reentrant lock operation used by the surrounding class.
+- Description: Implements the reentrant lock operation.
 
 #### `private final TreeSlot root`
-- Role: Holds the root state.
-- Description: Backs the cached state for this file.
+- Role: Caches the root value.
+- Description: Keeps the root event so acceptance can be reported back.
 
 #### `private final List<Client<?>> clients = new ArrayList<>()`
-- Role: Caches clients entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the clients operation.
+- Description: Implements the private final list<client<?>> clients = new array list<>() operation.
 
 #### `private int nslots, nleaves`
-- Role: Stores the nleaves value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nleaves value.
+- Description: Caches the `nleaves` value for reuse.
 
 #### `private int nslots, nleaves`
-- Role: Stores the nleaves value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nleaves value.
+- Description: Caches the `nleaves` value for reuse.
 
 #### `final Class<? extends R> type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `final RenderList<R> list`
-- Role: Caches list entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the list value.
+- Description: Caches the `list` value for reuse.
 
 #### `private final Pipe[] groups`
-- Role: Holds the groups state.
-- Description: Backs the cached state for this file.
+- Role: Caches the groups value.
+- Description: Caches the `groups` value for reuse.
 
 #### `private final int[] gstates`
-- Role: Stores the gstates value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gstates value.
+- Description: Caches the `gstates` value for reuse.
 
 #### `public State[] states =`
-- Role: Holds the render tree state.
-- Description: Backs the cached state for this file.
+- Role: Caches the states value.
+- Description: Caches the `states` value for reuse.
 
 #### `public boolean[] def =`
 - Role: Tracks whether  is active.
@@ -127,435 +130,435 @@ Defines the render tree render pipeline component.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public int ndef = 0`
-- Role: Stores the ndef value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ndef value.
+- Description: Caches the `ndef` value for reuse.
 
 #### `public final DepInfo data = new DepInfo()`
-- Role: Holds the data state.
-- Description: Backs the cached state for this file.
+- Role: Implements the data operation.
+- Description: Implements the dep info operation.
 
 #### `public final Pipe parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `private boolean lock = false`
 - Role: Tracks the lock flag.
-- Description: Supports the lock operation used by the surrounding class.
+- Description: Caches the `lock` value for reuse.
 
 #### `public final DepInfo bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public final String node`
-- Role: Stores the node value.
-- Description: Backs the cached state for this file.
+- Role: Caches the node value.
+- Description: Caches the `node` value for reuse.
 
 #### `final TreeSlot parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `final RenderTree tree`
-- Role: Holds the tree state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tree value.
+- Description: Caches the `tree` value for reuse.
 
 #### `final Node node`
-- Role: Stores the node value.
-- Description: Backs the cached state for this file.
+- Role: Caches the node value.
+- Description: Caches the `node` value for reuse.
 
 #### `private DepInfo dstate = null`
-- Role: Holds the dstate state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dstate value.
+- Description: Caches the `dstate` value for reuse.
 
 #### `private Collection<TreeSlot>[] rdeps = null`
-- Role: Caches rdeps entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the rdeps value.
+- Description: Caches the `rdeps` value for reuse.
 
 #### `private TreeSlot[] deps = null`
-- Role: Holds the deps state.
-- Description: Backs the cached state for this file.
+- Role: Caches the deps value.
+- Description: Caches the `deps` value for reuse.
 
 #### `private Pipe.Op cstate, ostate`
-- Role: Holds the ostate state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ostate value.
+- Description: Caches the `ostate` value for reuse.
 
 #### `private Pipe.Op cstate, ostate`
-- Role: Holds the ostate state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ostate value.
+- Description: Caches the `ostate` value for reuse.
 
 #### `private boolean stlock = false`
 - Role: Tracks the stlock flag.
-- Description: Supports the stlock operation used by the surrounding class.
+- Description: Caches the `stlock` value for reuse.
 
 #### `private TreeSlot[] children = null`
-- Role: Holds the children state.
-- Description: Backs the cached state for this file.
+- Role: Caches the children value.
+- Description: Caches the `children` value for reuse.
 
 #### `private int nchildren = 0`
-- Role: Stores the nchildren value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nchildren value.
+- Description: Caches the `nchildren` value for reuse.
 
 #### `private int pidx = -1`
-- Role: Stores the pidx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pidx value.
+- Description: Caches the `pidx` value for reuse.
 
 #### `private Pipe pdstate = null`
-- Role: Holds the pdstate state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pdstate value.
+- Description: Caches the `pdstate` value for reuse.
 
 #### `private Inheritance istate = null`
-- Role: Holds the istate state.
-- Description: Backs the cached state for this file.
+- Role: Caches the istate value.
+- Description: Caches the `istate` value for reuse.
 
 #### `protected Slot slot = null`
-- Role: Holds the slot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the slot value.
+- Description: Caches the `slot` value for reuse.
 
 ### Methods
 
 #### `public RenderTree()`
 - Role: Creates a new RenderTree instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RenderTree instance from the supplied inputs.
 
 #### `public Locked lock()`
-- Role: Performs lock.
-- Description: Supports the lock operation used by the surrounding class.
+- Role: Handles the lock path.
+- Description: Implements the lock operation.
 
 #### `Client(Class<? extends R> type, RenderList<R> list)`
 - Role: Handles the client workflow.
-- Description: Supports the client operation used by the surrounding class.
+- Description: Implements the client operation.
 
 #### `void added(TreeSlot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `void removed(TreeSlot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `void updated(TreeSlot slot)`
-- Role: Performs updated.
-- Description: Supports the updated operation used by the surrounding class.
+- Role: Handles the updated path.
+- Description: Updates the d.
 
 #### `void updated(Pipe group, int[] mask)`
-- Role: Performs updated.
-- Description: Supports the updated operation used by the surrounding class.
+- Role: Handles the updated path.
+- Description: Updates the d.
 
 #### `public Inheritance(Pipe[] groups, int[] gstates)`
-- Role: Performs inheritance.
-- Description: Supports the inheritance operation used by the surrounding class.
+- Role: Handles the inheritance path.
+- Description: Implements the inheritance operation.
 
 #### `public Pipe group(int g)`
-- Role: Performs group.
-- Description: Supports the group operation used by the surrounding class.
+- Role: Handles the group path.
+- Description: Implements the group operation.
 
 #### `public int gstate(int id)`
-- Role: Performs gstate.
-- Description: Supports the gstate operation used by the surrounding class.
+- Role: Handles the gstate path.
+- Description: Implements the gstate operation.
 
 #### `public int nstates()`
-- Role: Performs nstates.
-- Description: Supports the nstates operation used by the surrounding class.
+- Role: Handles the nstates path.
+- Description: Implements the nstates operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this RenderTree for debugging and logging.
 
 #### `private void alloc(int idx)`
-- Role: Performs alloc.
-- Description: Supports the alloc operation used by the surrounding class.
+- Role: Handles the alloc path.
+- Description: Implements the alloc operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public DepInfo intern()`
-- Role: Performs intern.
-- Description: Supports the intern operation used by the surrounding class.
+- Role: Handles the intern path.
+- Description: Implements the intern operation.
 
 #### `public int[] defdiff(DepInfo that)`
-- Role: Performs defdiff.
-- Description: Supports the defdiff operation used by the surrounding class.
+- Role: Handles the defdiff path.
+- Description: Implements the defdiff operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this RenderTree for debugging and logging.
 
 #### `public DepPipe(Pipe parent)`
-- Role: Performs dep pipe.
-- Description: Supports the dep pipe operation used by the surrounding class.
+- Role: Handles the dep pipe path.
+- Description: Implements the dep pipe operation.
 
 #### `public DepPipe prep(Pipe.Op op)`
-- Role: Performs prep.
-- Description: Supports the prep operation used by the surrounding class.
+- Role: Handles the prep path.
+- Description: Implements the prep operation.
 
 #### `public DepInfo lock()`
-- Role: Performs lock.
-- Description: Supports the lock operation used by the surrounding class.
+- Role: Handles the lock path.
+- Description: Implements the lock operation.
 
 #### `public <T extends State> T get(State.Slot<T> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public <T extends State> void put(State.Slot<? super T> slot, T state)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Handles the states path.
+- Description: Implements the states operation.
 
 #### `public StaticPipe(DepInfo bk)`
-- Role: Performs static pipe.
-- Description: Supports the static pipe operation used by the surrounding class.
+- Role: Handles the static pipe path.
+- Description: Implements the static pipe operation.
 
 #### `public static StaticPipe get(DepInfo bk)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public <T extends State> T get(State.Slot<T> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Handles the states path.
+- Description: Implements the states operation.
 
 #### `public Slot add(Node n, Pipe.Op state)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public default Slot add(Node n)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public void cstate(Pipe.Op state)`
-- Role: Performs cstate.
-- Description: Supports the cstate operation used by the surrounding class.
+- Role: Handles the cstate path.
+- Description: Implements the cstate operation.
 
 #### `public void ostate(Pipe.Op state)`
-- Role: Performs ostate.
-- Description: Supports the ostate operation used by the surrounding class.
+- Role: Handles the ostate path.
+- Description: Implements the ostate operation.
 
 #### `public Slot parent()`
-- Role: Performs parent.
-- Description: Supports the parent operation used by the surrounding class.
+- Role: Handles the parent path.
+- Description: Implements the parent operation.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public default void lockstate()`
-- Role: Performs lockstate.
-- Description: Supports the lockstate operation used by the surrounding class.
+- Role: Handles the lockstate path.
+- Description: Implements the lockstate operation.
 
 #### `private SlotRemoved(String message, TreeSlot slot)`
-- Role: Performs slot removed.
-- Description: Supports the slot removed operation used by the surrounding class.
+- Role: Handles the slot removed path.
+- Description: Implements the slot removed operation.
 
 #### `private SlotRemoved(TreeSlot slot)`
-- Role: Performs slot removed.
-- Description: Supports the slot removed operation used by the surrounding class.
+- Role: Handles the slot removed path.
+- Description: Implements the slot removed operation.
 
 #### `private TreeSlot(RenderTree tree, TreeSlot parent, Node node)`
-- Role: Performs tree slot.
-- Description: Supports the tree slot operation used by the surrounding class.
+- Role: Handles the tree slot path.
+- Description: Implements the tree slot operation.
 
 #### `private void addch(TreeSlot ch)`
-- Role: Performs addch.
-- Description: Supports the addch operation used by the surrounding class.
+- Role: Handles the addch path.
+- Description: Adds the ch.
 
 #### `private void removech(TreeSlot ch)`
-- Role: Performs removech.
-- Description: Supports the removech operation used by the surrounding class.
+- Role: Handles the removech path.
+- Description: Removes the ch.
 
 #### `public Iterable<TreeSlot> children()`
-- Role: Performs children.
-- Description: Supports the children operation used by the surrounding class.
+- Role: Handles the children path.
+- Description: Implements the children operation.
 
 #### `public Slot parent()`
-- Role: Performs parent.
-- Description: Supports the parent operation used by the surrounding class.
+- Role: Handles the parent path.
+- Description: Implements the parent operation.
 
 #### `public TreeSlot add(Node n, Pipe.Op state)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `private DepInfo mkdstate(Pipe.Op cstate, Pipe.Op ostate)`
-- Role: Performs mkdstate.
-- Description: Supports the mkdstate operation used by the surrounding class.
+- Role: Handles the mkdstate path.
+- Description: Implements the mkdstate operation.
 
 #### `private void remrdep(int stidx, TreeSlot rdep)`
-- Role: Performs remrdep.
-- Description: Supports the remrdep operation used by the surrounding class.
+- Role: Handles the remrdep path.
+- Description: Implements the remrdep operation.
 
 #### `private void addrdep(int stidx, TreeSlot rdep)`
-- Role: Performs addrdep.
-- Description: Supports the addrdep operation used by the surrounding class.
+- Role: Handles the addrdep path.
+- Description: Adds the rdep.
 
 #### `private void adddep(int stidx, TreeSlot dep)`
-- Role: Performs adddep.
-- Description: Supports the adddep operation used by the surrounding class.
+- Role: Handles the adddep path.
+- Description: Adds the dep.
 
 #### `private void rdepupd()`
-- Role: Performs rdepupd.
-- Description: Supports the rdepupd operation used by the surrounding class.
+- Role: Handles the rdepupd path.
+- Description: Implements the rdepupd operation.
 
 #### `private DepInfo setdstate(DepInfo nst)`
-- Role: Performs setdstate.
-- Description: Supports the setdstate operation used by the surrounding class.
+- Role: Handles the setdstate path.
+- Description: Updates the dstate.
 
 #### `private void upddstate(DepInfo nst)`
-- Role: Performs upddstate.
-- Description: Supports the upddstate operation used by the surrounding class.
+- Role: Handles the upddstate path.
+- Description: Implements the upddstate operation.
 
 #### `private void updtotal(boolean setds)`
-- Role: Performs updtotal.
-- Description: Supports the updtotal operation used by the surrounding class.
+- Role: Handles the updtotal path.
+- Description: Implements the updtotal operation.
 
 #### `private DepInfo dstate()`
-- Role: Performs dstate.
-- Description: Supports the dstate operation used by the surrounding class.
+- Role: Handles the dstate path.
+- Description: Implements the dstate operation.
 
 #### `private void checklockdeps()`
-- Role: Performs checklockdeps.
-- Description: Supports the checklockdeps operation used by the surrounding class.
+- Role: Handles the checklockdeps path.
+- Description: Implements the checklockdeps operation.
 
 #### `public void lockstate()`
-- Role: Performs lockstate.
-- Description: Supports the lockstate operation used by the surrounding class.
+- Role: Handles the lockstate path.
+- Description: Implements the lockstate operation.
 
 #### `private void chstate(Pipe.Op cstate, Pipe.Op ostate)`
-- Role: Performs chstate.
-- Description: Supports the chstate operation used by the surrounding class.
+- Role: Handles the chstate path.
+- Description: Implements the chstate operation.
 
 #### `public void cstate(Pipe.Op state)`
-- Role: Performs cstate.
-- Description: Supports the cstate operation used by the surrounding class.
+- Role: Handles the cstate path.
+- Description: Implements the cstate operation.
 
 #### `public void ostate(Pipe.Op state)`
-- Role: Performs ostate.
-- Description: Supports the ostate operation used by the surrounding class.
+- Role: Handles the ostate path.
+- Description: Implements the ostate operation.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public <T extends State> T get(State.Slot<T> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Handles the states path.
+- Description: Implements the states operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this RenderTree for debugging and logging.
 
 #### `private Pipe pdstate()`
-- Role: Performs pdstate.
-- Description: Supports the pdstate operation used by the surrounding class.
+- Role: Handles the pdstate path.
+- Description: Implements the pdstate operation.
 
 #### `private Inheritance istate()`
-- Role: Performs istate.
-- Description: Supports the istate operation used by the surrounding class.
+- Role: Handles the istate path.
+- Description: Returns whether the tate is true.
 
 #### `public Node obj()`
-- Role: Performs obj.
-- Description: Supports the obj operation used by the surrounding class.
+- Role: Handles the obj path.
+- Description: Implements the obj operation.
 
 #### `public GroupPipe state()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Handles the state path.
+- Description: Implements the state operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this RenderTree for debugging and logging.
 
 #### `public default void added(Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public default void removed(Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this RenderTree for debugging and logging.
 
 #### `public Iterable<Slot> slots()`
-- Role: Performs slots.
-- Description: Supports the slots operation used by the surrounding class.
+- Role: Handles the slots path.
+- Description: Implements the slots operation.
 
 #### `public Slot add(Node n, Pipe.Op state)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public Slot add(Node n)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(RenderList<?> list)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `private void dump(TreeSlot slot, int ind)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.
 
 #### `public void dump()`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.
 
 #### `public String stats()`
-- Role: Performs stats.
-- Description: Supports the stats operation used by the surrounding class.
+- Role: Handles the stats path.
+- Description: Implements the stats operation.

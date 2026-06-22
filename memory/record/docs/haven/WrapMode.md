@@ -1,5 +1,5 @@
 ---
-source: [WrapMode.java](../../../src/haven/WrapMode.java)
+source: [WrapMode.java](../../../../src/haven/WrapMode.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -16,10 +16,10 @@ Represents the wrap mode Haven component.
 
 #### `public final boolean ends`
 - Role: Tracks the ends flag.
-- Description: Supports the ends operation used by the surrounding class.
+- Description: Caches the `ends` value for reuse.
 
 ### Methods
 
 #### `WrapMode(boolean ends)`
 - Role: Creates a new WrapMode instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WrapMode instance from the supplied inputs.

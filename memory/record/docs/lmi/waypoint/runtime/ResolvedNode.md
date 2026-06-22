@@ -1,5 +1,5 @@
 ---
-source: [ResolvedNode.java](../../../../../src/lmi/waypoint/runtime/ResolvedNode.java)
+source: [ResolvedNode.java](../../../../../../src/lmi/waypoint/runtime/ResolvedNode.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Coordinates waypoint runtime state for resolved node.
 ### Fields
 
 #### `public final long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final int localX`
-- Role: Stores the local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local x value.
+- Description: Caches the `localX` value for reuse.
 
 #### `public final int localY`
-- Role: Stores the local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local y value.
+- Description: Caches the `localY` value for reuse.
 
 #### `public final Coord world`
-- Role: Stores the world value.
-- Description: Backs the cached state for this file.
+- Role: Caches the world value.
+- Description: Caches the `world` value for reuse.
 
 ### Methods
 
 #### `public ResolvedNode(long id, String name, long graphId, long gridId, int localX, int localY, Coord world)`
 - Role: Creates a new ResolvedNode instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ResolvedNode instance from the supplied inputs.

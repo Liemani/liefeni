@@ -1,5 +1,5 @@
 ---
-source: [InvestigateGobBoundingBoxWidthJob.java](../../../../../src/agent/debug/tool/InvestigateGobBoundingBoxWidthJob.java)
+source: [InvestigateGobBoundingBoxWidthJob.java](../../../../../../src/agent/debug/tool/InvestigateGobBoundingBoxWidthJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Investigates gob bounding-box width for debugging.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private void _carryWidth(Gob gob, Coord putPoint)`
-- Role: Performs  carry width.
-- Description: Supports the carry width operation used by the surrounding class.
+- Role: Handles the carry width path.
+- Description: Implements the carry width operation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

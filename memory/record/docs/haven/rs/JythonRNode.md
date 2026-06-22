@@ -1,5 +1,5 @@
 ---
-source: [JythonRNode.java](../../../../src/haven/rs/JythonRNode.java)
+source: [JythonRNode.java](../../../../../src/haven/rs/JythonRNode.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,9 +17,9 @@ Integrates Haven rendering-server support for jython rnode.
 ### Methods
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.

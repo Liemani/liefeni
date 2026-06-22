@@ -1,41 +1,35 @@
 ---
-source: [GLState.java](../../../../../src/haven/render/gl/GLState.java)
+source: [GLState.java](../../../../../../src/haven/render/gl/GLState.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # GLState
 
-Provides GL backend support for glstate.
+Base class for one OpenGL pipeline state slot. Concrete states apply and unapply themselves to a `BGL`.
 
 ## Members
 
 ### Constants
 
 #### `public static final Class<? extends GLState>[] slots = (Class<? extends GLState>[])new Class[]`
-- Role: Defines the shared slots constant.
-- Description: Shared constant used by the rest of the class.
-
-### Fields
+- Role: Declares the ordered GL state slot list.
+- Value: `(Class<? extends GLState>[])new Class[] {VaoState.class, VboState.class, FboState.class}`
 
 ### Methods
 
 #### `public static int slotidx(Class<? extends GLState> cl)`
-- Role: Performs slotidx.
-- Description: Supports the slotidx operation used by the surrounding class.
+- Role: Returns the slot index for a concrete GL state class.
 
 #### `public abstract void apply(BGL gl)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies this state to the backend.
 
 #### `public abstract void unapply(BGL gl)`
-- Role: Performs unapply.
-- Description: Supports the unapply operation used by the surrounding class.
+- Role: Removes this state from the backend.
 
 #### `public abstract int slotidx()`
-- Role: Performs slotidx.
-- Description: Supports the slotidx operation used by the surrounding class.
+- Role: Returns this state's slot index.
 
 #### `public void applyto(BGL gl, GLState to)`
-- Role: Performs applyto.
-- Description: Supports the applyto operation used by the surrounding class.
+- Role: Switches from this state to another state.
+

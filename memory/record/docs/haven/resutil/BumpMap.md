@@ -1,149 +1,168 @@
 ---
-source: [BumpMap.java](../../../../src/haven/resutil/BumpMap.java)
+source: [BumpMap.java](../../../../../src/haven/resutil/BumpMap.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # BumpMap
 
-Provides resource helper logic for bump map.
+Applies tangent-space normal mapping and can optionally use an overlay texture during shading.
 
 ## Nested Types
 
-### $bump
-
-- Role: Represents $bump within BumpMap.
-- Description: Describes the nested $bump type used by the enclosing class.
-
-### BiTangents
-
-- Role: Represents bi tangents within BumpMap.
-- Description: Describes the nested bi tangents type used by the enclosing class.
-
-### BitDecode
-
-- Role: Represents bit decode within BumpMap.
-- Description: Describes the nested bit decode type used by the enclosing class.
-
 ### Shader
+Builds the shader macro that turns tangent and bitangent data into fragment lighting.
 
-- Role: Represents shader within BumpMap.
-- Description: Describes the nested shader type used by the enclosing class.
+#### Members
 
-### TanDecode
+##### Fields
 
-- Role: Represents tan decode within BumpMap.
-- Description: Describes the nested tan decode type used by the enclosing class.
+#### `public final boolean otex`
+- Role: Stores whether overlay texture sampling is enabled.
+- Description: Chooses between `Tex2D` and `OverTex` coordinate sources.
 
-### Tangents
+##### Methods
 
-- Role: Represents tangents within BumpMap.
-- Description: Describes the nested tangents type used by the enclosing class.
+#### `private Shader(boolean otex)`
+- Role: Builds the shader variant.
+- Description: Stores the overlay flag used by `modify`.
+
+#### `public void modify(final ProgramContext prog)`
+- Role: Extends the program with bump mapping.
+- Description: Samples the normal map, builds the tangent-space normal, and installs mesh morph inputs.
+
+### `$bump`
+Parses the material specification and installs a `BumpMap` state into the material buffer.
+
+#### Members
+
+##### Methods
+
+#### `public void cons(Material.Buffer buf, Object... args)`
+- Role: Reads the material spec.
+- Description: Resolves the source texture and overlay flag, then adds a `BumpMap` state.
+
+### `Tangents`
+Stores tangent vectors as vertex-buffer float data.
+
+#### Members
+
+##### Constructors
+
+#### `public Tangents(FloatBuffer data)`
+- Role: Wraps tangent data.
+- Description: Creates a vertex-buffer payload for the tangent attribute.
+
+#### `public Tangents(Resource res, Message buf, int nv)`
+- Role: Decodes tangent data from a resource message.
+- Description: Loads `nv * 3` floats and forwards them to the float-data constructor.
+
+### `BiTangents`
+Stores bitangent vectors as vertex-buffer float data.
+
+#### Members
+
+##### Constructors
+
+#### `public BiTangents(FloatBuffer data)`
+- Role: Wraps bitangent data.
+- Description: Creates a vertex-buffer payload for the bitangent attribute.
+
+#### `public BiTangents(Resource res, Message buf, int nv)`
+- Role: Decodes bitangent data from a resource message.
+- Description: Loads `nv * 3` floats and forwards them to the float-data constructor.
+
+### `TanDecode`
+Decodes tangent data into the vertex-attribute destination list.
+
+#### Members
+
+##### Methods
+
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+- Role: Produces tangent attribute data.
+- Description: Loads a tangent float buffer and adds a `Tangents` payload.
+
+### `BitDecode`
+Decodes bitangent data into the vertex-attribute destination list.
+
+#### Members
+
+##### Methods
+
+#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
+- Role: Produces bitangent attribute data.
+- Description: Loads a bitangent float buffer and adds a `BiTangents` payload.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<BumpMap> slot = new Slot<BumpMap>(Slot.Type.DRAW, BumpMap.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Registers the bump-map draw state.
+- Description: Makes the current bump-map available to shader code.
 
 #### `public static final Attribute tan = new Attribute(VEC3, "tan")`
-- Role: Defines the shared tan constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Declares the tangent attribute.
+- Description: Supplied by the mesh so the shader can build tangent space.
 
 #### `public static final Attribute bit = new Attribute(VEC3, "bit")`
-- Role: Defines the shared bit constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Declares the bitangent attribute.
+- Description: Supplied by the mesh so the shader can build tangent space.
 
 #### `private static final Uniform ctex = new Uniform(SAMPLER2D, p -> p.get(slot).tex, slot)`
-- Role: Defines the shared ctex constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the bump texture to the shader.
+- Description: Reads the current state texture for normal-map sampling.
 
 #### `public static final AutoVarying tanc = new AutoVarying(VEC3)`
-- Role: Defines the shared tanc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Carries tangent data into the fragment stage.
+- Description: Mirrors the tangent attribute from the vertex stage.
 
 #### `public static final AutoVarying bitc = new AutoVarying(VEC3)`
-- Role: Defines the shared bitc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Carries bitangent data into the fragment stage.
+- Description: Mirrors the bitangent attribute from the vertex stage.
 
-#### `private static final Shader[] shaders =`
-- Role: Defines the shared bump map constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final Shader[] shaders = {new Shader(false), new Shader(true)}`
+- Role: Caches the shader variants.
+- Description: One variant samples overlay texture coordinates and the other does not.
 
 #### `public static final MeshBuf.LayerID<MeshBuf.Vec3Layer> ltan = new MeshBuf.V3LayerID(tan)`
-- Role: Defines the shared ltan constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Connects tangents to mesh buffer storage.
+- Description: Used when decoding vertex data.
 
 #### `public static final MeshBuf.LayerID<MeshBuf.Vec3Layer> lbit = new MeshBuf.V3LayerID(bit)`
-- Role: Defines the shared lbit constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Connects bitangents to mesh buffer storage.
+- Description: Used when decoding vertex data.
 
 ### Fields
 
 #### `public final Sampler2D tex`
-- Role: Holds the tex state.
-- Description: Backs the cached state for this file.
+- Role: Stores the bump texture.
+- Description: Sampled during shader execution.
 
 #### `private final ShaderMacro shader`
-- Role: Holds the shader state.
-- Description: Backs the cached state for this file.
+- Role: Stores the selected shader macro.
+- Description: Chosen from the `otex` flag.
 
 #### `public final boolean otex`
-- Role: Tracks the otex flag.
-- Description: Supports the otex operation used by the surrounding class.
+- Role: Tracks whether overlay texture sampling is enabled.
+- Description: Selects the appropriate shader variant.
 
 ### Methods
 
 #### `public BumpMap(Sampler2D tex, boolean otex)`
-- Role: Creates a new BumpMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a bump-map state.
+- Description: Stores the texture and shader mode flag.
 
 #### `public BumpMap(Sampler2D tex)`
-- Role: Creates a new BumpMap instance.
-- Description: Constructs the instance and initializes its default state.
-
-#### `private Shader(boolean otex)`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
-
-#### `public void modify(final ProgramContext prog)`
-- Role: Performs modify.
-- Description: Supports the modify operation used by the surrounding class.
+- Role: Builds a bump-map state without overlay texture sampling.
+- Description: Uses the default shader variant.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the selected shader macro.
+- Description: Uses the variant prepared during construction.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Installs the bump-map state.
+- Description: Publishes the current state to the render pipe.
 
-#### `public void cons(Material.Buffer buf, Object... args)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
-
-#### `public Tangents(FloatBuffer data)`
-- Role: Performs tangents.
-- Description: Supports the tangents operation used by the surrounding class.
-
-#### `public Tangents(Resource res, Message buf, int nv)`
-- Role: Performs tangents.
-- Description: Supports the tangents operation used by the surrounding class.
-
-#### `public BiTangents(FloatBuffer data)`
-- Role: Performs bi tangents.
-- Description: Supports the bi tangents operation used by the surrounding class.
-
-#### `public BiTangents(Resource res, Message buf, int nv)`
-- Role: Performs bi tangents.
-- Description: Supports the bi tangents operation used by the surrounding class.
-
-#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
-
-#### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.

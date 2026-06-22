@@ -1,5 +1,5 @@
 ---
-source: [ShaderMacro.java](../../../../../src/haven/render/sl/ShaderMacro.java)
+source: [ShaderMacro.java](../../../../../../src/haven/render/sl/ShaderMacro.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,53 +13,56 @@ Represents the shader macro shader-language AST node.
 ### Constants
 
 #### `public static final ShaderMacro nil = new ShaderMacro()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the shared no-op macro.
+- Description: Shared shader macro that does nothing.
+- Value: `new ShaderMacro()`
 
 #### `private static final WeakHashedSet<ShaderMacro> composed = new WeakHashedSet<>(Hash.eq)`
-- Role: Defines the shared composed constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches composed shader macros.
+- Description: Interns macro collections by identity-friendly equality.
+- Value: `new WeakHashedSet<>(Hash.eq)`
 
 #### `public static final ShaderMacro dump = new ShaderMacro()`
-- Role: Defines the shared dump constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the shared dump macro.
+- Description: Shared shader macro that enables source dumping.
+- Value: `new ShaderMacro()`
 
 ### Fields
 
 #### `public final Collection<ShaderMacro> smacs`
-- Role: Caches smacs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the composed macros.
+- Description: Iterated when the composed macro is applied.
 
 ### Methods
 
 #### `public void modify(ProgramContext prog)`
-- Role: Performs modify.
-- Description: Supports the modify operation used by the surrounding class.
+- Role: Installs the shader macro.
+- Description: Applies the macro to the program context.
 
 #### `public Composed(Collection<ShaderMacro> smacs)`
-- Role: Performs composed.
-- Description: Supports the composed operation used by the surrounding class.
+- Role: Combines several shader macros.
+- Description: Stores the macro collection for later application.
 
 #### `public void modify(ProgramContext prog)`
-- Role: Performs modify.
-- Description: Supports the modify operation used by the surrounding class.
+- Role: Installs the composed shader macro.
+- Description: Applies every stored macro to the program context.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this ShaderMacro for debugging and logging.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public static ShaderMacro compose(Collection<ShaderMacro> smacs)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Builds a composed shader macro.
+- Description: Reuses or interns a combined macro for the provided collection.
 
 #### `public static ShaderMacro compose(ShaderMacro... smacs)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Builds a composed shader macro.
+- Description: Reuses or interns a combined macro for the provided array.

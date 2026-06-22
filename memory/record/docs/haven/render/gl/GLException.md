@@ -1,5 +1,5 @@
 ---
-source: [GLException.java](../../../../../src/haven/render/gl/GLException.java)
+source: [GLException.java](../../../../../../src/haven/render/gl/GLException.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -37,63 +37,63 @@ Provides GL backend support for glexception.
 ### Fields
 
 #### `public int code`
-- Role: Stores the code value.
-- Description: Backs the cached state for this file.
+- Role: Caches the code value.
+- Description: Caches the `code` value for reuse.
 
 #### `public String str`
-- Role: Stores the str value.
-- Description: Backs the cached state for this file.
+- Role: Caches the str value.
+- Description: Caches the `str` value for reuse.
 
 #### `public String memstats = null`
-- Role: Stores the memstats value.
-- Description: Backs the cached state for this file.
+- Role: Caches the memstats value.
+- Description: Caches the `memstats` value for reuse.
 
 ### Methods
 
 #### `public GLException(int code)`
 - Role: Creates a new GLException instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLException instance from the supplied inputs.
 
 #### `public static String constname(Class<?> cl, int val)`
-- Role: Performs constname.
-- Description: Supports the constname operation used by the surrounding class.
+- Role: Handles the constname path.
+- Description: Implements the constname operation.
 
 #### `public static String constname(int val)`
-- Role: Performs constname.
-- Description: Supports the constname operation used by the surrounding class.
+- Role: Handles the constname path.
+- Description: Implements the constname operation.
 
 #### `public GLInvalidEnumException()`
-- Role: Performs glinvalid enum exception.
-- Description: Supports the glinvalid enum exception operation used by the surrounding class.
+- Role: Handles the glinvalid enum exception path.
+- Description: Implements the gl invalid enum exception operation.
 
 #### `public GLInvalidValueException()`
-- Role: Performs glinvalid value exception.
-- Description: Supports the glinvalid value exception operation used by the surrounding class.
+- Role: Handles the glinvalid value exception path.
+- Description: Implements the gl invalid value exception operation.
 
 #### `public GLInvalidOperationException()`
-- Role: Performs glinvalid operation exception.
-- Description: Supports the glinvalid operation exception operation used by the surrounding class.
+- Role: Handles the glinvalid operation exception path.
+- Description: Implements the gl invalid operation exception operation.
 
 #### `public GLOutOfMemoryException()`
-- Role: Performs glout of memory exception.
-- Description: Supports the glout of memory exception operation used by the surrounding class.
+- Role: Handles the glout of memory exception path.
+- Description: Implements the gl out of memory exception operation.
 
 #### `public void initenv(GLEnvironment env)`
-- Role: Performs initenv.
-- Description: Supports the initenv operation used by the surrounding class.
+- Role: Handles the initenv path.
+- Description: Implements the initenv operation.
 
 #### `public static GLException glexcfor(int code)`
-- Role: Performs glexcfor.
-- Description: Supports the glexcfor operation used by the surrounding class.
+- Role: Handles the glexcfor path.
+- Description: Implements the glexcfor operation.
 
 #### `public static void checkfor(GL gl, Throwable cause, GLEnvironment env)`
-- Role: Performs checkfor.
-- Description: Supports the checkfor operation used by the surrounding class.
+- Role: Handles the checkfor path.
+- Description: Implements the checkfor operation.
 
 #### `public static void checkfor(GL gl, GLEnvironment env)`
-- Role: Performs checkfor.
-- Description: Supports the checkfor operation used by the surrounding class.
+- Role: Handles the checkfor path.
+- Description: Implements the checkfor operation.
 
 #### `public void initenv(GLEnvironment env)`
-- Role: Performs initenv.
-- Description: Supports the initenv operation used by the surrounding class.
+- Role: Handles the initenv path.
+- Description: Implements the initenv operation.

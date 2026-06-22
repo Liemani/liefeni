@@ -1,5 +1,5 @@
 ---
-source: [RecordingSegment.java](../../../../../src/lmi/waypoint/model/RecordingSegment.java)
+source: [RecordingSegment.java](../../../../../../src/lmi/waypoint/model/RecordingSegment.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Represents waypoint model data for recording segment.
 ### Fields
 
 #### `public final int index`
-- Role: Stores the index value.
-- Description: Backs the cached state for this file.
+- Role: Caches the index value.
+- Description: Caches the `index` value for reuse.
 
 #### `public Long baseGraphId`
-- Role: Stores the base graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base graph id value.
+- Description: Caches the `baseGraphId` value for reuse.
 
 #### `public long baseGridId`
-- Role: Stores the base grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base grid id value.
+- Description: Caches the `baseGridId` value for reuse.
 
 #### `public int baseLocalX`
-- Role: Stores the base local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base local x value.
+- Description: Caches the `baseLocalX` value for reuse.
 
 #### `public int baseLocalY`
-- Role: Stores the base local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base local y value.
+- Description: Caches the `baseLocalY` value for reuse.
 
 #### `public final List<RecordingClick> clicks = new ArrayList<>()`
-- Role: Caches clicks entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Handles s interaction.
+- Description: Handles s interaction.
 
 ### Methods
 
 #### `public RecordingSegment(int index, Long baseGraphId, long baseGridId, int baseLocalX, int baseLocalY)`
 - Role: Creates a new RecordingSegment instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RecordingSegment instance from the supplied inputs.

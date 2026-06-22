@@ -1,5 +1,5 @@
 ---
-source: [Effect.java](../../../src/agent/Effect.java)
+source: [Effect.java](../../../../src/agent/Effect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Base type for instant agent effects.
 
 #### `public abstract void execute()`
 - Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Description: Defines the instant action entry point.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the effect help text.
+- Description: Exposes the short description used by menus and help output.

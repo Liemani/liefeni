@@ -1,5 +1,5 @@
 ---
-source: [Rect.java](../../../../src/lmi/core/Rect.java)
+source: [Rect.java](../../../../../src/lmi/core/Rect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,75 +15,75 @@ Represents a simple rectangle value object.
 ### Fields
 
 #### `public Coord origin`
-- Role: Stores the origin value.
-- Description: Backs the cached state for this file.
+- Role: Caches the origin value.
+- Description: Caches the `origin` value for reuse.
 
 #### `public Coord size`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 ### Methods
 
 #### `public void init(Coord coord1, Coord coord2)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the rectangle from two corner coordinates.
 
 #### `public Rect()`
 - Role: Creates a new Rect instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Rect instance from the supplied inputs.
 
 #### `public Rect(Coord coord1, Coord coord2)`
 - Role: Creates a new Rect instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Rect instance from the supplied inputs.
 
 #### `public Rect(Coord[] coordArray)`
 - Role: Creates a new Rect instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Rect instance from the supplied inputs.
 
 #### `public Rect(Rect rect)`
 - Role: Creates a new Rect instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Rect instance from the supplied inputs.
 
 #### `public int width()`
-- Role: Performs width.
-- Description: Supports the width operation used by the surrounding class.
+- Role: Handles the width path.
+- Description: Returns the rectangle width in tiles.
 
 #### `public int height()`
-- Role: Performs height.
-- Description: Supports the height operation used by the surrounding class.
+- Role: Handles the height path.
+- Description: Returns the rectangle height in tiles.
 
 #### `public int minX()`
-- Role: Performs min x.
-- Description: Supports the min x operation used by the surrounding class.
+- Role: Handles the min x path.
+- Description: Returns the smaller x edge.
 
 #### `public int midX()`
-- Role: Performs mid x.
-- Description: Supports the mid x operation used by the surrounding class.
+- Role: Handles the mid x path.
+- Description: Returns the horizontal midpoint.
 
 #### `public int maxX()`
-- Role: Performs max x.
-- Description: Supports the max x operation used by the surrounding class.
+- Role: Handles the max x path.
+- Description: Returns the larger x edge.
 
 #### `public int minY()`
-- Role: Performs min y.
-- Description: Supports the min y operation used by the surrounding class.
+- Role: Handles the min y path.
+- Description: Returns the smaller y edge.
 
 #### `public int midY()`
-- Role: Performs mid y.
-- Description: Supports the mid y operation used by the surrounding class.
+- Role: Handles the mid y path.
+- Description: Returns the vertical midpoint.
 
 #### `public int maxY()`
-- Role: Performs max y.
-- Description: Supports the max y operation used by the surrounding class.
+- Role: Handles the max y path.
+- Description: Returns the larger y edge.
 
 #### `public Rect assignExtendToTile()`
-- Role: Performs assign extend to tile.
-- Description: Supports the assign extend to tile operation used by the surrounding class.
+- Role: Handles the assign extend to tile path.
+- Description: Expands the rectangle to full tile boundaries.
 
 #### `public boolean contains(Coord coord)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Returns true when the coordinate lies inside the rectangle.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Rect for debugging and logging.

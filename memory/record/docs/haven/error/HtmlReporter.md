@@ -1,5 +1,5 @@
 ---
-source: [HtmlReporter.java](../../../../src/haven/error/HtmlReporter.java)
+source: [HtmlReporter.java](../../../../../src/haven/error/HtmlReporter.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,89 +20,93 @@ Handles Haven error reporting for html reporter.
 ### Constants
 
 #### `public static final DateFormat dfmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")`
-- Role: Defines the shared dfmt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the dfmt operation.
+- Description: Implements the simple date format operation.
+- Value: `new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")`
 
 #### `public static final NumberFormat ifmt = NumberFormat.getInstance()`
-- Role: Defines the shared ifmt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ifmt operation.
+- Description: Implements the get instance operation.
+- Value: `NumberFormat.getInstance()`
 
 #### `public static final String[] idxprops =`
-- Role: Defines the shared html reporter constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the idxprops value.
+- Description: Caches the `idxprops` value for reuse.
+- Value: ``
 
 #### `public static final Class[] boring =`
-- Role: Defines the shared html reporter constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the boring value.
+- Description: Caches the `boring` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public String jarrev`
-- Role: Stores the jarrev value.
-- Description: Backs the cached state for this file.
+- Role: Caches the jarrev value.
+- Description: Caches the `jarrev` value for reuse.
 
 #### `public Throwable t`
-- Role: Holds the t state.
-- Description: Backs the cached state for this file.
+- Role: Caches the t value.
+- Description: Caches the `t` value for reuse.
 
 #### `private Pattern[] ignclass = new Pattern[]`
-- Role: Holds the ignclass state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ignclass value.
+- Description: Caches the `ignclass` value for reuse.
 
 ### Methods
 
 #### `private int equals(String a, String b)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int stcmp(StackTraceElement a, StackTraceElement b)`
-- Role: Performs stcmp.
-- Description: Supports the stcmp operation used by the surrounding class.
+- Role: Handles the stcmp path.
+- Description: Implements the stcmp operation.
 
 #### `public int thcmp(Throwable a, Throwable b)`
-- Role: Performs thcmp.
-- Description: Supports the thcmp operation used by the surrounding class.
+- Role: Handles the thcmp path.
+- Description: Implements the thcmp operation.
 
 #### `public ErrorIdentity(Report r)`
-- Role: Performs error identity.
-- Description: Supports the error identity operation used by the surrounding class.
+- Role: Handles the error identity path.
+- Description: Implements the error identity operation.
 
 #### `public int compareTo(ErrorIdentity o)`
-- Role: Performs compare to.
-- Description: Supports the compare to operation used by the surrounding class.
+- Role: Handles the compare to path.
+- Description: Implements the compare to operation.
 
 #### `public boolean equals(ErrorIdentity o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public static String htmlhead(String title)`
-- Role: Performs htmlhead.
-- Description: Supports the htmlhead operation used by the surrounding class.
+- Role: Handles the htmlhead path.
+- Description: Implements the htmlhead operation.
 
 #### `public static String htmltail()`
-- Role: Performs htmltail.
-- Description: Supports the htmltail operation used by the surrounding class.
+- Role: Handles the htmltail path.
+- Description: Implements the htmltail operation.
 
 #### `public static String htmlq(String html)`
-- Role: Performs htmlq.
-- Description: Supports the htmlq operation used by the surrounding class.
+- Role: Handles the htmlq path.
+- Description: Implements the htmlq operation.
 
 #### `public static String htmlbt(StackTraceElement[] bt)`
-- Role: Performs htmlbt.
-- Description: Supports the htmlbt operation used by the surrounding class.
+- Role: Handles the htmlbt path.
+- Description: Implements the htmlbt operation.
 
 #### `public static void makereport(OutputStream outs, Report rep) throws IOException`
 - Role: Handles the makereport workflow.
-- Description: Supports the makereport operation used by the surrounding class.
+- Description: Implements the makereport operation.
 
 #### `public static Throwable findrootexc(Throwable t)`
-- Role: Performs findrootexc.
-- Description: Supports the findrootexc operation used by the surrounding class.
+- Role: Handles the findrootexc path.
+- Description: Finds the rootexc.
 
 #### `public static void makeindex(OutputStream outs, Map<Path, Report> reports, Map<Path, Exception> failed) throws IOException`
 - Role: Handles the makeindex workflow.
-- Description: Supports the makeindex operation used by the surrounding class.
+- Description: Implements the makeindex operation.
 
 #### `public static void main(String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

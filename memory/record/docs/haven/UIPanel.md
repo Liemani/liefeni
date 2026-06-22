@@ -1,157 +1,160 @@
 ---
-source: [UIPanel.java](../../../src/haven/UIPanel.java)
+source: [UIPanel.java](../../../../src/haven/UIPanel.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # UIPanel
 
-Represents the uipanel Haven component.
+Bridges AWT input events into the Haven UI tree.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<Boolean> dbtext = Config.Variable.propb("haven.dbtext", false)`
-- Role: Defines the shared dbtext constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Enables debug text rendering.
+- Description: Reads the `haven.dbtext` preference flag.
+- Value: `Config.Variable.propb("haven.dbtext", false)`
 
 #### `public static final Config.Variable<Boolean> profile = Config.Variable.propb("haven.profile", false)`
-- Role: Defines the shared profile constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Enables profiling output.
+- Description: Reads the `haven.profile` preference flag.
+- Value: `Config.Variable.propb("haven.profile", false)`
 
 #### `public static final Cursor emptycurs = Toolkit.getDefaultToolkit().createCustomCursor(TexI.mkbuf(new Coord(1, 1)), new java.awt.Point(), "")`
-- Role: Defines the shared emptycurs constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the invisible cursor.
+- Description: Builds a one-pixel transparent AWT cursor used when the client hides the pointer.
+- Value: `Toolkit.getDefaultToolkit().createCustomCursor(TexI.mkbuf(new Coord(1, 1)), new java.awt.Point(), "")`
 
 ### Fields
 
 #### `public final Queue<InputEvent> events = new LinkedList<>()`
-- Role: Caches events entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Buffers pending input events.
+- Description: Stores key, mouse, and wheel events until the UI thread dispatches them.
 
 #### `public MouseEvent mousemv = null`
-- Role: Holds the mousemv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the latest pointer motion event.
+- Description: Keeps only the newest mouse move or drag event so motion can be coalesced.
 
 #### `private KeyEvent lastpress = null`
-- Role: Holds the lastpress state.
-- Description: Backs the cached state for this file.
+- Role: Tracks the last key press.
+- Description: Used to suppress duplicate typed events that follow the same physical key press.
 
 #### `private UI ui`
-- Role: Stores the UI value.
-- Description: Backs the cached state for this file.
+- Role: Stores the active UI instance.
+- Description: Receives dispatched events and drag-and-drop callbacks.
 
 ### Methods
 
 #### `public UI newui(UI.Runner fun)`
-- Role: Performs newui.
-- Description: Supports the newui operation used by the surrounding class.
+- Role: Creates a new UI.
+- Description: Builds the UI root for this panel through the supplied runner.
 
 #### `public void background(boolean bg)`
-- Role: Performs background.
-- Description: Supports the background operation used by the surrounding class.
+- Role: Toggles background mode.
+- Description: Forwards the state to the UI runner so the panel can run without focus.
 
 #### `public void setSize(int w, int h)`
-- Role: Sets the size.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Updates the panel size.
+- Description: Forwards the new canvas dimensions into the UI tree.
 
 #### `public Dimension getSize()`
-- Role: Returns the size.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the panel size.
+- Description: Reports the current canvas dimensions to AWT callers.
 
 #### `public void setCursor(Cursor c)`
-- Role: Sets the cursor.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Updates the active cursor.
+- Description: Applies the current UI cursor to the backing AWT component.
 
 #### `public Component getParent()`
-- Role: Returns the parent.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the parent component.
+- Description: Exposes the AWT parent that owns this panel.
 
 #### `public void dispatch(UI ui)`
-- Role: Performs dispatch.
-- Description: Supports the dispatch operation used by the surrounding class.
+- Role: Dispatches queued input into the UI.
+- Description: Drains buffered input events and forwards them to the current UI root.
 
 #### `public void register(Component wdg)`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Registers AWT listeners on a widget.
+- Description: Hooks keyboard, mouse, wheel, motion, and drop listeners into the supplied component.
 
 #### `public void keyTyped(KeyEvent e)`
-- Role: Performs key typed.
-- Description: Supports the key typed operation used by the surrounding class.
+- Role: Queues typed key input.
+- Description: Buffers the event for the next UI dispatch cycle.
 
 #### `public void keyPressed(KeyEvent e)`
-- Role: Performs key pressed.
-- Description: Supports the key pressed operation used by the surrounding class.
+- Role: Queues key-down input.
+- Description: Buffers the press event so the UI thread can process it in order.
 
 #### `public void keyReleased(KeyEvent e)`
-- Role: Performs key released.
-- Description: Supports the key released operation used by the surrounding class.
+- Role: Queues key-up input.
+- Description: Buffers the release event so the UI thread can process it in order.
 
 #### `public void mouseEntered(MouseEvent e)`
-- Role: Performs mouse entered.
-- Description: Supports the mouse entered operation used by the surrounding class.
+- Role: Ignores mouse-enter events.
+- Description: The panel does not need explicit enter handling here.
 
 #### `public void mouseExited(MouseEvent e)`
-- Role: Performs mouse exited.
-- Description: Supports the mouse exited operation used by the surrounding class.
+- Role: Ignores mouse-exit events.
+- Description: The panel does not need explicit exit handling here.
 
 #### `public void mouseClicked(MouseEvent e)`
-- Role: Performs mouse clicked.
-- Description: Supports the mouse clicked operation used by the surrounding class.
+- Role: Ignores click-through events.
+- Description: Click handling is driven by press and release dispatch instead.
 
 #### `public void mousePressed(MouseEvent e)`
-- Role: Performs mouse pressed.
-- Description: Supports the mouse pressed operation used by the surrounding class.
+- Role: Queues mouse-down input.
+- Description: Buffers the press event for the UI thread.
 
 #### `public void mouseReleased(MouseEvent e)`
-- Role: Performs mouse released.
-- Description: Supports the mouse released operation used by the surrounding class.
+- Role: Queues mouse-up input.
+- Description: Buffers the release event for the UI thread.
 
 #### `public void mouseWheelMoved(MouseWheelEvent e)`
-- Role: Performs mouse wheel moved.
-- Description: Supports the mouse wheel moved operation used by the surrounding class.
+- Role: Queues wheel input.
+- Description: Buffers the wheel event for the UI thread.
 
 #### `public void mouseDragged(MouseEvent e)`
-- Role: Performs mouse dragged.
-- Description: Supports the mouse dragged operation used by the surrounding class.
+- Role: Updates the pending motion event.
+- Description: Coalesces drag movement so only the latest position is dispatched.
 
 #### `public void mouseMoved(MouseEvent e)`
-- Role: Performs mouse moved.
-- Description: Supports the mouse moved operation used by the surrounding class.
+- Role: Updates the pending motion event.
+- Description: Coalesces motion events the same way as drag events.
 
 #### `private void drophover(DropTargetDragEvent ev)`
-- Role: Performs drophover.
-- Description: Supports the drophover operation used by the surrounding class.
+- Role: Processes drag-hover feedback.
+- Description: Resolves whether the current widget tree accepts the dragged payload.
 
 #### `private void dropthing(DropTargetDropEvent ev)`
-- Role: Performs dropthing.
-- Description: Supports the dropthing operation used by the surrounding class.
+- Role: Processes a drop action.
+- Description: Delivers the dropped payload to the UI root and reports success or failure.
 
 #### `public void dragEnter(DropTargetDragEvent ev)`
-- Role: Performs drag enter.
-- Description: Supports the drag enter operation used by the surrounding class.
+- Role: Forwards drag-enter to hover handling.
+- Description: Reuses the same hit-test logic as drag-over.
 
 #### `public void dragOver(DropTargetDragEvent ev)`
-- Role: Performs drag over.
-- Description: Supports the drag over operation used by the surrounding class.
+- Role: Forwards drag-over to hover handling.
+- Description: Reuses the same hit-test logic as drag-enter.
 
 #### `public void dropActionChanged(DropTargetDragEvent ev)`
-- Role: Performs drop action changed.
-- Description: Supports the drop action changed operation used by the surrounding class.
+- Role: Refreshes drag-hover state after action changes.
+- Description: Re-evaluates whether the current drop target accepts the payload.
 
 #### `public void dragExit(DropTargetEvent ev)`
-- Role: Performs drag exit.
-- Description: Supports the drag exit operation used by the surrounding class.
+- Role: Ignores drag-exit notifications.
+- Description: No state is needed once the drag leaves the panel.
 
 #### `public void drop(DropTargetDropEvent ev)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Forwards drop handling.
+- Description: Delivers the drop event to the widget tree.
 
 #### `public static Cursor getsyscurs(UI.Cursor id)`
-- Role: Performs getsyscurs.
-- Description: Supports the getsyscurs operation used by the surrounding class.
+- Role: Maps UI cursors to AWT cursors.
+- Description: Converts Haven cursor ids into their platform cursor equivalents.
 
 #### `public static Cursor makeawtcurs(BufferedImage img, Coord hs)`
-- Role: Performs makeawtcurs.
-- Description: Supports the makeawtcurs operation used by the surrounding class.
+- Role: Builds a custom AWT cursor.
+- Description: Renders the supplied image into a cursor-sized buffer and applies the hotspot.

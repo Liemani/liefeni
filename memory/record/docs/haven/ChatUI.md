@@ -1,953 +1,973 @@
 ---
-source: [ChatUI.java](../../../src/haven/ChatUI.java)
+source: [ChatUI.java](../../../../src/haven/ChatUI.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # ChatUI
 
-Represents the chat ui Haven component.
+Owns the chat channels, channel selection, and rich-text parsing for in-game chat.
 
 ## Nested Types
 
 ### $MChat
 
-- Role: Represents $mchat within ChatUI.
-- Description: Describes the nested $mchat type used by the enclosing class.
+- Role: Registers the multi-chat widget resource.
+- Description: Factory that creates the chat widget variant for multi-chat mode.
 
 ### $PChat
 
-- Role: Represents $pchat within ChatUI.
-- Description: Describes the nested $pchat type used by the enclosing class.
+- Role: Registers the party-chat widget resource.
+- Description: Factory that creates the chat widget variant for party chat mode.
 
 ### $PMChat
 
-- Role: Represents $pmchat within ChatUI.
-- Description: Describes the nested $pmchat type used by the enclosing class.
+- Role: Registers the private-multi chat widget resource.
+- Description: Factory that creates the chat widget variant for private multi chat mode.
 
 ### $SChan
 
-- Role: Represents $schan within ChatUI.
-- Description: Describes the nested $schan type used by the enclosing class.
+- Role: Registers the selected-channel widget resource.
+- Description: Factory that creates the selector channel widget used in the chat UI.
 
 ### Channel
 
-- Role: Represents channel within ChatUI.
-- Description: Describes the nested channel type used by the enclosing class.
+- Role: Models one chat channel.
+- Description: Base widget that stores rendered messages, scroll state, and message interaction handling for a channel.
 
 ### CharPos
 
-- Role: Represents char pos within ChatUI.
-- Description: Describes the nested char pos type used by the enclosing class.
+- Role: Tracks a character position within a rendered chat line.
+- Description: Helper used for hit testing and text interaction inside chat messages.
 
 ### ChatAttribute
 
-- Role: Represents chat attribute within ChatUI.
-- Description: Describes the nested chat attribute type used by the enclosing class.
+- Role: Marks chat-specific rich text attributes.
+- Description: Custom attribute container used for chat hyperlink metadata.
 
 ### ChatParser
 
-- Role: Represents chat parser within ChatUI.
-- Description: Describes the nested chat parser type used by the enclosing class.
+- Role: Parses chat text into rich text with links.
+- Description: Rich text parser that detects URLs and applies hyperlink styling.
 
 ### DarkChannel
 
-- Role: Represents dark channel within ChatUI.
-- Description: Describes the nested dark channel type used by the enclosing class.
+- Role: Renders a dark-styled chat channel.
+- Description: Chat channel variant used for dark-themed message presentation.
 
 ### EntryChannel
 
-- Role: Represents entry channel within ChatUI.
-- Description: Describes the nested entry channel type used by the enclosing class.
+- Role: Renders the channel input entry.
+- Description: Chat channel variant for composing outgoing messages.
 
 ### InMessage
 
-- Role: Represents in message within ChatUI.
-- Description: Describes the nested in message type used by the enclosing class.
+- Role: Models an incoming chat message.
+- Description: Message subtype for text received from the server or other players.
 
 ### Log
 
-- Role: Represents log within ChatUI.
-- Description: Describes the nested log type used by the enclosing class.
+- Role: Renders a chat log channel.
+- Description: Channel variant that keeps a persistent message log.
 
 ### Message
 
-- Role: Represents message within ChatUI.
-- Description: Describes the nested message type used by the enclosing class.
+- Role: Base class for chat messages.
+- Description: Stores timestamp and interaction hooks shared by all message kinds.
 
 ### MultiChat
 
-- Role: Represents multi chat within ChatUI.
-- Description: Describes the nested multi chat type used by the enclosing class.
+- Role: Renders the multi-chat channel.
+- Description: Chat channel variant for mixed multi-user conversation display.
 
 ### MyMessage
 
-- Role: Represents my message within ChatUI.
-- Description: Describes the nested my message type used by the enclosing class.
+- Role: Models the local player's outgoing chat message.
+- Description: Message subtype for text authored by the current player.
 
 ### NamedMessage
 
-- Role: Represents named message within ChatUI.
-- Description: Describes the nested named message type used by the enclosing class.
+- Role: Models a chat message with an explicit speaker name.
+- Description: Message subtype that prefixes the rendered text with a name tag.
 
 ### Notification
 
-- Role: Represents notification within ChatUI.
-- Description: Describes the nested notification type used by the enclosing class.
+- Role: Models a transient notification message.
+- Description: Message subtype used for non-chat notices shown in the chat UI.
 
 ### OutMessage
 
-- Role: Represents out message within ChatUI.
-- Description: Describes the nested out message type used by the enclosing class.
+- Role: Models an outgoing chat message.
+- Description: Message subtype for text queued to be sent to the server.
 
 ### PartyChat
 
-- Role: Represents party chat within ChatUI.
-- Description: Describes the nested party chat type used by the enclosing class.
+- Role: Renders the party chat channel.
+- Description: Chat channel variant for party-only communication.
 
 ### PrivChat
 
-- Role: Represents priv chat within ChatUI.
-- Description: Describes the nested priv chat type used by the enclosing class.
+- Role: Renders the private chat channel.
+- Description: Chat channel variant for private one-to-one conversation.
 
 ### QuickLine
 
-- Role: Represents quick line within ChatUI.
-- Description: Describes the nested quick line type used by the enclosing class.
+- Role: Models the quick chat input line.
+- Description: Temporary input widget used for the single-line chat composer.
 
 ### Rendered
 
-- Role: Represents rendered within ChatUI.
-- Description: Describes the nested rendered type used by the enclosing class.
+- Role: Wraps lazily rendered chat text.
+- Description: Base message subtype that memoizes the rendered text representation.
 
 ### RenderedMessage
 
-- Role: Represents rendered message within ChatUI.
-- Description: Describes the nested rendered message type used by the enclosing class.
+- Role: Tracks one rendered chat row.
+- Description: UI wrapper that caches rendered text, size, and scroll bookkeeping for a message.
 
 ### Selector
 
-- Role: Represents selector within ChatUI.
-- Description: Describes the nested selector type used by the enclosing class.
+- Role: Renders the channel selector sidebar.
+- Description: Widget that lets the user switch between available chat channels.
 
 ### SimpleChat
 
-- Role: Represents simple chat within ChatUI.
-- Description: Describes the nested simple chat type used by the enclosing class.
+- Role: Renders the simple chat channel.
+- Description: Chat channel variant that displays plain text messages.
 
 ### SimpleMessage
 
-- Role: Represents simple message within ChatUI.
-- Description: Describes the nested simple message type used by the enclosing class.
+- Role: Models a plain chat message.
+- Description: Message subtype that renders simple text with an optional color.
 
 ### Spring
 
-- Role: Represents spring within ChatUI.
-- Description: Describes the nested spring type used by the enclosing class.
+- Role: Binds channel selection to a specific spring-backed channel.
+- Description: Chat message and channel helper used for spring-specific communication paths.
 
 ## Members
 
 ### Constants
 
 #### `public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(UI.scale(12f)), TextAttribute.FOREGROUND, Color.BLACK)).aa(true)`
-- Role: Defines the shared fnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Renders parsed chat text.
+- Description: Rich-text foundry used for normal chat message rendering.
+- Value: `new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(UI.scale(12f)), TextAttribute.FOREGROUND, Color.BLACK)).aa(true)`
 
 #### `public static final Text.Foundry qfnd = new Text.Foundry(Text.dfont, 12, new java.awt.Color(192, 255, 192))`
-- Role: Defines the shared qfnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Renders quick-chat text.
+- Description: Text foundry used by the quick input line.
+- Value: `new Text.Foundry(Text.dfont, 12, new java.awt.Color(192, 255, 192))`
 
 #### `public static final int selw = UI.scale(130)`
-- Role: Defines the shared selw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the selw operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(130)`
 
 #### `public static final Coord marg = UI.scale(new Coord(9, 9))`
-- Role: Defines the shared marg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the chat margin.
+- Description: Padding used around the chat widget layout.
+- Value: `UI.scale(new Coord(9, 9))`
 
 #### `public static final Color[] urgcols = new Color[]`
-- Role: Defines the shared urgcols constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines urgency colors.
+- Description: Color ramp used to highlight urgent chat messages.
+- Value: `new Color[]`
 
 #### `public static final Attribute HYPERLINK = new ChatAttribute("hyperlink")`
-- Role: Defines the shared hyperlink constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the hyperlink operation.
+- Description: Implements the chat attribute operation.
+- Value: `new ChatAttribute("hyperlink")`
 
 #### `public static final Pattern urlpat = Pattern.compile("\\b((https?://)|(www\\.[a-z0-9_.-]+\\.[a-z0-9_.-]+))[a-z0-9/_.~#%+?&:*=-]*", Pattern.CASE_INSENSITIVE)`
-- Role: Defines the shared urlpat constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the urlpat operation.
+- Description: Implements the b operation.
+- Value: `Pattern.compile("\\b((https?://)|(www\\.[a-z0-9_.-]+\\.[a-z0-9_.-]+))[a-z0-9/_.~#%+?&:*=-]*", Pattern.CASE_INSENSITIVE)`
 
 #### `public static final Map<? extends Attribute, ?> urlstyle = RichText.fillattrs(TextAttribute.FOREGROUND, new Color(64, 64, 255),`
-- Role: Defines the shared urlstyle constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the urlstyle operation.
+- Description: Implements the color operation.
+- Value: `RichText.fillattrs(TextAttribute.FOREGROUND, new Color(64, 64, 255),`
 
 #### `private static final Tex chandiv = Resource.loadtex("gfx/hud/chat-cdiv")`
-- Role: Defines the shared chandiv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the chandiv operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-cdiv")`
 
 #### `private static final Tex chanseld = Resource.loadtex("gfx/hud/chat-csel")`
-- Role: Defines the shared chanseld constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the chanseld operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-csel")`
 
 #### `private static final Tex bulc = Resource.loadtex("gfx/hud/chat-lc")`
-- Role: Defines the shared bulc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bulc operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-lc")`
 
 #### `private static final Tex burc = Resource.loadtex("gfx/hud/chat-rc")`
-- Role: Defines the shared burc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the burc operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-rc")`
 
 #### `private static final Tex bhb = Resource.loadtex("gfx/hud/chat-hori")`
-- Role: Defines the shared bhb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bhb operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-hori")`
 
 #### `private static final Tex bvlb = Resource.loadtex("gfx/hud/chat-verti")`
-- Role: Defines the shared bvlb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bvlb operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-verti")`
 
 #### `private static final Tex bvrb = bvlb`
-- Role: Defines the shared bvrb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the bvrb value.
+- Description: Caches the `bvrb` value for reuse.
+- Value: `bvlb`
 
 #### `private static final Tex bmf = Resource.loadtex("gfx/hud/chat-mid")`
-- Role: Defines the shared bmf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bmf operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-mid")`
 
 #### `private static final Tex bcbd = Resource.loadtex("gfx/hud/chat-close-g")`
-- Role: Defines the shared bcbd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bcbd operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chat-close-g")`
 
 #### `private static final Resource notifsfx = Resource.local().loadwait("sfx/hud/chat")`
-- Role: Defines the shared notifsfx constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the chat notification sound.
+- Description: Resource used when a chat notification should play.
+- Value: `Resource.local().loadwait("sfx/hud/chat")`
 
 #### `private static final int minh = 111`
-- Role: Defines the shared minh constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the minh value.
+- Description: Caches the `minh` value for reuse.
+- Value: `111`
 
 #### `public static final KeyBinding kb_quick = KeyBinding.get("chat-quick", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, 0))`
-- Role: Defines the shared kb quick constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kb quick operation.
+- Description: Implements the forcode operation.
+- Value: `KeyBinding.get("chat-quick", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, 0))`
 
 ### Fields
 
 #### `public Channel sel = null`
-- Role: Holds the sel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sel value.
+- Description: Caches the `sel` value for reuse.
 
 #### `public int urgency = 0`
-- Role: Stores the urgency value.
-- Description: Backs the cached state for this file.
+- Role: Caches the urgency value.
+- Description: Caches the `urgency` value for reuse.
 
 #### `private final Selector chansel`
-- Role: Holds the chansel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the chansel value.
+- Description: Caches the `chansel` value for reuse.
 
 #### `private Coord base = Coord.z`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `private QuickLine qline = null`
-- Role: Stores the qline value.
-- Description: Backs the cached state for this file.
+- Role: Caches the qline value.
+- Description: Caches the `qline` value for reuse.
 
 #### `private final LinkedList<Notification> notifs = new LinkedList<Notification>()`
-- Role: Caches notifs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the notifs operation.
+- Description: Implements the private final linked list<notification> notifs = new linked list<notification>() operation.
 
 #### `private UI.Grab qgrab`
-- Role: Stores the qgrab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the qgrab value.
+- Description: Caches the `qgrab` value for reuse.
 
 #### `public final List<RenderedMessage> rmsgs = new ArrayList<>()`
-- Role: Caches rmsgs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rmsgs operation.
+- Description: Implements the public final list<rendered message> rmsgs = new array list<>() operation.
 
 #### `public int urgency = 0`
-- Role: Stores the urgency value.
-- Description: Backs the cached state for this file.
+- Role: Caches the urgency value.
+- Description: Caches the `urgency` value for reuse.
 
 #### `private final Scrollbar sb`
-- Role: Holds the sb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sb value.
+- Description: Caches the `sb` value for reuse.
 
 #### `private final IButton cb`
-- Role: Holds the cb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cb value.
+- Description: Caches the `cb` value for reuse.
 
 #### `private double dy`
-- Role: Stores the dy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dy value.
+- Description: Caches the `dy` value for reuse.
 
 #### `public final double time = Utils.ntime()`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Implements the time operation.
+- Description: Implements the ntime operation.
 
 #### `private RenderedMessage soldest = null, snewest = null`
-- Role: Holds the soldest state.
-- Description: Backs the cached state for this file.
+- Role: Caches the soldest value.
+- Description: Caches the `soldest` value for reuse.
 
 #### `private RenderedMessage soldest = null, snewest = null`
-- Role: Holds the soldest state.
-- Description: Backs the cached state for this file.
+- Role: Caches the soldest value.
+- Description: Caches the `soldest` value for reuse.
 
 #### `public final Message msg`
-- Role: Holds the msg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `public final int idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `private Indir<Text> data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private Text text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `RenderedMessage snext = null, sprev = null`
-- Role: Holds the snext state.
-- Description: Backs the cached state for this file.
+- Role: Caches the snext value.
+- Description: Caches the `snext` value for reuse.
 
 #### `RenderedMessage snext = null, sprev = null`
-- Role: Holds the snext state.
-- Description: Backs the cached state for this file.
+- Role: Caches the snext value.
+- Description: Caches the `snext` value for reuse.
 
 #### `double lseen = 0`
-- Role: Stores the lseen value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lseen value.
+- Description: Caches the `lseen` value for reuse.
 
 #### `int w, y`
-- Role: Stores the y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the y value.
+- Description: Caches the `y` value for reuse.
 
 #### `int w, y`
-- Role: Stores the y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the y value.
+- Description: Caches the `y` value for reuse.
 
 #### `private Coord sz = null`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `public final String text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `public final Color col`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Caches the col value.
+- Description: Caches the `col` value for reuse.
 
 #### `public final RenderedMessage rm`
-- Role: Holds the rm state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rm value.
+- Description: Caches the `rm` value for reuse.
 
 #### `public final int pn`
-- Role: Stores the pn value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pn value.
+- Description: Caches the `pn` value for reuse.
 
 #### `public final RichText.TextPart part`
-- Role: Stores the part value.
-- Description: Backs the cached state for this file.
+- Role: Caches the part value.
+- Description: Caches the `part` value for reuse.
 
 #### `public final TextHitInfo ch`
-- Role: Stores the ch value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ch value.
+- Description: Caches the `ch` value for reuse.
 
 #### `public final Comparator<CharPos> poscmp = new Comparator<CharPos>()`
-- Role: Stores the poscmp value.
-- Description: Backs the cached state for this file.
+- Role: Implements the poscmp operation.
+- Description: Implements the public final comparator<char pos> poscmp = new comparator<char pos>() operation.
 
 #### `private CharPos selorig, lasthit, selstart, selend`
-- Role: Stores the selend value.
-- Description: Backs the cached state for this file.
+- Role: Caches the selend value.
+- Description: Caches the `selend` value for reuse.
 
 #### `private CharPos selorig, lasthit, selstart, selend`
-- Role: Stores the selend value.
-- Description: Backs the cached state for this file.
+- Role: Caches the selend value.
+- Description: Caches the `selend` value for reuse.
 
 #### `private CharPos selorig, lasthit, selstart, selend`
-- Role: Stores the selend value.
-- Description: Backs the cached state for this file.
+- Role: Caches the selend value.
+- Description: Caches the `selend` value for reuse.
 
 #### `private CharPos selorig, lasthit, selstart, selend`
-- Role: Stores the selend value.
-- Description: Backs the cached state for this file.
+- Role: Caches the selend value.
+- Description: Caches the `selend` value for reuse.
 
 #### `private UI.Grab grab`
-- Role: Stores the grab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grab value.
+- Description: Caches the `grab` value for reuse.
 
 #### `private boolean dragging`
 - Role: Tracks the dragging flag.
-- Description: Supports the dragging operation used by the surrounding class.
+- Description: Caches the `dragging` value for reuse.
 
 #### `private Indir<Resource> iconres = null`
-- Role: Stores the iconres value.
-- Description: Backs the cached state for this file.
+- Role: Caches the iconres value.
+- Description: Caches the `iconres` value for reuse.
 
 #### `private final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `private final TextEntry in`
-- Role: Stores the in value.
-- Description: Backs the cached state for this file.
+- Role: Caches the in value.
+- Description: Caches the `in` value for reuse.
 
 #### `private List<String> history = new ArrayList<String>()`
-- Role: Caches history entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the history operation.
+- Description: Implements the private list<string> history = new array list<string>() operation.
 
 #### `private int hpos = 0`
-- Role: Stores the hpos value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hpos value.
+- Description: Caches the `hpos` value for reuse.
 
 #### `private String hcurrent`
-- Role: Stores the hcurrent value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hcurrent value.
+- Description: Caches the `hcurrent` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final int urgency`
-- Role: Stores the urgency value.
-- Description: Backs the cached state for this file.
+- Role: Caches the urgency value.
+- Description: Caches the `urgency` value for reuse.
 
 #### `private final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `private final Map<Integer, Color> pc = new HashMap<Integer, Color>()`
-- Role: Caches pc entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pc operation.
+- Description: Implements the private final map<integer, color> pc = new hash map<integer, color>() operation.
 
 #### `private Map<Integer, Boolean> muted = null`
 - Role: Tracks the muted flag.
-- Description: Supports the muted operation used by the surrounding class.
+- Description: Caches the `muted` value for reuse.
 
 #### `private Integer mutewait = null`
-- Role: Stores the mutewait value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mutewait value.
+- Description: Caches the `mutewait` value for reuse.
 
 #### `public final int from`
-- Role: Stores the from value.
-- Description: Backs the cached state for this file.
+- Role: Caches the from value.
+- Description: Caches the `from` value for reuse.
 
 #### `public final String text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `public final Color col`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Caches the col value.
+- Description: Caches the `col` value for reuse.
 
 #### `public final int w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public final String nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `private float colseq = 0`
-- Role: Stores the colseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the colseq value.
+- Description: Caches the `colseq` value for reuse.
 
 #### `private final int other`
-- Role: Stores the other value.
-- Description: Backs the cached state for this file.
+- Role: Caches the other value.
+- Description: Caches the `other` value for reuse.
 
 #### `private boolean muted`
 - Role: Tracks the muted flag.
-- Description: Supports the muted operation used by the surrounding class.
+- Description: Caches the `muted` value for reuse.
 
 #### `public final BufferedImage ctex = Resource.loadimg("gfx/hud/chantex")`
-- Role: Stores the ctex value.
-- Description: Backs the cached state for this file.
+- Role: Implements the ctex operation.
+- Description: Implements the loadimg operation.
 
 #### `public final Text.Foundry tf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, UI.scale(12))).aa(true)`
-- Role: Stores the tf value.
-- Description: Backs the cached state for this file.
+- Role: Implements the tf operation.
+- Description: Implements the aa operation.
 
 #### `public final Color[] uc =`
-- Role: Holds the chat ui state.
-- Description: Backs the cached state for this file.
+- Role: Caches the uc value.
+- Description: Caches the `uc` value for reuse.
 
 #### `private final List<DarkChannel> chls = new ArrayList<DarkChannel>()`
-- Role: Caches chls entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the chls operation.
+- Description: Implements the private final list<dark channel> chls = new array list<dark channel>() operation.
 
 #### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
-- Role: Stores the iconsz value.
-- Description: Backs the cached state for this file.
+- Role: Implements the iconsz operation.
+- Description: Implements the strsize operation.
 
 #### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
-- Role: Stores the iconsz value.
-- Description: Backs the cached state for this file.
+- Role: Implements the iconsz operation.
+- Description: Implements the strsize operation.
 
 #### `private final int iconsz = UI.scale(16), ellw = tf.strsize("...").x, maxnmw = selw - iconsz`
-- Role: Stores the iconsz value.
-- Description: Backs the cached state for this file.
+- Role: Implements the iconsz operation.
+- Description: Implements the strsize operation.
 
 #### `private final int offset = chandiv.sz().y + chanseld.sz().y`
-- Role: Stores the offset value.
-- Description: Backs the cached state for this file.
+- Role: Implements the offset operation.
+- Description: Implements the sz operation.
 
 #### `private int ts = 0`
-- Role: Stores the ts value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ts value.
+- Description: Caches the `ts` value for reuse.
 
 #### `private double ds = 0`
-- Role: Stores the ds value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ds value.
+- Description: Caches the `ds` value for reuse.
 
 #### `private Channel cstart`
-- Role: Holds the cstart state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cstart value.
+- Description: Caches the `cstart` value for reuse.
 
 #### `public final Channel chan`
-- Role: Holds the chan state.
-- Description: Backs the cached state for this file.
+- Role: Caches the chan value.
+- Description: Caches the `chan` value for reuse.
 
 #### `public Text rname`
-- Role: Stores the rname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rname value.
+- Description: Caches the `rname` value for reuse.
 
 #### `public Tex ricon`
-- Role: Stores the ricon value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ricon value.
+- Description: Caches the `ricon` value for reuse.
 
 #### `private int urgency = 0`
-- Role: Stores the urgency value.
-- Description: Backs the cached state for this file.
+- Role: Caches the urgency value.
+- Description: Caches the `urgency` value for reuse.
 
 #### `private Resource.Image icon`
-- Role: Stores the icon value.
-- Description: Backs the cached state for this file.
+- Role: Caches the icon value.
+- Description: Caches the `icon` value for reuse.
 
 #### `public final Channel chan`
-- Role: Holds the chan state.
-- Description: Backs the cached state for this file.
+- Role: Caches the chan value.
+- Description: Caches the `chan` value for reuse.
 
 #### `public final Channel.Message msg`
-- Role: Holds the msg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `public final Text chnm, rmsg`
-- Role: Stores the rmsg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rmsg value.
+- Description: Caches the `rmsg` value for reuse.
 
 #### `public final Text chnm, rmsg`
-- Role: Stores the rmsg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rmsg value.
+- Description: Caches the `rmsg` value for reuse.
 
 #### `public final double time = Utils.ntime()`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Implements the time operation.
+- Description: Implements the ntime operation.
 
 #### `private Text.Line rqline = null`
-- Role: Stores the rqline value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rqline value.
+- Description: Caches the `rqline` value for reuse.
 
 #### `private int rqpre`
-- Role: Stores the rqpre value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rqpre value.
+- Description: Caches the `rqpre` value for reuse.
 
 #### `final int oy = base.y - c.y, ny`
-- Role: Stores the oy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oy value.
+- Description: Caches the `oy` value for reuse.
 
 #### `final int oy = base.y - c.y, ny`
-- Role: Stores the oy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oy value.
+- Description: Caches the `oy` value for reuse.
 
 #### `public boolean targetshow = false`
 - Role: Tracks the targetshow flag.
-- Description: Supports the targetshow operation used by the surrounding class.
+- Description: Caches the `targetshow` value for reuse.
 
 #### `public final ReadLine buf`
-- Role: Holds the buf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the buf value.
+- Description: Caches the `buf` value for reuse.
 
 #### `public final EntryChannel chan`
-- Role: Holds the chan state.
-- Description: Backs the cached state for this file.
+- Role: Caches the chan value.
+- Description: Caches the `chan` value for reuse.
 
 #### `private UI.Grab dm = null`
-- Role: Stores the dm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dm value.
+- Description: Caches the `dm` value for reuse.
 
 #### `private Coord doff`
-- Role: Stores the doff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the doff value.
+- Description: Caches the `doff` value for reuse.
 
 ### Methods
 
 #### `public ChatUI()`
 - Role: Creates a new ChatUI instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ChatUI instance from the supplied inputs.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `private ChatAttribute(String name)`
-- Role: Performs chat attribute.
-- Description: Supports the chat attribute operation used by the surrounding class.
+- Role: Handles the chat attribute path.
+- Description: Implements the chat attribute operation.
 
 #### `public ChatParser(Object... args)`
-- Role: Performs chat parser.
-- Description: Supports the chat parser operation used by the surrounding class.
+- Role: Handles the chat parser path.
+- Description: Implements the chat parser operation.
 
 #### `protected RichText.Part text(PState s, String text, Map<? extends Attribute, ?> attrs) throws IOException`
 - Role: Handles the text workflow.
-- Description: Supports the text operation used by the surrounding class.
+- Description: Implements the text operation.
 
 #### `public abstract Indir<Text> render(int w)`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public boolean valid(Indir<Text> prev)`
-- Role: Performs valid.
-- Description: Supports the valid operation used by the surrounding class.
+- Role: Handles the valid path.
+- Description: Implements the valid operation.
 
 #### `public boolean mousedown(Channel chan, CharPos pos, Coord c, int btn)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mouseup(Channel chan, CharPos pos, Coord c, int btn)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public boolean clicked(Channel chan, CharPos pos, Coord c, int btn)`
-- Role: Performs clicked.
-- Description: Supports the clicked operation used by the surrounding class.
+- Role: Handles the clicked path.
+- Description: Handles ed interaction.
 
 #### `public RenderedMessage(Message msg, int idx, int iw)`
-- Role: Performs rendered message.
-- Description: Supports the rendered message operation used by the surrounding class.
+- Role: Handles the rendered message path.
+- Description: Implements the rendered message operation.
 
 #### `public Indir<Text> data()`
-- Role: Performs data.
-- Description: Supports the data operation used by the surrounding class.
+- Role: Handles the data path.
+- Description: Implements the data operation.
 
 #### `private void slink()`
-- Role: Performs slink.
-- Description: Supports the slink operation used by the surrounding class.
+- Role: Handles the slink path.
+- Description: Implements the slink operation.
 
 #### `private void sunlink()`
-- Role: Performs sunlink.
-- Description: Supports the sunlink operation used by the surrounding class.
+- Role: Handles the sunlink path.
+- Description: Implements the sunlink operation.
 
 #### `public Text text()`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public int h()`
-- Role: Performs h.
-- Description: Supports the h operation used by the surrounding class.
+- Role: Handles the h path.
+- Description: Implements the h operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public void invalidate()`
-- Role: Performs invalidate.
-- Description: Supports the invalidate operation used by the surrounding class.
+- Role: Handles the invalidate path.
+- Description: Implements the invalidate operation.
 
 #### `public void resize(int w)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public boolean update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `private void trimunseen()`
-- Role: Performs trimunseen.
-- Description: Supports the trimunseen operation used by the surrounding class.
+- Role: Handles the trimunseen path.
+- Description: Implements the trimunseen operation.
 
 #### `public SimpleMessage(String text, Color col)`
-- Role: Performs simple message.
-- Description: Supports the simple message operation used by the surrounding class.
+- Role: Handles the simple message path.
+- Description: Implements the simple message operation.
 
 #### `public Indir<Text> render(int w)`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public Channel(boolean closable)`
-- Role: Performs channel.
-- Description: Supports the channel operation used by the surrounding class.
+- Role: Handles the channel path.
+- Description: Implements the channel operation.
 
 #### `public void append(Message msg, int urgency)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public void append(Message msg)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public void append(String line, Color col)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public int iw()`
-- Role: Performs iw.
-- Description: Supports the iw operation used by the surrounding class.
+- Role: Handles the iw path.
+- Description: Implements the iw operation.
 
 #### `public int ih()`
-- Role: Performs ih.
-- Description: Supports the ih operation used by the surrounding class.
+- Role: Handles the ih path.
+- Description: Implements the ih operation.
 
 #### `public void updurgency(int urg)`
-- Role: Performs updurgency.
-- Description: Supports the updurgency operation used by the surrounding class.
+- Role: Handles the updurgency path.
+- Description: Implements the updurgency operation.
 
 #### `public int messageat(int y, boolean nearest)`
-- Role: Performs messageat.
-- Description: Supports the messageat operation used by the surrounding class.
+- Role: Handles the messageat path.
+- Description: Implements the messageat operation.
 
 #### `public RenderedMessage messageat(Coord c, Coord hc)`
-- Role: Performs messageat.
-- Description: Supports the messageat operation used by the surrounding class.
+- Role: Handles the messageat path.
+- Description: Implements the messageat operation.
 
 #### `private void updyseq(int mi)`
-- Role: Performs updyseq.
-- Description: Supports the updyseq operation used by the surrounding class.
+- Role: Handles the updyseq path.
+- Description: Implements the updyseq operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the ChatUI content.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public CharPos(RenderedMessage rm, RichText.TextPart part, TextHitInfo ch)`
-- Role: Performs char pos.
-- Description: Supports the char pos operation used by the surrounding class.
+- Role: Handles the char pos path.
+- Description: Implements the char pos operation.
 
 #### `private static int partnum(RichText text, RichText.TextPart part)`
-- Role: Performs partnum.
-- Description: Supports the partnum operation used by the surrounding class.
+- Role: Handles the partnum path.
+- Description: Implements the partnum operation.
 
 #### `public boolean equals(Object oo)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this ChatUI for debugging and logging.
 
 #### `public CharPos charat(Coord c)`
-- Role: Performs charat.
-- Description: Supports the charat operation used by the surrounding class.
+- Role: Handles the charat path.
+- Description: Implements the charat operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `protected void selected(CharPos start, CharPos end)`
-- Role: Performs selected.
-- Description: Supports the selected operation used by the surrounding class.
+- Role: Handles the selected path.
+- Description: Implements the selected operation.
 
 #### `protected boolean clicked(CharPos pos, int btn)`
-- Role: Performs clicked.
-- Description: Supports the clicked operation used by the surrounding class.
+- Role: Handles the clicked path.
+- Description: Handles ed interaction.
 
 #### `public void select()`
-- Role: Performs select.
-- Description: Supports the select operation used by the surrounding class.
+- Role: Handles the select path.
+- Description: Implements the select operation.
 
 #### `public void display()`
-- Role: Performs display.
-- Description: Supports the display operation used by the surrounding class.
+- Role: Handles the display path.
+- Description: Implements the display operation.
 
 #### `private void drawsel(GOut g, RenderedMessage rm, int y)`
-- Role: Performs drawsel.
-- Description: Supports the drawsel operation used by the surrounding class.
+- Role: Handles the drawsel path.
+- Description: Draws the sel.
 
 #### `public void uimsg(String name, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public abstract String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public boolean selmousedown(Coord c, int btn)`
-- Role: Performs selmousedown.
-- Description: Supports the selmousedown operation used by the surrounding class.
+- Role: Handles the selmousedown path.
+- Description: Implements the selmousedown operation.
 
 #### `public boolean selmouseup(Coord c, int btn)`
-- Role: Performs selmouseup.
-- Description: Supports the selmouseup operation used by the surrounding class.
+- Role: Handles the selmouseup path.
+- Description: Implements the selmouseup operation.
 
 #### `public boolean selclicked(Coord c, int btn)`
-- Role: Performs selclicked.
-- Description: Supports the selclicked operation used by the surrounding class.
+- Role: Handles the selclicked path.
+- Description: Implements the selclicked operation.
 
 #### `public Channel icon(Indir<Resource> res)`
-- Role: Performs icon.
-- Description: Supports the icon operation used by the surrounding class.
+- Role: Handles the icon path.
+- Description: Implements the icon operation.
 
 #### `public Resource.Image icon()`
-- Role: Performs icon.
-- Description: Supports the icon operation used by the surrounding class.
+- Role: Handles the icon path.
+- Description: Implements the icon operation.
 
 #### `public Log(String name)`
-- Role: Performs log.
-- Description: Supports the log operation used by the surrounding class.
+- Role: Handles the log path.
+- Description: Implements the log operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public EntryChannel(boolean closable)`
-- Role: Performs entry channel.
-- Description: Supports the entry channel operation used by the surrounding class.
+- Role: Handles the entry channel path.
+- Description: Implements the entry channel operation.
 
 #### `public int ih()`
-- Role: Performs ih.
-- Description: Supports the ih operation used by the surrounding class.
+- Role: Handles the ih path.
+- Description: Implements the ih operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void send(String text)`
 - Role: Sends the current message.
 - Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `public SimpleChat(boolean closable, String name)`
-- Role: Performs simple chat.
-- Description: Supports the simple chat operation used by the surrounding class.
+- Role: Handles the simple chat path.
+- Description: Implements the simple chat operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public NamedMessage(int from, String text, Color col)`
-- Role: Performs named message.
-- Description: Supports the named message operation used by the surrounding class.
+- Role: Handles the named message path.
+- Description: Implements the named message operation.
 
 #### `public Rendered(int w, String nm)`
-- Role: Performs rendered.
-- Description: Supports the rendered operation used by the surrounding class.
+- Role: Handles the rendered path.
+- Description: Implements the rendered operation.
 
 #### `public Text get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private String nm()`
-- Role: Performs nm.
-- Description: Supports the nm operation used by the surrounding class.
+- Role: Handles the nm path.
+- Description: Implements the nm operation.
 
 #### `public Indir<Text> render(int w)`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public boolean valid(Indir<Text> data)`
-- Role: Performs valid.
-- Description: Supports the valid operation used by the surrounding class.
+- Role: Handles the valid path.
+- Description: Implements the valid operation.
 
 #### `public boolean clicked(Channel chan, CharPos pos, Coord c, int btn)`
-- Role: Performs clicked.
-- Description: Supports the clicked operation used by the surrounding class.
+- Role: Handles the clicked path.
+- Description: Handles ed interaction.
 
 #### `private void mutemenu(int pl, boolean cur)`
-- Role: Performs mutemenu.
-- Description: Supports the mutemenu operation used by the surrounding class.
+- Role: Handles the mutemenu path.
+- Description: Implements the mutemenu operation.
 
 #### `public MyMessage(String text)`
-- Role: Performs my message.
-- Description: Supports the my message operation used by the surrounding class.
+- Role: Handles the my message path.
+- Description: Implements the my message operation.
 
 #### `public MultiChat(boolean closable, String name, int urgency)`
-- Role: Performs multi chat.
-- Description: Supports the multi chat operation used by the surrounding class.
+- Role: Handles the multi chat path.
+- Description: Implements the multi chat operation.
 
 #### `private Color nextcol()`
-- Role: Performs nextcol.
-- Description: Supports the nextcol operation used by the surrounding class.
+- Role: Handles the nextcol path.
+- Description: Implements the nextcol operation.
 
 #### `public Color fromcolor(int from)`
-- Role: Performs fromcolor.
-- Description: Supports the fromcolor operation used by the surrounding class.
+- Role: Handles the fromcolor path.
+- Description: Implements the fromcolor operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public PartyChat()`
-- Role: Performs party chat.
-- Description: Supports the party chat operation used by the surrounding class.
+- Role: Handles the party chat path.
+- Description: Implements the party chat operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public PrivChat(boolean closable, int other)`
-- Role: Performs priv chat.
-- Description: Supports the priv chat operation used by the surrounding class.
+- Role: Handles the priv chat path.
+- Description: Implements the priv chat operation.
 
 #### `private void menu()`
-- Role: Performs menu.
-- Description: Supports the menu operation used by the surrounding class.
+- Role: Handles the menu path.
+- Description: Implements the menu operation.
 
 #### `public boolean selclicked(Coord c, int btn)`
-- Role: Performs selclicked.
-- Description: Supports the selclicked operation used by the surrounding class.
+- Role: Handles the selclicked path.
+- Description: Implements the selclicked operation.
 
 #### `public InMessage(String text)`
-- Role: Performs in message.
-- Description: Supports the in message operation used by the surrounding class.
+- Role: Handles the in message path.
+- Description: Implements the in message operation.
 
 #### `public boolean clicked(Channel chan, CharPos pos, Coord c, int btn)`
-- Role: Performs clicked.
-- Description: Supports the clicked operation used by the surrounding class.
+- Role: Handles the clicked path.
+- Description: Handles ed interaction.
 
 #### `public OutMessage(String text)`
-- Role: Performs out message.
-- Description: Supports the out message operation used by the surrounding class.
+- Role: Handles the out message path.
+- Description: Implements the out message operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.
@@ -966,201 +986,201 @@ Represents the chat ui Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `public <T extends Widget> T add(T w)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void cdestroy(Widget w)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Handles the cdestroy path.
+- Description: Implements the cdestroy operation.
 
 #### `private Text namedeco(String name, BufferedImage img, Color col)`
-- Role: Performs namedeco.
-- Description: Supports the namedeco operation used by the surrounding class.
+- Role: Handles the namedeco path.
+- Description: Implements the namedeco operation.
 
 #### `public Text nmrender(String name, Color col)`
-- Role: Performs nmrender.
-- Description: Supports the nmrender operation used by the surrounding class.
+- Role: Handles the nmrender path.
+- Description: Implements the nmrender operation.
 
 #### `public int chidx(Channel chan)`
-- Role: Performs chidx.
-- Description: Supports the chidx operation used by the surrounding class.
+- Role: Handles the chidx path.
+- Description: Implements the chidx operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `private DarkChannel(Channel chan)`
-- Role: Performs dark channel.
-- Description: Supports the dark channel operation used by the surrounding class.
+- Role: Handles the dark channel path.
+- Description: Implements the dark channel operation.
 
 #### `public Text rname()`
-- Role: Performs rname.
-- Description: Supports the rname operation used by the surrounding class.
+- Role: Handles the rname path.
+- Description: Implements the rname operation.
 
 #### `public Tex ricon()`
-- Role: Performs ricon.
-- Description: Supports the ricon operation used by the surrounding class.
+- Role: Handles the ricon path.
+- Description: Implements the ricon operation.
 
 #### `public Selector(Coord sz)`
-- Role: Performs selector.
-- Description: Supports the selector operation used by the surrounding class.
+- Role: Handles the selector path.
+- Description: Implements the selector operation.
 
 #### `private void add(Channel chan)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `private void rm(Channel chan)`
-- Role: Performs rm.
-- Description: Supports the rm operation used by the surrounding class.
+- Role: Handles the rm path.
+- Description: Implements the rm operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the ChatUI content.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void show(int si)`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.
 
 #### `public void show(Channel chan)`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.
 
 #### `public boolean up()`
-- Role: Performs up.
-- Description: Supports the up operation used by the surrounding class.
+- Role: Handles the up path.
+- Description: Implements the up operation.
 
 #### `public boolean down()`
-- Role: Performs down.
-- Description: Supports the down operation used by the surrounding class.
+- Role: Handles the down path.
+- Description: Implements the down operation.
 
 #### `private Channel bypos(Coord c)`
-- Role: Performs bypos.
-- Description: Supports the bypos operation used by the surrounding class.
+- Role: Handles the bypos path.
+- Description: Implements the bypos operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `private int clips(int s)`
-- Role: Performs clips.
-- Description: Supports the clips operation used by the surrounding class.
+- Role: Handles the clips path.
+- Description: Implements the clips operation.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void select(Channel chan, boolean focus)`
-- Role: Performs select.
-- Description: Supports the select operation used by the surrounding class.
+- Role: Handles the select path.
+- Description: Implements the select operation.
 
 #### `public void select(Channel chan)`
-- Role: Performs select.
-- Description: Supports the select operation used by the surrounding class.
+- Role: Handles the select path.
+- Description: Implements the select operation.
 
 #### `private Notification(Channel chan, Channel.Message msg)`
-- Role: Performs notification.
-- Description: Supports the notification operation used by the surrounding class.
+- Role: Handles the notification path.
+- Description: Implements the notification operation.
 
 #### `public void drawsmall(GOut g, Coord br, int h)`
-- Role: Performs drawsmall.
-- Description: Supports the drawsmall operation used by the surrounding class.
+- Role: Handles the drawsmall path.
+- Description: Draws the small.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the ChatUI content.
 
 #### `public void notify(Channel chan, Channel.Message msg, int urgency)`
-- Role: Performs notify.
-- Description: Supports the notify operation used by the surrounding class.
+- Role: Handles the notify path.
+- Description: Implements the notify operation.
 
 #### `Spring(int ny)`
 - Role: Handles the spring workflow.
-- Description: Supports the spring operation used by the surrounding class.
+- Description: Implements the spring operation.
 
 #### `public void ntick(double a)`
-- Role: Performs ntick.
-- Description: Supports the ntick operation used by the surrounding class.
+- Role: Handles the ntick path.
+- Description: Implements the ntick operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void presize()`
-- Role: Performs presize.
-- Description: Supports the presize operation used by the surrounding class.
+- Role: Handles the presize path.
+- Description: Implements the presize operation.
 
 #### `public void sshow(boolean show)`
-- Role: Performs sshow.
-- Description: Supports the sshow operation used by the surrounding class.
+- Role: Handles the sshow path.
+- Description: Implements the sshow operation.
 
 #### `public void hresize(int h)`
-- Role: Performs hresize.
-- Description: Supports the hresize operation used by the surrounding class.
+- Role: Handles the hresize path.
+- Description: Implements the hresize operation.
 
 #### `public void resize(int w)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void move(Coord base)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public void expand()`
-- Role: Performs expand.
-- Description: Supports the expand operation used by the surrounding class.
+- Role: Handles the expand path.
+- Description: Implements the expand operation.
 
 #### `public void show()`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.
 
 #### `public void hide()`
-- Role: Performs hide.
-- Description: Supports the hide operation used by the surrounding class.
+- Role: Handles the hide path.
+- Description: Implements the hide operation.
 
 #### `private QuickLine(EntryChannel chan)`
-- Role: Performs quick line.
-- Description: Supports the quick line operation used by the surrounding class.
+- Role: Handles the quick line path.
+- Description: Implements the quick line operation.
 
 #### `private void cancel()`
-- Role: Performs cancel.
-- Description: Supports the cancel operation used by the surrounding class.
+- Role: Cancels the current waiting registration.
+- Description: Cancels the current waiting registration.
 
 #### `public void done(ReadLine buf)`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public boolean key(KbdEvent ev)`
-- Role: Performs key.
-- Description: Supports the key operation used by the surrounding class.
+- Role: Handles the key path.
+- Description: Implements the key operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
 - Role: Handles a global key event.
-- Description: Supports the globtype operation used by the surrounding class.
+- Description: Implements the globtype operation.

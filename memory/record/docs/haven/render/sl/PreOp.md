@@ -1,52 +1,40 @@
 ---
-source: [PreOp.java](../../../../../src/haven/render/sl/PreOp.java)
+source: [PreOp.java](../../../../../../src/haven/render/sl/PreOp.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # PreOp
 
-Represents the pre op shader-language AST node.
+Represents a unary prefix operator expression.
 
 ## Nested Types
 
 ### Neg
-
-- Role: Represents neg within PreOp.
-- Description: Describes the nested neg type used by the enclosing class.
+Unary negation expression.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final Expression op`
-- Role: Holds the op state.
-- Description: Backs the cached state for this file.
+- Role: Stores the operand expression.
+- Description: Emitted after the prefix operator.
 
 ### Methods
 
 #### `public PreOp(Expression op)`
-- Role: Creates a new PreOp instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a prefix operator expression.
+- Description: Stores the operand.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Walks the operand expression.
+- Description: Visits the child node.
 
 #### `public abstract String form()`
-- Role: Performs form.
-- Description: Supports the form operation used by the surrounding class.
+- Role: Returns the operator spelling.
+- Description: Implemented by each concrete prefix operator.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
-
-#### `public static class Neg extends PreOp`
-- Role: Handles the pre op workflow.
-- Description: Supports the pre op operation used by the surrounding class.
-
-#### `public static class Neg extends PreOp`
-- Role: Handles the pre op workflow.
-- Description: Supports the pre op operation used by the surrounding class.
+- Role: Emits the unary expression.
+- Description: Writes the operator before the operand.

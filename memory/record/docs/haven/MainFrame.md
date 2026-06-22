@@ -1,5 +1,5 @@
 ---
-source: [MainFrame.java](../../../src/haven/MainFrame.java)
+source: [MainFrame.java](../../../../src/haven/MainFrame.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,153 +12,159 @@ Represents the main frame Haven component.
 
 ### ConnectionError
 
-- Role: Represents connection error within MainFrame.
-- Description: Describes the nested connection error type used by the enclosing class.
+- Role: Represents a startup connection failure.
+- Description: Exception raised when the main frame cannot establish the client connection.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<Boolean> initfullscreen = Config.Variable.propb("haven.fullscreen", false)`
-- Role: Defines the shared initfullscreen constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the initfullscreen operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.fullscreen", false)`
 
 #### `public static final Config.Variable<String> renderer = Config.Variable.prop("haven.renderer", "jogl")`
-- Role: Defines the shared renderer constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Renders the er.
+- Description: Renders the er.
+- Value: `Config.Variable.prop("haven.renderer", "jogl")`
 
 #### `public static final Config.Variable<Boolean> status = Config.Variable.propb("haven.status", false)`
-- Role: Defines the shared status constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the status operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.status", false)`
 
 #### `public static final Config.Variable<Boolean> nopreload = Config.Variable.propb("haven.nopreload", false)`
-- Role: Defines the shared nopreload constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nopreload operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.nopreload", false)`
 
 #### `public static final Config.Variable<Path> loadwaited = Config.Variable.propp("haven.loadwaited", "")`
-- Role: Defines the shared loadwaited constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Loads the waited.
+- Description: Loads the waited.
+- Value: `Config.Variable.propp("haven.loadwaited", "")`
 
 #### `public static final Config.Variable<Path> allused = Config.Variable.propp("haven.allused", "")`
-- Role: Defines the shared allused constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the allused operation.
+- Description: Implements the propp operation.
+- Value: `Config.Variable.propp("haven.allused", "")`
 
 ### Fields
 
 #### `final UIPanel p`
-- Role: Stores the p value.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 #### `private final ThreadGroup g`
-- Role: Holds the g state.
-- Description: Backs the cached state for this file.
+- Role: Caches the g value.
+- Description: Caches the `g` value for reuse.
 
 #### `private Thread mt`
-- Role: Holds the mt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mt value.
+- Description: Caches the `mt` value for reuse.
 
 #### `boolean fullscreen`
 - Role: Tracks the fullscreen flag.
-- Description: Supports the fullscreen operation used by the surrounding class.
+- Description: Caches the `fullscreen` value for reuse.
 
 #### `DisplayMode fsmode = null, prefs = null`
-- Role: Holds the fsmode state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fsmode value.
+- Description: Caches the `fsmode` value for reuse.
 
 #### `DisplayMode fsmode = null, prefs = null`
-- Role: Holds the fsmode state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fsmode value.
+- Description: Caches the `fsmode` value for reuse.
 
 #### `Coord prefssz = null`
-- Role: Stores the prefssz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prefssz value.
+- Description: Caches the `prefssz` value for reuse.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-- Role: Caches cmdmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cmdmap operation.
+- Description: Implements the private map<string, console.command> cmdmap = new tree map<string, console.command>() operation.
 
 ### Methods
 
 #### `public static void initlocale()`
-- Role: Performs initlocale.
-- Description: Supports the initlocale operation used by the surrounding class.
+- Role: Handles the initlocale path.
+- Description: Implements the initlocale operation.
 
 #### `public static void initawt()`
-- Role: Performs initawt.
-- Description: Supports the initawt operation used by the surrounding class.
+- Role: Handles the initawt path.
+- Description: Implements the initawt operation.
 
 #### `DisplayMode findmode(int w, int h)`
-- Role: Performs findmode.
-- Description: Supports the findmode operation used by the surrounding class.
+- Role: Handles the findmode path.
+- Description: Finds the mode.
 
 #### `public void setfs()`
-- Role: Performs setfs.
-- Description: Supports the setfs operation used by the surrounding class.
+- Role: Handles the setfs path.
+- Description: Updates the fs.
 
 #### `public void setwnd()`
-- Role: Performs setwnd.
-- Description: Supports the setwnd operation used by the surrounding class.
+- Role: Handles the setwnd path.
+- Description: Updates the wnd.
 
 #### `public Map<String, Console.Command> findcmds()`
 - Role: Returns the available console commands.
-- Description: Exposes the requested value without mutating state.
+- Description: Finds the cmds.
 
 #### `private void seticon()`
-- Role: Performs seticon.
-- Description: Supports the seticon operation used by the surrounding class.
+- Role: Handles the seticon path.
+- Description: Updates the icon.
 
 #### `private UIPanel renderer()`
-- Role: Performs renderer.
-- Description: Supports the renderer operation used by the surrounding class.
+- Role: Handles the renderer path.
+- Description: Renders the er.
 
 #### `public MainFrame(Coord isz)`
 - Role: Creates a new MainFrame instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the MainFrame instance from the supplied inputs.
 
 #### `private void savewndstate()`
-- Role: Performs savewndstate.
-- Description: Supports the savewndstate operation used by the surrounding class.
+- Role: Handles the savewndstate path.
+- Description: Saves the wndstate.
 
 #### `public ConnectionError(String mesg)`
-- Role: Performs connection error.
-- Description: Supports the connection error operation used by the surrounding class.
+- Role: Handles the connection error path.
+- Description: Implements the connection error operation.
 
 #### `public static Session connect(Object[] args)`
-- Role: Performs connect.
-- Description: Supports the connect operation used by the surrounding class.
+- Role: Handles the connect path.
+- Description: Implements the connect operation.
 
 #### `private void uiloop() throws InterruptedException`
 - Role: Handles the uiloop workflow.
-- Description: Supports the uiloop operation used by the surrounding class.
+- Description: Implements the uiloop operation.
 
 #### `private void run(UI.Runner task)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static void setupres()`
-- Role: Performs setupres.
-- Description: Supports the setupres operation used by the surrounding class.
+- Role: Handles the setupres path.
+- Description: Updates the upres.
 
 #### `public static void resdump()`
-- Role: Performs resdump.
-- Description: Supports the resdump operation used by the surrounding class.
+- Role: Handles the resdump path.
+- Description: Implements the resdump operation.
 
 #### `private static void javabughack() throws InterruptedException`
 - Role: Handles the javabughack workflow.
-- Description: Supports the javabughack operation used by the surrounding class.
+- Description: Implements the javabughack operation.
 
 #### `public static void status(String state)`
-- Role: Performs status.
-- Description: Supports the status operation used by the surrounding class.
+- Role: Handles the status path.
+- Description: Implements the status operation.
 
 #### `private static void main2(String[] args)`
-- Role: Performs main2.
-- Description: Supports the main2 operation used by the surrounding class.
+- Role: Handles the main2 path.
+- Description: Implements the main2 operation.
 
 #### `public static void main(final String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.
 
 #### `private static void dumplist(Collection<Resource> list, Path fn)`
-- Role: Performs dumplist.
-- Description: Supports the dumplist operation used by the surrounding class.
+- Role: Handles the dumplist path.
+- Description: Implements the dumplist operation.

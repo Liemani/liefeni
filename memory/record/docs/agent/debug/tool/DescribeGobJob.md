@@ -1,5 +1,5 @@
 ---
-source: [DescribeGobJob.java](../../../../../src/agent/debug/tool/DescribeGobJob.java)
+source: [DescribeGobJob.java](../../../../../../src/agent/debug/tool/DescribeGobJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Describes a gob for debugging.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Prints the current state of the selected gob.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the job description.
+- Description: Exposes the short help text shown in the menu and console.

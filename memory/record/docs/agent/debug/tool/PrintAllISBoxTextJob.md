@@ -1,5 +1,5 @@
 ---
-source: [PrintAllISBoxTextJob.java](../../../../../src/agent/debug/tool/PrintAllISBoxTextJob.java)
+source: [PrintAllISBoxTextJob.java](../../../../../../src/agent/debug/tool/PrintAllISBoxTextJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Prints all text from the current ISBox.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

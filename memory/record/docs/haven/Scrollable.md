@@ -1,5 +1,5 @@
 ---
-source: [Scrollable.java](../../../src/haven/Scrollable.java)
+source: [Scrollable.java](../../../../src/haven/Scrollable.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,17 +17,17 @@ Represents the scrollable Haven component.
 ### Methods
 
 #### `public int scrollmin()`
-- Role: Performs scrollmin.
-- Description: Supports the scrollmin operation used by the surrounding class.
+- Role: Handles the scrollmin path.
+- Description: Implements the scrollmin operation.
 
 #### `public int scrollmax()`
-- Role: Performs scrollmax.
-- Description: Supports the scrollmax operation used by the surrounding class.
+- Role: Handles the scrollmax path.
+- Description: Implements the scrollmax operation.
 
 #### `public int scrollval()`
-- Role: Performs scrollval.
-- Description: Supports the scrollval operation used by the surrounding class.
+- Role: Handles the scrollval path.
+- Description: Implements the scrollval operation.
 
 #### `public void scrollval(int val)`
-- Role: Performs scrollval.
-- Description: Supports the scrollval operation used by the surrounding class.
+- Role: Handles the scrollval path.
+- Description: Implements the scrollval operation.

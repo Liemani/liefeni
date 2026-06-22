@@ -1,5 +1,5 @@
 ---
-source: [GobHealth.java](../../../src/haven/GobHealth.java)
+source: [GobHealth.java](../../../../src/haven/GobHealth.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the gob health Haven component.
 
 ### $health
 
-- Role: Represents $health within GobHealth.
-- Description: Describes the nested $health type used by the enclosing class.
+- Role: Applies gob health updates from the object cache.
+- Description: Delta decoder that reads the health byte and installs a GobHealth attribute.
 
 ## Members
 
@@ -22,23 +22,23 @@ Represents the gob health Haven component.
 ### Fields
 
 #### `public final float hp`
-- Role: Stores the hp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hp value.
+- Description: Caches the `hp` value for reuse.
 
 #### `public final Pipe.Op fx`
-- Role: Holds the fx state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fx value.
+- Description: Caches the `fx` value for reuse.
 
 ### Methods
 
 #### `public GobHealth(Gob g, float hp)`
 - Role: Creates a new GobHealth instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GobHealth instance from the supplied inputs.
 
 #### `public Pipe.Op gobstate()`
-- Role: Performs gobstate.
-- Description: Supports the gobstate operation used by the surrounding class.
+- Role: Handles the gobstate path.
+- Description: Implements the gobstate operation.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

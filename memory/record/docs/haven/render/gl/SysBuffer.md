@@ -1,5 +1,5 @@
 ---
-source: [SysBuffer.java](../../../../../src/haven/render/gl/SysBuffer.java)
+source: [SysBuffer.java](../../../../../../src/haven/render/gl/SysBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,9 +17,9 @@ Provides GL backend support for sys buffer.
 ### Methods
 
 #### `public ByteBuffer data()`
-- Role: Performs data.
-- Description: Supports the data operation used by the surrounding class.
+- Role: Handles the data path.
+- Description: Implements the data operation.
 
 #### `public default void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.

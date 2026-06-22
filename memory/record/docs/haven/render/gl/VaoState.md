@@ -1,5 +1,5 @@
 ---
-source: [VaoState.java](../../../../../src/haven/render/gl/VaoState.java)
+source: [VaoState.java](../../../../../../src/haven/render/gl/VaoState.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,11 +15,11 @@ Provides GL backend support for vao state.
 ### Fields
 
 #### `public static int slot = slotidx(VaoState.class)`
-- Role: Stores the slot value.
-- Description: Backs the cached state for this file.
+- Role: Implements the slot operation.
+- Description: Implements the slotidx operation.
 
 ### Methods
 
 #### `public int slotidx()`
-- Role: Performs slotidx.
-- Description: Supports the slotidx operation used by the surrounding class.
+- Role: Handles the slotidx path.
+- Description: Implements the slotidx operation.

@@ -1,5 +1,5 @@
 ---
-source: [AnimSprite.java](../../../src/haven/AnimSprite.java)
+source: [AnimSprite.java](../../../../src/haven/AnimSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,33 +13,34 @@ Represents the anim sprite Haven component.
 ### Constants
 
 #### `public static final Factory fact = new Factory()`
-- Role: Defines the shared fact constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fact operation.
+- Description: Implements the factory operation.
+- Value: `new Factory()`
 
 ### Fields
 
 #### `private final RenderTree.Node[] parts`
-- Role: Stores the parts value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parts value.
+- Description: Caches the `parts` value for reuse.
 
 #### `private final MeshAnim.Animation[] anims`
-- Role: Holds the anims state.
-- Description: Backs the cached state for this file.
+- Role: Caches the anims value.
+- Description: Caches the `anims` value for reuse.
 
 ### Methods
 
 #### `private AnimSprite(Owner owner, Resource res, Message sdt)`
 - Role: Creates a new AnimSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the AnimSprite instance from the supplied inputs.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public boolean tick(double ddt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void age()`
-- Role: Performs age.
-- Description: Supports the age operation used by the surrounding class.
+- Role: Advances the sprite to its mature state.
+- Description: Advances the sprite to its mature state.

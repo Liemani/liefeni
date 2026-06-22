@@ -1,5 +1,5 @@
 ---
-source: [FragTarget.java](../../../../src/haven/render/FragTarget.java)
+source: [FragTarget.java](../../../../../src/haven/render/FragTarget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,47 +15,47 @@ Defines the frag target render pipeline component.
 ### Fields
 
 #### `public Object buf`
-- Role: Holds the buf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the buf value.
+- Description: Caches the `buf` value for reuse.
 
 #### `public final boolean mask[] =`
 - Role: Tracks whether  is active.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public BlendMode blend = null`
-- Role: Holds the blend state.
-- Description: Backs the cached state for this file.
+- Role: Caches the blend value.
+- Description: Caches the `blend` value for reuse.
 
 ### Methods
 
 #### `public FragTarget(Object buf)`
-- Role: Creates a new FragTarget instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Stores one fragment target binding.
+- Description: Wraps the render target buffer and its color mask.
 
 #### `public FragTarget blend(BlendMode blend)`
-- Role: Performs blend.
-- Description: Supports the blend operation used by the surrounding class.
+- Role: Sets the fragment blend mode.
+- Description: Returns this target after installing the requested blend mode.
 
 #### `public FragTarget mask(boolean r, boolean g, boolean b, boolean a)`
-- Role: Performs mask.
-- Description: Supports the mask operation used by the surrounding class.
+- Role: Sets the color write mask.
+- Description: Enables or disables writes for each color channel.
 
 #### `public FragTarget mask(boolean[] mask)`
-- Role: Performs mask.
-- Description: Supports the mask operation used by the surrounding class.
+- Role: Sets the color write mask.
+- Description: Uses a boolean array to configure channel writes.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(FragTarget that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this FragTarget for debugging and logging.

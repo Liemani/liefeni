@@ -1,5 +1,5 @@
 ---
-source: [PendingPortalTransition.java](../../../../../src/lmi/waypoint/model/PendingPortalTransition.java)
+source: [PendingPortalTransition.java](../../../../../../src/lmi/waypoint/model/PendingPortalTransition.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,11 +15,11 @@ Represents waypoint model data for pending portal transition.
 ### Fields
 
 #### `public final String entryPortalResname`
-- Role: Stores the entry portal resname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the entry portal resname value.
+- Description: Caches the `entryPortalResname` value for reuse.
 
 ### Methods
 
 #### `public PendingPortalTransition(String entryPortalResname)`
 - Role: Creates a new PendingPortalTransition instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PendingPortalTransition instance from the supplied inputs.

@@ -1,696 +1,698 @@
 ---
-source: [Gob.java](../../../src/haven/Gob.java)
+source: [Gob.java](../../../../src/haven/Gob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Gob
 
-Represents a world object and its attached state.
+Represents one world object, its attributes, overlays, and render-tree attachments.
 
 ## Nested Types
 
 ### BasePlace
 
-- Role: Represents base place within Gob.
-- Description: Describes the nested base place type used by the enclosing class.
+- Role: Models a placement strategy for gob-local coordinates.
+- Description: Placement strategy used to compute gob render position.
 
 ### DataLoading
 
-- Role: Represents data loading within Gob.
-- Description: Describes the nested data loading type used by the enclosing class.
+- Role: Tracks gob data while resources are still loading.
+- Description: Deferred loading state used until gob resources arrive.
 
 ### DefaultPlace
 
-- Role: Represents default place within Gob.
-- Description: Describes the nested default place type used by the enclosing class.
+- Role: Provides the default placement strategy.
+- Description: Fallback placement strategy for gobs without a special handler.
 
 ### GobClick
 
-- Role: Represents gob click within Gob.
-- Description: Describes the nested gob click type used by the enclosing class.
+- Role: Carries gob interaction click data.
+- Description: Click payload used when the player interacts with a gob.
 
 ### GobState
 
-- Role: Represents gob state within Gob.
-- Description: Describes the nested gob state type used by the enclosing class.
+- Role: Captures the gob state passed through placement logic.
+- Description: Mutable state snapshot used by the gob update pipeline.
 
 ### InclinePlace
 
-- Role: Represents incline place within Gob.
-- Description: Describes the nested incline place type used by the enclosing class.
+- Role: Models placement on an incline.
+- Description: Placement strategy used when the gob sits on sloped terrain.
 
 ### LinePlace
 
-- Role: Represents line place within Gob.
-- Description: Describes the nested line place type used by the enclosing class.
+- Role: Models placement along a line.
+- Description: Placement strategy used for line-based gob attachment.
 
 ### Overlay
 
-- Role: Represents overlay within Gob.
-- Description: Describes the nested overlay type used by the enclosing class.
+- Role: Represents one gob overlay attachment.
+- Description: Overlay record attached to the gob render tree.
 
 ### Placed
 
-- Role: Represents placed within Gob.
-- Description: Describes the nested placed type used by the enclosing class.
+- Role: Marks a gob as placed in the world.
+- Description: Placement state used after the gob has been attached.
 
 ### Placement
 
-- Role: Represents placement within Gob.
-- Description: Describes the nested placement type used by the enclosing class.
+- Role: Collects placement data for a gob.
+- Description: Shared placement data used by gob placement helpers.
 
 ### Placer
 
-- Role: Represents placer within Gob.
-- Description: Describes the nested placer type used by the enclosing class.
+- Role: Builds placement data for a gob.
+- Description: Factory used to create placement helpers for gobs.
 
 ### Placing
 
-- Role: Represents placing within Gob.
-- Description: Describes the nested placing type used by the enclosing class.
+- Role: Tracks placement in progress.
+- Description: Temporary placement state used while building gob placement.
 
 ### PlanePlace
 
-- Role: Represents plane place within Gob.
-- Description: Describes the nested plane place type used by the enclosing class.
+- Role: Models placement on a plane.
+- Description: Placement strategy used for flat-surface gob attachment.
 
 ### SetupMod
 
-- Role: Represents setup mod within Gob.
-- Description: Describes the nested setup mod type used by the enclosing class.
+- Role: Wraps a modifier applied during gob setup.
+- Description: Modifier wrapper used when building gob setup data.
 
 ## Members
 
 ### Constants
 
 #### `private static final ClassResolver<Overlay> ctxr = new ClassResolver<Overlay>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Resolves overlay owner context.
+- Description: Context resolver used by gob overlays.
+- Value: `new ClassResolver<Overlay>()`
 
 #### `private static final ClassResolver<Gob> ctxr = new ClassResolver<Gob>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Resolves gob owner context.
+- Description: Context resolver used by gob-attached systems.
+- Value: `new ClassResolver<Gob>()`
 
 ### Fields
 
 #### `public Coord2d rc`
-- Role: Stores the rc value.
-- Description: Backs the cached state for this file.
+- Role: Stores the gob world coordinate.
+- Description: World coordinate of the gob.
 
 #### `public double a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Stores the gob angle.
+- Description: World-space facing angle in radians.
 
 #### `public boolean virtual = false`
-- Role: Tracks the virtual flag.
-- Description: Supports the virtual operation used by the surrounding class.
+- Role: Tracks virtual status.
+- Description: Whether this gob exists only as a client-side placeholder.
 
 #### `int clprio = 0`
-- Role: Stores the clprio value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the clprio state.
+- Description: Client-side priority used while ordering gob updates.
 
 #### `public long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the id state.
+- Description: Server-issued gob id.
 
 #### `public boolean removed = false`
-- Role: Tracks the removed flag.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Tracks whether removed is enabled.
+- Description: Whether the gob has been removed from the world.
 
 #### `public final Glob glob`
-- Role: Stores the glob value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the glob state.
+- Description: Owning global world state.
 
 #### `Map<Class<? extends GAttrib>, GAttrib> attr = new HashMap<Class<? extends GAttrib>, GAttrib>()`
-- Role: Caches attr entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the attr lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `public final Collection<Overlay> ols = new ArrayList<Overlay>()`
-- Role: Caches ols entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the ols lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `public final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the slots lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `public int updateseq = 0, lastolid = 0`
-- Role: Stores the updateseq value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the updateseq state.
+- Description: Sequence counter used to detect gob updates.
 
 #### `public int updateseq = 0, lastolid = 0`
-- Role: Stores the updateseq value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the updateseq state.
+- Description: Sequence counter used to detect gob updates.
 
 #### `private final Collection<SetupMod> setupmods = new ArrayList<>()`
-- Role: Caches setupmods entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the setupmods lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `private final LinkedList<Runnable> deferred = new LinkedList<>()`
-- Role: Caches deferred entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the deferred lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `private Loader.Future<?> deferral = null`
-- Role: Holds the deferral state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the deferral state.
+- Description: Active future tracking deferred gob work.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the id state.
+- Description: Server-issued gob id.
 
 #### `public final Gob gob`
-- Role: Stores the gob value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the gob state.
+- Description: Stores the gob state used by this component.
 
 #### `public final Sprite.Mill<?> sm`
-- Role: Holds the sm state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the sm state.
+- Description: Sprite mill used to construct gob sprites.
 
 #### `public Sprite spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the spr state.
+- Description: Active sprite instance attached to the gob.
 
 #### `public boolean delign = false, old = false`
-- Role: Tracks the delign flag.
-- Description: Supports the delign operation used by the surrounding class.
+- Role: Tracks whether delign is enabled.
+- Description: Lifecycle flag used while cleaning up or reusing gob state.
 
 #### `public boolean delign = false, old = false`
-- Role: Tracks the delign flag.
-- Description: Supports the delign operation used by the surrounding class.
+- Role: Tracks whether delign is enabled.
+- Description: Lifecycle flag used while cleaning up or reusing gob state.
 
 #### `private Collection<RenderTree.Slot> slots = null`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the slots lookup results.
+- Description: Render-tree slots currently attached to the gob.
 
 #### `private boolean added = false`
-- Role: Tracks the added flag.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Tracks whether added is enabled.
+- Description: Whether the gob has been attached to the world.
 
 #### `public final MCache map`
-- Role: Caches map entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the map lookup results.
+- Description: Map cache reference used for gob placement.
 
 #### `public final MCache.SurfaceID surf`
-- Role: Caches surf entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the surf lookup results.
+- Description: Cached surface id used for gob placement.
 
 #### `public final Coord2d[][] obst`
-- Role: Stores the obst value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the obst state.
+- Description: Obstacle polygon data used for collision checks.
 
 #### `private Coord2d cc`
-- Role: Stores the cc value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the cc state.
+- Description: Local coordinate on the current grid.
 
 #### `private double ca`
-- Role: Stores the ca value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the ca state.
+- Description: Local facing angle used for placement.
 
 #### `private int seq = -1`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the seq state.
+- Description: Update sequence marker for the gob.
 
 #### `private float z`
-- Role: Stores the z value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the z state.
+- Description: Vertical render offset for the gob.
 
 #### `public final double max, min`
-- Role: Stores the min value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the min state.
+- Description: Bound used while computing obstacle or placement extents.
 
 #### `public final double max, min`
-- Role: Stores the min value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the min state.
+- Description: Bound used while computing obstacle or placement extents.
 
 #### `public final Coord2d k`
-- Role: Stores the k value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the k state.
+- Description: World-space key coordinate used by placement logic.
 
 #### `private Coord3f c`
-- Role: Stores the c value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the c state.
+- Description: 3D coordinate used by the render transform.
 
 #### `private Matrix4f r = Matrix4f.id`
-- Role: Holds the r state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the r state.
+- Description: Cached transform matrix used for rendering.
 
 #### `private int seq = -1`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the seq state.
+- Description: Update sequence marker for the gob.
 
 #### `private Coord2d cc`
-- Role: Stores the cc value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the cc state.
+- Description: Local coordinate on the current grid.
 
 #### `private double ca`
-- Role: Stores the ca value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the ca state.
+- Description: Local facing angle used for placement.
 
 #### `public final Coord2d[] points`
-- Role: Stores the points value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the points state.
+- Description: Polygon points used by placement or collision logic.
 
 #### `private Coord3f c`
-- Role: Stores the c value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the c state.
+- Description: 3D coordinate used by the render transform.
 
 #### `private Matrix4f r = Matrix4f.id`
-- Role: Holds the r state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the r state.
+- Description: Cached transform matrix used for rendering.
 
 #### `private int seq = -1`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the seq state.
+- Description: Update sequence marker for the gob.
 
 #### `private Coord2d cc`
-- Role: Stores the cc value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the cc state.
+- Description: Local coordinate on the current grid.
 
 #### `private double ca`
-- Role: Stores the ca value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the ca state.
+- Description: Local facing angle used for placement.
 
 #### `public final Gob gob`
-- Role: Stores the gob value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the gob state.
+- Description: Stores the gob state used by this component.
 
 #### `final Pipe.Op mods`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the mods state.
+- Description: Stores the mods state used by this component.
 
 #### `private GobState curstate = null`
-- Role: Stores the curstate value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the curstate state.
+- Description: Stores the curstate state used by this component.
 
 #### `private Waitable.Queue updwait = null`
-- Role: Caches updwait entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the updwait lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `public final transient Gob gob`
-- Role: Stores the gob value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the gob state.
+- Description: Stores the gob state used by this component.
 
 #### `public final int updseq`
-- Role: Stores the updseq value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the updseq state.
+- Description: Stores the updseq state used by this component.
 
 #### `private final Collection<RenderTree.Slot> slots = new java.util.concurrent.CopyOnWriteArrayList<>()`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the slots lookup results.
+- Description: Caches the computed value for repeated access.
 
 #### `private Placement cur`
-- Role: Holds the cur state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the cur state.
+- Description: Stores the current value state used by this component.
 
 #### `final Pipe.Op flw, tilestate, mods`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the mods state.
+- Description: Stores the mods state used by this component.
 
 #### `final Pipe.Op flw, tilestate, mods`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the mods state.
+- Description: Stores the mods state used by this component.
 
 #### `final Pipe.Op flw, tilestate, mods`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the mods state.
+- Description: Stores the mods state used by this component.
 
 #### `final Coord3f oc, rc`
-- Role: Stores the rc value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the rc state.
+- Description: World coordinate of the gob.
 
 #### `final Coord3f oc, rc`
-- Role: Stores the rc value.
-- Description: Backs the cached state for this file.
+- Role: Keeps the rc state.
+- Description: World coordinate of the gob.
 
 #### `final Matrix4f rot`
-- Role: Holds the rot state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the rot state.
+- Description: Stores the rot state used by this component.
 
 #### `Pipe.Op gndst = null`
-- Role: Holds the gndst state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the gndst state.
+- Description: Stores the gndst state used by this component.
 
 #### `public final Placed placed = new Placed()`
-- Role: Holds the placed state.
-- Description: Backs the cached state for this file.
+- Role: Keeps the placed state.
+- Description: Stores the placed state used by this component.
 
 ### Methods
 
 #### `public Overlay(Gob gob, int id, Sprite.Mill<?> sm)`
-- Role: Performs overlay.
-- Description: Supports the overlay operation used by the surrounding class.
+- Role: Implements the overlay operation.
+- Description: Implements the overlay operation.
 
 #### `public Overlay(Gob gob, Sprite.Mill<?> sm)`
-- Role: Performs overlay.
-- Description: Supports the overlay operation used by the surrounding class.
+- Role: Implements the overlay operation.
+- Description: Implements the overlay operation.
 
 #### `public Overlay(Gob gob, int id, Indir<Resource> res, Message sdt)`
-- Role: Performs overlay.
-- Description: Supports the overlay operation used by the surrounding class.
+- Role: Implements the overlay operation.
+- Description: Implements the overlay operation.
 
 #### `public Overlay(Gob gob, Sprite spr)`
-- Role: Performs overlay.
-- Description: Supports the overlay operation used by the surrounding class.
+- Role: Implements the overlay operation.
+- Description: Implements the overlay operation.
 
 #### `private void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Initializes the class-local cache or runtime state.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `private void add0()`
-- Role: Performs add0.
-- Description: Supports the add0 operation used by the surrounding class.
+- Role: Adds the 0.
+- Description: Adds the 0.
 
 #### `private void remove0()`
-- Role: Performs remove0.
-- Description: Supports the remove0 operation used by the surrounding class.
+- Role: Removes the 0.
+- Description: Removes the 0.
 
 #### `public void remove(boolean async)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `protected void removed()`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Removes the d.
+- Description: Removes the d.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Adds the ed.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Removes the d.
+- Description: Removes the d.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the cached value without mutating the gob.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
 - Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public default Pipe.Op gobstate()`
-- Role: Performs gobstate.
-- Description: Supports the gobstate operation used by the surrounding class.
+- Role: Implements the gobstate operation.
+- Description: Implements the gobstate operation.
 
 #### `public default Pipe.Op placestate()`
-- Role: Performs placestate.
-- Description: Supports the placestate operation used by the surrounding class.
+- Role: Implements the placestate operation.
+- Description: Implements the placestate operation.
 
 #### `public Coord3f getc(Coord2d rc, double ra)`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public Matrix4f getr(Coord2d rc, double ra)`
-- Role: Performs getr.
-- Description: Supports the getr operation used by the surrounding class.
+- Role: Returns the r.
+- Description: Returns the r.
 
 #### `public Placer placer()`
 - Role: Returns the gob placer.
 - Description: Exposes the placer used when positioning the gob.
 
 #### `public DefaultPlace(MCache map, MCache.SurfaceID surf)`
-- Role: Performs default place.
-- Description: Supports the default place operation used by the surrounding class.
+- Role: Implements the default place operation.
+- Description: Implements the default place operation.
 
 #### `public Coord3f getc(Coord2d rc, double ra)`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public Matrix4f getr(Coord2d rc, double ra)`
-- Role: Performs getr.
-- Description: Supports the getr operation used by the surrounding class.
+- Role: Returns the r.
+- Description: Returns the r.
 
 #### `public InclinePlace(MCache map, MCache.SurfaceID surf)`
-- Role: Performs incline place.
-- Description: Supports the incline place operation used by the surrounding class.
+- Role: Implements the incline place operation.
+- Description: Implements the incline place operation.
 
 #### `public Matrix4f getr(Coord2d rc, double ra)`
-- Role: Performs getr.
-- Description: Supports the getr operation used by the surrounding class.
+- Role: Returns the r.
+- Description: Returns the r.
 
 #### `public BasePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] obst)`
-- Role: Performs base place.
-- Description: Supports the base place operation used by the surrounding class.
+- Role: Implements the base place operation.
+- Description: Implements the base place operation.
 
 #### `public BasePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)`
-- Role: Performs base place.
-- Description: Supports the base place operation used by the surrounding class.
+- Role: Implements the base place operation.
+- Description: Implements the base place operation.
 
 #### `public BasePlace(MCache map, MCache.SurfaceID surf, Resource res)`
-- Role: Performs base place.
-- Description: Supports the base place operation used by the surrounding class.
+- Role: Implements the base place operation.
+- Description: Implements the base place operation.
 
 #### `private float getz(Coord2d rc, double ra)`
-- Role: Performs getz.
-- Description: Supports the getz operation used by the surrounding class.
+- Role: Returns the z.
+- Description: Returns the z.
 
 #### `public Coord3f getc(Coord2d rc, double ra)`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public LinePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points, Coord2d k)`
-- Role: Performs line place.
-- Description: Supports the line place operation used by the surrounding class.
+- Role: Implements the line place operation.
+- Description: Implements the line place operation.
 
 #### `public LinePlace(MCache map, MCache.SurfaceID surf, Resource res, String id, Coord2d k)`
-- Role: Performs line place.
-- Description: Supports the line place operation used by the surrounding class.
+- Role: Implements the line place operation.
+- Description: Implements the line place operation.
 
 #### `public LinePlace(MCache map, MCache.SurfaceID surf, Resource res, Coord2d k)`
-- Role: Performs line place.
-- Description: Supports the line place operation used by the surrounding class.
+- Role: Implements the line place operation.
+- Description: Implements the line place operation.
 
 #### `private void recalc(Coord2d rc, double ra)`
-- Role: Performs recalc.
-- Description: Supports the recalc operation used by the surrounding class.
+- Role: Implements the recalc operation.
+- Description: Implements the recalc operation.
 
 #### `private void check(Coord2d rc, double ra)`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Implements the check operation.
+- Description: Implements the check operation.
 
 #### `public Coord3f getc(Coord2d rc, double ra)`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public Matrix4f getr(Coord2d rc, double ra)`
-- Role: Performs getr.
-- Description: Supports the getr operation used by the surrounding class.
+- Role: Returns the r.
+- Description: Returns the r.
 
 #### `public static Coord2d[] flatten(Coord2d[][] points)`
-- Role: Performs flatten.
-- Description: Supports the flatten operation used by the surrounding class.
+- Role: Implements the flatten operation.
+- Description: Implements the flatten operation.
 
 #### `public PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[] points)`
-- Role: Performs plane place.
-- Description: Supports the plane place operation used by the surrounding class.
+- Role: Implements the plane place operation.
+- Description: Implements the plane place operation.
 
 #### `public PlanePlace(MCache map, MCache.SurfaceID surf, Coord2d[][] points)`
-- Role: Performs plane place.
-- Description: Supports the plane place operation used by the surrounding class.
+- Role: Implements the plane place operation.
+- Description: Implements the plane place operation.
 
 #### `public PlanePlace(MCache map, MCache.SurfaceID surf, Resource res, String id)`
-- Role: Performs plane place.
-- Description: Supports the plane place operation used by the surrounding class.
+- Role: Implements the plane place operation.
+- Description: Implements the plane place operation.
 
 #### `public PlanePlace(MCache map, MCache.SurfaceID surf, Resource res)`
-- Role: Performs plane place.
-- Description: Supports the plane place operation used by the surrounding class.
+- Role: Implements the plane place operation.
+- Description: Implements the plane place operation.
 
 #### `private void recalc(Coord2d rc, double ra)`
-- Role: Performs recalc.
-- Description: Supports the recalc operation used by the surrounding class.
+- Role: Implements the recalc operation.
+- Description: Implements the recalc operation.
 
 #### `private void check(Coord2d rc, double ra)`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Implements the check operation.
+- Description: Implements the check operation.
 
 #### `public Coord3f getc(Coord2d rc, double ra)`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public Matrix4f getr(Coord2d rc, double ra)`
-- Role: Performs getr.
-- Description: Supports the getr operation used by the surrounding class.
+- Role: Returns the r.
+- Description: Returns the r.
 
 #### `public Gob(Glob glob, Coord2d c, long id)`
 - Role: Creates a new Gob instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Gob instance from the supplied inputs.
 
 #### `public Gob(Glob glob, Coord2d c)`
 - Role: Creates a new Gob instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Gob instance from the supplied inputs.
 
 #### `public void ctick(double dt)`
-- Role: Performs ctick.
-- Description: Supports the ctick operation used by the surrounding class.
+- Role: Advances the client-thread state.
+- Description: Advances the client-thread state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
 - Description: Updates per-frame drawable state during the render loop.
 
 #### `void removed()`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Removes the d.
+- Description: Removes the d.
 
 #### `private void deferred()`
-- Role: Performs deferred.
-- Description: Supports the deferred operation used by the surrounding class.
+- Role: Implements the deferred operation.
+- Description: Implements the deferred operation.
 
 #### `public void defer(Runnable task)`
-- Role: Performs defer.
-- Description: Supports the defer operation used by the surrounding class.
+- Role: Implements the defer operation.
+- Description: Implements the defer operation.
 
 #### `public static int olidcmp(int a, int b)`
-- Role: Performs olidcmp.
-- Description: Supports the olidcmp operation used by the surrounding class.
+- Role: Implements the olidcmp operation.
+- Description: Implements the olidcmp operation.
 
 #### `public void addol(Overlay ol, boolean async)`
-- Role: Performs addol.
-- Description: Supports the addol operation used by the surrounding class.
+- Role: Adds the ol.
+- Description: Adds the ol.
 
 #### `public void addol(Overlay ol)`
-- Role: Performs addol.
-- Description: Supports the addol operation used by the surrounding class.
+- Role: Adds the ol.
+- Description: Adds the ol.
 
 #### `public void addol(Sprite ol)`
-- Role: Performs addol.
-- Description: Supports the addol operation used by the surrounding class.
+- Role: Adds the ol.
+- Description: Adds the ol.
 
 #### `public void addol(Indir<Resource> res, Message sdt)`
-- Role: Performs addol.
-- Description: Supports the addol operation used by the surrounding class.
+- Role: Adds the ol.
+- Description: Adds the ol.
 
 #### `public void addol(Sprite.Mill<?> ol)`
-- Role: Performs addol.
-- Description: Supports the addol operation used by the surrounding class.
+- Role: Adds the ol.
+- Description: Adds the ol.
 
 #### `public <S extends Sprite> S addolsync(Sprite.Mill<S> sm)`
-- Role: Performs addolsync.
-- Description: Supports the addolsync operation used by the surrounding class.
+- Role: Adds the olsync.
+- Description: Adds the olsync.
 
 #### `public Overlay findol(int id)`
-- Role: Performs findol.
-- Description: Supports the findol operation used by the surrounding class.
+- Role: Finds the ol.
+- Description: Finds the ol.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void move(Coord2d c, double a)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Handles the move flow for this type.
 
 #### `public Placer placer()`
 - Role: Returns the gob placer.
 - Description: Exposes the placer used when positioning the gob.
 
 #### `public Coord3f getc()`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public Coord3f getrc()`
-- Role: Performs getrc.
-- Description: Supports the getrc operation used by the surrounding class.
+- Role: Returns the rc.
+- Description: Returns the rc.
 
 #### `protected Pipe.Op getmapstate(Coord3f pc)`
-- Role: Performs getmapstate.
-- Description: Supports the getmapstate operation used by the surrounding class.
+- Role: Returns the mapstate.
+- Description: Returns the mapstate.
 
 #### `private Class<? extends GAttrib> attrclass(Class<? extends GAttrib> cl)`
-- Role: Performs attrclass.
-- Description: Supports the attrclass operation used by the surrounding class.
+- Role: Implements the attrclass operation.
+- Description: Implements the attrclass operation.
 
 #### `public <C extends GAttrib> C getattr(Class<C> c)`
-- Role: Performs getattr.
-- Description: Supports the getattr operation used by the surrounding class.
+- Role: Returns the attr.
+- Description: Returns the attr.
 
 #### `private void setattr(Class<? extends GAttrib> ac, GAttrib a)`
-- Role: Performs setattr.
-- Description: Supports the setattr operation used by the surrounding class.
+- Role: Updates the attr.
+- Description: Updates the attr.
 
 #### `public void setattr(GAttrib a)`
-- Role: Performs setattr.
-- Description: Supports the setattr operation used by the surrounding class.
+- Role: Updates the attr.
+- Description: Updates the attr.
 
 #### `public void delattr(Class<? extends GAttrib> c)`
-- Role: Performs delattr.
-- Description: Supports the delattr operation used by the surrounding class.
+- Role: Implements the delattr operation.
+- Description: Implements the delattr operation.
 
 #### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Implements the eqpoint operation.
+- Description: Implements the eqpoint operation.
 
 #### `public GobClick(Gob gob)`
-- Role: Performs gob click.
-- Description: Supports the gob click operation used by the surrounding class.
+- Role: Implements the gob click operation.
+- Description: Implements the gob click operation.
 
 #### `public Object[] clickargs(ClickData cd)`
-- Role: Performs clickargs.
-- Description: Supports the clickargs operation used by the surrounding class.
+- Role: Handles args interaction.
+- Description: Handles args interaction.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Gob for debugging and logging.
 
 #### `protected void obstate(Pipe buf)`
-- Role: Performs obstate.
-- Description: Supports the obstate operation used by the surrounding class.
+- Role: Implements the obstate operation.
+- Description: Implements the obstate operation.
 
 #### `private GobState()`
-- Role: Performs gob state.
-- Description: Supports the gob state operation used by the surrounding class.
+- Role: Implements the gob state operation.
+- Description: Implements the gob state operation.
 
 #### `public void apply(Pipe buf)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public boolean equals(GobState that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `private GobState curstate()`
-- Role: Performs curstate.
-- Description: Supports the curstate operation used by the surrounding class.
+- Role: Implements the curstate operation.
+- Description: Implements the curstate operation.
 
 #### `private void updstate()`
-- Role: Performs updstate.
-- Description: Supports the updstate operation used by the surrounding class.
+- Role: Implements the updstate operation.
+- Description: Implements the updstate operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Adds the ed.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Removes the d.
+- Description: Removes the d.
 
 #### `void updated()`
-- Role: Performs updated.
-- Description: Supports the updated operation used by the surrounding class.
+- Role: Updates the d.
+- Description: Updates the d.
 
 #### `public void updwait(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs updwait.
-- Description: Supports the updwait operation used by the surrounding class.
+- Role: Implements the updwait operation.
+- Description: Implements the updwait operation.
 
 #### `public DataLoading(Gob gob, String message)`
-- Role: Performs data loading.
-- Description: Supports the data loading operation used by the surrounding class.
+- Role: Implements the data loading operation.
+- Description: Implements the data loading operation.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
@@ -698,143 +700,143 @@ Represents a world object and its attached state.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the cached value without mutating the gob.
 
 #### `public double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `public Collection<Location.Chain> getloc()`
 - Role: Returns the avatar location.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the cached value without mutating the gob.
 
 #### `private Placed()`
-- Role: Performs placed.
-- Description: Supports the placed operation used by the surrounding class.
+- Role: Implements the placed operation.
+- Description: Implements the placed operation.
 
 #### `Placement()`
 - Role: Handles the placement workflow.
-- Description: Supports the placement operation used by the surrounding class.
+- Description: Handles the placement flow for this type.
 
 #### `public boolean equals(Placement that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe buf)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public Pipe.Op placement()`
-- Role: Performs placement.
-- Description: Supports the placement operation used by the surrounding class.
+- Role: Implements the placement operation.
+- Description: Implements the placement operation.
 
 #### `public void autotick(double dt)`
-- Role: Performs autotick.
-- Description: Supports the autotick operation used by the surrounding class.
+- Role: Implements the autotick operation.
+- Description: Implements the autotick operation.
 
 #### `private void update(Placement np)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Adds the ed.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Removes the d.
+- Description: Removes the d.
 
 #### `public Pipe.Op curplace()`
-- Role: Performs curplace.
-- Description: Supports the curplace operation used by the surrounding class.
+- Role: Implements the curplace operation.
+- Description: Implements the curplace operation.
 
 #### `public Coord3f getc()`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the c.
+- Description: Returns the c.
 
 #### `public TickList.Ticking ticker()`
-- Role: Performs ticker.
-- Description: Supports the ticker operation used by the surrounding class.
+- Role: Advances the er state.
+- Description: Advances the er state.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Gob for debugging and logging.
 
 #### `public Coord position()`
 - Role: Returns the local player world position.
-- Description: Returns the current world-space position of the local player.
+- Description: Returns the current world-space position tracked for this gob.
 
 #### `public double velocity()`
 - Role: Returns the local player velocity.
 - Description: Returns the local player movement speed.
 
 #### `public int id()`
-- Role: Performs id.
-- Description: Supports the id operation used by the surrounding class.
+- Role: Implements the id operation.
+- Description: Implements the id operation.
 
 #### `public boolean isDirectingEast()`
 - Role: Checks whether the directing east.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isDirectingSouth()`
 - Role: Checks whether the directing south.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isDirectingWest()`
 - Role: Checks whether the directing west.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isDirectingNorth()`
 - Role: Checks whether the directing north.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public Map<Class<? extends GAttrib>, GAttrib> attributeMap()`
-- Role: Performs attribute map.
-- Description: Supports the attribute map operation used by the surrounding class.
+- Role: Implements the attribute map operation.
+- Description: Implements the attribute map operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Implements the resource operation.
+- Description: Implements the resource operation.
 
 #### `public String resourceName()`
-- Role: Performs resource name.
-- Description: Supports the resource name operation used by the surrounding class.
+- Role: Implements the resource name operation.
+- Description: Implements the resource name operation.
 
 #### `public String resourceBasename()`
-- Role: Performs resource basename.
-- Description: Supports the resource basename operation used by the surrounding class.
+- Role: Implements the resource basename operation.
+- Description: Implements the resource basename operation.
 
 #### `public boolean isResourceNameEndsWith(String suffix)`
 - Role: Checks whether the resource name ends with.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String buddyName()`
-- Role: Performs buddy name.
-- Description: Supports the buddy name operation used by the surrounding class.
+- Role: Implements the buddy name operation.
+- Description: Implements the buddy name operation.
 
 #### `public Integer buddyGroup()`
-- Role: Performs buddy group.
-- Description: Supports the buddy group operation used by the surrounding class.
+- Role: Implements the buddy group operation.
+- Description: Implements the buddy group operation.
 
 #### `public boolean isAt(Coord coord)`
 - Role: Checks whether the at.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isAt(Coord2d coord)`
 - Role: Checks whether the at.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isMoving()`
 - Role: Checks whether the moving.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isStop()`
 - Role: Checks whether the stop.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public double distance(Coord coord)`
 - Role: Returns the distance from the local player.
@@ -845,80 +847,80 @@ Represents a world object and its attached state.
 - Description: Measures the distance from the current local player position.
 
 #### `public String baseResName()`
-- Role: Performs base res name.
-- Description: Supports the base res name operation used by the surrounding class.
+- Role: Implements the base res name operation.
+- Description: Implements the base res name operation.
 
 #### `public Stream<String> poseResNames()`
-- Role: Performs pose res names.
-- Description: Supports the pose res names operation used by the surrounding class.
+- Role: Implements the pose res names operation.
+- Description: Implements the pose res names operation.
 
 #### `public Stream<String> equResNames()`
-- Role: Performs equ res names.
-- Description: Supports the equ res names operation used by the surrounding class.
+- Role: Implements the equ res names operation.
+- Description: Implements the equ res names operation.
 
 #### `public Stream<String> modResNames()`
-- Role: Performs mod res names.
-- Description: Supports the mod res names operation used by the surrounding class.
+- Role: Implements the mod res names operation.
+- Description: Implements the mod res names operation.
 
 #### `public Stream<String> resNames()`
-- Role: Performs res names.
-- Description: Supports the res names operation used by the surrounding class.
+- Role: Implements the res names operation.
+- Description: Implements the res names operation.
 
 #### `public Stream<String> poseNames()`
-- Role: Performs pose names.
-- Description: Supports the pose names operation used by the surrounding class.
+- Role: Implements the pose names operation.
+- Description: Implements the pose names operation.
 
 #### `public boolean hasPose(String pose)`
 - Role: Checks whether the local player has the named pose.
 - Description: Checks the active pose set before driving pose-dependent behavior.
 
 #### `public Gob followingTarget()`
-- Role: Performs following target.
-- Description: Supports the following target operation used by the surrounding class.
+- Role: Follows the ing target.
+- Description: Follows the ing target.
 
 #### `public boolean isFollowing(Gob gob)`
 - Role: Checks whether the following.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isLifting()`
 - Role: Checks whether the lifting.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isLifting(Gob gob)`
 - Role: Checks whether the lifting.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void waitMove(Coord destination)`
-- Role: Performs wait move.
-- Description: Supports the wait move operation used by the surrounding class.
+- Role: Implements the wait move operation.
+- Description: Implements the wait move operation.
 
 #### `public void waitMove()`
-- Role: Performs wait move.
-- Description: Supports the wait move operation used by the surrounding class.
+- Role: Implements the wait move operation.
+- Description: Implements the wait move operation.
 
 #### `public void waitBuild()`
-- Role: Performs wait build.
-- Description: Supports the wait build operation used by the surrounding class.
+- Role: Implements the wait build operation.
+- Description: Implements the wait build operation.
 
 #### `public void waitLift(Gob gob)`
-- Role: Performs wait lift.
-- Description: Supports the wait lift operation used by the surrounding class.
+- Role: Implements the wait lift operation.
+- Description: Implements the wait lift operation.
 
 #### `public void waitPut()`
-- Role: Performs wait put.
-- Description: Supports the wait put operation used by the surrounding class.
+- Role: Implements the wait put operation.
+- Description: Implements the wait put operation.
 
 #### `public boolean isLog()`
 - Role: Checks whether the log.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isTrunk()`
 - Role: Checks whether the trunk.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isContainer()`
 - Role: Checks whether the container.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String debugDescription()`
 - Role: Logs the description.

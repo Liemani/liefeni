@@ -1,5 +1,5 @@
 ---
-source: [Drawn.java](../../../src/haven/Drawn.java)
+source: [Drawn.java](../../../../src/haven/Drawn.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,4 +18,4 @@ Represents the drawn Haven component.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Drawn content.

@@ -1,5 +1,5 @@
 ---
-source: [NamedSocketAddress.java](../../../src/haven/NamedSocketAddress.java)
+source: [NamedSocketAddress.java](../../../../src/haven/NamedSocketAddress.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,43 +15,43 @@ Represents the named socket address Haven component.
 ### Fields
 
 #### `public final String host`
-- Role: Stores the host value.
-- Description: Backs the cached state for this file.
+- Role: Caches the host value.
+- Description: Caches the `host` value for reuse.
 
 #### `public final int port`
-- Role: Stores the port value.
-- Description: Backs the cached state for this file.
+- Role: Caches the port value.
+- Description: Caches the `port` value for reuse.
 
 ### Methods
 
 #### `public NamedSocketAddress(String host, int port)`
 - Role: Creates a new NamedSocketAddress instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the NamedSocketAddress instance from the supplied inputs.
 
 #### `public boolean equals(NamedSocketAddress that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public static NamedSocketAddress parse(String spec, int defport)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public static NamedSocketAddress parse(String spec)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public String toString(int defport)`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this NamedSocketAddress for debugging and logging.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this NamedSocketAddress for debugging and logging.

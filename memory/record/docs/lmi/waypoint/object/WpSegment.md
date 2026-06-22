@@ -1,5 +1,5 @@
 ---
-source: [WpSegment.java](../../../../../src/lmi/waypoint/object/WpSegment.java)
+source: [WpSegment.java](../../../../../../src/lmi/waypoint/object/WpSegment.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Represents a waypoint segment domain object.
 ### Fields
 
 #### `public final long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final long edgeId`
-- Role: Stores the edge id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the edge id value.
+- Description: Caches the `edgeId` value for reuse.
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final int step`
-- Role: Stores the step value.
-- Description: Backs the cached state for this file.
+- Role: Caches the step value.
+- Description: Caches the `step` value for reuse.
 
 ### Methods
 
 #### `private WpSegment(long id, long edgeId, long gridId, int step)`
 - Role: Creates a new WpSegment instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WpSegment instance from the supplied inputs.
 
 #### `public static WpSegment of(long id, long edgeId, long gridId, int step)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a WpSegment value from the supplied components.
+- Description: Builds a WpSegment value from the supplied components.
 
 #### `public static WpSegment fromRecord(WpSegmentRecord record)`
-- Role: Performs from record.
-- Description: Supports the from record operation used by the surrounding class.
+- Role: Handles the from record path.
+- Description: Implements the from record operation.

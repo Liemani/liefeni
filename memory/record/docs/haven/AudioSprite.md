@@ -1,5 +1,5 @@
 ---
-source: [AudioSprite.java](../../../src/haven/AudioSprite.java)
+source: [AudioSprite.java](../../../../src/haven/AudioSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -30,85 +30,86 @@ Connects audio playback to sprite lifecycles.
 ### Constants
 
 #### `public static final Sprite.Factory fact = new Sprite.Factory()`
-- Role: Defines the shared fact constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fact operation.
+- Description: Implements the factory operation.
+- Value: `new Sprite.Factory()`
 
 ### Fields
 
 #### `public final ActAudio.PosClip clip`
-- Role: Stores the clip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
 
 #### `private boolean done = false`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `private ActAudio.PosClip clip`
-- Role: Stores the clip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
 
 #### `private final Audio.Clip end`
-- Role: Stores the end value.
-- Description: Backs the cached state for this file.
+- Role: Caches the end value.
+- Description: Caches the `end` value for reuse.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the slots operation.
+- Description: Implements the private final collection<render tree.slot> slots = new array list<>(1) operation.
 
 #### `public final RenderTree.Node amb`
-- Role: Stores the amb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the amb value.
+- Description: Caches the `amb` value for reuse.
 
 ### Methods
 
 #### `public static List<Audio.Clip> clips(Resource res, String id)`
-- Role: Performs clips.
-- Description: Supports the clips operation used by the surrounding class.
+- Role: Handles the clips path.
+- Description: Implements the clips operation.
 
 #### `public static Audio.Clip randoom(Resource res, String id)`
-- Role: Performs randoom.
-- Description: Supports the randoom operation used by the surrounding class.
+- Role: Handles the randoom path.
+- Description: Implements the randoom operation.
 
 #### `public ClipSprite(Owner owner, Resource res, Audio.Clip clip)`
-- Role: Performs clip sprite.
-- Description: Supports the clip sprite operation used by the surrounding class.
+- Role: Handles the clip sprite path.
+- Description: Implements the clip sprite operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public RepeatSprite(Owner owner, Resource res, Audio.Clip beg, List<Audio.Clip> clips, Audio.Clip end)`
-- Role: Performs repeat sprite.
-- Description: Supports the repeat sprite operation used by the surrounding class.
+- Role: Handles the repeat sprite path.
+- Description: Implements the repeat sprite operation.
 
 #### `private void parts(RenderTree.Slot slot)`
-- Role: Performs parts.
-- Description: Supports the parts operation used by the surrounding class.
+- Role: Handles the parts path.
+- Description: Implements the parts operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void delete()`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.
 
 #### `public Ambience(Owner owner, Resource res)`
-- Role: Performs ambience.
-- Description: Supports the ambience operation used by the surrounding class.
+- Role: Handles the ambience path.
+- Description: Implements the ambience operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.

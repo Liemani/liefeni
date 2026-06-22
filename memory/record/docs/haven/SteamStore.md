@@ -1,5 +1,5 @@
 ---
-source: [SteamStore.java](../../../src/haven/SteamStore.java)
+source: [SteamStore.java](../../../../src/haven/SteamStore.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,33 +12,34 @@ Represents the steam store Haven component.
 
 ### Authorizer
 
-- Role: Represents authorizer within SteamStore.
-- Description: Describes the nested authorizer type used by the enclosing class.
+- Role: Receives Steam authorization callbacks.
+- Description: Forwards approval or rejection to the stored callback handler.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<URI> steamsvc = Config.Services.var("steamsvc", "")`
-- Role: Defines the shared steamsvc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the steamsvc operation.
+- Description: Implements the var operation.
+- Value: `Config.Services.var("steamsvc", "")`
 
 ### Fields
 
 #### `private static Authorizer cb`
-- Role: Holds the cb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cb value.
+- Description: Caches the `cb` value for reuse.
 
 ### Methods
 
 #### `private static void sendauth(long orderid, boolean approved)`
-- Role: Performs sendauth.
-- Description: Supports the sendauth operation used by the surrounding class.
+- Role: Handles the sendauth path.
+- Description: Implements the sendauth operation.
 
 #### `public void callback(String id, Object[] args)`
-- Role: Performs callback.
-- Description: Supports the callback operation used by the surrounding class.
+- Role: Handles the callback path.
+- Description: Implements the callback operation.
 
 #### `public static void launch(Session sess)`
-- Role: Performs launch.
-- Description: Supports the launch operation used by the surrounding class.
+- Role: Handles the launch path.
+- Description: Implements the launch operation.

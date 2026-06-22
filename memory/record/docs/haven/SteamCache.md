@@ -1,5 +1,5 @@
 ---
-source: [SteamCache.java](../../../src/haven/SteamCache.java)
+source: [SteamCache.java](../../../../src/haven/SteamCache.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Represents the steam cache Haven component.
 ### Fields
 
 #### `private final Steam api`
-- Role: Holds the api state.
-- Description: Backs the cached state for this file.
+- Role: Caches the api value.
+- Description: Caches the `api` value for reuse.
 
 #### `private final String prefix`
-- Role: Stores the prefix value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prefix value.
+- Description: Caches the `prefix` value for reuse.
 
 ### Methods
 
 #### `public SteamCache(Steam api)`
 - Role: Creates a new SteamCache instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SteamCache instance from the supplied inputs.
 
 #### `public InputStream fetch(String name) throws IOException`
 - Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Description: Opens the requested cached resource for reading.
 
 #### `public OutputStream store(String name) throws IOException`
 - Role: Handles the store workflow.
-- Description: Supports the store operation used by the surrounding class.
+- Description: Opens the requested cached resource for writing.

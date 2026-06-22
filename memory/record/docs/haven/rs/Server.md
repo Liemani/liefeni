@@ -1,5 +1,5 @@
 ---
-source: [Server.java](../../../../src/haven/rs/Server.java)
+source: [Server.java](../../../../../src/haven/rs/Server.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -25,77 +25,78 @@ Integrates Haven rendering-server support for server.
 ### Constants
 
 #### `public static final Map<String, Command> commands = new HashMap<String, Command>()`
-- Role: Defines the shared commands constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the commands operation.
+- Description: Implements the public static final map<string, command> commands = new hash map<string, command>() operation.
+- Value: `new HashMap<String, Command>()`
 
 ### Fields
 
 #### `private final ServerSocket sk`
-- Role: Holds the sk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sk value.
+- Description: Caches the `sk` value for reuse.
 
 #### `private final Random rng = new SecureRandom()`
-- Role: Holds the rng state.
-- Description: Backs the cached state for this file.
+- Role: Implements the rng operation.
+- Description: Implements the secure random operation.
 
 #### `private final byte[] key`
-- Role: Stores the key value.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 #### `private final InputStream in`
-- Role: Holds the in state.
-- Description: Backs the cached state for this file.
+- Role: Caches the in value.
+- Description: Caches the `in` value for reuse.
 
 #### `private final OutputStream out`
-- Role: Holds the out state.
-- Description: Backs the cached state for this file.
+- Role: Caches the out value.
+- Description: Caches the `out` value for reuse.
 
 #### `private byte[] nonce = null`
-- Role: Stores the nonce value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nonce value.
+- Description: Caches the `nonce` value for reuse.
 
 #### `private boolean auth = false`
 - Role: Tracks the auth flag.
-- Description: Supports the auth operation used by the surrounding class.
+- Description: Caches the `auth` value for reuse.
 
 ### Methods
 
 #### `public Object[] run(Client cl, Object... args) throws InterruptedException`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private Client(InputStream in, OutputStream out, boolean auth)`
-- Role: Performs client.
-- Description: Supports the client operation used by the surrounding class.
+- Role: Handles the client path.
+- Description: Implements the client operation.
 
 #### `private Client(Socket sk) throws IOException`
 - Role: Handles the client workflow.
-- Description: Supports the client operation used by the surrounding class.
+- Description: Implements the client operation.
 
 #### `byte[] read(InputStream in, int bytes) throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public Server(int port, byte[] key) throws IOException`
 - Role: Creates a new Server instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Server instance from the supplied inputs.
 
 #### `public Server()`
 - Role: Creates a new Server instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Server instance from the supplied inputs.
 
 #### `public static void stdio()`
-- Role: Performs stdio.
-- Description: Supports the stdio operation used by the surrounding class.
+- Role: Handles the stdio path.
+- Description: Implements the stdio operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static void main(String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

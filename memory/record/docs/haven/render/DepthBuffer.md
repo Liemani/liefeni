@@ -1,5 +1,5 @@
 ---
-source: [DepthBuffer.java](../../../../src/haven/render/DepthBuffer.java)
+source: [DepthBuffer.java](../../../../../src/haven/render/DepthBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,41 +13,43 @@ Defines the depth buffer render pipeline component.
 ### Constants
 
 #### `public static final Slot<DepthBuffer> slot = new Slot<>(Slot.Type.SYS, DepthBuffer.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes depth-buffer state.
+- Description: Shared slot used to expose the active depth buffer to the pipe.
+- Value: `new Slot<>(Slot.Type.SYS, DepthBuffer.class)`
 
 #### `public static final Object defdepth = new Object()`
-- Role: Defines the shared defdepth constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Marks the default depth buffer state.
+- Description: Shared sentinel used when no explicit depth buffer is present.
+- Value: `new Object()`
 
 ### Fields
 
 #### `public final T image`
-- Role: Holds the image state.
-- Description: Backs the cached state for this file.
+- Role: Caches the image value.
+- Description: Caches the `image` value for reuse.
 
 ### Methods
 
 #### `public DepthBuffer(T image)`
-- Role: Creates a new DepthBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Stores one depth buffer image.
+- Description: Wraps the underlying depth texture or render target.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Builds the depth shader.
+- Description: Returns the shader macro that reads depth data from the current state.
 
 #### `public void apply(Pipe p)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies depth-buffer state.
+- Description: Writes the active depth buffer into the current pipe.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this DepthBuffer for debugging and logging.

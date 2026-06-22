@@ -1,5 +1,5 @@
 ---
-source: [Area.java](../../../src/haven/Area.java)
+source: [Area.java](../../../../src/haven/Area.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,119 +15,119 @@ Represents the area Haven component.
 ### Fields
 
 #### `public Coord ul, br`
-- Role: Stores the br value.
-- Description: Backs the cached state for this file.
+- Role: Caches the br value.
+- Description: Caches the `br` value for reuse.
 
 #### `public Coord ul, br`
-- Role: Stores the br value.
-- Description: Backs the cached state for this file.
+- Role: Caches the br value.
+- Description: Caches the `br` value for reuse.
 
 ### Methods
 
 #### `public Area(Coord ul, Coord br)`
 - Role: Creates a new Area instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Area instance from the supplied inputs.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public static Area corn(Coord ul, Coord br)`
-- Role: Performs corn.
-- Description: Supports the corn operation used by the surrounding class.
+- Role: Handles the corn path.
+- Description: Implements the corn operation.
 
 #### `public static Area corni(Coord ul, Coord bri)`
-- Role: Performs corni.
-- Description: Supports the corni operation used by the surrounding class.
+- Role: Handles the corni path.
+- Description: Implements the corni operation.
 
 #### `public static Area sized(Coord ul, Coord sz)`
-- Role: Performs sized.
-- Description: Supports the sized operation used by the surrounding class.
+- Role: Handles the sized path.
+- Description: Implements the sized operation.
 
 #### `public static Area sized(Coord sz)`
-- Role: Performs sized.
-- Description: Supports the sized operation used by the surrounding class.
+- Role: Handles the sized path.
+- Description: Implements the sized operation.
 
 #### `public static Area sizedi(Coord szi)`
-- Role: Performs sizedi.
-- Description: Supports the sizedi operation used by the surrounding class.
+- Role: Handles the sizedi path.
+- Description: Implements the sizedi operation.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public boolean positive()`
-- Role: Performs positive.
-- Description: Supports the positive operation used by the surrounding class.
+- Role: Handles the positive path.
+- Description: Implements the positive operation.
 
 #### `public boolean contains(Coord c)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.
 
 #### `public boolean isects(Area o)`
-- Role: Performs isects.
-- Description: Supports the isects operation used by the surrounding class.
+- Role: Handles the isects path.
+- Description: Returns whether the ects is true.
 
 #### `public boolean contains(Area o)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.
 
 #### `public Area overlap(Area o)`
-- Role: Performs overlap.
-- Description: Supports the overlap operation used by the surrounding class.
+- Role: Handles the overlap path.
+- Description: Implements the overlap operation.
 
 #### `public Area include(Area o)`
-- Role: Performs include.
-- Description: Supports the include operation used by the surrounding class.
+- Role: Handles the include path.
+- Description: Implements the include operation.
 
 #### `public Coord closest(Coord p)`
-- Role: Performs closest.
-- Description: Supports the closest operation used by the surrounding class.
+- Role: Handles the closest path.
+- Description: Implements the closest operation.
 
 #### `public int area()`
-- Role: Performs area.
-- Description: Supports the area operation used by the surrounding class.
+- Role: Handles the area path.
+- Description: Implements the area operation.
 
 #### `public Area xl(Coord off)`
-- Role: Performs xl.
-- Description: Supports the xl operation used by the surrounding class.
+- Role: Handles the xl path.
+- Description: Implements the xl operation.
 
 #### `public Area margin(Coord m)`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `public Area margin(int m)`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `public Area mul(Coord d)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies this Area by the supplied value.
+- Description: Multiplies this Area by the supplied value.
 
 #### `public Area div(Coord d)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Divides this Area by the supplied value.
+- Description: Divides this Area by the supplied value.
 
 #### `public int ridx(Coord c)`
-- Role: Performs ridx.
-- Description: Supports the ridx operation used by the surrounding class.
+- Role: Handles the ridx path.
+- Description: Implements the ridx operation.
 
 #### `public Iterator<Coord> iterator()`
-- Role: Performs iterator.
-- Description: Supports the iterator operation used by the surrounding class.
+- Role: Handles the iterator path.
+- Description: Implements the iterator operation.
 
 #### `public int ri(Coord c)`
-- Role: Performs ri.
-- Description: Supports the ri operation used by the surrounding class.
+- Role: Handles the ri path.
+- Description: Implements the ri operation.
 
 #### `public int rsz()`
-- Role: Performs rsz.
-- Description: Supports the rsz operation used by the surrounding class.
+- Role: Handles the rsz path.
+- Description: Implements the rsz operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Area for debugging and logging.

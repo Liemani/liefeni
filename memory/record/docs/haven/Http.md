@@ -1,5 +1,5 @@
 ---
-source: [Http.java](../../../src/haven/Http.java)
+source: [Http.java](../../../../src/haven/Http.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,33 +13,35 @@ Represents the http Haven component.
 ### Constants
 
 #### `public static final String USER_AGENT = useragent()`
-- Role: Defines the shared user agent constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the user agent operation.
+- Description: Implements the useragent operation.
+- Value: `useragent()`
 
 #### `public static final SslHelper ssl = sslconf()`
-- Role: Defines the shared ssl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ssl operation.
+- Description: Implements the sslconf operation.
+- Value: `sslconf()`
 
 ### Fields
 
 ### Methods
 
 #### `private static String useragent()`
-- Role: Performs useragent.
-- Description: Supports the useragent operation used by the surrounding class.
+- Role: Handles the useragent path.
+- Description: Builds the HTTP user-agent string used by the client.
 
 #### `private static SslHelper sslconf()`
-- Role: Performs sslconf.
-- Description: Supports the sslconf operation used by the surrounding class.
+- Role: Handles the sslconf path.
+- Description: Builds the SSL configuration used by the client.
 
 #### `public static URLConnection open(URL url) throws IOException`
 - Role: Opens the current resource.
-- Description: Supports the open operation used by the surrounding class.
+- Description: Opens a URL connection with the client defaults.
 
 #### `public static InputStream fetch(URL url, Consumer<URLConnection> init) throws IOException`
 - Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Description: Fetches a URL stream after applying custom connection setup.
 
 #### `public static InputStream fetch(URL url) throws IOException`
 - Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Description: Fetches a URL stream with the default connection setup.

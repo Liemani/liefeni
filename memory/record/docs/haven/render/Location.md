@@ -1,5 +1,5 @@
 ---
-source: [Location.java](../../../../src/haven/render/Location.java)
+source: [Location.java](../../../../../src/haven/render/Location.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,129 +12,132 @@ Defines the location render pipeline component.
 
 ### Chain
 
-- Role: Represents chain within Location.
-- Description: Describes the nested chain type used by the enclosing class.
+- Role: Stores a transform chain.
+- Description: Keeps a named location chain for instance-state composition.
 
 ## Members
 
 ### Constants
 
 #### `public static final Instancer<Chain> instancer = new Instancer<Chain>()`
-- Role: Defines the shared instancer constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the instancer operation.
+- Description: Implements the public static final instancer<chain> instancer = new instancer<chain>() operation.
+- Value: `new Instancer<Chain>()`
 
 #### `public static final Location nullrot = new Location(Transform.nullrot)`
-- Role: Defines the shared nullrot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nullrot operation.
+- Description: Implements the location operation.
+- Value: `new Location(Transform.nullrot)`
 
 #### `public static final Location onlyxl = new Location(Matrix4f.id)`
-- Role: Defines the shared onlyxl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the onlyxl operation.
+- Description: Implements the location operation.
+- Value: `new Location(Matrix4f.id)`
 
 ### Fields
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Location loc`
-- Role: Holds the loc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the loc value.
+- Description: Caches the `loc` value for reuse.
 
 #### `public final Chain p`
-- Role: Holds the p state.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 #### `private Matrix4f bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 ### Methods
 
 #### `public Location(Function<Matrix4f, Matrix4f> xf, String id)`
 - Role: Creates a new Location instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Location instance from the supplied inputs.
 
 #### `public Location(Matrix4f xf, String id)`
 - Role: Creates a new Location instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Location instance from the supplied inputs.
 
 #### `public Location(Function<Matrix4f, Matrix4f> xf)`
 - Role: Creates a new Location instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Location instance from the supplied inputs.
 
 #### `public Location(Matrix4f xf)`
 - Role: Creates a new Location instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Location instance from the supplied inputs.
 
 #### `private Chain(Location loc, Chain p)`
-- Role: Performs chain.
-- Description: Supports the chain operation used by the surrounding class.
+- Role: Handles the chain path.
+- Description: Implements the chain operation.
 
 #### `public Matrix4f fin(Matrix4f o)`
-- Role: Performs fin.
-- Description: Supports the fin operation used by the surrounding class.
+- Role: Handles the fin path.
+- Description: Implements the fin operation.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public Chain back(String id)`
-- Role: Performs back.
-- Description: Supports the back operation used by the surrounding class.
+- Role: Handles the backing data path.
+- Description: Implements the back operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public InstancedAttribute[] attribs()`
-- Role: Performs attribs.
-- Description: Supports the attribs operation used by the surrounding class.
+- Role: Handles the attribs path.
+- Description: Implements the attribs operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Location for debugging and logging.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public static Chain back(Pipe p, String id)`
-- Role: Performs back.
-- Description: Supports the back operation used by the surrounding class.
+- Role: Handles the backing data path.
+- Description: Implements the back operation.
 
 #### `public static Chain goback(Pipe p, String id)`
-- Role: Performs goback.
-- Description: Supports the goback operation used by the surrounding class.
+- Role: Handles the goback path.
+- Description: Implements the goback operation.
 
 #### `public static Pipe.Op goback(String id)`
-- Role: Performs goback.
-- Description: Supports the goback operation used by the surrounding class.
+- Role: Handles the goback path.
+- Description: Implements the goback operation.
 
 #### `public static Location xlate(Coord3f c)`
-- Role: Performs xlate.
-- Description: Supports the xlate operation used by the surrounding class.
+- Role: Handles the xlate path.
+- Description: Implements the xlate operation.
 
 #### `public static Location rot(Coord3f axis, float angle)`
-- Role: Performs rot.
-- Description: Supports the rot operation used by the surrounding class.
+- Role: Handles the rot path.
+- Description: Implements the rot operation.
 
 #### `public static Location scale(float x, float y, float z)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Handles the scale path.
+- Description: Implements the scale operation.
 
 #### `public static Location scale(Coord3f c)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Handles the scale path.
+- Description: Implements the scale operation.
 
 #### `public static Location scale(float s)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Handles the scale path.
+- Description: Implements the scale operation.

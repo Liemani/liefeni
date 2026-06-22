@@ -1,5 +1,5 @@
 ---
-source: [HashDirCache.java](../../../src/haven/HashDirCache.java)
+source: [HashDirCache.java](../../../../src/haven/HashDirCache.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,153 +12,155 @@ Represents the hash dir cache Haven component.
 
 ### CacheFile
 
-- Role: Represents cache file within HashDirCache.
-- Description: Describes the nested cache file type used by the enclosing class.
+- Role: Wraps one locked cache file.
+- Description: Helper that owns the acquired file channel and associated header metadata.
 
 ### Header
 
-- Role: Represents header within HashDirCache.
-- Description: Describes the nested header type used by the enclosing class.
+- Role: Stores cache file header metadata.
+- Description: Parsed header record that keeps the cache id and entry name.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<URI, HashDirCache> current = new CacheMap<>()`
-- Role: Defines the shared current constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the current operation.
+- Description: Implements the private static final map<uri, hash dir cache> current = new cache map<>() operation.
+- Value: `new CacheMap<>()`
 
 #### `private static final Map<Path, int[]> monitors = new HashMap<>()`
-- Role: Defines the shared monitors constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the monitors operation.
+- Description: Implements the private static final map<path, int[]> monitors = new hash map<>() operation.
+- Value: `new HashMap<>()`
 
 ### Fields
 
 #### `private final Path base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `public final URI id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private final long idhash`
-- Role: Stores the idhash value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idhash value.
+- Description: Caches the `idhash` value for reuse.
 
 #### `String cid, name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `String cid, name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `final Path p`
-- Role: Stores the p value.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 #### `final Header h`
-- Role: Holds the h state.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `FileChannel f`
-- Role: Stores the f value.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `private static boolean monwarned = false`
 - Role: Tracks the monwarned flag.
-- Description: Supports the monwarned operation used by the surrounding class.
+- Description: Caches the `monwarned` value for reuse.
 
 ### Methods
 
 #### `public static Path findbase()`
-- Role: Performs findbase.
-- Description: Supports the findbase operation used by the surrounding class.
+- Role: Handles the findbase path.
+- Description: Finds the base.
 
 #### `private HashDirCache(URI id)`
 - Role: Creates a new HashDirCache instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HashDirCache instance from the supplied inputs.
 
 #### `public static HashDirCache get(URI id)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private static URI mkurn(String id)`
-- Role: Performs mkurn.
-- Description: Supports the mkurn operation used by the surrounding class.
+- Role: Handles the mkurn path.
+- Description: Implements the mkurn operation.
 
 #### `public static HashDirCache get(String id)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private long namehash(long h, String name)`
-- Role: Performs namehash.
-- Description: Supports the namehash operation used by the surrounding class.
+- Role: Handles the namehash path.
+- Description: Implements the namehash operation.
 
 #### `private Header readhead(DataInput fp) throws IOException`
 - Role: Handles the readhead workflow.
-- Description: Supports the readhead operation used by the surrounding class.
+- Description: Implements the readhead operation.
 
 #### `private Header readhead(ReadableByteChannel ch) throws IOException`
 - Role: Handles the readhead workflow.
-- Description: Supports the readhead operation used by the surrounding class.
+- Description: Implements the readhead operation.
 
 #### `private void writehead(DataOutput fp, String name) throws IOException`
 - Role: Handles the writehead workflow.
-- Description: Supports the writehead operation used by the surrounding class.
+- Description: Implements the writehead operation.
 
 #### `private void writehead(WritableByteChannel ch, String name) throws IOException`
 - Role: Handles the writehead workflow.
-- Description: Supports the writehead operation used by the surrounding class.
+- Description: Implements the writehead operation.
 
 #### `private static FileChannel open2(Path path, OpenOption... mode) throws IOException`
 - Role: Handles the open2 workflow.
-- Description: Supports the open2 operation used by the surrounding class.
+- Description: Implements the open2 operation.
 
 #### `CacheFile(Path p, Header h, LockedFile lf) throws IOException`
 - Role: Handles the cache file workflow.
-- Description: Supports the cache file operation used by the surrounding class.
+- Description: Implements the cache file operation.
 
 #### `FileChannel acquire()`
-- Role: Performs acquire.
-- Description: Supports the acquire operation used by the surrounding class.
+- Role: Handles the acquire path.
+- Description: Implements the acquire operation.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `private CacheFile lookup(String name, boolean creat) throws IOException`
 - Role: Handles the lookup workflow.
-- Description: Supports the lookup operation used by the surrounding class.
+- Description: Implements the lookup operation.
 
 #### `private static DirectoryStream.Filter<Path> fnfilter(java.util.function.Predicate<String> filter)`
-- Role: Performs fnfilter.
-- Description: Supports the fnfilter operation used by the surrounding class.
+- Role: Handles the fnfilter path.
+- Description: Implements the fnfilter operation.
 
 #### `private Iterator<String> list(boolean filter) throws IOException`
 - Role: Handles the list workflow.
-- Description: Supports the list operation used by the surrounding class.
+- Description: Implements the list operation.
 
 #### `private Iterator<String> list() throws IOException`
 - Role: Handles the list workflow.
-- Description: Supports the list operation used by the surrounding class.
+- Description: Implements the list operation.
 
 #### `public OutputStream store(String name) throws IOException`
 - Role: Handles the store workflow.
-- Description: Supports the store operation used by the surrounding class.
+- Description: Opens the requested cached resource for writing.
 
 #### `public InputStream fetch(String name) throws IOException`
 - Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Description: Opens the requested cached resource for reading.
 
 #### `public void remove(String name) throws IOException`
 - Role: Handles the remove workflow.
-- Description: Supports the remove operation used by the surrounding class.
+- Description: Removes the supplied value from the owning container.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this HashDirCache for debugging and logging.
 
 #### `public static HashDirCache create()`
 - Role: Creates the target object.
@@ -166,4 +168,4 @@ Represents the hash dir cache Haven component.
 
 #### `public static void main(String[] args) throws IOException`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

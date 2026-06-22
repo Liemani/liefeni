@@ -1,5 +1,5 @@
 ---
-source: [Defrag.java](../../../src/haven/Defrag.java)
+source: [Defrag.java](../../../../src/haven/Defrag.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,47 +15,47 @@ Represents the defrag Haven component.
 ### Fields
 
 #### `byte[] blob`
-- Role: Stores the blob value.
-- Description: Backs the cached state for this file.
+- Role: Caches the blob value.
+- Description: Caches the `blob` value for reuse.
 
 #### `int len`
-- Role: Stores the len value.
-- Description: Backs the cached state for this file.
+- Role: Caches the len value.
+- Description: Caches the `len` value for reuse.
 
 #### `long last = 0`
-- Role: Stores the last value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last .
+- Description: Caches the last  value.
 
 #### `final int[] ms1 = new int[20], ms2 = new int[20]`
-- Role: Stores the ms1 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ms1 value.
+- Description: Caches the `ms1` value for reuse.
 
 #### `final int[] ms1 = new int[20], ms2 = new int[20]`
-- Role: Stores the ms1 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ms1 value.
+- Description: Caches the `ms1` value for reuse.
 
 ### Methods
 
 #### `public Defrag(int len)`
 - Role: Creates a new Defrag instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Defrag instance from the supplied inputs.
 
 #### `private void addm(int m1, int m2)`
-- Role: Performs addm.
-- Description: Supports the addm operation used by the surrounding class.
+- Role: Handles the addm path.
+- Description: Adds the m.
 
 #### `public void add(byte[] blob, int boff, int blen, int off)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void add(byte[] blob, int off)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public Message msg()`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Implements the msg operation.

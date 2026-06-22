@@ -1,5 +1,5 @@
 ---
-source: [WaypointPortal.java](../../../../../src/lmi/waypoint/recording/WaypointPortal.java)
+source: [WaypointPortal.java](../../../../../../src/lmi/waypoint/recording/WaypointPortal.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,8 +13,8 @@ Represents a waypoint portal candidate.
 ### Constants
 
 #### `private static final Map<String, List<String>> counterpartMap = new HashMap<>()`
-- Role: Defines the shared counterpart map constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the counterpart map operation.
+- Description: Implements the private static final map<string, list<string>> counterpart map = new hash map<>() operation.
 
 ### Fields
 
@@ -22,20 +22,20 @@ Represents a waypoint portal candidate.
 
 #### `private WaypointPortal()`
 - Role: Creates a new WaypointPortal instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointPortal instance from the supplied inputs.
 
 #### `public static List<String> counterpartResnames(String resname)`
-- Role: Performs counterpart resnames.
-- Description: Supports the counterpart resnames operation used by the surrounding class.
+- Role: Handles the counterpart resnames path.
+- Description: Implements the counterpart resnames operation.
 
 #### `public static boolean isPortalResname(String resname)`
 - Role: Checks whether the portal resname.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `private static void pair(String a, String b)`
-- Role: Performs pair.
-- Description: Supports the pair operation used by the surrounding class.
+- Role: Handles the pair path.
+- Description: Implements the pair operation.
 
 #### `private static List<String> counterpart(String resname)`
-- Role: Performs counterpart.
-- Description: Supports the counterpart operation used by the surrounding class.
+- Role: Handles the counterpart path.
+- Description: Implements the counterpart operation.

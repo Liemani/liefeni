@@ -1,5 +1,5 @@
 ---
-source: [CountingInputStream.java](../../../src/haven/CountingInputStream.java)
+source: [CountingInputStream.java](../../../../src/haven/CountingInputStream.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Represents the counting input stream Haven component.
 ### Fields
 
 #### `public final InputStream bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public long pos = 0`
-- Role: Stores the pos value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pos value.
+- Description: Caches the `pos` value for reuse.
 
 ### Methods
 
 #### `public CountingInputStream(InputStream bk)`
 - Role: Creates a new CountingInputStream instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CountingInputStream instance from the supplied inputs.
 
 #### `protected void update(long num)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public long skip(long len) throws IOException`
 - Role: Handles the skip workflow.
-- Description: Supports the skip operation used by the surrounding class.
+- Description: Implements the skip operation.
 
 #### `public int read(byte[] buf, int off, int len) throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public int read() throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.

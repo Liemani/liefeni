@@ -1,5 +1,5 @@
 ---
-source: [SegmentResolver.java](../../../../../src/lmi/waypoint/recording/SegmentResolver.java)
+source: [SegmentResolver.java](../../../../../../src/lmi/waypoint/recording/SegmentResolver.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Resolves waypoint recording segments from runtime input.
 
 #### `private SegmentResolver()`
 - Role: Creates a new SegmentResolver instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SegmentResolver instance from the supplied inputs.
 
 #### `static SegmentResolution resolve(Connection conn, RecordingSegment segment) throws SQLException`
 - Role: Coordinates resolve persistence or lookup.
-- Description: Supports the resolve operation used by the surrounding class.
+- Description: Resolves the requested value from the current runtime state.

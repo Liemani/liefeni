@@ -1,5 +1,5 @@
 ---
-source: [TableBox.java](../../../src/haven/TableBox.java)
+source: [TableBox.java](../../../../src/haven/TableBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,33 +12,33 @@ Represents the table box Haven component.
 
 ### ColSpec
 
-- Role: Represents col spec within TableBox.
-- Description: Describes the nested col spec type used by the enclosing class.
+- Role: Describes one table column specification.
+- Description: Column specification that defines width, alignment, heading, and cell factory behavior.
 
 ### Column
 
-- Role: Represents column within TableBox.
-- Description: Describes the nested column type used by the enclosing class.
+- Role: Stores runtime state for one table column.
+- Description: Column metadata that tracks width, x position, heading widget, and draw callbacks.
 
 ### HeadFactory
 
-- Role: Represents head factory within TableBox.
-- Description: Describes the nested head factory type used by the enclosing class.
+- Role: Builds a heading widget for a column.
+- Description: Functional interface used to create column header widgets.
 
 ### IHeading
 
-- Role: Represents iheading within TableBox.
-- Description: Describes the nested iheading type used by the enclosing class.
+- Role: Implements an interactive table heading.
+- Description: Header widget base class that hooks column hover and click handling.
 
 ### MainList
 
-- Role: Represents main list within TableBox.
-- Description: Describes the nested main list type used by the enclosing class.
+- Role: Hosts the table rows.
+- Description: SListBox wrapper that drives row creation and selection for the table body.
 
 ### Row
 
-- Role: Represents row within TableBox.
-- Description: Describes the nested row type used by the enclosing class.
+- Role: Renders one table row.
+- Description: Row widget that lays out each cell according to the column specifications.
 
 ## Members
 
@@ -47,179 +47,179 @@ Represents the table box Haven component.
 ### Fields
 
 #### `public final List<Column<I>> cols`
-- Role: Caches cols entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the cols value.
+- Description: Caches the `cols` value for reuse.
 
 #### `public final MainList main`
-- Role: Caches main entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the main value.
+- Description: Caches the `main` value for reuse.
 
 #### `public final TableBox<I> tbl`
-- Role: Holds the tbl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tbl value.
+- Description: Caches the `tbl` value for reuse.
 
 #### `public final ColSpec<? super I> spec`
-- Role: Holds the spec state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spec value.
+- Description: Caches the `spec` value for reuse.
 
 #### `public Widget head`
-- Role: Stores the head value.
-- Description: Backs the cached state for this file.
+- Role: Caches the head value.
+- Description: Caches the `head` value for reuse.
 
 #### `public int x, w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public int x, w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public Collection<BiConsumer<GOut, Column<? super I>>> drawcb = new ArrayList<>()`
-- Role: Caches drawcb entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Draws the cb.
+- Description: Draws the cb.
 
 #### `private boolean hovering`
 - Role: Tracks the hovering flag.
-- Description: Supports the hovering operation used by the surrounding class.
+- Description: Tracks whether the cursor is still hovering.
 
 ### Methods
 
 #### `public TableBox(Coord sz)`
 - Role: Creates a new TableBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TableBox instance from the supplied inputs.
 
 #### `protected abstract List<? extends I> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected abstract List<ColSpec<? super I>> spec()`
-- Role: Performs spec.
-- Description: Supports the spec operation used by the surrounding class.
+- Role: Handles the spec path.
+- Description: Implements the spec operation.
 
 #### `protected abstract int itemh()`
-- Role: Performs itemh.
-- Description: Supports the itemh operation used by the surrounding class.
+- Role: Handles the itemh path.
+- Description: Implements the itemh operation.
 
 #### `protected int headh()`
-- Role: Performs headh.
-- Description: Supports the headh operation used by the surrounding class.
+- Role: Handles the headh path.
+- Description: Implements the headh operation.
 
 #### `protected int colmarg()`
-- Role: Performs colmarg.
-- Description: Supports the colmarg operation used by the surrounding class.
+- Role: Handles the colmarg path.
+- Description: Implements the colmarg operation.
 
 #### `protected int rowmarg()`
-- Role: Performs rowmarg.
-- Description: Supports the rowmarg operation used by the surrounding class.
+- Role: Handles the rowmarg path.
+- Description: Implements the rowmarg operation.
 
 #### `protected MainList makelist(Coord sz)`
-- Role: Performs makelist.
-- Description: Supports the makelist operation used by the surrounding class.
+- Role: Handles the makelist path.
+- Description: Implements the makelist operation.
 
 #### `protected Row makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public Widget heading(Column<? extends I> col, Coord sz)`
-- Role: Performs heading.
-- Description: Supports the heading operation used by the surrounding class.
+- Role: Handles the heading path.
+- Description: Implements the heading operation.
 
 #### `public static <T> HeadFactory<T> of(Tex heading)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a TableBox value from the supplied components.
+- Description: Builds a TableBox value from the supplied components.
 
 #### `public int fixw()`
-- Role: Performs fixw.
-- Description: Supports the fixw operation used by the surrounding class.
+- Role: Handles the fixw path.
+- Description: Implements the fixw operation.
 
 #### `public double flexw()`
-- Role: Performs flexw.
-- Description: Supports the flexw operation used by the surrounding class.
+- Role: Handles the flexw path.
+- Description: Implements the flexw operation.
 
 #### `public double align()`
-- Role: Performs align.
-- Description: Supports the align operation used by the surrounding class.
+- Role: Handles the align path.
+- Description: Implements the align operation.
 
 #### `public double halign()`
-- Role: Performs halign.
-- Description: Supports the halign operation used by the surrounding class.
+- Role: Handles the halign path.
+- Description: Implements the halign operation.
 
 #### `public abstract Widget heading(Column<? extends I> col, Coord sz)`
-- Role: Performs heading.
-- Description: Supports the heading operation used by the surrounding class.
+- Role: Handles the heading path.
+- Description: Implements the heading operation.
 
 #### `public abstract Widget makecell(I item, int idx, Coord sz)`
-- Role: Performs makecell.
-- Description: Supports the makecell operation used by the surrounding class.
+- Role: Handles the makecell path.
+- Description: Implements the makecell operation.
 
 #### `public static <T> ColSpec<T> of(int fixw, double flexw, double align, double halign,`
 - Role: Handles the of workflow.
-- Description: Supports the of operation used by the surrounding class.
+- Description: Builds a TableBox value from the supplied components.
 
 #### `public static <T> ColSpec<T> of(int fixw, double flexw, double align, double halign, Tex heading,`
 - Role: Handles the of workflow.
-- Description: Supports the of operation used by the surrounding class.
+- Description: Builds a TableBox value from the supplied components.
 
 #### `protected Column(TableBox<I> tbl, ColSpec<? super I> spec)`
-- Role: Performs column.
-- Description: Supports the column operation used by the surrounding class.
+- Role: Handles the column path.
+- Description: Implements the column operation.
 
 #### `protected Row(I item, int idx, Coord sz)`
-- Role: Performs row.
-- Description: Supports the row operation used by the surrounding class.
+- Role: Handles the row path.
+- Description: Implements the row operation.
 
 #### `protected MainList(Coord sz)`
-- Role: Performs main list.
-- Description: Supports the main list operation used by the surrounding class.
+- Role: Handles the main list path.
+- Description: Implements the main list operation.
 
 #### `public List<? extends I> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `public Row makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `protected boolean unselect(int button)`
-- Role: Performs unselect.
-- Description: Supports the unselect operation used by the surrounding class.
+- Role: Handles the unselect path.
+- Description: Implements the unselect operation.
 
 #### `protected boolean unselect(int button)`
-- Role: Performs unselect.
-- Description: Supports the unselect operation used by the surrounding class.
+- Role: Handles the unselect path.
+- Description: Implements the unselect operation.
 
 #### `private void widths()`
-- Role: Performs widths.
-- Description: Supports the widths operation used by the surrounding class.
+- Role: Handles the widths path.
+- Description: Implements the widths operation.
 
 #### `protected void drawgrid(GOut g)`
-- Role: Performs drawgrid.
-- Description: Supports the drawgrid operation used by the surrounding class.
+- Role: Handles the drawgrid path.
+- Description: Draws one rendered grid slice.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the TableBox content.
 
 #### `public IHeading(Column<?> col, Coord sz)`
-- Role: Performs iheading.
-- Description: Supports the iheading operation used by the surrounding class.
+- Role: Handles the iheading path.
+- Description: Implements the i heading operation.
 
 #### `protected abstract boolean click(MouseDownEvent ev)`
-- Role: Performs click.
-- Description: Supports the click operation used by the surrounding class.
+- Role: Handles the click path.
+- Description: Handles click input for this widget.
 
 #### `private void col(GOut g, Column<?> col)`
-- Role: Performs col.
-- Description: Supports the col operation used by the surrounding class.
+- Role: Handles the col path.
+- Description: Implements the col operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean hovering)`
-- Role: Performs mousehover.
-- Description: Supports the mousehover operation used by the surrounding class.
+- Role: Handles the mousehover path.
+- Description: Updates hover state and tooltip selection for minimap content.
 
 #### `public static <T> HeadFactory<T> wrap(HeadFactory<T> bk, Function<Column<? extends T>, Predicate<? super MouseDownEvent>> clickf)`
-- Role: Performs wrap.
-- Description: Supports the wrap operation used by the surrounding class.
+- Role: Handles the wrap path.
+- Description: Implements the wrap operation.

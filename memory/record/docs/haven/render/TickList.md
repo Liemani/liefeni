@@ -1,5 +1,5 @@
 ---
-source: [TickList.java](../../../../src/haven/render/TickList.java)
+source: [TickList.java](../../../../../src/haven/render/TickList.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -35,93 +35,94 @@ Defines the tick list render pipeline component.
 ### Constants
 
 #### `public static final Slot<Monitor> slot = new Slot<>(Slot.Type.SYS, Monitor.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the slot operation.
+- Description: Implements the public static final slot<monitor> slot = new slot<>(slot.type.sys, monitor.class) operation.
+- Value: `new Slot<>(Slot.Type.SYS, Monitor.class)`
 
 ### Fields
 
 #### `private final Map<Ticking, Entry> cur = new HashMap<>()`
-- Role: Caches cur entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cur operation.
+- Description: Implements the private final map<ticking, entry> cur = new hash map<>() operation.
 
 #### `final Ticking tick`
-- Role: Holds the tick state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tick value.
+- Description: Caches the `tick` value for reuse.
 
 #### `final Object mon`
-- Role: Holds the mon state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mon value.
+- Description: Caches the `mon` value for reuse.
 
 #### `int rc = 0`
-- Role: Stores the rc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rc value.
+- Description: Caches the `rc` value for reuse.
 
 #### `Object users = null`
-- Role: Holds the users state.
-- Description: Backs the cached state for this file.
+- Role: Caches the users value.
+- Description: Caches the `users` value for reuse.
 
 #### `public final Object mon`
-- Role: Holds the mon state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mon value.
+- Description: Caches the `mon` value for reuse.
 
 ### Methods
 
 #### `public Entry(Ticking tick, Object mon)`
-- Role: Performs entry.
-- Description: Supports the entry operation used by the surrounding class.
+- Role: Handles the entry path.
+- Description: Implements the entry operation.
 
 #### `public void get(TickNode user)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public boolean put(TickNode user)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public default void autotick(double dt)`
-- Role: Performs autotick.
-- Description: Supports the autotick operation used by the surrounding class.
+- Role: Handles the autotick path.
+- Description: Implements the autotick operation.
 
 #### `public default void autogtick(Render g)`
-- Role: Performs autogtick.
-- Description: Supports the autogtick operation used by the surrounding class.
+- Role: Handles the autogtick path.
+- Description: Implements the autogtick operation.
 
 #### `public Ticking ticker()`
-- Role: Performs ticker.
-- Description: Supports the ticker operation used by the surrounding class.
+- Role: Handles the ticker path.
+- Description: Advances the er state.
 
 #### `public void add(Slot<? extends TickNode> slot)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(Slot<? extends TickNode> slot)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void update(Slot<? extends TickNode> slot)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void update(Pipe group, int[] statemask)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
 - Description: Updates per-frame drawable state during the render loop.
 
 #### `public Monitor(Object mon)`
-- Role: Performs monitor.
-- Description: Supports the monitor operation used by the surrounding class.
+- Role: Handles the monitor path.
+- Description: Implements the monitor operation.
 
 #### `public haven.render.sl.ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

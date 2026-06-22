@@ -1,12 +1,12 @@
 ---
-source: [StreamTee.java](../../../src/haven/StreamTee.java)
+source: [StreamTee.java](../../../../src/haven/StreamTee.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # StreamTee
 
-Represents the stream tee Haven component.
+Copies bytes from one input stream into any number of attached output streams.
 
 ## Members
 
@@ -15,63 +15,63 @@ Represents the stream tee Haven component.
 ### Fields
 
 #### `private InputStream in`
-- Role: Holds the in state.
-- Description: Backs the cached state for this file.
+- Role: Stores the source stream.
+- Description: Supplies the bytes that are duplicated to the attached outputs.
 
 #### `private List<OutputStream> forked = new LinkedList<OutputStream>()`
-- Role: Caches forked entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores attached sinks.
+- Description: Holds the output streams that receive a copy of each byte read from the source.
 
 #### `private boolean readeof = false`
-- Role: Tracks the readeof flag.
-- Description: Supports the readeof operation used by the surrounding class.
+- Role: Tracks EOF state.
+- Description: Marks that the source stream has already returned end-of-file.
 
 #### `private boolean ncwe = false; /* NCWE = No Close Without EOF */`
-- Role: Tracks the ncwe flag.
-- Description: Supports the ncwe operation used by the surrounding class.
+- Role: Tracks close semantics.
+- Description: Delays closing forked outputs until EOF has been observed when enabled.
 
 ### Methods
 
 #### `public StreamTee(InputStream in)`
-- Role: Creates a new StreamTee instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Wraps a source stream.
+- Description: Creates a tee around the supplied input stream.
 
 #### `public int available() throws IOException`
-- Role: Handles the available workflow.
-- Description: Supports the available operation used by the surrounding class.
+- Role: Reports available bytes.
+- Description: Delegates the availability check to the source stream.
 
 #### `public void close() throws IOException`
-- Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Role: Closes the tee.
+- Description: Closes the source stream and, depending on EOF state, the attached outputs.
 
 #### `public void setncwe()`
-- Role: Performs setncwe.
-- Description: Supports the setncwe operation used by the surrounding class.
+- Role: Enables deferred fork closing.
+- Description: Prevents attached outputs from closing until EOF is reached.
 
 #### `public void flush() throws IOException`
-- Role: Handles the flush workflow.
-- Description: Supports the flush operation used by the surrounding class.
+- Role: Flushes attached outputs.
+- Description: Forwards flush to every attached output stream.
 
 #### `public void mark(int limit)`
-- Role: Performs mark.
-- Description: Supports the mark operation used by the surrounding class.
+- Role: Forwards mark requests.
+- Description: Delegates mark handling to the wrapped source stream.
 
 #### `public boolean markSupported()`
-- Role: Performs mark supported.
-- Description: Supports the mark supported operation used by the surrounding class.
+- Role: Reports mark/reset support.
+- Description: Delegates the capability check to the wrapped source stream.
 
 #### `public int read() throws IOException`
-- Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Role: Reads and tees one byte.
+- Description: Copies the source byte into every attached output stream.
 
 #### `public int read(byte[] buf, int off, int len) throws IOException`
-- Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Role: Reads and tees a buffer slice.
+- Description: Copies the source bytes into every attached output stream.
 
 #### `public void reset() throws IOException`
-- Role: Handles the reset workflow.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Rejects reset.
+- Description: Throws because the tee cannot rewind once bytes have been forwarded.
 
 #### `public void attach(OutputStream s)`
-- Role: Performs attach.
-- Description: Supports the attach operation used by the surrounding class.
+- Role: Attaches a forked output.
+- Description: Registers another output stream to receive duplicated bytes.

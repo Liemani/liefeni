@@ -1,204 +1,238 @@
 ---
-source: [TerrainTile.java](../../../../src/haven/resutil/TerrainTile.java)
+source: [TerrainTile.java](../../../../../src/haven/resutil/TerrainTile.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # TerrainTile
 
-Provides resource helper logic for terrain tile.
+Builds terrain mesh geometry from noise, thresholded variants, and optional ridge behavior.
 
 ## Nested Types
 
-### Blend
+### Var
+Describes one thresholded material variant used by terrain blending.
 
-- Role: Represents blend within TerrainTile.
-- Description: Describes the nested blend type used by the enclosing class.
+#### Members
+
+##### Fields
+
+#### `public NodeWrap mat`
+- Role: Stores the material node.
+- Description: Selected when the variant becomes active.
+
+#### `public double thrl, thrh`
+- Role: Stores the active range.
+- Description: The variant is used when noise falls inside this band.
+
+#### `public double nz`
+- Role: Stores the noise seed component.
+- Description: Feeds the per-variant noise query.
+
+#### `public Pipe.Op draw`
+- Role: Stores the draw state.
+- Description: Optional extra render state for the variant.
+
+##### Methods
+
+#### `public Var(NodeWrap mat, double thrl, double thrh, double nz)`
+- Role: Builds a terrain variant.
+- Description: Stores the material and activation thresholds.
+
+### Blend
+Caches per-mesh blend data for terrain rendering.
+
+#### Members
+
+##### Fields
+
+#### `final MapMesh m`
+- Role: Stores the owning map mesh.
+- Description: Used during all blend calculations.
+
+#### `final Scan vs, es`
+- Role: Stores the vertex and edge scan windows.
+- Description: Cover the local mesh neighborhood needed for blending.
+
+#### `final float[][] bv`
+- Role: Stores the blended weights.
+- Description: One layer per terrain variant plus the base layer.
+
+#### `final boolean[][] en`
+- Role: Tracks enabled edge cells.
+- Description: Marks which tiles still need geometry after blending.
+
+##### Methods
+
+#### `private Blend(MapMesh m)`
+- Role: Builds the blend cache.
+- Description: Computes the smoothed variant weights and edge enablement flags.
+
+#### `private void setbase(float[][] bv)`
+- Role: Seeds the base blend layer.
+- Description: Fills the base weights from the variant thresholds.
 
 ### Factory
+Creates standard terrain tiles from a tileset.
 
-- Role: Represents factory within TerrainTile.
-- Description: Describes the nested factory type used by the enclosing class.
+#### Members
 
-### RFactory
+##### Methods
 
-- Role: Represents rfactory within TerrainTile.
-- Description: Describes the nested rfactory type used by the enclosing class.
+#### `public TerrainTile create(int id, Tileset set)`
+- Role: Builds a terrain tile.
+- Description: Reads the tileset description and assembles the base/variant materials.
 
 ### RidgeTile
+Special terrain tile that also participates in ridge modeling.
 
-- Role: Represents ridge tile within TerrainTile.
-- Description: Describes the nested ridge tile type used by the enclosing class.
+#### Members
 
-### Var
+##### Methods
 
-- Role: Represents var within TerrainTile.
-- Description: Describes the nested var type used by the enclosing class.
+#### `public RidgeTile(int id, SNoise3 noise, NodeWrap base, Var[] var, Tileset transset, int rth, Pipe.Op rmat, float texh)`
+- Role: Builds a ridge-aware terrain tile.
+- Description: Adds ridge thresholding and ridge material settings on top of terrain data.
+
+#### `public RidgeTile(int id, RidgeTile from)`
+- Role: Copies a ridge-aware terrain tile.
+- Description: Reuses the ridge configuration with a new id.
+
+#### `public double breakz()`
+- Role: Returns the ridge break height.
+- Description: Used by ridge modeling to determine the cutoff height.
+
+#### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
+- Role: Builds ridge geometry for the map.
+- Description: Adds ridge-specific modeling on top of the terrain base.
+
+#### `public void lay(MapMesh m, Coord lc, Coord gc, MCons cons, boolean cover)`
+- Role: Lays ridge terrain through a supplied consumer.
+- Description: Shared helper for ridge and cover placement.
+
+#### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
+- Role: Lays ridge terrain into the mesh.
+- Description: Uses the ridge-aware geometry path.
+
+### RFactory
+Creates ridge-aware terrain tiles.
+
+#### Members
+
+##### Methods
+
+#### `public Tiler create(int id, Tileset set)`
+- Role: Builds a ridge-aware tile.
+- Description: Reads the tileset description and creates a `RidgeTile`.
 
 ## Members
 
 ### Constants
 
 #### `private static final int sr = 12`
-- Role: Defines the shared sr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the sampling radius used by terrain blending.
+- Description: Controls how many neighboring samples influence smoothing.
 
 ### Fields
 
 #### `public final NodeWrap base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Stores the base material node.
+- Description: Used as the starting point for rendering.
 
 #### `public final SNoise3 noise`
-- Role: Holds the noise state.
-- Description: Backs the cached state for this file.
+- Role: Stores the noise source.
+- Description: Drives variation across the tile surface.
 
 #### `public final Var[] var`
-- Role: Holds the var state.
-- Description: Backs the cached state for this file.
+- Role: Stores the terrain variants.
+- Description: Each variant describes one thresholded material choice.
 
 #### `public final Tileset transset`
-- Role: Holds the transset state.
-- Description: Backs the cached state for this file.
+- Role: Stores the transition tileset.
+- Description: Used when blending to neighboring terrain types.
 
 #### `public final Pipe.Op draw`
-- Role: Holds the draw state.
-- Description: Backs the cached state for this file.
+- Role: Stores the draw state.
+- Description: Applied when the terrain mesh is rendered.
 
 #### `public NodeWrap mat`
-- Role: Stores the mat value.
-- Description: Backs the cached state for this file.
+- Role: Stores the current material node.
+- Description: Updated when a variant becomes active.
 
 #### `public double thrl, thrh`
-- Role: Stores the thrh value.
-- Description: Backs the cached state for this file.
-
-#### `public double thrl, thrh`
-- Role: Stores the thrh value.
-- Description: Backs the cached state for this file.
+- Role: Stores the active threshold band.
+- Description: Used during variant selection.
 
 #### `public double nz`
-- Role: Stores the nz value.
-- Description: Backs the cached state for this file.
-
-#### `public Pipe.Op draw`
-- Role: Holds the draw state.
-- Description: Backs the cached state for this file.
+- Role: Stores the noise scale.
+- Description: Used when querying terrain noise.
 
 #### `final MapMesh m`
-- Role: Holds the m state.
-- Description: Backs the cached state for this file.
+- Role: Stores the current map mesh.
+- Description: Shared across blend and transition helpers.
 
 #### `final Scan vs, es`
-- Role: Holds the es state.
-- Description: Backs the cached state for this file.
-
-#### `final Scan vs, es`
-- Role: Holds the es state.
-- Description: Backs the cached state for this file.
+- Role: Stores vertex and edge scans.
+- Description: Tracks the local terrain topology.
 
 #### `final float[][] bv`
-- Role: Stores the bv value.
-- Description: Backs the cached state for this file.
+- Role: Stores cached blend values.
+- Description: Reused while constructing mesh layers.
 
 #### `final boolean[][] en`
-- Role: Tracks the en flag.
-- Description: Supports the en operation used by the surrounding class.
+- Role: Tracks edge enablement.
+- Description: Marks which borders are active in the current tile.
 
 #### `final VertFactory[] lvfac = new VertFactory[var.length + 1]`
-- Role: Holds the lvfac state.
-- Description: Backs the cached state for this file.
+- Role: Stores vertex factories for each variant.
+- Description: Builds the correct vertex layout for the mesh.
 
 #### `public final MapMesh.DataID<Blend> blend = new MapMesh.DataID<Blend>()`
-- Role: Holds the blend state.
-- Description: Backs the cached state for this file.
+- Role: Registers the blend cache for map meshes.
+- Description: Allows the terrain builder to reuse computed blend data.
 
 #### `private final static Map<TexRender, AlphaTex> transtex = new WeakHashMap<TexRender, AlphaTex>()`
-- Role: Caches transtex entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches transition textures by renderer.
+- Description: Avoids rebuilding the same alpha texture wrapper.
 
 #### `public final Tiler.MCons rcons`
-- Role: Holds the rcons state.
-- Description: Backs the cached state for this file.
+- Role: Stores the ridge mesh consumer.
+- Description: Used by the ridge-aware tile path.
 
 #### `public final int rth`
-- Role: Stores the rth value.
-- Description: Backs the cached state for this file.
+- Role: Stores the ridge threshold.
+- Description: Controls when ridge handling becomes active.
 
 ### Methods
 
-#### `public Var(NodeWrap mat, double thrl, double thrh, double nz)`
-- Role: Performs var.
-- Description: Supports the var operation used by the surrounding class.
-
-#### `private Blend(MapMesh m)`
-- Role: Performs blend.
-- Description: Supports the blend operation used by the surrounding class.
-
-#### `private void setbase(float[][] bv)`
-- Role: Performs setbase.
-- Description: Supports the setbase operation used by the surrounding class.
-
-#### `public TerrainTile create(int id, Tileset set)`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
-
 #### `public TerrainTile(int id, SNoise3 noise, NodeWrap base, Var[] var, Tileset transset)`
-- Role: Creates a new TerrainTile instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a terrain tile definition.
+- Description: Stores noise, base material, variants, and the transition tileset.
 
 #### `public TerrainTile(int id, TerrainTile from)`
-- Role: Creates a new TerrainTile instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Copies an existing terrain tile definition.
+- Description: Reuses the same terrain behavior with updated identifiers.
 
 #### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs lay.
-- Description: Supports the lay operation used by the surrounding class.
+- Role: Lays the terrain mesh into the map.
+- Description: Evaluates noise and variant thresholds for each tile.
 
 #### `public void faces(MapMesh m, MPart d)`
-- Role: Performs faces.
-- Description: Supports the faces operation used by the surrounding class.
+- Role: Adds face geometry to the map mesh.
+- Description: Emits the terrain surfaces for the current part.
 
 #### `public void _faces(MapMesh m, int z, Tile trans, MPart d)`
-- Role: Performs  faces.
-- Description: Supports the faces operation used by the surrounding class.
+- Role: Emits face geometry for a specific height and transition.
+- Description: Shared helper behind the face builder.
 
 #### `private MCons tcons(final int z, final Tile t)`
-- Role: Performs tcons.
-- Description: Supports the tcons operation used by the surrounding class.
+- Role: Builds a mesh consumer for a tile at a specific height.
+- Description: Selects the proper geometry path for that layer.
 
 #### `public MCons tcons(final int z, final int bmask, final int cmask)`
-- Role: Performs tcons.
-- Description: Supports the tcons operation used by the surrounding class.
+- Role: Selects a mesh consumer using border and corner masks.
+- Description: Used during transition generation.
 
 #### `public void trans(MapMesh m, Random rnd, Tiler gt, Coord lc, Coord gc, int z, int bmask, int cmask)`
-- Role: Performs trans.
-- Description: Supports the trans operation used by the surrounding class.
-
-#### `public Tiler create(int id, Tileset set)`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
-
-#### `public RidgeTile(int id, SNoise3 noise, NodeWrap base, Var[] var, Tileset transset, int rth, Pipe.Op rmat, float texh)`
-- Role: Performs ridge tile.
-- Description: Supports the ridge tile operation used by the surrounding class.
-
-#### `public RidgeTile(int id, RidgeTile from)`
-- Role: Performs ridge tile.
-- Description: Supports the ridge tile operation used by the surrounding class.
-
-#### `public double breakz()`
-- Role: Performs breakz.
-- Description: Supports the breakz operation used by the surrounding class.
-
-#### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs model.
-- Description: Supports the model operation used by the surrounding class.
-
-#### `public void lay(MapMesh m, Coord lc, Coord gc, MCons cons, boolean cover)`
-- Role: Performs lay.
-- Description: Supports the lay operation used by the surrounding class.
-
-#### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs lay.
-- Description: Supports the lay operation used by the surrounding class.
+- Role: Builds transition geometry between terrain types.
+- Description: Blends this tile into adjacent terrain.

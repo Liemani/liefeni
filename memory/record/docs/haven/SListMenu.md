@@ -1,5 +1,5 @@
 ---
-source: [SListMenu.java](../../../src/haven/SListMenu.java)
+source: [SListMenu.java](../../../../src/haven/SListMenu.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,229 +12,233 @@ Represents the slist menu Haven component.
 
 ### Action
 
-- Role: Represents action within SListMenu.
-- Description: Describes the nested action type used by the enclosing class.
+- Role: Wraps a list-menu action callback.
+- Description: Stores the action label and click handler for one menu item.
 
 ### IconMenu
 
-- Role: Represents icon menu within SListMenu.
-- Description: Describes the nested icon menu type used by the enclosing class.
+- Role: Displays list items with icons.
+- Description: Renders icon-based entries in the list-menu layout.
 
 ### InnerList
 
-- Role: Represents inner list within SListMenu.
-- Description: Describes the nested inner list type used by the enclosing class.
+- Role: Hosts the scrollable list contents.
+- Description: Manages the shared item layout and selection area.
 
 ### Item
 
-- Role: Represents item within SListMenu.
-- Description: Describes the nested item type used by the enclosing class.
+- Role: Renders one list-menu item.
+- Description: Draws the item label and forwards activation clicks.
 
 ### TextMenu
 
-- Role: Represents text menu within SListMenu.
-- Description: Describes the nested text menu type used by the enclosing class.
+- Role: Displays list items as text-only entries.
+- Description: Renders plain text menu entries without icon imagery.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry bigf = CharWnd.attrf`
-- Role: Defines the shared bigf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the bigf value.
+- Description: Caches the `bigf` value for reuse.
+- Value: `CharWnd.attrf`
 
 #### `public static final Text.Foundry smallf = new Text.Foundry(Text.fraktur, 14).aa(true)`
-- Role: Defines the shared smallf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the smallf operation.
+- Description: Implements the aa operation.
+- Value: `new Text.Foundry(Text.fraktur, 14).aa(true)`
 
 #### `public static final Tex bg = Window.bg`
-- Role: Defines the shared bg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the bg value.
+- Description: Caches the `bg` value for reuse.
+- Value: `Window.bg`
 
 #### `public static final IBox obox = Window.wbox`
-- Role: Defines the shared obox constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the obox value.
+- Description: Caches the `obox` value for reuse.
+- Value: `Window.wbox`
 
 ### Fields
 
 #### `public final InnerList box`
-- Role: Caches box entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the box value.
+- Description: Caches the `box` value for reuse.
 
 #### `public boolean grab = true`
 - Role: Tracks the grab flag.
-- Description: Supports the grab operation used by the surrounding class.
+- Description: Caches the `grab` value for reuse.
 
 #### `private UI.Grab mg, kg`
-- Role: Stores the kg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the kg value.
+- Description: Caches the `kg` value for reuse.
 
 #### `private UI.Grab mg, kg`
-- Role: Stores the kg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the kg value.
+- Description: Caches the `kg` value for reuse.
 
 #### `private Coord mc = Coord.of(-1, -1)`
-- Role: Stores the mc value.
-- Description: Backs the cached state for this file.
+- Role: Implements the mc operation.
+- Description: Implements the of operation.
 
 #### `private boolean inited = false`
 - Role: Tracks the inited flag.
-- Description: Supports the inited operation used by the surrounding class.
+- Description: Caches the `inited` value for reuse.
 
 #### `public final Text.Foundry fnd`
-- Role: Stores the fnd value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fnd value.
+- Description: Caches the `fnd` value for reuse.
 
 #### `public final Text.Foundry fnd`
-- Role: Stores the fnd value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fnd value.
+- Description: Caches the `fnd` value for reuse.
 
 ### Methods
 
 #### `protected abstract List<? extends I> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected abstract W makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `protected abstract void choice(I item)`
-- Role: Performs choice.
-- Description: Supports the choice operation used by the surrounding class.
+- Role: Handles the choice path.
+- Description: Implements the choice operation.
 
 #### `public SListMenu(Coord sz, int itemh)`
 - Role: Creates a new SListMenu instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SListMenu instance from the supplied inputs.
 
 #### `private Item(I item, W child)`
-- Role: Performs item.
-- Description: Supports the item operation used by the surrounding class.
+- Role: Handles the item path.
+- Description: Implements the item operation.
 
 #### `private InnerList(Coord sz, int itemh)`
-- Role: Performs inner list.
-- Description: Supports the inner list operation used by the surrounding class.
+- Role: Handles the inner list path.
+- Description: Implements the inner list operation.
 
 #### `protected List<? extends I> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Item makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public void change(I item)`
-- Role: Performs change.
-- Description: Supports the change operation used by the surrounding class.
+- Role: Handles the change path.
+- Description: Implements the change operation.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `protected void drawbg(GOut g, I item, int idx, Area area)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `private void aresize(Coord f, Coord t)`
-- Role: Performs aresize.
-- Description: Supports the aresize operation used by the surrounding class.
+- Role: Handles the aresize path.
+- Description: Implements the aresize operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SListMenu content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Handles the destroy path.
+- Description: Implements the destroy operation.
 
 #### `public SListMenu<I, W> addat(Widget wdg, Coord c)`
-- Role: Performs addat.
-- Description: Supports the addat operation used by the surrounding class.
+- Role: Handles the addat path.
+- Description: Adds the at.
 
 #### `public SListMenu nograb()`
-- Role: Performs nograb.
-- Description: Supports the nograb operation used by the surrounding class.
+- Role: Handles the nograb path.
+- Description: Implements the nograb operation.
 
 #### `public TextMenu(Coord sz, Text.Foundry fnd)`
-- Role: Performs text menu.
-- Description: Supports the text menu operation used by the surrounding class.
+- Role: Handles the text menu path.
+- Description: Implements the text menu operation.
 
 #### `public TextMenu(Coord sz)`
-- Role: Performs text menu.
-- Description: Supports the text menu operation used by the surrounding class.
+- Role: Handles the text menu path.
+- Description: Implements the text menu operation.
 
 #### `protected abstract String nameof(I item)`
-- Role: Performs nameof.
-- Description: Supports the nameof operation used by the surrounding class.
+- Role: Handles the nameof path.
+- Description: Implements the nameof operation.
 
 #### `protected Widget makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, Text.Foundry fnd, List<? extends I> items, Function<? super I, String> nmf, Consumer<? super I> action, Runnable cancel)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, List<? extends I> items, Function<? super I, String> nmf, Consumer<? super I> action)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static Action of(String name, Runnable fun)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.
 
 #### `public static SListMenu<Action, Widget> of(Coord sz, Text.Foundry fnd, List<? extends Action> actions, Runnable cancel)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.
 
 #### `public static SListMenu<Action, Widget> of(Coord sz, Text.Foundry fnd, List<? extends Action> actions)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.
 
 #### `public IconMenu(Coord sz, Text.Foundry fnd)`
-- Role: Performs icon menu.
-- Description: Supports the icon menu operation used by the surrounding class.
+- Role: Handles the icon menu path.
+- Description: Implements the icon menu operation.
 
 #### `public IconMenu(Coord sz)`
-- Role: Performs icon menu.
-- Description: Supports the icon menu operation used by the surrounding class.
+- Role: Handles the icon menu path.
+- Description: Implements the icon menu operation.
 
 #### `protected abstract String nameof(I item)`
-- Role: Performs nameof.
-- Description: Supports the nameof operation used by the surrounding class.
+- Role: Handles the nameof path.
+- Description: Implements the nameof operation.
 
 #### `protected abstract BufferedImage iconof(I item)`
-- Role: Performs iconof.
-- Description: Supports the iconof operation used by the surrounding class.
+- Role: Handles the iconof path.
+- Description: Implements the iconof operation.
 
 #### `protected Widget makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, Text.Foundry fnd, List<? extends I> items, Function<? super I, String> nmf, Function<? super I, BufferedImage> imgf, Consumer<? super I> action, Runnable cancel)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.
 
 #### `public static <I> SListMenu<I, Widget> of(Coord sz, List<? extends I> items, Function<? super I, String> nmf, Function<? super I, BufferedImage> imgf, Consumer<? super I> action)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListMenu value from the supplied components.
+- Description: Builds a SListMenu value from the supplied components.

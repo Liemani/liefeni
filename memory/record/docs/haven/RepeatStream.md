@@ -1,19 +1,19 @@
 ---
-source: [RepeatStream.java](../../../src/haven/RepeatStream.java)
+source: [RepeatStream.java](../../../../src/haven/RepeatStream.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # RepeatStream
 
-Represents the repeat stream Haven component.
+Reopens a new input stream whenever the current stream reaches EOF.
 
 ## Nested Types
 
 ### Repeater
 
-- Role: Represents repeater within RepeatStream.
-- Description: Describes the nested repeater type used by the enclosing class.
+- Role: Supplies replacement streams.
+- Description: Creates the next `InputStream` instance when the current one runs dry.
 
 ## Members
 
@@ -22,31 +22,31 @@ Represents the repeat stream Haven component.
 ### Fields
 
 #### `private final Repeater rep`
-- Role: Holds the rep state.
-- Description: Backs the cached state for this file.
+- Role: Stores the repeater callback.
+- Description: Supplies the next stream whenever the current one ends.
 
 #### `private InputStream cur`
-- Role: Holds the cur state.
-- Description: Backs the cached state for this file.
+- Role: Stores the current stream.
+- Description: Tracks the active input stream being consumed.
 
 ### Methods
 
 #### `public InputStream cons()`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Supplies a stream.
+- Description: Returns the next stream instance from the repeater.
 
 #### `public RepeatStream(Repeater rep)`
-- Role: Creates a new RepeatStream instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Wraps a repeater.
+- Description: Creates a stream wrapper that can reopen new sources on EOF.
 
 #### `public int read(byte[] b, int off, int len) throws IOException`
-- Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Role: Reads buffered bytes.
+- Description: Continues reading from replacement streams until data becomes available or the repeater stops.
 
 #### `public int read() throws IOException`
-- Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Role: Reads one byte.
+- Description: Continues reading from replacement streams until one byte is available or the repeater stops.
 
 #### `public void close() throws IOException`
-- Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Role: Closes the current stream.
+- Description: Closes the active stream and clears the wrapper state.

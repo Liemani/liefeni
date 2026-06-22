@@ -1,5 +1,5 @@
 ---
-source: [Api.java](../../../../src/lmi/bridge/Api.java)
+source: [Api.java](../../../../../src/lmi/bridge/Api.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,117 +17,117 @@ Exposes a small Haven-side API surface for LMI bridge calls.
 ### Methods
 
 #### `public static void pathfindMove(Gob gob)`
-- Role: Performs pathfind move.
-- Description: Supports the pathfind move operation used by the surrounding class.
+- Role: Handles the pathfind move path.
+- Description: Starts pathfinding toward the target gob.
 
 #### `public static void pathfindMove(Coord coord)`
-- Role: Performs pathfind move.
-- Description: Supports the pathfind move operation used by the surrounding class.
+- Role: Handles the pathfind move path.
+- Description: Starts pathfinding toward the target map coordinate.
 
 #### `public static Gob pathfindMove(Array<Gob> gobArray)`
-- Role: Performs pathfind move.
-- Description: Supports the pathfind move operation used by the surrounding class.
+- Role: Handles the pathfind move path.
+- Description: Picks a movement target from the supplied gob list.
 
 #### `public static void pathfindTakeItemFromStockpileArray(Array<Gob> stockpileArray, int count)`
-- Role: Performs pathfind take item from stockpile array.
-- Description: Supports the pathfind take item from stockpile array operation used by the surrounding class.
+- Role: Handles the pathfind take item from stockpile array path.
+- Description: Chooses a stockpile target and begins item retrieval.
 
 #### `public static void pathfindTakeItemFromContainerArray(Array<Gob> containerArray, String[] nameSet, int count)`
-- Role: Performs pathfind take item from container array.
-- Description: Supports the pathfind take item from container array operation used by the surrounding class.
+- Role: Handles the pathfind take item from container array path.
+- Description: Chooses a container target and begins item retrieval.
 
 #### `public static int pathfindTakeItemFromStockpile(Gob stockpile, int count)`
-- Role: Performs pathfind take item from stockpile.
-- Description: Supports the pathfind take item from stockpile operation used by the surrounding class.
+- Role: Handles the pathfind take item from stockpile path.
+- Description: Pathfinds to a stockpile and takes the requested item count.
 
 #### `public static int pathfindTakeItemFromContainer(Gob container, String[] nameSet, int count)`
-- Role: Performs pathfind take item from container.
-- Description: Supports the pathfind take item from container operation used by the surrounding class.
+- Role: Handles the pathfind take item from container path.
+- Description: Pathfinds to a container and takes matching items.
 
 #### `public static int takeItemFromStockpile(Gob stockpile, int count)`
-- Role: Performs take item from stockpile.
-- Description: Supports the take item from stockpile operation used by the surrounding class.
+- Role: Handles the take item from stockpile path.
+- Description: Pulls items directly from a stockpile without pathfinding.
 
 #### `public static int takeItemFromContainer(Gob container, String[] genericArray, int count)`
-- Role: Performs take item from container.
-- Description: Supports the take item from container operation used by the surrounding class.
+- Role: Handles the take item from container path.
+- Description: Pulls items directly from a container without pathfinding.
 
 #### `static void planObject(String planName)`
-- Role: Performs plan object.
-- Description: Supports the plan object operation used by the surrounding class.
+- Role: Handles the plan object path.
+- Description: Opens the build planner for the requested object name.
 
 #### `public static Window planAndDecideObject(String planName, Coord location, int direction)`
-- Role: Performs plan and decide object.
-- Description: Supports the plan and decide object operation used by the surrounding class.
+- Role: Handles the plan and decide object path.
+- Description: Opens the planner and applies the chosen placement decision.
 
 #### `public static void decidePlan(Coord location, int direction)`
-- Role: Performs decide plan.
-- Description: Supports the decide plan operation used by the surrounding class.
+- Role: Handles the decide plan path.
+- Description: Confirms a planned placement at the requested location.
 
 #### `public static void build(String planName, Coord location, int direction)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Sends the build action for the chosen plan.
 
 #### `public static Window openGobWindow(Gob gob)`
 - Role: Opens the gob window.
-- Description: Supports the open gob window operation used by the surrounding class.
+- Description: Opens the gob interaction window for the supplied gob.
 
 #### `public static int takeItemFromIsbox(ISBox isbox, int count)`
-- Role: Performs take item from isbox.
-- Description: Supports the take item from isbox operation used by the surrounding class.
+- Role: Handles the take item from isbox path.
+- Description: Pulls items directly from an ISBox widget.
 
 #### `public static void moveNorth()`
-- Role: Performs move north.
-- Description: Supports the move north operation used by the surrounding class.
+- Role: Handles the move north path.
+- Description: Sends the northward movement command.
 
 #### `public static void moveEast()`
-- Role: Performs move east.
-- Description: Supports the move east operation used by the surrounding class.
+- Role: Handles the move east path.
+- Description: Sends the eastward movement command.
 
 #### `public static void moveWest()`
-- Role: Performs move west.
-- Description: Supports the move west operation used by the surrounding class.
+- Role: Handles the move west path.
+- Description: Sends the westward movement command.
 
 #### `public static void moveSouth()`
-- Role: Performs move south.
-- Description: Supports the move south operation used by the surrounding class.
+- Role: Handles the move south path.
+- Description: Sends the southward movement command.
 
 #### `public static void moveCenter()`
-- Role: Performs move center.
-- Description: Supports the move center operation used by the surrounding class.
+- Role: Handles the move center path.
+- Description: Sends the command to move back to the center point.
 
 #### `public static Gob closestGobIn(Array<Gob> gobArray)`
-- Role: Performs closest gob in.
-- Description: Supports the closest gob in operation used by the surrounding class.
+- Role: Handles the closest gob in path.
+- Description: Picks the nearest gob from the supplied list.
 
 #### `public static Gob getGob()`
 - Role: Returns the gob.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the gob.
 
 #### `public static Rect getArea()`
 - Role: Returns the area.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the area.
 
 #### `public static void error(String message)`
 - Role: Displays an error message.
-- Description: Supports the error operation used by the surrounding class.
+- Description: Shows an error dialog or console message to the user.
 
 #### `public static void alert(String message)`
-- Role: Performs alert.
-- Description: Supports the alert operation used by the surrounding class.
+- Role: Handles the alert path.
+- Description: Shows a warning-style alert to the user.
 
 #### `public static void message(String message)`
-- Role: Performs message.
-- Description: Supports the message operation used by the surrounding class.
+- Role: Handles the message path.
+- Description: Shows an informational message to the user.
 
 #### `public static void pressButton()`
-- Role: Performs press button.
-- Description: Supports the press button operation used by the surrounding class.
+- Role: Handles the press button path.
+- Description: Presses the current UI button or action trigger.
 
 #### `public static Inventory inventory()`
-- Role: Performs inventory.
-- Description: Supports the inventory operation used by the surrounding class.
+- Role: Handles the inventory path.
+- Description: Returns the active inventory widget.
 
 #### `public static void transferItem(Array<GItem> itemArray)`
-- Role: Performs transfer item.
-- Description: Supports the transfer item operation used by the surrounding class.
+- Role: Handles the transfer item path.
+- Description: Transfers the supplied items through the current inventory UI.

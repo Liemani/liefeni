@@ -1,12 +1,12 @@
 ---
-source: [PrioQueue.java](../../../src/haven/PrioQueue.java)
+source: [PrioQueue.java](../../../../src/haven/PrioQueue.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # PrioQueue
 
-Represents the prio queue Haven component.
+Priority queue backed by a linked list that always exposes the highest-priority element first.
 
 ## Members
 
@@ -17,21 +17,21 @@ Represents the prio queue Haven component.
 ### Methods
 
 #### `public E peek()`
-- Role: Performs peek.
-- Description: Supports the peek operation used by the surrounding class.
+- Role: Peeks at the top element.
+- Description: Returns the highest-priority element without removing it.
 
 #### `public E element()`
-- Role: Performs element.
-- Description: Supports the element operation used by the surrounding class.
+- Role: Reads the top element.
+- Description: Returns the highest-priority element or throws when the queue is empty.
 
 #### `public E poll()`
-- Role: Performs poll.
-- Description: Supports the poll operation used by the surrounding class.
+- Role: Removes the top element.
+- Description: Returns and removes the highest-priority element if one exists.
 
 #### `public E remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the top element.
+- Description: Returns and removes the highest-priority element or throws when empty.
 
 #### `public boolean removeid(E el)`
-- Role: Performs removeid.
-- Description: Supports the removeid operation used by the surrounding class.
+- Role: Removes a specific element instance.
+- Description: Deletes the first element that is identical to the supplied object.

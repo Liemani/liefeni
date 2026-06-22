@@ -1,5 +1,5 @@
 ---
-source: [Music.java](../../../src/haven/Music.java)
+source: [Music.java](../../../../src/haven/Music.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the music Haven component.
 
 ### Player
 
-- Role: Represents player within Music.
-- Description: Describes the nested player type used by the enclosing class.
+- Role: Plays one music track in the background.
+- Description: Worker thread that loads and streams a music resource until playback completes.
 
 ## Members
 
@@ -22,8 +22,8 @@ Represents the music Haven component.
 ### Fields
 
 #### `private static Player player`
-- Role: Holds the player state.
-- Description: Backs the cached state for this file.
+- Role: Caches the player value.
+- Description: Caches the `player` value for reuse.
 
 #### `public static boolean enabled = true`
 - Role: Tracks whether enabled is enabled.
@@ -31,54 +31,54 @@ Represents the music Haven component.
 
 #### `private static boolean debug = false`
 - Role: Tracks the debug flag.
-- Description: Supports the debug operation used by the surrounding class.
+- Description: Caches the `debug` value for reuse.
 
 #### `private Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private Thread waitfor`
-- Role: Holds the waitfor state.
-- Description: Backs the cached state for this file.
+- Role: Caches the waitfor value.
+- Description: Caches the `waitfor` value for reuse.
 
 #### `private Sequencer seq`
-- Role: Holds the seq state.
-- Description: Backs the cached state for this file.
+- Role: Caches the seq value.
+- Description: Caches the `seq` value for reuse.
 
 #### `private Synthesizer synth`
-- Role: Holds the synth state.
-- Description: Backs the cached state for this file.
+- Role: Caches the synth value.
+- Description: Caches the `synth` value for reuse.
 
 #### `private boolean done`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `private boolean loop = false`
 - Role: Tracks the loop flag.
-- Description: Supports the loop operation used by the surrounding class.
+- Description: Caches the `loop` value for reuse.
 
 ### Methods
 
 #### `private static void debug(String str)`
-- Role: Performs debug.
-- Description: Supports the debug operation used by the surrounding class.
+- Role: Handles the debug path.
+- Description: Implements the debug operation.
 
 #### `private Player(Indir<Resource> res, Thread waitfor)`
-- Role: Performs player.
-- Description: Supports the player operation used by the surrounding class.
+- Role: Handles the player path.
+- Description: Implements the player operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static void play(Indir<Resource> res, boolean loop)`
-- Role: Performs play.
-- Description: Supports the play operation used by the surrounding class.
+- Role: Handles the play path.
+- Description: Implements the play operation.
 
 #### `public static void main(String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.
 
 #### `public static void enable(boolean enabled)`
-- Role: Performs enable.
-- Description: Supports the enable operation used by the surrounding class.
+- Role: Handles the enable path.
+- Description: Implements the enable operation.

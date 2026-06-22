@@ -1,5 +1,5 @@
 ---
-source: [JOGLEnvironment.java](../../../../../src/haven/render/jogl/JOGLEnvironment.java)
+source: [JOGLEnvironment.java](../../../../../../src/haven/render/jogl/JOGLEnvironment.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,39 +22,39 @@ Adapts the render backend to JOGL for joglenvironment.
 ### Fields
 
 #### `public final GLContext ctx`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ctx value.
+- Description: Caches the `ctx` value for reuse.
 
 #### `public final boolean coreprof`
 - Role: Tracks the coreprof flag.
-- Description: Supports the coreprof operation used by the surrounding class.
+- Description: Caches the `coreprof` value for reuse.
 
 ### Methods
 
 #### `private static GL bestwrap(com.jogamp.opengl.GL back)`
-- Role: Performs bestwrap.
-- Description: Supports the bestwrap operation used by the surrounding class.
+- Role: Handles the bestwrap path.
+- Description: Implements the bestwrap operation.
 
 #### `public JOGLEnvironment(com.jogamp.opengl.GL initgl, GLContext ctx, Area wnd)`
 - Role: Creates a new JOGLEnvironment instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the JOGLEnvironment instance from the supplied inputs.
 
 #### `public JOGLCaps(GL gl)`
-- Role: Performs joglcaps.
-- Description: Supports the joglcaps operation used by the surrounding class.
+- Role: Handles the joglcaps path.
+- Description: Implements the jogl caps operation.
 
 #### `public void checkreq()`
-- Role: Performs checkreq.
-- Description: Supports the checkreq operation used by the surrounding class.
+- Role: Handles the checkreq path.
+- Description: Implements the checkreq operation.
 
 #### `public JOGLCaps mkcaps(GL initgl)`
-- Role: Performs mkcaps.
-- Description: Supports the mkcaps operation used by the surrounding class.
+- Role: Handles the mkcaps path.
+- Description: Implements the mkcaps operation.
 
 #### `public SysBuffer malloc(int sz)`
-- Role: Performs malloc.
-- Description: Supports the malloc operation used by the surrounding class.
+- Role: Handles the malloc path.
+- Description: Implements the malloc operation.
 
 #### `public SysBuffer subsume(ByteBuffer data, int sz)`
-- Role: Performs subsume.
-- Description: Supports the subsume operation used by the surrounding class.
+- Role: Handles the subsume path.
+- Description: Implements the subsume operation.

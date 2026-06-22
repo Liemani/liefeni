@@ -1,5 +1,5 @@
 ---
-source: [Charlist.java](../../../src/haven/Charlist.java)
+source: [Charlist.java](../../../../src/haven/Charlist.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,73 +12,78 @@ Represents the charlist Haven component.
 
 ### $_
 
-- Role: Represents $ within Charlist.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the character list widget resource.
+- Description: Factory that creates the character list window from the requested height.
 
 ### Boxlist
 
-- Role: Represents boxlist within Charlist.
-- Description: Describes the nested boxlist type used by the enclosing class.
+- Role: Renders the character list scroller.
+- Description: Scrollable list widget that manages selection and avatar transfer for characters.
 
 ### Char
 
-- Role: Represents char within Charlist.
-- Description: Describes the nested char type used by the enclosing class.
+- Role: Stores one character entry.
+- Description: Character record that keeps name, description, avatar data, and pose resource state.
 
 ### Charbox
 
-- Role: Represents charbox within Charlist.
-- Description: Describes the nested charbox type used by the enclosing class.
+- Role: Renders one character tile.
+- Description: Widget that displays the avatar preview, name, description, and play button for a character.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord bsz = UI.scale(289, 96)`
-- Role: Defines the shared bsz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bsz operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(289, 96)`
 
 #### `public static final Text.Furnace nf = new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 20).aa(true), Window.ctex), UI.scale(2), UI.scale(2), Color.BLACK)`
-- Role: Defines the shared nf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nf operation.
+- Description: Implements the scale operation.
+- Value: `new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 20).aa(true), Window.ctex), UI.scale(2), UI.scale(2), Color.BLACK)`
 
 #### `public static final Text.Furnace df = new PUtils.BlurFurn(Button.tf, UI.scale(2), UI.scale(2), Color.BLACK)`
-- Role: Defines the shared df constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the df operation.
+- Description: Implements the scale operation.
+- Value: `new PUtils.BlurFurn(Button.tf, UI.scale(2), UI.scale(2), Color.BLACK)`
 
 #### `public static final int margin = UI.scale(6)`
-- Role: Defines the shared margin constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the margin operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(6)`
 
 #### `public static final int btnw = UI.scale(100)`
-- Role: Defines the shared btnw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the btnw operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(100)`
 
 ### Fields
 
 #### `public final int height`
-- Role: Stores the height value.
-- Description: Backs the cached state for this file.
+- Role: Caches the height value.
+- Description: Caches the `height` value for reuse.
 
 #### `public final IButton sau, sad`
-- Role: Holds the sad state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sad value.
+- Description: Caches the `sad` value for reuse.
 
 #### `public final IButton sau, sad`
-- Role: Holds the sad state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sad value.
+- Description: Caches the `sad` value for reuse.
 
 #### `public final List<Char> chars = new ArrayList<Char>()`
-- Role: Caches chars entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the chars operation.
+- Description: Implements the public final list<char> chars = new array list<char>() operation.
 
 #### `public final Boxlist list`
-- Role: Holds the list state.
-- Description: Backs the cached state for this file.
+- Role: Caches the list value.
+- Description: Caches the `list` value for reuse.
 
 #### `public Avaview avalink`
-- Role: Holds the avalink state.
-- Description: Backs the cached state for this file.
+- Role: Caches the avalink value.
+- Description: Caches the `avalink` value for reuse.
 
 #### `private boolean dirty`
 - Role: Tracks whether dirty is dirty.
@@ -86,51 +91,51 @@ Represents the charlist Haven component.
 
 #### `private boolean showdisc`
 - Role: Tracks the showdisc flag.
-- Description: Supports the showdisc operation used by the surrounding class.
+- Description: Caches the `showdisc` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public String disc`
-- Role: Stores the disc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the disc value.
+- Description: Caches the `disc` value for reuse.
 
 #### `public Composited.Desc avadesc`
-- Role: Holds the avadesc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the avadesc value.
+- Description: Caches the `avadesc` value for reuse.
 
 #### `public Resource.Resolver avamap`
-- Role: Stores the avamap value.
-- Description: Backs the cached state for this file.
+- Role: Caches the avamap value.
+- Description: Caches the `avamap` value for reuse.
 
 #### `public Collection<ResData> avaposes`
-- Role: Caches avaposes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the avaposes value.
+- Description: Caches the `avaposes` value for reuse.
 
 #### `public final Char chr`
-- Role: Stores the chr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the chr value.
+- Description: Caches the `chr` value for reuse.
 
 #### `public final Avaview ava`
-- Role: Holds the ava state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ava value.
+- Description: Caches the `ava` value for reuse.
 
 #### `public final ILabel name, disc`
-- Role: Stores the disc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the disc value.
+- Description: Caches the `disc` value for reuse.
 
 #### `public final ILabel name, disc`
-- Role: Stores the disc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the disc value.
+- Description: Caches the `disc` value for reuse.
 
 #### `private int scrolltgt = -1`
-- Role: Stores the scrolltgt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scrolltgt value.
+- Description: Caches the `scrolltgt` value for reuse.
 
 #### `private double scrollval = -1`
-- Role: Stores the scrollval value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scrollval value.
+- Description: Caches the `scrollval` value for reuse.
 
 ### Methods
 
@@ -140,88 +145,88 @@ Represents the charlist Haven component.
 
 #### `public Charlist(int height)`
 - Role: Creates a new Charlist instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Charlist instance from the supplied inputs.
 
 #### `public Char(String name)`
-- Role: Performs char.
-- Description: Supports the char operation used by the surrounding class.
+- Role: Handles the char path.
+- Description: Implements the char operation.
 
 #### `public void ava(Composited.Desc desc, Resource.Resolver resmap, Collection<ResData> poses)`
-- Role: Performs ava.
-- Description: Supports the ava operation used by the surrounding class.
+- Role: Handles the ava path.
+- Description: Implements the ava operation.
 
 #### `public Charbox(Char chr)`
-- Role: Performs charbox.
-- Description: Supports the charbox operation used by the surrounding class.
+- Role: Handles the charbox path.
+- Description: Implements the charbox operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Charlist content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public Boxlist(int h)`
-- Role: Performs boxlist.
-- Description: Supports the boxlist operation used by the surrounding class.
+- Role: Handles the boxlist path.
+- Description: Implements the boxlist operation.
 
 #### `protected List<Char> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Charbox makeitem(Char chr, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `protected void drawslot(GOut g, Char item, int idx, Area area)`
-- Role: Performs drawslot.
-- Description: Supports the drawslot operation used by the surrounding class.
+- Role: Handles the drawslot path.
+- Description: Draws the slot.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `protected boolean unselect(int button)`
-- Role: Performs unselect.
-- Description: Supports the unselect operation used by the surrounding class.
+- Role: Handles the unselect path.
+- Description: Implements the unselect operation.
 
 #### `protected boolean autoscroll()`
-- Role: Performs autoscroll.
-- Description: Supports the autoscroll operation used by the surrounding class.
+- Role: Handles the autoscroll path.
+- Description: Implements the autoscroll operation.
 
 #### `public void change(Char chr)`
-- Role: Performs change.
-- Description: Supports the change operation used by the surrounding class.
+- Role: Handles the change path.
+- Description: Implements the change operation.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `private void checkdisc()`
-- Role: Performs checkdisc.
-- Description: Supports the checkdisc operation used by the surrounding class.
+- Role: Handles the checkdisc path.
+- Description: Implements the checkdisc operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void scroll(int amount)`
-- Role: Performs scroll.
-- Description: Supports the scroll operation used by the surrounding class.
+- Role: Handles the scroll path.
+- Description: Implements the scroll operation.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.

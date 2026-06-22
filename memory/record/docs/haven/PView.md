@@ -1,5 +1,5 @@
 ---
-source: [PView.java](../../../src/haven/PView.java)
+source: [PView.java](../../../../src/haven/PView.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,285 +12,289 @@ Represents the pview Haven component.
 
 ### IntResampler
 
-- Role: Represents int resampler within PView.
-- Description: Describes the nested int resampler type used by the enclosing class.
+- Role: Downsamples a render buffer with nearest-neighbor integer scaling.
+- Description: Uses integer scale factors when the render size is close to the display size.
 
 ### LinResampler
 
-- Role: Represents lin resampler within PView.
-- Description: Describes the nested lin resampler type used by the enclosing class.
+- Role: Rescales a render buffer with linear sampling.
+- Description: Draws the offscreen texture back into the widget with linear filtering.
 
 ### Render2D
 
-- Role: Represents render2 d within PView.
-- Description: Describes the nested render2 d type used by the enclosing class.
+- Role: Marks a render-tree node that can draw into screen space.
+- Description: Extends the render tree with a `draw(GOut, Pipe)` callback.
 
 ### Resampler
 
-- Role: Represents resampler within PView.
-- Description: Describes the nested resampler type used by the enclosing class.
+- Role: Base class for post-process resampling passes.
+- Description: Carries input and output sizes for resize-aware post-processing.
 
 ### ScreenList
 
-- Role: Represents screen list within PView.
-- Description: Describes the nested screen list type used by the enclosing class.
+- Role: Collects active 2D render nodes.
+- Description: Keeps a thread-safe snapshot of screen-space renderers and draws them each frame.
 
 ### WidgetContext
 
-- Role: Represents widget context within PView.
-- Description: Describes the nested widget context type used by the enclosing class.
+- Role: Exposes `PView` as a render context.
+- Description: Resolves render-context lookups back to the owning widget and its session/Glob state.
 
 ## Members
 
 ### Constants
 
 #### `private static final ClassResolver<PView> ctxr = new ClassResolver<PView>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final class resolver<p view> ctxr = new class resolver<p view>() operation.
+- Value: `new ClassResolver<PView>()`
 
 #### `private static final Object id_fb = new Object(), id_view = new Object(), id_misc = new Object()`
-- Role: Defines the shared id fb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id fb operation.
+- Description: Implements the object operation.
+- Value: `new Object(), id_view = new Object(), id_misc = new Object()`
 
 #### `private static final Object id_fb = new Object(), id_view = new Object(), id_misc = new Object()`
-- Role: Defines the shared id fb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id fb operation.
+- Description: Implements the object operation.
+- Value: `new Object(), id_view = new Object(), id_misc = new Object()`
 
 #### `private static final Object id_fb = new Object(), id_view = new Object(), id_misc = new Object()`
-- Role: Defines the shared id fb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id fb operation.
+- Description: Implements the object operation.
+- Value: `new Object(), id_view = new Object(), id_misc = new Object()`
 
 ### Fields
 
 #### `public final RenderTree tree`
-- Role: Holds the tree state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tree value.
+- Description: Caches the `tree` value for reuse.
 
 #### `public final RenderTree.Slot conf`
-- Role: Holds the conf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the conf value.
+- Description: Caches the `conf` value for reuse.
 
 #### `public final RenderTree.Slot basic`
-- Role: Holds the basic state.
-- Description: Backs the cached state for this file.
+- Role: Caches the basic value.
+- Description: Caches the `basic` value for reuse.
 
 #### `public Texture fragcol = null, depth = null`
-- Role: Stores the fragcol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fragcol value.
+- Description: Caches the `fragcol` value for reuse.
 
 #### `public Texture fragcol = null, depth = null`
-- Role: Stores the fragcol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fragcol value.
+- Description: Caches the `fragcol` value for reuse.
 
 #### `protected final Light.LightList lights = new Light.LightList()`
-- Role: Caches lights entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the lights operation.
+- Description: Implements the light list operation.
 
 #### `protected Environment env = null`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `protected InstanceList instancer`
-- Role: Caches instancer entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the instancer value.
+- Description: Caches the `instancer` value for reuse.
 
 #### `protected DrawList back = null`
-- Role: Caches back entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `protected Coord rsz`
-- Role: Stores the rsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rsz value.
+- Description: Caches the `rsz` value for reuse.
 
 #### `private final Map<Object, Pipe.Op> basicstates = new IdentityHashMap<>()`
-- Role: Caches basicstates entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the basicstates operation.
+- Description: Implements the private final map<object, pipe.op> basicstates = new identity hash map<>() operation.
 
 #### `private ActAudio audio`
-- Role: Stores the audio value.
-- Description: Backs the cached state for this file.
+- Role: Caches the audio value.
+- Description: Caches the `audio` value for reuse.
 
 #### `private final ScreenList list2d = new ScreenList()`
-- Role: Caches list2d entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the list2d operation.
+- Description: Implements the screen list operation.
 
 #### `private final TickList ticklist = new TickList()`
-- Role: Caches ticklist entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Advances the list state.
+- Description: Advances the list state.
 
 #### `private Sampler fragsamp`
-- Role: Holds the fragsamp state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fragsamp value.
+- Description: Caches the `fragsamp` value for reuse.
 
 #### `private PostProcessor tonemap = null`
-- Role: Holds the tonemap state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tonemap value.
+- Description: Caches the `tonemap` value for reuse.
 
 #### `private final PView wdg`
-- Role: Holds the wdg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wdg value.
+- Description: Caches the `wdg` value for reuse.
 
 #### `private final WidgetContext ctx = new WidgetContext(this)`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
+- Role: Implements the ctx operation.
+- Description: Implements the widget context operation.
 
 #### `private Pipe.Op curconf = null`
-- Role: Holds the curconf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curconf value.
+- Description: Caches the `curconf` value for reuse.
 
 #### `private GSettings curprefs = null`
-- Role: Holds the curprefs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curprefs value.
+- Description: Caches the `curprefs` value for reuse.
 
 #### `final Coord isz, osz`
-- Role: Stores the osz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the osz value.
+- Description: Caches the `osz` value for reuse.
 
 #### `final Coord isz, osz`
-- Role: Stores the osz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the osz value.
+- Description: Caches the `osz` value for reuse.
 
 #### `public final int scale`
-- Role: Stores the scale value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scale value.
+- Description: Caches the `scale` value for reuse.
 
 #### `private Resampler pp_resamp = null`
-- Role: Holds the pp resamp state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pp resamp value.
+- Description: Caches the `pp_resamp` value for reuse.
 
 #### `private final Set<Slot<? extends Render2D>> cur = new HashSet<>()`
-- Role: Caches cur entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cur operation.
+- Description: Implements the private final set<slot<? extends render2 d>> cur = new hash set<>() operation.
 
 ### Methods
 
 #### `public PView(Coord sz)`
 - Role: Creates a new PView instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PView instance from the supplied inputs.
 
 #### `public WidgetContext(PView wdg)`
-- Role: Performs widget context.
-- Description: Supports the widget context operation used by the surrounding class.
+- Role: Handles the widget context path.
+- Description: Implements the widget context operation.
 
 #### `public PView widget()`
-- Role: Performs widget.
-- Description: Supports the widget operation used by the surrounding class.
+- Role: Handles the widget path.
+- Description: Implements the widget operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Pipe.Op basic(Object id)`
-- Role: Performs basic.
-- Description: Supports the basic operation used by the surrounding class.
+- Role: Returns the pipe state stored under the supplied identifier.
+- Description: Returns the pipe state stored under the supplied identifier.
 
 #### `public void basic(Object id, Pipe.Op state)`
-- Role: Performs basic.
-- Description: Supports the basic operation used by the surrounding class.
+- Role: Stores a basic pipe state under the supplied identifier.
+- Description: Stores a basic pipe state under the supplied identifier.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this PView for debugging and logging.
 
 #### `protected Coord rendersz()`
-- Role: Performs rendersz.
-- Description: Supports the rendersz operation used by the surrounding class.
+- Role: Handles the rendersz path.
+- Description: Renders the sz.
 
 #### `private Pipe.Op conf()`
-- Role: Performs conf.
-- Description: Supports the conf operation used by the surrounding class.
+- Role: Handles the conf path.
+- Description: Implements the conf operation.
 
 #### `private Pipe.Op curconf()`
-- Role: Performs curconf.
-- Description: Supports the curconf operation used by the surrounding class.
+- Role: Handles the current configuration path.
+- Description: Implements the curconf operation.
 
 #### `protected GSettings gprefs()`
-- Role: Performs gprefs.
-- Description: Supports the gprefs operation used by the surrounding class.
+- Role: Handles the gprefs path.
+- Description: Implements the gprefs operation.
 
 #### `private Pipe.Op frame()`
-- Role: Performs frame.
-- Description: Supports the frame operation used by the surrounding class.
+- Role: Handles the frame path.
+- Description: Implements the frame operation.
 
 #### `protected void reconf()`
-- Role: Performs reconf.
-- Description: Supports the reconf operation used by the surrounding class.
+- Role: Handles the reconf path.
+- Description: Implements the reconf operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public Pipe.Op basic(Object id)`
-- Role: Performs basic.
-- Description: Supports the basic operation used by the surrounding class.
+- Role: Returns the pipe state stored under the supplied identifier.
+- Description: Returns the pipe state stored under the supplied identifier.
 
 #### `public void basic(Object id, Pipe.Op state)`
-- Role: Performs basic.
-- Description: Supports the basic operation used by the surrounding class.
+- Role: Stores a basic pipe state under the supplied identifier.
+- Description: Stores a basic pipe state under the supplied identifier.
 
 #### `protected FColor clearcolor()`
-- Role: Returns the clear color value.
-- Description: Exposes the requested value without mutating state.
+- Role: Clears the color.
+- Description: Clears the color.
 
 #### `private static RenderList.Slot<Rendered> uglyJavaCWorkAround(RenderList.Slot<?> slot)`
-- Role: Performs ugly java cwork around.
-- Description: Supports the ugly java cwork around operation used by the surrounding class.
+- Role: Handles the ugly java cwork around path.
+- Description: Implements the ugly java c work around operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `Resampler(Coord isz, Coord osz)`
 - Role: Handles the resampler workflow.
-- Description: Supports the resampler operation used by the surrounding class.
+- Description: Implements the resampler operation.
 
 #### `LinResampler(Coord isz, Coord osz)`
 - Role: Handles the lin resampler workflow.
-- Description: Supports the lin resampler operation used by the surrounding class.
+- Description: Implements the lin resampler operation.
 
 #### `public void run(GOut g, Texture2D.Sampler2D in)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public IntResampler(Coord isz, Coord osz, int scale)`
-- Role: Performs int resampler.
-- Description: Supports the int resampler operation used by the surrounding class.
+- Role: Handles the int resampler path.
+- Description: Implements the int resampler operation.
 
 #### `public void run(GOut g, Texture2D.Sampler2D in)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private GOut resolveout(GOut def, FrameFormat fmt, PostProcessor next)`
-- Role: Performs resolveout.
-- Description: Supports the resolveout operation used by the surrounding class.
+- Role: Handles the resolveout path.
+- Description: Resolves the out.
 
 #### `protected void resolve(GOut g)`
 - Role: Resolves the target value.
-- Description: Supports the resolve operation used by the surrounding class.
+- Description: Resolves the requested value from the current runtime state.
 
 #### `public void add(PostProcessor post)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds a post-processor to the active render pipeline.
+- Description: Adds a post-processor to the active render pipeline.
 
 #### `public void remove(PostProcessor post)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes a post-processor from the active render pipeline.
+- Description: Removes a post-processor from the active render pipeline.
 
 #### `public void tonemap(PostProcessor tonemap)`
-- Role: Performs tonemap.
-- Description: Supports the tonemap operation used by the surrounding class.
+- Role: Handles the tonemap path.
+- Description: Implements the tonemap operation.
 
 #### `protected void envsetup()`
-- Role: Performs envsetup.
-- Description: Supports the envsetup operation used by the surrounding class.
+- Role: Handles the envsetup path.
+- Description: Implements the envsetup operation.
 
 #### `protected void envdispose()`
-- Role: Performs envdispose.
-- Description: Supports the envdispose operation used by the surrounding class.
+- Role: Handles the envdispose path.
+- Description: Implements the envdispose operation.
 
 #### `protected void maindraw(Render out)`
-- Role: Performs maindraw.
-- Description: Supports the maindraw operation used by the surrounding class.
+- Role: Handles the maindraw path.
+- Description: Implements the maindraw operation.
 
 #### `public void gtick(Render out)`
 - Role: Advances the drawable state for the current render tick.
@@ -298,44 +302,44 @@ Represents the pview Haven component.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the PView content.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `protected void basic()`
-- Role: Performs basic.
-- Description: Supports the basic operation used by the surrounding class.
+- Role: Returns the pipe state stored under the supplied identifier.
+- Description: Returns the pipe state stored under the supplied identifier.
 
 #### `protected void attached()`
-- Role: Performs attached.
-- Description: Supports the attached operation used by the surrounding class.
+- Role: Handles the attached path.
+- Description: Implements the attached operation.
 
 #### `protected void lights()`
-- Role: Performs lights.
-- Description: Supports the lights operation used by the surrounding class.
+- Role: Handles the lights path.
+- Description: Implements the lights operation.
 
 #### `public void draw(GOut g, Pipe state)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the PView content.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the PView content.
 
 #### `public void add(Slot<? extends Render2D> slot)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(Slot<? extends Render2D> slot)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void update(Slot<? extends Render2D> slot)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void update(Pipe group, int[] statemask)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.

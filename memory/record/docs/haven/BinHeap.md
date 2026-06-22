@@ -1,5 +1,5 @@
 ---
-source: [BinHeap.java](../../../src/haven/BinHeap.java)
+source: [BinHeap.java](../../../../src/haven/BinHeap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,85 +13,86 @@ Represents the bin heap Haven component.
 ### Constants
 
 #### `private static final Object[] EMPTY = new Object[0]`
-- Role: Defines the shared empty constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the empty value.
+- Description: Caches the `EMPTY` value for reuse.
+- Value: `new Object[0]`
 
 ### Fields
 
 #### `private final Comparator<? super T> order`
-- Role: Holds the order state.
-- Description: Backs the cached state for this file.
+- Role: Caches the order value.
+- Description: Caches the `order` value for reuse.
 
 #### `private final Map<Object, Integer> index = new IdentityHashMap<>()`
-- Role: Caches index entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the index operation.
+- Description: Implements the private final map<object, integer> index = new identity hash map<>() operation.
 
 #### `private Object[] heap = EMPTY`
-- Role: Holds the heap state.
-- Description: Backs the cached state for this file.
+- Role: Caches the heap value.
+- Description: Caches the `heap` value for reuse.
 
 #### `private int size = 0`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 ### Methods
 
 #### `public BinHeap(Comparator<? super T> order)`
 - Role: Creates a new BinHeap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the BinHeap instance from the supplied inputs.
 
 #### `private T get(int i)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private void raise(T ob, int idx)`
-- Role: Performs raise.
-- Description: Supports the raise operation used by the surrounding class.
+- Role: Handles the raise path.
+- Description: Implements the raise operation.
 
 #### `private void lower(T ob, int idx)`
-- Role: Performs lower.
-- Description: Supports the lower operation used by the surrounding class.
+- Role: Handles the lower path.
+- Description: Implements the lower operation.
 
 #### `public boolean add(T ob)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public boolean remove(Object ob)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public Iterator<T> iterator()`
-- Role: Performs iterator.
-- Description: Supports the iterator operation used by the surrounding class.
+- Role: Handles the iterator path.
+- Description: Implements the iterator operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public boolean contains(Object ob)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.
 
 #### `public boolean offer(T ob)`
-- Role: Performs offer.
-- Description: Supports the offer operation used by the surrounding class.
+- Role: Handles the offer path.
+- Description: Implements the offer operation.
 
 #### `public T remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public T poll()`
-- Role: Performs poll.
-- Description: Supports the poll operation used by the surrounding class.
+- Role: Removes and returns the highest-priority element.
+- Description: Removes and returns the highest-priority element.
 
 #### `public T element()`
-- Role: Performs element.
-- Description: Supports the element operation used by the surrounding class.
+- Role: Handles the element path.
+- Description: Implements the element operation.
 
 #### `public T peek()`
-- Role: Performs peek.
-- Description: Supports the peek operation used by the surrounding class.
+- Role: Returns the highest-priority element without removing it.
+- Description: Returns the highest-priority element without removing it.

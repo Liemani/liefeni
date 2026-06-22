@@ -1,5 +1,5 @@
 ---
-source: [AlignLogBehavior.java](../../../../src/lmi/behavior/AlignLogBehavior.java)
+source: [AlignLogBehavior.java](../../../../../src/lmi/behavior/AlignLogBehavior.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,4 +18,4 @@ Represents the align log behavior component.
 
 #### `public void run(AgentContext ctx, Coord root, Coord trunk, Coord branch, Coord leaf, Gob targetLog)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.

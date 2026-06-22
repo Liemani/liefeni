@@ -1,5 +1,5 @@
 ---
-source: [HelpWnd.java](../../../src/haven/HelpWnd.java)
+source: [HelpWnd.java](../../../../src/haven/HelpWnd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,21 +13,22 @@ Represents the help wnd Haven component.
 ### Constants
 
 #### `public static final RichText.Foundry fnd = new RichText.Foundry().aa(true)`
-- Role: Defines the shared fnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fnd operation.
+- Description: Implements the aa operation.
+- Value: `new RichText.Foundry().aa(true)`
 
 ### Fields
 
 #### `private final RichTextBox text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 ### Methods
 
 #### `public HelpWnd(Indir<Resource> res)`
 - Role: Creates a new HelpWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HelpWnd instance from the supplied inputs.
 
 #### `public void set(Indir<Resource> res)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.

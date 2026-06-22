@@ -1,5 +1,5 @@
 ---
-source: [ISBox.java](../../../src/haven/ISBox.java)
+source: [ISBox.java](../../../../src/haven/ISBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,38 +12,42 @@ Represents the isbox Haven component.
 
 ### $_
 
-- Role: Represents $ within ISBox.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the `isbox` widget factory.
+- Description: Creates the item-slot box widget from resource arguments.
 
 ## Members
 
 ### Constants
 
 #### `public static final Color bgcol = new Color(43, 51, 44, 127)`
-- Role: Defines the shared bgcol constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bgcol operation.
+- Description: Implements the color operation.
+- Value: `new Color(43, 51, 44, 127)`
 
 #### `public static final IBox box = new IBox.Scaled("gfx/hud/bosq", "tl", "tr", "bl", "br", "el", "er", "et", "eb")`
-- Role: Defines the shared box constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the box operation.
+- Description: Implements the scaled operation.
+- Value: `new IBox.Scaled("gfx/hud/bosq", "tl", "tr", "bl", "br", "el", "er", "et", "eb")`
 
 #### `public static final Coord defsz = UI.scale(145, 42)`
-- Role: Defines the shared defsz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the defsz operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(145, 42)`
 
 #### `public static final Text.Foundry lf = new Text.Foundry(Text.fraktur, 22, Color.WHITE).aa(true)`
-- Role: Defines the shared lf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lf operation.
+- Description: Implements the aa operation.
+- Value: `new Text.Foundry(Text.fraktur, 22, Color.WHITE).aa(true)`
 
 ### Fields
 
 #### `private final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private Text label`
-- Role: Stores the label value.
-- Description: Backs the cached state for this file.
+- Role: Caches the label value.
+- Description: Caches the `label` value for reuse.
 
 ### Methods
 
@@ -52,49 +56,49 @@ Represents the isbox Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `private void setlabel(int rem, int av, int bi)`
-- Role: Performs setlabel.
-- Description: Supports the setlabel operation used by the surrounding class.
+- Role: Handles the setlabel path.
+- Description: Updates the label.
 
 #### `public ISBox(Indir<Resource> res, int rem, int av, int bi)`
 - Role: Creates a new ISBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ISBox instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the ISBox content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Handles the drop path.
+- Description: Implements the drop operation.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Handles the iteminteract path.
+- Description: Implements the iteminteract operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public String text()`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public int count()`
-- Role: Performs count.
-- Description: Supports the count operation used by the surrounding class.
+- Role: Handles the count path.
+- Description: Implements the count operation.
 
 #### `public int capacity()`
-- Role: Performs capacity.
-- Description: Supports the capacity operation used by the surrounding class.
+- Role: Handles the capacity path.
+- Description: Implements the capacity operation.
 
 #### `public void transfer()`
-- Role: Performs transfer.
-- Description: Supports the transfer operation used by the surrounding class.
+- Role: Handles the transfer path.
+- Description: Implements the transfer operation.

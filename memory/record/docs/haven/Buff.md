@@ -1,5 +1,5 @@
 ---
-source: [Buff.java](../../../src/haven/Buff.java)
+source: [Buff.java](../../../../src/haven/Buff.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -30,90 +30,99 @@ Represents the buff Haven component.
 ### Constants
 
 #### `public static final Text.Foundry nfnd = new Text.Foundry(Text.dfont, 10)`
-- Role: Defines the shared nfnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nfnd operation.
+- Description: Implements the foundry operation.
+- Value: `new Text.Foundry(Text.dfont, 10)`
 
 #### `public static final Tex frame = Resource.loadtex("gfx/hud/buffs/frame")`
-- Role: Defines the shared frame constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the frame operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/buffs/frame")`
 
 #### `public static final Tex cframe = Resource.loadtex("gfx/hud/buffs/cframe")`
-- Role: Defines the shared cframe constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cframe operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/buffs/cframe")`
 
 #### `public static final Tex ameter = Resource.loadtex("gfx/hud/buffs/cframe-m")`
-- Role: Defines the shared ameter constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ameter operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/buffs/cframe-m")`
 
 #### `public static final Coord imgoff = UI.scale(3, 3)`
-- Role: Defines the shared imgoff constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the imgoff operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(3, 3)`
 
 #### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
-- Role: Defines the shared ameterx1 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ameterx1 operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
 
 #### `public static final int ameterx1 = UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
-- Role: Defines the shared ameterx1 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ameterx1 operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(3), ameterx2 = UI.scale(35); /* XXX: Detect? */`
 
 #### `public static final int textw = UI.scale(200)`
-- Role: Defines the shared textw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the textw operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(200)`
 
 #### `private static final OwnerContext.ClassResolver<Buff> ctxr = new OwnerContext.ClassResolver<Buff>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<buff> ctxr = new owner context.class resolver<buff>() operation.
+- Value: `new OwnerContext.ClassResolver<Buff>()`
 
 ### Fields
 
 #### `public Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `protected int a = 255`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `a` value for reuse.
 
 #### `protected boolean dest = false`
 - Role: Tracks the dest flag.
-- Description: Supports the dest operation used by the surrounding class.
+- Description: Caches the `dest` value for reuse.
 
 #### `private ItemInfo.Raw rawinfo = null`
-- Role: Holds the rawinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawinfo value.
+- Description: Caches the `rawinfo` value for reuse.
 
 #### `private List<ItemInfo> info = Collections.emptyList()`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the info operation.
+- Description: Implements the empty list operation.
 
 #### `private final AttrCache<Double> ameteri = new AttrCache<>(this::info, AttrCache.map1(AMeterInfo.class, minf -> minf::ameter))`
-- Role: Caches ameteri entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the ameteri operation.
+- Description: Implements the map1 operation.
 
 #### `private final AttrCache<Tex> nmeteri = new AttrCache<>(this::info, AttrCache.map1s(GItem.NumberInfo.class, ninf -> new TexI(GItem.NumberInfo.numrender(ninf.itemnum(), ninf.numcolor()))))`
-- Role: Caches nmeteri entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the nmeteri operation.
+- Description: Implements the numcolor operation.
 
 #### `private final AttrCache<Double> cmeteri = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
-- Role: Caches cmeteri entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cmeteri operation.
+- Description: Implements the map1 operation.
 
 #### `private double hoverstart`
-- Role: Stores the hoverstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hoverstart value.
+- Description: Caches the `hoverstart` value for reuse.
 
 #### `private Tex shorttip, longtip`
-- Role: Stores the longtip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the longtip value.
+- Description: Caches the `longtip` value for reuse.
 
 #### `private Tex shorttip, longtip`
-- Role: Stores the longtip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the longtip value.
+- Description: Caches the `longtip` value for reuse.
 
 #### `private List<ItemInfo> ttinfo = null`
-- Role: Caches ttinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the ttinfo value.
+- Description: Caches the `ttinfo` value for reuse.
 
 ### Methods
 
@@ -123,72 +132,72 @@ Represents the buff Haven component.
 
 #### `public Buff(Indir<Resource> res)`
 - Role: Creates a new Buff instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Buff instance from the supplied inputs.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public double ameter()`
-- Role: Performs ameter.
-- Description: Supports the ameter operation used by the surrounding class.
+- Role: Handles the ameter path.
+- Description: Implements the ameter operation.
 
 #### `public AMeterTip(Owner owner)`
-- Role: Performs ameter tip.
-- Description: Supports the ameter tip operation used by the surrounding class.
+- Role: Handles the ameter tip path.
+- Description: Implements the a meter tip operation.
 
 #### `public void layout(Layout l)`
-- Role: Performs layout.
-- Description: Supports the layout operation used by the surrounding class.
+- Role: Handles the layout path.
+- Description: Lays out parts on wrapped lines and aligns their baselines.
 
 #### `public int order()`
-- Role: Performs order.
-- Description: Supports the order operation used by the surrounding class.
+- Role: Implements the order operation.
+- Description: Implements the order operation.
 
 #### `public Tip shortvar()`
-- Role: Performs shortvar.
-- Description: Supports the shortvar operation used by the surrounding class.
+- Role: Handles the shortvar path.
+- Description: Implements the shortvar operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Buff content.
 
 #### `private BufferedImage shorttip()`
-- Role: Performs shorttip.
-- Description: Supports the shorttip operation used by the surrounding class.
+- Role: Handles the shorttip path.
+- Description: Implements the shorttip operation.
 
 #### `private BufferedImage longtip()`
-- Role: Performs longtip.
-- Description: Supports the longtip operation used by the surrounding class.
+- Role: Handles the longtip path.
+- Description: Implements the longtip operation.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `public void reqdestroy()`
-- Role: Performs reqdestroy.
-- Description: Supports the reqdestroy operation used by the surrounding class.
+- Role: Handles the reqdestroy path.
+- Description: Implements the reqdestroy operation.
 
 #### `public void move(Coord c, double off)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public void move(Coord c)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.

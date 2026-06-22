@@ -1,5 +1,5 @@
 ---
-source: [CachedFunction.java](../../../src/haven/CachedFunction.java)
+source: [CachedFunction.java](../../../../src/haven/CachedFunction.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the cached function Haven component.
 
 ### Cache
 
-- Role: Represents cache within CachedFunction.
-- Description: Describes the nested cache type used by the enclosing class.
+- Role: Stores cached function results in access order.
+- Description: Extends `LinkedHashMap` so the oldest result can be evicted when the cache exceeds its size.
 
 ## Members
 
@@ -22,39 +22,39 @@ Represents the cached function Haven component.
 ### Fields
 
 #### `public final Function<P, R> back`
-- Role: Holds the back state.
-- Description: Backs the cached state for this file.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `public final Consumer<? super R> dispose`
-- Role: Holds the dispose state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dispose value.
+- Description: Caches the `dispose` value for reuse.
 
 #### `private final Map<P, R> cache`
-- Role: Caches cache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches cache for reuse.
+- Description: Keeps cache cached for reuse.
 
 #### `private final int size`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 ### Methods
 
 #### `public CachedFunction(int size, Function<P, R> back, Consumer<? super R> dispose)`
 - Role: Creates a new CachedFunction instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CachedFunction instance from the supplied inputs.
 
 #### `public CachedFunction(int size, Function<P, R> back)`
 - Role: Creates a new CachedFunction instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CachedFunction instance from the supplied inputs.
 
 #### `public Cache(int size)`
-- Role: Performs cache.
-- Description: Supports the cache operation used by the surrounding class.
+- Role: Handles the cache path.
+- Description: Implements the cache operation.
 
 #### `protected boolean removeEldestEntry(Map.Entry<P, R> eldest)`
 - Role: Removes the eldest entry.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the eldest entry.
 
 #### `public R apply(P param)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

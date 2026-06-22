@@ -1,5 +1,5 @@
 ---
-source: [MenuGrid.java](../../../src/haven/MenuGrid.java)
+source: [MenuGrid.java](../../../../src/haven/MenuGrid.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,243 +12,248 @@ Represents the in-game menu grid and its pages.
 
 ### $_
 
-- Role: Represents $ within MenuGrid.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the `scm` widget factory.
+- Description: Creates a new `MenuGrid` instance when the resource system instantiates the widget.
 
 ### FactMaker
 
-- Role: Represents fact maker within MenuGrid.
-- Description: Describes the nested fact maker type used by the enclosing class.
+- Role: Resolves published page factories for menu-grid entries.
+- Description: Chains direct, static, and constructor-based instancers for `PagButton.Factory`.
 
 ### Factory
 
-- Role: Represents factory within MenuGrid.
-- Description: Describes the nested factory type used by the enclosing class.
+- Role: Creates a `PagButton` from a `Pagina`.
+- Description: Published code hook used by menu resources to customize page button creation.
 
 ### Interaction
 
-- Role: Represents interaction within MenuGrid.
-- Description: Describes the nested interaction type used by the enclosing class.
+- Role: Carries one menu-use input.
+- Description: Stores the button, modifier flags, and optional map click context passed to a page use.
 
 ### PagButton
 
-- Role: Represents pag button within MenuGrid.
-- Description: Describes the nested pag button type used by the enclosing class.
+- Role: Adapts one `Pagina` into a clickable menu button.
+- Description: Resolves sprite, tooltip, keybinding, overlays, and use behavior for the backing resource.
 
 ### Pagina
 
-- Role: Represents pagina within MenuGrid.
-- Description: Describes the nested pagina type used by the enclosing class.
+- Role: Holds one menu page record.
+- Description: Tracks the page resource, id, serialized data, and cached button instance.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Foundry keyfnd = new Text.Foundry(Text.sans.deriveFont(Font.BOLD), 10)`
-- Role: Defines the shared keyfnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the keyfnd operation.
+- Description: Implements the derive font operation.
+- Value: `new Text.Foundry(Text.sans.deriveFont(Font.BOLD), 10)`
 
 #### `private static final OwnerContext.ClassResolver<PagButton> ctxr = new OwnerContext.ClassResolver<PagButton>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<pag button> ctxr = new owner context.class resolver<pag button>() operation.
+- Value: `new OwnerContext.ClassResolver<PagButton>()`
 
 #### `public static final KeyBinding kb_root = KeyBinding.get("scm-root", KeyMatch.forcode(KeyEvent.VK_ESCAPE, 0))`
-- Role: Defines the shared kb root constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kb root operation.
+- Description: Implements the forcode operation.
+- Value: `KeyBinding.get("scm-root", KeyMatch.forcode(KeyEvent.VK_ESCAPE, 0))`
 
 #### `public static final KeyBinding kb_back = KeyBinding.get("scm-back", KeyMatch.forcode(KeyEvent.VK_BACK_SPACE, 0))`
-- Role: Defines the shared kb back constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kb back operation.
+- Description: Implements the forcode operation.
+- Value: `KeyBinding.get("scm-back", KeyMatch.forcode(KeyEvent.VK_BACK_SPACE, 0))`
 
 #### `public static final KeyBinding kb_next = KeyBinding.get("scm-next", KeyMatch.forchar('N', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.S))`
-- Role: Defines the shared kb next constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kb next operation.
+- Description: Implements the forchar operation.
+- Value: `KeyBinding.get("scm-next", KeyMatch.forchar('N', KeyMatch.S | KeyMatch.C | KeyMatch.M, KeyMatch.S))`
 
 ### Fields
 
 #### `public final static Tex bg = Inventory.invsq`
-- Role: Stores the bg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bg value.
+- Description: Caches the `bg` value for reuse.
 
 #### `public final static Coord bgsz = Inventory.sqsz`
-- Role: Stores the bgsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bgsz value.
+- Description: Caches the `bgsz` value for reuse.
 
 #### `public final static RichText.Foundry ttfnd = new RichText.Foundry(TextAttribute.FAMILY, "SansSerif", TextAttribute.SIZE, UI.scale(10f))`
-- Role: Stores the ttfnd value.
-- Description: Backs the cached state for this file.
+- Role: Implements the ttfnd operation.
+- Description: Implements the scale operation.
 
 #### `private static Coord gsz = new Coord(4, 4)`
-- Role: Stores the gsz value.
-- Description: Backs the cached state for this file.
+- Role: Implements the gsz operation.
+- Description: Implements the coord operation.
 
 #### `public final Set<Pagina> paginae = new HashSet<Pagina>()`
-- Role: Caches paginae entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the paginae operation.
+- Description: Implements the public final set<pagina> paginae = new hash set<pagina>() operation.
 
 #### `public Pagina cur`
-- Role: Holds the cur state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 #### `private final Map<Object, Pagina> pmap = new CacheMap<>(CacheMap.RefType.WEAK)`
-- Role: Caches pmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pmap operation.
+- Description: Implements the private final map<object, pagina> pmap = new cache map<>(cache map.ref type.weak) operation.
 
 #### `private Pagina dragging`
-- Role: Holds the dragging state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dragging value.
+- Description: Caches the `dragging` value for reuse.
 
 #### `private Collection<PagButton> curbtns = Collections.emptyList()`
-- Role: Caches curbtns entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the curbtns operation.
+- Description: Implements the empty list operation.
 
 #### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
-- Role: Holds the menu grid state.
-- Description: Backs the cached state for this file.
+- Role: Caches the layout[][] value.
+- Description: Caches the `layout[][]` value for reuse.
 
 #### `private PagButton pressed, layout[][] = new PagButton[gsz.x][gsz.y]`
-- Role: Holds the menu grid state.
-- Description: Backs the cached state for this file.
+- Role: Caches the layout[][] value.
+- Description: Caches the `layout[][]` value for reuse.
 
 #### `private UI.Grab grab`
-- Role: Stores the grab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grab value.
+- Description: Caches the `grab` value for reuse.
 
 #### `private int curoff = 0`
-- Role: Stores the curoff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curoff value.
+- Description: Caches the `curoff` value for reuse.
 
 #### `private boolean recons = true, showkeys = false`
 - Role: Tracks the recons flag.
-- Description: Supports the recons operation used by the surrounding class.
+- Description: Caches the `recons` value for reuse.
 
 #### `private boolean recons = true, showkeys = false`
 - Role: Tracks the recons flag.
-- Description: Supports the recons operation used by the surrounding class.
+- Description: Caches the `recons` value for reuse.
 
 #### `private double fstart`
-- Role: Stores the fstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fstart value.
+- Description: Caches the `fstart` value for reuse.
 
 #### `public final MenuGrid scm`
-- Role: Stores the scm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scm value.
+- Description: Caches the `scm` value for reuse.
 
 #### `public final Object id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public byte[] sdt = null`
-- Role: Stores the sdt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 #### `public int anew, tnew`
-- Role: Stores the tnew value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tnew value.
+- Description: Caches the `tnew` value for reuse.
 
 #### `public int anew, tnew`
-- Role: Stores the tnew value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tnew value.
+- Description: Caches the `tnew` value for reuse.
 
 #### `public Object[] rawinfo =`
-- Role: Holds the menu grid state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawinfo value.
+- Description: Caches the `rawinfo` value for reuse.
 
 #### `private PagButton button = null`
-- Role: Holds the button state.
-- Description: Backs the cached state for this file.
+- Role: Caches the button value.
+- Description: Caches the `button` value for reuse.
 
 #### `public final int btn, modflags`
-- Role: Stores the modflags value.
-- Description: Backs the cached state for this file.
+- Role: Caches the modflags value.
+- Description: Caches the `modflags` value for reuse.
 
 #### `public final int btn, modflags`
-- Role: Stores the modflags value.
-- Description: Backs the cached state for this file.
+- Role: Caches the modflags value.
+- Description: Caches the `modflags` value for reuse.
 
 #### `public final Coord2d mc`
-- Role: Stores the mc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mc value.
+- Description: Caches the `mc` value for reuse.
 
 #### `public final ClickData click`
-- Role: Holds the click state.
-- Description: Backs the cached state for this file.
+- Role: Caches the click value.
+- Description: Caches the `click` value for reuse.
 
 #### `public final Pagina pag`
-- Role: Holds the pag state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pag value.
+- Description: Caches the `pag` value for reuse.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final KeyBinding bind`
-- Role: Holds the bind state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bind value.
+- Description: Caches the `bind` value for reuse.
 
 #### `private GSprite spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 #### `private AButton act`
-- Role: Holds the act state.
-- Description: Backs the cached state for this file.
+- Role: Caches the act value.
+- Description: Caches the `act` value for reuse.
 
 #### `private Pagina parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public final AttrCache<Pipe.Op> rstate = new AttrCache<>(this::info, info ->`
-- Role: Caches rstate entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rstate operation.
+- Description: Implements the public final attr cache<pipe.op> rstate = new attr cache<>(this::info, info -> operation.
 
 #### `public final AttrCache<GItem.InfoOverlay<?>[]> ols = new AttrCache<>(this::info, info ->`
-- Role: Caches ols entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the ols operation.
+- Description: Implements the public final attr cache<g item.info overlay<?>[]> ols = new attr cache<>(this::info, info -> operation.
 
 #### `public final AttrCache<Double> meter = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
-- Role: Caches meter entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the meter operation.
+- Description: Implements the map1 operation.
 
 #### `private Tex keyrend = null`
-- Role: Stores the keyrend value.
-- Description: Backs the cached state for this file.
+- Role: Caches the keyrend value.
+- Description: Caches the `keyrend` value for reuse.
 
 #### `private boolean haskeyrend = false`
 - Role: Tracks the haskeyrend flag.
-- Description: Supports the haskeyrend operation used by the surrounding class.
+- Description: Caches the `haskeyrend` value for reuse.
 
 #### `private List<ItemInfo> info = null`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public final PagButton next = new PagButton(new Pagina(this, null, Resource.local().loadwait("gfx/hud/sc-next").indir()))`
-- Role: Holds the next state.
-- Description: Backs the cached state for this file.
+- Role: Implements the next operation.
+- Description: Implements the indir operation.
 
 #### `public final PagButton bk = new PagButton(new Pagina(this, null, Resource.local().loadwait("gfx/hud/sc-back").indir()))`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Implements the bk operation.
+- Description: Implements the indir operation.
 
 #### `private PagButton curttp = null`
-- Role: Holds the curttp state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curttp value.
+- Description: Caches the `curttp` value for reuse.
 
 #### `private boolean curttl = false`
 - Role: Tracks the curttl flag.
-- Description: Supports the curttl operation used by the surrounding class.
+- Description: Caches the `curttl` value for reuse.
 
 #### `private Tex curtt = null`
-- Role: Stores the curtt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curtt value.
+- Description: Caches the `curtt` value for reuse.
 
 #### `private double hoverstart`
-- Role: Stores the hoverstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hoverstart value.
+- Description: Caches the `hoverstart` value for reuse.
 
 ### Methods
 
@@ -257,108 +262,108 @@ Represents the in-game menu grid and its pages.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public Pagina(MenuGrid scm, Object id, Indir<Resource> res)`
-- Role: Performs pagina.
-- Description: Supports the pagina operation used by the surrounding class.
+- Role: Handles the pagina path.
+- Description: Implements the pagina operation.
 
 #### `public Resource res()`
-- Role: Performs res.
-- Description: Supports the res operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the res operation.
 
 #### `public Message data()`
-- Role: Performs data.
-- Description: Supports the data operation used by the surrounding class.
+- Role: Handles the data path.
+- Description: Implements the data operation.
 
 #### `private void invalidate()`
-- Role: Performs invalidate.
-- Description: Supports the invalidate operation used by the surrounding class.
+- Role: Handles the invalidate path.
+- Description: Implements the invalidate operation.
 
 #### `public PagButton button()`
-- Role: Performs button.
-- Description: Supports the button operation used by the surrounding class.
+- Role: Handles the button path.
+- Description: Returns the first `Button` inside the active window, if any.
 
 #### `public Pagina parent()`
-- Role: Performs parent.
-- Description: Supports the parent operation used by the surrounding class.
+- Role: Handles the parent path.
+- Description: Implements the parent operation.
 
 #### `public Interaction(int btn, int modflags, Coord2d mc, ClickData click)`
-- Role: Performs interaction.
-- Description: Supports the interaction operation used by the surrounding class.
+- Role: Handles the interaction path.
+- Description: Implements the interaction operation.
 
 #### `public Interaction(int btn, int modflags)`
-- Role: Performs interaction.
-- Description: Supports the interaction operation used by the surrounding class.
+- Role: Handles the interaction path.
+- Description: Implements the interaction operation.
 
 #### `public Interaction()`
-- Role: Performs interaction.
-- Description: Supports the interaction operation used by the surrounding class.
+- Role: Handles the interaction path.
+- Description: Implements the interaction operation.
 
 #### `public PagButton(Pagina pag)`
-- Role: Performs pag button.
-- Description: Supports the pag button operation used by the surrounding class.
+- Role: Handles the pag button path.
+- Description: Implements the pag button operation.
 
 #### `public AButton act()`
-- Role: Performs act.
-- Description: Supports the act operation used by the surrounding class.
+- Role: Handles the act path.
+- Description: Implements the act operation.
 
 #### `public Pagina parent()`
-- Role: Performs parent.
-- Description: Supports the parent operation used by the surrounding class.
+- Role: Handles the parent path.
+- Description: Implements the parent operation.
 
 #### `public GSprite spr()`
-- Role: Performs spr.
-- Description: Supports the spr operation used by the surrounding class.
+- Role: Handles the spr path.
+- Description: Implements the spr operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public KeyMatch hotkey()`
-- Role: Performs hotkey.
-- Description: Supports the hotkey operation used by the surrounding class.
+- Role: Handles the hotkey path.
+- Description: Implements the hotkey operation.
 
 #### `public KeyBinding binding()`
-- Role: Performs binding.
-- Description: Supports the binding operation used by the surrounding class.
+- Role: Handles the binding path.
+- Description: Implements the binding operation.
 
 #### `public void use(Interaction iact)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Handles the use path.
+- Description: Implements the use operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public BufferedImage img()`
-- Role: Performs img.
-- Description: Supports the img operation used by the surrounding class.
+- Role: Handles the img path.
+- Description: Implements the img operation.
 
 #### `public void drawmain(GOut g, GSprite spr)`
-- Role: Performs drawmain.
-- Description: Supports the drawmain operation used by the surrounding class.
+- Role: Handles the drawmain path.
+- Description: Draws the main.
 
 #### `public void draw(GOut g, GSprite spr)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the MenuGrid content.
 
 #### `public String sortkey()`
-- Role: Performs sortkey.
-- Description: Supports the sortkey operation used by the surrounding class.
+- Role: Handles the sortkey path.
+- Description: Implements the sortkey operation.
 
 #### `private char bindchr(KeyMatch key)`
-- Role: Performs bindchr.
-- Description: Supports the bindchr operation used by the surrounding class.
+- Role: Handles the bindchr path.
+- Description: Implements the bindchr operation.
 
 #### `public Tex keyrend()`
-- Role: Performs keyrend.
-- Description: Supports the keyrend operation used by the surrounding class.
+- Role: Handles the keyrend path.
+- Description: Implements the keyrend operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
@@ -369,85 +374,85 @@ Represents the in-game menu grid and its pages.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public BufferedImage rendertt(boolean withpg)`
-- Role: Performs rendertt.
-- Description: Supports the rendertt operation used by the surrounding class.
+- Role: Handles the rendertt path.
+- Description: Renders the tt.
 
 #### `public FactMaker()`
-- Role: Performs fact maker.
-- Description: Supports the fact maker operation used by the surrounding class.
+- Role: Handles the fact maker path.
+- Description: Implements the fact maker operation.
 
 #### `public PagButton make(Pagina info)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public Pagina paginafor(Indir<Resource> res)`
-- Role: Performs paginafor.
-- Description: Supports the paginafor operation used by the surrounding class.
+- Role: Handles the paginafor path.
+- Description: Implements the paginafor operation.
 
 #### `public Pagina paginafor(Object id, Indir<Resource> res)`
-- Role: Performs paginafor.
-- Description: Supports the paginafor operation used by the surrounding class.
+- Role: Handles the paginafor path.
+- Description: Implements the paginafor operation.
 
 #### `private boolean cons(Pagina p, Collection<PagButton> buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `private void announce(Pagina pag)`
-- Role: Performs announce.
-- Description: Supports the announce operation used by the surrounding class.
+- Role: Handles the announce path.
+- Description: Implements the announce operation.
 
 #### `public MenuGrid()`
 - Role: Creates a new MenuGrid instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the MenuGrid instance from the supplied inputs.
 
 #### `private void updlayout()`
-- Role: Performs updlayout.
-- Description: Supports the updlayout operation used by the surrounding class.
+- Role: Handles the updlayout path.
+- Description: Implements the updlayout operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the MenuGrid content.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `private PagButton bhit(Coord c)`
-- Role: Performs bhit.
-- Description: Supports the bhit operation used by the surrounding class.
+- Role: Handles the bhit path.
+- Description: Implements the bhit operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public void change(Pagina dst)`
-- Role: Performs change.
-- Description: Supports the change operation used by the surrounding class.
+- Role: Handles the change path.
+- Description: Implements the change operation.
 
 #### `public void use(PagButton r, Interaction iact, boolean reset)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Handles the use path.
+- Description: Implements the use operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
 - Role: Handles a global key event.
-- Description: Supports the globtype operation used by the surrounding class.
+- Description: Implements the globtype operation.
 
 #### `public KeyBinding getbinding(Coord cc)`
-- Role: Performs getbinding.
-- Description: Supports the getbinding operation used by the surrounding class.
+- Role: Handles the getbinding path.
+- Description: Returns the binding.

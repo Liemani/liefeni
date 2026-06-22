@@ -1,5 +1,5 @@
 ---
-source: [FightWnd.java](../../../src/haven/FightWnd.java)
+source: [FightWnd.java](../../../../src/haven/FightWnd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,417 +12,420 @@ Represents the fight wnd Haven component.
 
 ### $_
 
-- Role: Represents $ within FightWnd.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the fight window widget resource.
+- Description: Factory that creates the fight window widget.
 
 ### Action
 
-- Role: Represents action within FightWnd.
-- Description: Describes the nested action type used by the enclosing class.
+- Role: Models one combat action entry.
+- Description: Holds action state, resource references, use counts, and rendering helpers for the action list.
 
 ### Actions
 
-- Role: Represents actions within FightWnd.
-- Description: Describes the nested actions type used by the enclosing class.
+- Role: Renders the action list.
+- Description: Scrollable list widget that manages action ordering, dragging, and per-action controls.
 
 ### BView
 
-- Role: Represents bview within FightWnd.
-- Description: Describes the nested bview type used by the enclosing class.
+- Role: Renders the battle view pane.
+- Description: Widget that displays combat state and handles battle-view interactions.
 
 ### Item
 
-- Role: Represents item within FightWnd.
-- Description: Describes the nested item type used by the enclosing class.
+- Role: Renders one action row.
+- Description: Row widget that shows the action icon, use counter, controls, and drag behavior.
 
 ### Savelist
 
-- Role: Represents savelist within FightWnd.
-- Description: Describes the nested savelist type used by the enclosing class.
+- Role: Renders the saved-action list.
+- Description: Scrollable list widget for saved combat action slots.
 
 ## Members
 
 ### Constants
 
 #### `private static final OwnerContext.ClassResolver<FightWnd> actxr = new OwnerContext.ClassResolver<FightWnd>()`
-- Role: Defines the shared actxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the actxr operation.
+- Description: Implements the private static final owner context.class resolver<fight wnd> actxr = new owner context.class resolver<fight wnd>() operation.
+- Value: `new OwnerContext.ClassResolver<FightWnd>()`
 
 #### `public static final Text.Foundry namef = new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
-- Role: Defines the shared namef constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the namef operation.
+- Description: Implements the aa operation.
+- Value: `new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
 
 #### `public static final String[] keys =`
-- Role: Defines the shared fight wnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the keys value.
+- Description: Caches the `keys` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public final int nsave`
-- Role: Stores the nsave value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nsave value.
+- Description: Caches the `nsave` value for reuse.
 
 #### `public int maxact`
-- Role: Stores the maxact value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxact value.
+- Description: Caches the `maxact` value for reuse.
 
 #### `public final Actions actlist`
-- Role: Holds the actlist state.
-- Description: Backs the cached state for this file.
+- Role: Caches the actlist value.
+- Description: Caches the `actlist` value for reuse.
 
 #### `public final Savelist savelist`
-- Role: Holds the savelist state.
-- Description: Backs the cached state for this file.
+- Role: Caches the savelist value.
+- Description: Caches the `savelist` value for reuse.
 
 #### `public List<Action> acts = new ArrayList<Action>()`
-- Role: Caches acts entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the acts operation.
+- Description: Implements the public list<action> acts = new array list<action>() operation.
 
 #### `public final Action[] order`
-- Role: Holds the order state.
-- Description: Backs the cached state for this file.
+- Role: Caches the order value.
+- Description: Caches the `order` value for reuse.
 
 #### `public int usesave`
-- Role: Stores the usesave value.
-- Description: Backs the cached state for this file.
+- Role: Caches the usesave value.
+- Description: Caches the `usesave` value for reuse.
 
 #### `private final Text[] saves`
-- Role: Stores the saves value.
-- Description: Backs the cached state for this file.
+- Role: Caches the saves value.
+- Description: Caches the `saves` value for reuse.
 
 #### `private final ImageInfoBox info`
-- Role: Stores the info value.
-- Description: Backs the cached state for this file.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private final Label count`
-- Role: Stores the count value.
-- Description: Backs the cached state for this file.
+- Role: Caches the count value.
+- Description: Caches the `count` value for reuse.
 
 #### `private final Map<Indir<Resource>, Object[]> actrawinfo = new HashMap<>()`
-- Role: Caches actrawinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the actrawinfo operation.
+- Description: Implements the private final map<indir<resource>, object[]> actrawinfo = new hash map<>() operation.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public int a, u`
-- Role: Stores the u value.
-- Description: Backs the cached state for this file.
+- Role: Caches the u value.
+- Description: Caches the `u` value for reuse.
 
 #### `public int a, u`
-- Role: Stores the u value.
-- Description: Backs the cached state for this file.
+- Role: Caches the u value.
+- Description: Caches the `u` value for reuse.
 
 #### `private String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `private List<ItemInfo> info = null`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private Tex icon = null`
-- Role: Stores the icon value.
-- Description: Backs the cached state for this file.
+- Role: Caches the icon value.
+- Description: Caches the `icon` value for reuse.
 
 #### `private boolean loading = false`
 - Role: Tracks the loading flag.
-- Description: Supports the loading operation used by the surrounding class.
+- Description: Tracks whether  is currently loading.
 
 #### `private Action drag = null`
-- Role: Holds the drag state.
-- Description: Backs the cached state for this file.
+- Role: Caches the drag value.
+- Description: Caches the `drag` value for reuse.
 
 #### `private UI.Grab grab`
-- Role: Stores the grab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grab value.
+- Description: Caches the `grab` value for reuse.
 
 #### `public final Action item`
-- Role: Holds the item state.
-- Description: Backs the cached state for this file.
+- Role: Caches the item value.
+- Description: Caches the `item` value for reuse.
 
 #### `private final Label use`
-- Role: Stores the use value.
-- Description: Backs the cached state for this file.
+- Role: Caches the use value.
+- Description: Caches the `use` value for reuse.
 
 #### `private int u = -1, a = -1`
-- Role: Stores the u value.
-- Description: Backs the cached state for this file.
+- Role: Caches the u value.
+- Description: Caches the `u` value for reuse.
 
 #### `private int u = -1, a = -1`
-- Role: Stores the u value.
-- Description: Backs the cached state for this file.
+- Role: Caches the u value.
+- Description: Caches the `u` value for reuse.
 
 #### `private UI.Grab grab`
-- Role: Stores the grab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grab value.
+- Description: Caches the `grab` value for reuse.
 
 #### `private Coord dp`
-- Role: Stores the dp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dp value.
+- Description: Caches the `dp` value for reuse.
 
 #### `private UI.Grab grab`
-- Role: Stores the grab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grab value.
+- Description: Caches the `grab` value for reuse.
 
 #### `private Action drag`
-- Role: Holds the drag state.
-- Description: Backs the cached state for this file.
+- Role: Caches the drag value.
+- Description: Caches the `drag` value for reuse.
 
 #### `private Coord dp`
-- Role: Stores the dp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dp value.
+- Description: Caches the `dp` value for reuse.
 
 #### `private final Coord[] animoff = new Coord[order.length]`
-- Role: Stores the animoff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the animoff value.
+- Description: Caches the `animoff` value for reuse.
 
 #### `private final double[] animpr = new double[order.length]`
-- Role: Stores the animpr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the animpr value.
+- Description: Caches the `animpr` value for reuse.
 
 #### `private boolean anim = false`
 - Role: Tracks the anim flag.
-- Description: Supports the anim operation used by the surrounding class.
+- Description: Caches the `anim` value for reuse.
 
 #### `final Tex[] keys = new Tex[10]`
-- Role: Stores the keys value.
-- Description: Backs the cached state for this file.
+- Role: Caches the keys value.
+- Description: Caches the `keys` value for reuse.
 
 #### `private final List<Integer> items = Utils.range(nsave)`
-- Role: Caches items entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the items operation.
+- Description: Implements the range operation.
 
 #### `public final int n`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private Text.Line redit = null`
-- Role: Stores the redit value.
-- Description: Backs the cached state for this file.
+- Role: Caches the redit value.
+- Description: Caches the `redit` value for reuse.
 
 #### `private ReadLine ed`
-- Role: Holds the ed state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ed value.
+- Description: Caches the `ed` value for reuse.
 
 #### `private double focusstart`
-- Role: Stores the focusstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the focusstart value.
+- Description: Caches the `focusstart` value for reuse.
 
 #### `private Coord lc = null`
-- Role: Stores the lc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lc value.
+- Description: Caches the `lc` value for reuse.
 
 #### `private double lt = 0`
-- Role: Stores the lt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lt value.
+- Description: Caches the `lt` value for reuse.
 
 #### `private Text unused = new Text.Foundry(attrf.font.deriveFont(java.awt.Font.ITALIC)).aa(true).render("Unused save")`
-- Role: Stores the unused value.
-- Description: Backs the cached state for this file.
+- Role: Implements the unused operation.
+- Description: Renders the current state into an image or image-like object.
 
 ### Methods
 
 #### `public Action(Indir<Resource> res, int id, int a, int u)`
-- Role: Performs action.
-- Description: Supports the action operation used by the surrounding class.
+- Role: Handles the action path.
+- Description: Implements the action operation.
 
 #### `public String rendertext()`
-- Role: Performs rendertext.
-- Description: Supports the rendertext operation used by the surrounding class.
+- Role: Handles the rendertext path.
+- Description: Renders the text.
 
 #### `private void a(int a)`
 - Role: Returns the local player facing angle.
 - Description: Returns the local player heading in radians.
 
 #### `private void u(int u)`
-- Role: Performs u.
-- Description: Supports the u operation used by the surrounding class.
+- Role: Handles the u path.
+- Description: Implements the u operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public BufferedImage rendericon()`
-- Role: Performs rendericon.
-- Description: Supports the rendericon operation used by the surrounding class.
+- Role: Handles the rendericon path.
+- Description: Renders the icon.
 
 #### `public Tex icon()`
-- Role: Performs icon.
-- Description: Supports the icon operation used by the surrounding class.
+- Role: Handles the icon path.
+- Description: Implements the icon operation.
 
 #### `public BufferedImage renderinfo(int width)`
-- Role: Performs renderinfo.
-- Description: Supports the renderinfo operation used by the surrounding class.
+- Role: Handles the renderinfo path.
+- Description: Renders the info.
 
 #### `private void recount()`
-- Role: Performs recount.
-- Description: Supports the recount operation used by the surrounding class.
+- Role: Handles the recount path.
+- Description: Implements the recount operation.
 
 #### `public Actions(Coord sz)`
-- Role: Performs actions.
-- Description: Supports the actions operation used by the surrounding class.
+- Role: Handles the actions path.
+- Description: Implements the actions operation.
 
 #### `protected List<Action> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Widget makeitem(Action act, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public Item(Coord sz, Action act)`
-- Role: Performs item.
-- Description: Supports the item operation used by the surrounding class.
+- Role: Handles the item path.
+- Description: Implements the item operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public boolean setu(int u)`
-- Role: Performs setu.
-- Description: Supports the setu operation used by the surrounding class.
+- Role: Handles the setu path.
+- Description: Updates the u.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Handles the drop path.
+- Description: Implements the drop operation.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Handles the iteminteract path.
+- Description: Implements the iteminteract operation.
 
 #### `public void change(Action act)`
-- Role: Performs change.
-- Description: Supports the change operation used by the surrounding class.
+- Role: Handles the change path.
+- Description: Implements the change operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the FightWnd content.
 
 #### `public void drag(Action act)`
-- Role: Performs drag.
-- Description: Supports the drag operation used by the surrounding class.
+- Role: Handles the drag path.
+- Description: Implements the drag operation.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public int findorder(Action a)`
-- Role: Performs findorder.
-- Description: Supports the findorder operation used by the surrounding class.
+- Role: Handles the findorder path.
+- Description: Finds the order.
 
 #### `private BView()`
-- Role: Performs bview.
-- Description: Supports the bview operation used by the surrounding class.
+- Role: Handles the bview path.
+- Description: Implements the b view operation.
 
 #### `private Coord itemc(int i)`
-- Role: Performs itemc.
-- Description: Supports the itemc operation used by the surrounding class.
+- Role: Handles the itemc path.
+- Description: Implements the itemc operation.
 
 #### `private int citem(Coord c)`
-- Role: Performs citem.
-- Description: Supports the citem operation used by the surrounding class.
+- Role: Handles the citem path.
+- Description: Implements the citem operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the FightWnd content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `private void animate(int s, Coord off)`
-- Role: Performs animate.
-- Description: Supports the animate operation used by the surrounding class.
+- Role: Handles the animate path.
+- Description: Implements the animate operation.
 
 #### `public boolean dropthing(Coord c, Object thing)`
-- Role: Performs dropthing.
-- Description: Supports the dropthing operation used by the surrounding class.
+- Role: Handles the dropthing path.
+- Description: Dispatches a drop event through the widget tree.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public Savelist(Coord sz)`
-- Role: Performs savelist.
-- Description: Supports the savelist operation used by the surrounding class.
+- Role: Handles the savelist path.
+- Description: Implements the savelist operation.
 
 #### `protected List<Integer> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Widget makeitem(Integer n, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public Item(Coord sz, int n)`
-- Role: Performs item.
-- Description: Supports the item operation used by the surrounding class.
+- Role: Handles the item path.
+- Description: Implements the item operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the FightWnd content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void done(ReadLine buf)`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public void changed(ReadLine buf)`
-- Role: Performs changed.
-- Description: Supports the changed operation used by the surrounding class.
+- Role: Handles the changed path.
+- Description: Implements the changed operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.
@@ -437,17 +440,17 @@ Represents the fight wnd Haven component.
 - Description: Saves the current data through the persistence pipeline.
 
 #### `public void use(int n)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Handles the use path.
+- Description: Implements the use operation.
 
 #### `public FightWnd(int nsave, int nact, int max)`
 - Role: Creates a new FightWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FightWnd instance from the supplied inputs.
 
 #### `public Action findact(int resid)`
-- Role: Performs findact.
-- Description: Supports the findact operation used by the surrounding class.
+- Role: Handles the findact path.
+- Description: Finds the act.
 
 #### `public void uimsg(String nm, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

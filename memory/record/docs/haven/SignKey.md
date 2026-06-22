@@ -1,5 +1,5 @@
 ---
-source: [SignKey.java](../../../src/haven/SignKey.java)
+source: [SignKey.java](../../../../src/haven/SignKey.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,436 +12,452 @@ Represents the sign key Haven component.
 
 ### Curve
 
-- Role: Represents curve within SignKey.
-- Description: Describes the nested curve type used by the enclosing class.
+- Role: Enumerates supported elliptic-curve key families.
+- Description: Curve selection used when generating or parsing ECDSA keys.
 
 ### Format
 
-- Role: Represents format within SignKey.
-- Description: Describes the nested format type used by the enclosing class.
+- Role: Enumerates supported key encoding formats.
+- Description: Signature or key format selection used by RSA and ECDSA helpers.
 
 ### Hash
 
-- Role: Represents hash within SignKey.
-- Description: Describes the nested hash type used by the enclosing class.
+- Role: Enumerates supported digest algorithms.
+- Description: Digest selection used when signing or verifying key material.
 
 ### JWKFormatException
 
-- Role: Represents jwkformat exception within SignKey.
-- Description: Describes the nested jwkformat exception type used by the enclosing class.
+- Role: Signals an invalid JWK encoding.
+- Description: Runtime exception thrown when a JWK cannot be parsed or serialized.
 
 ## Members
 
 ### Constants
 
 #### `public static final Algorithm ES256 = () -> ECDSA.generate(ECDSA.Curve.SECP256R1, ECDSA.Hash.SHA256, ECDSA.Format.P1363)`
-- Role: Defines the shared es256 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the es256 operation.
+- Description: Implements the generate operation.
+- Value: `() -> ECDSA.generate(ECDSA.Curve.SECP256R1, ECDSA.Hash.SHA256, ECDSA.Format.P1363)`
 
 #### `public static final Algorithm ES384 = () -> ECDSA.generate(ECDSA.Curve.SECP384R1, ECDSA.Hash.SHA384, ECDSA.Format.P1363)`
-- Role: Defines the shared es384 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the es384 operation.
+- Description: Implements the generate operation.
+- Value: `() -> ECDSA.generate(ECDSA.Curve.SECP384R1, ECDSA.Hash.SHA384, ECDSA.Format.P1363)`
 
 #### `public static final Algorithm ES512 = () -> ECDSA.generate(ECDSA.Curve.SECP521R1, ECDSA.Hash.SHA512, ECDSA.Format.P1363)`
-- Role: Defines the shared es512 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the es512 operation.
+- Description: Implements the generate operation.
+- Value: `() -> ECDSA.generate(ECDSA.Curve.SECP521R1, ECDSA.Hash.SHA512, ECDSA.Format.P1363)`
 
 #### `public static final Algorithm RS256 = () -> RSA_PKCS1.generate(RSA_PKCS1.Hash.SHA256)`
-- Role: Defines the shared rs256 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rs256 operation.
+- Description: Implements the generate operation.
+- Value: `() -> RSA_PKCS1.generate(RSA_PKCS1.Hash.SHA256)`
 
 #### `public static final Algorithm RS384 = () -> RSA_PKCS1.generate(RSA_PKCS1.Hash.SHA384)`
-- Role: Defines the shared rs384 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rs384 operation.
+- Description: Implements the generate operation.
+- Value: `() -> RSA_PKCS1.generate(RSA_PKCS1.Hash.SHA384)`
 
 #### `public static final Algorithm RS512 = () -> RSA_PKCS1.generate(RSA_PKCS1.Hash.SHA512)`
-- Role: Defines the shared rs512 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rs512 operation.
+- Description: Implements the generate operation.
+- Value: `() -> RSA_PKCS1.generate(RSA_PKCS1.Hash.SHA512)`
 
 #### `public static final Algorithm PS256 = () -> RSA_PSS.generate(RSA_PSS.Hash.SHA256)`
-- Role: Defines the shared ps256 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ps256 operation.
+- Description: Implements the generate operation.
+- Value: `() -> RSA_PSS.generate(RSA_PSS.Hash.SHA256)`
 
 #### `public static final Algorithm PS384 = () -> RSA_PSS.generate(RSA_PSS.Hash.SHA384)`
-- Role: Defines the shared ps384 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ps384 operation.
+- Description: Implements the generate operation.
+- Value: `() -> RSA_PSS.generate(RSA_PSS.Hash.SHA384)`
 
 #### `public static final Algorithm PS512 = () -> RSA_PSS.generate(RSA_PSS.Hash.SHA512)`
-- Role: Defines the shared ps512 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ps512 operation.
+- Description: Implements the generate operation.
+- Value: `() -> RSA_PSS.generate(RSA_PSS.Hash.SHA512)`
 
 #### `public static final Algorithm HS256 = HMAC.alg(Digest.SHA256)`
-- Role: Defines the shared hs256 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the hs256 operation.
+- Description: Implements the alg operation.
+- Value: `HMAC.alg(Digest.SHA256)`
 
 #### `public static final Algorithm HS384 = HMAC.alg(Digest.SHA384)`
-- Role: Defines the shared hs384 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the hs384 operation.
+- Description: Implements the alg operation.
+- Value: `HMAC.alg(Digest.SHA384)`
 
 #### `public static final Algorithm HS512 = HMAC.alg(Digest.SHA512)`
-- Role: Defines the shared hs512 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the hs512 operation.
+- Description: Implements the alg operation.
+- Value: `HMAC.alg(Digest.SHA512)`
 
 #### `private static final Function<KeySpec, RSAPublicKey> rsapub = parser(RSAPublicKey.class, "RSA")`
-- Role: Defines the shared rsapub constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rsapub operation.
+- Description: Implements the parser operation.
+- Value: `parser(RSAPublicKey.class, "RSA")`
 
 #### `private static final Function<KeySpec, RSAPrivateKey> rsaprv = parser(RSAPrivateKey.class, "RSA")`
-- Role: Defines the shared rsaprv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rsaprv operation.
+- Description: Implements the parser operation.
+- Value: `parser(RSAPrivateKey.class, "RSA")`
 
 #### `private static final Function<KeySpec, ECPublicKey> ecpub = parser(ECPublicKey.class, "EC")`
-- Role: Defines the shared ecpub constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ecpub operation.
+- Description: Implements the parser operation.
+- Value: `parser(ECPublicKey.class, "EC")`
 
 #### `private static final Function<KeySpec, ECPrivateKey> ecprv = parser(ECPrivateKey.class, "EC")`
-- Role: Defines the shared ecprv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ecprv operation.
+- Description: Implements the parser operation.
+- Value: `parser(ECPrivateKey.class, "EC")`
 
 ### Fields
 
 #### `public final Curve crv`
-- Role: Holds the crv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the crv value.
+- Description: Caches the `crv` value for reuse.
 
 #### `public final Hash hash`
-- Role: Holds the hash state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `public final Format fmt`
-- Role: Holds the fmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fmt value.
+- Description: Caches the `fmt` value for reuse.
 
 #### `public final ECPrivateKey prv`
-- Role: Holds the prv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prv value.
+- Description: Caches the `prv` value for reuse.
 
 #### `public final ECPublicKey pub`
-- Role: Holds the pub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pub value.
+- Description: Caches the `pub` value for reuse.
 
 #### `private final KeyPairGenerator gen`
-- Role: Holds the gen state.
-- Description: Backs the cached state for this file.
+- Role: Caches the gen value.
+- Description: Caches the `gen` value for reuse.
 
 #### `private final ECParameterSpec params`
-- Role: Stores the params value.
-- Description: Backs the cached state for this file.
+- Role: Caches the params value.
+- Description: Caches the `params` value for reuse.
 
 #### `public final int len`
-- Role: Stores the len value.
-- Description: Backs the cached state for this file.
+- Role: Caches the len value.
+- Description: Caches the `len` value for reuse.
 
 #### `public final Curve defcurve`
-- Role: Holds the defcurve state.
-- Description: Backs the cached state for this file.
+- Role: Caches the defcurve value.
+- Description: Caches the `defcurve` value for reuse.
 
 #### `public final RSAPrivateKey prv`
-- Role: Holds the prv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prv value.
+- Description: Caches the `prv` value for reuse.
 
 #### `public final RSAPublicKey pub`
-- Role: Holds the pub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pub value.
+- Description: Caches the `pub` value for reuse.
 
 #### `public final Hash hash`
-- Role: Holds the hash state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `public final Hash hash`
-- Role: Holds the hash state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `private final AlgorithmParameterSpec par`
-- Role: Stores the par value.
-- Description: Backs the cached state for this file.
+- Role: Caches the par value.
+- Description: Caches the `par` value for reuse.
 
 #### `private final boolean supported`
 - Role: Tracks the supported flag.
-- Description: Supports the supported operation used by the surrounding class.
+- Description: Caches the `supported` value for reuse.
 
 #### `private final Digest.Algorithm dig`
-- Role: Holds the dig state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dig value.
+- Description: Caches the `dig` value for reuse.
 
 #### `public final byte[] key`
-- Role: Stores the key value.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 #### `public final Map<?, ?> data`
-- Role: Caches data entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 ### Methods
 
 #### `public SignKey generate()`
-- Role: Performs generate.
-- Description: Supports the generate operation used by the surrounding class.
+- Role: Handles the generate path.
+- Description: Implements the generate operation.
 
 #### `public Signer update(byte[] buf, int off, int len)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public default Signer update(byte[] part)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public byte[] sign()`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Handles the sign path.
+- Description: Implements the sign operation.
 
 #### `public Verifier update(byte[] buf, int off, int len)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public default Verifier update(byte[] part)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public boolean verify(byte[] sig)`
-- Role: Performs verify.
-- Description: Supports the verify operation used by the surrounding class.
+- Role: Handles the verify path.
+- Description: Implements the verify operation.
 
 #### `public Signer sign()`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Handles the sign path.
+- Description: Implements the sign operation.
 
 #### `public Verifier verify()`
-- Role: Performs verify.
-- Description: Supports the verify operation used by the surrounding class.
+- Role: Handles the verify path.
+- Description: Implements the verify operation.
 
 #### `public default byte[] sign(byte[]... parts)`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Handles the sign path.
+- Description: Implements the sign operation.
 
 #### `public default boolean verify(byte[] sig, byte[]... parts)`
-- Role: Performs verify.
-- Description: Supports the verify operation used by the surrounding class.
+- Role: Handles the verify path.
+- Description: Implements the verify operation.
 
 #### `protected abstract Signature signer()`
-- Role: Performs signer.
-- Description: Supports the signer operation used by the surrounding class.
+- Role: Handles the signer path.
+- Description: Implements the signer operation.
 
 #### `protected abstract Signature verifier()`
-- Role: Performs verifier.
-- Description: Supports the verifier operation used by the surrounding class.
+- Role: Handles the verifier path.
+- Description: Implements the verifier operation.
 
 #### `protected byte[] int2ext(byte[] sig)`
-- Role: Performs int2ext.
-- Description: Supports the int2ext operation used by the surrounding class.
+- Role: Handles the int2ext path.
+- Description: Implements the int2ext operation.
 
 #### `protected byte[] ext2int(byte[] sig)`
-- Role: Performs ext2int.
-- Description: Supports the ext2int operation used by the surrounding class.
+- Role: Handles the ext2int path.
+- Description: Implements the ext2int operation.
 
 #### `public Signer sign()`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Handles the sign path.
+- Description: Implements the sign operation.
 
 #### `public Verifier verify()`
-- Role: Performs verify.
-- Description: Supports the verify operation used by the surrounding class.
+- Role: Handles the verify path.
+- Description: Implements the verify operation.
 
 #### `private static KeyPairGenerator getgen(String nm, AlgorithmParameterSpec... pars)`
-- Role: Performs getgen.
-- Description: Supports the getgen operation used by the surrounding class.
+- Role: Handles the getgen path.
+- Description: Returns the gen.
 
 #### `Curve(AlgorithmParameterSpec par)`
 - Role: Handles the curve workflow.
-- Description: Supports the curve operation used by the surrounding class.
+- Description: Implements the curve operation.
 
 #### `Hash(int len, Curve crv)`
 - Role: Handles the hash workflow.
-- Description: Supports the hash operation used by the surrounding class.
+- Description: Implements the hash operation.
 
 #### `public ECDSA(Curve crv, Hash hash, Format fmt, ECPublicKey pub, ECPrivateKey prv)`
-- Role: Performs ecdsa.
-- Description: Supports the ecdsa operation used by the surrounding class.
+- Role: Handles the ecdsa path.
+- Description: Implements the ecdsa operation.
 
 #### `private Signature instance()`
-- Role: Performs instance.
-- Description: Supports the instance operation used by the surrounding class.
+- Role: Handles the instance path.
+- Description: Implements the instance operation.
 
 #### `protected Signature signer()`
-- Role: Performs signer.
-- Description: Supports the signer operation used by the surrounding class.
+- Role: Handles the signer path.
+- Description: Implements the signer operation.
 
 #### `protected Signature verifier()`
-- Role: Performs verifier.
-- Description: Supports the verifier operation used by the surrounding class.
+- Role: Handles the verifier path.
+- Description: Implements the verifier operation.
 
 #### `private byte[] unsign(byte[] n)`
-- Role: Performs unsign.
-- Description: Supports the unsign operation used by the surrounding class.
+- Role: Handles the unsign path.
+- Description: Implements the unsign operation.
 
 #### `private byte[] decberblock(Message data, int checktag)`
-- Role: Performs decberblock.
-- Description: Supports the decberblock operation used by the surrounding class.
+- Role: Handles the decberblock path.
+- Description: Implements the decberblock operation.
 
 #### `private byte[] encderblock(int tag, byte[] data)`
-- Role: Performs encderblock.
-- Description: Supports the encderblock operation used by the surrounding class.
+- Role: Handles the encderblock path.
+- Description: Implements the encderblock operation.
 
 #### `protected byte[] int2ext(byte[] sig)`
-- Role: Performs int2ext.
-- Description: Supports the int2ext operation used by the surrounding class.
+- Role: Handles the int2ext path.
+- Description: Implements the int2ext operation.
 
 #### `protected byte[] ext2int(byte[] sig)`
-- Role: Performs ext2int.
-- Description: Supports the ext2int operation used by the surrounding class.
+- Role: Handles the ext2int path.
+- Description: Implements the ext2int operation.
 
 #### `public static ECDSA generate(Curve crv, Hash hash, Format fmt)`
-- Role: Performs generate.
-- Description: Supports the generate operation used by the surrounding class.
+- Role: Handles the generate path.
+- Description: Implements the generate operation.
 
 #### `public RSA(RSAPublicKey pub, RSAPrivateKey prv)`
-- Role: Performs rsa.
-- Description: Supports the rsa operation used by the surrounding class.
+- Role: Handles the rsa path.
+- Description: Implements the rsa operation.
 
 #### `public RSA_PKCS1(Hash hash, RSAPublicKey pub, RSAPrivateKey prv)`
-- Role: Performs rsa pkcs1.
-- Description: Supports the rsa pkcs1 operation used by the surrounding class.
+- Role: Handles the rsa pkcs1 path.
+- Description: Implements the rsa pkcs1 operation.
 
 #### `private Signature instance()`
-- Role: Performs instance.
-- Description: Supports the instance operation used by the surrounding class.
+- Role: Handles the instance path.
+- Description: Implements the instance operation.
 
 #### `protected Signature signer()`
-- Role: Performs signer.
-- Description: Supports the signer operation used by the surrounding class.
+- Role: Handles the signer path.
+- Description: Implements the signer operation.
 
 #### `protected Signature verifier()`
-- Role: Performs verifier.
-- Description: Supports the verifier operation used by the surrounding class.
+- Role: Handles the verifier path.
+- Description: Implements the verifier operation.
 
 #### `public static RSA_PKCS1 generate(int size, Hash hash)`
-- Role: Performs generate.
-- Description: Supports the generate operation used by the surrounding class.
+- Role: Handles the generate path.
+- Description: Implements the generate operation.
 
 #### `public static RSA_PKCS1 generate(Hash hash)`
-- Role: Performs generate.
-- Description: Supports the generate operation used by the surrounding class.
+- Role: Handles the generate path.
+- Description: Implements the generate operation.
 
 #### `Hash(int len, String name)`
 - Role: Handles the hash workflow.
-- Description: Supports the hash operation used by the surrounding class.
+- Description: Implements the hash operation.
 
 #### `public RSA_PSS(Hash hash, RSAPublicKey pub, RSAPrivateKey prv)`
-- Role: Performs rsa pss.
-- Description: Supports the rsa pss operation used by the surrounding class.
+- Role: Handles the rsa pss path.
+- Description: Implements the rsa pss operation.
 
 #### `private Signature instance()`
-- Role: Performs instance.
-- Description: Supports the instance operation used by the surrounding class.
+- Role: Handles the instance path.
+- Description: Implements the instance operation.
 
 #### `protected Signature signer()`
-- Role: Performs signer.
-- Description: Supports the signer operation used by the surrounding class.
+- Role: Handles the signer path.
+- Description: Implements the signer operation.
 
 #### `protected Signature verifier()`
-- Role: Performs verifier.
-- Description: Supports the verifier operation used by the surrounding class.
+- Role: Handles the verifier path.
+- Description: Implements the verifier operation.
 
 #### `public static RSA_PSS generate(int size, Hash hash)`
-- Role: Performs generate.
-- Description: Supports the generate operation used by the surrounding class.
+- Role: Handles the generate path.
+- Description: Implements the generate operation.
 
 #### `public static RSA_PSS generate(Hash hash)`
-- Role: Performs generate.
-- Description: Supports the generate operation used by the surrounding class.
+- Role: Handles the generate path.
+- Description: Implements the generate operation.
 
 #### `public HMAC(Digest.Algorithm dig, byte[] key)`
-- Role: Performs hmac.
-- Description: Supports the hmac operation used by the surrounding class.
+- Role: Handles the hmac path.
+- Description: Implements the hmac operation.
 
 #### `public Digest hmac()`
-- Role: Performs hmac.
-- Description: Supports the hmac operation used by the surrounding class.
+- Role: Handles the hmac path.
+- Description: Implements the hmac operation.
 
 #### `public Signer sign()`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Handles the sign path.
+- Description: Implements the sign operation.
 
 #### `public Verifier verify()`
-- Role: Performs verify.
-- Description: Supports the verify operation used by the surrounding class.
+- Role: Handles the verify path.
+- Description: Implements the verify operation.
 
 #### `public static Algorithm alg(Digest.Algorithm dig)`
-- Role: Performs alg.
-- Description: Supports the alg operation used by the surrounding class.
+- Role: Handles the alg path.
+- Description: Implements the alg operation.
 
 #### `public EncodingException(String msg)`
-- Role: Performs encoding exception.
-- Description: Supports the encoding exception operation used by the surrounding class.
+- Role: Handles the encoding exception path.
+- Description: Implements the encoding exception operation.
 
 #### `public FormatException(String msg)`
-- Role: Performs format exception.
-- Description: Supports the format exception operation used by the surrounding class.
+- Role: Handles the format exception path.
+- Description: Implements the format exception operation.
 
 #### `public static BigInteger b2i(byte[] b)`
-- Role: Performs b2i.
-- Description: Supports the b2i operation used by the surrounding class.
+- Role: Handles the b2i path.
+- Description: Implements the b2i operation.
 
 #### `public static byte[] i2b(BigInteger i)`
-- Role: Performs i2b.
-- Description: Supports the i2b operation used by the surrounding class.
+- Role: Handles the i2b path.
+- Description: Implements the i2b operation.
 
 #### `private static void format(Map<Object, Object> buf, ECDSA sig, boolean pub)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `private static void format(Map<Object, Object> buf, RSA sig, boolean pub)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `private static void format(Map<Object, Object> buf, RSA_PKCS1 sig, boolean pub)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `private static void format(Map<Object, Object> buf, RSA_PSS sig, boolean pub)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `private static void format(Map<Object, Object> buf, HMAC sig, boolean pub)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `public static Map<Object, Object> format(SignKey sig, boolean pub)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `public JWKFormatException(Map<?, ?> data, String msg)`
-- Role: Performs jwkformat exception.
-- Description: Supports the jwkformat exception operation used by the surrounding class.
+- Role: Handles the jwkformat exception path.
+- Description: Implements the jwk format exception operation.
 
 #### `private static <T extends Key> Function<KeySpec, T> parser(Class<T> kcl, String algo)`
-- Role: Performs parser.
-- Description: Supports the parser operation used by the surrounding class.
+- Role: Handles the parser path.
+- Description: Implements the parser operation.
 
 #### `private static Pair<RSAPublicKey, RSAPrivateKey> rsaparse(Map<?, ?> data)`
-- Role: Performs rsaparse.
-- Description: Supports the rsaparse operation used by the surrounding class.
+- Role: Handles the rsaparse path.
+- Description: Implements the rsaparse operation.
 
 #### `private static ECDSA parse(Map<?, ?> data, ECDSA.Hash hash)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `private static RSA_PKCS1 parse(Map<?, ?> data, RSA_PKCS1.Hash hash)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `private static RSA_PSS parse(Map<?, ?> data, RSA_PSS.Hash hash)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `private static HMAC hmacparse(Map<?, ?> data, Digest.Algorithm dig)`
-- Role: Performs hmacparse.
-- Description: Supports the hmacparse operation used by the surrounding class.
+- Role: Handles the hmacparse path.
+- Description: Implements the hmacparse operation.
 
 #### `public static SignKey parse(Map<?, ?> data)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public static void main(String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.

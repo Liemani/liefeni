@@ -1,5 +1,5 @@
 ---
-source: [GLVertexArray.java](../../../../../src/haven/render/gl/GLVertexArray.java)
+source: [GLVertexArray.java](../../../../../../src/haven/render/gl/GLVertexArray.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -27,103 +27,103 @@ Provides GL backend support for glvertex array.
 ### Fields
 
 #### `private int id, state = 0`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `private int id, state = 0`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `final GLEnvironment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `final WeakReference<Model> desc`
-- Role: Holds the desc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `Indexed[] vaos = new Indexed[2]`
-- Role: Holds the vaos state.
-- Description: Backs the cached state for this file.
+- Role: Caches the vaos value.
+- Description: Caches the `vaos` value for reuse.
 
 #### `int n = 0`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `final Collection<GLProgram> progs = new HashSet<>()`
-- Role: Caches progs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the progs operation.
+- Description: Implements the final collection<gl program> progs = new hash set<>() operation.
 
 #### `final Attribute[] attribs`
-- Role: Holds the attribs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the attribs value.
+- Description: Caches the `attribs` value for reuse.
 
 ### Methods
 
 #### `public GLVertexArray(GLEnvironment env)`
 - Role: Creates a new GLVertexArray instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLVertexArray instance from the supplied inputs.
 
 #### `public void create(GL gl)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.
 
 #### `public int glid()`
-- Role: Performs glid.
-- Description: Supports the glid operation used by the surrounding class.
+- Role: Handles the glid path.
+- Description: Implements the glid operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this GLVertexArray for debugging and logging.
 
 #### `static boolean ephemeralp(VertexArray va)`
-- Role: Performs ephemeralp.
-- Description: Supports the ephemeralp operation used by the surrounding class.
+- Role: Handles the ephemeralp path.
+- Description: Implements the ephemeralp operation.
 
 #### `static boolean ephemeralp(Model m)`
-- Role: Performs ephemeralp.
-- Description: Supports the ephemeralp operation used by the surrounding class.
+- Role: Handles the ephemeralp path.
+- Description: Implements the ephemeralp operation.
 
 #### `public void init(GLProgram prog, Model mod)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public ProgIndex(GLEnvironment env, Model desc)`
-- Role: Performs prog index.
-- Description: Supports the prog index operation used by the surrounding class.
+- Role: Handles the prog index path.
+- Description: Implements the prog index operation.
 
 #### `Indexed(GLEnvironment env, Attribute[] attribs)`
 - Role: Handles the indexed workflow.
-- Description: Supports the indexed operation used by the surrounding class.
+- Description: Implements the indexed operation.
 
 #### `boolean cleanprogs()`
-- Role: Performs cleanprogs.
-- Description: Supports the cleanprogs operation used by the surrounding class.
+- Role: Handles the cleanprogs path.
+- Description: Implements the cleanprogs operation.
 
 #### `void useprog(GLProgram prog)`
-- Role: Performs useprog.
-- Description: Supports the useprog operation used by the surrounding class.
+- Role: Handles the useprog path.
+- Description: Implements the useprog operation.
 
 #### `void clean()`
-- Role: Performs clean.
-- Description: Supports the clean operation used by the surrounding class.
+- Role: Handles the clean path.
+- Description: Implements the clean operation.
 
 #### `void add(Indexed vao)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `GLVertexArray get(GLProgram prog, Model mod)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this GLVertexArray for debugging and logging.

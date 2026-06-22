@@ -1,5 +1,5 @@
 ---
-source: [PeekReader.java](../../../src/haven/PeekReader.java)
+source: [PeekReader.java](../../../../src/haven/PeekReader.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,47 +15,47 @@ Represents the peek reader Haven component.
 ### Fields
 
 #### `private final Reader back`
-- Role: Holds the back state.
-- Description: Backs the cached state for this file.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `private boolean p = false`
 - Role: Tracks the p flag.
-- Description: Supports the p operation used by the surrounding class.
+- Description: Caches the `p` value for reuse.
 
 #### `private int la`
-- Role: Stores the la value.
-- Description: Backs the cached state for this file.
+- Role: Caches the la value.
+- Description: Caches the `la` value for reuse.
 
 ### Methods
 
 #### `public PeekReader(Reader back)`
 - Role: Creates a new PeekReader instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PeekReader instance from the supplied inputs.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public int read() throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public int read(char[] b, int off, int len) throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public boolean ready() throws IOException`
 - Role: Handles the ready workflow.
-- Description: Supports the ready operation used by the surrounding class.
+- Description: Implements the ready operation.
 
 #### `protected boolean whitespace(char c)`
-- Role: Performs whitespace.
-- Description: Supports the whitespace operation used by the surrounding class.
+- Role: Handles the whitespace path.
+- Description: Implements the whitespace operation.
 
 #### `public int peek(boolean skipws) throws IOException`
 - Role: Handles the peek workflow.
-- Description: Supports the peek operation used by the surrounding class.
+- Description: Returns the highest-priority element without removing it.
 
 #### `public int peek() throws IOException`
 - Role: Handles the peek workflow.
-- Description: Supports the peek operation used by the surrounding class.
+- Description: Returns the highest-priority element without removing it.

@@ -1,5 +1,5 @@
 ---
-source: [Finalizer.java](../../../src/haven/Finalizer.java)
+source: [Finalizer.java](../../../../src/haven/Finalizer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,292 +12,293 @@ Represents the finalizer Haven component.
 
 ### Cleaner
 
-- Role: Represents cleaner within Finalizer.
-- Description: Describes the nested cleaner type used by the enclosing class.
+- Role: Handles the cleanup actions for a finalized object path.
+- Description: Callback contract invoked when a tracked object is collected.
 
 ### Disposer
 
-- Role: Represents disposer within Finalizer.
-- Description: Describes the nested disposer type used by the enclosing class.
+- Role: Disposes tracked objects.
+- Description: Cleanup callback used to release resources during finalization.
 
 ### Entry
 
-- Role: Represents entry within Finalizer.
-- Description: Describes the nested entry type used by the enclosing class.
+- Role: Tracks one registered finalizer entry.
+- Description: Doubly linked bookkeeping node used by the finalizer registry.
 
 ### Formattable
 
-- Role: Represents formattable within Finalizer.
-- Description: Describes the nested formattable type used by the enclosing class.
+- Role: Marks a finalizer entry that can format diagnostics.
+- Description: Interface for entries that provide a formatted description.
 
 ### LeakCheck
 
-- Role: Represents leak check within Finalizer.
-- Description: Describes the nested leak check type used by the enclosing class.
+- Role: Scans for leaked finalizer entries.
+- Description: Diagnostic helper used to report tracked resource leaks.
 
 ### Ref
 
-- Role: Represents ref within Finalizer.
-- Description: Describes the nested ref type used by the enclosing class.
+- Role: Represents one tracked reference.
+- Description: Weak reference node that links an object into the finalizer list.
 
 ### Reference
 
-- Role: Represents reference within Finalizer.
-- Description: Describes the nested reference type used by the enclosing class.
+- Role: Wraps the referent and cleanup action.
+- Description: Abstract reference wrapper used by finalizer bookkeeping.
 
 ### Snapshot
 
-- Role: Represents snapshot within Finalizer.
-- Description: Describes the nested snapshot type used by the enclosing class.
+- Role: Captures a finalizer state snapshot.
+- Description: Immutable diagnostic snapshot of the tracked finalizer graph.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<ThreadGroup, Finalizer> groups = new WeakHashMap<>()`
-- Role: Defines the shared groups constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the groups operation.
+- Description: Implements the private static final map<thread group, finalizer> groups = new weak hash map<>() operation.
+- Value: `new WeakHashMap<>()`
 
 ### Fields
 
 #### `private static boolean CHECK_CYCLES = false`
 - Role: Tracks the check cycles flag.
-- Description: Supports the check cycles operation used by the surrounding class.
+- Description: Caches the `CHECK_CYCLES` value for reuse.
 
 #### `private final ReferenceQueue<Object> queue = new ReferenceQueue<>()`
-- Role: Caches queue entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queue operation.
+- Description: Implements the private final reference queue<object> queue = new reference queue<>() operation.
 
 #### `private Function<Runnable, Thread> ctx`
-- Role: Holds the ctx state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ctx value.
+- Description: Caches the `ctx` value for reuse.
 
 #### `private Thread th`
-- Role: Holds the th state.
-- Description: Backs the cached state for this file.
+- Role: Caches the th value.
+- Description: Caches the `th` value for reuse.
 
 #### `private Ref list`
-- Role: Holds the list state.
-- Description: Backs the cached state for this file.
+- Role: Caches the list value.
+- Description: Caches the `list` value for reuse.
 
 #### `private int n`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `final Cleaner action`
-- Role: Holds the action state.
-- Description: Backs the cached state for this file.
+- Role: Caches the action value.
+- Description: Caches the `action` value for reuse.
 
 #### `boolean linked`
 - Role: Tracks the linked flag.
-- Description: Supports the linked operation used by the surrounding class.
+- Description: Caches the `linked` value for reuse.
 
 #### `Ref next, prev`
-- Role: Holds the prev state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prev value.
+- Description: Caches the `prev` value for reuse.
 
 #### `Ref next, prev`
-- Role: Holds the prev state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prev value.
+- Description: Caches the `prev` value for reuse.
 
 #### `private final Collection<Entry> refs`
-- Role: Caches refs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the refs value.
+- Description: Caches the `refs` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final String desc`
-- Role: Stores the desc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `private Ref ref`
-- Role: Holds the ref state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ref value.
+- Description: Caches the `ref` value for reuse.
 
 #### `private static boolean leaking = false`
 - Role: Tracks the leaking flag.
-- Description: Supports the leaking operation used by the surrounding class.
+- Description: Caches the `leaking` value for reuse.
 
 #### `public final String desc`
-- Role: Stores the desc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `private final Runnable fin`
-- Role: Holds the fin state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fin value.
+- Description: Caches the `fin` value for reuse.
 
 #### `private final Class<?> cls`
-- Role: Holds the cls state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cls value.
+- Description: Caches the `cls` value for reuse.
 
 #### `private final Throwable create`
-- Role: Holds the create state.
-- Description: Backs the cached state for this file.
+- Role: Caches the create value.
+- Description: Caches the `create` value for reuse.
 
 #### `private boolean clean = false`
 - Role: Tracks the clean flag.
-- Description: Supports the clean operation used by the surrounding class.
+- Description: Caches the `clean` value for reuse.
 
 #### `public final Disposable tgt`
-- Role: Holds the tgt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `public final T ob`
-- Role: Holds the ob state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ob value.
+- Description: Caches the `ob` value for reuse.
 
 #### `private final Runnable clean`
-- Role: Holds the clean state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clean value.
+- Description: Caches the `clean` value for reuse.
 
 ### Methods
 
 #### `public Finalizer(Function<Runnable, Thread> ctx)`
 - Role: Creates a new Finalizer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Finalizer instance from the supplied inputs.
 
 #### `public Finalizer()`
 - Role: Creates a new Finalizer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Finalizer instance from the supplied inputs.
 
 #### `public void clean()`
-- Role: Performs clean.
-- Description: Supports the clean operation used by the surrounding class.
+- Role: Handles the clean path.
+- Description: Implements the clean operation.
 
 #### `public String format()`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `Ref(Object x, Cleaner action)`
 - Role: Handles the ref workflow.
-- Description: Supports the ref operation used by the surrounding class.
+- Description: Implements the ref operation.
 
 #### `private void add()`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `private void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `private void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private void ckrun()`
-- Role: Performs ckrun.
-- Description: Supports the ckrun operation used by the surrounding class.
+- Role: Handles the ckrun path.
+- Description: Implements the ckrun operation.
 
 #### `public Runnable add(Object x, Cleaner action)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public static Finalizer get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static Runnable finalize(Object x, Cleaner action)`
-- Role: Performs finalize.
-- Description: Supports the finalize operation used by the surrounding class.
+- Role: Handles the finalize path.
+- Description: Implements the finalize operation.
 
 #### `private Entry(Ref ref)`
-- Role: Performs entry.
-- Description: Supports the entry operation used by the surrounding class.
+- Role: Handles the entry path.
+- Description: Implements the entry operation.
 
 #### `public boolean equals(Entry that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `private Snapshot(Finalizer from)`
-- Role: Performs snapshot.
-- Description: Supports the snapshot operation used by the surrounding class.
+- Role: Handles the snapshot path.
+- Description: Implements the snapshot operation.
 
 #### `public Snapshot weaken()`
-- Role: Performs weaken.
-- Description: Supports the weaken operation used by the surrounding class.
+- Role: Handles the weaken path.
+- Description: Implements the weaken operation.
 
 #### `public String summary()`
-- Role: Performs summary.
-- Description: Supports the summary operation used by the surrounding class.
+- Role: Handles the summary path.
+- Description: Implements the summary operation.
 
 #### `public String delta(Snapshot prev)`
-- Role: Performs delta.
-- Description: Supports the delta operation used by the surrounding class.
+- Role: Handles the delta path.
+- Description: Implements the delta operation.
 
 #### `public Snapshot snapshot()`
-- Role: Performs snapshot.
-- Description: Supports the snapshot operation used by the surrounding class.
+- Role: Handles the snapshot path.
+- Description: Implements the snapshot operation.
 
 #### `private static void checkcycle(Object ref, Object root)`
-- Role: Performs checkcycle.
-- Description: Supports the checkcycle operation used by the surrounding class.
+- Role: Handles the checkcycle path.
+- Description: Implements the checkcycle operation.
 
 #### `public LeakCheck(Object guarded, String desc)`
-- Role: Performs leak check.
-- Description: Supports the leak check operation used by the surrounding class.
+- Role: Handles the leak check path.
+- Description: Implements the leak check operation.
 
 #### `public LeakCheck(Object guarded)`
-- Role: Performs leak check.
-- Description: Supports the leak check operation used by the surrounding class.
+- Role: Handles the leak check path.
+- Description: Implements the leak check operation.
 
 #### `public void clean()`
-- Role: Performs clean.
-- Description: Supports the clean operation used by the surrounding class.
+- Role: Handles the clean path.
+- Description: Implements the clean operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public String format()`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `public static Disposable leakcheck(Object guarded, String desc)`
-- Role: Performs leakcheck.
-- Description: Supports the leakcheck operation used by the surrounding class.
+- Role: Handles the leakcheck path.
+- Description: Implements the leakcheck operation.
 
 #### `public static Disposable leakcheck(Object guarded)`
-- Role: Performs leakcheck.
-- Description: Supports the leakcheck operation used by the surrounding class.
+- Role: Handles the leakcheck path.
+- Description: Implements the leakcheck operation.
 
 #### `public Disposer(Disposable tgt)`
-- Role: Performs disposer.
-- Description: Supports the disposer operation used by the surrounding class.
+- Role: Handles the disposer path.
+- Description: Implements the disposer operation.
 
 #### `public void clean()`
-- Role: Performs clean.
-- Description: Supports the clean operation used by the surrounding class.
+- Role: Handles the clean path.
+- Description: Implements the clean operation.
 
 #### `public String format()`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Handles the format path.
+- Description: Implements the format operation.
 
 #### `public Reference(T ob)`
-- Role: Performs reference.
-- Description: Supports the reference operation used by the surrounding class.
+- Role: Handles the reference path.
+- Description: Implements the reference operation.
 
 #### `public T get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

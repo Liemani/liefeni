@@ -1,5 +1,5 @@
 ---
-source: [SimpleSprite.java](../../../src/haven/SimpleSprite.java)
+source: [SimpleSprite.java](../../../../src/haven/SimpleSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,47 +15,47 @@ Represents the simple sprite Haven component.
 ### Fields
 
 #### `public final Resource.Image img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `public final Coord cc`
-- Role: Stores the cc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cc value.
+- Description: Caches the `cc` value for reuse.
 
 ### Methods
 
 #### `public SimpleSprite(Resource.Image img, Coord cc)`
 - Role: Creates a new SimpleSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SimpleSprite instance from the supplied inputs.
 
 #### `public SimpleSprite(Resource res, int id, Coord cc)`
 - Role: Creates a new SimpleSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SimpleSprite instance from the supplied inputs.
 
 #### `public SimpleSprite(Resource res, int id)`
 - Role: Creates a new SimpleSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SimpleSprite instance from the supplied inputs.
 
 #### `public SimpleSprite(Resource res)`
 - Role: Creates a new SimpleSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SimpleSprite instance from the supplied inputs.
 
 #### `public final void draw(GOut g, Coord cc)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SimpleSprite content.
 
 #### `public final void draw(Graphics g, Coord cc)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SimpleSprite content.
 
 #### `public final Coord ul()`
-- Role: Performs ul.
-- Description: Supports the ul operation used by the surrounding class.
+- Role: Handles the ul path.
+- Description: Implements the ul operation.
 
 #### `public final Coord lr()`
-- Role: Performs lr.
-- Description: Supports the lr operation used by the surrounding class.
+- Role: Handles the lr path.
+- Description: Implements the lr operation.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Handles the checkhit path.
+- Description: Implements the checkhit operation.

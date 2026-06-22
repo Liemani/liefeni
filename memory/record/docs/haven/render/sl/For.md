@@ -1,5 +1,5 @@
 ---
-source: [For.java](../../../../../src/haven/render/sl/For.java)
+source: [For.java](../../../../../../src/haven/render/sl/For.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Represents the for shader-language AST node.
 ### Fields
 
 #### `public final Expression init, cond, step`
-- Role: Holds the step state.
-- Description: Backs the cached state for this file.
+- Role: Caches the step value.
+- Description: Caches the `step` value for reuse.
 
 #### `public final Expression init, cond, step`
-- Role: Holds the step state.
-- Description: Backs the cached state for this file.
+- Role: Caches the step value.
+- Description: Caches the `step` value for reuse.
 
 #### `public final Expression init, cond, step`
-- Role: Holds the step state.
-- Description: Backs the cached state for this file.
+- Role: Caches the step value.
+- Description: Caches the `step` value for reuse.
 
 #### `public final Statement body`
-- Role: Holds the body state.
-- Description: Backs the cached state for this file.
+- Role: Caches the body value.
+- Description: Caches the `body` value for reuse.
 
 ### Methods
 
 #### `public For(Expression init, Expression cond, Expression step, Statement body)`
-- Role: Creates a new For instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one for-loop statement.
+- Description: Stores the initializer, condition, step, and loop body.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the loop components.
+- Description: Walks the initializer, condition, step, and body.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the for-loop statement.
+- Description: Writes the loop header and body in shader syntax.

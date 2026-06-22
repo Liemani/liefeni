@@ -1,5 +1,5 @@
 ---
-source: [Following.java](../../../src/haven/Following.java)
+source: [Following.java](../../../../src/haven/Following.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the following Haven component.
 
 ### $follow
 
-- Role: Represents $follow within Following.
-- Description: Describes the nested $follow type used by the enclosing class.
+- Role: Registers the `follow` attribute delta.
+- Description: Resolves and applies follow-target transformation state.
 
 ### XfResolver
 
-- Role: Represents xf resolver within Following.
-- Description: Describes the nested xf resolver type used by the enclosing class.
+- Role: Resolves the follow transform from a resource.
+- Description: Loads and caches the transform state that makes the gob follow its target.
 
 ## Members
 
@@ -27,79 +27,79 @@ Represents the following Haven component.
 ### Fields
 
 #### `public final long tgt`
-- Role: Stores the tgt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `public final Indir<Resource> xfres`
-- Role: Stores the xfres value.
-- Description: Backs the cached state for this file.
+- Role: Caches the xfres value.
+- Description: Caches the `xfres` value for reuse.
 
 #### `public final String xfname`
-- Role: Stores the xfname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the xfname value.
+- Description: Caches the `xfname` value for reuse.
 
 #### `private double lastv = 0.0`
-- Role: Stores the lastv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last v.
+- Description: Caches the last v value.
 
 #### `final Gob tgt`
-- Role: Stores the tgt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `Supplier<? extends Pipe.Op> xf = null`
-- Role: Holds the xf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the xf value.
+- Description: Caches the `xf` value for reuse.
 
 #### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
-- Role: Holds the xf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the xf value.
+- Description: Caches the `xf` value for reuse.
 
 #### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
-- Role: Holds the xf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the xf value.
+- Description: Caches the `xf` value for reuse.
 
 #### `private Pipe.Op xf = null, lpxf = null, lbxf = null`
-- Role: Holds the xf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the xf value.
+- Description: Caches the `xf` value for reuse.
 
 #### `private XfResolver bxf = null`
-- Role: Holds the bxf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bxf value.
+- Description: Caches the `bxf` value for reuse.
 
 ### Methods
 
 #### `public Following(Gob gob, long tgt, Indir<Resource> xfres, String xfname)`
 - Role: Creates a new Following instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Following instance from the supplied inputs.
 
 #### `public Gob followingTarget()`
-- Role: Performs following target.
-- Description: Supports the following target operation used by the surrounding class.
+- Role: Handles the following target path.
+- Description: Follows the ing target.
 
 #### `public Coord3f getc()`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Handles the getc path.
+- Description: Returns the c.
 
 #### `public double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `public Gob tgt()`
-- Role: Performs tgt.
-- Description: Supports the tgt operation used by the surrounding class.
+- Role: Handles the tgt path.
+- Description: Implements the tgt operation.
 
 #### `XfResolver(Gob tgt)`
 - Role: Handles the xf resolver workflow.
-- Description: Supports the xf resolver operation used by the surrounding class.
+- Description: Implements the xf resolver operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public Pipe.Op xf()`
-- Role: Performs xf.
-- Description: Supports the xf operation used by the surrounding class.
+- Role: Handles the xf path.
+- Description: Implements the xf operation.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

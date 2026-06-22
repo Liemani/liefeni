@@ -1,5 +1,5 @@
 ---
-source: [UIntLiteral.java](../../../../../src/haven/render/sl/UIntLiteral.java)
+source: [UIntLiteral.java](../../../../../../src/haven/render/sl/UIntLiteral.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,29 +13,31 @@ Represents the uint literal shader-language AST node.
 ### Constants
 
 #### `public static final UIntLiteral z = new UIntLiteral(0)`
-- Role: Defines the shared z constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the z operation.
+- Description: Implements the u int literal operation.
+- Value: `new UIntLiteral(0)`
 
 #### `public static final UIntLiteral u = new UIntLiteral(1)`
-- Role: Defines the shared u constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the u operation.
+- Description: Implements the u int literal operation.
+- Value: `new UIntLiteral(1)`
 
 ### Fields
 
 #### `public final int val`
-- Role: Stores the val value.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 ### Methods
 
 #### `public UIntLiteral(int val)`
-- Role: Creates a new UIntLiteral instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one uint literal.
+- Description: Stores the unsigned integer value used by the literal node.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the uint literal.
+- Description: Uint literals have no child expressions.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the uint literal.
+- Description: Writes the unsigned integer literal token.

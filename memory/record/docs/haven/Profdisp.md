@@ -1,5 +1,5 @@
 ---
-source: [Profdisp.java](../../../src/haven/Profdisp.java)
+source: [Profdisp.java](../../../../src/haven/Profdisp.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,93 +20,97 @@ Represents the profdisp Haven component.
 ### Constants
 
 #### `public static final Resource.Image markimg = Resource.loadrimg("gfx/hud/arwmark")`
-- Role: Defines the shared markimg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the markimg operation.
+- Description: Implements the loadrimg operation.
+- Value: `Resource.loadrimg("gfx/hud/arwmark")`
 
 #### `public static final Color[] cols = Utils.vgapal`
-- Role: Defines the shared cols constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the cols value.
+- Description: Caches the `cols` value for reuse.
+- Value: `Utils.vgapal`
 
 #### `private static final int h = UI.scale(80)`
-- Role: Defines the shared h constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the h operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(80)`
 
 #### `private static final String[] units =`
-- Role: Defines the shared profdisp constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the units value.
+- Description: Caches the `units` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public final Profile prof`
-- Role: Stores the prof value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prof value.
+- Description: Caches the `prof` value for reuse.
 
 #### `public double mt = 0.05`
-- Role: Stores the mt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mt value.
+- Description: Caches the `mt` value for reuse.
 
 #### `private double dscale = 0`
-- Role: Stores the dscale value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dscale value.
+- Description: Caches the `dscale` value for reuse.
 
 #### `private Tex sscl = null`
-- Role: Stores the sscl value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sscl value.
+- Description: Caches the `sscl` value for reuse.
 
 #### `private int[] mark = new int[0]`
-- Role: Stores the mark value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mark value.
+- Description: Caches the `mark` value for reuse.
 
 #### `public final Tex tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `private final Texture2D btex`
-- Role: Stores the btex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the btex value.
+- Description: Caches the `btex` value for reuse.
 
 #### `private Buffer display`
-- Role: Stores the display value.
-- Description: Backs the cached state for this file.
+- Role: Holds the visible grid slices currently rendered on the minimap.
+- Description: Holds the visible grid slices currently rendered on the minimap.
 
 ### Methods
 
 #### `public Profdisp(Profile prof)`
 - Role: Creates a new Profdisp instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Profdisp instance from the supplied inputs.
 
 #### `public Buffer()`
-- Role: Performs buffer.
-- Description: Supports the buffer operation used by the surrounding class.
+- Role: Handles the buffer path.
+- Description: Implements the buffer operation.
 
 #### `private void draw(ByteBuffer buf, double scale)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Profdisp content.
 
 #### `public void update(Render r, double scale)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Profdisp content.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
 - Description: Updates per-frame drawable state during the render loop.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public String tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.

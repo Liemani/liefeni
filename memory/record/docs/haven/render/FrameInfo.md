@@ -1,5 +1,5 @@
 ---
-source: [FrameInfo.java](../../../../src/haven/render/FrameInfo.java)
+source: [FrameInfo.java](../../../../../src/haven/render/FrameInfo.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,41 +13,43 @@ Defines the frame info render pipeline component.
 ### Constants
 
 #### `public static final Slot<FrameInfo> slot = new Slot<>(Slot.Type.SYS, FrameInfo.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes frame timing state.
+- Description: Shared slot used to carry per-frame timing into the render pipe.
+- Value: `new Slot<>(Slot.Type.SYS, FrameInfo.class)`
 
 #### `public static final Uniform u_time = new Uniform(Type.FLOAT, "time", p ->`
-- Role: Defines the shared u time constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes the frame time uniform.
+- Description: Exposes the current frame time to shader code.
+- Value: `new Uniform(Type.FLOAT, "time", p ->`
 
 ### Fields
 
 #### `public final double time`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Caches the time value.
+- Description: Caches the `time` value for reuse.
 
 ### Methods
 
 #### `public FrameInfo(double time)`
-- Role: Creates a new FrameInfo instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Stores one frame timestamp.
+- Description: Wraps the current frame time as a render state object.
 
 #### `public FrameInfo()`
 - Role: Creates a new FrameInfo instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FrameInfo instance from the supplied inputs.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public static Expression time()`
-- Role: Performs time.
-- Description: Supports the time operation used by the surrounding class.
+- Role: Reads the frame time expression.
+- Description: Returns the shader expression bound to frame time.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this FrameInfo for debugging and logging.

@@ -1,5 +1,5 @@
 ---
-source: [TestClient.java](../../../../src/haven/test/TestClient.java)
+source: [TestClient.java](../../../../../src/haven/test/TestClient.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,103 +22,103 @@ Provides a Haven test helper for test client.
 ### Fields
 
 #### `public Session sess`
-- Role: Stores the sess value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sess value.
+- Description: Caches the `sess` value for reuse.
 
 #### `public InetSocketAddress addr`
-- Role: Holds the addr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the addr value.
+- Description: Caches the `addr` value for reuse.
 
 #### `public String user`
-- Role: Stores the user value.
-- Description: Backs the cached state for this file.
+- Role: Caches the user value.
+- Description: Caches the `user` value for reuse.
 
 #### `public byte[] cookie`
-- Role: Stores the cookie value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cookie value.
+- Description: Caches the `cookie` value for reuse.
 
 #### `public ThreadGroup tg`
-- Role: Holds the tg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tg value.
+- Description: Caches the `tg` value for reuse.
 
 #### `public Thread me`
-- Role: Holds the me state.
-- Description: Backs the cached state for this file.
+- Role: Caches the me value.
+- Description: Caches the `me` value for reuse.
 
 #### `public UI ui`
-- Role: Stores the UI value.
-- Description: Backs the cached state for this file.
+- Role: Caches the active Haven UI instance.
+- Description: Caches the active Haven UI instance.
 
 #### `public boolean loop = false`
 - Role: Tracks the loop flag.
-- Description: Supports the loop operation used by the surrounding class.
+- Description: Caches the `loop` value for reuse.
 
 #### `public Collection<Robot> robots = new HashSet<Robot>()`
-- Role: Caches robots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the robots operation.
+- Description: Implements the public collection<robot> robots = new hash set<robot>() operation.
 
 #### `private static Object errsync = new Object()`
-- Role: Holds the errsync state.
-- Description: Backs the cached state for this file.
+- Role: Implements the errsync operation.
+- Description: Implements the object operation.
 
 ### Methods
 
 #### `public TestClient(String user)`
 - Role: Creates a new TestClient instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TestClient instance from the supplied inputs.
 
 #### `public void connect() throws InterruptedException`
 - Role: Handles the connect workflow.
-- Description: Supports the connect operation used by the surrounding class.
+- Description: Implements the connect operation.
 
 #### `public void addbot(Robot bot)`
-- Role: Performs addbot.
-- Description: Supports the addbot operation used by the surrounding class.
+- Role: Handles the addbot path.
+- Description: Adds the bot.
 
 #### `public void rembot(Robot bot)`
-- Role: Performs rembot.
-- Description: Supports the rembot operation used by the surrounding class.
+- Role: Handles the rembot path.
+- Description: Implements the rembot operation.
 
 #### `public void setmousepos(Coord c)`
-- Role: Performs setmousepos.
-- Description: Supports the setmousepos operation used by the surrounding class.
+- Role: Handles the setmousepos path.
+- Description: Updates the mousepos.
 
 #### `public TestUI(Coord sz, Session sess)`
-- Role: Performs test ui.
-- Description: Supports the test ui operation used by the surrounding class.
+- Role: Handles the test UI path.
+- Description: Implements the test ui operation.
 
 #### `public void newwidgetp(int id, String type, int parent, Object[] pargs, Object... cargs) throws InterruptedException`
 - Role: Handles the newwidgetp workflow.
-- Description: Supports the newwidgetp operation used by the surrounding class.
+- Description: Implements the newwidgetp operation.
 
 #### `public void destroy(Widget w)`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Handles the destroy path.
+- Description: Implements the destroy operation.
 
 #### `public void uimsg(int id, String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void start()`
 - Role: Starts the current workflow.
-- Description: Supports the start operation used by the surrounding class.
+- Description: Implements the start operation.
 
 #### `public void stop()`
 - Role: Stops the current workflow.
-- Description: Supports the stop operation used by the surrounding class.
+- Description: Implements the stop operation.
 
 #### `public boolean alive()`
-- Role: Performs alive.
-- Description: Supports the alive operation used by the surrounding class.
+- Role: Handles the alive path.
+- Description: Implements the alive operation.
 
 #### `public void join()`
-- Role: Performs join.
-- Description: Supports the join operation used by the surrounding class.
+- Role: Handles the join path.
+- Description: Implements the join operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this TestClient for debugging and logging.

@@ -1,143 +1,157 @@
 ---
-source: [PostProc.java](../../../../../src/haven/render/sl/PostProc.java)
+source: [PostProc.java](../../../../../../src/haven/render/sl/PostProc.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # PostProc
 
-Represents the post proc shader-language AST node.
+Runs post-processing passes over shader-language trees and expands deferred expressions.
 
 ## Nested Types
 
+### Processed
+Marker interface for nodes that participate in post-processing.
+
+#### Members
+
+##### Methods
+
+#### `public void process(PostProc proc)`
+- Role: Runs the node-specific post-processing step.
+- Description: Called when the post-processor matches the node id.
+
+#### `public Object ppid()`
+- Role: Returns the processing id.
+- Description: Used to match nodes against post-processing passes.
+
 ### AutoID
+Named automatic post-processing pass descriptor.
 
-- Role: Represents auto id within PostProc.
-- Description: Describes the nested auto id type used by the enclosing class.
+#### Members
 
-### AutoMacro
+##### Fields
 
-- Role: Represents auto macro within PostProc.
-- Description: Describes the nested auto macro type used by the enclosing class.
+#### `public final String name`
+- Role: Stores the pass name.
+- Description: Used in diagnostics and errors.
+
+#### `public final int order`
+- Role: Stores the pass order.
+- Description: Lower orders run first.
+
+##### Methods
+
+#### `public AutoID(String name, int order)`
+- Role: Builds a named pass descriptor.
+- Description: Stores name and ordering priority.
+
+#### `public AutoID(int order)`
+- Role: Builds an unnamed pass descriptor.
+- Description: Uses `<nil>` as the anonymous shader name.
+
+#### `public void proc(Context ctx)`
+- Role: Runs the pass over a context.
+- Description: Repeatedly walks the tree until this id is processed.
+
+#### `public String toString()`
+- Role: Returns a debug string.
+- Description: Shows the pass name and order.
 
 ### ProcExpression
+Expression node that participates in post-processing.
 
-- Role: Represents proc expression within PostProc.
-- Description: Describes the nested proc expression type used by the enclosing class.
+#### Members
 
-### Processed
+##### Fields
 
-- Role: Represents processed within PostProc.
-- Description: Describes the nested processed type used by the enclosing class.
+#### `public final Object id`
+- Role: Stores the post-processing id.
+- Description: Used to match the node against a pass.
+
+##### Methods
+
+#### `public ProcExpression(Object id)`
+- Role: Builds a post-processing expression.
+- Description: Stores the id for later matching.
+
+#### `public Object ppid()`
+- Role: Returns the processing id.
+- Description: Used by the post-processor to match nodes.
+
+### AutoMacro
+Deferred macro expansion expression.
+
+#### Members
+
+##### Fields
+
+#### `protected Expression exp = null`
+- Role: Stores the expanded expression.
+- Description: Filled during post-processing.
+
+##### Methods
+
+#### `public AutoMacro(Object id)`
+- Role: Builds a deferred macro.
+- Description: Stores the post-processing id.
+
+#### `protected abstract Expression expand(Context ctx)`
+- Role: Expands the macro.
+- Description: Implemented by subclasses.
+
+#### `protected Expression expand0(PostProc proc)`
+- Role: Expands using the processor context.
+- Description: Delegates to `expand`.
+
+#### `public void process(PostProc proc)`
+- Role: Runs macro expansion.
+- Description: Stores the expanded expression for later walking/output.
+
+#### `public void walk(Walker w)`
+- Role: Walks the expanded expression.
+- Description: Walks only when expansion already exists.
+
+#### `public void output(Output out)`
+- Role: Emits the expanded expression.
+- Description: Writes the post-processed expression.
 
 ## Members
 
 ### Constants
 
 #### `public static final AutoID misc = new AutoID("misc", 0)`
-- Role: Defines the shared misc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the default automatic pass.
+- Description: Runs before the higher-order passes.
 
 ### Fields
 
 #### `public final Object id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
+- Role: Stores the processor id.
+- Description: Used when matching nodes to a pass.
 
 #### `public final Context ctx`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
-
-#### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
-
-#### `public final int order`
-- Role: Stores the order value.
-- Description: Backs the cached state for this file.
-
-#### `public final Object id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
-
-#### `protected Expression exp = null`
-- Role: Holds the exp state.
-- Description: Backs the cached state for this file.
+- Role: Stores the processing context.
+- Description: Passed to the current pass implementation.
 
 ### Methods
 
-#### `public void process(PostProc proc)`
-- Role: Performs process.
-- Description: Supports the process operation used by the surrounding class.
-
-#### `public Object ppid()`
-- Role: Performs ppid.
-- Description: Supports the ppid operation used by the surrounding class.
-
-#### `public AutoID(String name, int order)`
-- Role: Performs auto id.
-- Description: Supports the auto id operation used by the surrounding class.
-
-#### `public AutoID(int order)`
-- Role: Performs auto id.
-- Description: Supports the auto id operation used by the surrounding class.
-
-#### `public void proc(Context ctx)`
-- Role: Performs proc.
-- Description: Supports the proc operation used by the surrounding class.
-
-#### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
-
 #### `public PostProc(Object id, Context ctx)`
-- Role: Creates a new PostProc instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a post-processor.
+- Description: Stores the target id and context.
 
 #### `public PostProc(Object id)`
-- Role: Creates a new PostProc instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a post-processor without a context.
+- Description: Stores the target id only.
 
 #### `public PostProc()`
-- Role: Creates a new PostProc instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a self-id post-processor.
+- Description: Uses the instance itself as the pass id.
 
 #### `public void el(Element el)`
-- Role: Performs el.
-- Description: Supports the el operation used by the surrounding class.
+- Role: Visits an element for post-processing.
+- Description: Processes matching nodes before recursing into children.
 
 #### `public static void autoproc(Context ctx)`
-- Role: Performs autoproc.
-- Description: Supports the autoproc operation used by the surrounding class.
-
-#### `public ProcExpression(Object id)`
-- Role: Performs proc expression.
-- Description: Supports the proc expression operation used by the surrounding class.
-
-#### `public Object ppid()`
-- Role: Performs ppid.
-- Description: Supports the ppid operation used by the surrounding class.
-
-#### `public AutoMacro(Object id)`
-- Role: Performs auto macro.
-- Description: Supports the auto macro operation used by the surrounding class.
-
-#### `protected abstract Expression expand(Context ctx)`
-- Role: Performs expand.
-- Description: Supports the expand operation used by the surrounding class.
-
-#### `protected Expression expand0(PostProc proc)`
-- Role: Performs expand0.
-- Description: Supports the expand0 operation used by the surrounding class.
-
-#### `public void process(PostProc proc)`
-- Role: Performs process.
-- Description: Supports the process operation used by the surrounding class.
-
-#### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
-
-#### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Runs all automatic post-processing passes.
+- Description: Repeats passes in order until none remain.

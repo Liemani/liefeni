@@ -1,5 +1,5 @@
 ---
-source: [WaitManager.java](../../../../src/lmi/runtime/WaitManager.java)
+source: [WaitManager.java](../../../../../src/lmi/runtime/WaitManager.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,49 +13,49 @@ Coordinates deferred waits across the runtime.
 ### Constants
 
 #### `private static final Object lock = new Object()`
-- Role: Defines the shared lock constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lock operation.
+- Description: Implements the object operation.
 
 ### Fields
 
 #### `private static volatile int _lastSentSeq = -1`
-- Role: Stores the last sent seq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last sent seq value.
+- Description: Caches the `_lastSentSeq` value for reuse.
 
 #### `private static volatile int _lastAckedSeq = -1`
-- Role: Stores the last acked seq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last acked seq value.
+- Description: Caches the `_lastAckedSeq` value for reuse.
 
 ### Methods
 
 #### `public static void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Prepares the wait-state tracking variables.
+- Description: Resets sequence tracking before runtime messaging begins.
 
 #### `private static boolean isAcked(int seq)`
 - Role: Checks whether the acked.
-- Description: Returns a boolean result for the described condition.
+- Description: Compares the requested sequence against the latest ACK.
 
 #### `public static void updateSentSeq(int seq)`
 - Role: Updates the sent seq.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the sent seq.
 
 #### `public static void waitACK()`
-- Role: Performs wait ack.
-- Description: Supports the wait ack operation used by the surrounding class.
+- Role: Blocks until the latest message is ACKed.
+- Description: Polls the ACK sequence until Haven confirms the message.
 
 #### `public static void waitResponse()`
-- Role: Performs wait response.
-- Description: Supports the wait response operation used by the surrounding class.
+- Role: Blocks until Haven responds to the latest request.
+- Description: Waits for the ACK or a follow-up runtime event.
 
 #### `public static void updateAckedSeq(int seq)`
 - Role: Updates the acked seq.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the acked seq.
 
 #### `public static void sleepPolling()`
-- Role: Performs sleep polling.
-- Description: Supports the sleep polling operation used by the surrounding class.
+- Role: Sleeps briefly while polling runtime state.
+- Description: Keeps the wait loop responsive without busy spinning.
 
 #### `public static void sleep(long timeout)`
-- Role: Performs sleep.
-- Description: Supports the sleep operation used by the surrounding class.
+- Role: Sleeps for the requested timeout.
+- Description: Wraps the runtime wait helper with timeout handling.

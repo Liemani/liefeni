@@ -1,17 +1,9 @@
 ---
-source: [Expression.java](../../../../../src/haven/render/sl/Expression.java)
+source: [Expression.java](../../../../../../src/haven/render/sl/Expression.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Expression
 
-Represents the expression shader-language AST node.
-
-## Members
-
-### Constants
-
-### Fields
-
-### Methods
+Base class for shader-language expressions.

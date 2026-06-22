@@ -1,5 +1,5 @@
 ---
-source: [GItem.java](../../../src/haven/GItem.java)
+source: [GItem.java](../../../../src/haven/GItem.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -70,150 +70,156 @@ Represents the gitem Haven component.
 ### Constants
 
 #### `public static final Function<List<ItemInfo>, Supplier<Pipe.Op>> combine = info ->`
-- Role: Defines the shared combine constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the combine value.
+- Description: Caches the `combine` value for reuse.
+- Value: `info ->`
 
 #### `private static final OwnerContext.ClassResolver<GItem> ctxr = new OwnerContext.ClassResolver<GItem>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<g item> ctxr = new owner context.class resolver<g item>() operation.
+- Value: `new OwnerContext.ClassResolver<GItem>()`
 
 #### `public static final Coord hovermarg = UI.scale(12, 12)`
-- Role: Defines the shared hovermarg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the hovermarg operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(12, 12)`
 
 #### `public static final Tex bg = Window.bg`
-- Role: Defines the shared bg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the bg value.
+- Description: Caches the `bg` value for reuse.
+- Value: `Window.bg`
 
 #### `public static final IBox box = Window.wbox`
-- Role: Defines the shared box constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the box value.
+- Description: Caches the `box` value for reuse.
+- Value: `Window.wbox`
 
 #### `public static final Coord overlap = UI.scale(2, 2)`
-- Role: Defines the shared overlap constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the overlap operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(2, 2)`
 
 ### Fields
 
 #### `public Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public MessageBuf sdt`
-- Role: Holds the sdt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 #### `public int meter = 0`
-- Role: Stores the meter value.
-- Description: Backs the cached state for this file.
+- Role: Caches the meter value.
+- Description: Caches the `meter` value for reuse.
 
 #### `public int num = -1`
-- Role: Stores the num value.
-- Description: Backs the cached state for this file.
+- Role: Caches the num value.
+- Description: Caches the `num` value for reuse.
 
 #### `public Widget contents = null`
-- Role: Stores the contents value.
-- Description: Backs the cached state for this file.
+- Role: Caches the contents value.
+- Description: Caches the `contents` value for reuse.
 
 #### `public String contentsnm = null`
-- Role: Stores the contentsnm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the contentsnm value.
+- Description: Caches the `contentsnm` value for reuse.
 
 #### `public Object contentsid = null`
-- Role: Holds the contentsid state.
-- Description: Backs the cached state for this file.
+- Role: Caches the contentsid value.
+- Description: Caches the `contentsid` value for reuse.
 
 #### `public ContentsWindow contentswnd = null`
-- Role: Holds the contentswnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the contentswnd value.
+- Description: Caches the `contentswnd` value for reuse.
 
 #### `public int infoseq`
-- Role: Stores the infoseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the infoseq value.
+- Description: Caches the `infoseq` value for reuse.
 
 #### `private Widget hovering`
-- Role: Stores the hovering value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hovering value.
+- Description: Tracks whether the cursor is still hovering.
 
 #### `private boolean hoverset`
 - Role: Tracks the hoverset flag.
-- Description: Supports the hoverset operation used by the surrounding class.
+- Description: Caches the `hoverset` value for reuse.
 
 #### `private GSprite spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 #### `private ItemInfo.Raw rawinfo`
-- Role: Holds the rawinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawinfo value.
+- Description: Caches the `rawinfo` value for reuse.
 
 #### `private List<ItemInfo> info = Collections.emptyList()`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the info operation.
+- Description: Implements the empty list operation.
 
 #### `public final OverlayInfo<T> inf`
-- Role: Stores the inf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the inf value.
+- Description: Caches the `inf` value for reuse.
 
 #### `public final T data`
-- Role: Holds the data state.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private final int num`
-- Role: Stores the num value.
-- Description: Backs the cached state for this file.
+- Role: Caches the num value.
+- Description: Caches the `num` value for reuse.
 
 #### `private Random rnd = null`
-- Role: Holds the rnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rnd value.
+- Description: Caches the `rnd` value for reuse.
 
 #### `private int lastcontseq`
-- Role: Stores the lastcontseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last contseq.
+- Description: Caches the last contseq value.
 
 #### `private List<Pair<GItem, Integer>> lastcontinfo = null`
-- Role: Caches lastcontinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the last continfo.
+- Description: Caches the last continfo value.
 
 #### `public Area ca`
-- Role: Holds the ca state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ca value.
+- Description: Caches the `ca` value for reuse.
 
 #### `private UI.Grab dm = null`
-- Role: Stores the dm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dm value.
+- Description: Caches the `dm` value for reuse.
 
 #### `private Coord doff`
-- Role: Stores the doff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the doff value.
+- Description: Caches the `doff` value for reuse.
 
 #### `public final GItem cont`
-- Role: Holds the cont state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cont value.
+- Description: Caches the `cont` value for reuse.
 
 #### `public final Widget inv`
-- Role: Stores the inv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the inv value.
+- Description: Caches the `inv` value for reuse.
 
 #### `private final Object id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private Coord psz = null`
-- Role: Stores the psz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the psz value.
+- Description: Caches the `psz` value for reuse.
 
 #### `private String st`
-- Role: Stores the st value.
-- Description: Backs the cached state for this file.
+- Role: Caches the st value.
+- Description: Caches the `st` value for reuse.
 
 #### `private boolean hovering`
 - Role: Tracks the hovering flag.
-- Description: Supports the hovering operation used by the surrounding class.
+- Description: Tracks whether the cursor is still hovering.
 
 #### `private Coord lc = null`
-- Role: Stores the lc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lc value.
+- Description: Caches the `lc` value for reuse.
 
 ### Methods
 
@@ -222,76 +228,76 @@ Represents the gitem Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public Pipe.Op rstate()`
-- Role: Performs rstate.
-- Description: Supports the rstate operation used by the surrounding class.
+- Role: Handles the rstate path.
+- Description: Implements the rstate operation.
 
 #### `public Color olcol()`
-- Role: Performs olcol.
-- Description: Supports the olcol operation used by the surrounding class.
+- Role: Handles the olcol path.
+- Description: Implements the olcol operation.
 
 #### `public default Pipe.Op rstate()`
-- Role: Performs rstate.
-- Description: Supports the rstate operation used by the surrounding class.
+- Role: Handles the rstate path.
+- Description: Implements the rstate operation.
 
 #### `public T overlay()`
-- Role: Performs overlay.
-- Description: Supports the overlay operation used by the surrounding class.
+- Role: Handles the overlay path.
+- Description: Implements the overlay operation.
 
 #### `public void drawoverlay(GOut g, T data)`
-- Role: Performs drawoverlay.
-- Description: Supports the drawoverlay operation used by the surrounding class.
+- Role: Handles the drawoverlay path.
+- Description: Draws the overlay.
 
 #### `public InfoOverlay(OverlayInfo<T> inf)`
-- Role: Performs info overlay.
-- Description: Supports the info overlay operation used by the surrounding class.
+- Role: Handles the info overlay path.
+- Description: Implements the info overlay operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GItem content.
 
 #### `public static <S> InfoOverlay<S> create(OverlayInfo<S> inf)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public int itemnum()`
-- Role: Performs itemnum.
-- Description: Supports the itemnum operation used by the surrounding class.
+- Role: Handles the itemnum path.
+- Description: Implements the itemnum operation.
 
 #### `public default Color numcolor()`
-- Role: Performs numcolor.
-- Description: Supports the numcolor operation used by the surrounding class.
+- Role: Handles the numcolor path.
+- Description: Implements the numcolor operation.
 
 #### `public default Tex overlay()`
-- Role: Performs overlay.
-- Description: Supports the overlay operation used by the surrounding class.
+- Role: Handles the overlay path.
+- Description: Implements the overlay operation.
 
 #### `public default void drawoverlay(GOut g, Tex tex)`
-- Role: Performs drawoverlay.
-- Description: Supports the drawoverlay operation used by the surrounding class.
+- Role: Handles the drawoverlay path.
+- Description: Draws the overlay.
 
 #### `public static BufferedImage numrender(int num, Color col)`
-- Role: Performs numrender.
-- Description: Supports the numrender operation used by the surrounding class.
+- Role: Handles the numrender path.
+- Description: Implements the numrender operation.
 
 #### `public double meter()`
-- Role: Performs meter.
-- Description: Supports the meter operation used by the surrounding class.
+- Role: Handles the meter path.
+- Description: Implements the meter operation.
 
 #### `public Amount(Owner owner, int num)`
-- Role: Performs amount.
-- Description: Supports the amount operation used by the surrounding class.
+- Role: Handles the amount path.
+- Description: Implements the amount operation.
 
 #### `public int itemnum()`
-- Role: Performs itemnum.
-- Description: Supports the itemnum operation used by the surrounding class.
+- Role: Handles the itemnum path.
+- Description: Implements the itemnum operation.
 
 #### `public GItem(Indir<Resource> res, Message sdt)`
 - Role: Creates a new GItem instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GItem instance from the supplied inputs.
 
 #### `public GItem(Indir<Resource> res)`
 - Role: Creates a new GItem instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GItem instance from the supplied inputs.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
@@ -303,140 +309,140 @@ Represents the gitem Haven component.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public GSprite spr()`
-- Role: Performs spr.
-- Description: Supports the spr operation used by the surrounding class.
+- Role: Handles the spr path.
+- Description: Implements the spr operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public GSprite sprite()`
-- Role: Performs sprite.
-- Description: Supports the sprite operation used by the surrounding class.
+- Role: Handles the sprite path.
+- Description: Implements the sprite operation.
 
 #### `public void uimsg(String name, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `public void propagate(List<ItemInfo> buf, ItemInfo.Owner outer)`
-- Role: Performs propagate.
-- Description: Supports the propagate operation used by the surrounding class.
+- Role: Handles the propagate path.
+- Description: Implements the propagate operation.
 
 #### `private void updcontinfo()`
-- Role: Performs updcontinfo.
-- Description: Supports the updcontinfo operation used by the surrounding class.
+- Role: Handles the updcontinfo path.
+- Description: Implements the updcontinfo operation.
 
 #### `private void addcontinfo(List<ItemInfo> buf)`
-- Role: Performs addcontinfo.
-- Description: Supports the addcontinfo operation used by the surrounding class.
+- Role: Handles the addcontinfo path.
+- Description: Adds the continfo.
 
 #### `private Widget contparent()`
-- Role: Performs contparent.
-- Description: Supports the contparent operation used by the surrounding class.
+- Role: Handles the contparent path.
+- Description: Implements the contparent operation.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Handles the destroy path.
+- Description: Implements the destroy operation.
 
 #### `public void hovering(Widget hovering)`
-- Role: Performs hovering.
-- Description: Supports the hovering operation used by the surrounding class.
+- Role: Handles the hovering path.
+- Description: Implements the hovering operation.
 
 #### `public void iresize(Coord isz)`
-- Role: Performs iresize.
-- Description: Supports the iresize operation used by the surrounding class.
+- Role: Handles the iresize path.
+- Description: Implements the iresize operation.
 
 #### `public Area contarea()`
-- Role: Performs contarea.
-- Description: Supports the contarea operation used by the surrounding class.
+- Role: Handles the contarea path.
+- Description: Implements the contarea operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GItem content.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Handles the checkhit path.
+- Description: Implements the checkhit operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public ContentsWindow(GItem cont, Widget inv)`
-- Role: Performs contents window.
-- Description: Supports the contents window operation used by the surrounding class.
+- Role: Handles the contents window path.
+- Description: Implements the contents window operation.
 
 #### `private void chstate(String nst)`
-- Role: Performs chstate.
-- Description: Supports the chstate operation used by the surrounding class.
+- Role: Handles the chstate path.
+- Description: Implements the chstate operation.
 
 #### `private void ckhover()`
-- Role: Performs ckhover.
-- Description: Supports the ckhover operation used by the surrounding class.
+- Role: Handles the ckhover path.
+- Description: Implements the ckhover operation.
 
 #### `private void ckunhover()`
-- Role: Performs ckunhover.
-- Description: Supports the ckunhover operation used by the surrounding class.
+- Role: Handles the ckunhover path.
+- Description: Implements the ckunhover operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public void cdestroy(Widget w)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Handles the cdestroy path.
+- Description: Implements the cdestroy operation.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean on)`
-- Role: Performs mousehover.
-- Description: Supports the mousehover operation used by the surrounding class.
+- Role: Handles the mousehover path.
+- Description: Updates hover state and tooltip selection for minimap content.
 
 #### `public void wndshow(boolean show)`
-- Role: Performs wndshow.
-- Description: Supports the wndshow operation used by the surrounding class.
+- Role: Handles the wndshow path.
+- Description: Implements the wndshow operation.
 
 #### `public void describe()`
-- Role: Performs describe.
-- Description: Supports the describe operation used by the surrounding class.
+- Role: Handles the describe path.
+- Description: Implements the describe operation.
 
 #### `public String resourceName()`
-- Role: Performs resource name.
-- Description: Supports the resource name operation used by the surrounding class.
+- Role: Handles the resource name path.
+- Description: Implements the resource name operation.
 
 #### `public boolean isResourceNameEndsWith(String suffix)`
 - Role: Checks whether the resource name ends with.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean isString()`
 - Role: Checks whether the string.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void transfer()`
-- Role: Performs transfer.
-- Description: Supports the transfer operation used by the surrounding class.
+- Role: Handles the transfer path.
+- Description: Implements the transfer operation.

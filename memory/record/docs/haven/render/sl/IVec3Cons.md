@@ -1,5 +1,5 @@
 ---
-source: [IVec3Cons.java](../../../../../src/haven/render/sl/IVec3Cons.java)
+source: [IVec3Cons.java](../../../../../../src/haven/render/sl/IVec3Cons.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,29 +13,31 @@ Represents the ivec3 cons shader-language AST node.
 ### Constants
 
 #### `public static final IVec3Cons z = new IVec3Cons(IntLiteral.z, IntLiteral.z, IntLiteral.z)`
-- Role: Defines the shared z constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the z operation.
+- Description: Implements the i vec3 cons operation.
+- Value: `new IVec3Cons(IntLiteral.z, IntLiteral.z, IntLiteral.z)`
 
 #### `public static final IVec3Cons u = new IVec3Cons(IntLiteral.u, IntLiteral.u, IntLiteral.u)`
-- Role: Defines the shared u constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the u operation.
+- Description: Implements the i vec3 cons operation.
+- Value: `new IVec3Cons(IntLiteral.u, IntLiteral.u, IntLiteral.u)`
 
 ### Fields
 
 #### `public final Expression[] els`
-- Role: Holds the els state.
-- Description: Backs the cached state for this file.
+- Role: Caches the els value.
+- Description: Caches the `els` value for reuse.
 
 ### Methods
 
 #### `public IVec3Cons(Expression... els)`
-- Role: Creates a new IVec3Cons instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one ivec3 constructor expression.
+- Description: Stores the three integer component expressions for the vector literal.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the vector components.
+- Description: Walks each component expression in order.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the ivec3 constructor.
+- Description: Writes the `ivec3(...)` expression to output.

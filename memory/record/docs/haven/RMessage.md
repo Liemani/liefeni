@@ -1,5 +1,5 @@
 ---
-source: [RMessage.java](../../../src/haven/RMessage.java)
+source: [RMessage.java](../../../../src/haven/RMessage.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,81 +13,92 @@ Represents the rmessage Haven component.
 ### Constants
 
 #### `public static final int RMSG_NEWWDG = 0`
-- Role: Defines the shared rmsg newwdg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg newwdg value.
+- Description: Caches the `RMSG_NEWWDG` value for reuse.
+- Value: `0`
 
 #### `public static final int RMSG_WDGMSG = 1`
-- Role: Defines the shared rmsg wdgmsg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg wdgmsg value.
+- Description: Caches the `RMSG_WDGMSG` value for reuse.
+- Value: `1`
 
 #### `public static final int RMSG_DSTWDG = 2`
-- Role: Defines the shared rmsg dstwdg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg dstwdg value.
+- Description: Caches the `RMSG_DSTWDG` value for reuse.
+- Value: `2`
 
 #### `public static final int RMSG_MAPIV = 3`
-- Role: Defines the shared rmsg mapiv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg mapiv value.
+- Description: Caches the `RMSG_MAPIV` value for reuse.
+- Value: `3`
 
 #### `public static final int RMSG_GLOBLOB = 4`
-- Role: Defines the shared rmsg globlob constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg globlob value.
+- Description: Caches the `RMSG_GLOBLOB` value for reuse.
+- Value: `4`
 
 #### `public static final int RMSG_RESID = 6`
-- Role: Defines the shared rmsg resid constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg resid value.
+- Description: Caches the `RMSG_RESID` value for reuse.
+- Value: `6`
 
 #### `public static final int RMSG_SESSKEY = 13`
-- Role: Defines the shared rmsg sesskey constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg sesskey value.
+- Description: Caches the `RMSG_SESSKEY` value for reuse.
+- Value: `13`
 
 #### `public static final int RMSG_FRAGMENT = 14`
-- Role: Defines the shared rmsg fragment constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg fragment value.
+- Description: Caches the `RMSG_FRAGMENT` value for reuse.
+- Value: `14`
 
 #### `public static final int RMSG_ADDWDG = 15`
-- Role: Defines the shared rmsg addwdg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg addwdg value.
+- Description: Caches the `RMSG_ADDWDG` value for reuse.
+- Value: `15`
 
 #### `public static final int RMSG_WDGBAR = 16`
-- Role: Defines the shared rmsg wdgbar constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg wdgbar value.
+- Description: Caches the `RMSG_WDGBAR` value for reuse.
+- Value: `16`
 
 #### `public static final int RMSG_USERAGENT = 17`
-- Role: Defines the shared rmsg useragent constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rmsg useragent value.
+- Description: Caches the `RMSG_USERAGENT` value for reuse.
+- Value: `17`
 
 ### Fields
 
 #### `public double first = 0, last = 0`
-- Role: Stores the first value.
-- Description: Backs the cached state for this file.
+- Role: Caches the first value.
+- Description: Caches the `first` value for reuse.
 
 #### `public double first = 0, last = 0`
-- Role: Stores the first value.
-- Description: Backs the cached state for this file.
+- Role: Caches the first value.
+- Description: Caches the `first` value for reuse.
 
 #### `public int retx = 0`
-- Role: Stores the retx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the retx value.
+- Description: Caches the `retx` value for reuse.
 
 #### `public int seq`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the seq value.
+- Description: Caches the `seq` value for reuse.
 
 ### Methods
 
 #### `public RMessage(int type, byte[] blob, int off, int len)`
 - Role: Creates a new RMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RMessage instance from the supplied inputs.
 
 #### `public RMessage(int type, byte[] blob)`
 - Role: Creates a new RMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RMessage instance from the supplied inputs.
 
 #### `public RMessage(int type)`
 - Role: Creates a new RMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RMessage instance from the supplied inputs.
 
 #### `public RMessage(PMessage msg)`
 - Role: Creates a new RMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RMessage instance from the supplied inputs.

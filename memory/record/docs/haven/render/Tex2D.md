@@ -1,5 +1,5 @@
 ---
-source: [Tex2D.java](../../../../src/haven/render/Tex2D.java)
+source: [Tex2D.java](../../../../../src/haven/render/Tex2D.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,53 +13,57 @@ Defines the tex2 d render pipeline component.
 ### Constants
 
 #### `public static final Attribute texc = new Attribute(VEC2, "ctexc")`
-- Role: Defines the shared texc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the texc operation.
+- Description: Implements the attribute operation.
+- Value: `new Attribute(VEC2, "ctexc")`
 
 #### `public static final AutoVarying rtexcoord = new AutoVarying(VEC2, "s_tex2d")`
-- Role: Defines the shared rtexcoord constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rtexcoord operation.
+- Description: Implements the auto varying operation.
+- Value: `new AutoVarying(VEC2, "s_tex2d")`
 
 #### `public static final ShaderMacro mod = prog ->`
-- Role: Defines the shared mod constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the mod value.
+- Description: Caches the `mod` value for reuse.
+- Value: `prog ->`
 
 #### `public static final ShaderMacro clip = prog ->`
-- Role: Defines the shared clip constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
+- Value: `prog ->`
 
 ### Fields
 
 #### `public final ProgramContext prog`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 #### `public Varying.Interpol ipol = Varying.Interpol.NORMAL`
-- Role: Stores the ipol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ipol value.
+- Description: Caches the `ipol` value for reuse.
 
 #### `public Uniform tex2d`
-- Role: Holds the tex2d state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex2d value.
+- Description: Caches the `tex2d` value for reuse.
 
 ### Methods
 
 #### `public Value texcoord()`
-- Role: Performs texcoord.
-- Description: Supports the texcoord operation used by the surrounding class.
+- Role: Implements the texcoord operation.
+- Description: Implements the texcoord operation.
 
 #### `public Value color()`
-- Role: Performs color.
-- Description: Supports the color operation used by the surrounding class.
+- Role: Implements the color operation.
+- Description: Implements the color operation.
 
 #### `public void tex2d(Uniform.Data<Object> data)`
-- Role: Performs tex2d.
-- Description: Supports the tex2d operation used by the surrounding class.
+- Role: Installs 2D texture state.
+- Description: Writes the texture binding into the current program context.
 
 #### `public Tex2D(ProgramContext prog)`
-- Role: Creates a new Tex2D instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one 2D texture helper.
+- Description: Binds the helper to a shader program context.
 
 #### `public static Tex2D get(ProgramContext prog)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Returns the 2D texture helper.
+- Description: Reuses the helper attached to the given program context.

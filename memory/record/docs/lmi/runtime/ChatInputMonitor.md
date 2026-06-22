@@ -1,5 +1,5 @@
 ---
-source: [ChatInputMonitor.java](../../../../src/lmi/runtime/ChatInputMonitor.java)
+source: [ChatInputMonitor.java](../../../../../src/lmi/runtime/ChatInputMonitor.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,33 +13,33 @@ Monitors chat input events for agent hooks.
 ### Constants
 
 #### `private static final Object lock = new Object()`
-- Role: Defines the shared lock constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lock operation.
+- Description: Implements the object operation.
 
 ### Fields
 
 #### `private static boolean waitingAreaChat = false`
 - Role: Tracks the waiting area chat flag.
-- Description: Supports the waiting area chat operation used by the surrounding class.
+- Description: Marks whether the next chat message should be captured as area chat.
 
 #### `private static String capturedAreaChat = null`
-- Role: Stores the captured area chat value.
-- Description: Backs the cached state for this file.
+- Role: Caches the captured area chat value.
+- Description: Caches the `capturedAreaChat` value for reuse.
 
 ### Methods
 
 #### `private ChatInputMonitor()`
 - Role: Creates a new ChatInputMonitor instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ChatInputMonitor instance from the supplied inputs.
 
 #### `public static void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Clears the pending chat capture state.
 
 #### `public static String waitAreaChat()`
-- Role: Performs wait area chat.
-- Description: Supports the wait area chat operation used by the surrounding class.
+- Role: Blocks until an area chat message is captured.
+- Description: Waits for the next matching chat input and returns it.
 
 #### `public static void capture(Widget sender, String msg, Object... args)`
-- Role: Performs capture.
-- Description: Supports the capture operation used by the surrounding class.
+- Role: Captures a chat message from Haven UI.
+- Description: Stores the message when the monitor is waiting for area chat.

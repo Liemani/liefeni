@@ -1,122 +1,126 @@
 ---
-source: [Struct.java](../../../../../src/haven/render/sl/Struct.java)
+source: [Struct.java](../../../../../../src/haven/render/sl/Struct.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Struct
 
-Represents the struct shader-language AST node.
+Represents a shader-language struct type and its constructor/definition helpers.
 
 ## Nested Types
 
-### Constructor
+### Field
+One named struct field.
 
-- Role: Represents constructor within Struct.
-- Description: Describes the nested constructor type used by the enclosing class.
+#### Members
+
+##### Fields
+
+#### `public final Type type`
+- Role: Stores the field type.
+- Description: Written into the struct declaration.
+
+#### `public final String name`
+- Role: Stores the field name.
+- Description: Written into the struct declaration.
+
+##### Methods
+
+#### `public Field(Type type, String name)`
+- Role: Builds a struct field.
+- Description: Stores the type and field name.
+
+### Constructor
+Struct constructor expression.
+
+#### Members
+
+##### Fields
+
+#### `public final Expression[] els`
+- Role: Stores constructor arguments.
+- Description: Emitted in order when the constructor is written.
+
+##### Methods
+
+#### `public Constructor(Expression... els)`
+- Role: Builds a struct constructor expression.
+- Description: Stores the supplied expressions.
+
+#### `public void walk(Walker w)`
+- Role: Walks constructor arguments.
+- Description: Visits each child expression.
+
+#### `public void output(Output out)`
+- Role: Emits the constructor call.
+- Description: Writes the struct name and comma-separated arguments.
 
 ### Definition
+Struct type declaration node.
 
-- Role: Represents definition within Struct.
-- Description: Describes the nested definition type used by the enclosing class.
+#### Members
 
-### Field
+##### Methods
 
-- Role: Represents field within Struct.
-- Description: Describes the nested field type used by the enclosing class.
+#### `public void walk(Walker w)`
+- Role: Walks the struct declaration.
+- Description: Struct declarations do not have child expressions.
+
+#### `public void output(Output out)`
+- Role: Emits the struct declaration.
+- Description: Writes the field list inside a `struct` block.
+
+#### `public Struct type()`
+- Role: Returns the enclosing struct type.
+- Description: Used to deduplicate definitions in the context.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final Symbol name`
-- Role: Holds the name state.
-- Description: Backs the cached state for this file.
+- Role: Stores the struct symbol.
+- Description: Used when printing and resolving the type.
 
 #### `public final List<Field> fields`
-- Role: Caches fields entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `public final Type type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
-
-#### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
-
-#### `public final Expression[] els`
-- Role: Holds the els state.
-- Description: Backs the cached state for this file.
+- Role: Stores the field list.
+- Description: Used when emitting and comparing struct types.
 
 ### Methods
 
-#### `public Field(Type type, String name)`
-- Role: Performs field.
-- Description: Supports the field operation used by the surrounding class.
-
-#### `private Struct(Symbol name, List<Field> fields)`
-- Role: Creates a new Struct instance.
-- Description: Constructs the instance and initializes its default state.
-
 #### `public Struct(Symbol name, Field... fields)`
-- Role: Creates a new Struct instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a struct type.
+- Description: Stores the name and field list.
 
 #### `public Struct(Symbol name)`
-- Role: Creates a new Struct instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds an empty struct type.
+- Description: Starts with no fields.
 
 #### `public static Struct make(Symbol name, Object... args)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Builds a struct type from alternating type/name arguments.
+- Description: Convenience helper for compact declarations.
 
 #### `public String name(Context ctx)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Resolves the struct name.
+- Description: Delegates to the underlying symbol.
 
 #### `public int hashCode()`
-- Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns a hash for the field layout.
+- Description: Based on the field list.
 
 #### `public boolean equals(Object o)`
-- Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
-
-#### `public Constructor(Expression... els)`
-- Role: function Object() { [native code] }
-- Description: Supports the constructor operation used by the surrounding class.
-
-#### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
-
-#### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Compares struct field layouts.
+- Description: Two structs are equal when their field lists match.
 
 #### `public Constructor construct(Expression... els)`
-- Role: Performs construct.
-- Description: Supports the construct operation used by the surrounding class.
-
-#### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
-
-#### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
-
-#### `public Struct type()`
-- Role: Performs type.
-- Description: Supports the type operation used by the surrounding class.
+- Role: Creates a struct constructor expression.
+- Description: Convenience helper for building constructor nodes.
 
 #### `public boolean defined(Context ctx)`
-- Role: Performs defined.
-- Description: Supports the defined operation used by the surrounding class.
+- Role: Checks whether the type is already declared.
+- Description: Scans the typedef list in the context.
 
 #### `public void use(Context ctx)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Registers the struct definition.
+- Description: Adds the declaration if it has not already been emitted.

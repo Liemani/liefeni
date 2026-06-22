@@ -1,221 +1,163 @@
 ---
-source: [WaypointManager.java](../../../../src/lmi/waypoint/WaypointManager.java)
+source: [WaypointManager.java](../../../../../src/lmi/waypoint/WaypointManager.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # WaypointManager
 
-Owns waypoint runtime coordination and high-level entry points.
+Coordinates waypoint runtime state, current player grid resolution, async preload, and scene refresh.
 
 ## Members
 
 ### Constants
 
 #### `private static final WaypointRuntimeContext runtimeContext = new WaypointRuntimeContext()`
-- Role: Defines the shared runtime context constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Owns the shared waypoint runtime state.
+- Value: `new WaypointRuntimeContext()`
 
 #### `private static final ManagedObjectContext managedNodeContext = runtimeContext.managedNodeContext()`
-- Role: Defines the shared managed node context constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Holds the managed-node context used while rebuilding the scene.
+- Value: `runtimeContext.managedNodeContext()`
 
 ### Fields
 
 #### `private static boolean refreshRequested`
-- Role: Tracks whether refresh has been requested.
-- Description: Boolean flag used to guard the surrounding lifecycle state.
+- Role: Remembers that the waypoint scene should be rebuilt on the next refresh pass.
 
 #### `private static Long pendingGraphResolveGridId`
-- Role: Stores the pending graph resolve grid id value.
-- Description: Backs the cached state for this file.
+- Role: Tracks the grid id currently being used to resolve the active graph.
 
 #### `private static Long lastResolvedGraphGridId`
-- Role: Stores the last resolved graph grid id value.
-- Description: Backs the cached state for this file.
+- Role: Prevents repeated graph resolution work for the same grid.
 
 ### Methods
 
-#### `private WaypointManager()`
-- Role: Creates a new WaypointManager instance.
-- Description: Constructs the instance and initializes its default state.
-
 #### `public static void clear()`
-- Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Role: Resets runtime state, cached graph resolution, and refresh flags.
 
 #### `public static Long currentGraphId()`
-- Role: Returns the current graph ID.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the graph id currently stored in runtime state.
 
 #### `public static Long activeGraphId()`
-- Role: Returns the active graph ID.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the graph id currently used by waypoint rendering and loading.
 
 #### `public static void setCurrentGraphId(Long graphId)`
-- Role: Sets the current graph ID.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Updates the active graph id in runtime state.
 
 #### `public static EnteringPortal enteringPortal()`
-- Role: Returns the currently captured entering portal.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the portal captured during world entry.
 
 #### `public static void captureEnteringPortal(Coord world, String resname)`
-- Role: Captures the entering portal.
-- Description: Supports the capture entering portal operation used by the surrounding class.
-
-#### `public static Array<ResolvedNode> nearbyNodes()`
-- Role: Returns nearby waypoint nodes.
-- Description: Exposes the requested value without mutating state.
-
-#### `public static Array<ResolvedPoint> nearbyPoints()`
-- Role: Returns nearby waypoint points.
-- Description: Exposes the requested value without mutating state.
-
-#### `public static Array<ManagedWpNode> selectedManagedNodes()`
-- Role: Returns the selected managed waypoint nodes.
-- Description: Exposes the requested value without mutating state.
-
-#### `public static WaypointScene scene()`
-- Role: Returns the current waypoint scene.
-- Description: Exposes the requested value without mutating state.
-
-#### `public static Array<WpNode> nodes(long graphId)`
-- Role: Returns the nodes for the supplied graph.
-- Description: Exposes the requested value without mutating state.
-
-#### `public static WpNode findNode(long nodeId)`
-- Role: Finds a waypoint node by node ID.
-- Description: Supports the find node operation used by the surrounding class.
-
-#### `public static WpNode findNodeByGraphAndGridLocal(long graphId, long gridId, int localX, int localY)`
-- Role: Finds a waypoint node by graph and local grid coordinates.
-- Description: Supports the find node by graph and grid local operation used by the surrounding class.
+- Role: Stores the entering portal after converting world coordinates to waypoint grid coordinates.
 
 #### `public static GridPosition gridPositionOfWorld(Coord world)`
-- Role: Returns the grid position for the given world coordinate.
-- Description: Exposes the requested value without mutating state.
+- Role: Converts a Haven world coordinate into waypoint grid id and local grid position.
 
 #### `public static GridPosition currentGridPosition()`
-- Role: Returns the current grid position.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the current player position expressed as waypoint grid coordinates.
+
+#### `public static Array<ResolvedNode> nearbyNodes()`
+- Role: Returns the nearby resolved waypoint nodes currently cached in runtime.
+
+#### `public static Array<ResolvedPoint> nearbyPoints()`
+- Role: Returns the nearby resolved waypoint points currently cached in runtime.
+
+#### `public static Array<ManagedWpNode> selectedManagedNodes()`
+- Role: Returns the managed waypoint nodes selected for the current scene.
+
+#### `public static WaypointScene scene()`
+- Role: Returns the current waypoint scene snapshot.
+
+#### `public static Array<WpNode> nodes(long graphId)`
+- Role: Returns cached graph nodes for the requested graph id.
+
+#### `public static WpNode findNode(long nodeId)`
+- Role: Finds a cached waypoint node by node id.
+
+#### `public static WpNode findNodeByGraphAndGridLocal(long graphId, long gridId, int localX, int localY)`
+- Role: Finds a cached waypoint node by graph id and local grid coordinates.
 
 #### `public static void setNodes(long graphId, Array<WpNode> nodes)`
-- Role: Updates the node cache for the supplied graph.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Replaces the cached node list for the given graph.
 
 #### `public static void appendNode(WpNode node)`
-- Role: Appends a node to the waypoint graph.
-- Description: Appends a node to the waypoint graph to the current collection or state.
+- Role: Appends one node to the current graph state and makes it the active graph if needed.
 
 #### `public static void appendEdge(long graphId, WpEdge edge)`
-- Role: Appends an edge to the waypoint graph.
-- Description: Appends an edge to the waypoint graph to the current collection or state.
+- Role: Appends one edge to the cached graph edge list.
 
 #### `public static void appendSegment(WpSegment segment)`
-- Role: Appends a segment to the waypoint graph.
-- Description: Appends a segment to the waypoint graph to the current collection or state.
+- Role: Appends one segment to the runtime waypoint state.
 
 #### `public static void appendPoint(WpSegment segment, WpPoint point)`
-- Role: Appends a point to the waypoint graph.
-- Description: Appends a point to the waypoint graph to the current collection or state.
+- Role: Appends one point to the supplied segment in runtime state.
 
 #### `public static boolean nodesLoaded(long graphId)`
-- Role: Checks whether the graph nodes are loaded.
-- Description: Returns a boolean result for the described condition.
+- Role: Checks whether nodes for the requested graph have already been loaded.
 
 #### `public static void preloadNodes(long graphId)`
-- Role: Preloads the graph nodes.
-- Description: Preloads the graph nodes so callers can reuse the cached data.
+- Role: Loads graph nodes from the waypoint DB and requests a refresh when data arrives.
 
 #### `public static Array<WpEdge> edgesByGraph(long graphId)`
-- Role: Returns the edges for the supplied graph.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns cached graph edges for the requested graph id.
 
 #### `public static void setEdgesByGraph(long graphId, Array<WpEdge> edges)`
-- Role: Updates the edge cache for the supplied graph.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Replaces the cached edge list for the given graph.
 
 #### `public static boolean edgesByGraphLoaded(long graphId)`
-- Role: Checks whether the graph edges are loaded.
-- Description: Returns a boolean result for the described condition.
+- Role: Checks whether graph edges have already been loaded.
 
 #### `public static void preloadEdgesByGraph(long graphId)`
-- Role: Preloads the graph edges.
-- Description: Preloads the graph edges so callers can reuse the cached data.
+- Role: Loads graph edges from the waypoint DB and requests a refresh when data arrives.
 
 #### `public static Array<WpSegment> segmentsByGrid(long graphId, long gridId)`
-- Role: Returns the segments for the supplied graph grid.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns cached segments for the requested graph and Haven grid.
 
 #### `public static void setSegmentsByGrid(long graphId, long gridId, Array<WpSegment> segments)`
-- Role: Updates the segment cache for the supplied graph grid.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Replaces the cached segment list for the given graph and grid.
 
 #### `public static boolean segmentsByGridLoaded(long graphId, long gridId)`
-- Role: Checks whether the graph grid segments are loaded.
-- Description: Returns a boolean result for the described condition.
+- Role: Checks whether segments for the requested graph and grid have already been loaded.
 
 #### `public static void preloadSegmentsByGrid(long graphId, long gridId)`
-- Role: Preloads the graph grid segments.
-- Description: Preloads the graph grid segments so callers can reuse the cached data.
+- Role: Loads grid segments for the active graph and grid.
 
 #### `public static Array<WpPoint> pointsByGrid(long graphId, long gridId)`
-- Role: Returns the points for the supplied graph grid.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns cached points for the requested graph and grid.
 
 #### `public static void setPointsByGrid(long graphId, long gridId, Array<WpPoint> points)`
-- Role: Updates the point cache for the supplied graph grid.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Replaces the cached point list for the given graph and grid.
 
 #### `public static boolean pointsByGridLoaded(long graphId, long gridId)`
-- Role: Checks whether the graph grid points are loaded.
-- Description: Returns a boolean result for the described condition.
+- Role: Checks whether points for the requested graph and grid have already been loaded.
 
 #### `public static void preloadPointsByGrid(long graphId, long gridId)`
-- Role: Preloads the graph grid points.
-- Description: Preloads the graph grid points so callers can reuse the cached data.
+- Role: Loads grid points for the active graph and grid.
 
 #### `public static Array<WpSegment> residentSegments(long edgeId)`
-- Role: Returns the resident segments for the supplied edge.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns resident segments for the given edge id.
 
 #### `public static Array<WpPoint> residentPoints(long segmentId)`
-- Role: Returns the resident points for the supplied segment.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns resident points for the given segment id.
 
 #### `public static ResolvedNode nearestNode()`
-- Role: Returns the nearest waypoint node.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the nearest resolved waypoint node to the player.
 
 #### `public static void refresh()`
-- Role: Refreshes waypoint manager state.
-- Description: Supports the refresh operation used by the surrounding class.
+- Role: Rebuilds the visible waypoint scene from the current player position and loaded resident data.
 
 #### `public static void requestRefresh()`
-- Role: Requests a waypoint refresh.
-- Description: Requests a waypoint refresh from the underlying runtime.
+- Role: Marks that the next refresh pass should rebuild the scene.
 
 #### `public static void processRefreshRequests()`
-- Role: Processes pending waypoint refresh requests.
-- Description: Processes pending waypoint refresh requests on the owning worker or lifecycle path.
+- Role: Resolves the active graph from the current grid, then refreshes when the scene bounds changed or a refresh was requested.
 
 #### `private static void _resolveActiveGraph(GridPosition position)`
-- Role: Resolves the active waypoint graph for the supplied position.
-- Description: Supports the resolve active graph operation used by the surrounding class.
-
-#### `private static WpNode _nearestNode(Array<WpNode> nodes, int localX, int localY)`
-- Role: Finds the nearest waypoint node from the supplied list.
-- Description: Supports the nearest node operation used by the surrounding class.
-
-#### `private static Coord _selfPosition()`
-- Role: Returns the current self position.
-- Description: Exposes the requested value without mutating state.
-
-#### `private static boolean _sameBounds(WaypointGridBounds a, WaypointGridBounds b)`
-- Role: Checks whether two waypoint grid bounds are equal.
-- Description: Returns a boolean result for the described condition.
+- Role: Loads nodes for the current grid and chooses the active graph from the nearest waypoint node.
 
 #### `private static void _syncResidentGrids(WaypointGridBounds bounds)`
-- Role: Performs  sync resident grids.
-- Description: Supports the sync resident grids operation used by the surrounding class.
+- Role: Keeps resident waypoint grids aligned with the current visible bounds.
+
+#### `private static Coord _selfPosition()`
+- Role: Reads the current local player world position.

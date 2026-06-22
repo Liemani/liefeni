@@ -1,60 +1,62 @@
 ---
-source: [OrderList.java](../../../../../src/haven/render/sl/OrderList.java)
+source: [OrderList.java](../../../../../../src/haven/render/sl/OrderList.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # OrderList
 
-Represents the order list shader-language AST node.
+Stores values together with a numeric order and iterates them in sorted order.
 
 ## Nested Types
 
 ### Element
+One ordered entry in the list.
 
-- Role: Represents element within OrderList.
-- Description: Describes the nested element type used by the enclosing class.
+#### Members
+
+##### Fields
+
+#### `final E e`
+- Role: Stores the payload element.
+- Description: Returned when iterating the ordered list.
+
+#### `final int o`
+- Role: Stores the sort order.
+- Description: Lower values are emitted first.
+
+##### Methods
+
+#### `Element(E e, int o)`
+- Role: Builds one ordered entry.
+- Description: Implements the element operation.
+
+#### `public int compareTo(Element b)`
+- Role: Compares two ordered entries.
+- Description: Sorts by the numeric order field.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `private final List<Element> bk = new ArrayList<Element>()`
-- Role: Caches bk entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the unsorted backing entries.
+- Description: Re-sorted lazily when iterated.
 
 #### `private boolean sorted`
-- Role: Tracks the sorted flag.
-- Description: Supports the sorted operation used by the surrounding class.
-
-#### `final E e`
-- Role: Holds the e state.
-- Description: Backs the cached state for this file.
-
-#### `final int o`
-- Role: Stores the o value.
-- Description: Backs the cached state for this file.
+- Role: Tracks whether the backing list is sorted.
+- Description: Set to false whenever a new element is added.
 
 ### Methods
 
-#### `Element(E e, int o)`
-- Role: Handles the element workflow.
-- Description: Supports the element operation used by the surrounding class.
-
-#### `public int compareTo(Element b)`
-- Role: Performs compare to.
-- Description: Supports the compare to operation used by the surrounding class.
-
 #### `public boolean add(E e, int o)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds an ordered entry.
+- Description: Marks the list unsorted.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Returns the number of stored entries.
+- Description: Delegates to the backing list.
 
 #### `public Iterator<E> iterator()`
-- Role: Performs iterator.
-- Description: Supports the iterator operation used by the surrounding class.
+- Role: Returns an iterator over sorted entries.
+- Description: Sorts on demand before iterating.

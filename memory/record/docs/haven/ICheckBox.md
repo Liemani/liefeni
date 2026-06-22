@@ -1,92 +1,63 @@
 ---
-source: [ICheckBox.java](../../../src/haven/ICheckBox.java)
+source: [ICheckBox.java](../../../../src/haven/ICheckBox.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # ICheckBox
 
-Represents the icheck box Haven component.
+Image-backed checkbox widget with hover and alpha hit testing.
 
 ## Nested Types
 
-### $_
-
-- Role: Represents $ within ICheckBox.
-- Description: Describes the nested $  type used by the enclosing class.
+### `$_`
+- Role: Widget factory for the `ichk` resource name.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final Tex up, down, hoverup, hoverdown`
-- Role: Stores the hoverdown value.
-- Description: Backs the cached state for this file.
-
-#### `public final Tex up, down, hoverup, hoverdown`
-- Role: Stores the hoverdown value.
-- Description: Backs the cached state for this file.
-
-#### `public final Tex up, down, hoverup, hoverdown`
-- Role: Stores the hoverdown value.
-- Description: Backs the cached state for this file.
-
-#### `public final Tex up, down, hoverup, hoverdown`
-- Role: Stores the hoverdown value.
-- Description: Backs the cached state for this file.
+- Role: Store the textures used for unchecked, checked, and hover states.
 
 #### `private final BufferedImage img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Stores the alpha mask used for hit testing when the texture has one.
 
 #### `public boolean h`
-- Role: Tracks the h flag.
-- Description: Supports the h operation used by the surrounding class.
+- Role: Tracks whether the pointer is currently hovering over the checkbox.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
+- Role: Builds an `ICheckBox` from resource references.
 
 #### `public ICheckBox(Tex up, Tex down, Tex hoverup, Tex hoverdown)`
-- Role: Creates a new ICheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a checkbox with explicit textures for each state.
 
 #### `public ICheckBox(Tex up, Tex down, Tex hover)`
-- Role: Creates a new ICheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a checkbox using one hover texture for both states.
 
 #### `public ICheckBox(Tex up, Tex down)`
-- Role: Creates a new ICheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a checkbox that reuses the normal textures for hover.
 
 #### `public ICheckBox(String base, String up, String down, String hoverup, String hoverdown)`
-- Role: Creates a new ICheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a checkbox by loading textures from resource names.
 
 #### `public ICheckBox(String base, String up, String down, String hover)`
-- Role: Creates a new ICheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a checkbox by loading textures from resource names.
 
 #### `public ICheckBox(String base, String up, String down)`
-- Role: Creates a new ICheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a checkbox by loading the normal textures only.
 
 #### `public void draw(GOut g)`
-- Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Role: Draws the current state image and then the checkbox overlay.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Tests whether a mouse position hits the visible checkbox area.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
-- Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Role: Toggles the checkbox when the left mouse button hits the widget.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Updates hover state from the current mouse position.
+

@@ -1,5 +1,5 @@
 ---
-source: [ResolvedPoint.java](../../../../../src/lmi/waypoint/runtime/ResolvedPoint.java)
+source: [ResolvedPoint.java](../../../../../../src/lmi/waypoint/runtime/ResolvedPoint.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,39 +15,39 @@ Coordinates waypoint runtime state for resolved point.
 ### Fields
 
 #### `public final long segmentId`
-- Role: Stores the segment id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the segment id value.
+- Description: Caches the `segmentId` value for reuse.
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final int step`
-- Role: Stores the step value.
-- Description: Backs the cached state for this file.
+- Role: Caches the step value.
+- Description: Caches the `step` value for reuse.
 
 #### `public final int localX`
-- Role: Stores the local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local x value.
+- Description: Caches the `localX` value for reuse.
 
 #### `public final int localY`
-- Role: Stores the local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local y value.
+- Description: Caches the `localY` value for reuse.
 
 #### `public final int mouseButton`
-- Role: Stores the mouse button value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mouse button value.
+- Description: Caches the `mouseButton` value for reuse.
 
 #### `public final Integer meshId`
-- Role: Stores the mesh id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mesh id value.
+- Description: Caches the `meshId` value for reuse.
 
 #### `public final Coord world`
-- Role: Stores the world value.
-- Description: Backs the cached state for this file.
+- Role: Caches the world value.
+- Description: Caches the `world` value for reuse.
 
 ### Methods
 
 #### `public ResolvedPoint(long segmentId, long gridId, int step, int localX, int localY,`
 - Role: Creates a new ResolvedPoint instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ResolvedPoint instance from the supplied inputs.

@@ -1,5 +1,5 @@
 ---
-source: [Composited.java](../../../src/haven/Composited.java)
+source: [Composited.java](../../../../src/haven/Composited.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -60,296 +60,299 @@ Represents the composited Haven component.
 ### Constants
 
 #### `private static final Comparator<ModOrder> cmp = new Comparator<ModOrder>()`
-- Role: Defines the shared cmp constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cmp operation.
+- Description: Implements the private static final comparator<mod order> cmp = new comparator<mod order>() operation.
+- Value: `new Comparator<ModOrder>()`
 
 #### `private static final OwnerContext.ClassResolver<Equipped> eqctxr = new OwnerContext.ClassResolver<Equipped>()`
-- Role: Defines the shared eqctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the eqctxr operation.
+- Description: Implements the private static final owner context.class resolver<equipped> eqctxr = new owner context.class resolver<equipped>() operation.
+- Value: `new OwnerContext.ClassResolver<Equipped>()`
 
 #### `public static final Pipe.Op prep = p ->`
-- Role: Defines the shared prep constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the prep value.
+- Description: Caches the `prep` value for reuse.
+- Value: `p ->`
 
 ### Fields
 
 #### `public final Skeleton skel`
-- Role: Holds the skel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skel value.
+- Description: Caches the `skel` value for reuse.
 
 #### `public final Pose pose`
-- Role: Holds the pose state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pose value.
+- Description: Caches the `pose` value for reuse.
 
 #### `public final OwnerContext eqowner`
-- Role: Stores the eqowner value.
-- Description: Backs the cached state for this file.
+- Role: Caches the eqowner value.
+- Description: Caches the `eqowner` value for reuse.
 
 #### `public Collection<Model> mod = new ArrayList<Model>()`
-- Role: Caches mod entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the mod operation.
+- Description: Implements the public collection<model> mod = new array list<model>() operation.
 
 #### `public Collection<Equipped> equ = new ArrayList<Equipped>()`
-- Role: Caches equ entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the equ operation.
+- Description: Implements the public collection<equipped> equ = new array list<equipped>() operation.
 
 #### `public Poses poses = new Poses()`
-- Role: Holds the poses state.
-- Description: Backs the cached state for this file.
+- Role: Implements the poses operation.
+- Description: Implements the poses operation.
 
 #### `public List<MD> cmod = new LinkedList<MD>()`
-- Role: Caches cmod entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cmod operation.
+- Description: Implements the public list<md> cmod = new linked list<md>() operation.
 
 #### `public List<ED> cequ = new LinkedList<ED>()`
-- Role: Caches cequ entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cequ operation.
+- Description: Implements the public list<ed> cequ = new linked list<ed>() operation.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the slots operation.
+- Description: Implements the private final collection<render tree.slot> slots = new array list<>(1) operation.
 
 #### `public final PoseMod[] mods`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mods value.
+- Description: Caches the `mods` value for reuse.
 
 #### `Pose old`
-- Role: Holds the old state.
-- Description: Backs the cached state for this file.
+- Role: Caches the old value.
+- Description: Caches the `old` value for reuse.
 
 #### `float ipold = 0.0f, ipol = 0.0f`
-- Role: Stores the ipold value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ipold value.
+- Description: Caches the `ipold` value for reuse.
 
 #### `float ipold = 0.0f, ipol = 0.0f`
-- Role: Stores the ipold value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ipold value.
+- Description: Caches the `ipold` value for reuse.
 
 #### `public float limit = -1.0f`
-- Role: Stores the limit value.
-- Description: Backs the cached state for this file.
+- Role: Caches the limit value.
+- Description: Caches the `limit` value for reuse.
 
 #### `public boolean stat, ldone`
 - Role: Tracks the ldone flag.
-- Description: Supports the ldone operation used by the surrounding class.
+- Description: Caches the `ldone` value for reuse.
 
 #### `public boolean stat, ldone`
 - Role: Tracks the ldone flag.
-- Description: Supports the ldone operation used by the surrounding class.
+- Description: Caches the `ldone` value for reuse.
 
 #### `private Random srnd = new Random()`
-- Role: Holds the srnd state.
-- Description: Backs the cached state for this file.
+- Role: Implements the srnd operation.
+- Description: Implements the random operation.
 
 #### `private float rsmod = (srnd.nextFloat() * 0.1f) + 0.95f`
-- Role: Stores the rsmod value.
-- Description: Backs the cached state for this file.
+- Role: Implements the rsmod operation.
+- Description: Implements the next float operation.
 
 #### `public final int z1, z2`
-- Role: Stores the z2 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the z2 value.
+- Description: Caches the `z2` value for reuse.
 
 #### `public final int z1, z2`
-- Role: Stores the z2 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the z2 value.
+- Description: Caches the `z2` value for reuse.
 
 #### `public final FastMesh m`
-- Role: Holds the m state.
-- Description: Backs the cached state for this file.
+- Role: Caches the m value.
+- Description: Caches the `m` value for reuse.
 
 #### `public final PoseMorph morph`
-- Role: Holds the morph state.
-- Description: Backs the cached state for this file.
+- Role: Caches the morph value.
+- Description: Caches the `morph` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the slots operation.
+- Description: Implements the private final collection<render tree.slot> slots = new array list<>(1) operation.
 
 #### `private int z = 0, lz = 0`
-- Role: Stores the z value.
-- Description: Backs the cached state for this file.
+- Role: Caches the z value.
+- Description: Caches the `z` value for reuse.
 
 #### `private int z = 0, lz = 0`
-- Role: Stores the z value.
-- Description: Backs the cached state for this file.
+- Role: Caches the z value.
+- Description: Caches the `z` value for reuse.
 
 #### `public final Material mat`
-- Role: Holds the mat state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mat value.
+- Description: Caches the `mat` value for reuse.
 
 #### `public final ModOrder order`
-- Role: Holds the order state.
-- Description: Backs the cached state for this file.
+- Role: Caches the order value.
+- Description: Caches the `order` value for reuse.
 
 #### `public final List<Layer> lay = new ArrayList<Layer>()`
-- Role: Caches lay entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the lay operation.
+- Description: Implements the public final list<layer> lay = new array list<layer>() operation.
 
 #### `public final Sprite spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 #### `private final RUtils.StateNode<Sprite> n`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `public final ED desc`
-- Role: Holds the desc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public Indir<Resource> mod`
-- Role: Stores the mod value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mod value.
+- Description: Caches the `mod` value for reuse.
 
 #### `public List<ResData> tex`
-- Role: Caches tex entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `public int id = -1`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private Model real`
-- Role: Holds the real state.
-- Description: Backs the cached state for this file.
+- Role: Caches the real value.
+- Description: Caches the `real` value for reuse.
 
 #### `public int t, id = -1`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public int t, id = -1`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public String at`
-- Role: Stores the at value.
-- Description: Backs the cached state for this file.
+- Role: Caches the at value.
+- Description: Caches the `at` value for reuse.
 
 #### `public ResData res`
-- Role: Holds the res state.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public Coord3f off`
-- Role: Stores the off value.
-- Description: Backs the cached state for this file.
+- Role: Caches the off value.
+- Description: Caches the `off` value for reuse.
 
 #### `private Equipped real`
-- Role: Stores the real value.
-- Description: Backs the cached state for this file.
+- Role: Caches the real value.
+- Description: Caches the `real` value for reuse.
 
 #### `public Indir<Resource> base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `public List<MD> mod = new ArrayList<>()`
-- Role: Caches mod entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the mod operation.
+- Description: Implements the public list<md> mod = new array list<>() operation.
 
 #### `public List<ED> equ = new ArrayList<>()`
-- Role: Caches equ entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the equ operation.
+- Description: Implements the public list<ed> equ = new array list<>() operation.
 
 #### `private final Material.Owner matowner = new Material.Owner()`
-- Role: Holds the matowner state.
-- Description: Backs the cached state for this file.
+- Role: Implements the matowner operation.
+- Description: Implements the owner operation.
 
 #### `public final Gob.GobClick gi`
-- Role: Stores the gi value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gi value.
+- Description: Caches the `gi` value for reuse.
 
 ### Methods
 
 #### `public Poses()`
-- Role: Performs poses.
-- Description: Supports the poses operation used by the surrounding class.
+- Role: Handles the poses path.
+- Description: Implements the poses operation.
 
 #### `public Poses(List<? extends PoseMod> mods)`
-- Role: Performs poses.
-- Description: Supports the poses operation used by the surrounding class.
+- Role: Handles the poses path.
+- Description: Implements the poses operation.
 
 #### `private void rebuild()`
-- Role: Performs rebuild.
-- Description: Supports the rebuild operation used by the surrounding class.
+- Role: Handles the rebuild path.
+- Description: Implements the rebuild operation.
 
 #### `public void set(float ipol)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void tick(float dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `protected void done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public Composited(Skeleton skel, OwnerContext eqowner)`
 - Role: Creates a new Composited instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Composited instance from the supplied inputs.
 
 #### `public Composited(Skeleton skel)`
 - Role: Creates a new Composited instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Composited instance from the supplied inputs.
 
 #### `public ModOrder(int z1, int z2)`
-- Role: Performs mod order.
-- Description: Supports the mod order operation used by the surrounding class.
+- Role: Handles the mod order path.
+- Description: Implements the mod order operation.
 
 #### `public int mainorder()`
-- Role: Performs mainorder.
-- Description: Supports the mainorder operation used by the surrounding class.
+- Role: Handles the mainorder path.
+- Description: Implements the mainorder operation.
 
 #### `public Comparator<ModOrder> comparator()`
-- Role: Performs comparator.
-- Description: Supports the comparator operation used by the surrounding class.
+- Role: Handles the comparator path.
+- Description: Implements the comparator operation.
 
 #### `private Layer(Material mat, int z1, int z2)`
-- Role: Performs layer.
-- Description: Supports the layer operation used by the surrounding class.
+- Role: Handles the layer path.
+- Description: Implements the layer operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `private Model(FastMesh m, int id)`
-- Role: Performs model.
-- Description: Supports the model operation used by the surrounding class.
+- Role: Handles the model path.
+- Description: Implements the model operation.
 
 #### `private void addlay(Material mat)`
-- Role: Performs addlay.
-- Description: Supports the addlay operation used by the surrounding class.
+- Role: Handles the addlay path.
+- Description: Adds the lay.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public TickList.Ticking ticker()`
-- Role: Performs ticker.
-- Description: Supports the ticker operation used by the surrounding class.
+- Role: Handles the ticker path.
+- Description: Advances the er state.
 
 #### `public void autotick(double dt)`
-- Role: Performs autotick.
-- Description: Supports the autotick operation used by the surrounding class.
+- Role: Handles the autotick path.
+- Description: Implements the autotick operation.
 
 #### `private Equipped(ED ed)`
-- Role: Performs equipped.
-- Description: Supports the equipped operation used by the surrounding class.
+- Role: Handles the equipped path.
+- Description: Implements the equipped operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
@@ -357,128 +360,128 @@ Represents the composited Haven component.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
 - Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public Composited comp()`
-- Role: Performs comp.
-- Description: Supports the comp operation used by the surrounding class.
+- Role: Handles the comp path.
+- Description: Implements the comp operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Composited for debugging and logging.
 
 #### `public MD(Indir<Resource> mod, List<ResData> tex)`
-- Role: Performs md.
-- Description: Supports the md operation used by the surrounding class.
+- Role: Handles the md path.
+- Description: Implements the md operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public MD clone()`
-- Role: Performs clone.
-- Description: Supports the clone operation used by the surrounding class.
+- Role: Handles the clone path.
+- Description: Implements the clone operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Composited for debugging and logging.
 
 #### `public ED(int t, String at, ResData res, Coord3f off)`
-- Role: Performs ed.
-- Description: Supports the ed operation used by the surrounding class.
+- Role: Handles the ed path.
+- Description: Implements the ed operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals2(Object o)`
-- Role: Performs equals2.
-- Description: Supports the equals2 operation used by the surrounding class.
+- Role: Handles the equals2 path.
+- Description: Implements the equals2 operation.
 
 #### `public ED clone()`
-- Role: Performs clone.
-- Description: Supports the clone operation used by the surrounding class.
+- Role: Handles the clone path.
+- Description: Implements the clone operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Composited for debugging and logging.
 
 #### `public Desc()`
-- Role: Performs desc.
-- Description: Supports the desc operation used by the surrounding class.
+- Role: Handles the desc path.
+- Description: Implements the desc operation.
 
 #### `public Desc(Indir<Resource> base)`
-- Role: Performs desc.
-- Description: Supports the desc operation used by the surrounding class.
+- Role: Handles the desc path.
+- Description: Implements the desc operation.
 
 #### `public static Desc decode(Resource.Resolver sess, Object[] args)`
-- Role: Performs decode.
-- Description: Supports the decode operation used by the surrounding class.
+- Role: Handles the decode path.
+- Description: Implements the decode operation.
 
 #### `public Desc clone()`
-- Role: Performs clone.
-- Description: Supports the clone operation used by the surrounding class.
+- Role: Handles the clone path.
+- Description: Implements the clone operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Composited for debugging and logging.
 
 #### `private Collection<Model> nmod(Collection<MD> nmod)`
-- Role: Performs nmod.
-- Description: Supports the nmod operation used by the surrounding class.
+- Role: Handles the nmod path.
+- Description: Implements the nmod operation.
 
 #### `private Collection<Equipped> nequ(List<ED> nequ)`
-- Role: Performs nequ.
-- Description: Supports the nequ operation used by the surrounding class.
+- Role: Handles the nequ path.
+- Description: Implements the nequ operation.
 
 #### `public CompositeClick(Gob.GobClick gi)`
-- Role: Performs composite click.
-- Description: Supports the composite click operation used by the surrounding class.
+- Role: Handles the composite click path.
+- Description: Implements the composite click operation.
 
 #### `public Object[] clickargs(ClickData cd)`
-- Role: Performs clickargs.
-- Description: Supports the clickargs operation used by the surrounding class.
+- Role: Handles the clickargs path.
+- Description: Handles args interaction.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Composited for debugging and logging.
 
 #### `private void parts(RenderTree.Slot slot)`
-- Role: Performs parts.
-- Description: Supports the parts operation used by the surrounding class.
+- Role: Handles the parts path.
+- Description: Implements the parts operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public Supplier<Pipe.Op> eqpoint(String nm, Message dat)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Handles the eqpoint path.
+- Description: Implements the eqpoint operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Composited content.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
 - Description: Updates per-frame drawable state during the render loop.
 
 #### `public void chmod(List<MD> mod)`
-- Role: Performs chmod.
-- Description: Supports the chmod operation used by the surrounding class.
+- Role: Handles the chmod path.
+- Description: Implements the chmod operation.
 
 #### `public void chequ(List<ED> equ)`
-- Role: Performs chequ.
-- Description: Supports the chequ operation used by the surrounding class.
+- Role: Handles the chequ path.
+- Description: Implements the chequ operation.

@@ -1,5 +1,5 @@
 ---
-source: [VboState.java](../../../../../src/haven/render/gl/VboState.java)
+source: [VboState.java](../../../../../../src/haven/render/gl/VboState.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,43 +15,43 @@ Provides GL backend support for vbo state.
 ### Fields
 
 #### `public final GLBuffer buf`
-- Role: Stores the buf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the buf value.
+- Description: Caches the `buf` value for reuse.
 
 #### `public static int slot = slotidx(VboState.class)`
-- Role: Stores the slot value.
-- Description: Backs the cached state for this file.
+- Role: Implements the slot operation.
+- Description: Implements the slotidx operation.
 
 ### Methods
 
 #### `public VboState(GLBuffer buf)`
 - Role: Creates a new VboState instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the VboState instance from the supplied inputs.
 
 #### `public void apply(BGL gl)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public void unapply(BGL gl)`
-- Role: Performs unapply.
-- Description: Supports the unapply operation used by the surrounding class.
+- Role: Handles the unapply path.
+- Description: Implements the unapply operation.
 
 #### `public void applyto(BGL gl, GLState to)`
-- Role: Performs applyto.
-- Description: Supports the applyto operation used by the surrounding class.
+- Role: Handles the applyto path.
+- Description: Implements the applyto operation.
 
 #### `public static void apply(BGL gl, Applier st, GLBuffer buf)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public static void set(Applier st, GLBuffer buf)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public static GLBuffer get(Applier st)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public int slotidx()`
-- Role: Performs slotidx.
-- Description: Supports the slotidx operation used by the surrounding class.
+- Role: Handles the slotidx path.
+- Description: Implements the slotidx operation.

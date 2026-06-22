@@ -1,5 +1,5 @@
 ---
-source: [ManagedWpNode.java](../../../../../src/lmi/waypoint/managed/ManagedWpNode.java)
+source: [ManagedWpNode.java](../../../../../../src/lmi/waypoint/managed/ManagedWpNode.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,75 +15,75 @@ Represents a managed waypoint node.
 ### Fields
 
 #### `private long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `private long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `private int localX`
-- Role: Stores the local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local x value.
+- Description: Caches the `localX` value for reuse.
 
 #### `private int localY`
-- Role: Stores the local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local y value.
+- Description: Caches the `localY` value for reuse.
 
 #### `private String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 ### Methods
 
 #### `public ManagedWpNode(`
 - Role: Creates a new ManagedWpNode instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ManagedWpNode instance from the supplied inputs.
 
 #### `public static ManagedWpNode fromWpNode(ManagedObjectContext context, WpNode node)`
-- Role: Performs from wp node.
-- Description: Supports the from wp node operation used by the surrounding class.
+- Role: Handles the from wp node path.
+- Description: Implements the from wp node operation.
 
 #### `public long graphId()`
-- Role: Performs graph id.
-- Description: Supports the graph id operation used by the surrounding class.
+- Role: Handles the graph id path.
+- Description: Implements the graph id operation.
 
 #### `public long gridId()`
-- Role: Performs grid id.
-- Description: Supports the grid id operation used by the surrounding class.
+- Role: Handles the grid id path.
+- Description: Implements the grid id operation.
 
 #### `public int localX()`
-- Role: Performs local x.
-- Description: Supports the local x operation used by the surrounding class.
+- Role: Handles the local x path.
+- Description: Implements the local x operation.
 
 #### `public int localY()`
-- Role: Performs local y.
-- Description: Supports the local y operation used by the surrounding class.
+- Role: Handles the local y path.
+- Description: Implements the local y operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public void setGraphId(long graphId)`
 - Role: Sets the graph id.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public void setGridId(long gridId)`
 - Role: Sets the grid id.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public void setLocalX(int localX)`
 - Role: Sets the local x.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public void setLocalY(int localY)`
 - Role: Sets the local y.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public void setName(String name)`
 - Role: Sets the name.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public WpNodeSnapshot snapshot()`
-- Role: Performs snapshot.
-- Description: Supports the snapshot operation used by the surrounding class.
+- Role: Handles the snapshot path.
+- Description: Implements the snapshot operation.

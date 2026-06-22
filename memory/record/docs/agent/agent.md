@@ -1,5 +1,5 @@
 ---
-source: [agent.java](../../../src/agent/agent.java)
+source: [agent.java](../../../../src/agent/agent.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,13 +17,13 @@ Defines metadata for the agent agent package.
 ### Methods
 
 #### `public static String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public static String icon()`
-- Role: Performs icon.
-- Description: Supports the icon operation used by the surrounding class.
+- Role: Handles the icon path.
+- Description: Implements the icon operation.

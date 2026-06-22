@@ -1,5 +1,5 @@
 ---
-source: [SListWidget.java](../../../src/haven/SListWidget.java)
+source: [SListWidget.java](../../../../src/haven/SListWidget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -42,179 +42,179 @@ Represents the slist widget Haven component.
 ### Fields
 
 #### `public I sel`
-- Role: Holds the sel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sel value.
+- Description: Caches the `sel` value for reuse.
 
 #### `public final SListWidget<I, ?> list`
-- Role: Stores the list value.
-- Description: Backs the cached state for this file.
+- Role: Caches the list value.
+- Description: Caches the `list` value for reuse.
 
 #### `public final I item`
-- Role: Holds the item state.
-- Description: Backs the cached state for this file.
+- Role: Caches the item value.
+- Description: Caches the `item` value for reuse.
 
 #### `private Text.Slug text = null`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `private Tex img = null`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `private Text.Slug text = null`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 ### Methods
 
 #### `public SListWidget(Coord sz)`
 - Role: Creates a new SListWidget instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SListWidget instance from the supplied inputs.
 
 #### `protected abstract List<? extends I> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected abstract W makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public W makeitem(I item, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public void change(I item)`
-- Role: Performs change.
-- Description: Supports the change operation used by the surrounding class.
+- Role: Handles the change path.
+- Description: Implements the change operation.
 
 #### `public ItemWidget(SListWidget<I, ?> list, Coord sz, I item)`
-- Role: Performs item widget.
-- Description: Supports the item widget operation used by the surrounding class.
+- Role: Handles the item widget path.
+- Description: Implements the item widget operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public TextItem(Coord sz)`
-- Role: Performs text item.
-- Description: Supports the text item operation used by the surrounding class.
+- Role: Handles the text item path.
+- Description: Implements the text item operation.
 
 #### `public TextItem(int w)`
-- Role: Performs text item.
-- Description: Supports the text item operation used by the surrounding class.
+- Role: Handles the text item path.
+- Description: Implements the text item operation.
 
 #### `protected abstract String text()`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `protected int margin()`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `protected Text.Forge foundry()`
-- Role: Performs foundry.
-- Description: Supports the foundry operation used by the surrounding class.
+- Role: Handles the foundry path.
+- Description: Implements the foundry operation.
 
 #### `protected boolean valid(String text)`
-- Role: Performs valid.
-- Description: Supports the valid operation used by the surrounding class.
+- Role: Handles the valid path.
+- Description: Implements the valid operation.
 
 #### `protected void drawtext(GOut g)`
-- Role: Performs drawtext.
-- Description: Supports the drawtext operation used by the surrounding class.
+- Role: Handles the drawtext path.
+- Description: Draws the text.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SListWidget content.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void invalidate()`
-- Role: Performs invalidate.
-- Description: Supports the invalidate operation used by the surrounding class.
+- Role: Handles the invalidate path.
+- Description: Implements the invalidate operation.
 
 #### `public static TextItem of(Coord sz, Text.Forge fnd, Supplier<String> text)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListWidget value from the supplied components.
+- Description: Builds a SListWidget value from the supplied components.
 
 #### `public static TextItem of(Coord sz, Supplier<String> text)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListWidget value from the supplied components.
+- Description: Builds a SListWidget value from the supplied components.
 
 #### `public IconText(Coord sz)`
-- Role: Performs icon text.
-- Description: Supports the icon text operation used by the surrounding class.
+- Role: Handles the icon text path.
+- Description: Implements the icon text operation.
 
 #### `public IconText(int w)`
-- Role: Performs icon text.
-- Description: Supports the icon text operation used by the surrounding class.
+- Role: Handles the icon text path.
+- Description: Implements the icon text operation.
 
 #### `protected abstract BufferedImage img()`
-- Role: Performs img.
-- Description: Supports the img operation used by the surrounding class.
+- Role: Handles the img path.
+- Description: Implements the img operation.
 
 #### `protected abstract String text()`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `protected int margin()`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `protected Text.Forge foundry()`
-- Role: Performs foundry.
-- Description: Supports the foundry operation used by the surrounding class.
+- Role: Handles the foundry path.
+- Description: Implements the foundry operation.
 
 #### `protected boolean valid(String text)`
-- Role: Performs valid.
-- Description: Supports the valid operation used by the surrounding class.
+- Role: Handles the valid path.
+- Description: Implements the valid operation.
 
 #### `protected PUtils.Convolution filter()`
-- Role: Performs filter.
-- Description: Supports the filter operation used by the surrounding class.
+- Role: Handles the filter path.
+- Description: Implements the filter operation.
 
 #### `protected void drawicon(GOut g)`
-- Role: Performs drawicon.
-- Description: Supports the drawicon operation used by the surrounding class.
+- Role: Handles the drawicon path.
+- Description: Draws the icon.
 
 #### `protected void drawtext(GOut g)`
-- Role: Performs drawtext.
-- Description: Supports the drawtext operation used by the surrounding class.
+- Role: Handles the drawtext path.
+- Description: Draws the text.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SListWidget content.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void invalidate()`
-- Role: Performs invalidate.
-- Description: Supports the invalidate operation used by the surrounding class.
+- Role: Handles the invalidate path.
+- Description: Implements the invalidate operation.
 
 #### `public FromRes(Coord sz, Indir<Resource> res)`
-- Role: Performs from res.
-- Description: Supports the from res operation used by the surrounding class.
+- Role: Handles the from resource path.
+- Description: Implements the from res operation.
 
 #### `public BufferedImage img()`
-- Role: Performs img.
-- Description: Supports the img operation used by the surrounding class.
+- Role: Handles the img path.
+- Description: Implements the img operation.
 
 #### `public String text()`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public static IconText of(Coord sz, Indir<Resource> res)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListWidget value from the supplied components.
+- Description: Builds a SListWidget value from the supplied components.
 
 #### `public static IconText of(Coord sz, Supplier<BufferedImage> img, Supplier<String> text)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a SListWidget value from the supplied components.
+- Description: Builds a SListWidget value from the supplied components.

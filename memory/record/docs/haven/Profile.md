@@ -1,5 +1,5 @@
 ---
-source: [Profile.java](../../../src/haven/Profile.java)
+source: [Profile.java](../../../../src/haven/Profile.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,89 +12,90 @@ Represents the profile Haven component.
 
 ### Part
 
-- Role: Represents part within Profile.
-- Description: Describes the nested part type used by the enclosing class.
+- Role: Represents one node in the profile tree.
+- Description: Stores a named timing span, child parts, and frame ordering for reporting.
 
 ## Members
 
 ### Constants
 
 #### `private static final String[] units =`
-- Role: Defines the shared profile constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Lists the profiling time units.
+- Description: Used to print durations in seconds down to nanoseconds.
+- Value: ``
 
 ### Fields
 
 #### `public final Part[] hist`
-- Role: Holds the hist state.
-- Description: Backs the cached state for this file.
+- Role: Stores the profiling ring buffer.
+- Description: Holds the last recorded frames for summary output.
 
 #### `protected int i = 0`
-- Role: Stores the i value.
-- Description: Backs the cached state for this file.
+- Role: Tracks the next write position.
+- Description: Advances as new profile frames are recorded.
 
 #### `public final Object nm`
-- Role: Holds the nm state.
-- Description: Backs the cached state for this file.
+- Role: Stores the part name.
+- Description: Used as the label in profile dumps.
 
 #### `private List<Part> ch = null`
-- Role: Caches ch entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores nested sub-parts.
+- Description: Child profile parts are dumped beneath their parent part.
 
 ### Methods
 
 #### `public Part(Object nm)`
-- Role: Performs part.
-- Description: Supports the part operation used by the surrounding class.
+- Role: Creates one profiling part.
+- Description: Stores the label for one timed span.
 
 #### `public abstract double f()`
-- Role: Performs f.
-- Description: Supports the f operation used by the surrounding class.
+- Role: Returns the start timestamp.
+- Description: Implemented by subclasses to report when the measurement began.
 
 #### `public abstract double t()`
-- Role: Performs t.
-- Description: Supports the t operation used by the surrounding class.
+- Role: Returns the end timestamp.
+- Description: Implemented by subclasses to report when the measurement ended.
 
 #### `public double d()`
-- Role: Performs d.
-- Description: Supports the d operation used by the surrounding class.
+- Role: Returns the measured duration.
+- Description: Computes `t() - f()` for the current part.
 
 #### `public void add(Part sub)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds a child part.
+- Description: Appends a nested part to the current profile tree.
 
 #### `public List<Part> sub()`
-- Role: Performs sub.
-- Description: Supports the sub operation used by the surrounding class.
+- Role: Returns the child parts.
+- Description: Exposes the nested profile parts, or an empty list when none exist.
 
 #### `private void dump(PrintStream out, int indent)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Dumps one part with indentation.
+- Description: Prints this span and its children sorted by duration.
 
 #### `public void dump(PrintStream out)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Dumps the full profile tree.
+- Description: Prints the current frame summary starting from this part.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the current frame summary.
+- Description: Returns a compact one-line view of the nested parts.
 
 #### `public void add(Part frame)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Records one profiling frame.
+- Description: Writes the frame into the ring buffer and advances the cursor.
 
 #### `public Profile(int hl)`
-- Role: Creates a new Profile instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a profile ring buffer.
+- Description: Allocates space for the requested number of frames.
 
 #### `public Part last()`
-- Role: Performs last.
-- Description: Supports the last operation used by the surrounding class.
+- Role: Returns the most recent frame.
+- Description: Reads the last entry written into the ring buffer.
 
 #### `public Profile copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Copies the profile history.
+- Description: Duplicates the ring buffer contents and write cursor.
 
 #### `public void dump(PrintStream out)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Dumps aggregate timing statistics.
+- Description: Prints average, deviation, min, and max across the captured history.

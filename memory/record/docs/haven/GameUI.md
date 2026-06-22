@@ -1,5 +1,5 @@
 ---
-source: [GameUI.java](../../../src/haven/GameUI.java)
+source: [GameUI.java](../../../../src/haven/GameUI.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,572 +12,597 @@ Owns the main in-game UI state.
 
 ### $_
 
-- Role: Represents $ within GameUI.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the game UI widget resource.
+- Description: Factory that creates the main in-game UI root.
 
 ### Anim
 
-- Role: Represents anim within GameUI.
-- Description: Describes the nested anim type used by the enclosing class.
+- Role: Animates a UI transition.
+- Description: Window transition animation used by the game UI.
 
 ### Belt
 
-- Role: Represents belt within GameUI.
-- Description: Describes the nested belt type used by the enclosing class.
+- Role: Hosts one action belt.
+- Description: Base widget for belt-style action rows.
 
 ### BeltSlot
 
-- Role: Represents belt slot within GameUI.
-- Description: Describes the nested belt slot type used by the enclosing class.
+- Role: Represents one belt slot.
+- Description: Slot widget used by the action belt.
 
 ### CornerMap
 
-- Role: Represents corner map within GameUI.
-- Description: Describes the nested corner map type used by the enclosing class.
+- Role: Renders the corner minimap.
+- Description: MiniMap variant anchored to the game UI corner.
 
 ### DraggedItem
 
-- Role: Represents dragged item within GameUI.
-- Description: Describes the nested dragged item type used by the enclosing class.
+- Role: Tracks a dragged inventory item.
+- Description: Internal record for the item currently being dragged by the player.
 
 ### FKeyBelt
 
-- Role: Represents fkey belt within GameUI.
-- Description: Describes the nested fkey belt type used by the enclosing class.
+- Role: Hosts the function-key belt.
+- Description: Belt widget for function-key mapped actions.
 
 ### GobTrans
 
-- Role: Represents gob trans within GameUI.
-- Description: Describes the nested gob trans type used by the enclosing class.
+- Role: Animates gob transitions.
+- Description: Window transition used when gob-related UI content changes.
 
 ### Hidepanel
 
-- Role: Represents hidepanel within GameUI.
-- Description: Describes the nested hidepanel type used by the enclosing class.
+- Role: Hides a panel in the game UI.
+- Description: Hidepanel container used to show or hide a game UI region.
 
 ### Hidewnd
 
-- Role: Represents hidewnd within GameUI.
-- Description: Describes the nested hidewnd type used by the enclosing class.
+- Role: Hides a window in the game UI.
+- Description: Window wrapper used for collapsible UI subwindows.
 
 ### LogMessage
 
-- Role: Represents log message within GameUI.
-- Description: Describes the nested log message type used by the enclosing class.
+- Role: Represents one game log message.
+- Description: Message record shown in the in-game text log.
 
 ### MainMenu
 
-- Role: Represents main menu within GameUI.
-- Description: Describes the nested main menu type used by the enclosing class.
+- Role: Hosts the main action menu.
+- Description: Primary in-game menu widget.
 
 ### MapMenu
 
-- Role: Represents map menu within GameUI.
-- Description: Describes the nested map menu type used by the enclosing class.
+- Role: Hosts the map action menu.
+- Description: Secondary menu widget for map-related actions.
 
 ### MenuButton
 
-- Role: Represents menu button within GameUI.
-- Description: Describes the nested menu button type used by the enclosing class.
+- Role: Renders one menu button.
+- Description: Button used in the game UI menus.
 
 ### MenuCheckBox
 
-- Role: Represents menu check box within GameUI.
-- Description: Describes the nested menu check box type used by the enclosing class.
+- Role: Renders one menu checkbox.
+- Description: Checkbox used in the game UI menus.
 
 ### NKeyBelt
 
-- Role: Represents nkey belt within GameUI.
-- Description: Describes the nested nkey belt type used by the enclosing class.
+- Role: Hosts the numbered-key belt.
+- Description: Belt widget for number-key mapped actions.
 
 ### PagBeltSlot
 
-- Role: Represents pag belt slot within GameUI.
-- Description: Describes the nested pag belt slot type used by the enclosing class.
+- Role: Represents a pagina belt slot.
+- Description: Belt slot widget that stores a pagina-bound action.
 
 ### Progress
 
-- Role: Represents progress within GameUI.
-- Description: Describes the nested progress type used by the enclosing class.
+- Role: Shows a game UI progress bar.
+- Description: Progress widget embedded in the game UI.
 
 ### ResBeltSlot
 
-- Role: Represents res belt slot within GameUI.
-- Description: Describes the nested res belt slot type used by the enclosing class.
+- Role: Represents a resource belt slot.
+- Description: Belt slot widget that stores a resource-bound action.
 
 ### TButton
 
-- Role: Represents tbutton within GameUI.
-- Description: Describes the nested tbutton type used by the enclosing class.
+- Role: Renders a toggle button.
+- Description: Toggle button used by GameUI panels.
 
 ### Zergwnd
 
-- Role: Represents zergwnd within GameUI.
-- Description: Describes the nested zergwnd type used by the enclosing class.
+- Role: Hosts the zerg window.
+- Description: Hidden game UI window used for the zerg-style panel group.
 
 ## Members
 
 ### Constants
 
 #### `private static final int blpw = UI.scale(142), brpw = UI.scale(142)`
-- Role: Defines the shared blpw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the blpw constant.
+- Description: Width reserved for the left and right belt panels.
+- Value: `UI.scale(142), brpw = UI.scale(142)`
 
 #### `private static final int blpw = UI.scale(142), brpw = UI.scale(142)`
-- Role: Defines the shared blpw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the blpw constant.
+- Description: Width reserved for the left and right belt panels.
+- Value: `UI.scale(142), brpw = UI.scale(142)`
 
 #### `private static final OwnerContext.ClassResolver<ResBeltSlot> beltctxr = new OwnerContext.ClassResolver<ResBeltSlot>()`
-- Role: Defines the shared beltctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the beltctxr constant.
+- Description: Owner-context resolver for resource belt slots.
+- Value: `new OwnerContext.ClassResolver<ResBeltSlot>()`
 
 #### `public static final KeyBinding kb_srch = KeyBinding.get("scm-srch", KeyMatch.forchar('Z', KeyMatch.C))`
-- Role: Defines the shared kb srch constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb srch constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("scm-srch", KeyMatch.forchar('Z', KeyMatch.C))`
 
 #### `public static final double time = 0.1`
-- Role: Defines the shared time constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the time constant.
+- Description: Animation step duration used by game UI transitions.
+- Value: `0.1`
 
 #### `private static final Resource.Anim progt = Resource.local().loadwait("gfx/hud/prog").layer(Resource.animc)`
-- Role: Defines the shared progt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the progt constant.
+- Description: Animation resource that drives the progress widget.
+- Value: `Resource.local().loadwait("gfx/hud/prog").layer(Resource.animc)`
 
 #### `private static final int fitmarg = UI.scale(100)`
-- Role: Defines the shared fitmarg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the fitmarg constant.
+- Description: Margin used when fitting windows into the visible game UI.
+- Value: `UI.scale(100)`
 
 #### `public static final KeyBinding kb_inv = KeyBinding.get("inv", KeyMatch.forcode(KeyEvent.VK_TAB, 0))`
-- Role: Defines the shared kb inv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb inv constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("inv", KeyMatch.forcode(KeyEvent.VK_TAB, 0))`
 
 #### `public static final KeyBinding kb_equ = KeyBinding.get("equ", KeyMatch.forchar('E', KeyMatch.C))`
-- Role: Defines the shared kb equ constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb equ constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("equ", KeyMatch.forchar('E', KeyMatch.C))`
 
 #### `public static final KeyBinding kb_chr = KeyBinding.get("chr", KeyMatch.forchar('T', KeyMatch.C))`
-- Role: Defines the shared kb chr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb chr constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("chr", KeyMatch.forchar('T', KeyMatch.C))`
 
 #### `public static final KeyBinding kb_bud = KeyBinding.get("bud", KeyMatch.forchar('B', KeyMatch.C))`
-- Role: Defines the shared kb bud constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb bud constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("bud", KeyMatch.forchar('B', KeyMatch.C))`
 
 #### `public static final KeyBinding kb_opt = KeyBinding.get("opt", KeyMatch.forchar('O', KeyMatch.C))`
-- Role: Defines the shared kb opt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb opt constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("opt", KeyMatch.forchar('O', KeyMatch.C))`
 
 #### `private static final Tex menubg = Resource.loadtex("gfx/hud/rbtn-bg")`
-- Role: Defines the shared menubg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the menubg constant.
+- Description: Texture used by the UI component background or chrome.
+- Value: `Resource.loadtex("gfx/hud/rbtn-bg")`
 
 #### `public static final KeyBinding kb_map = KeyBinding.get("map", KeyMatch.forchar('A', KeyMatch.C))`
-- Role: Defines the shared kb map constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb map constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("map", KeyMatch.forchar('A', KeyMatch.C))`
 
 #### `public static final KeyBinding kb_claim = KeyBinding.get("ol-claim", KeyMatch.nil)`
-- Role: Defines the shared kb claim constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb claim constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("ol-claim", KeyMatch.nil)`
 
 #### `public static final KeyBinding kb_vil = KeyBinding.get("ol-vil", KeyMatch.nil)`
-- Role: Defines the shared kb vil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb vil constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("ol-vil", KeyMatch.nil)`
 
 #### `public static final KeyBinding kb_rlm = KeyBinding.get("ol-rlm", KeyMatch.nil)`
-- Role: Defines the shared kb rlm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb rlm constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("ol-rlm", KeyMatch.nil)`
 
 #### `public static final KeyBinding kb_ico = KeyBinding.get("map-icons", KeyMatch.nil)`
-- Role: Defines the shared kb ico constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb ico constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("map-icons", KeyMatch.nil)`
 
 #### `private static final Tex mapmenubg = Resource.loadtex("gfx/hud/lbtn-bg")`
-- Role: Defines the shared mapmenubg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the mapmenubg constant.
+- Description: Texture used by the UI component background or chrome.
+- Value: `Resource.loadtex("gfx/hud/lbtn-bg")`
 
 #### `public static final KeyBinding kb_shoot = KeyBinding.get("screenshot", KeyMatch.forchar('S', KeyMatch.M))`
-- Role: Defines the shared kb shoot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb shoot constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("screenshot", KeyMatch.forchar('S', KeyMatch.M))`
 
 #### `public static final KeyBinding kb_chat = KeyBinding.get("chat-toggle", KeyMatch.forchar('C', KeyMatch.C))`
-- Role: Defines the shared kb chat constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb chat constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("chat-toggle", KeyMatch.forchar('C', KeyMatch.C))`
 
 #### `public static final KeyBinding kb_hide = KeyBinding.get("ui-toggle", KeyMatch.nil)`
-- Role: Defines the shared kb hide constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb hide constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("ui-toggle", KeyMatch.nil)`
 
 #### `public static final KeyBinding kb_logout = KeyBinding.get("logout", KeyMatch.nil)`
-- Role: Defines the shared kb logout constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb logout constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("logout", KeyMatch.nil)`
 
 #### `public static final KeyBinding kb_switchchr = KeyBinding.get("logout-cs", KeyMatch.nil)`
-- Role: Defines the shared kb switchchr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the kb switchchr constant.
+- Description: Keyboard shortcut binding used by the client UI.
+- Value: `KeyBinding.get("logout-cs", KeyMatch.nil)`
 
 #### `private static final Tex nkeybg = Resource.loadtex("gfx/hud/hb-main")`
-- Role: Defines the shared nkeybg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the nkeybg constant.
+- Description: Texture used by the UI component background or chrome.
+- Value: `Resource.loadtex("gfx/hud/hb-main")`
 
 ### Fields
 
 #### `public final String chrid, genus`
-- Role: Stores the genus value.
-- Description: Backs the cached state for this file.
+- Role: Caches the genus value.
+- Description: Caches the `genus` value for reuse.
 
 #### `public final String chrid, genus`
-- Role: Stores the genus value.
-- Description: Backs the cached state for this file.
+- Role: Caches the genus value.
+- Description: Caches the `genus` value for reuse.
 
 #### `public final long plid`
-- Role: Stores the plid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the plid value.
+- Description: Caches the `plid` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `private final Hidepanel ulpanel, umpanel, urpanel, blpanel, mapmenupanel, brpanel, menupanel`
-- Role: Holds the menupanel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the menupanel value.
+- Description: Caches the `menupanel` value for reuse.
 
 #### `public Widget portrait`
-- Role: Stores the portrait value.
-- Description: Backs the cached state for this file.
+- Role: Caches the portrait value.
+- Description: Caches the `portrait` value for reuse.
 
 #### `public MenuGrid menu`
-- Role: Stores the menu value.
-- Description: Backs the cached state for this file.
+- Role: Caches the menu value.
+- Description: Caches the `menu` value for reuse.
 
 #### `public MapView map`
-- Role: Stores the map value.
-- Description: Backs the cached state for this file.
+- Role: Caches the map value.
+- Description: Caches the `map` value for reuse.
 
 #### `public GobIcon.Settings iconconf`
-- Role: Stores the iconconf value.
-- Description: Backs the cached state for this file.
+- Role: Holds the gob icon settings used to choose minimap markers.
+- Description: Holds the gob icon settings used to choose minimap markers.
 
 #### `public MiniMap mmap`
-- Role: Caches mmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Minimap widget attached to the game UI.
+- Description: Minimap widget attached to the game UI.
 
 #### `public Fightview fv`
-- Role: Holds the fv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fv value.
+- Description: Caches the `fv` value for reuse.
 
 #### `private List<Widget> meters = new LinkedList<Widget>()`
-- Role: Caches meters entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Meter widgets currently attached to the game UI.
+- Description: Meter widgets currently attached to the game UI.
 
 #### `private Text lastmsg`
-- Role: Stores the lastmsg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last msg.
+- Description: Caches the last msg value.
 
 #### `private double msgtime`
-- Role: Stores the msgtime value.
-- Description: Backs the cached state for this file.
+- Role: Caches the msgtime value.
+- Description: Caches the `msgtime` value for reuse.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-- Role: Holds the iconwnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the iconwnd value.
+- Description: Caches the `iconwnd` value for reuse.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-- Role: Holds the iconwnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the iconwnd value.
+- Description: Caches the `iconwnd` value for reuse.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-- Role: Holds the iconwnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the iconwnd value.
+- Description: Caches the `iconwnd` value for reuse.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-- Role: Holds the iconwnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the iconwnd value.
+- Description: Caches the `iconwnd` value for reuse.
 
 #### `private Window invwnd, equwnd, makewnd, srchwnd, iconwnd`
-- Role: Holds the iconwnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the iconwnd value.
+- Description: Caches the `iconwnd` value for reuse.
 
 #### `private Coord makewndc = Utils.getprefc("makewndc", new Coord(400, 200))`
-- Role: Stores the makewndc value.
-- Description: Backs the cached state for this file.
+- Role: Implements the makewndc operation.
+- Description: Implements the coord operation.
 
 #### `public Inventory maininv`
-- Role: Holds the maininv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the maininv value.
+- Description: Caches the `maininv` value for reuse.
 
 #### `public CharWnd chrwdg`
-- Role: Stores the chrwdg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the chrwdg value.
+- Description: Caches the `chrwdg` value for reuse.
 
 #### `public MapWnd mapfile`
-- Role: Holds the mapfile state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mapfile value.
+- Description: Caches the `mapfile` value for reuse.
 
 #### `private Widget qqview`
-- Role: Stores the qqview value.
-- Description: Backs the cached state for this file.
+- Role: Caches the qqview value.
+- Description: Caches the `qqview` value for reuse.
 
 #### `public BuddyWnd buddies`
-- Role: Holds the buddies state.
-- Description: Backs the cached state for this file.
+- Role: Caches the buddies value.
+- Description: Caches the `buddies` value for reuse.
 
 #### `private final Zergwnd zerg`
-- Role: Holds the zerg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the zerg value.
+- Description: Caches the `zerg` value for reuse.
 
 #### `public final Collection<Polity> polities = new ArrayList<Polity>()`
-- Role: Caches polities entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: List of polity entries shown in the social UI.
+- Description: List of polity entries shown in the social UI.
 
 #### `public HelpWnd help`
-- Role: Holds the help state.
-- Description: Backs the cached state for this file.
+- Role: Caches the help value.
+- Description: Caches the `help` value for reuse.
 
 #### `public OptWnd opts`
-- Role: Holds the opts state.
-- Description: Backs the cached state for this file.
+- Role: Caches the opts value.
+- Description: Caches the `opts` value for reuse.
 
 #### `public Collection<DraggedItem> hand = new LinkedList<DraggedItem>()`
-- Role: Caches hand entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Dragged items currently held by the player.
+- Description: Collection of dragged items currently in hand.
 
 #### `public WItem vhand`
-- Role: Holds the vhand state.
-- Description: Backs the cached state for this file.
+- Role: Caches the vhand value.
+- Description: Caches the `vhand` value for reuse.
 
 #### `public ChatUI chat`
-- Role: Stores the chat value.
-- Description: Backs the cached state for this file.
+- Role: Caches the chat value.
+- Description: Caches the `chat` value for reuse.
 
 #### `public ChatUI.Channel syslog`
-- Role: Stores the syslog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the syslog value.
+- Description: Caches the `syslog` value for reuse.
 
 #### `public Progress prog = null`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 #### `private boolean afk = false`
-- Role: Tracks the afk flag.
-- Description: Supports the afk operation used by the surrounding class.
+- Role: Tracks whether afk is enabled.
+- Description: Caches the `afk` value for reuse.
 
 #### `public BeltSlot[] belt = new BeltSlot[144]`
-- Role: Holds the belt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the belt value.
+- Description: Caches the `belt` value for reuse.
 
 #### `public Belt beltwdg`
-- Role: Holds the beltwdg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the beltwdg value.
+- Description: Caches the `beltwdg` value for reuse.
 
 #### `public final Map<Integer, String> polowners = new HashMap<Integer, String>()`
-- Role: Caches polowners entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Lookup table from polity id to owner name.
+- Description: Lookup table from polity id to owner name.
 
 #### `public Bufflist buffs`
-- Role: Holds the buffs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the buffs value.
+- Description: Caches the `buffs` value for reuse.
 
 #### `public final int idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `public final ResData rdt`
-- Role: Holds the rdt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rdt value.
+- Description: Caches the `rdt` value for reuse.
 
 #### `private GSprite spr = null`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 #### `public final MenuGrid.Pagina pag`
-- Role: Stores the pag value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pag value.
+- Description: Caches the `pag` value for reuse.
 
 #### `private final Coord minimapc`
-- Role: Stores the minimapc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the minimapc value.
+- Description: Caches the `minimapc` value for reuse.
 
 #### `private final Coord menugridc`
-- Role: Stores the menugridc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the menugridc value.
+- Description: Caches the `menugridc` value for reuse.
 
 #### `private final IButton[] fold_br = new IButton[4]`
-- Role: Holds the fold br state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fold br value.
+- Description: Caches the `fold_br` value for reuse.
 
 #### `private final IButton[] fold_bl = new IButton[4]`
-- Role: Holds the fold bl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fold bl value.
+- Description: Caches the `fold_bl` value for reuse.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Coord g`
-- Role: Stores the g value.
-- Description: Backs the cached state for this file.
+- Role: Caches the g value.
+- Description: Caches the `g` value for reuse.
 
 #### `public final Indir<Coord> base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `public boolean tvis`
-- Role: Tracks the tvis flag.
-- Description: Supports the tvis operation used by the surrounding class.
+- Role: Tracks whether tvis is enabled.
+- Description: Tracks whether the hide panel should be visible.
 
 #### `private double cur`
-- Role: Stores the cur value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 #### `Tabs tabs = new Tabs(Coord.z, Coord.z, this)`
-- Role: Holds the tabs state.
-- Description: Backs the cached state for this file.
+- Role: Implements the tabs operation.
+- Description: Implements the tabs operation.
 
 #### `final TButton kin, pol, pol2`
-- Role: Holds the pol2 state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pol2 value.
+- Description: Caches the `pol2` value for reuse.
 
 #### `final TButton kin, pol, pol2`
-- Role: Holds the pol2 state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pol2 value.
+- Description: Caches the `pol2` value for reuse.
 
 #### `final TButton kin, pol, pol2`
-- Role: Holds the pol2 state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pol2 value.
+- Description: Caches the `pol2` value for reuse.
 
 #### `Tabs.Tab tab = null`
-- Role: Holds the tab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tab value.
+- Description: Caches the `tab` value for reuse.
 
 #### `final Tex inv`
-- Role: Stores the inv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the inv value.
+- Description: Caches the `inv` value for reuse.
 
 #### `final GItem item`
-- Role: Holds the item state.
-- Description: Backs the cached state for this file.
+- Role: Caches the item value.
+- Description: Caches the `item` value for reuse.
 
 #### `final Coord dc`
-- Role: Stores the dc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dc value.
+- Description: Caches the `dc` value for reuse.
 
 #### `private final BMap<String, Window> wndids = new HashBMap<String, Window>()`
-- Role: Caches wndids entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Lookup table from window id to window instance.
+- Description: Caches the window id or console command lookup table used by this UI.
 
 #### `public final MapView map`
-- Role: Stores the map value.
-- Description: Backs the cached state for this file.
+- Role: Caches the map value.
+- Description: Caches the `map` value for reuse.
 
 #### `public final long gobid`
-- Role: Stores the gobid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gobid value.
+- Description: Caches the `gobid` value for reuse.
 
 #### `public final Window wnd`
-- Role: Holds the wnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wnd value.
+- Description: Caches the `wnd` value for reuse.
 
 #### `private Coord oc`
-- Role: Stores the oc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oc value.
+- Description: Caches the `oc` value for reuse.
 
 #### `public double prog`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 #### `private TexI curi`
-- Role: Stores the curi value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curi value.
+- Description: Caches the `curi` value for reuse.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-- Role: Caches cmdmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Lookup table from console command name to handler.
+- Description: Caches the window id or console command lookup table used by this UI.
 
 #### `private Coord lastsavegrid = null`
-- Role: Stores the lastsavegrid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last savegrid.
+- Description: Caches the last savegrid value.
 
 #### `private int lastsaveseq = -1`
-- Role: Stores the lastsaveseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last saveseq.
+- Description: Caches the last saveseq value.
 
 #### `private double lastwndsave = 0`
-- Role: Stores the lastwndsave value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last wndsave.
+- Description: Caches the last wndsave value.
 
 #### `private int uimode = 1`
-- Role: Stores the uimode value.
-- Description: Backs the cached state for this file.
+- Role: Caches the uimode value.
+- Description: Caches the `uimode` value for reuse.
 
 #### `public final int beltkeys[] =`
-- Role: Stores the game ui state.
-- Description: Backs the cached state for this file.
+- Role: Caches the beltkeys[] value.
+- Description: Caches the `beltkeys[]` value for reuse.
 
 #### `public int curbelt = 0`
-- Role: Stores the curbelt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curbelt value.
+- Description: Caches the `curbelt` value for reuse.
 
 #### `public int curbelt = 0`
-- Role: Stores the curbelt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curbelt value.
+- Description: Caches the `curbelt` value for reuse.
 
 #### `final Coord pagoff = UI.scale(new Coord(5, 25))`
-- Role: Stores the pagoff value.
-- Description: Backs the cached state for this file.
+- Role: Implements the pagoff operation.
+- Description: Implements the coord operation.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-- Role: Caches cmdmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Lookup table from console command name to handler.
+- Description: Caches the window id or console command lookup table used by this UI.
 
 ### Methods
 
 #### `public BeltSlot(int idx)`
-- Role: Performs belt slot.
-- Description: Supports the belt slot operation used by the surrounding class.
+- Role: Implements the belt slot operation.
+- Description: Implements the belt slot operation.
 
 #### `public abstract void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public abstract void use(MenuGrid.Interaction iact)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Implements the use operation.
+- Description: Implements the use operation.
 
 #### `public ResBeltSlot(int idx, ResData rdt)`
-- Role: Performs res belt slot.
-- Description: Supports the res belt slot operation used by the surrounding class.
+- Role: Implements the res belt slot operation.
+- Description: Implements the res belt slot operation.
 
 #### `public GSprite spr()`
-- Role: Performs spr.
-- Description: Supports the spr operation used by the surrounding class.
+- Role: Implements the spr operation.
+- Description: Implements the spr operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public void use(MenuGrid.Interaction iact)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Implements the use operation.
+- Description: Implements the use operation.
 
 #### `public Resource getres()`
 - Role: Returns the resource.
@@ -589,63 +614,63 @@ Owns the main in-game UI state.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `private GameUI wdg()`
-- Role: Performs wdg.
-- Description: Supports the wdg operation used by the surrounding class.
+- Role: Implements the wdg operation.
+- Description: Implements the wdg operation.
 
 #### `public PagBeltSlot(int idx, MenuGrid.Pagina pag)`
-- Role: Performs pag belt slot.
-- Description: Supports the pag belt slot operation used by the surrounding class.
+- Role: Implements the pag belt slot operation.
+- Description: Implements the pag belt slot operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public void use(MenuGrid.Interaction iact)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Implements the use operation.
+- Description: Implements the use operation.
 
 #### `public static MenuGrid.Pagina resolve(MenuGrid scm, Indir<Resource> resid)`
 - Role: Resolves the target value.
-- Description: Supports the resolve operation used by the surrounding class.
+- Description: Resolves the requested value from the current runtime state.
 
 #### `public BeltSlot mkbeltslot(int idx, ResData rdt)`
-- Role: Performs mkbeltslot.
-- Description: Supports the mkbeltslot operation used by the surrounding class.
+- Role: Implements the mkbeltslot operation.
+- Description: Implements the mkbeltslot operation.
 
 #### `public Belt(Coord sz)`
-- Role: Performs belt.
-- Description: Supports the belt operation used by the surrounding class.
+- Role: Implements the belt operation.
+- Description: Implements the belt operation.
 
 #### `public void act(int idx, MenuGrid.Interaction iact)`
-- Role: Performs act.
-- Description: Supports the act operation used by the surrounding class.
+- Role: Implements the act operation.
+- Description: Implements the act operation.
 
 #### `public void keyact(int slot)`
-- Role: Performs keyact.
-- Description: Supports the keyact operation used by the surrounding class.
+- Role: Implements the keyact operation.
+- Description: Implements the keyact operation.
 
 #### `public abstract int beltslot(Coord c)`
-- Role: Performs beltslot.
-- Description: Supports the beltslot operation used by the surrounding class.
+- Role: Implements the beltslot operation.
+- Description: Implements the beltslot operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean drop(Coord c, Coord ul)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Implements the drop operation.
+- Description: Implements the drop operation.
 
 #### `public boolean iteminteract(Coord c, Coord ul)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Implements the iteminteract operation.
+- Description: Implements the iteminteract operation.
 
 #### `public boolean dropthing(Coord c, Object thing)`
-- Role: Performs dropthing.
-- Description: Supports the dropthing operation used by the surrounding class.
+- Role: Implements the dropthing operation.
+- Description: Dispatches a drop event through the widget tree.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.
@@ -653,392 +678,392 @@ Owns the main in-game UI state.
 
 #### `public GameUI(String chrid, long plid, String genus)`
 - Role: Creates a new GameUI instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GameUI instance from the supplied inputs.
 
 #### `protected void attached()`
-- Role: Performs attached.
-- Description: Supports the attached operation used by the surrounding class.
+- Role: Implements the attached operation.
+- Description: Implements the attached operation.
 
 #### `private void menubuttons(Widget bg)`
-- Role: Performs menubuttons.
-- Description: Supports the menubuttons operation used by the surrounding class.
+- Role: Implements the menubuttons operation.
+- Description: Implements the menubuttons operation.
 
 #### `private void updfold(boolean reset)`
-- Role: Performs updfold.
-- Description: Supports the updfold operation used by the surrounding class.
+- Role: Implements the updfold operation.
+- Description: Implements the updfold operation.
 
 #### `private void foldbuttons()`
-- Role: Performs foldbuttons.
-- Description: Supports the foldbuttons operation used by the surrounding class.
+- Role: Implements the foldbuttons operation.
+- Description: Implements the foldbuttons operation.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Adds the ed.
+- Description: Adds the ed.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public Hidepanel(String id, Indir<Coord> base, Coord g)`
-- Role: Performs hidepanel.
-- Description: Supports the hidepanel operation used by the surrounding class.
+- Role: Implements the hidepanel operation.
+- Description: Implements the hidepanel operation.
 
 #### `public <T extends Widget> T add(T child)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public Coord base()`
-- Role: Performs base.
-- Description: Supports the base operation used by the surrounding class.
+- Role: Implements the base operation.
+- Description: Implements the base operation.
 
 #### `public void move(double a)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Moves the hide panel to its anchored position.
 
 #### `public void move()`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Moves the hide panel to its anchored position.
 
 #### `public void presize()`
-- Role: Performs presize.
-- Description: Supports the presize operation used by the surrounding class.
+- Role: Implements the presize operation.
+- Description: Implements the presize operation.
 
 #### `public void cresize(Widget ch)`
-- Role: Performs cresize.
-- Description: Supports the cresize operation used by the surrounding class.
+- Role: Implements the cresize operation.
+- Description: Implements the cresize operation.
 
 #### `public boolean mshow(final boolean vis)`
-- Role: Performs mshow.
-- Description: Supports the mshow operation used by the surrounding class.
+- Role: Implements the mshow operation.
+- Description: Implements the mshow operation.
 
 #### `public boolean mshow()`
-- Role: Performs mshow.
-- Description: Supports the mshow operation used by the surrounding class.
+- Role: Implements the mshow operation.
+- Description: Implements the mshow operation.
 
 #### `public boolean cshow(boolean vis)`
-- Role: Performs cshow.
-- Description: Supports the cshow operation used by the surrounding class.
+- Role: Implements the cshow operation.
+- Description: Implements the cshow operation.
 
 #### `public void cdestroy(Widget w)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Implements the cdestroy operation.
+- Description: Implements the cdestroy operation.
 
 #### `public Hidewnd(Coord sz, String cap, boolean lg)`
-- Role: Performs hidewnd.
-- Description: Supports the hidewnd operation used by the surrounding class.
+- Role: Implements the hidewnd operation.
+- Description: Implements the hidewnd operation.
 
 #### `public Hidewnd(Coord sz, String cap)`
-- Role: Performs hidewnd.
-- Description: Supports the hidewnd operation used by the surrounding class.
+- Role: Implements the hidewnd operation.
+- Description: Implements the hidewnd operation.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Implements the wdgmsg operation.
+- Description: Sends a widget message through the UI message path.
 
 #### `TButton(String nm, boolean g)`
 - Role: Handles the tbutton workflow.
-- Description: Supports the tbutton operation used by the surrounding class.
+- Description: Implements the t button operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public void click()`
-- Role: Performs click.
-- Description: Supports the click operation used by the surrounding class.
+- Role: Handles click input for this widget.
+- Description: Handles click input for this widget.
 
 #### `Zergwnd()`
 - Role: Handles the zergwnd workflow.
-- Description: Supports the zergwnd operation used by the surrounding class.
+- Description: Implements the zergwnd operation.
 
 #### `private void repack()`
-- Role: Performs repack.
-- Description: Supports the repack operation used by the surrounding class.
+- Role: Implements the repack operation.
+- Description: Implements the repack operation.
 
 #### `Tabs.Tab ntab(Widget ch, TButton btn)`
-- Role: Performs ntab.
-- Description: Supports the ntab operation used by the surrounding class.
+- Role: Implements the ntab operation.
+- Description: Implements the ntab operation.
 
 #### `void dtab(TButton btn)`
-- Role: Performs dtab.
-- Description: Supports the dtab operation used by the surrounding class.
+- Role: Implements the dtab operation.
+- Description: Implements the dtab operation.
 
 #### `void addpol(Polity p)`
-- Role: Performs addpol.
-- Description: Supports the addpol operation used by the surrounding class.
+- Role: Adds the pol.
+- Description: Adds the pol.
 
 #### `DraggedItem(GItem item, Coord dc)`
 - Role: Handles the dragged item workflow.
-- Description: Supports the dragged item operation used by the surrounding class.
+- Description: Implements the dragged item operation.
 
 #### `private void updhand()`
-- Role: Performs updhand.
-- Description: Supports the updhand operation used by the surrounding class.
+- Role: Implements the updhand operation.
+- Description: Implements the updhand operation.
 
 #### `private String mapfilename()`
-- Role: Performs mapfilename.
-- Description: Supports the mapfilename operation used by the surrounding class.
+- Role: Implements the mapfilename operation.
+- Description: Implements the mapfilename operation.
 
 #### `public Coord optplacement(Widget child, Coord org)`
-- Role: Performs optplacement.
-- Description: Supports the optplacement operation used by the surrounding class.
+- Role: Implements the optplacement operation.
+- Description: Implements the optplacement operation.
 
 #### `private void savewndpos()`
-- Role: Performs savewndpos.
-- Description: Supports the savewndpos operation used by the surrounding class.
+- Role: Saves the wndpos.
+- Description: Saves the wndpos.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Adds the child.
+- Description: Adds the child.
 
 #### `public GobTrans(MapView map, long gobid)`
-- Role: Performs gob trans.
-- Description: Supports the gob trans operation used by the surrounding class.
+- Role: Implements the gob trans operation.
+- Description: Implements the gob trans operation.
 
 #### `private Coord oc()`
-- Role: Performs oc.
-- Description: Supports the oc operation used by the surrounding class.
+- Role: Implements the oc operation.
+- Description: Implements the oc operation.
 
 #### `public Anim(Window wnd, boolean hide, Anim from)`
-- Role: Performs anim.
-- Description: Supports the anim operation used by the surrounding class.
+- Role: Implements the anim operation.
+- Description: Implements the anim operation.
 
 #### `public void draw(GOut g, Tex tex)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public Anim show(Window wnd, Anim hide)`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Implements the show operation.
+- Description: Implements the show operation.
 
 #### `public Anim hide(Window wnd, Anim show)`
-- Role: Performs hide.
-- Description: Supports the hide operation used by the surrounding class.
+- Role: Implements the hide operation.
+- Description: Implements the hide operation.
 
 #### `public void cdestroy(Widget w)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Implements the cdestroy operation.
+- Description: Implements the cdestroy operation.
 
 #### `public Progress(double prog)`
-- Role: Performs progress.
-- Description: Supports the progress operation used by the surrounding class.
+- Role: Implements the progress operation.
+- Description: Implements the progress operation.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Implements the destroy operation.
+- Description: Implements the destroy operation.
 
 #### `public void set(double prog)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Updates the cached set.
+- Description: Updates the cached set.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Implements the checkhit operation.
+- Description: Implements the checkhit operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `private String iconconfname()`
-- Role: Performs iconconfname.
-- Description: Supports the iconconfname operation used by the surrounding class.
+- Role: Implements the iconconfname operation.
+- Description: Implements the iconconfname operation.
 
 #### `private GobIcon.Settings loadiconconf()`
-- Role: Performs loadiconconf.
-- Description: Supports the loadiconconf operation used by the surrounding class.
+- Role: Loads the iconconf.
+- Description: Loads the iconconf.
 
 #### `public CornerMap(Coord sz, MapFile file)`
-- Role: Performs corner map.
-- Description: Supports the corner map operation used by the surrounding class.
+- Role: Implements the corner map operation.
+- Description: Implements the corner map operation.
 
 #### `public boolean dragp(int button)`
-- Role: Performs dragp.
-- Description: Supports the dragp operation used by the surrounding class.
+- Role: Implements the dragp operation.
+- Description: Implements the dragp operation.
 
 #### `public boolean clickmarker(DisplayMarker mark, Location loc, int button, boolean press)`
-- Role: Performs clickmarker.
-- Description: Supports the clickmarker operation used by the surrounding class.
+- Role: Handles marker interaction.
+- Description: Handles marker interaction.
 
 #### `public boolean clickicon(DisplayIcon icon, Location loc, int button, boolean press)`
-- Role: Performs clickicon.
-- Description: Supports the clickicon operation used by the surrounding class.
+- Role: Handles icon interaction.
+- Description: Handles icon interaction.
 
 #### `public boolean clickloc(Location loc, int button, boolean press)`
-- Role: Performs clickloc.
-- Description: Supports the clickloc operation used by the surrounding class.
+- Role: Handles loc interaction.
+- Description: Handles loc interaction.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `protected boolean allowzoomout()`
-- Role: Performs allowzoomout.
-- Description: Supports the allowzoomout operation used by the surrounding class.
+- Role: Implements the allowzoomout operation.
+- Description: Implements the allowzoomout operation.
 
 #### `public Map<String, Console.Command> findcmds()`
 - Role: Returns the available console commands.
-- Description: Exposes the requested value without mutating state.
+- Description: Finds the cmds.
 
 #### `private void mapfiletick()`
-- Role: Performs mapfiletick.
-- Description: Supports the mapfiletick operation used by the surrounding class.
+- Role: Implements the mapfiletick operation.
+- Description: Implements the mapfiletick operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Implements the wdgmsg operation.
+- Description: Sends a widget message through the UI message path.
 
 #### `private Coord fitwdg(Widget wdg, Coord c)`
-- Role: Performs fitwdg.
-- Description: Supports the fitwdg operation used by the surrounding class.
+- Role: Implements the fitwdg operation.
+- Description: Implements the fitwdg operation.
 
 #### `private void fitwdg(Widget wdg)`
-- Role: Performs fitwdg.
-- Description: Supports the fitwdg operation used by the surrounding class.
+- Role: Implements the fitwdg operation.
+- Description: Implements the fitwdg operation.
 
 #### `private boolean wndstate(Window wnd)`
-- Role: Performs wndstate.
-- Description: Supports the wndstate operation used by the surrounding class.
+- Role: Implements the wndstate operation.
+- Description: Implements the wndstate operation.
 
 #### `private void togglewnd(Window wnd)`
-- Role: Performs togglewnd.
-- Description: Supports the togglewnd operation used by the surrounding class.
+- Role: Implements the togglewnd operation.
+- Description: Implements the togglewnd operation.
 
 #### `MenuButton(String base, KeyBinding gkey, String tooltip)`
 - Role: Handles the menu button workflow.
-- Description: Supports the menu button operation used by the surrounding class.
+- Description: Implements the menu button operation.
 
 #### `MenuCheckBox(String base, KeyBinding gkey, String tooltip)`
 - Role: Handles the menu check box workflow.
-- Description: Supports the menu check box operation used by the surrounding class.
+- Description: Implements the menu check box operation.
 
 #### `public MainMenu()`
-- Role: Performs main menu.
-- Description: Supports the main menu operation used by the surrounding class.
+- Role: Implements the main menu operation.
+- Description: Implements the main menu operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `private void toggleol(String tag, boolean a)`
-- Role: Performs toggleol.
-- Description: Supports the toggleol operation used by the surrounding class.
+- Role: Implements the toggleol operation.
+- Description: Implements the toggleol operation.
 
 #### `public MapMenu()`
-- Role: Performs map menu.
-- Description: Supports the map menu operation used by the surrounding class.
+- Role: Implements the map menu operation.
+- Description: Implements the map menu operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
 - Role: Handles a global key event.
-- Description: Supports the globtype operation used by the surrounding class.
+- Description: Implements the globtype operation.
 
 #### `public void toggleui(int mode)`
-- Role: Performs toggleui.
-- Description: Supports the toggleui operation used by the surrounding class.
+- Role: Implements the toggleui operation.
+- Description: Implements the toggleui operation.
 
 #### `public void resetui()`
-- Role: Performs resetui.
-- Description: Supports the resetui operation used by the surrounding class.
+- Role: Resets the ui.
+- Description: Resets the ui.
 
 #### `public void toggleui()`
-- Role: Performs toggleui.
-- Description: Supports the toggleui operation used by the surrounding class.
+- Role: Implements the toggleui operation.
+- Description: Implements the toggleui operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Implements the resize operation.
+- Description: Implements the resize operation.
 
 #### `public void presize()`
-- Role: Performs presize.
-- Description: Supports the presize operation used by the surrounding class.
+- Role: Implements the presize operation.
+- Description: Implements the presize operation.
 
 #### `public ChatUI.Channel.Message logmessage()`
-- Role: Performs logmessage.
-- Description: Supports the logmessage operation used by the surrounding class.
+- Role: Implements the logmessage operation.
+- Description: Implements the logmessage operation.
 
 #### `public boolean msg(UI.Notice msg)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Implements the msg operation.
 
 #### `public void error(String msg)`
 - Role: Displays an error message.
-- Description: Supports the error operation used by the surrounding class.
+- Description: Implements the error operation.
 
 #### `public void act(String... args)`
-- Role: Performs act.
-- Description: Supports the act operation used by the surrounding class.
+- Role: Implements the act operation.
+- Description: Implements the act operation.
 
 #### `public void act(int mods, Coord mc, Gob gob, String... args)`
-- Role: Performs act.
-- Description: Supports the act operation used by the surrounding class.
+- Role: Implements the act operation.
+- Description: Implements the act operation.
 
 #### `public FKeyBelt()`
-- Role: Performs fkey belt.
-- Description: Supports the fkey belt operation used by the surrounding class.
+- Role: Implements the f key belt operation.
+- Description: Implements the f key belt operation.
 
 #### `private Coord beltc(int i)`
-- Role: Performs beltc.
-- Description: Supports the beltc operation used by the surrounding class.
+- Role: Implements the beltc operation.
+- Description: Implements the beltc operation.
 
 #### `public int beltslot(Coord c)`
-- Role: Performs beltslot.
-- Description: Supports the beltslot operation used by the surrounding class.
+- Role: Implements the beltslot operation.
+- Description: Implements the beltslot operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
 - Role: Handles a global key event.
-- Description: Supports the globtype operation used by the surrounding class.
+- Description: Implements the globtype operation.
 
 #### `public NKeyBelt()`
-- Role: Performs nkey belt.
-- Description: Supports the nkey belt operation used by the surrounding class.
+- Role: Implements the n key belt operation.
+- Description: Implements the n key belt operation.
 
 #### `private Coord beltc(int i)`
-- Role: Performs beltc.
-- Description: Supports the beltc operation used by the surrounding class.
+- Role: Implements the beltc operation.
+- Description: Implements the beltc operation.
 
 #### `public int beltslot(Coord c)`
-- Role: Performs beltslot.
-- Description: Supports the beltslot operation used by the surrounding class.
+- Role: Implements the beltslot operation.
+- Description: Implements the beltslot operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GameUI content.
 
 #### `public boolean globtype(GlobKeyEvent ev)`
 - Role: Handles a global key event.
-- Description: Supports the globtype operation used by the surrounding class.
+- Description: Implements the globtype operation.
 
 #### `public Map<String, Console.Command> findcmds()`
 - Role: Returns the available console commands.
-- Description: Exposes the requested value without mutating state.
+- Description: Finds the cmds.
 
 #### `public void alert(String msg)`
-- Role: Performs alert.
-- Description: Supports the alert operation used by the surrounding class.
+- Role: Implements the alert operation.
+- Description: Implements the alert operation.
 
 #### `public void print(String msg, Color col)`
-- Role: Performs print.
-- Description: Supports the print operation used by the surrounding class.
+- Role: Implements the print operation.
+- Description: Implements the print operation.
 
 #### `public void print(String msg)`
-- Role: Performs print.
-- Description: Supports the print operation used by the surrounding class.
+- Role: Implements the print operation.
+- Description: Implements the print operation.

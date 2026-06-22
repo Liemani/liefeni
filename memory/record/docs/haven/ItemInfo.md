@@ -1,5 +1,5 @@
 ---
-source: [ItemInfo.java](../../../src/haven/ItemInfo.java)
+source: [ItemInfo.java](../../../../src/haven/ItemInfo.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,369 +12,371 @@ Represents the item info Haven component.
 
 ### AdHoc
 
-- Role: Represents ad hoc within ItemInfo.
-- Description: Describes the nested ad hoc type used by the enclosing class.
+- Role: Wraps ad hoc item-info data.
+- Description: Holds item-info values assembled at runtime instead of from a published class.
 
 ### AttrCache
 
-- Role: Represents attr cache within ItemInfo.
-- Description: Describes the nested attr cache type used by the enclosing class.
+- Role: Caches parsed item-info attributes.
+- Description: Recomputes derived values only when the item-info source changes.
 
 ### Contents
 
-- Role: Represents contents within ItemInfo.
-- Description: Describes the nested contents type used by the enclosing class.
+- Role: Wraps nested item-info contents.
+- Description: Tip that renders a "Contents" section for child item-info entries.
 
 ### Default
 
-- Role: Represents default within ItemInfo.
-- Description: Describes the nested default type used by the enclosing class.
+- Role: Resolves the default item display name.
+- Description: Published factory that builds a Name tip from the owner, resource, or sprite.
 
 ### Dynamic
 
-- Role: Represents dynamic within ItemInfo.
-- Description: Describes the nested dynamic type used by the enclosing class.
+- Role: Marks a dynamic display-name provider.
+- Description: Interface for owners or sprites that can supply a runtime item name.
 
 ### FactMaker
 
-- Role: Represents fact maker within ItemInfo.
-- Description: Describes the nested fact maker type used by the enclosing class.
+- Role: Resolves item-info factories from published code.
+- Description: Instancer chain that adapts published constructors and static builders into InfoFactory implementations.
 
 ### InfoFactory
 
-- Role: Represents info factory within ItemInfo.
-- Description: Describes the nested info factory type used by the enclosing class.
+- Role: Builds item-info records from raw payloads.
+- Description: Factory interface used by published item-info code to construct ItemInfo instances.
 
 ### InfoTip
 
-- Role: Represents info tip within ItemInfo.
-- Description: Describes the nested info tip type used by the enclosing class.
+- Role: Base type for rendered item-info tips.
+- Description: Abstract tip class used as the common base for item-info sections.
 
 ### Layout
 
-- Role: Represents layout within ItemInfo.
-- Description: Describes the nested layout type used by the enclosing class.
+- Role: Composes item-info tips into a final tooltip image.
+- Description: Layout helper that orders tips, manages width, and renders the composed tooltip.
 
 ### Name
 
-- Role: Represents name within ItemInfo.
-- Description: Describes the nested name type used by the enclosing class.
+- Role: Renders the item name tip.
+- Description: Tip that draws the primary item name, with optional dynamic fallback support.
 
 ### Owner
 
-- Role: Represents owner within ItemInfo.
-- Description: Describes the nested owner type used by the enclosing class.
+- Role: Supplies item-info context.
+- Description: Base contract for item-info owners and context providers.
 
 ### Pagina
 
-- Role: Represents pagina within ItemInfo.
-- Description: Describes the nested pagina type used by the enclosing class.
+- Role: Renders the item pagina section.
+- Description: Tip that renders the rich-text pagina associated with an item.
 
 ### Raw
 
-- Role: Represents raw within ItemInfo.
-- Description: Describes the nested raw type used by the enclosing class.
+- Role: Carries the raw item-info payload.
+- Description: Immutable wrapper for the unparsed item-info data and its timestamp.
 
 ### ResOwner
 
-- Role: Represents res owner within ItemInfo.
-- Description: Describes the nested res owner type used by the enclosing class.
+- Role: Supplies the backing resource for item-info lookup.
+- Description: Owner that can expose the resource used to derive item-info data.
 
 ### SpriteOwner
 
-- Role: Represents sprite owner within ItemInfo.
-- Description: Describes the nested sprite owner type used by the enclosing class.
+- Role: Supplies the backing sprite for item-info lookup.
+- Description: Owner that can expose the sprite used to derive item-info data.
 
 ### Tip
 
-- Role: Represents tip within ItemInfo.
-- Description: Describes the nested tip type used by the enclosing class.
+- Role: Base class for concrete item-info tips.
+- Description: Abstract item-info entry that can prepare, lay out, and render itself.
 
 ### TipID
 
-- Role: Represents tip id within ItemInfo.
-- Description: Describes the nested tip id type used by the enclosing class.
+- Role: Identifies interned tip entries.
+- Description: Layout-local identifier used to deduplicate tip instances.
 
 ## Members
 
 ### Constants
 
 #### `public static final Raw nil = new Raw(new Object[0], 0)`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the raw operation.
+- Value: `new Raw(new Object[0], 0)`
 
 #### `private static final Text.Line ch = Text.render("Contents:")`
-- Role: Defines the shared ch constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ch operation.
+- Description: Renders the current state into an image or image-like object.
+- Value: `Text.render("Contents:")`
 
 ### Fields
 
 #### `public final Owner owner`
-- Role: Holds the owner state.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 #### `public final Object[] data`
-- Role: Holds the data state.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `public final double time`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Caches the time value.
+- Description: Caches the `time` value for reuse.
 
 #### `public final Owner owner`
-- Role: Holds the owner state.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 #### `public final CompImage cmp = new CompImage()`
-- Role: Stores the cmp value.
-- Description: Backs the cached state for this file.
+- Role: Implements the cmp operation.
+- Description: Implements the comp image operation.
 
 #### `public int width = 0`
-- Role: Stores the width value.
-- Description: Backs the cached state for this file.
+- Role: Caches the width value.
+- Description: Caches the `width` value for reuse.
 
 #### `private final List<Tip> tips = new ArrayList<>()`
-- Role: Caches tips entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the tips operation.
+- Description: Implements the private final list<tip> tips = new array list<>() operation.
 
 #### `private final Map<TipID, Tip> itab = new HashMap<>()`
-- Role: Caches itab entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the itab operation.
+- Description: Implements the private final map<tip id, tip> itab = new hash map<>() operation.
 
 #### `public final Text str`
-- Role: Stores the str value.
-- Description: Backs the cached state for this file.
+- Role: Caches the str value.
+- Description: Caches the `str` value for reuse.
 
 #### `public final Text str`
-- Role: Stores the str value.
-- Description: Backs the cached state for this file.
+- Role: Caches the str value.
+- Description: Caches the `str` value for reuse.
 
 #### `public final RichText.Document doc`
-- Role: Stores the doc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the doc value.
+- Description: Caches the `doc` value for reuse.
 
 #### `public final List<ItemInfo> sub`
-- Role: Caches sub entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the sub value.
+- Description: Caches the `sub` value for reuse.
 
 #### `private final Supplier<List<ItemInfo>> from`
-- Role: Caches from entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the from value.
+- Description: Caches the `from` value for reuse.
 
 #### `private final Function<List<ItemInfo>, Supplier<R>> data`
-- Role: Caches data entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private List<ItemInfo> forinfo = null`
-- Role: Caches forinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the forinfo value.
+- Description: Caches the `forinfo` value for reuse.
 
 #### `private Supplier<R> save`
-- Role: Holds the save state.
-- Description: Backs the cached state for this file.
+- Role: Caches the save value.
+- Description: Caches the `save` value for reuse.
 
 ### Methods
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public GSprite sprite()`
-- Role: Performs sprite.
-- Description: Supports the sprite operation used by the surrounding class.
+- Role: Handles the sprite path.
+- Description: Implements the sprite operation.
 
 #### `public Raw(Object[] data, double time)`
-- Role: Performs raw.
-- Description: Supports the raw operation used by the surrounding class.
+- Role: Handles the raw path.
+- Description: Implements the raw operation.
 
 #### `public Raw(Object[] data)`
-- Role: Performs raw.
-- Description: Supports the raw operation used by the surrounding class.
+- Role: Handles the raw path.
+- Description: Implements the raw operation.
 
 #### `public ItemInfo build(Owner owner, Raw raw, Object... args)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public FactMaker()`
-- Role: Performs fact maker.
-- Description: Supports the fact maker operation used by the surrounding class.
+- Role: Handles the fact maker path.
+- Description: Implements the fact maker operation.
 
 #### `public ItemInfo(Owner owner)`
 - Role: Creates a new ItemInfo instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ItemInfo instance from the supplied inputs.
 
 #### `public Layout(Owner owner)`
-- Role: Performs layout.
-- Description: Supports the layout operation used by the surrounding class.
+- Role: Handles the layout path.
+- Description: Implements the layout operation.
 
 #### `public T make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public <T extends Tip> T intern(TipID<T> id)`
-- Role: Performs intern.
-- Description: Supports the intern operation used by the surrounding class.
+- Role: Handles the intern path.
+- Description: Implements the intern operation.
 
 #### `public void add(Tip tip)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public BufferedImage render()`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public Tip(Owner owner)`
-- Role: Performs tip.
-- Description: Supports the tip operation used by the surrounding class.
+- Role: Handles the tip path.
+- Description: Implements the tip operation.
 
 #### `public BufferedImage tipimg()`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public BufferedImage tipimg(int w)`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public Tip shortvar()`
-- Role: Performs shortvar.
-- Description: Supports the shortvar operation used by the surrounding class.
+- Role: Handles the shortvar path.
+- Description: Implements the shortvar operation.
 
 #### `public void prepare(Layout l)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `public void layout(Layout l)`
-- Role: Performs layout.
-- Description: Supports the layout operation used by the surrounding class.
+- Role: Handles the layout path.
+- Description: Lays out parts on wrapped lines and aligns their baselines.
 
 #### `public int order()`
-- Role: Performs order.
-- Description: Supports the order operation used by the surrounding class.
+- Role: Implements the order operation.
+- Description: Implements the order operation.
 
 #### `public AdHoc(Owner owner, String str)`
-- Role: Performs ad hoc.
-- Description: Supports the ad hoc operation used by the surrounding class.
+- Role: Handles the ad hoc path.
+- Description: Implements the ad hoc operation.
 
 #### `public BufferedImage tipimg()`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public Name(Owner owner, Text str)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public Name(Owner owner, String str)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public BufferedImage tipimg()`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public int order()`
-- Role: Performs order.
-- Description: Supports the order operation used by the surrounding class.
+- Role: Implements the order operation.
+- Description: Implements the order operation.
 
 #### `public Tip shortvar()`
-- Role: Performs shortvar.
-- Description: Supports the shortvar operation used by the surrounding class.
+- Role: Handles the shortvar path.
+- Description: Implements the shortvar operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static String get(Owner owner)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public ItemInfo build(Owner owner, Raw raw, Object... args)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public Pagina(Owner owner, RichText.Document doc)`
-- Role: Performs pagina.
-- Description: Supports the pagina operation used by the surrounding class.
+- Role: Handles the pagina path.
+- Description: Implements the pagina operation.
 
 #### `public Pagina(Owner owner, String str)`
-- Role: Performs pagina.
-- Description: Supports the pagina operation used by the surrounding class.
+- Role: Handles the pagina path.
+- Description: Implements the pagina operation.
 
 #### `public BufferedImage tipimg(int w)`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public void layout(Layout l)`
-- Role: Performs layout.
-- Description: Supports the layout operation used by the surrounding class.
+- Role: Handles the layout path.
+- Description: Lays out parts on wrapped lines and aligns their baselines.
 
 #### `public int order()`
-- Role: Performs order.
-- Description: Supports the order operation used by the surrounding class.
+- Role: Implements the order operation.
+- Description: Implements the order operation.
 
 #### `public Contents(Owner owner, List<ItemInfo> sub)`
-- Role: Performs contents.
-- Description: Supports the contents operation used by the surrounding class.
+- Role: Handles the contents path.
+- Description: Implements the contents operation.
 
 #### `public BufferedImage tipimg()`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public Tip shortvar()`
-- Role: Performs shortvar.
-- Description: Supports the shortvar operation used by the surrounding class.
+- Role: Handles the shortvar path.
+- Description: Implements the shortvar operation.
 
 #### `public static BufferedImage catimgs(int margin, BufferedImage... imgs)`
-- Role: Performs catimgs.
-- Description: Supports the catimgs operation used by the surrounding class.
+- Role: Handles the catimgs path.
+- Description: Implements the catimgs operation.
 
 #### `public static BufferedImage catimgsh(int margin, BufferedImage... imgs)`
-- Role: Performs catimgsh.
-- Description: Supports the catimgsh operation used by the surrounding class.
+- Role: Handles the catimgsh path.
+- Description: Implements the catimgsh operation.
 
 #### `public static BufferedImage longtip(List<ItemInfo> info)`
-- Role: Performs longtip.
-- Description: Supports the longtip operation used by the surrounding class.
+- Role: Handles the longtip path.
+- Description: Implements the longtip operation.
 
 #### `public static BufferedImage shorttip(List<ItemInfo> info)`
-- Role: Performs shorttip.
-- Description: Supports the shorttip operation used by the surrounding class.
+- Role: Handles the shorttip path.
+- Description: Implements the shorttip operation.
 
 #### `public static <T> T find(Class<T> cl, List<ItemInfo> il)`
-- Role: Performs find.
-- Description: Supports the find operation used by the surrounding class.
+- Role: Handles the find path.
+- Description: Finds the requested data.
 
 #### `public static List<ItemInfo> buildinfo(Owner owner, Raw raw)`
-- Role: Performs buildinfo.
-- Description: Supports the buildinfo operation used by the surrounding class.
+- Role: Handles the buildinfo path.
+- Description: Implements the buildinfo operation.
 
 #### `public static List<ItemInfo> buildinfo(Owner owner, Object[] rawinfo)`
-- Role: Performs buildinfo.
-- Description: Supports the buildinfo operation used by the surrounding class.
+- Role: Handles the buildinfo path.
+- Description: Implements the buildinfo operation.
 
 #### `private static String dump(Object arg)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.
 
 #### `public AttrCache(Supplier<List<ItemInfo>> from, Function<List<ItemInfo>, Supplier<R>> data)`
-- Role: Performs attr cache.
-- Description: Supports the attr cache operation used by the surrounding class.
+- Role: Handles the attr cache path.
+- Description: Implements the attr cache operation.
 
 #### `public R get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static <I, R> Function<List<ItemInfo>, Supplier<R>> map1(Class<I> icl, Function<I, Supplier<R>> data)`
-- Role: Performs map1.
-- Description: Supports the map1 operation used by the surrounding class.
+- Role: Handles the map1 path.
+- Description: Implements the map1 operation.
 
 #### `public static <I, R> Function<List<ItemInfo>, Supplier<R>> map1s(Class<I> icl, Function<I, R> data)`
-- Role: Performs map1s.
-- Description: Supports the map1s operation used by the surrounding class.
+- Role: Handles the map1s path.
+- Description: Implements the map1s operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

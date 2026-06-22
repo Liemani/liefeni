@@ -1,5 +1,5 @@
 ---
-source: [TexSI.java](../../../src/haven/TexSI.java)
+source: [TexSI.java](../../../../src/haven/TexSI.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Represents the tex si Haven component.
 ### Fields
 
 #### `public final Tex parent`
-- Role: Stores the parent value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public final Coord ul, br`
-- Role: Stores the br value.
-- Description: Backs the cached state for this file.
+- Role: Caches the br value.
+- Description: Caches the `br` value for reuse.
 
 #### `public final Coord ul, br`
-- Role: Stores the br value.
-- Description: Backs the cached state for this file.
+- Role: Caches the br value.
+- Description: Caches the `br` value for reuse.
 
 ### Methods
 
 #### `public TexSI(Tex parent, Coord ul, Coord br)`
 - Role: Creates a new TexSI instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TexSI instance from the supplied inputs.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Returns the size of the sliced texture.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.

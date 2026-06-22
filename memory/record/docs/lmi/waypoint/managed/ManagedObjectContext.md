@@ -1,5 +1,5 @@
 ---
-source: [ManagedObjectContext.java](../../../../../src/lmi/waypoint/managed/ManagedObjectContext.java)
+source: [ManagedObjectContext.java](../../../../../../src/lmi/waypoint/managed/ManagedObjectContext.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,11 +11,8 @@ Carries managed-object state for waypoint persistence.
 ## Nested Types
 
 ### Key
-### Key
-- Role: Represents the key helper used by ManagedObjectContext.
-
-- Role: Identifies one managed object by type and ID.
-- Description: Describes the nested key type used by the enclosing class.
+- Role: Identifies one managed object by type and id.
+- Description: Combines the Java class and database id into a stable lookup key for the context maps.
 
 ## Members
 
@@ -24,91 +21,91 @@ Carries managed-object state for waypoint persistence.
 ### Fields
 
 #### `private final Map<Key, ManagedObject> identityMap = new HashMap<>()`
-- Role: Caches identity map entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the identity map operation.
+- Description: Implements the private final map<key, managed object> identity map = new hash map<>() operation.
 
 #### `private final LinkedHashSet<ManagedObject> selectedObjects = new LinkedHashSet<>()`
-- Role: Caches selected objects entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the selected objects operation.
+- Description: Implements the private final linked hash set<managed object> selected objects = new linked hash set<>() operation.
 
 #### `private final LinkedHashSet<ManagedObject> dirtyObjects = new LinkedHashSet<>()`
-- Role: Caches dirty objects entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the dirty objects operation.
+- Description: Implements the private final linked hash set<managed object> dirty objects = new linked hash set<>() operation.
 
 #### `private final LinkedHashSet<ManagedObject> deletedObjects = new LinkedHashSet<>()`
-- Role: Caches deleted objects entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the deleted objects operation.
+- Description: Implements the private final linked hash set<managed object> deleted objects = new linked hash set<>() operation.
 
 #### `private final Class<? extends ManagedObject> type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `private final long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 ### Methods
 
 #### `public synchronized <T extends ManagedObject> T registerLoaded(T object)`
-- Role: Performs register loaded.
-- Description: Supports the register loaded operation used by the surrounding class.
+- Role: Handles the register loaded path.
+- Description: Implements the register loaded operation.
 
 #### `public synchronized <T extends ManagedObject> T find(Class<T> type, long id)`
-- Role: Performs find.
-- Description: Supports the find operation used by the surrounding class.
+- Role: Handles the find path.
+- Description: Finds the requested data.
 
 #### `public synchronized Array<ManagedObject> takeSelectedObjects()`
-- Role: Performs take selected objects.
-- Description: Supports the take selected objects operation used by the surrounding class.
+- Role: Handles the take selected objects path.
+- Description: Implements the take selected objects operation.
 
 #### `public synchronized Array<ManagedWpNode> takeSelectedWpNodes()`
-- Role: Performs take selected wp nodes.
-- Description: Supports the take selected wp nodes operation used by the surrounding class.
+- Role: Handles the take selected wp nodes path.
+- Description: Implements the take selected wp nodes operation.
 
 #### `public synchronized void save()`
 - Role: Coordinates save persistence or lookup.
-- Description: Supports the save operation used by the surrounding class.
+- Description: Persists the requested data.
 
 #### `public synchronized void save(WaypointResultHandler<SaveBatchResult> handler)`
 - Role: Coordinates save persistence or lookup.
-- Description: Supports the save operation used by the surrounding class.
+- Description: Persists the requested data.
 
 #### `synchronized void markDirty(ManagedObject object)`
-- Role: Performs mark dirty.
-- Description: Supports the mark dirty operation used by the surrounding class.
+- Role: Handles the mark dirty path.
+- Description: Implements the mark dirty operation.
 
 #### `synchronized void markDeleted(ManagedObject object)`
-- Role: Performs mark deleted.
-- Description: Supports the mark deleted operation used by the surrounding class.
+- Role: Handles the mark deleted path.
+- Description: Implements the mark deleted operation.
 
 #### `synchronized void markClean(ManagedObject object)`
-- Role: Performs mark clean.
-- Description: Supports the mark clean operation used by the surrounding class.
+- Role: Handles the mark clean path.
+- Description: Implements the mark clean operation.
 
 #### `synchronized void onSaveSucceeded(SaveBatch batch, SaveBatchResult result)`
-- Role: Performs on save succeeded.
-- Description: Supports the on save succeeded operation used by the surrounding class.
+- Role: Handles the on save succeeded path.
+- Description: Implements the on save succeeded operation.
 
 #### `synchronized void onSaveFailed(SaveBatch batch)`
-- Role: Performs on save failed.
-- Description: Supports the on save failed operation used by the surrounding class.
+- Role: Handles the on save failed path.
+- Description: Implements the on save failed operation.
 
 #### `public synchronized void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `private synchronized SaveBatch buildSaveBatch()`
-- Role: Performs build save batch.
-- Description: Supports the build save batch operation used by the surrounding class.
+- Role: Handles the build save batch path.
+- Description: Implements the build save batch operation.
 
 #### `private Key(Class<? extends ManagedObject> type, long id)`
-- Role: Performs key.
-- Description: Supports the key operation used by the surrounding class.
+- Role: Handles the key path.
+- Description: Implements the key operation.
 
 #### `public boolean equals(Object other)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.

@@ -1,5 +1,5 @@
 ---
-source: [Partyview.java](../../../src/haven/Partyview.java)
+source: [Partyview.java](../../../../src/haven/Partyview.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,55 +12,56 @@ Represents the partyview Haven component.
 
 ### $_
 
-- Role: Represents $ within Partyview.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the party-view widget resource.
+- Description: Factory that creates a Partyview bound to the current session party.
 
 ### MemberView
 
-- Role: Represents member view within Partyview.
-- Description: Describes the nested member view type used by the enclosing class.
+- Role: Renders one party member tile.
+- Description: Frame widget that displays one member avatar, border, and color state.
 
 ## Members
 
 ### Constants
 
 #### `public static final int marg = UI.scale(4)`
-- Role: Defines the shared marg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the marg operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(4)`
 
 ### Fields
 
 #### `public final Party party`
-- Role: Holds the party state.
-- Description: Backs the cached state for this file.
+- Role: Caches the party value.
+- Description: Caches the `party` value for reuse.
 
 #### `public final long ign`
-- Role: Stores the ign value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ign value.
+- Description: Caches the `ign` value for reuse.
 
 #### `private final Button leave`
-- Role: Holds the leave state.
-- Description: Backs the cached state for this file.
+- Role: Caches the leave value.
+- Description: Caches the `leave` value for reuse.
 
 #### `private Map<Member, MemberView> avs = Collections.emptyMap()`
-- Role: Caches avs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the avs operation.
+- Description: Implements the empty map operation.
 
 #### `private Map<Long, Member> om = null`
-- Role: Caches om entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the om value.
+- Description: Caches the `om` value for reuse.
 
 #### `public final Member m`
-- Role: Holds the m state.
-- Description: Backs the cached state for this file.
+- Role: Caches the m value.
+- Description: Caches the `m` value for reuse.
 
 #### `public Color color = Color.WHITE`
-- Role: Stores the color value.
-- Description: Backs the cached state for this file.
+- Role: Caches the color value.
+- Description: Caches the `color` value for reuse.
 
 #### `private Tex tooltip = null`
-- Role: Stores the tooltip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tooltip value.
+- Description: Caches the `tooltip` value for reuse.
 
 ### Methods
 
@@ -70,52 +71,52 @@ Represents the partyview Haven component.
 
 #### `Partyview(Party party, long ign)`
 - Role: Creates a new Partyview instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Partyview instance from the supplied inputs.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public MemberView(Coord sz, Member m)`
-- Role: Performs member view.
-- Description: Supports the member view operation used by the surrounding class.
+- Role: Handles the member view path.
+- Description: Implements the member view operation.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public void drawframe(GOut g)`
-- Role: Performs drawframe.
-- Description: Supports the drawframe operation used by the surrounding class.
+- Role: Handles the drawframe path.
+- Description: Draws the frame.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `private void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `private void updsteam()`
-- Role: Performs updsteam.
-- Description: Supports the updsteam operation used by the surrounding class.
+- Role: Handles the updsteam path.
+- Description: Implements the updsteam operation.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Handles the destroy path.
+- Description: Implements the destroy operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

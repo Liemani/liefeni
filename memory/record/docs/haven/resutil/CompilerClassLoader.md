@@ -1,29 +1,27 @@
 ---
-source: [CompilerClassLoader.java](../../../../src/haven/resutil/CompilerClassLoader.java)
+source: [CompilerClassLoader.java](../../../../../src/haven/resutil/CompilerClassLoader.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # CompilerClassLoader
 
-Provides resource helper logic for compiler class loader.
+Loads compiled classes from resources listed in the `haven.resutil.classloader.useres` property.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `private Indir<Resource>[] useres`
-- Role: Stores the useres value.
-- Description: Backs the cached state for this file.
+- Role: Stores the resources searched for compiled classes.
+- Description: Each entry is resolved lazily before its `CodeEntry` loader is queried.
 
 ### Methods
 
 #### `public CompilerClassLoader(ClassLoader parent)`
-- Role: Creates a new CompilerClassLoader instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a resource-backed class loader.
+- Description: Reads the resource list from the client property and stores each handle for later lookup.
 
 #### `public Class<?> findClass(String name) throws ClassNotFoundException`
-- Role: Handles the find class workflow.
-- Description: Supports the find class operation used by the surrounding class.
+- Role: Resolves a class from the configured resources.
+- Description: Tries each resource loader in order and returns the first matching class definition.

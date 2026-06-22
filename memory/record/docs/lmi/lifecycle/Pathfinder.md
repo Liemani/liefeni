@@ -1,129 +1,100 @@
 ---
-source: [Pathfinder.java](../../../../src/lmi/lifecycle/Pathfinder.java)
+source: [Pathfinder.java](../../../../../src/lmi/lifecycle/Pathfinder.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Pathfinder
 
-Coordinates pathfinding requests across the current world state.
+Builds a local grid-based path and drives movement toward either a coordinate or a gob.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `private static Coord _mapOrigin`
-- Role: Stores the map origin value.
-- Description: Backs the cached state for this file.
+- Role: Stores the world coordinate used as the origin of the local pathfinding map.
 
 #### `private static boolean[][] _map`
-- Role: Tracks the map flag.
-- Description: Supports the map operation used by the surrounding class.
+- Role: Marks blocked and unblocked tiles inside the local pathfinding grid.
 
 #### `private static Coord _destination`
-- Role: Stores the destination value.
-- Description: Backs the cached state for this file.
+- Role: Stores the current target position in local pathfinding coordinates.
 
 #### `private static Coord[][] _directionMap`
-- Role: Stores the direction map value.
-- Description: Backs the cached state for this file.
+- Role: Stores reverse directions for each explored tile.
 
 #### `private static TreeMap<Integer, LinkedList<Coord>> _searchPriorityMap`
-- Role: Caches search priority map entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores frontier tiles grouped by rectilinear distance for the search loop.
 
 #### `private static Coord _origin`
-- Role: Stores the origin value.
-- Description: Backs the cached state for this file.
+- Role: Stores the current local player position in pathfinding coordinates.
 
 #### `private static Coord _currentMoveCoord`
-- Role: Stores the current move coord value.
-- Description: Backs the cached state for this file.
+- Role: Tracks the current step position while moving.
 
 #### `private static Coord _lastMoveWorldLocation`
-- Role: Stores the last move world location value.
-- Description: Backs the cached state for this file.
+- Role: Remembers the last world location visited during movement correction.
 
 ### Methods
 
 #### `public static void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Allocates the working pathfinding grids.
 
 #### `private static boolean _isBlocked(Coord coord)`
-- Role: Performs  is blocked.
-- Description: Supports the is blocked operation used by the surrounding class.
+- Role: Returns whether the tile is blocked in the working map.
 
 #### `private static Coord _getDirection(Coord coord)`
-- Role: Performs  get direction.
-- Description: Supports the get direction operation used by the surrounding class.
+- Role: Returns the stored reverse direction for a tile.
 
 #### `private static void _setDirection(Coord coord, Coord direction)`
-- Role: Performs  set direction.
-- Description: Supports the set direction operation used by the surrounding class.
+- Role: Stores the reverse direction for a tile.
 
 #### `private static void _addDistanceMap(Coord coord)`
-- Role: Performs  add distance map.
-- Description: Supports the add distance map operation used by the surrounding class.
+- Role: Adds a tile to the frontier bucket for its rectilinear distance.
 
 #### `public static void move(Coord destination)`
-- Role: Performs move.
-- Description: Supports the move operation used by the surrounding class.
+- Role: Finds a path to a world coordinate and moves there.
 
 #### `public static void move(Gob gob)`
-- Role: Performs move.
-- Description: Supports the move operation used by the surrounding class.
+- Role: Finds a path to a gob by trying adjacent tiles around the gob.
 
 #### `private static void _setMap()`
-- Role: Performs  set map.
-- Description: Supports the set map operation used by the surrounding class.
+- Role: Builds the local obstacle map around the current player position.
 
 #### `private static Coord _calculateMapOrigin()`
-- Role: Performs  calculate map origin.
-- Description: Supports the calculate map origin operation used by the surrounding class.
+- Role: Chooses the world-space origin for the working pathfinding grid.
 
 #### `private static void _scanMap(Coord mapOrigin)`
-- Role: Performs  scan map.
-- Description: Supports the scan map operation used by the surrounding class.
+- Role: Marks blocked tiles based on nearby gobs and clears the current player tile.
 
 #### `private static Array<Gob> _getObstaclArray()`
-- Role: Performs  get obstacl array.
-- Description: Supports the get obstacl array operation used by the surrounding class.
+- Role: Returns the gobs treated as obstacles, excluding plant resources.
 
 #### `private static void _findAndMove()`
-- Role: Performs  find and move.
-- Description: Supports the find and move operation used by the surrounding class.
+- Role: Runs path search and movement correction until a path succeeds or fails.
 
 #### `private static void _findPath()`
-- Role: Performs  find path.
-- Description: Supports the find path operation used by the surrounding class.
+- Role: Expands the search frontier until a path reaches the origin.
 
 #### `private static void _reset()`
-- Role: Performs  reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Clears working search state and seeds the frontier from the destination.
 
 #### `private static void _search(Coord node)`
-- Role: Performs  search.
-- Description: Supports the search operation used by the surrounding class.
+- Role: Expands one node into adjacent tiles.
 
 #### `private static void _printMap()`
-- Role: Performs  print map.
-- Description: Supports the print map operation used by the surrounding class.
+- Role: Prints the current pathfinding map for debugging.
 
 #### `private static void _pathMove()`
-- Role: Performs  path move.
-- Description: Supports the path move operation used by the surrounding class.
+- Role: Executes the next movement step along the discovered path.
 
 #### `private static void _correct()`
-- Role: Performs  correct.
-- Description: Supports the correct operation used by the surrounding class.
+- Role: Adjusts the movement path after a failed step.
 
 #### `private static void _clear()`
-- Role: Performs  clear.
-- Description: Supports the clear operation used by the surrounding class.
+- Role: Clears working pathfinding state after movement completes or fails.
 
 #### `private static Coord _transformMapCoord(Coord coord)`
-- Role: Performs  transform map coord.
-- Description: Supports the transform map coord operation used by the surrounding class.
+- Role: Converts a world coordinate into local pathfinding coordinates.
+

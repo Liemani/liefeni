@@ -1,5 +1,5 @@
 ---
-source: [LockedFile.java](../../../src/haven/LockedFile.java)
+source: [LockedFile.java](../../../../src/haven/LockedFile.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Represents the locked file Haven component.
 ### Fields
 
 #### `public FileChannel f`
-- Role: Stores the f value.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `public FileLock l`
-- Role: Stores the l value.
-- Description: Backs the cached state for this file.
+- Role: Caches the l value.
+- Description: Caches the `l` value for reuse.
 
 ### Methods
 
 #### `private LockedFile(FileChannel f, FileLock l)`
 - Role: Creates a new LockedFile instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LockedFile instance from the supplied inputs.
 
 #### `public void release() throws IOException`
 - Role: Handles the release workflow.
-- Description: Supports the release operation used by the surrounding class.
+- Description: Implements the release operation.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public static LockedFile lock(Path path, long pos, long len, boolean shared) throws IOException`
 - Role: Handles the lock workflow.
-- Description: Supports the lock operation used by the surrounding class.
+- Description: Implements the lock operation.
 
 #### `public static LockedFile lock(Path path) throws IOException`
 - Role: Handles the lock workflow.
-- Description: Supports the lock operation used by the surrounding class.
+- Description: Implements the lock operation.

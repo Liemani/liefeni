@@ -1,5 +1,5 @@
 ---
-source: [RecordingSessionPlanner.java](../../../../../src/lmi/waypoint/recording/RecordingSessionPlanner.java)
+source: [RecordingSessionPlanner.java](../../../../../../src/lmi/waypoint/recording/RecordingSessionPlanner.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,20 +18,20 @@ Plans waypoint recording sessions from runtime input.
 
 #### `private RecordingSessionPlanner()`
 - Role: Creates a new RecordingSessionPlanner instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RecordingSessionPlanner instance from the supplied inputs.
 
 #### `static RecordingSession plan(RecordingSession session)`
-- Role: Performs plan.
-- Description: Supports the plan operation used by the surrounding class.
+- Role: Handles the plan path.
+- Description: Implements the plan operation.
 
 #### `private static RecordingSegment _copySegmentHeader(RecordingSegment original, int index)`
-- Role: Performs  copy segment header.
-- Description: Supports the copy segment header operation used by the surrounding class.
+- Role: Handles the copy segment header path.
+- Description: Implements the copy segment header operation.
 
 #### `private static boolean _isPortalClick(RecordingClick click)`
-- Role: Performs  is portal click.
-- Description: Supports the is portal click operation used by the surrounding class.
+- Role: Handles the is portal click path.
+- Description: Implements the is portal click operation.
 
 #### `private static void _resolvePendingPortalTransition(RecordingSegment current, PendingPortalTransition pending)`
-- Role: Performs  resolve pending portal transition.
-- Description: Supports the resolve pending portal transition operation used by the surrounding class.
+- Role: Handles the resolve pending portal transition path.
+- Description: Implements the resolve pending portal transition operation.

@@ -1,5 +1,5 @@
 ---
-source: [PosixArgs.java](../../../src/haven/PosixArgs.java)
+source: [PosixArgs.java](../../../../src/haven/PosixArgs.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the posix args Haven component.
 
 ### Arg
 
-- Role: Represents arg within PosixArgs.
-- Description: Describes the nested arg type used by the enclosing class.
+- Role: Stores one parsed POSIX argument.
+- Description: Parsed option record that keeps the flag character and optional argument value.
 
 ## Members
 
@@ -22,43 +22,43 @@ Represents the posix args Haven component.
 ### Fields
 
 #### `private List<Arg> parsed`
-- Role: Caches parsed entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the parsed value.
+- Description: Caches the `parsed` value for reuse.
 
 #### `public String[] rest`
-- Role: Stores the rest value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rest value.
+- Description: Caches the `rest` value for reuse.
 
 #### `public String arg = null`
-- Role: Stores the arg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the arg value.
+- Description: Caches the `arg` value for reuse.
 
 #### `private char ch`
-- Role: Stores the ch value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ch value.
+- Description: Caches the `ch` value for reuse.
 
 #### `private String arg`
-- Role: Stores the arg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the arg value.
+- Description: Caches the `arg` value for reuse.
 
 ### Methods
 
 #### `private Arg(char ch, String arg)`
-- Role: Performs arg.
-- Description: Supports the arg operation used by the surrounding class.
+- Role: Handles the arg path.
+- Description: Implements the arg operation.
 
 #### `private PosixArgs()`
 - Role: Creates a new PosixArgs instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PosixArgs instance from the supplied inputs.
 
 #### `public static PosixArgs getopt(String[] argv, int start, String desc)`
-- Role: Performs getopt.
-- Description: Supports the getopt operation used by the surrounding class.
+- Role: Handles the getopt path.
+- Description: Returns the opt.
 
 #### `public static PosixArgs getopt(String[] argv, String desc)`
-- Role: Performs getopt.
-- Description: Supports the getopt operation used by the surrounding class.
+- Role: Handles the getopt path.
+- Description: Returns the opt.
 
 #### `public Iterable<Character> parsed()`
-- Role: Performs parsed.
-- Description: Supports the parsed operation used by the surrounding class.
+- Role: Handles the parsed path.
+- Description: Implements the parsed operation.

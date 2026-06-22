@@ -1,5 +1,5 @@
 ---
-source: [LmiOverlay.java](../../../../src/lmi/draw/LmiOverlay.java)
+source: [LmiOverlay.java](../../../../../src/lmi/draw/LmiOverlay.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Provides the base LMI overlay drawing support.
 
 #### `private LmiOverlay()`
 - Role: Creates a new LmiOverlay instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LmiOverlay instance from the supplied inputs.
 
 #### `public static void draw(MapView mapView, GOut g)`
 - Role: Renders the draw.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Dispatches overlay drawing to registered LMI overlays.

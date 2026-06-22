@@ -1,5 +1,5 @@
 ---
-source: [BinOp.java](../../../../../src/haven/render/sl/BinOp.java)
+source: [BinOp.java](../../../../../../src/haven/render/sl/BinOp.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,74 +11,46 @@ Represents the bin op shader-language AST node.
 ## Nested Types
 
 ### And
-
-- Role: Represents and within BinOp.
-- Description: Describes the nested and type used by the enclosing class.
+Boolean conjunction expression.
 
 ### BitAnd
-
-- Role: Represents bit and within BinOp.
-- Description: Describes the nested bit and type used by the enclosing class.
+Bitwise AND expression.
 
 ### BitOr
-
-- Role: Represents bit or within BinOp.
-- Description: Describes the nested bit or type used by the enclosing class.
+Bitwise OR expression.
 
 ### Div
-
-- Role: Represents div within BinOp.
-- Description: Describes the nested div type used by the enclosing class.
+Division expression.
 
 ### Eq
-
-- Role: Represents eq within BinOp.
-- Description: Describes the nested eq type used by the enclosing class.
+Equality comparison expression.
 
 ### Ge
-
-- Role: Represents ge within BinOp.
-- Description: Describes the nested ge type used by the enclosing class.
+Greater-than-or-equal comparison expression.
 
 ### Gt
-
-- Role: Represents gt within BinOp.
-- Description: Describes the nested gt type used by the enclosing class.
+Greater-than comparison expression.
 
 ### LShift
-
-- Role: Represents lshift within BinOp.
-- Description: Describes the nested lshift type used by the enclosing class.
+Left-shift expression.
 
 ### Le
-
-- Role: Represents le within BinOp.
-- Description: Describes the nested le type used by the enclosing class.
+Less-than-or-equal comparison expression.
 
 ### Lt
-
-- Role: Represents lt within BinOp.
-- Description: Describes the nested lt type used by the enclosing class.
+Less-than comparison expression.
 
 ### Ne
-
-- Role: Represents ne within BinOp.
-- Description: Describes the nested ne type used by the enclosing class.
+Inequality comparison expression.
 
 ### Or
-
-- Role: Represents or within BinOp.
-- Description: Describes the nested or type used by the enclosing class.
+Boolean disjunction expression.
 
 ### RShift
-
-- Role: Represents rshift within BinOp.
-- Description: Describes the nested rshift type used by the enclosing class.
+Right-shift expression.
 
 ### Sub
-
-- Role: Represents sub within BinOp.
-- Description: Describes the nested sub type used by the enclosing class.
+Subtraction expression.
 
 ## Members
 
@@ -87,139 +59,139 @@ Represents the bin op shader-language AST node.
 ### Fields
 
 #### `public final Expression lhs, rhs`
-- Role: Holds the rhs state.
-- Description: Backs the cached state for this file.
+- Role: Stores the left and right operands.
+- Description: Keeps both operands for AST traversal and code emission.
 
 #### `public final Expression lhs, rhs`
-- Role: Holds the rhs state.
-- Description: Backs the cached state for this file.
+- Role: Stores the left and right operands.
+- Description: Repeats the same operand pair on the duplicate field entry.
 
 ### Methods
 
 #### `public BinOp(Expression lhs, Expression rhs)`
-- Role: Creates a new BinOp instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one binary expression.
+- Description: Stores the left and right operand expressions.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits both operands.
+- Description: Walks the left operand and then the right operand.
 
 #### `public abstract String form()`
-- Role: Performs form.
-- Description: Supports the form operation used by the surrounding class.
+- Role: Returns the operator spelling.
+- Description: Supplies the token used when printing the expression.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the binary expression.
+- Description: Writes the left operand, operator, and right operand.
 
 #### `public static class Eq extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits `==` comparisons.
+- Description: Represents equality comparison in the shader AST.
 
 #### `public static class Eq extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents equality comparison nodes.
+- Description: Stores the operands for `==`.
 
 #### `public static class Ne extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits `!=` comparisons.
+- Description: Represents inequality comparison in the shader AST.
 
 #### `public static class Ne extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents inequality comparison nodes.
+- Description: Stores the operands for `!=`.
 
 #### `public static class Lt extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits `<` comparisons.
+- Description: Represents less-than comparison in the shader AST.
 
 #### `public static class Lt extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents less-than comparison nodes.
+- Description: Stores the operands for `<`.
 
 #### `public static class Gt extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits `>` comparisons.
+- Description: Represents greater-than comparison in the shader AST.
 
 #### `public static class Gt extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents greater-than comparison nodes.
+- Description: Stores the operands for `>`.
 
 #### `public static class Le extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits `<=` comparisons.
+- Description: Represents less-than-or-equal comparison in the shader AST.
 
 #### `public static class Le extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents less-than-or-equal comparison nodes.
+- Description: Stores the operands for `<=`.
 
 #### `public static class Ge extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits `>=` comparisons.
+- Description: Represents greater-than-or-equal comparison in the shader AST.
 
 #### `public static class Ge extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents greater-than-or-equal comparison nodes.
+- Description: Stores the operands for `>=`.
 
 #### `public static class Or extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits logical-or expressions.
+- Description: Represents boolean disjunction in the shader AST.
 
 #### `public static class Or extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents logical-or nodes.
+- Description: Stores the operands for `||`.
 
 #### `public static class And extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits logical-and expressions.
+- Description: Represents boolean conjunction in the shader AST.
 
 #### `public static class And extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents logical-and nodes.
+- Description: Stores the operands for `&&`.
 
 #### `public static class BitOr extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits bitwise-or expressions.
+- Description: Represents bitwise OR in the shader AST.
 
 #### `public static class BitOr extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents bitwise-or nodes.
+- Description: Stores the operands for `|`.
 
 #### `public static class BitAnd extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits bitwise-and expressions.
+- Description: Represents bitwise AND in the shader AST.
 
 #### `public static class BitAnd extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents bitwise-and nodes.
+- Description: Stores the operands for `&`.
 
 #### `public static class Sub extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits subtraction expressions.
+- Description: Represents numeric subtraction in the shader AST.
 
 #### `public static class Sub extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents subtraction nodes.
+- Description: Stores the operands for `-`.
 
 #### `public static class Div extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits division expressions.
+- Description: Represents numeric division in the shader AST.
 
 #### `public static class Div extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents division nodes.
+- Description: Stores the operands for `/`.
 
 #### `public static class LShift extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits left-shift expressions.
+- Description: Represents bitwise left shift in the shader AST.
 
 #### `public static class LShift extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents left-shift nodes.
+- Description: Stores the operands for `<<`.
 
 #### `public static class RShift extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Emits right-shift expressions.
+- Description: Represents bitwise right shift in the shader AST.
 
 #### `public static class RShift extends BinOp`
-- Role: Handles the bin op workflow.
-- Description: Supports the bin op operation used by the surrounding class.
+- Role: Represents right-shift nodes.
+- Description: Stores the operands for `>>`.

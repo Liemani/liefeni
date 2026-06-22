@@ -1,5 +1,5 @@
 ---
-source: [GenFun.java](../../../src/haven/GenFun.java)
+source: [GenFun.java](../../../../src/haven/GenFun.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,54 +12,55 @@ Represents the gen fun Haven component.
 
 ### Handler
 
-- Role: Represents handler within GenFun.
-- Description: Describes the nested handler type used by the enclosing class.
+- Role: Handles a generated interface invocation.
+- Description: Invocation handler used by the dynamic proxy instance.
 
 ### MissingImplementationException
 
-- Role: Represents missing implementation exception within GenFun.
-- Description: Describes the nested missing implementation exception type used by the enclosing class.
+- Role: Signals a missing generated implementation.
+- Description: Runtime exception thrown when no implementation is registered for a requested interface.
 
 ## Members
 
 ### Constants
 
 #### `private static final InvocationHandler passthrough = new InvocationHandler()`
-- Role: Defines the shared passthrough constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the passthrough operation.
+- Description: Implements the invocation handler operation.
+- Value: `new InvocationHandler()`
 
 ### Fields
 
 #### `public final Class<T> iface`
-- Role: Holds the iface state.
-- Description: Backs the cached state for this file.
+- Role: Caches the iface value.
+- Description: Caches the `iface` value for reuse.
 
 #### `public final T call`
-- Role: Holds the call state.
-- Description: Backs the cached state for this file.
+- Role: Caches the call value.
+- Description: Caches the `call` value for reuse.
 
 #### `private final Map<Class<?>, T> cache = new java.util.concurrent.ConcurrentHashMap<>()`
-- Role: Caches cache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cache operation.
+- Description: Implements the private final map<class<?>, t> cache = new java.util.concurrent.concurrent hash map<>() operation.
 
 #### `private final Map<Class<?>, T> registry = new HashMap<>()`
-- Role: Caches registry entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the registry operation.
+- Description: Implements the private final map<class<?>, t> registry = new hash map<>() operation.
 
 ### Methods
 
 #### `public GenFun(Class<T> iface)`
 - Role: Creates a new GenFun instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GenFun instance from the supplied inputs.
 
 #### `public GenFun<T> register(Class<?> cl, T impl)`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `public MissingImplementationException(GenFun function, Object target)`
-- Role: Performs missing implementation exception.
-- Description: Supports the missing implementation exception operation used by the surrounding class.
+- Role: Handles the missing implementation exception path.
+- Description: Implements the missing implementation exception operation.
 
 #### `public Object invoke(Object proxy, Method method, Object[] args)`
-- Role: Performs invoke.
-- Description: Supports the invoke operation used by the surrounding class.
+- Role: Handles the invoke path.
+- Description: Implements the invoke operation.

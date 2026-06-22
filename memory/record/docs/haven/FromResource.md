@@ -1,5 +1,5 @@
 ---
-source: [FromResource.java](../../../src/haven/FromResource.java)
+source: [FromResource.java](../../../../src/haven/FromResource.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -16,18 +16,18 @@ Represents the from resource Haven component.
 
 #### `public boolean override() default false`
 - Role: Tracks the false flag.
-- Description: Supports the override operation used by the surrounding class.
+- Description: Implements the override operation.
 
 ### Methods
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public int version()`
-- Role: Performs version.
-- Description: Supports the version operation used by the surrounding class.
+- Role: Handles the version path.
+- Description: Implements the version operation.
 
 #### `public boolean override() default false`
 - Role: Handles the override workflow.
-- Description: Supports the override operation used by the surrounding class.
+- Description: Implements the override operation.

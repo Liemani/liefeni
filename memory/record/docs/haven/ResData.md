@@ -1,5 +1,5 @@
 ---
-source: [ResData.java](../../../src/haven/ResData.java)
+source: [ResData.java](../../../../src/haven/ResData.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,39 +15,39 @@ Represents the res data Haven component.
 ### Fields
 
 #### `public Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public MessageBuf sdt`
-- Role: Holds the sdt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 ### Methods
 
 #### `public ResData(Indir<Resource> res, Message sdt)`
 - Role: Creates a new ResData instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ResData instance from the supplied inputs.
 
 #### `public ResData clone()`
-- Role: Performs clone.
-- Description: Supports the clone operation used by the surrounding class.
+- Role: Handles the clone path.
+- Description: Implements the clone operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object other)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public static List<ResData> wrap(List<? extends Indir<Resource>> in)`
-- Role: Performs wrap.
-- Description: Supports the wrap operation used by the surrounding class.
+- Role: Handles the wrap path.
+- Description: Implements the wrap operation.
 
 #### `public static ResData[] wrap(Indir<Resource>[] in)`
-- Role: Performs wrap.
-- Description: Supports the wrap operation used by the surrounding class.
+- Role: Handles the wrap path.
+- Description: Implements the wrap operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this ResData for debugging and logging.

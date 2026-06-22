@@ -1,80 +1,82 @@
 ---
-source: [FragData.java](../../../../../src/haven/render/sl/FragData.java)
+source: [FragData.java](../../../../../../src/haven/render/sl/FragData.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # FragData
 
-Represents the frag data shader-language AST node.
+Represents fragment-output data that is registered through post-processing.
 
 ## Nested Types
 
 ### Def
+Fragment-output declaration node used to register the data in fragment context.
 
-- Role: Represents def within FragData.
-- Description: Describes the nested def type used by the enclosing class.
+#### Members
+
+##### Methods
+
+#### `public void process(PostProc proc)`
+- Role: Declares no extra post-processing behavior.
+- Description: The enclosing `FragData` registration is handled by the post-process pass.
+
+#### `public Object ppid()`
+- Role: Returns the fragment-data post-processing id.
+- Description: Matches the `fragdata` post-process pass.
+
+#### `private FragData var()`
+- Role: Returns the enclosing fragment data object.
+- Description: Used by the post-process pass to recover the registered variable.
+
+#### `public void output(Output out)`
+- Role: Emits the fragment-output declaration.
+- Description: Writes an `out` declaration in fragment context.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object defid = new PostProc.AutoID("fragdata", 15000)`
-- Role: Defines the shared defid constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the fragment-data post-process id.
+- Description: Used to collect fragment outputs into `prog.fragdata`.
 
 ### Fields
 
 #### `public final Function<Pipe, Object> value`
-- Role: Holds the value state.
-- Description: Backs the cached state for this file.
+- Role: Supplies the runtime value.
+- Description: Read from the current render pipe.
 
 #### `public final Collection<State.Slot<?>> deps`
-- Role: Caches deps entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Lists state dependencies.
+- Description: Used to track which render states affect the output.
 
 #### `public boolean primary = false`
-- Role: Tracks the primary flag.
-- Description: Supports the primary operation used by the surrounding class.
+- Role: Marks the primary fragment-output slot.
+- Description: Only one fragment data entry can claim the primary slot.
 
 ### Methods
 
 #### `public FragData(Type type, Symbol name, Function<Pipe, Object> value, State.Slot<?>... deps)`
-- Role: Creates a new FragData instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a named fragment-output datum.
+- Description: Stores the value supplier and dependency slots.
 
 #### `public FragData(Type type, String infix, Function<Pipe, Object> value, State.Slot<?>... deps)`
-- Role: Creates a new FragData instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a shared-name fragment-output datum.
+- Description: Uses a shared symbol prefix.
 
 #### `public FragData(Type type, Function<Pipe, Object> value, State.Slot<?>... deps)`
-- Role: Creates a new FragData instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds an auto-named fragment-output datum.
+- Description: Uses a generated shared symbol.
 
 #### `public FragData primary()`
-- Role: Performs primary.
-- Description: Supports the primary operation used by the surrounding class.
+- Role: Marks this entry as the primary slot.
+- Description: Ensures only one primary fragment output exists.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
-
-#### `public void process(PostProc proc)`
-- Role: Performs process.
-- Description: Supports the process operation used by the surrounding class.
-
-#### `public Object ppid()`
-- Role: Performs ppid.
-- Description: Supports the ppid operation used by the surrounding class.
-
-#### `private FragData var()`
-- Role: Performs var.
-- Description: Supports the var operation used by the surrounding class.
-
-#### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Returns a debug description.
+- Description: Shows type, name, and dependencies.
 
 #### `public void use(Context ctx)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Registers the fragment-output declaration.
+- Description: Adds the declaration to the context when missing.

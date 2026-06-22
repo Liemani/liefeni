@@ -1,5 +1,5 @@
 ---
-source: [WItem.java](../../../src/haven/WItem.java)
+source: [WItem.java](../../../../src/haven/WItem.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,151 +12,152 @@ Represents the witem Haven component.
 
 ### ItemTip
 
-- Role: Represents item tip within WItem.
-- Description: Describes the nested item tip type used by the enclosing class.
+- Role: Wraps an item tooltip image.
+- Description: Tooltip adapter that memoizes the rendered item-info image for a GItem.
 
 ### LongTip
 
-- Role: Represents long tip within WItem.
-- Description: Describes the nested long tip type used by the enclosing class.
+- Role: Renders the long item tooltip.
+- Description: Tooltip variant that uses the full item-info rendering after the hover delay.
 
 ### ShortTip
 
-- Role: Represents short tip within WItem.
-- Description: Describes the nested short tip type used by the enclosing class.
+- Role: Renders the short item tooltip.
+- Description: Tooltip variant that uses the compact item-info rendering before the hover delay expires.
 
 ## Members
 
 ### Constants
 
 #### `public static final Resource missing = Resource.local().loadwait("gfx/invobjs/missing")`
-- Role: Defines the shared missing constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the missing operation.
+- Description: Implements the loadwait operation.
+- Value: `Resource.local().loadwait("gfx/invobjs/missing")`
 
 ### Fields
 
 #### `public final GItem item`
-- Role: Holds the item state.
-- Description: Backs the cached state for this file.
+- Role: Caches the item value.
+- Description: Caches the `item` value for reuse.
 
 #### `private Resource cspr = null`
-- Role: Stores the cspr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cspr value.
+- Description: Caches the `cspr` value for reuse.
 
 #### `private Message csdt = Message.nil`
-- Role: Holds the csdt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the csdt value.
+- Description: Caches the `csdt` value for reuse.
 
 #### `private final List<ItemInfo> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private final TexI tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `private double hoverstart`
-- Role: Stores the hoverstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hoverstart value.
+- Description: Caches the `hoverstart` value for reuse.
 
 #### `private ItemTip shorttip = null, longtip = null`
-- Role: Holds the shorttip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shorttip value.
+- Description: Caches the `shorttip` value for reuse.
 
 #### `private ItemTip shorttip = null, longtip = null`
-- Role: Holds the shorttip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shorttip value.
+- Description: Caches the `shorttip` value for reuse.
 
 #### `private List<ItemInfo> ttinfo = null`
-- Role: Caches ttinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the ttinfo value.
+- Description: Caches the `ttinfo` value for reuse.
 
 #### `public final AttrCache<Pipe.Op> rstate = new AttrCache<>(this::info, GItem.RStateInfo.combine)`
-- Role: Caches rstate entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rstate operation.
+- Description: Implements the public final attr cache<pipe.op> rstate = new attr cache<>(this::info, g item.r state info.combine) operation.
 
 #### `public final AttrCache<GItem.InfoOverlay<?>[]> itemols = new AttrCache<>(this::info, info ->`
-- Role: Caches itemols entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the itemols operation.
+- Description: Implements the public final attr cache<g item.info overlay<?>[]> itemols = new attr cache<>(this::info, info -> operation.
 
 #### `public final AttrCache<Double> itemmeter = new AttrCache<>(this::info, AttrCache.map1(GItem.MeterInfo.class, minf -> minf::meter))`
-- Role: Caches itemmeter entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the itemmeter operation.
+- Description: Implements the map1 operation.
 
 #### `private GSprite lspr = null`
-- Role: Holds the lspr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the lspr value.
+- Description: Caches the `lspr` value for reuse.
 
 #### `private Widget lcont = null`
-- Role: Stores the lcont value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lcont value.
+- Description: Caches the `lcont` value for reuse.
 
 ### Methods
 
 #### `public WItem(GItem item)`
 - Role: Creates a new WItem instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WItem instance from the supplied inputs.
 
 #### `public void drawmain(GOut g, GSprite spr)`
-- Role: Performs drawmain.
-- Description: Supports the drawmain operation used by the surrounding class.
+- Role: Handles the drawmain path.
+- Description: Draws the main.
 
 #### `public ItemTip(List<ItemInfo> info, BufferedImage img)`
-- Role: Performs item tip.
-- Description: Supports the item tip operation used by the surrounding class.
+- Role: Handles the item tip path.
+- Description: Implements the item tip operation.
 
 #### `public GItem item()`
-- Role: Performs item.
-- Description: Supports the item operation used by the surrounding class.
+- Role: Handles the item path.
+- Description: Implements the item operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Tex get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public ShortTip(List<ItemInfo> info)`
-- Role: Performs short tip.
-- Description: Supports the short tip operation used by the surrounding class.
+- Role: Handles the short tip path.
+- Description: Implements the short tip operation.
 
 #### `public LongTip(List<ItemInfo> info)`
-- Role: Performs long tip.
-- Description: Supports the long tip operation used by the surrounding class.
+- Role: Handles the long tip path.
+- Description: Implements the long tip operation.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `private List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `private Widget contparent()`
-- Role: Performs contparent.
-- Description: Supports the contparent operation used by the surrounding class.
+- Role: Handles the contparent path.
+- Description: Implements the contparent operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the WItem content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Handles the drop path.
+- Description: Implements the drop operation.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Handles the iteminteract path.
+- Description: Implements the iteminteract operation.
 
 #### `public boolean mousehover(MouseHoverEvent ev, boolean on)`
-- Role: Performs mousehover.
-- Description: Supports the mousehover operation used by the surrounding class.
+- Role: Handles the mousehover path.
+- Description: Updates hover state and tooltip selection for minimap content.

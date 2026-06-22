@@ -1,5 +1,5 @@
 ---
-source: [IntMap.java](../../../src/haven/IntMap.java)
+source: [IntMap.java](../../../../src/haven/IntMap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,113 +12,114 @@ Represents the int map Haven component.
 
 ### IteredEntry
 
-- Role: Represents itered entry within IntMap.
-- Description: Describes the nested itered entry type used by the enclosing class.
+- Role: Wraps one iterated map entry.
+- Description: Entry adapter used by the map iterator to expose key/value pairs.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object nil = new Object()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the object operation.
+- Value: `new Object()`
 
 ### Fields
 
 #### `private Object[] vals`
-- Role: Holds the vals state.
-- Description: Backs the cached state for this file.
+- Role: Caches the vals value.
+- Description: Caches the `vals` value for reuse.
 
 #### `private int sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `private final int k`
-- Role: Stores the k value.
-- Description: Backs the cached state for this file.
+- Role: Caches the k value.
+- Description: Caches the `k` value for reuse.
 
 #### `private Set<Entry<Integer, V>> entries = null`
-- Role: Caches entries entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the entries value.
+- Description: Caches the `entries` value for reuse.
 
 ### Methods
 
 #### `public IntMap(int capacity)`
 - Role: Creates a new IntMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the IntMap instance from the supplied inputs.
 
 #### `public IntMap()`
 - Role: Creates a new IntMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the IntMap instance from the supplied inputs.
 
 #### `public IntMap(Map<Integer, V> m)`
 - Role: Creates a new IntMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the IntMap instance from the supplied inputs.
 
 #### `private Object icast(V v)`
-- Role: Performs icast.
-- Description: Supports the icast operation used by the surrounding class.
+- Role: Handles the icast path.
+- Description: Implements the icast operation.
 
 #### `private V ocast(Object v)`
-- Role: Performs ocast.
-- Description: Supports the ocast operation used by the surrounding class.
+- Role: Handles the ocast path.
+- Description: Implements the ocast operation.
 
 #### `public boolean containsKey(int k)`
-- Role: Performs contains key.
-- Description: Supports the contains key operation used by the surrounding class.
+- Role: Handles the contains key path.
+- Description: Implements the contains key operation.
 
 #### `public boolean containsKey(Object k)`
-- Role: Performs contains key.
-- Description: Supports the contains key operation used by the surrounding class.
+- Role: Handles the contains key path.
+- Description: Implements the contains key operation.
 
 #### `private IteredEntry(int k)`
-- Role: Performs itered entry.
-- Description: Supports the itered entry operation used by the surrounding class.
+- Role: Handles the itered entry path.
+- Description: Implements the itered entry operation.
 
 #### `public Integer getKey()`
 - Role: Returns the key.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the key.
 
 #### `public V getValue()`
 - Role: Returns the value.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the value.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public V setValue(V nv)`
 - Role: Sets the value.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public Set<Entry<Integer, V>> entrySet()`
-- Role: Performs entry set.
-- Description: Supports the entry set operation used by the surrounding class.
+- Role: Handles the entry set path.
+- Description: Implements the entry set operation.
 
 #### `public V get(int k)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public V get(Object k)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public V put(int k, V v)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public V put(Integer k, V v)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public V remove(int k)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public V remove(Integer k)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.

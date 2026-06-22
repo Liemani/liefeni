@@ -1,5 +1,5 @@
 ---
-source: [WpEdge.java](../../../../../src/lmi/waypoint/object/WpEdge.java)
+source: [WpEdge.java](../../../../../../src/lmi/waypoint/object/WpEdge.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,47 +15,47 @@ Represents a waypoint edge domain object.
 ### Fields
 
 #### `public final long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `public final long node0Id`
-- Role: Stores the node0 id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the node0 id value.
+- Description: Caches the `node0Id` value for reuse.
 
 #### `public final long node1Id`
-- Role: Stores the node1 id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the node1 id value.
+- Description: Caches the `node1Id` value for reuse.
 
 #### `public final int direction`
-- Role: Stores the direction value.
-- Description: Backs the cached state for this file.
+- Role: Caches the direction value.
+- Description: Caches the `direction` value for reuse.
 
 #### `public final double timeCost`
-- Role: Stores the time cost value.
-- Description: Backs the cached state for this file.
+- Role: Caches the time cost value.
+- Description: Caches the `timeCost` value for reuse.
 
 #### `public final double fatigueCost`
-- Role: Stores the fatigue cost value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fatigue cost value.
+- Description: Caches the `fatigueCost` value for reuse.
 
 ### Methods
 
 #### `private WpEdge(long id, long graphId, long node0Id, long node1Id, int direction, double timeCost, double fatigueCost)`
 - Role: Creates a new WpEdge instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WpEdge instance from the supplied inputs.
 
 #### `public static WpEdge of(long id, long graphId, long node0Id, long node1Id, int direction, double timeCost, double fatigueCost)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a WpEdge value from the supplied components.
+- Description: Builds a WpEdge value from the supplied components.
 
 #### `public static WpEdge fromRecord(WpEdgeRecord record)`
-- Role: Performs from record.
-- Description: Supports the from record operation used by the surrounding class.
+- Role: Handles the from record path.
+- Description: Implements the from record operation.
 
 #### `public long otherNodeId(long nodeId)`
-- Role: Performs other node id.
-- Description: Supports the other node id operation used by the surrounding class.
+- Role: Handles the other node id path.
+- Description: Implements the other node id operation.

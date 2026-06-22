@@ -1,5 +1,5 @@
 ---
-source: [WaypointPortalResolver.java](../../../../../src/lmi/waypoint/recording/WaypointPortalResolver.java)
+source: [WaypointPortalResolver.java](../../../../../../src/lmi/waypoint/recording/WaypointPortalResolver.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Resolves waypoint portals from runtime input.
 
 #### `private WaypointPortalResolver()`
 - Role: Creates a new WaypointPortalResolver instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointPortalResolver instance from the supplied inputs.
 
 #### `public static Gob closestCounterpartGob(String entryPortalResname)`
-- Role: Performs closest counterpart gob.
-- Description: Supports the closest counterpart gob operation used by the surrounding class.
+- Role: Handles the closest counterpart gob path.
+- Description: Implements the closest counterpart gob operation.

@@ -1,108 +1,56 @@
 ---
-source: [LBinOp.java](../../../../../src/haven/render/sl/LBinOp.java)
+source: [LBinOp.java](../../../../../../src/haven/render/sl/LBinOp.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # LBinOp
 
-Represents the lbin op shader-language AST node.
+Represents a binary operator that requires an l-value on the left-hand side.
 
 ## Nested Types
 
+### Assign
+Assignment expression.
+
 ### AAdd
-
-- Role: Represents aadd within LBinOp.
-- Description: Describes the nested aadd type used by the enclosing class.
-
-### ADiv
-
-- Role: Represents adiv within LBinOp.
-- Description: Describes the nested adiv type used by the enclosing class.
-
-### AMul
-
-- Role: Represents amul within LBinOp.
-- Description: Describes the nested amul type used by the enclosing class.
+Addition assignment expression.
 
 ### ASub
+Subtraction assignment expression.
 
-- Role: Represents asub within LBinOp.
-- Description: Describes the nested asub type used by the enclosing class.
+### AMul
+Multiplication assignment expression.
 
-### Assign
-
-- Role: Represents assign within LBinOp.
-- Description: Describes the nested assign type used by the enclosing class.
+### ADiv
+Division assignment expression.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final LValue lhs`
-- Role: Holds the lhs state.
-- Description: Backs the cached state for this file.
+- Role: Stores the left-hand l-value.
+- Description: Emitted before the operator.
 
 #### `public final Expression rhs`
-- Role: Holds the rhs state.
-- Description: Backs the cached state for this file.
+- Role: Stores the right-hand expression.
+- Description: Emitted after the operator.
 
 ### Methods
 
 #### `public LBinOp(LValue lhs, Expression rhs)`
-- Role: Creates a new LBinOp instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a binary operator expression.
+- Description: Stores the left and right operands.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Walks the operands.
+- Description: Visits the left l-value and right expression.
 
 #### `public abstract String form()`
-- Role: Performs form.
-- Description: Supports the form operation used by the surrounding class.
+- Role: Returns the operator spelling.
+- Description: Implemented by each concrete assignment operator.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
-
-#### `public static class Assign extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class Assign extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class AAdd extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class AAdd extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class ASub extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class ASub extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class AMul extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class AMul extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class ADiv extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
-
-#### `public static class ADiv extends LBinOp`
-- Role: Handles the lbin op workflow.
-- Description: Supports the lbin op operation used by the surrounding class.
+- Role: Emits the binary expression.
+- Description: Writes the left operand, operator, and right operand.

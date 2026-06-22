@@ -1,5 +1,5 @@
 ---
-source: [RecordingClick.java](../../../../../src/lmi/waypoint/model/RecordingClick.java)
+source: [RecordingClick.java](../../../../../../src/lmi/waypoint/model/RecordingClick.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,39 +15,39 @@ Represents waypoint model data for recording click.
 ### Fields
 
 #### `public final int index`
-- Role: Stores the index value.
-- Description: Backs the cached state for this file.
+- Role: Caches the index value.
+- Description: Caches the `index` value for reuse.
 
 #### `public final int x`
-- Role: Stores the x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the x value.
+- Description: Caches the `x` value for reuse.
 
 #### `public final int y`
-- Role: Stores the y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the y value.
+- Description: Caches the `y` value for reuse.
 
 #### `public final int mouseButton`
-- Role: Stores the mouse button value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mouse button value.
+- Description: Caches the `mouseButton` value for reuse.
 
 #### `public final Long gobId`
-- Role: Stores the gob id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gob id value.
+- Description: Caches the `gobId` value for reuse.
 
 #### `public final Integer meshId`
-- Role: Stores the mesh id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mesh id value.
+- Description: Caches the `meshId` value for reuse.
 
 #### `public final String gobResname`
-- Role: Stores the gob resname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gob resname value.
+- Description: Caches the `gobResname` value for reuse.
 
 #### `public boolean isPortal`
 - Role: Tracks the is portal flag.
-- Description: Supports the is portal operation used by the surrounding class.
+- Description: Marks clicks that start a portal transition.
 
 ### Methods
 
 #### `public RecordingClick(int index, int x, int y, int mouseButton, Long gobId, Integer meshId, String gobResname)`
 - Role: Creates a new RecordingClick instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RecordingClick instance from the supplied inputs.

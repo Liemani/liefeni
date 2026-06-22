@@ -1,5 +1,5 @@
 ---
-source: [WaypointEdgeWriter.java](../../../../../src/lmi/waypoint/recording/WaypointEdgeWriter.java)
+source: [WaypointEdgeWriter.java](../../../../../../src/lmi/waypoint/recording/WaypointEdgeWriter.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Writes waypoint edges during recording.
 
 #### `private WaypointEdgeWriter()`
 - Role: Creates a new WaypointEdgeWriter instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointEdgeWriter instance from the supplied inputs.
 
 #### `public static void saveAsync(`
 - Role: Coordinates save async persistence or lookup.
-- Description: Supports the save async operation used by the surrounding class.
+- Description: Saves the async.

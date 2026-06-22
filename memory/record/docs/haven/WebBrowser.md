@@ -1,5 +1,5 @@
 ---
-source: [WebBrowser.java](../../../src/haven/WebBrowser.java)
+source: [WebBrowser.java](../../../../src/haven/WebBrowser.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,27 +22,27 @@ Represents the web browser Haven component.
 ### Fields
 
 #### `public static WebBrowser self`
-- Role: Holds the self state.
-- Description: Backs the cached state for this file.
+- Role: Caches the self value.
+- Description: Caches the `self` value for reuse.
 
 ### Methods
 
 #### `public WebBrowser()`
 - Role: Creates a new WebBrowser instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WebBrowser instance from the supplied inputs.
 
 #### `public abstract void show(URL url)`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.
 
 #### `public BrowserException(String msg)`
-- Role: Performs browser exception.
-- Description: Supports the browser exception operation used by the surrounding class.
+- Role: Handles the browser exception path.
+- Description: Implements the browser exception operation.
 
 #### `public BrowserException(Throwable cause)`
-- Role: Performs browser exception.
-- Description: Supports the browser exception operation used by the surrounding class.
+- Role: Handles the browser exception path.
+- Description: Implements the browser exception operation.
 
 #### `public static void sshow(URL url)`
-- Role: Performs sshow.
-- Description: Supports the sshow operation used by the surrounding class.
+- Role: Handles the sshow path.
+- Description: Implements the sshow operation.

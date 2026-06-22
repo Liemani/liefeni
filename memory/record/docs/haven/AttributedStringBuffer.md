@@ -1,5 +1,5 @@
 ---
-source: [AttributedStringBuffer.java](../../../src/haven/AttributedStringBuffer.java)
+source: [AttributedStringBuffer.java](../../../../src/haven/AttributedStringBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Represents the attributed string buffer Haven component.
 ### Fields
 
 #### `private AttributedString current = new AttributedString("")`
-- Role: Stores the current value.
-- Description: Backs the cached state for this file.
+- Role: Implements the current operation.
+- Description: Implements the attributed string operation.
 
 ### Methods
 
 #### `public static String gettext(AttributedCharacterIterator s)`
-- Role: Performs gettext.
-- Description: Supports the gettext operation used by the surrounding class.
+- Role: Handles the gettext path.
+- Description: Returns the text.
 
 #### `public static void dump(AttributedCharacterIterator s, java.io.PrintStream out)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.
 
 #### `public static AttributedString concat(AttributedCharacterIterator... strings)`
-- Role: Performs concat.
-- Description: Supports the concat operation used by the surrounding class.
+- Role: Handles the concat path.
+- Description: Implements the concat operation.
 
 #### `public static AttributedString concat(AttributedString... strings)`
-- Role: Performs concat.
-- Description: Supports the concat operation used by the surrounding class.
+- Role: Handles the concat path.
+- Description: Implements the concat operation.
 
 #### `public void append(AttributedString string)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public void append(String string, Map<? extends Attribute, ?> attrs)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public AttributedString result()`
-- Role: Performs result.
-- Description: Supports the result operation used by the surrounding class.
+- Role: Handles the result path.
+- Description: Implements the result operation.

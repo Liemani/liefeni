@@ -1,5 +1,5 @@
 ---
-source: [LWJGLEnvironment.java](../../../../../src/haven/render/lwjgl/LWJGLEnvironment.java)
+source: [LWJGLEnvironment.java](../../../../../../src/haven/render/lwjgl/LWJGLEnvironment.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -23,30 +23,30 @@ Adapts the render backend to LWJGL for lwjglenvironment.
 
 #### `public final boolean coreprof`
 - Role: Tracks the coreprof flag.
-- Description: Supports the coreprof operation used by the surrounding class.
+- Description: Caches the `coreprof` value for reuse.
 
 ### Methods
 
 #### `public LWJGLEnvironment(Area wnd)`
 - Role: Creates a new LWJGLEnvironment instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LWJGLEnvironment instance from the supplied inputs.
 
 #### `public LWJGLCaps(GL gl, LWJGLEnvironment env)`
-- Role: Performs lwjglcaps.
-- Description: Supports the lwjglcaps operation used by the surrounding class.
+- Role: Handles the lwjglcaps path.
+- Description: Implements the lwjgl caps operation.
 
 #### `public void checkreq()`
-- Role: Performs checkreq.
-- Description: Supports the checkreq operation used by the surrounding class.
+- Role: Handles the checkreq path.
+- Description: Implements the checkreq operation.
 
 #### `public LWJGLCaps mkcaps(GL initgl)`
-- Role: Performs mkcaps.
-- Description: Supports the mkcaps operation used by the surrounding class.
+- Role: Handles the mkcaps path.
+- Description: Implements the mkcaps operation.
 
 #### `public SysBuffer malloc(int sz)`
-- Role: Performs malloc.
-- Description: Supports the malloc operation used by the surrounding class.
+- Role: Handles the malloc path.
+- Description: Implements the malloc operation.
 
 #### `public SysBuffer subsume(ByteBuffer data, int sz)`
-- Role: Performs subsume.
-- Description: Supports the subsume operation used by the surrounding class.
+- Role: Handles the subsume path.
+- Description: Implements the subsume operation.

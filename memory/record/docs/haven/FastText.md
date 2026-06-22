@@ -1,5 +1,5 @@
 ---
-source: [FastText.java](../../../src/haven/FastText.java)
+source: [FastText.java](../../../../src/haven/FastText.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,32 +13,39 @@ Represents the fast text Haven component.
 ### Constants
 
 #### `public static final VertexArray.Layout vf = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.SINT16), 0, 0, 8),`
-- Role: Defines the shared vf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the vf operation.
+- Description: Implements the vector format operation.
+- Value: `new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.SINT16), 0, 0, 8),`
 
 #### `public static final Font font = UI.scale(Text.sans, 10)`
-- Role: Defines the shared font constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the font operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(Text.sans, 10)`
 
 #### `public static final int h`
-- Role: Defines the shared h constant.
-- Description: Shared constant used by the rest of the class.
+#### `public static final int h`
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `public static final FontMetrics meter`
-- Role: Defines the shared meter constant.
-- Description: Shared constant used by the rest of the class.
+#### `public static final FontMetrics meter`
+- Role: Caches the meter value.
+- Description: Caches the `meter` value for reuse.
 
 #### `private static final TexI ct`
-- Role: Defines the shared ct constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final TexI ct`
+- Role: Caches the ct value.
+- Description: Caches the `ct` value for reuse.
 
 #### `private static final int[] sx = new int[256], cw = new int[256]`
-- Role: Defines the shared sx constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sx value.
+- Description: Caches the `sx` value for reuse.
+- Value: `new int[256], cw = new int[256]`
 
 #### `private static final int[] sx = new int[256], cw = new int[256]`
-- Role: Defines the shared sx constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sx value.
+- Description: Caches the `sx` value for reuse.
+- Value: `new int[256], cw = new int[256]`
 
 ### Fields
 
@@ -46,24 +53,24 @@ Represents the fast text Haven component.
 
 #### `private FastText()`
 - Role: Creates a new FastText instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FastText instance from the supplied inputs.
 
 #### `public static int textw(String text)`
-- Role: Performs textw.
-- Description: Supports the textw operation used by the surrounding class.
+- Role: Handles the textw path.
+- Description: Implements the textw operation.
 
 #### `public static void aprint(GOut g, Coord c, double ax, double ay, String text)`
-- Role: Performs aprint.
-- Description: Supports the aprint operation used by the surrounding class.
+- Role: Handles the aprint path.
+- Description: Implements the aprint operation.
 
 #### `public static void print(GOut g, Coord c, String text)`
-- Role: Performs print.
-- Description: Supports the print operation used by the surrounding class.
+- Role: Handles the print path.
+- Description: Implements the print operation.
 
 #### `public static void aprintf(GOut g, Coord c, double ax, double ay, String fmt, Object... args)`
-- Role: Performs aprintf.
-- Description: Supports the aprintf operation used by the surrounding class.
+- Role: Handles the aprintf path.
+- Description: Implements the aprintf operation.
 
 #### `public static void printf(GOut g, Coord c, String fmt, Object... args)`
-- Role: Performs printf.
-- Description: Supports the printf operation used by the surrounding class.
+- Role: Handles the printf path.
+- Description: Implements the printf operation.

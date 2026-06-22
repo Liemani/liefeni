@@ -1,5 +1,5 @@
 ---
-source: [GOut.java](../../../src/haven/GOut.java)
+source: [GOut.java](../../../../src/haven/GOut.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,281 +13,283 @@ Represents the gout Haven component.
 ### Constants
 
 #### `public static final VertexArray.Layout vf_pos = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 8))`
-- Role: Defines the shared vf pos constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the vf pos operation.
+- Description: Implements the vector format operation.
+- Value: `new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 8))`
 
 #### `public static final VertexArray.Layout vf_tex = new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 16),`
-- Role: Defines the shared vf tex constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the vf tex operation.
+- Description: Implements the vector format operation.
+- Value: `new VertexArray.Layout(new VertexArray.Layout.Input(Ortho2D.pos, new VectorFormat(2, NumberFormat.FLOAT32), 0, 0, 16),`
 
 ### Fields
 
 #### `public final Render out`
-- Role: Holds the out state.
-- Description: Backs the cached state for this file.
+- Role: Caches the out value.
+- Description: Caches the `out` value for reuse.
 
 #### `public Coord ul, br, tx`
-- Role: Stores the tx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tx value.
+- Description: Caches the `tx` value for reuse.
 
 #### `public Coord ul, br, tx`
-- Role: Stores the tx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tx value.
+- Description: Caches the `tx` value for reuse.
 
 #### `public Coord ul, br, tx`
-- Role: Stores the tx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tx value.
+- Description: Caches the `tx` value for reuse.
 
 #### `private final GOut root`
-- Role: Holds the root state.
-- Description: Backs the cached state for this file.
+- Role: Caches the root value.
+- Description: Keeps the root event so acceptance can be reported back.
 
 #### `private final Pipe def2d, cur2d`
-- Role: Holds the cur2d state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur2d value.
+- Description: Caches the `cur2d` value for reuse.
 
 #### `private final Pipe def2d, cur2d`
-- Role: Holds the cur2d state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur2d value.
+- Description: Caches the `cur2d` value for reuse.
 
 ### Methods
 
 #### `protected GOut(GOut o)`
 - Role: Creates a new GOut instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GOut instance from the supplied inputs.
 
 #### `public GOut(Render out, Pipe def2d, Coord sz)`
 - Role: Creates a new GOut instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GOut instance from the supplied inputs.
 
 #### `public GOut root()`
-- Role: Performs root.
-- Description: Supports the root operation used by the surrounding class.
+- Role: Handles the root widget path.
+- Description: Implements the root operation.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public Pipe basicstate()`
-- Role: Performs basicstate.
-- Description: Supports the basicstate operation used by the surrounding class.
+- Role: Handles the basicstate path.
+- Description: Implements the basicstate operation.
 
 #### `public Pipe state()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Handles the state path.
+- Description: Implements the state operation.
 
 #### `public void image(BufferedImage img, Coord c)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void image(Resource.Image img, Coord c)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void image(Tex tex, Coord c)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void image(Indir<Tex> tex, Coord c)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void aimage(Tex tex, Coord c, double ax, double ay)`
-- Role: Performs aimage.
-- Description: Supports the aimage operation used by the surrounding class.
+- Role: Handles the aimage path.
+- Description: Implements the aimage operation.
 
 #### `public void aimage(Tex tex, Coord c, double ax, double ay, Coord sz)`
-- Role: Performs aimage.
-- Description: Supports the aimage operation used by the surrounding class.
+- Role: Handles the aimage path.
+- Description: Implements the aimage operation.
 
 #### `public void image(Tex tex, Coord c, Coord sz)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void image(Tex tex, Coord c, Coord ul, Coord br)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void image(Tex tex, Coord c, Coord ul, Coord br, Coord sz)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void rimagev(Tex tex, Coord c, int h)`
-- Role: Performs rimagev.
-- Description: Supports the rimagev operation used by the surrounding class.
+- Role: Handles the rimagev path.
+- Description: Implements the rimagev operation.
 
 #### `public void rimageh(Tex tex, Coord c, int w)`
-- Role: Performs rimageh.
-- Description: Supports the rimageh operation used by the surrounding class.
+- Role: Handles the rimageh path.
+- Description: Implements the rimageh operation.
 
 #### `public void rimage(Tex tex, Coord c, Coord sz)`
-- Role: Performs rimage.
-- Description: Supports the rimage operation used by the surrounding class.
+- Role: Handles the rimage path.
+- Description: Implements the rimage operation.
 
 #### `public void rotimage(Tex tex, Coord c, Coord rcc, double a)`
-- Role: Performs rotimage.
-- Description: Supports the rotimage operation used by the surrounding class.
+- Role: Handles the rotimage path.
+- Description: Implements the rotimage operation.
 
 #### `public void image(Tex tex, Coord c, State s)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void atext(String text, Coord c, double ax, double ay)`
-- Role: Performs atext.
-- Description: Supports the atext operation used by the surrounding class.
+- Role: Handles the atext path.
+- Description: Implements the atext operation.
 
 #### `public void text(String text, Coord c)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public void drawp(Model.Mode mode, float[] data, int n)`
-- Role: Performs drawp.
-- Description: Supports the drawp operation used by the surrounding class.
+- Role: Handles the drawp path.
+- Description: Draws the p.
 
 #### `public void drawp(Model.Mode mode, float[] data)`
-- Role: Performs drawp.
-- Description: Supports the drawp operation used by the surrounding class.
+- Role: Handles the drawp path.
+- Description: Draws the p.
 
 #### `public void drawt(Model.Mode mode, float[] data, int n)`
-- Role: Performs drawt.
-- Description: Supports the drawt operation used by the surrounding class.
+- Role: Handles the drawt path.
+- Description: Draws the t.
 
 #### `public void drawt(Model.Mode mode, float[] data)`
-- Role: Performs drawt.
-- Description: Supports the drawt operation used by the surrounding class.
+- Role: Handles the drawt path.
+- Description: Draws the t.
 
 #### `public void line(Coord c1, Coord c2, double w)`
-- Role: Performs line.
-- Description: Supports the line operation used by the surrounding class.
+- Role: Handles the line path.
+- Description: Implements the line operation.
 
 #### `public void frect2(Coord ul, Coord br)`
-- Role: Performs frect2.
-- Description: Supports the frect2 operation used by the surrounding class.
+- Role: Handles the frect2 path.
+- Description: Implements the frect2 operation.
 
 #### `public void frect(Coord ul, Coord sz)`
-- Role: Performs frect.
-- Description: Supports the frect operation used by the surrounding class.
+- Role: Handles the frect path.
+- Description: Implements the frect operation.
 
 #### `public void fellipse(Coord c, Coord r, double a1, double a2)`
-- Role: Performs fellipse.
-- Description: Supports the fellipse operation used by the surrounding class.
+- Role: Handles the fellipse path.
+- Description: Implements the fellipse operation.
 
 #### `public void fellipse(Coord c, Coord r)`
-- Role: Performs fellipse.
-- Description: Supports the fellipse operation used by the surrounding class.
+- Role: Handles the fellipse path.
+- Description: Implements the fellipse operation.
 
 #### `public void rect2(Coord ul, Coord br)`
-- Role: Performs rect2.
-- Description: Supports the rect2 operation used by the surrounding class.
+- Role: Handles the rect2 path.
+- Description: Implements the rect2 operation.
 
 #### `public void rect(Coord ul, Coord sz)`
-- Role: Performs rect.
-- Description: Supports the rect operation used by the surrounding class.
+- Role: Handles the rect path.
+- Description: Implements the rect operation.
 
 #### `public void prect(Coord c, Coord ul, Coord br, double a)`
-- Role: Performs prect.
-- Description: Supports the prect operation used by the surrounding class.
+- Role: Handles the prect path.
+- Description: Implements the prect operation.
 
 #### `public <T extends State> T curstate(State.Slot<T> slot)`
-- Role: Performs curstate.
-- Description: Supports the curstate operation used by the surrounding class.
+- Role: Handles the curstate path.
+- Description: Implements the curstate operation.
 
 #### `public void usestate(State st)`
-- Role: Performs usestate.
-- Description: Supports the usestate operation used by the surrounding class.
+- Role: Handles the usestate path.
+- Description: Implements the usestate operation.
 
 #### `public void usestate(Pipe.Op st)`
-- Role: Performs usestate.
-- Description: Supports the usestate operation used by the surrounding class.
+- Role: Handles the usestate path.
+- Description: Implements the usestate operation.
 
 #### `public <T extends State> void usestate(State.Slot<? super T> slot)`
-- Role: Performs usestate.
-- Description: Supports the usestate operation used by the surrounding class.
+- Role: Handles the usestate path.
+- Description: Implements the usestate operation.
 
 #### `public void defstate()`
-- Role: Performs defstate.
-- Description: Supports the defstate operation used by the surrounding class.
+- Role: Handles the defstate path.
+- Description: Implements the defstate operation.
 
 #### `public void chcolor(Color c)`
-- Role: Performs chcolor.
-- Description: Supports the chcolor operation used by the surrounding class.
+- Role: Handles the chcolor path.
+- Description: Implements the chcolor operation.
 
 #### `public void chcolor(int r, int g, int b, int a)`
-- Role: Performs chcolor.
-- Description: Supports the chcolor operation used by the surrounding class.
+- Role: Handles the chcolor path.
+- Description: Implements the chcolor operation.
 
 #### `public void chcolor()`
-- Role: Performs chcolor.
-- Description: Supports the chcolor operation used by the surrounding class.
+- Role: Handles the chcolor path.
+- Description: Implements the chcolor operation.
 
 #### `public Color getcolor()`
-- Role: Performs getcolor.
-- Description: Supports the getcolor operation used by the surrounding class.
+- Role: Handles the getcolor path.
+- Description: Returns the color.
 
 #### `public GOut reclip2(Coord ul, Coord br)`
-- Role: Performs reclip2.
-- Description: Supports the reclip2 operation used by the surrounding class.
+- Role: Handles the reclip2 path.
+- Description: Implements the reclip2 operation.
 
 #### `public GOut reclip(Coord ul, Coord sz)`
-- Role: Performs reclip.
-- Description: Supports the reclip operation used by the surrounding class.
+- Role: Handles the reclip path.
+- Description: Implements the reclip operation.
 
 #### `public GOut reclipl2(Coord ul, Coord br)`
-- Role: Performs reclipl2.
-- Description: Supports the reclipl2 operation used by the surrounding class.
+- Role: Handles the reclipl2 path.
+- Description: Implements the reclipl2 operation.
 
 #### `public GOut reclipl(Coord ul, Coord sz)`
-- Role: Performs reclipl.
-- Description: Supports the reclipl operation used by the surrounding class.
+- Role: Handles the reclipl path.
+- Description: Implements the reclipl operation.
 
 #### `public static void getpixel(Render g, Pipe state, FragData buf, Coord c, Consumer<Color> cb)`
-- Role: Performs getpixel.
-- Description: Supports the getpixel operation used by the surrounding class.
+- Role: Handles the getpixel path.
+- Description: Returns the pixel.
 
 #### `public void getpixel(Coord c, Consumer<Color> cb)`
-- Role: Performs getpixel.
-- Description: Supports the getpixel operation used by the surrounding class.
+- Role: Handles the getpixel path.
+- Description: Returns the pixel.
 
 #### `public static ByteBuffer flipimage(VectorFormat fmt, int w, ByteBuffer data)`
-- Role: Performs flipimage.
-- Description: Supports the flipimage operation used by the surrounding class.
+- Role: Handles the flipimage path.
+- Description: Implements the flipimage operation.
 
 #### `private static ByteBuffer filltorgb(ByteBuffer src, VectorFormat fmt)`
-- Role: Performs filltorgb.
-- Description: Supports the filltorgb operation used by the surrounding class.
+- Role: Handles the filltorgb path.
+- Description: Implements the filltorgb operation.
 
 #### `private static void debugimage(ByteBuffer data, Coord sz, VectorFormat fmt, boolean flip, Consumer<BufferedImage> cb)`
-- Role: Performs debugimage.
-- Description: Supports the debugimage operation used by the surrounding class.
+- Role: Handles the debugimage path.
+- Description: Implements the debugimage operation.
 
 #### `public static void debugimage(Render g, Pipe state, FragData buf, Area area, VectorFormat fmt, Consumer<BufferedImage> cb)`
-- Role: Performs debugimage.
-- Description: Supports the debugimage operation used by the surrounding class.
+- Role: Handles the debugimage path.
+- Description: Implements the debugimage operation.
 
 #### `public static void getimage(Render g, Pipe state, FragData buf, Area area, Consumer<BufferedImage> cb)`
-- Role: Performs getimage.
-- Description: Supports the getimage operation used by the surrounding class.
+- Role: Handles the getimage path.
+- Description: Returns the image.
 
 #### `public void getimage(Coord ul, Coord sz, Consumer<BufferedImage> cb)`
-- Role: Performs getimage.
-- Description: Supports the getimage operation used by the surrounding class.
+- Role: Handles the getimage path.
+- Description: Returns the image.
 
 #### `public void getimage(Consumer<BufferedImage> cb)`
-- Role: Performs getimage.
-- Description: Supports the getimage operation used by the surrounding class.
+- Role: Handles the getimage path.
+- Description: Returns the image.
 
 #### `public static void debugimage(Render g, Texture.Image<?> img, VectorFormat fmt, boolean flip, Consumer<BufferedImage> cb)`
-- Role: Performs debugimage.
-- Description: Supports the debugimage operation used by the surrounding class.
+- Role: Handles the debugimage path.
+- Description: Implements the debugimage operation.
 
 #### `public static void debugimage(Render g, Texture.Image<?> img, boolean flip, Consumer<BufferedImage> cb)`
-- Role: Performs debugimage.
-- Description: Supports the debugimage operation used by the surrounding class.
+- Role: Handles the debugimage path.
+- Description: Implements the debugimage operation.
 
 #### `public static void getimage(Render g, Texture.Image<?> img, boolean flip, Consumer<BufferedImage> cb)`
-- Role: Performs getimage.
-- Description: Supports the getimage operation used by the surrounding class.
+- Role: Handles the getimage path.
+- Description: Returns the image.
 
 #### `public void getimage(Texture.Image<?> img, boolean flip, Consumer<BufferedImage> cb)`
-- Role: Performs getimage.
-- Description: Supports the getimage operation used by the surrounding class.
+- Role: Handles the getimage path.
+- Description: Returns the image.

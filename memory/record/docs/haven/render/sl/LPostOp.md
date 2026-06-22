@@ -1,65 +1,43 @@
 ---
-source: [LPostOp.java](../../../../../src/haven/render/sl/LPostOp.java)
+source: [LPostOp.java](../../../../../../src/haven/render/sl/LPostOp.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # LPostOp
 
-Represents the lpost op shader-language AST node.
+Represents a postfix operator that requires an l-value operand.
 
 ## Nested Types
 
-### Dec
-
-- Role: Represents dec within LPostOp.
-- Description: Describes the nested dec type used by the enclosing class.
-
 ### Inc
+Postfix increment expression.
 
-- Role: Represents inc within LPostOp.
-- Description: Describes the nested inc type used by the enclosing class.
+### Dec
+Postfix decrement expression.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final LValue op`
-- Role: Holds the op state.
-- Description: Backs the cached state for this file.
+- Role: Stores the l-value operand.
+- Description: Emitted before the postfix operator.
 
 ### Methods
 
 #### `public LPostOp(LValue op)`
-- Role: Creates a new LPostOp instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a postfix l-value operator expression.
+- Description: Stores the operand.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Walks the operand expression.
+- Description: Visits the child l-value node.
 
 #### `public abstract String form()`
-- Role: Performs form.
-- Description: Supports the form operation used by the surrounding class.
+- Role: Returns the operator spelling.
+- Description: Implemented by each concrete postfix operator.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
-
-#### `public static class Inc extends LPostOp`
-- Role: Handles the lpost op workflow.
-- Description: Supports the lpost op operation used by the surrounding class.
-
-#### `public static class Inc extends LPostOp`
-- Role: Handles the lpost op workflow.
-- Description: Supports the lpost op operation used by the surrounding class.
-
-#### `public static class Dec extends LPostOp`
-- Role: Handles the lpost op workflow.
-- Description: Supports the lpost op operation used by the surrounding class.
-
-#### `public static class Dec extends LPostOp`
-- Role: Handles the lpost op workflow.
-- Description: Supports the lpost op operation used by the surrounding class.
+- Role: Emits the unary expression.
+- Description: Writes the operator after the operand.

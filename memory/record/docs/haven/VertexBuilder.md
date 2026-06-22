@@ -1,5 +1,5 @@
 ---
-source: [VertexBuilder.java](../../../src/haven/VertexBuilder.java)
+source: [VertexBuilder.java](../../../../src/haven/VertexBuilder.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the vertex builder Haven component.
 
 ### LayoutBuilder
 
-- Role: Represents layout builder within VertexBuilder.
-- Description: Describes the nested layout builder type used by the enclosing class.
+- Role: Builds a vertex array layout.
+- Description: Helper that collects attributes and element formats into a VertexArray.Layout.
 
 ## Members
 
@@ -22,103 +22,103 @@ Represents the vertex builder Haven component.
 ### Fields
 
 #### `public final Layout fmt`
-- Role: Holds the fmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fmt value.
+- Description: Caches the `fmt` value for reuse.
 
 #### `public final int vsz`
-- Role: Stores the vsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vsz value.
+- Description: Caches the `vsz` value for reuse.
 
 #### `private final byte[] cur`
-- Role: Stores the cur value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 #### `private int vn = 0`
-- Role: Stores the vn value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vn value.
+- Description: Caches the `vn` value for reuse.
 
 #### `private byte[] data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private final List<Attribute> attr = new ArrayList<>()`
-- Role: Caches attr entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the attr operation.
+- Description: Implements the private final list<attribute> attr = new array list<>() operation.
 
 #### `private final List<VectorFormat> efmt = new ArrayList<>()`
-- Role: Caches efmt entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the efmt operation.
+- Description: Implements the private final list<vector format> efmt = new array list<>() operation.
 
 #### `public final int bufidx`
-- Role: Stores the bufidx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bufidx value.
+- Description: Caches the `bufidx` value for reuse.
 
 ### Methods
 
 #### `public VertexBuilder(Layout fmt)`
 - Role: Creates a new VertexBuilder instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the VertexBuilder instance from the supplied inputs.
 
 #### `public VertexBuilder set(int a, int el, float v)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public VertexBuilder set(int a, float... v)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public VertexBuilder set(int a, Coord3f c)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public VertexBuilder set(int a, FColor c)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public VertexBuilder set(int a, java.awt.Color c)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public int voff()`
-- Role: Performs voff.
-- Description: Supports the voff operation used by the surrounding class.
+- Role: Handles the voff path.
+- Description: Implements the voff operation.
 
 #### `public int emit()`
-- Role: Performs emit.
-- Description: Supports the emit operation used by the surrounding class.
+- Role: Handles the emit path.
+- Description: Implements the emit operation.
 
 #### `public VertexBuilder emitm()`
-- Role: Performs emitm.
-- Description: Supports the emitm operation used by the surrounding class.
+- Role: Handles the emitm path.
+- Description: Implements the emitm operation.
 
 #### `public byte[] fina()`
-- Role: Performs fina.
-- Description: Supports the fina operation used by the surrounding class.
+- Role: Handles the fina path.
+- Description: Implements the fina operation.
 
 #### `public VertexArray finv()`
-- Role: Performs finv.
-- Description: Supports the finv operation used by the surrounding class.
+- Role: Handles the finv path.
+- Description: Implements the finv operation.
 
 #### `public LayoutBuilder(int bufidx)`
-- Role: Performs layout builder.
-- Description: Supports the layout builder operation used by the surrounding class.
+- Role: Handles the layout builder path.
+- Description: Implements the layout builder operation.
 
 #### `public LayoutBuilder()`
-- Role: Performs layout builder.
-- Description: Supports the layout builder operation used by the surrounding class.
+- Role: Handles the layout builder path.
+- Description: Implements the layout builder operation.
 
 #### `public LayoutBuilder add(Attribute attr, VectorFormat efmt)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public Layout fin()`
-- Role: Performs fin.
-- Description: Supports the fin operation used by the surrounding class.
+- Role: Handles the fin path.
+- Description: Implements the fin operation.
 
 #### `public VertexBuilder buf()`
-- Role: Performs buf.
-- Description: Supports the buf operation used by the surrounding class.
+- Role: Handles the buffer path.
+- Description: Implements the buf operation.
 
 #### `public static LayoutBuilder fmt()`
-- Role: Performs fmt.
-- Description: Supports the fmt operation used by the surrounding class.
+- Role: Handles the fmt path.
+- Description: Implements the fmt operation.

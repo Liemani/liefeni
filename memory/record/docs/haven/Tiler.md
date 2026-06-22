@@ -1,5 +1,5 @@
 ---
-source: [Tiler.java](../../../src/haven/Tiler.java)
+source: [Tiler.java](../../../../src/haven/Tiler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -65,213 +65,220 @@ Represents the tiler Haven component.
 ### Constants
 
 #### `public static final float[] ctcx =`
-- Role: Defines the shared tiler constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the ctcx value.
+- Description: Caches the `ctcx` value for reuse.
+- Value: ``
 
 #### `public static final float[] ctcx =`
-- Role: Defines the shared tiler constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the ctcx value.
+- Description: Caches the `ctcx` value for reuse.
+- Value: ``
 
 #### `public static final int[] rdiag =`
-- Role: Defines the shared tiler constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rdiag value.
+- Description: Caches the `rdiag` value for reuse.
+- Value: ``
 
 #### `public static final int[] rdiag =`
-- Role: Defines the shared tiler constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the rdiag value.
+- Description: Caches the `rdiag` value for reuse.
+- Value: ``
 
 #### `public static final MCons nil = new MCons()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the m cons operation.
+- Value: `new MCons()`
 
 #### `public static final VertFactory id = new VertFactory()`
-- Role: Defines the shared id constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id operation.
+- Description: Implements the vert factory operation.
+- Value: `new VertFactory()`
 
 #### `private static final Map<String, Factory> rnames = new TreeMap<String, Factory>()`
-- Role: Defines the shared rnames constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rnames operation.
+- Description: Implements the private static final map<string, factory> rnames = new tree map<string, factory>() operation.
+- Value: `new TreeMap<String, Factory>()`
 
 ### Fields
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public Coord lc, gc`
-- Role: Stores the gc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gc value.
+- Description: Caches the `gc` value for reuse.
 
 #### `public Coord lc, gc`
-- Role: Stores the gc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gc value.
+- Description: Caches the `gc` value for reuse.
 
 #### `public Surface.Vertex[] v`
-- Role: Stores the v value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v value.
+- Description: Caches the `v` value for reuse.
 
 #### `public float[] tcx, tcy`
-- Role: Stores the tcy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tcy value.
+- Description: Caches the `tcy` value for reuse.
 
 #### `public float[] tcx, tcy`
-- Role: Stores the tcy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tcy value.
+- Description: Caches the `tcy` value for reuse.
 
 #### `public int[] f`
-- Role: Stores the f value.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `public Pipe.Op mat = null`
-- Role: Holds the mat state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mat value.
+- Description: Caches the `mat` value for reuse.
 
 #### `private final VertFactory f`
-- Role: Holds the f state.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `private final MeshVertex[] map`
-- Role: Stores the map value.
-- Description: Backs the cached state for this file.
+- Role: Caches the map value.
+- Description: Caches the `map` value for reuse.
 
 #### `public final NodeWrap mat`
-- Role: Stores the mat value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mat value.
+- Description: Caches the `mat` value for reuse.
 
 #### `public final VertFactory f`
-- Role: Holds the f state.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `private final int hash`
-- Role: Stores the hash value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `public final MapMesh m`
-- Role: Holds the m state.
-- Description: Backs the cached state for this file.
+- Role: Caches the m value.
+- Description: Caches the `m` value for reuse.
 
 ### Methods
 
 #### `public Tiler(int id)`
 - Role: Creates a new Tiler instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Tiler instance from the supplied inputs.
 
 #### `public MPart(Coord lc, Coord gc, Surface.Vertex[] v, float[] tcx, float[] tcy, int[] f)`
-- Role: Performs mpart.
-- Description: Supports the mpart operation used by the surrounding class.
+- Role: Handles the mpart path.
+- Description: Implements the m part operation.
 
 #### `public MPart(MPart... parts)`
-- Role: Performs mpart.
-- Description: Supports the mpart operation used by the surrounding class.
+- Role: Handles the mpart path.
+- Description: Implements the m part operation.
 
 #### `protected void mapvertices(MPart[] parts, int[][] vmap)`
-- Role: Performs mapvertices.
-- Description: Supports the mapvertices operation used by the surrounding class.
+- Role: Handles the mapvertices path.
+- Description: Implements the mapvertices operation.
 
 #### `public Pipe.Op mcomb(Pipe.Op mat)`
-- Role: Performs mcomb.
-- Description: Supports the mcomb operation used by the surrounding class.
+- Role: Handles the mcomb path.
+- Description: Implements the mcomb operation.
 
 #### `public static MPart splitquad(Coord lc, Coord gc, Surface.Vertex[] corners, boolean diag)`
-- Role: Performs splitquad.
-- Description: Supports the splitquad operation used by the surrounding class.
+- Role: Handles the splitquad path.
+- Description: Implements the splitquad operation.
 
 #### `public void faces(MapMesh m, MPart desc)`
-- Role: Performs faces.
-- Description: Supports the faces operation used by the surrounding class.
+- Role: Handles the faces path.
+- Description: Implements the faces operation.
 
 #### `public MCons tcons(int z, int bmask, int cmask)`
-- Role: Performs tcons.
-- Description: Supports the tcons operation used by the surrounding class.
+- Role: Handles the tcons path.
+- Description: Implements the tcons operation.
 
 #### `public MeshVertex make(MeshBuf buf, MPart d, int i)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public SModel(MapMesh m, NodeWrap mat, VertFactory f)`
-- Role: Performs smodel.
-- Description: Supports the smodel operation used by the surrounding class.
+- Role: Handles the smodel path.
+- Description: Implements the s model operation.
 
 #### `public MeshVertex get(MPart d, int i)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public MeshVertex[] get(MPart d)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Key(NodeWrap mat, VertFactory f)`
-- Role: Performs key.
-- Description: Supports the key operation used by the surrounding class.
+- Role: Handles the key path.
+- Description: Implements the key operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object x)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public SModel make(MapMesh m)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public static SModel get(MapMesh m, NodeWrap mat, VertFactory f)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static void flatmodel(MapMesh m, Coord lc)`
-- Role: Performs flatmodel.
-- Description: Supports the flatmodel operation used by the surrounding class.
+- Role: Handles the flatmodel path.
+- Description: Implements the flatmodel operation.
 
 #### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs model.
-- Description: Supports the model operation used by the surrounding class.
+- Role: Handles the model path.
+- Description: Implements the model operation.
 
 #### `public void lay(MapMesh m, Coord lc, Coord gc, MCons cons, boolean cover)`
-- Role: Performs lay.
-- Description: Supports the lay operation used by the surrounding class.
+- Role: Handles the lay path.
+- Description: Implements the lay operation.
 
 #### `public abstract void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs lay.
-- Description: Supports the lay operation used by the surrounding class.
+- Role: Handles the lay path.
+- Description: Implements the lay operation.
 
 #### `public abstract void trans(MapMesh m, Random rnd, Tiler gt, Coord lc, Coord gc, int z, int bmask, int cmask)`
-- Role: Performs trans.
-- Description: Supports the trans operation used by the surrounding class.
+- Role: Handles the trans path.
+- Description: Implements the trans operation.
 
 #### `public MapZSurface(MapMesh m)`
-- Role: Performs map zsurface.
-- Description: Supports the map zsurface operation used by the surrounding class.
+- Role: Handles the map zsurface path.
+- Description: Implements the map z surface operation.
 
 #### `public double getz(Coord tc)`
-- Role: Performs getz.
-- Description: Supports the getz operation used by the surrounding class.
+- Role: Handles the getz path.
+- Description: Returns the z.
 
 #### `public MCache.ZSurface getsurf(MapMesh m, MCache.SurfaceID id)`
 - Role: Returns the surface id for the supplied surface name.
 - Description: Maps a surface name to the corresponding `MCache.SurfaceID` value.
 
 #### `public Pipe.Op clickstate()`
-- Role: Performs clickstate.
-- Description: Supports the clickstate operation used by the surrounding class.
+- Role: Handles the clickstate path.
+- Description: Handles state interaction.
 
 #### `public Pipe.Op drawstate(Glob glob, Coord3f c)`
-- Role: Performs drawstate.
-- Description: Supports the drawstate operation used by the surrounding class.
+- Role: Handles the drawstate path.
+- Description: Draws the state.
 
 #### `public FactMaker()`
-- Role: Performs fact maker.
-- Description: Supports the fact maker operation used by the surrounding class.
+- Role: Handles the fact maker path.
+- Description: Implements the fact maker operation.
 
 #### `public Tiler create(int id, Tileset set)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public String value()`
-- Role: Performs value.
-- Description: Supports the value operation used by the surrounding class.
+- Role: Handles the value path.
+- Description: Implements the value operation.
 
 #### `public static Factory byname(String name)`
-- Role: Performs byname.
-- Description: Supports the byname operation used by the surrounding class.
+- Role: Handles the byname path.
+- Description: Implements the byname operation.

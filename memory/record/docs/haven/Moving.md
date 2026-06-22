@@ -1,5 +1,5 @@
 ---
-source: [Moving.java](../../../src/haven/Moving.java)
+source: [Moving.java](../../../../src/haven/Moving.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,20 +18,20 @@ Represents the moving Haven component.
 
 #### `public Moving(Gob gob)`
 - Role: Creates a new Moving instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Moving instance from the supplied inputs.
 
 #### `public void move(Coord2d c)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public abstract Coord3f getc()`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Handles the getc path.
+- Description: Returns the c.
 
 #### `public abstract double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `public Object staticp()`
-- Role: Performs staticp.
-- Description: Supports the staticp operation used by the surrounding class.
+- Role: Handles the staticp path.
+- Description: Implements the staticp operation.

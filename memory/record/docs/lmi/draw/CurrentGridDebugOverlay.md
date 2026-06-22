@@ -1,5 +1,5 @@
 ---
-source: [CurrentGridDebugOverlay.java](../../../../src/lmi/draw/CurrentGridDebugOverlay.java)
+source: [CurrentGridDebugOverlay.java](../../../../../src/lmi/draw/CurrentGridDebugOverlay.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,40 +13,40 @@ Draws the current-grid debug overlay.
 ### Constants
 
 #### `private static final int GRID_TILE_SIZE = 100`
-- Role: Defines the shared grid tile size constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the grid tile size value.
+- Description: Caches the `GRID_TILE_SIZE` value for reuse.
 
 #### `private static final CurrentGridDebugOverlay INSTANCE = new CurrentGridDebugOverlay()`
-- Role: Defines the shared instance constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the instance operation.
+- Description: Implements the current grid debug overlay operation.
 
 #### `private static final Color GRID_CORNER_COLOR = new Color(255, 140, 90, 220)`
-- Role: Defines the shared grid corner color constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the grid corner color operation.
+- Description: Implements the color operation.
 
 #### `private static final Color GRID_LABEL_COLOR = new Color(255, 230, 210, 240)`
-- Role: Defines the shared grid label color constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the grid label color operation.
+- Description: Implements the color operation.
 
 ### Fields
 
 #### `private static boolean enabled = false`
 - Role: Tracks whether enabled is enabled.
-- Description: Boolean flag used to guard the surrounding lifecycle state.
+- Description: Controls whether the debug overlay is drawn.
 
 ### Methods
 
 #### `private CurrentGridDebugOverlay()`
 - Role: Creates a new CurrentGridDebugOverlay instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CurrentGridDebugOverlay instance from the supplied inputs.
 
 #### `public static CurrentGridDebugOverlay instance()`
-- Role: Performs instance.
-- Description: Supports the instance operation used by the surrounding class.
+- Role: Handles the instance path.
+- Description: Returns the singleton overlay instance.
 
 #### `public static boolean toggle()`
-- Role: Performs toggle.
-- Description: Supports the toggle operation used by the surrounding class.
+- Role: Handles the toggle path.
+- Description: Flips the overlay visibility flag.
 
 #### `public int zOrder()`
 - Role: Returns the z order.
@@ -58,12 +58,12 @@ Draws the current-grid debug overlay.
 
 #### `public void draw(MapView mapView, GOut g)`
 - Role: Renders the draw.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the current grid corners and labels over the map.
 
 #### `private static void drawGridCorner(MapView mapView, GOut g, String label, int worldX, int worldY, int labelDx, int labelDy)`
 - Role: Renders the draw grid corner.
-- Description: Supports the draw grid corner operation used by the surrounding class.
+- Description: Draws one labeled grid corner marker.
 
 #### `private static Coord screen(MapView mapView, Coord world)`
-- Role: Performs screen.
-- Description: Supports the screen operation used by the surrounding class.
+- Role: Handles the screen path.
+- Description: Converts a world coordinate into screen space.

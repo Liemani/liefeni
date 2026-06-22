@@ -1,5 +1,5 @@
 ---
-source: [Surface.java](../../../src/haven/Surface.java)
+source: [Surface.java](../../../../src/haven/Surface.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,145 +12,146 @@ Represents the surface Haven component.
 
 ### DataID
 
-- Role: Represents data id within Surface.
-- Description: Describes the nested data id type used by the enclosing class.
+- Role: Identifies lazily computed surface data.
+- Description: Factory interface for cached data objects attached to a Surface.
 
 ### Face
 
-- Role: Represents face within Surface.
-- Description: Describes the nested face type used by the enclosing class.
+- Role: Stores one triangular face.
+- Description: Face record that stores three vertices and registers itself in the surface.
 
 ### MeshVertex
 
-- Role: Represents mesh vertex within Surface.
-- Description: Describes the nested mesh vertex type used by the enclosing class.
+- Role: Bridges a surface vertex into a mesh buffer.
+- Description: MeshBuf vertex adapter that exposes the surface vertex and its computed normal.
 
 ### Normals
 
-- Role: Represents normals within Surface.
-- Description: Describes the nested normals type used by the enclosing class.
+- Role: Caches per-vertex normals.
+- Description: Lazy normal table computed from the surface faces and indexed by vertex.
 
 ### Vertex
 
-- Role: Represents vertex within Surface.
-- Description: Describes the nested vertex type used by the enclosing class.
+- Role: Stores one surface vertex.
+- Description: Vertex record that tracks the vertex position, index, and adjacency metadata.
 
 ## Members
 
 ### Constants
 
 #### `public static final DataID<Normals> nrm = new DataID<Normals>()`
-- Role: Defines the shared nrm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nrm operation.
+- Description: Implements the public static final data id<normals> nrm = new data id<normals>() operation.
+- Value: `new DataID<Normals>()`
 
 ### Fields
 
 #### `private List<Vertex> v = new ArrayList<Vertex>()`
-- Role: Caches v entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the v operation.
+- Description: Implements the private list<vertex> v = new array list<vertex>() operation.
 
 #### `private Collection<Face> f = new ArrayList<Face>()`
-- Role: Caches f entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the f operation.
+- Description: Implements the private collection<face> f = new array list<face>() operation.
 
 #### `private Map<DataID, Object> data = new HashMap<DataID, Object>()`
-- Role: Caches data entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the data operation.
+- Description: Implements the private map<data id, object> data = new hash map<data id, object>() operation.
 
 #### `public Vertex[] vl, fv, tv`
-- Role: Stores the tv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tv value.
+- Description: Caches the `tv` value for reuse.
 
 #### `public Vertex[] vl, fv, tv`
-- Role: Stores the tv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tv value.
+- Description: Caches the `tv` value for reuse.
 
 #### `public Vertex[] vl, fv, tv`
-- Role: Stores the tv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tv value.
+- Description: Caches the `tv` value for reuse.
 
 #### `public final int vi`
-- Role: Stores the vi value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vi value.
+- Description: Caches the `vi` value for reuse.
 
 #### `public int ei, ne`
-- Role: Stores the ne value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ne value.
+- Description: Caches the `ne` value for reuse.
 
 #### `public int ei, ne`
-- Role: Stores the ne value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ne value.
+- Description: Caches the `ne` value for reuse.
 
 #### `public final Vertex v`
-- Role: Stores the v value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v value.
+- Description: Caches the `v` value for reuse.
 
 #### `public final Vertex v1, v2, v3`
-- Role: Stores the v3 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v3 value.
+- Description: Caches the `v3` value for reuse.
 
 #### `public final Vertex v1, v2, v3`
-- Role: Stores the v3 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v3 value.
+- Description: Caches the `v3` value for reuse.
 
 #### `public final Vertex v1, v2, v3`
-- Role: Stores the v3 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v3 value.
+- Description: Caches the `v3` value for reuse.
 
 #### `public final Coord3f[] buf = new Coord3f[vl.length]`
-- Role: Stores the buf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the buf value.
+- Description: Caches the `buf` value for reuse.
 
 ### Methods
 
 #### `public T make(Surface s)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public <T> T data(DataID<T> id)`
-- Role: Performs data.
-- Description: Supports the data operation used by the surrounding class.
+- Role: Handles the data path.
+- Description: Implements the data operation.
 
 #### `public Vertex(float x, float y, float z)`
-- Role: Performs vertex.
-- Description: Supports the vertex operation used by the surrounding class.
+- Role: Handles the vertex path.
+- Description: Implements the vertex operation.
 
 #### `public Vertex(Coord3f c)`
-- Role: Performs vertex.
-- Description: Supports the vertex operation used by the surrounding class.
+- Role: Handles the vertex path.
+- Description: Implements the vertex operation.
 
 #### `public Surface s()`
-- Role: Performs s.
-- Description: Supports the s operation used by the surrounding class.
+- Role: Handles the s path.
+- Description: Implements the s operation.
 
 #### `public void modify(MeshBuf buf, MeshBuf.Vertex v)`
-- Role: Performs modify.
-- Description: Supports the modify operation used by the surrounding class.
+- Role: Handles the modify path.
+- Description: Implements the modify operation.
 
 #### `public MeshVertex(MeshBuf buf, Vertex v)`
-- Role: Performs mesh vertex.
-- Description: Supports the mesh vertex operation used by the surrounding class.
+- Role: Handles the mesh vertex path.
+- Description: Implements the mesh vertex operation.
 
 #### `public Face(Vertex v1, Vertex v2, Vertex v3)`
-- Role: Performs face.
-- Description: Supports the face operation used by the surrounding class.
+- Role: Handles the face path.
+- Description: Implements the face operation.
 
 #### `public void fin()`
-- Role: Performs fin.
-- Description: Supports the fin operation used by the surrounding class.
+- Role: Handles the fin path.
+- Description: Implements the fin operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `private Normals()`
-- Role: Performs normals.
-- Description: Supports the normals operation used by the surrounding class.
+- Role: Handles the normals path.
+- Description: Implements the normals operation.
 
 #### `public Coord3f get(Vertex v)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void set(Vertex v, Coord3f n)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.

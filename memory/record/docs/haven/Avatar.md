@@ -1,5 +1,5 @@
 ---
-source: [Avatar.java](../../../src/haven/Avatar.java)
+source: [Avatar.java](../../../../src/haven/Avatar.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the avatar Haven component.
 
 ### $avatar
 
-- Role: Represents $avatar within Avatar.
-- Description: Describes the nested $avatar type used by the enclosing class.
+- Role: Decodes avatar layer deltas from `OCache`.
+- Description: Reads layer ids from the network message and applies them to the gob's `Avatar` attribute.
 
 ## Members
 
@@ -22,27 +22,27 @@ Represents the avatar Haven component.
 ### Fields
 
 #### `public List<Indir<Resource>> layers = null`
-- Role: Caches layers entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the layers value.
+- Description: Caches the `layers` value for reuse.
 
 #### `private List<Resource.Image> images = null`
-- Role: Caches images entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the images value.
+- Description: Caches the `images` value for reuse.
 
 ### Methods
 
 #### `public Avatar(Gob gob)`
 - Role: Creates a new Avatar instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Avatar instance from the supplied inputs.
 
 #### `void setlayers(List<Indir<Resource>> layers)`
-- Role: Performs setlayers.
-- Description: Supports the setlayers operation used by the surrounding class.
+- Role: Handles the setlayers path.
+- Description: Updates the layers.
 
 #### `public List<Resource.Image> images()`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Handles the images path.
+- Description: Implements the images operation.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

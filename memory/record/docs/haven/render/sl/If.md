@@ -1,5 +1,5 @@
 ---
-source: [If.java](../../../../../src/haven/render/sl/If.java)
+source: [If.java](../../../../../../src/haven/render/sl/If.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Represents the if shader-language AST node.
 ### Fields
 
 #### `public final Expression cond`
-- Role: Holds the cond state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cond value.
+- Description: Caches the `cond` value for reuse.
 
 #### `public final Statement t, f`
-- Role: Holds the f state.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `public final Statement t, f`
-- Role: Holds the f state.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 ### Methods
 
 #### `public If(Expression cond, Statement t, Statement f)`
-- Role: Creates a new If instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one if-statement with an else branch.
+- Description: Stores the condition and both branch statements.
 
 #### `public If(Expression cond, Statement t)`
-- Role: Creates a new If instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one if-statement.
+- Description: Stores the condition and the then branch.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the condition and branches.
+- Description: Walks the condition first, then each branch statement.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the if-statement.
+- Description: Writes the condition and branch blocks in shader syntax.

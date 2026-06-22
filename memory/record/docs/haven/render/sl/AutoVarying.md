@@ -1,5 +1,5 @@
 ---
-source: [AutoVarying.java](../../../../../src/haven/render/sl/AutoVarying.java)
+source: [AutoVarying.java](../../../../../../src/haven/render/sl/AutoVarying.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,9 +11,21 @@ Represents the auto varying shader-language AST node.
 ## Nested Types
 
 ### Value
+Concrete varying value that binds the auto-generated varying name to a vertex-stage expression.
 
-- Role: Represents value within AutoVarying.
-- Description: Describes the nested value type used by the enclosing class.
+#### Members
+
+##### Methods
+
+#### `public Value(ValBlock blk)`
+- Role: Builds a varying value binding.
+- Description: Registers the value inside the owning value block.
+
+#### `protected void cons2(Block blk)`
+- Role: Emits the varying assignment.
+- Description: Assigns the generated expression into the target varying.
+
+## Members
 
 ## Members
 
@@ -24,37 +36,37 @@ Represents the auto varying shader-language AST node.
 ### Methods
 
 #### `public AutoVarying(Type type, Symbol name)`
-- Role: Creates a new AutoVarying instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one auto-generated varying binding.
+- Description: Stores the varying type and the explicit symbol name.
 
 #### `public AutoVarying(Type type, String prefix)`
-- Role: Creates a new AutoVarying instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one prefixed varying binding.
+- Description: Generates a symbol name from the prefix and stores the varying type.
 
 #### `public AutoVarying(Type type)`
-- Role: Creates a new AutoVarying instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one auto-generated varying binding.
+- Description: Uses the default prefix to generate the varying symbol.
 
 #### `public Value(ValBlock blk)`
-- Role: Performs value.
-- Description: Supports the value operation used by the surrounding class.
+- Role: Creates the deferred varying value.
+- Description: Registers the varying expression inside the owning value block.
 
 #### `protected void cons2(Block blk)`
-- Role: Performs cons2.
-- Description: Supports the cons2 operation used by the surrounding class.
+- Role: Emits the varying assignment.
+- Description: Writes the generated vertex expression into the varying target.
 
 #### `protected Expression root(VertexContext vctx)`
-- Role: Performs root.
-- Description: Supports the root operation used by the surrounding class.
+- Role: Builds the source expression.
+- Description: Resolves the vertex-stage expression used as the varying source.
 
 #### `protected Value make(ValBlock vals, final VertexContext vctx)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Creates the deferred varying value.
+- Description: Installs the varying expression into the value block for the given vertex context.
 
 #### `public ValBlock.Value value(final VertexContext ctx)`
-- Role: Performs value.
-- Description: Supports the value operation used by the surrounding class.
+- Role: Returns the varying value for a vertex context.
+- Description: Exposes the deferred value bound to the current vertex shader context.
 
 #### `public void use(Context ctx)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Registers the varying in the shader context.
+- Description: Ensures the generated varying name is reserved in the current context.

@@ -1,5 +1,5 @@
 ---
-source: [WrappedJOGL.java](../../../../../src/haven/render/jogl/WrappedJOGL.java)
+source: [WrappedJOGL.java](../../../../../../src/haven/render/jogl/WrappedJOGL.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,4 +18,4 @@ Adapts the render backend to JOGL for wrapped jogl.
 
 #### `public GL getGL()`
 - Role: Returns the gl.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the gl.

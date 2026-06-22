@@ -1,5 +1,5 @@
 ---
-source: [ToggleSleepEffect.java](../../../../src/agent/effect/ToggleSleepEffect.java)
+source: [ToggleSleepEffect.java](../../../../../src/agent/effect/ToggleSleepEffect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,16 +18,16 @@ Implements an instant agent effect for toggle sleep effect.
 
 #### `public void execute()`
 - Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Description: Runs the queued request and posts its callback result back through the sync manager.
 
 #### `public static String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public static String sortkey()`
-- Role: Performs sortkey.
-- Description: Supports the sortkey operation used by the surrounding class.
+- Role: Handles the sortkey path.
+- Description: Implements the sortkey operation.

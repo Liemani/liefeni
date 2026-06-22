@@ -1,5 +1,5 @@
 ---
-source: [ILabel.java](../../../src/haven/ILabel.java)
+source: [ILabel.java](../../../../src/haven/ILabel.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Represents the ilabel Haven component.
 ### Fields
 
 #### `public final Text.Furnace f`
-- Role: Stores the f value.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `public Text text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 ### Methods
 
 #### `public ILabel(String text, Text.Furnace f)`
 - Role: Creates a new ILabel instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ILabel instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the ILabel content.
 
 #### `public String text()`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public void settext(String text)`
-- Role: Performs settext.
-- Description: Supports the settext operation used by the surrounding class.
+- Role: Handles the settext path.
+- Description: Updates the text.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

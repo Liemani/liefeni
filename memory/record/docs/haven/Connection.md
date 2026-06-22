@@ -1,5 +1,5 @@
 ---
-source: [Connection.java](../../../src/haven/Connection.java)
+source: [Connection.java](../../../../src/haven/Connection.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,382 +12,387 @@ Represents the connection Haven component.
 
 ### Close
 
-- Role: Represents close within Connection.
-- Description: Describes the nested close type used by the enclosing class.
+- Role: Signals a connection close request.
+- Description: Wraps the close operation so it can be queued on the connection thread.
 
 ### Connect
 
-- Role: Represents connect within Connection.
-- Description: Describes the nested connect type used by the enclosing class.
+- Role: Opens a session connection.
+- Description: Carries the parameters needed to establish a network session.
 
 ### Crypto
 
-- Role: Represents crypto within Connection.
-- Description: Describes the nested crypto type used by the enclosing class.
+- Role: Wraps the connection crypto layer.
+- Description: Handles encryption and decryption for the session transport.
 
 ### DecryptException
 
-- Role: Represents decrypt exception within Connection.
-- Description: Describes the nested decrypt exception type used by the enclosing class.
+- Role: Represents a decryption failure.
+- Description: Checked exception raised when a packet cannot be decrypted.
 
 ### Main
 
-- Role: Represents main within Connection.
-- Description: Describes the nested main type used by the enclosing class.
+- Role: Runs the connection worker entry point.
+- Description: Main worker thread that performs socket polling and packet processing.
 
 ### ObjAck
 
-- Role: Represents obj ack within Connection.
-- Description: Describes the nested obj ack type used by the enclosing class.
+- Role: Tracks object-ack pacing.
+- Description: Internal state used to regulate object acknowledgment timing.
 
 ### SessionAuthError
 
-- Role: Represents session auth error within Connection.
-- Description: Describes the nested session auth error type used by the enclosing class.
+- Role: Represents session authentication failure.
+- Description: Error raised when the server rejects session authentication.
 
 ### SessionBusyError
 
-- Role: Represents session busy error within Connection.
-- Description: Describes the nested session busy error type used by the enclosing class.
+- Role: Represents a busy-session rejection.
+- Description: Error raised when the server reports that the session is already occupied.
 
 ### SessionConnError
 
-- Role: Represents session conn error within Connection.
-- Description: Describes the nested session conn error type used by the enclosing class.
+- Role: Represents a connection failure during session setup.
+- Description: Error raised when the client cannot connect to the server.
 
 ### SessionError
 
-- Role: Represents session error within Connection.
-- Description: Describes the nested session error type used by the enclosing class.
+- Role: Base type for session connection failures.
+- Description: Marks errors that can occur while opening or maintaining a session.
 
 ### SessionExprError
 
-- Role: Represents session expr error within Connection.
-- Description: Describes the nested session expr error type used by the enclosing class.
+- Role: Represents an expired-session rejection.
+- Description: Error raised when the server reports that the session has expired.
 
 ### SessionPVerError
 
-- Role: Represents session pver error within Connection.
-- Description: Describes the nested session pver error type used by the enclosing class.
+- Role: Represents a protocol-version mismatch.
+- Description: Error raised when the server rejects the client for version incompatibility.
 
 ### Stats
 
-- Role: Represents stats within Connection.
-- Description: Describes the nested stats type used by the enclosing class.
+- Role: Collects connection transport statistics.
+- Description: Mutable RTT and packet counters for the live connection.
 
 ### Task
 
-- Role: Represents task within Connection.
-- Description: Describes the nested task type used by the enclosing class.
+- Role: Represents a queued connection task.
+- Description: Base type for commands executed by the connection worker thread.
 
 ### Worker
 
-- Role: Represents worker within Connection.
-- Description: Describes the nested worker type used by the enclosing class.
+- Role: Runs the connection event loop.
+- Description: Daemon thread that executes queued tasks and processes socket I/O.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<Boolean> encrypt = Config.Variable.propb("haven.hcrypt", false)`
-- Role: Defines the shared encrypt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the encrypt operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.hcrypt", false)`
 
 #### `private static final double ACK_HOLD = 0.030`
-- Role: Defines the shared ack hold constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the ack hold value.
+- Description: Caches the `ACK_HOLD` value for reuse.
+- Value: `0.030`
 
 #### `private static final double OBJACK_HOLD = 0.08, OBJACK_HOLD_MAX = 0.5`
-- Role: Defines the shared objack hold constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the objack hold value.
+- Description: Caches the `OBJACK_HOLD` value for reuse.
+- Value: `0.08, OBJACK_HOLD_MAX = 0.5`
 
 #### `private static final double OBJACK_HOLD = 0.08, OBJACK_HOLD_MAX = 0.5`
-- Role: Defines the shared objack hold constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the objack hold value.
+- Description: Caches the `OBJACK_HOLD` value for reuse.
+- Value: `0.08, OBJACK_HOLD_MAX = 0.5`
 
 #### `private static final String[] apfx =`
-- Role: Defines the shared connection constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the apfx value.
+- Description: Caches the `apfx` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public final SocketAddress server`
-- Role: Holds the server state.
-- Description: Backs the cached state for this file.
+- Role: Caches the server value.
+- Description: Caches the `server` value for reuse.
 
 #### `public final Stats stats = new Stats()`
-- Role: Holds the stats state.
-- Description: Backs the cached state for this file.
+- Role: Implements the stats operation.
+- Description: Implements the stats operation.
 
 #### `private final Collection<Callback> cbs = new ArrayList<>()`
-- Role: Caches cbs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cbs operation.
+- Description: Implements the private final collection<callback> cbs = new array list<>() operation.
 
 #### `private final DatagramChannel sk`
-- Role: Holds the sk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sk value.
+- Description: Caches the `sk` value for reuse.
 
 #### `private final Selector sel`
-- Role: Holds the sel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sel value.
+- Description: Caches the `sel` value for reuse.
 
 #### `private final SelectionKey key`
-- Role: Holds the key state.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 #### `private Worker worker`
-- Role: Holds the worker state.
-- Description: Backs the cached state for this file.
+- Role: Caches the worker value.
+- Description: Caches the `worker` value for reuse.
 
 #### `private int tseq`
-- Role: Stores the tseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tseq value.
+- Description: Caches the `tseq` value for reuse.
 
 #### `private boolean alive = true`
 - Role: Tracks the alive flag.
-- Description: Supports the alive operation used by the surrounding class.
+- Description: Caches the `alive` value for reuse.
 
 #### `private Crypto crypt`
-- Role: Holds the crypt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the crypt value.
+- Description: Caches the `crypt` value for reuse.
 
 #### `private final Cipher cipher`
-- Role: Holds the cipher state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cipher value.
+- Description: Caches the `cipher` value for reuse.
 
 #### `private final Key tkey, rkey`
-- Role: Holds the rkey state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rkey value.
+- Description: Caches the `rkey` value for reuse.
 
 #### `private final Key tkey, rkey`
-- Role: Holds the rkey state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rkey value.
+- Description: Caches the `rkey` value for reuse.
 
 #### `private final NavigableSet<Long> rseqs = new TreeSet<>()`
-- Role: Caches rseqs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rseqs operation.
+- Description: Implements the private final navigable set<long> rseqs = new tree set<>() operation.
 
 #### `private long tseq`
-- Role: Stores the tseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tseq value.
+- Description: Caches the `tseq` value for reuse.
 
 #### `private final double[] rpltimes = new double[32]`
-- Role: Stores the rpltimes value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rpltimes value.
+- Description: Caches the `rpltimes` value for reuse.
 
 #### `private long ptx, prx, pretx`
-- Role: Stores the pretx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pretx value.
+- Description: Caches the `pretx` value for reuse.
 
 #### `private long ptx, prx, pretx`
-- Role: Stores the pretx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pretx value.
+- Description: Caches the `pretx` value for reuse.
 
 #### `private long ptx, prx, pretx`
-- Role: Stores the pretx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pretx value.
+- Description: Caches the `pretx` value for reuse.
 
 #### `private long btx, brx, prerx, prorx`
-- Role: Stores the prorx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prorx value.
+- Description: Caches the `prorx` value for reuse.
 
 #### `private long btx, brx, prerx, prorx`
-- Role: Stores the prorx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prorx value.
+- Description: Caches the `prorx` value for reuse.
 
 #### `private long btx, brx, prerx, prorx`
-- Role: Stores the prorx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prorx value.
+- Description: Caches the `prorx` value for reuse.
 
 #### `private long btx, brx, prerx, prorx`
-- Role: Stores the prorx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prorx value.
+- Description: Caches the `prorx` value for reuse.
 
 #### `private int rplhead = 0, nrpls = 0`
-- Role: Stores the rplhead value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rplhead value.
+- Description: Caches the `rplhead` value for reuse.
 
 #### `private int rplhead = 0, nrpls = 0`
-- Role: Stores the rplhead value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rplhead value.
+- Description: Caches the `rplhead` value for reuse.
 
 #### `private double srtt, rttv`
-- Role: Stores the rttv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rttv value.
+- Description: Caches the `rttv` value for reuse.
 
 #### `private double srtt, rttv`
-- Role: Stores the rttv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rttv value.
+- Description: Caches the `rttv` value for reuse.
 
 #### `private Task init`
-- Role: Holds the init state.
-- Description: Backs the cached state for this file.
+- Role: Caches the init value.
+- Description: Caches the `init` value for reuse.
 
 #### `private final ByteBuffer recvbuf = ByteBuffer.allocate(65536)`
-- Role: Stores the recvbuf value.
-- Description: Backs the cached state for this file.
+- Role: Implements the recvbuf operation.
+- Description: Implements the allocate operation.
 
 #### `private final List<RMessage> pending = new LinkedList<>()`
-- Role: Caches pending entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pending operation.
+- Description: Implements the private final list<r message> pending = new linked list<>() operation.
 
 #### `private final PMessage msg`
-- Role: Holds the msg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `private int result = -1`
-- Role: Stores the result value.
-- Description: Backs the cached state for this file.
+- Role: Caches the result value.
+- Description: Caches the `result` value for reuse.
 
 #### `private Throwable cause`
-- Role: Holds the cause state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cause value.
+- Description: Caches the `cause` value for reuse.
 
 #### `private String message`
-- Role: Stores the message value.
-- Description: Backs the cached state for this file.
+- Role: Caches the message value.
+- Description: Caches the `message` value for reuse.
 
 #### `private Crypto crypt`
-- Role: Holds the crypt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the crypt value.
+- Description: Caches the `crypt` value for reuse.
 
 #### `long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `int frame`
-- Role: Stores the frame value.
-- Description: Backs the cached state for this file.
+- Role: Caches the frame value.
+- Description: Caches the `frame` value for reuse.
 
 #### `double frecv, lrecv`
-- Role: Stores the lrecv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lrecv value.
+- Description: Caches the `lrecv` value for reuse.
 
 #### `double frecv, lrecv`
-- Role: Stores the lrecv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lrecv value.
+- Description: Caches the `lrecv` value for reuse.
 
 #### `private final Map<Short, RMessage> waiting = new HashMap<>()`
-- Role: Caches waiting entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the waiting operation.
+- Description: Implements the private final map<short, r message> waiting = new hash map<>() operation.
 
 #### `private final Map<Long, ObjAck> objacks = new HashMap<>()`
-- Role: Caches objacks entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the objacks operation.
+- Description: Implements the private final map<long, obj ack> objacks = new hash map<>() operation.
 
 #### `private double now, lasttx`
-- Role: Stores the lasttx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last tx.
+- Description: Caches the last tx value.
 
 #### `private double now, lasttx`
-- Role: Stores the lasttx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last tx.
+- Description: Caches the last tx value.
 
 #### `private short rseq, ackseq`
-- Role: Stores the ackseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ackseq value.
+- Description: Caches the `ackseq` value for reuse.
 
 #### `private short rseq, ackseq`
-- Role: Stores the ackseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ackseq value.
+- Description: Caches the `ackseq` value for reuse.
 
 #### `private double acktime = -1`
-- Role: Stores the acktime value.
-- Description: Backs the cached state for this file.
+- Role: Caches the acktime value.
+- Description: Caches the `acktime` value for reuse.
 
 #### `private byte[] fragbuf = null`
-- Role: Stores the fragbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fragbuf value.
+- Description: Caches the `fragbuf` value for reuse.
 
 #### `private int fragtype`
-- Role: Stores the fragtype value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fragtype value.
+- Description: Caches the `fragtype` value for reuse.
 
 #### `private boolean sawclose`
 - Role: Tracks the sawclose flag.
-- Description: Supports the sawclose operation used by the surrounding class.
+- Description: Caches the `sawclose` value for reuse.
 
 #### `public final int code`
-- Role: Stores the code value.
-- Description: Backs the cached state for this file.
+- Role: Caches the code value.
+- Description: Caches the `code` value for reuse.
 
 ### Methods
 
 #### `public Connection(SocketAddress server)`
 - Role: Creates a new Connection instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Connection instance from the supplied inputs.
 
 #### `public Connection add(Callback cb)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public DecryptException(String msg, Throwable cause)`
-- Role: Performs decrypt exception.
-- Description: Supports the decrypt exception operation used by the surrounding class.
+- Role: Handles the decrypt exception path.
+- Description: Implements the decrypt exception operation.
 
 #### `public DecryptException(String msg)`
-- Role: Performs decrypt exception.
-- Description: Supports the decrypt exception operation used by the surrounding class.
+- Role: Handles the decrypt exception path.
+- Description: Implements the decrypt exception operation.
 
 #### `private static boolean supported()`
-- Role: Performs supported.
-- Description: Supports the supported operation used by the surrounding class.
+- Role: Handles the supported path.
+- Description: Implements the supported operation.
 
 #### `private Crypto(byte[] cookie, byte[] salt)`
-- Role: Performs crypto.
-- Description: Supports the crypto operation used by the surrounding class.
+- Role: Handles the crypto path.
+- Description: Implements the crypto operation.
 
 #### `public synchronized byte[] encrypt(byte[] msg)`
-- Role: Performs encrypt.
-- Description: Supports the encrypt operation used by the surrounding class.
+- Role: Handles the encrypt path.
+- Description: Implements the encrypt operation.
 
 #### `public synchronized byte[] decrypt(byte[] msg) throws DecryptException`
 - Role: Handles the decrypt workflow.
-- Description: Supports the decrypt operation used by the surrounding class.
+- Description: Implements the decrypt operation.
 
 #### `public PMessage encrypt(PMessage msg)`
-- Role: Performs encrypt.
-- Description: Supports the encrypt operation used by the surrounding class.
+- Role: Handles the encrypt path.
+- Description: Implements the encrypt operation.
 
 #### `public PMessage decrypt(MessageBuf msg) throws DecryptException`
 - Role: Handles the decrypt workflow.
-- Description: Supports the decrypt operation used by the surrounding class.
+- Description: Implements the decrypt operation.
 
 #### `private void addreply(double time)`
-- Role: Performs addreply.
-- Description: Supports the addreply operation used by the surrounding class.
+- Role: Handles the addreply path.
+- Description: Adds the reply.
 
 #### `private String abbr(String fmt, double n)`
-- Role: Performs abbr.
-- Description: Supports the abbr operation used by the surrounding class.
+- Role: Handles the abbr path.
+- Description: Implements the abbr operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Connection for debugging and logging.
 
 #### `private Worker(Task init)`
-- Role: Performs worker.
-- Description: Supports the worker operation used by the surrounding class.
+- Role: Handles the worker path.
+- Description: Implements the worker operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public Task run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private void start(Task init)`
 - Role: Starts the current workflow.
-- Description: Supports the start operation used by the surrounding class.
+- Description: Implements the start operation.
 
 #### `public boolean alive()`
-- Role: Performs alive.
-- Description: Supports the alive operation used by the surrounding class.
+- Role: Handles the alive path.
+- Description: Implements the alive operation.
 
 #### `private PMessage recv() throws IOException`
 - Role: Handles the recv workflow.
-- Description: Supports the recv operation used by the surrounding class.
+- Description: Implements the recv operation.
 
 #### `public void send(ByteBuffer msg)`
 - Role: Sends the current message.
@@ -399,116 +404,116 @@ Represents the connection Haven component.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `private boolean select(double timeout) throws IOException`
 - Role: Handles the select workflow.
-- Description: Supports the select operation used by the surrounding class.
+- Description: Implements the select operation.
 
 #### `private void wake()`
-- Role: Performs wake.
-- Description: Supports the wake operation used by the surrounding class.
+- Role: Handles the wake path.
+- Description: Implements the wake operation.
 
 #### `private Connect(String username, boolean encrypt, byte[] cookie, Object... args)`
-- Role: Performs connect.
-- Description: Supports the connect operation used by the surrounding class.
+- Role: Handles the connect path.
+- Description: Implements the connect operation.
 
 #### `public Task run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `ObjAck(long id, int frame, double recv)`
 - Role: Handles the obj ack workflow.
-- Description: Supports the obj ack operation used by the surrounding class.
+- Description: Implements the obj ack operation.
 
 #### `private void handlerel(PMessage msg)`
-- Role: Performs handlerel.
-- Description: Supports the handlerel operation used by the surrounding class.
+- Role: Handles the handlerel path.
+- Description: Implements the handlerel operation.
 
 #### `private void gotrel(RMessage msg)`
-- Role: Performs gotrel.
-- Description: Supports the gotrel operation used by the surrounding class.
+- Role: Handles the gotrel path.
+- Description: Implements the gotrel operation.
 
 #### `private void sendack(short seq)`
-- Role: Performs sendack.
-- Description: Supports the sendack operation used by the surrounding class.
+- Role: Handles the sendack path.
+- Description: Implements the sendack operation.
 
 #### `private void gotack(short seq)`
-- Role: Performs gotack.
-- Description: Supports the gotack operation used by the surrounding class.
+- Role: Handles the gotack path.
+- Description: Implements the gotack operation.
 
 #### `private void gotmapdata(MessageBuf msg)`
-- Role: Performs gotmapdata.
-- Description: Supports the gotmapdata operation used by the surrounding class.
+- Role: Handles the gotmapdata path.
+- Description: Implements the gotmapdata operation.
 
 #### `private void gotobjdata(Message msg)`
-- Role: Performs gotobjdata.
-- Description: Supports the gotobjdata operation used by the surrounding class.
+- Role: Handles the gotobjdata path.
+- Description: Implements the gotobjdata operation.
 
 #### `private void handlemsg(PMessage msg)`
-- Role: Performs handlemsg.
-- Description: Supports the handlemsg operation used by the surrounding class.
+- Role: Handles the handlemsg path.
+- Description: Implements the handlemsg operation.
 
 #### `private double min2(double a, double b)`
-- Role: Performs min2.
-- Description: Supports the min2 operation used by the surrounding class.
+- Role: Handles the min2 path.
+- Description: Implements the min2 operation.
 
 #### `private double sendpending()`
-- Role: Performs sendpending.
-- Description: Supports the sendpending operation used by the surrounding class.
+- Role: Handles the sendpending path.
+- Description: Implements the sendpending operation.
 
 #### `private double sendobjacks()`
-- Role: Performs sendobjacks.
-- Description: Supports the sendobjacks operation used by the surrounding class.
+- Role: Handles the sendobjacks path.
+- Description: Implements the sendobjacks operation.
 
 #### `public Task run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private Close(boolean sawclose)`
-- Role: Performs close.
-- Description: Supports the close operation used by the surrounding class.
+- Role: Closes the current stream or resource.
+- Description: Closes the current stream or resource.
 
 #### `public Task run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void queuemsg(PMessage pmsg)`
-- Role: Performs queuemsg.
-- Description: Supports the queuemsg operation used by the surrounding class.
+- Role: Handles the queuemsg path.
+- Description: Implements the queuemsg operation.
 
 #### `public boolean encrypted()`
-- Role: Performs encrypted.
-- Description: Supports the encrypted operation used by the surrounding class.
+- Role: Handles the encrypted path.
+- Description: Implements the encrypted operation.
 
 #### `public SessionError(int code, String reason)`
-- Role: Performs session error.
-- Description: Supports the session error operation used by the surrounding class.
+- Role: Handles the session error path.
+- Description: Implements the session error operation.
 
 #### `public SessionError(String reason)`
-- Role: Performs session error.
-- Description: Supports the session error operation used by the surrounding class.
+- Role: Handles the session error path.
+- Description: Implements the session error operation.
 
 #### `public SessionAuthError()`
-- Role: Performs session auth error.
-- Description: Supports the session auth error operation used by the surrounding class.
+- Role: Handles the session auth error path.
+- Description: Implements the session auth error operation.
 
 #### `public SessionBusyError()`
-- Role: Performs session busy error.
-- Description: Supports the session busy error operation used by the surrounding class.
+- Role: Handles the session busy error path.
+- Description: Implements the session busy error operation.
 
 #### `public SessionConnError()`
-- Role: Performs session conn error.
-- Description: Supports the session conn error operation used by the surrounding class.
+- Role: Handles the session conn error path.
+- Description: Implements the session conn error operation.
 
 #### `public SessionPVerError()`
-- Role: Performs session pver error.
-- Description: Supports the session pver error operation used by the surrounding class.
+- Role: Handles the session pver error path.
+- Description: Implements the session p ver error operation.
 
 #### `public SessionExprError()`
-- Role: Performs session expr error.
-- Description: Supports the session expr error operation used by the surrounding class.
+- Role: Handles the session expr error path.
+- Description: Implements the session expr error operation.
 
 #### `public void connect(String username, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException`
 - Role: Handles the connect workflow.
-- Description: Supports the connect operation used by the surrounding class.
+- Description: Implements the connect operation.

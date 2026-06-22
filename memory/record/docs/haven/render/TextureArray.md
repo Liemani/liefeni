@@ -1,5 +1,5 @@
 ---
-source: [TextureArray.java](../../../../src/haven/render/TextureArray.java)
+source: [TextureArray.java](../../../../../src/haven/render/TextureArray.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,35 +22,35 @@ Defines the texture array render pipeline component.
 ### Fields
 
 #### `public final int n`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `public final int layer`
-- Role: Stores the layer value.
-- Description: Backs the cached state for this file.
+- Role: Caches the layer value.
+- Description: Caches the `layer` value for reuse.
 
 ### Methods
 
 #### `public TextureArray(int n, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new TextureArray instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TextureArray instance from the supplied inputs.
 
 #### `public TextureArray(int n, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new TextureArray instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TextureArray instance from the supplied inputs.
 
 #### `public ArrayImage(T tex, int w, int h, int d, int layer, int level)`
-- Role: Performs array image.
-- Description: Supports the array image operation used by the surrounding class.
+- Role: Handles the array image path.
+- Description: Implements the array image operation.
 
 #### `public boolean equals(ArrayImage<?> that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this TextureArray for debugging and logging.

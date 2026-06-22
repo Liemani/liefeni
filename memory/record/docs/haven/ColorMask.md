@@ -1,49 +1,52 @@
 ---
-source: [ColorMask.java](../../../src/haven/ColorMask.java)
+source: [ColorMask.java](../../../../src/haven/ColorMask.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # ColorMask
 
-Represents the color mask Haven component.
+Applies a draw-time color mask that blends into the current fragment color.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<ColorMask> slot = new Slot<ColorMask>(Slot.Type.DRAW, ColorMask.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the active color mask in the draw state.
+- Description: Lets the shader read the current blended color mask.
+- Value: `new Slot<ColorMask>(Slot.Type.DRAW, ColorMask.class)`
 
 #### `public static final Uniform ccol = new Uniform(VEC4, p -> p.get(slot).col, slot)`
-- Role: Defines the shared ccol constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the current mask color to the shader.
+- Description: Reads the preblended color mask from the draw state.
+- Value: `new Uniform(VEC4, p -> p.get(slot).col, slot)`
 
 #### `private static final ShaderMacro sh = prog ->`
-- Role: Defines the shared sh constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Installs the color-mask shader hook.
+- Description: Blends the supplied color into the fragment output.
+- Value: `prog ->`
 
 ### Fields
 
 #### `private final FColor col`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Stores the mask color.
+- Description: This is the color that gets blended into the current draw state.
 
 ### Methods
 
 #### `public ColorMask(FColor col)`
 - Role: Creates a new ColorMask instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ColorMask instance from the supplied inputs.
 
 #### `public ColorMask(Color col)`
 - Role: Creates a new ColorMask instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ColorMask instance from the supplied inputs.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the color-mask shader macro.
+- Description: Produces the blend hook used for fragment color masking.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies the color mask to the draw pipe.
+- Description: Preblends with any existing mask before storing the new state.

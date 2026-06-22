@@ -1,5 +1,5 @@
 ---
-source: [Placeholder.java](../../../../../src/haven/render/sl/Placeholder.java)
+source: [Placeholder.java](../../../../../../src/haven/render/sl/Placeholder.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Represents the placeholder shader-language AST node.
 ### Fields
 
 #### `public final String comment`
-- Role: Stores the comment value.
-- Description: Backs the cached state for this file.
+- Role: Caches the comment value.
+- Description: Caches the `comment` value for reuse.
 
 ### Methods
 
 #### `public Placeholder(String comment)`
-- Role: Creates a new Placeholder instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one placeholder node.
+- Description: Stores a comment string for incomplete shader output.
 
 #### `public Placeholder()`
-- Role: Creates a new Placeholder instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one empty placeholder node.
+- Description: Uses an empty comment string.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the placeholder node.
+- Description: Placeholder nodes have no child expressions.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the placeholder comment.
+- Description: Writes the comment text as a shader comment.

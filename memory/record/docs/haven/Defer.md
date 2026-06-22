@@ -1,5 +1,5 @@
 ---
-source: [Defer.java](../../../src/haven/Defer.java)
+source: [Defer.java](../../../../src/haven/Defer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,214 +12,216 @@ Represents the defer Haven component.
 
 ### Callable
 
-- Role: Represents callable within Defer.
-- Description: Describes the nested callable type used by the enclosing class.
+- Role: Declares the deferred task body executed by `Defer.Future`.
+- Description: Represents one interruptible computation that may block while it runs.
 
 ### CancelledException
 
-- Role: Represents cancelled exception within Defer.
-- Description: Describes the nested cancelled exception type used by the enclosing class.
+- Role: Signals that a deferred task was cancelled before completion.
+- Description: Wraps the cancellation path so callers can distinguish it from other failures.
 
 ### DeferredException
 
-- Role: Represents deferred exception within Defer.
-- Description: Describes the nested deferred exception type used by the enclosing class.
+- Role: Wraps a failure that happened while resolving a deferred result.
+- Description: Re-throws the stored cause when a caller reads the future result.
 
 ### Future
 
-- Role: Represents future within Defer.
-- Description: Describes the nested future type used by the enclosing class.
+- Role: Manages one queued deferred task and its completion state.
+- Description: Tracks the task, result, exception, priority, and waiting listeners.
 
 ### NotDoneException
 
-- Role: Represents not done exception within Defer.
-- Description: Describes the nested not done exception type used by the enclosing class.
+- Role: Reports that a deferred value is still pending.
+- Description: Lets callers wait for a deferred computation without treating it as an error.
 
 ### Worker
 
-- Role: Represents worker within Defer.
-- Description: Describes the nested worker type used by the enclosing class.
+- Role: Executes queued deferred tasks on a background thread.
+- Description: Pulls work from the defer queue and stops when the queue stays idle.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<ThreadGroup, Defer> groups = new WeakHashMap<ThreadGroup, Defer>()`
-- Role: Defines the shared groups constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the groups operation.
+- Description: Implements the private static final map<thread group, defer> groups = new weak hash map<thread group, defer>() operation.
+- Value: `new WeakHashMap<ThreadGroup, Defer>()`
 
 #### `private static final AtomicInteger threadno = new AtomicInteger(0)`
-- Role: Defines the shared threadno constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the threadno operation.
+- Description: Implements the atomic integer operation.
+- Value: `new AtomicInteger(0)`
 
 ### Fields
 
 #### `private final Queue<Future<?>> queue = new PrioQueue<Future<?>>()`
-- Role: Caches queue entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queue operation.
+- Description: Implements the private final queue<future<?>> queue = new prio queue<future<?>>() operation.
 
 #### `private final Collection<Thread> pool = new LinkedList<Thread>()`
-- Role: Caches pool entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pool operation.
+- Description: Implements the private final collection<thread> pool = new linked list<thread>() operation.
 
 #### `private final int maxthreads = Math.max(2, Runtime.getRuntime().availableProcessors() - 1)`
-- Role: Stores the maxthreads value.
-- Description: Backs the cached state for this file.
+- Role: Implements the maxthreads operation.
+- Description: Implements the available processors operation.
 
 #### `private final AtomicInteger busy = new AtomicInteger(0)`
-- Role: Stores the busy value.
-- Description: Backs the cached state for this file.
+- Role: Implements the busy operation.
+- Description: Implements the atomic integer operation.
 
 #### `public final transient Future future`
-- Role: Holds the future state.
-- Description: Backs the cached state for this file.
+- Role: Caches the future value.
+- Description: Caches the `future` value for reuse.
 
 #### `public final Callable<T> task`
-- Role: Holds the task state.
-- Description: Backs the cached state for this file.
+- Role: Caches the task value.
+- Description: Caches the `task` value for reuse.
 
 #### `private final Waitable.Queue wq = new Waitable.Queue()`
-- Role: Caches wq entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the wq operation.
+- Description: Implements the queue operation.
 
 #### `private int prio = -1`
-- Role: Stores the prio value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prio value.
+- Description: Caches the `prio` value for reuse.
 
 #### `private T val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private volatile String state = ""`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `private Throwable exc = null`
-- Role: Holds the exc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the exc value.
+- Description: Caches the `exc` value for reuse.
 
 #### `private Loading lastload = null`
-- Role: Holds the lastload state.
-- Description: Backs the cached state for this file.
+- Role: Caches the last load.
+- Description: Caches the last load value.
 
 #### `private volatile Thread running = null`
-- Role: Holds the running state.
-- Description: Backs the cached state for this file.
+- Role: Caches the running value.
+- Description: Caches the `running` value for reuse.
 
 ### Methods
 
 #### `public T call() throws InterruptedException`
 - Role: Handles the call workflow.
-- Description: Supports the call operation used by the surrounding class.
+- Description: Implements the call operation.
 
 #### `public CancelledException()`
-- Role: Performs cancelled exception.
-- Description: Supports the cancelled exception operation used by the surrounding class.
+- Role: Handles the cancelled exception path.
+- Description: Implements the cancelled exception operation.
 
 #### `public CancelledException(Throwable cause)`
-- Role: Performs cancelled exception.
-- Description: Supports the cancelled exception operation used by the surrounding class.
+- Role: Handles the cancelled exception path.
+- Description: Implements the cancelled exception operation.
 
 #### `public DeferredException(Throwable cause)`
-- Role: Performs deferred exception.
-- Description: Supports the deferred exception operation used by the surrounding class.
+- Role: Handles the deferred exception path.
+- Description: Implements the deferred exception operation.
 
 #### `public NotDoneException(Future future)`
-- Role: Performs not done exception.
-- Description: Supports the not done exception operation used by the surrounding class.
+- Role: Handles the not done exception path.
+- Description: Implements the not done exception operation.
 
 #### `public NotDoneException(Future future, Loading cause)`
-- Role: Performs not done exception.
-- Description: Supports the not done exception operation used by the surrounding class.
+- Role: Handles the not done exception path.
+- Description: Implements the not done exception operation.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public boolean boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Requests a higher priority for the loading wait.
 
 #### `private Future(Callable<T> task)`
-- Role: Performs future.
-- Description: Supports the future operation used by the surrounding class.
+- Role: Handles the future path.
+- Description: Implements the future operation.
 
 #### `public void cancel()`
-- Role: Performs cancel.
-- Description: Supports the cancel operation used by the surrounding class.
+- Role: Cancels the current waiting registration.
+- Description: Cancels the current waiting registration.
 
 #### `private void chstate(String nst)`
-- Role: Performs chstate.
-- Description: Supports the chstate operation used by the surrounding class.
+- Role: Handles the chstate path.
+- Description: Implements the chstate operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public T get(int prio)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public T get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public boolean done(int prio)`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public int priority()`
-- Role: Performs priority.
-- Description: Supports the priority operation used by the surrounding class.
+- Role: Handles the priority path.
+- Description: Implements the priority operation.
 
 #### `public void boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Requests a higher priority for the loading wait.
 
 #### `private Worker()`
-- Role: Performs worker.
-- Description: Supports the worker operation used by the surrounding class.
+- Role: Handles the worker path.
+- Description: Implements the worker operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public Defer(ThreadGroup parent)`
 - Role: Creates a new Defer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Defer instance from the supplied inputs.
 
 #### `private void defer(final Future<?> f)`
-- Role: Performs defer.
-- Description: Supports the defer operation used by the surrounding class.
+- Role: Handles the defer path.
+- Description: Implements the defer operation.
 
 #### `public <T> Future<T> defer(Callable<T> task)`
-- Role: Performs defer.
-- Description: Supports the defer operation used by the surrounding class.
+- Role: Handles the defer path.
+- Description: Implements the defer operation.
 
 #### `private static Defer getgroup()`
-- Role: Performs getgroup.
-- Description: Supports the getgroup operation used by the surrounding class.
+- Role: Handles the getgroup path.
+- Description: Returns the group.
 
 #### `public static <T> Future<T> later(Callable<T> task)`
-- Role: Performs later.
-- Description: Supports the later operation used by the surrounding class.
+- Role: Handles the later path.
+- Description: Implements the later operation.
 
 #### `public static <T> Future<T> later(Runnable task, T result)`
-- Role: Performs later.
-- Description: Supports the later operation used by the surrounding class.
+- Role: Handles the later path.
+- Description: Implements the later operation.
 
 #### `public String stats()`
-- Role: Performs stats.
-- Description: Supports the stats operation used by the surrounding class.
+- Role: Handles the stats path.
+- Description: Implements the stats operation.
 
 #### `public static String gstats()`
-- Role: Performs gstats.
-- Description: Supports the gstats operation used by the surrounding class.
+- Role: Handles the gstats path.
+- Description: Implements the gstats operation.

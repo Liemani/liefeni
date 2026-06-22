@@ -1,5 +1,5 @@
 ---
-source: [FrameConfig.java](../../../../src/haven/render/FrameConfig.java)
+source: [FrameConfig.java](../../../../../src/haven/render/FrameConfig.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,49 +13,53 @@ Defines the frame config render pipeline component.
 ### Constants
 
 #### `public static final Slot<FrameConfig> slot = new Slot<>(Slot.Type.SYS, FrameConfig.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes frame configuration state.
+- Description: Shared slot used to expose frame size and sample count.
+- Value: `new Slot<>(Slot.Type.SYS, FrameConfig.class)`
 
 #### `public static final Uniform u_numsamples = new Uniform(Type.INT, "numsamples", p -> p.get(slot).samples, slot)`
-- Role: Defines the shared u numsamples constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes the sample-count uniform.
+- Description: Exposes the current sample count to shader code.
+- Value: `new Uniform(Type.INT, "numsamples", p -> p.get(slot).samples, slot)`
 
 #### `public static final Uniform u_screensize = new Uniform(Type.VEC2, "screensize", p -> p.get(slot).sz, slot)`
-- Role: Defines the shared u screensize constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes the screen-size uniform.
+- Description: Exposes the framebuffer size to shader code.
+- Value: `new Uniform(Type.VEC2, "screensize", p -> p.get(slot).sz, slot)`
 
 #### `public static final Uniform u_pixelpitch = new Uniform(Type.VEC2, "pixelpitch", p ->`
-- Role: Defines the shared u pixelpitch constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes the pixel-pitch uniform.
+- Description: Exposes the inverse framebuffer size for shader code.
+- Value: `new Uniform(Type.VEC2, "pixelpitch", p ->`
 
 ### Fields
 
 #### `public final Coord sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `public final int samples`
-- Role: Stores the samples value.
-- Description: Backs the cached state for this file.
+- Role: Caches the samples value.
+- Description: Caches the `samples` value for reuse.
 
 ### Methods
 
 #### `public FrameConfig(Coord sz, int samples)`
 - Role: Creates a new FrameConfig instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FrameConfig instance from the supplied inputs.
 
 #### `public FrameConfig(Coord sz)`
 - Role: Creates a new FrameConfig instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FrameConfig instance from the supplied inputs.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Builds the frame-config shader.
+- Description: Returns the shader macro that exposes frame parameters.
 
 #### `public void apply(Pipe p)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies frame configuration.
+- Description: Writes the framebuffer size and sample count into the current pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this FrameConfig for debugging and logging.

@@ -1,5 +1,5 @@
 ---
-source: [AnimGSprite.java](../../../src/haven/AnimGSprite.java)
+source: [AnimGSprite.java](../../../../src/haven/AnimGSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,45 +13,46 @@ Represents the anim gsprite Haven component.
 ### Constants
 
 #### `public static final Factory fact = new Factory()`
-- Role: Defines the shared fact constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fact operation.
+- Description: Implements the factory operation.
+- Value: `new Factory()`
 
 ### Fields
 
 #### `public final Resource.Anim anim`
-- Role: Stores the anim value.
-- Description: Backs the cached state for this file.
+- Role: Caches the anim value.
+- Description: Caches the `anim` value for reuse.
 
 #### `public final Resource.Image ref`
-- Role: Stores the ref value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ref value.
+- Description: Caches the `ref` value for reuse.
 
 #### `private int f, ft`
-- Role: Stores the ft value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ft value.
+- Description: Caches the `ft` value for reuse.
 
 #### `private int f, ft`
-- Role: Stores the ft value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ft value.
+- Description: Caches the `ft` value for reuse.
 
 ### Methods
 
 #### `public AnimGSprite(Owner owner, Resource.Anim anim)`
 - Role: Creates a new AnimGSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the AnimGSprite instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the AnimGSprite content.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public BufferedImage image()`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.

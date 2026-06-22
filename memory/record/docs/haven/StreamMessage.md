@@ -1,5 +1,5 @@
 ---
-source: [StreamMessage.java](../../../src/haven/StreamMessage.java)
+source: [StreamMessage.java](../../../../src/haven/StreamMessage.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,51 +22,51 @@ Represents the stream message Haven component.
 ### Fields
 
 #### `private final InputStream bkin`
-- Role: Holds the bkin state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bkin value.
+- Description: Caches the `bkin` value for reuse.
 
 #### `private final OutputStream bkou`
-- Role: Holds the bkou state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bkou value.
+- Description: Caches the `bkou` value for reuse.
 
 #### `private int behind = 0`
-- Role: Stores the behind value.
-- Description: Backs the cached state for this file.
+- Role: Caches the behind value.
+- Description: Caches the `behind` value for reuse.
 
 ### Methods
 
 #### `public StreamMessage(InputStream in, OutputStream out)`
 - Role: Creates a new StreamMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StreamMessage instance from the supplied inputs.
 
 #### `public StreamMessage(InputStream in)`
 - Role: Creates a new StreamMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StreamMessage instance from the supplied inputs.
 
 #### `public StreamMessage(OutputStream out)`
 - Role: Creates a new StreamMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StreamMessage instance from the supplied inputs.
 
 #### `public IOError(Throwable cause)`
-- Role: Performs ioerror.
-- Description: Supports the ioerror operation used by the surrounding class.
+- Role: Handles the ioerror path.
+- Description: Implements the io error operation.
 
 #### `public boolean underflow(int hint)`
-- Role: Performs underflow.
-- Description: Supports the underflow operation used by the surrounding class.
+- Role: Handles the underflow path.
+- Description: Implements the underflow operation.
 
 #### `public int tell()`
-- Role: Performs tell.
-- Description: Supports the tell operation used by the surrounding class.
+- Role: Handles the tell path.
+- Description: Implements the tell operation.
 
 #### `public void flush()`
-- Role: Performs flush.
-- Description: Supports the flush operation used by the surrounding class.
+- Role: Handles the flush path.
+- Description: Implements the flush operation.
 
 #### `public void overflow(int min)`
-- Role: Performs overflow.
-- Description: Supports the overflow operation used by the surrounding class.
+- Role: Handles the overflow path.
+- Description: Implements the overflow operation.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.

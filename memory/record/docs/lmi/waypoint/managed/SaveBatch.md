@@ -1,5 +1,5 @@
 ---
-source: [SaveBatch.java](../../../../../src/lmi/waypoint/managed/SaveBatch.java)
+source: [SaveBatch.java](../../../../../../src/lmi/waypoint/managed/SaveBatch.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,15 +15,15 @@ Batches waypoint persistence work for a single flush.
 ### Fields
 
 #### `public final List<WpNodeSnapshot> wpNodeSnapshots`
-- Role: Caches wp node snapshots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the wp node snapshots value.
+- Description: Caches the `wpNodeSnapshots` value for reuse.
 
 ### Methods
 
 #### `public SaveBatch(List<WpNodeSnapshot> wpNodeSnapshots)`
 - Role: Creates a new SaveBatch instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SaveBatch instance from the supplied inputs.
 
 #### `public boolean isEmpty()`
 - Role: Checks whether the empty.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.

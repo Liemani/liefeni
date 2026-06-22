@@ -1,5 +1,5 @@
 ---
-source: [LoadNodesByGraphResult.java](../../../../../src/lmi/waypoint/model/LoadNodesByGraphResult.java)
+source: [LoadNodesByGraphResult.java](../../../../../../src/lmi/waypoint/model/LoadNodesByGraphResult.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,15 +15,15 @@ Represents the result of load nodes by graph result.
 ### Fields
 
 #### `public final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `public final Array<WpNode> nodes`
-- Role: Caches nodes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the nodes value.
+- Description: Caches the `nodes` value for reuse.
 
 ### Methods
 
 #### `public LoadNodesByGraphResult(long graphId, Array<WpNode> nodes)`
 - Role: Creates a new LoadNodesByGraphResult instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LoadNodesByGraphResult instance from the supplied inputs.

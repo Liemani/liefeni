@@ -1,5 +1,5 @@
 ---
-source: [NumberFormat.java](../../../../src/haven/render/NumberFormat.java)
+source: [NumberFormat.java](../../../../../src/haven/render/NumberFormat.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,11 +15,11 @@ Defines the number format render pipeline component.
 ### Fields
 
 #### `public final int size`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 ### Methods
 
 #### `NumberFormat(int size)`
 - Role: Creates a new NumberFormat instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the NumberFormat instance from the supplied inputs.

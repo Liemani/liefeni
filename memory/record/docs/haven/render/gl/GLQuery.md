@@ -1,5 +1,5 @@
 ---
-source: [GLQuery.java](../../../../../src/haven/render/gl/GLQuery.java)
+source: [GLQuery.java](../../../../../../src/haven/render/gl/GLQuery.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,16 +18,16 @@ Provides GL backend support for glquery.
 
 #### `public GLQuery(GLEnvironment env)`
 - Role: Creates a new GLQuery instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLQuery instance from the supplied inputs.
 
 #### `public abstract boolean check(GL gl)`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Handles the check path.
+- Description: Implements the check operation.
 
 #### `public abstract void abort()`
-- Role: Performs abort.
-- Description: Supports the abort operation used by the surrounding class.
+- Role: Handles the abort path.
+- Description: Implements the abort operation.
 
 #### `public void abortcreate()`
-- Role: Performs abortcreate.
-- Description: Supports the abortcreate operation used by the surrounding class.
+- Role: Handles the abortcreate path.
+- Description: Implements the abortcreate operation.

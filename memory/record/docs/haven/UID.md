@@ -1,5 +1,5 @@
 ---
-source: [UID.java](../../../src/haven/UID.java)
+source: [UID.java](../../../../src/haven/UID.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,57 +13,58 @@ Represents the uid Haven component.
 ### Constants
 
 #### `public static final UID nil = new UID(0)`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the uid operation.
+- Value: `new UID(0)`
 
 ### Fields
 
 #### `public final long bits`
-- Role: Stores the bits value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bits value.
+- Description: Caches the `bits` value for reuse.
 
 ### Methods
 
 #### `private UID(long bits)`
 - Role: Creates a new UID instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the UID instance from the supplied inputs.
 
 #### `public static UID of(long bits)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a UID value from the supplied components.
+- Description: Builds a UID value from the supplied components.
 
 #### `public long longValue()`
-- Role: Performs long value.
-- Description: Supports the long value operation used by the surrounding class.
+- Role: Handles the long value path.
+- Description: Implements the long value operation.
 
 #### `public byte byteValue()`
-- Role: Performs byte value.
-- Description: Supports the byte value operation used by the surrounding class.
+- Role: Handles the byte value path.
+- Description: Implements the byte value operation.
 
 #### `public short shortValue()`
-- Role: Performs short value.
-- Description: Supports the short value operation used by the surrounding class.
+- Role: Handles the short value path.
+- Description: Implements the short value operation.
 
 #### `public int intValue()`
-- Role: Performs int value.
-- Description: Supports the int value operation used by the surrounding class.
+- Role: Handles the int value path.
+- Description: Implements the int value operation.
 
 #### `public float floatValue()`
-- Role: Performs float value.
-- Description: Supports the float value operation used by the surrounding class.
+- Role: Handles the float value path.
+- Description: Implements the float value operation.
 
 #### `public double doubleValue()`
-- Role: Performs double value.
-- Description: Supports the double value operation used by the surrounding class.
+- Role: Handles the double value path.
+- Description: Implements the double value operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object x)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this UID for debugging and logging.

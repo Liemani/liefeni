@@ -1,5 +1,5 @@
 ---
-source: [DescribeWaypointVisibleBoundsEffect.java](../../../../src/agent/debug/DescribeWaypointVisibleBoundsEffect.java)
+source: [DescribeWaypointVisibleBoundsEffect.java](../../../../../src/agent/debug/DescribeWaypointVisibleBoundsEffect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,24 +18,24 @@ Prints waypoint visible bounds for debugging.
 
 #### `public void execute()`
 - Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Description: Runs the queued request and posts its callback result back through the sync manager.
 
 #### `public static String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `private static int _view(MapView mapView)`
-- Role: Performs  view.
-- Description: Supports the view operation used by the surrounding class.
+- Role: Handles the view path.
+- Description: Implements the view operation.
 
 #### `private static Area _cutArea(Coord centerTile, int view)`
 - Role: Computes the cut area around the current center.
-- Description: Supports the cut area operation used by the surrounding class.
+- Description: Implements the cut area operation.
 
 #### `private static Area _reqTileArea(Coord centerTile, int view)`
 - Role: Computes the requested tile area around the current center.
-- Description: Supports the req tile area operation used by the surrounding class.
+- Description: Implements the req tile area operation.

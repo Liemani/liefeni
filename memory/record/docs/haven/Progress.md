@@ -1,5 +1,5 @@
 ---
-source: [Progress.java](../../../src/haven/Progress.java)
+source: [Progress.java](../../../../src/haven/Progress.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,50 +12,52 @@ Represents the progress Haven component.
 
 ### $_
 
-- Role: Represents $ within Progress.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the progress widget resource.
+- Description: Factory that creates a progress widget from its UI arguments.
 
 ## Members
 
 ### Constants
 
 #### `public static final int defh = UI.scale(20)`
-- Role: Defines the shared defh constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the defh operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(20)`
 
 #### `private static final int m = UI.scale(1)`
-- Role: Defines the shared m constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the m operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(1)`
 
 ### Fields
 
 #### `public float a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `a` value for reuse.
 
 #### `private Supplier<Float> val`
-- Role: Stores the val value.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private Function<? super Float, ?> text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `private Function<?, String> fmt`
-- Role: Stores the fmt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fmt value.
+- Description: Caches the `fmt` value for reuse.
 
 #### `private Function<?, Color> col`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Caches the col value.
+- Description: Caches the `col` value for reuse.
 
 #### `private Tex rt = null`
-- Role: Stores the rt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rt value.
+- Description: Caches the `rt` value for reuse.
 
 #### `private Object pt`
-- Role: Holds the pt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pt value.
+- Description: Caches the `pt` value for reuse.
 
 ### Methods
 
@@ -65,48 +67,48 @@ Represents the progress Haven component.
 
 #### `public Progress(Coord sz)`
 - Role: Creates a new Progress instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Progress instance from the supplied inputs.
 
 #### `public Progress(int w)`
 - Role: Creates a new Progress instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Progress instance from the supplied inputs.
 
 #### `public Progress val(Supplier<Float> val)`
-- Role: Performs val.
-- Description: Supports the val operation used by the surrounding class.
+- Role: Handles the val path.
+- Description: Implements the val operation.
 
 #### `public <V> Progress text(Function<? super Float, V> text, Function<? super V, String> fmt, Function<? super V, Color> col)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public <V> Progress text(Supplier<V> text, Function<? super V, String> fmt, Function<? super V, Color> col)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public <V> Progress text(Function<? super Float, V> text, Function<? super V, String> fmt)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public <V> Progress text(Supplier<V> text, Function<? super V, String> fmt)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public Progress text(Function<? super Float, ?> text)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public Progress text(Supplier<?> text)`
-- Role: Performs text.
-- Description: Supports the text operation used by the surrounding class.
+- Role: Handles the text path.
+- Description: Implements the text operation.
 
 #### `public Progress percent()`
-- Role: Performs percent.
-- Description: Supports the percent operation used by the surrounding class.
+- Role: Handles the percent path.
+- Description: Implements the percent operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Progress content.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

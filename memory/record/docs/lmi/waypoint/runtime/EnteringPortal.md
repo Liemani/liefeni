@@ -1,5 +1,5 @@
 ---
-source: [EnteringPortal.java](../../../../../src/lmi/waypoint/runtime/EnteringPortal.java)
+source: [EnteringPortal.java](../../../../../../src/lmi/waypoint/runtime/EnteringPortal.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Coordinates waypoint runtime state for entering portal.
 ### Fields
 
 #### `public final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final int localX`
-- Role: Stores the local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local x value.
+- Description: Caches the `localX` value for reuse.
 
 #### `public final int localY`
-- Role: Stores the local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local y value.
+- Description: Caches the `localY` value for reuse.
 
 #### `public final String resname`
-- Role: Stores the resname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the resname value.
+- Description: Caches the `resname` value for reuse.
 
 ### Methods
 
 #### `public EnteringPortal(long graphId, long gridId, int localX, int localY, String resname)`
 - Role: Creates a new EnteringPortal instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the EnteringPortal instance from the supplied inputs.

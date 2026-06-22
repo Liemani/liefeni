@@ -1,5 +1,5 @@
 ---
-source: [DirLight.java](../../../src/haven/DirLight.java)
+source: [DirLight.java](../../../../src/haven/DirLight.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Represents the dir light Haven component.
 ### Fields
 
 #### `public float[] dir`
-- Role: Stores the dir value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dir value.
+- Description: Caches the `dir` value for reuse.
 
 ### Methods
 
 #### `public DirLight(FColor col, Coord3f dir)`
 - Role: Creates a new DirLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DirLight instance from the supplied inputs.
 
 #### `public DirLight(Color col, Coord3f dir)`
 - Role: Creates a new DirLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DirLight instance from the supplied inputs.
 
 #### `public DirLight(FColor amb, FColor dif, FColor spc, Coord3f dir)`
 - Role: Creates a new DirLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DirLight instance from the supplied inputs.
 
 #### `public DirLight(Color amb, Color dif, Color spc, Coord3f dir)`
 - Role: Creates a new DirLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DirLight instance from the supplied inputs.
 
 #### `public Object[] params(GroupPipe state)`
-- Role: Performs params.
-- Description: Supports the params operation used by the surrounding class.
+- Role: Handles the params path.
+- Description: Implements the params operation.

@@ -1,5 +1,5 @@
 ---
-source: [CompImage.java](../../../src/haven/CompImage.java)
+source: [CompImage.java](../../../../src/haven/CompImage.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,94 +12,95 @@ Represents the comp image Haven component.
 
 ### Image
 
-- Role: Represents image within CompImage.
-- Description: Describes the nested image type used by the enclosing class.
+- Role: Describes one drawable image fragment.
+- Description: Interface for fragments that can be composed into a larger image.
 
 ### Placed
 
-- Role: Represents placed within CompImage.
-- Description: Describes the nested placed type used by the enclosing class.
+- Role: Stores one placed fragment.
+- Description: Internal record that binds a fragment to its position in the composed image.
 
 ## Members
 
 ### Constants
 
 #### `public static final Image nil = new Image()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the image operation.
+- Value: `new Image()`
 
 ### Fields
 
 #### `public Coord sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `private final Collection<Placed> cont = new LinkedList<Placed>()`
-- Role: Caches cont entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cont operation.
+- Description: Implements the private final collection<placed> cont = new linked list<placed>() operation.
 
 #### `Image img; Coord c`
-- Role: Stores the c value.
-- Description: Backs the cached state for this file.
+- Role: Caches the c value.
+- Description: Caches the `c` value for reuse.
 
 #### `Image img; Coord c`
-- Role: Stores the c value.
-- Description: Backs the cached state for this file.
+- Role: Caches the c value.
+- Description: Caches the `c` value for reuse.
 
 ### Methods
 
 #### `public void draw(Graphics g, Coord c)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the CompImage content.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `Placed(Image img, Coord c)`
 - Role: Handles the placed workflow.
-- Description: Supports the placed operation used by the surrounding class.
+- Description: Implements the placed operation.
 
 #### `public CompImage()`
 - Role: Creates a new CompImage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CompImage instance from the supplied inputs.
 
 #### `public CompImage add(Image img, Coord c)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public static Image mk(final BufferedImage img)`
-- Role: Performs mk.
-- Description: Supports the mk operation used by the surrounding class.
+- Role: Handles the mk path.
+- Description: Implements the mk operation.
 
 #### `public CompImage add(final BufferedImage img, Coord c)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public static Image mk(final CompImage img)`
-- Role: Performs mk.
-- Description: Supports the mk operation used by the surrounding class.
+- Role: Handles the mk path.
+- Description: Implements the mk operation.
 
 #### `public CompImage add(final CompImage img, Coord c)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `private void compose(Graphics on, Coord off)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Handles the compose path.
+- Description: Implements the compose operation.
 
 #### `public BufferedImage compose()`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Handles the compose path.
+- Description: Implements the compose operation.
 
 #### `public CompImage table(Coord base, Image[][] cells, Object cs, int rs, int[] cj)`
-- Role: Performs table.
-- Description: Supports the table operation used by the surrounding class.
+- Role: Handles the table path.
+- Description: Implements the table operation.
 
 #### `public static Image[][] transpose(Image[][] cells)`
-- Role: Performs transpose.
-- Description: Supports the transpose operation used by the surrounding class.
+- Role: Handles the transpose path.
+- Description: Implements the transpose operation.
 
 #### `public static Image[][] transpose(Collection<Image[]> rows)`
-- Role: Performs transpose.
-- Description: Supports the transpose operation used by the surrounding class.
+- Role: Handles the transpose path.
+- Description: Implements the transpose operation.

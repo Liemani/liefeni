@@ -1,5 +1,5 @@
 ---
-source: [SteamCreds.java](../../../src/haven/SteamCreds.java)
+source: [SteamCreds.java](../../../../src/haven/SteamCreds.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Represents the steam creds Haven component.
 ### Fields
 
 #### `private final Steam api`
-- Role: Holds the api state.
-- Description: Backs the cached state for this file.
+- Role: Caches the api value.
+- Description: Caches the `api` value for reuse.
 
 #### `private final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 ### Methods
 
 #### `public SteamCreds() throws IOException`
 - Role: Creates a new SteamCreds instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SteamCreds instance from the supplied inputs.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
 - Role: Handles the tryauth workflow.
-- Description: Supports the tryauth operation used by the surrounding class.
+- Description: Implements the tryauth operation.

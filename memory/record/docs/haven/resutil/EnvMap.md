@@ -1,68 +1,61 @@
 ---
-source: [EnvMap.java](../../../../src/haven/resutil/EnvMap.java)
+source: [EnvMap.java](../../../../../src/haven/resutil/EnvMap.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # EnvMap
 
-Provides resource helper logic for env map.
-
-## Nested Types
-
-### $envref
-
-- Role: Represents $envref within EnvMap.
-- Description: Describes the nested $envref type used by the enclosing class.
+Applies environment-map lighting using a cubemap sky, a tint color, and the current camera basis.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<EnvMap> slot = new Slot<EnvMap>(Slot.Type.DRAW, EnvMap.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Registers the env-map draw state.
+- Description: Makes the current environment settings visible to the shader.
 
 #### `private static final Uniform csky = new Uniform(SAMPLERCUBE, p -> p.get(slot).sky, slot)`
-- Role: Defines the shared csky constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the sky cubemap to the shader.
+- Description: Used when sampling the environment reflection.
 
 #### `private static final Uniform ccol = new Uniform(VEC3, p -> p.get(slot).col, slot)`
-- Role: Defines the shared ccol constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the tint color to the shader.
+- Description: Multiplies the cubemap sample before output.
 
 #### `private static final Uniform icam = new Uniform(MAT3, p -> Homo3D.camxf(p).transpose().trim3(), Homo3D.cam)`
-- Role: Defines the shared icam constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the camera basis to the shader.
+- Description: Converts view direction into cubemap lookup space.
 
 #### `private static final SamplerCube sky = WaterTile.sky`
-- Role: Defines the shared sky constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Reuses the shared sky cubemap.
+- Description: Shares the same environment texture as water rendering.
 
 #### `private static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the env-map shader path.
+- Description: Binds the sky and color uniforms for fragment shading.
 
 ### Fields
 
 #### `public final float[] col`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Stores the tint color as RGB floats.
+- Description: Derived from the constructor `Color`.
 
 ### Methods
 
 #### `public EnvMap(Color col)`
-- Role: Creates a new EnvMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds an env-map state.
+- Description: Stores the supplied tint for later rendering.
 
 #### `public void cons(Material.Buffer buf, Object... args)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Serializes material arguments.
+- Description: Supports resource decoding for the material system.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro for this state.
+- Description: The macro uses the sky cube and tint color.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Installs the state into the draw pipe.
+- Description: Publishes sky, tint, and camera data for rendering.

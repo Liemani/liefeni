@@ -1,5 +1,5 @@
 ---
-source: [FragColor.java](../../../../src/haven/render/FragColor.java)
+source: [FragColor.java](../../../../../src/haven/render/FragColor.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,126 +12,133 @@ Defines the frag color render pipeline component.
 
 ### ColorValue
 
-- Role: Represents color value within FragColor.
-- Description: Describes the nested color value type used by the enclosing class.
+- Role: Computes the fragment color value.
+- Description: Builds the color expression used by the fragment shader context.
 
 ### FragBlend
 
-- Role: Represents frag blend within FragColor.
-- Description: Describes the nested frag blend type used by the enclosing class.
+- Role: Applies fragment blend state.
+- Description: Injects the blend mode into the render pipe for this fragment output.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<FragColor> slot = new Slot<>(Slot.Type.SYS, FragColor.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the slot operation.
+- Description: Implements the public static final slot<frag color> slot = new slot<>(slot.type.sys, frag color.class) operation.
+- Value: `new Slot<>(Slot.Type.SYS, FragColor.class)`
 
 #### `public static final Slot<FragBlend> blend = new Slot<>(Slot.Type.SYS, FragBlend.class)`
-- Role: Defines the shared blend constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the blend operation.
+- Description: Implements the public static final slot<frag blend> blend = new slot<>(slot.type.sys, frag blend.class) operation.
+- Value: `new Slot<>(Slot.Type.SYS, FragBlend.class)`
 
 #### `public static final FragData fragcol = new FragData(Type.VEC4, "fragcol", p ->`
-- Role: Defines the shared fragcol constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fragcol operation.
+- Description: Implements the frag data operation.
+- Value: `new FragData(Type.VEC4, "fragcol", p ->`
 
 #### `public static final Object defcolor = new Object()`
-- Role: Defines the shared defcolor constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the defcolor operation.
+- Description: Implements the object operation.
+- Value: `new Object()`
 
 #### `private static final ShaderMacro value = prog -> fragcol0(prog.fctx).force()`
-- Role: Defines the shared value constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the value operation.
+- Description: Implements the force operation.
+- Value: `prog -> fragcol0(prog.fctx).force()`
 
 #### `private static final ShaderMacro mksrgb = prog -> fragcol0(prog.fctx).srgb = true`
-- Role: Defines the shared mksrgb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the mksrgb operation.
+- Description: Implements the fragcol0 operation.
+- Value: `prog -> fragcol0(prog.fctx).srgb = true`
 
 #### `private static final ShaderMacro[] shaders =`
-- Role: Defines the shared frag color constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the shaders value.
+- Description: Caches the `shaders` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public final T image`
-- Role: Holds the image state.
-- Description: Backs the cached state for this file.
+- Role: Caches the image value.
+- Description: Caches the `image` value for reuse.
 
 #### `public final boolean srgb`
 - Role: Tracks the srgb flag.
-- Description: Supports the srgb operation used by the surrounding class.
+- Description: Caches the `srgb` value for reuse.
 
 #### `final BlendMode mode`
-- Role: Holds the mode state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mode value.
+- Description: Caches the `mode` value for reuse.
 
 #### `boolean srgb = false`
 - Role: Tracks the srgb flag.
-- Description: Supports the srgb operation used by the surrounding class.
+- Description: Caches the `srgb` value for reuse.
 
 ### Methods
 
 #### `public FragColor(T image, boolean srgb)`
-- Role: Creates a new FragColor instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Stores one fragment color binding.
+- Description: Wraps a texture image together with the sRGB flag used by the shader.
 
 #### `public FragColor(T image)`
-- Role: Creates a new FragColor instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Stores one fragment color binding.
+- Description: Wraps a texture image with the default linear-color behavior.
 
 #### `FragBlend(BlendMode mode)`
-- Role: Handles the frag blend workflow.
-- Description: Supports the frag blend operation used by the surrounding class.
+- Role: Applies fragment blend state.
+- Description: Writes the configured blend mode into the fragment state pipe.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies fragment color state.
+- Description: Writes the fragment image and sRGB state into the pipe.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Builds the fragment-color shader.
+- Description: Returns the shader macro that reads the bound fragment color.
 
 #### `public static Pipe.Op blend(BlendMode mode)`
-- Role: Performs blend.
-- Description: Supports the blend operation used by the surrounding class.
+- Role: Builds fragment blend state.
+- Description: Returns a pipe op that installs the requested blend mode.
 
 #### `ColorValue(ValBlock vals)`
-- Role: Handles the color value workflow.
-- Description: Supports the color value operation used by the surrounding class.
+- Role: Builds a fragment-color expression.
+- Description: Represents the shader-side color value computed from the source image.
 
 #### `public Expression root()`
-- Role: Performs root.
-- Description: Supports the root operation used by the surrounding class.
+- Role: Returns the expression root.
+- Description: Exposes the base expression used for fragment color evaluation.
 
 #### `protected void cons2(Block blk)`
-- Role: Performs cons2.
-- Description: Supports the cons2 operation used by the surrounding class.
+- Role: Emits fragment-color code.
+- Description: Adds the color conversion logic to the shader block.
 
 #### `private static ColorValue fragcol0(FragmentContext fctx)`
-- Role: Performs fragcol0.
-- Description: Supports the fragcol0 operation used by the surrounding class.
+- Role: Resolves the fragment color value.
+- Description: Returns the cached color expression for the current fragment context.
 
 #### `public static Value fragcol(FragmentContext fctx)`
-- Role: Performs fragcol.
-- Description: Supports the fragcol operation used by the surrounding class.
+- Role: Reads the fragment color value.
+- Description: Returns the shader value for the active fragment color.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this FragColor for debugging and logging.

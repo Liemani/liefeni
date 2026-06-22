@@ -1,323 +1,324 @@
 ---
-source: [ActAudio.java](../../../src/haven/ActAudio.java)
+source: [ActAudio.java](../../../../src/haven/ActAudio.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # ActAudio
 
-Adapts audio sources to active scene and UI state.
+Routes world and UI audio sources into the active audio graph.
 
 ## Nested Types
 
 ### Adapter
 
-- Role: Represents adapter within ActAudio.
-- Description: Describes the nested adapter type used by the enclosing class.
+- Role: Mirrors clips into a parent audio channel.
+- Description: Keeps a local clip set and forwards add/remove operations to the wrapped channel.
 
 ### Ambience
 
-- Role: Represents ambience within ActAudio.
-- Description: Describes the nested ambience type used by the enclosing class.
+- Role: Represents one ambient sound source in the scene.
+- Description: Wraps a resource-backed ambient clip and its base volume.
 
 ### Channel
 
-- Role: Represents channel within ActAudio.
-- Description: Describes the nested channel type used by the enclosing class.
+- Role: Defines a mutable audio sink.
+- Description: Exposes add, remove, clear, and size for a clip collection or mixer.
 
 ### Glob
 
-- Role: Represents glob within ActAudio.
-- Description: Describes the nested glob type used by the enclosing class.
+- Role: Keys shared ambient playback for one resource.
+- Description: Groups ambient slots for a world resource and fades them in or out together.
 
 ### Global
 
-- Role: Represents global within ActAudio.
-- Description: Describes the nested global type used by the enclosing class.
+- Role: Represents cycleable shared audio state.
+- Description: Lets the world audio root advance and retire shared clip groups.
 
 ### PosClip
 
-- Role: Represents pos clip within ActAudio.
-- Description: Describes the nested pos clip type used by the enclosing class.
+- Role: Attaches a clip to a world position.
+- Description: Recomputes volume and stereo balance from the owning render slot's world position.
 
 ### Root
 
-- Role: Represents root within ActAudio.
-- Description: Describes the nested root type used by the enclosing class.
+- Role: Holds the top-level audio channels.
+- Description: Provides the UI, positional, and ambient roots and clears the world channels together.
 
 ### RootChannel
 
-- Role: Represents root channel within ActAudio.
-- Description: Describes the nested root channel type used by the enclosing class.
+- Role: Owns one top-level mixer channel.
+- Description: Lazily creates the mixer, restores its volume from preferences, and stops it on clear.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<ActAudio> audio = new State.Slot<>(Slot.Type.SYS, ActAudio.class)`
-- Role: Defines the shared audio constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the active audio state in the render pipe.
+- Description: Lets render-tree nodes find the current `ActAudio` instance.
+- Value: `new State.Slot<>(Slot.Type.SYS, ActAudio.class)`
 
 ### Fields
 
 #### `public final Channel pos`
-- Role: Holds the pos state.
-- Description: Backs the cached state for this file.
+- Role: Holds the positional audio channel.
+- Description: Receives spatialized clips that track render-tree slots.
 
 #### `public final Channel amb`
-- Role: Holds the amb state.
-- Description: Backs the cached state for this file.
+- Role: Holds the ambient audio channel.
+- Description: Receives looping world ambience and fades it with scene visibility.
 
 #### `private final Map<Global, Global> global = new HashMap<Global, Global>()`
-- Role: Caches global entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches shared audio groups by identity.
+- Description: Interns `Global` instances so the same resource group is updated once per frame.
 
 #### `public final Channel parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Stores the wrapped parent channel.
+- Description: Every adapter forwards to this channel after tracking local membership.
 
 #### `private Collection<CS> clips = new HashSet<CS>()`
-- Role: Caches clips entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Tracks clips currently attached to the adapter.
+- Description: Used to mirror removals back into the wrapped channel during clear.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Stores the mixer channel name.
+- Description: Used for preference keys and stats output.
 
 #### `public double volume`
-- Role: Stores the volume value.
-- Description: Backs the cached state for this file.
+- Role: Stores the persisted volume for the channel.
+- Description: Mirrored into the mixer volume adjuster when the channel is active.
 
 #### `private Audio.VolAdjust volc = null`
-- Role: Stores the volc value.
-- Description: Backs the cached state for this file.
+- Role: Holds the volume adjuster that wraps the mixer.
+- Description: Exists only after the mixer has been created.
 
 #### `private Audio.Mixer mixer = null`
-- Role: Stores the mixer value.
-- Description: Backs the cached state for this file.
+- Role: Holds the lazily created mixer.
+- Description: Created on demand when clips are first added.
 
 #### `public final RootChannel aui = new RootChannel("aui")`
-- Role: Holds the aui state.
-- Description: Backs the cached state for this file.
+- Role: Holds the UI sound channel.
+- Description: Used for interface audio such as clicks and menu feedback.
 
 #### `public final RootChannel pos = new RootChannel("pos")`
-- Role: Holds the pos state.
-- Description: Backs the cached state for this file.
+- Role: Holds the positional world sound channel.
+- Description: Receives clips whose volume depends on world-space distance.
 
 #### `public final RootChannel amb = new RootChannel("amb")`
-- Role: Holds the amb state.
-- Description: Backs the cached state for this file.
+- Role: Holds the ambient world sound channel.
+- Description: Receives looping ambience mixed from active world resources.
 
 #### `private final VolAdjust clip`
-- Role: Holds the clip state.
-- Description: Backs the cached state for this file.
+- Role: Wraps the positional or ambient clip with volume control.
+- Description: Updated each tick before the clip is mixed into the parent channel.
 
 #### `private final Collection<RenderTree.Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Tracks the render-tree slots currently driving this positional clip.
+- Description: The first slot is used to calculate distance and stereo balance.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Stores the ambient resource.
+- Description: Used to locate ambient clip layers and identify shared glob state.
 
 #### `public final double bvol`
-- Role: Stores the bvol value.
-- Description: Backs the cached state for this file.
+- Role: Stores the base ambient volume.
+- Description: Multiplies the spatial fade for this ambience slot.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private final VolAdjust clip`
-- Role: Holds the clip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
 
 #### `private final Collection<RenderList.Slot<Ambience>> active = new ArrayList<>()`
-- Role: Caches active entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Tracks ambience slots currently active for the resource.
+- Description: These slots are summed into a shared volume for the resource's repeating clip.
 
 #### `private double lastupd = Utils.rtime()`
-- Role: Stores the lastupd value.
-- Description: Backs the cached state for this file.
+- Role: Stores the last ambient cycle time.
+- Description: Used to smooth ambient fade-in and fade-out across frames.
 
 #### `private boolean added = false, hasvol = false`
 - Role: Tracks the added flag.
-- Description: Supports the added operation used by the surrounding class.
+- Description: Caches the `added` value for reuse.
 
 #### `private boolean added = false, hasvol = false`
 - Role: Tracks the added flag.
-- Description: Supports the added operation used by the surrounding class.
+- Description: Caches the `added` value for reuse.
 
 ### Methods
 
 #### `public haven.render.sl.ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Exposes the audio state as a render shader hook.
+- Description: This state does not contribute a shader macro, so it returns `null`.
 
 #### `public ActAudio(Root root)`
-- Role: Creates a new ActAudio instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Binds the audio state to the supplied root channels.
+- Description: Wraps the root positional and ambient channels with adapters.
 
 #### `public void apply(Pipe st)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Installs this audio state into the render pipe.
+- Description: Makes the current `ActAudio` available to downstream render-tree nodes.
 
 #### `public void add(CS clip)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds a clip to the channel.
+- Description: Forwards the clip into the underlying mixer or wrapped channel.
 
 #### `public void remove(CS clip)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes a clip from the channel.
+- Description: Stops the clip from the underlying mixer or wrapped channel.
 
 #### `public void clear()`
-- Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Role: Clears every clip from the channel.
+- Description: Drops the channel's current membership and detaches it from the parent.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Returns the number of active clips.
+- Description: Reports the current channel membership count.
 
 #### `public Adapter(Channel parent)`
-- Role: Performs adapter.
-- Description: Supports the adapter operation used by the surrounding class.
+- Role: Handles the adapter path.
+- Description: Implements the adapter operation.
 
 #### `public void add(CS clip)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(CS clip)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `private RootChannel(String name)`
-- Role: Performs root channel.
-- Description: Supports the root channel operation used by the surrounding class.
+- Role: Creates a named top-level channel.
+- Description: Restores the persisted volume for that channel name.
 
 #### `public Audio.Mixer mixer()`
-- Role: Performs mixer.
-- Description: Supports the mixer operation used by the surrounding class.
+- Role: Returns the lazily created mixer.
+- Description: Builds the mixer and volume adjuster on first use.
 
 #### `public void setvolume(double volume)`
-- Role: Performs setvolume.
-- Description: Supports the setvolume operation used by the surrounding class.
+- Role: Updates the channel volume.
+- Description: Stores the new preference and pushes it to the live mixer when present.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public void add(CS clip)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(CS clip)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public String stats()`
-- Role: Performs stats.
-- Description: Supports the stats operation used by the surrounding class.
+- Role: Summarizes the three root channel sizes.
+- Description: Returns the UI, positional, and ambient clip counts as a compact string.
 
 #### `public boolean cycle(ActAudio list)`
-- Role: Performs cycle.
-- Description: Supports the cycle operation used by the surrounding class.
+- Role: Advances shared ambient state.
+- Description: Updates fade state, adds the shared clip when needed, and removes it once it becomes silent.
 
 #### `public static Coord3f spos(Pipe st)`
-- Role: Performs spos.
-- Description: Supports the spos operation used by the surrounding class.
+- Role: Computes the world-space position for a render pipe.
+- Description: Applies the current location chain and camera transform to the origin.
 
 #### `public PosClip(VolAdjust clip)`
-- Role: Performs pos clip.
-- Description: Supports the pos clip operation used by the surrounding class.
+- Role: Wraps an existing volume-adjusted clip for positional playback.
+- Description: Stores the supplied volume controller without adding another wrapper.
 
 #### `public PosClip(CS clip)`
-- Role: Performs pos clip.
-- Description: Supports the pos clip operation used by the surrounding class.
+- Role: Wraps a raw clip for positional playback.
+- Description: Creates the internal `VolAdjust` wrapper used for distance attenuation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Registers a new positional clip slot.
+- Description: Starts ticking the slot and attaches the clip to the active positional channel.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Unregisters a positional clip slot.
+- Description: Removes the clip from the active positional channel.
 
 #### `public TickList.Ticking ticker()`
-- Role: Performs ticker.
-- Description: Supports the ticker operation used by the surrounding class.
+- Role: Handles the ticker path.
+- Description: Advances the er state.
 
 #### `public void autotick(double dt)`
-- Role: Performs autotick.
-- Description: Supports the autotick operation used by the surrounding class.
+- Role: Handles the autotick path.
+- Description: Implements the autotick operation.
 
 #### `public Ambience(Resource res, double bvol)`
-- Role: Performs ambience.
-- Description: Supports the ambience operation used by the surrounding class.
+- Role: Handles the ambience path.
+- Description: Implements the ambience operation.
 
 #### `public Ambience(Resource res)`
-- Role: Performs ambience.
-- Description: Supports the ambience operation used by the surrounding class.
+- Role: Handles the ambience path.
+- Description: Implements the ambience operation.
 
 #### `public Glob(Resource res)`
-- Role: Performs glob.
-- Description: Supports the glob operation used by the surrounding class.
+- Role: Handles the glob path.
+- Description: Implements the glob operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object other)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `private double curvol()`
-- Role: Performs curvol.
-- Description: Supports the curvol operation used by the surrounding class.
+- Role: Handles the curvol path.
+- Description: Implements the curvol operation.
 
 #### `public boolean cycle(ActAudio list)`
-- Role: Performs cycle.
-- Description: Supports the cycle operation used by the surrounding class.
+- Role: Handles the cycle path.
+- Description: Implements the cycle operation.
 
 #### `public void add(RenderList.Slot<Ambience> slot)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(RenderList.Slot<Ambience> slot)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public <T extends Global> T intern(T glob)`
-- Role: Performs intern.
-- Description: Supports the intern operation used by the surrounding class.
+- Role: Handles the intern path.
+- Description: Implements the intern operation.
 
 #### `public void cycle()`
-- Role: Performs cycle.
-- Description: Supports the cycle operation used by the surrounding class.
+- Role: Handles the cycle path.
+- Description: Implements the cycle operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.

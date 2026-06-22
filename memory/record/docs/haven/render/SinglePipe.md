@@ -1,5 +1,5 @@
 ---
-source: [SinglePipe.java](../../../../src/haven/render/SinglePipe.java)
+source: [SinglePipe.java](../../../../../src/haven/render/SinglePipe.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Defines the single pipe render pipeline component.
 ### Fields
 
 #### `public final Slot<T> slot`
-- Role: Holds the slot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the slot value.
+- Description: Caches the `slot` value for reuse.
 
 #### `public final T value`
-- Role: Holds the value state.
-- Description: Backs the cached state for this file.
+- Role: Caches the value value.
+- Description: Caches the `value` value for reuse.
 
 ### Methods
 
 #### `public SinglePipe(Slot<T> slot, T value)`
 - Role: Creates a new SinglePipe instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SinglePipe instance from the supplied inputs.
 
 #### `public <G extends State> G get(Slot<G> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Handles the states path.
+- Description: Implements the states operation.

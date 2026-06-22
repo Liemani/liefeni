@@ -1,5 +1,5 @@
 ---
-source: [FlowerMenuHandler.java](../../../../src/lmi/bridge/FlowerMenuHandler.java)
+source: [FlowerMenuHandler.java](../../../../../src/lmi/bridge/FlowerMenuHandler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,51 +15,51 @@ Handles Haven flower menu lifecycle and forwards selection callbacks.
 ### Fields
 
 #### `private static haven.FlowerMenu _widget`
-- Role: Holds the widget state.
-- Description: Backs the cached state for this file.
+- Role: Caches the widget value.
+- Description: Caches the `_widget` value for reuse.
 
 ### Methods
 
 #### `public static void setWidget(haven.FlowerMenu widget)`
 - Role: Sets the widget.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static void clearWidget()`
 - Role: Clears the widget.
-- Description: Removes the associated value from the current runtime state.
+- Description: Clears the widget.
 
 #### `public static void choose(Gob gob, int meshId, String name)`
-- Role: Performs choose.
-- Description: Supports the choose operation used by the surrounding class.
+- Role: Handles the choose path.
+- Description: Chooses a flower-menu entry for the supplied gob target.
 
 #### `private static void _open(Gob gob, int meshId)`
-- Role: Performs  open.
-- Description: Supports the open operation used by the surrounding class.
+- Role: Handles the open path.
+- Description: Opens the flower menu for the requested gob and mesh.
 
 #### `private static void _waitFlowerMenuOpening()`
-- Role: Performs  wait flower menu opening.
-- Description: Supports the wait flower menu opening operation used by the surrounding class.
+- Role: Handles the wait flower menu opening path.
+- Description: Blocks until Haven has created the flower menu widget.
 
 #### `private static boolean _isAdded()`
-- Role: Performs  is added.
-- Description: Supports the is added operation used by the surrounding class.
+- Role: Handles the is added path.
+- Description: Checks whether the flower menu bridge still has a live widget.
 
 #### `private static void _close()`
-- Role: Performs  close.
-- Description: Supports the close operation used by the surrounding class.
+- Role: Closes the current stream or resource.
+- Description: Requests Haven to close the current flower menu.
 
 #### `private static void _choose(String name)`
-- Role: Performs  choose.
-- Description: Supports the choose operation used by the surrounding class.
+- Role: Handles the choose path.
+- Description: Sends the selected petal name back to Haven.
 
 #### `private static void _sendChoosePetalMessage(int index)`
-- Role: Performs  send choose petal message.
-- Description: Supports the send choose petal message operation used by the surrounding class.
+- Role: Handles the send choose petal message path.
+- Description: Dispatches the petal-index selection message to Haven.
 
 #### `private static void _sendInteractMessage(Gob gob, int meshId)`
-- Role: Performs  send interact message.
-- Description: Supports the send interact message operation used by the surrounding class.
+- Role: Handles the send interact message path.
+- Description: Dispatches the flower-menu interaction message to Haven.
 
 #### `private static void _sendCloseMessage()`
-- Role: Performs  send close message.
-- Description: Supports the send close message operation used by the surrounding class.
+- Role: Handles the send close message path.
+- Description: Dispatches the close request message to Haven.

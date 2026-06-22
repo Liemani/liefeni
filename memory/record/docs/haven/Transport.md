@@ -1,5 +1,5 @@
 ---
-source: [Transport.java](../../../src/haven/Transport.java)
+source: [Transport.java](../../../../src/haven/Transport.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,20 +15,20 @@ Represents the transport Haven component.
 ### Fields
 
 #### `public final Writer out`
-- Role: Holds the out state.
-- Description: Backs the cached state for this file.
+- Role: Caches the out value.
+- Description: Caches the `out` value for reuse.
 
 #### `private final double epoch`
-- Role: Stores the epoch value.
-- Description: Backs the cached state for this file.
+- Role: Caches the epoch value.
+- Description: Caches the `epoch` value for reuse.
 
 #### `public final BufferedReader in`
-- Role: Stores the in value.
-- Description: Backs the cached state for this file.
+- Role: Caches the in value.
+- Description: Caches the `in` value for reuse.
 
 #### `private final Collection<Callback> cbs = new ArrayList<>()`
-- Role: Caches cbs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cbs operation.
+- Description: Implements the private final collection<callback> cbs = new array list<>() operation.
 
 #### `private boolean closed = false`
 - Role: Tracks whether closed is closed.
@@ -38,88 +38,88 @@ Represents the transport Haven component.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public void queuemsg(PMessage pmsg)`
-- Role: Performs queuemsg.
-- Description: Supports the queuemsg operation used by the surrounding class.
+- Role: Handles the queuemsg path.
+- Description: Implements the queuemsg operation.
 
 #### `public void send(PMessage msg)`
 - Role: Sends the current message.
 - Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `public Transport add(Callback cb)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public default void closed()`
-- Role: Performs closed.
-- Description: Supports the closed operation used by the surrounding class.
+- Role: Handles the closed path.
+- Description: Implements the closed operation.
 
 #### `public default void handle(PMessage msg)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public default void handle(OCache.ObjDelta delta)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public default void mapdata(Message msg)`
-- Role: Performs mapdata.
-- Description: Supports the mapdata operation used by the surrounding class.
+- Role: Handles the mapdata path.
+- Description: Implements the mapdata operation.
 
 #### `public Recorder(Writer out)`
-- Role: Performs recorder.
-- Description: Supports the recorder operation used by the surrounding class.
+- Role: Handles the recorder path.
+- Description: Implements the recorder operation.
 
 #### `private void printf(String format, Object... args)`
-- Role: Performs printf.
-- Description: Supports the printf operation used by the surrounding class.
+- Role: Handles the printf path.
+- Description: Implements the printf operation.
 
 #### `public void closed()`
-- Role: Performs closed.
-- Description: Supports the closed operation used by the surrounding class.
+- Role: Handles the closed path.
+- Description: Implements the closed operation.
 
 #### `public void handle(PMessage msg)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public void handle(OCache.ObjDelta msg)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public void mapdata(Message msg)`
-- Role: Performs mapdata.
-- Description: Supports the mapdata operation used by the surrounding class.
+- Role: Handles the mapdata path.
+- Description: Implements the mapdata operation.
 
 #### `public Playback(Reader in)`
-- Role: Performs playback.
-- Description: Supports the playback operation used by the surrounding class.
+- Role: Handles the playback path.
+- Description: Implements the playback operation.
 
 #### `public Playback add(Callback cb)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public void queuemsg(PMessage pmsg)`
-- Role: Performs queuemsg.
-- Description: Supports the queuemsg operation used by the surrounding class.
+- Role: Handles the queuemsg path.
+- Description: Implements the queuemsg operation.
 
 #### `public void send(PMessage msg)`
 - Role: Sends the current message.
 - Description: Sends the current message into the target Haven callback or UI message path.
 
 #### `private String[] split(String text)`
-- Role: Performs split.
-- Description: Supports the split operation used by the surrounding class.
+- Role: Handles the split path.
+- Description: Implements the split operation.
 
 #### `private void play()`
-- Role: Performs play.
-- Description: Supports the play operation used by the surrounding class.
+- Role: Handles the play path.
+- Description: Implements the play operation.
 
 #### `public void start()`
 - Role: Starts the current workflow.
-- Description: Supports the start operation used by the surrounding class.
+- Description: Implements the start operation.

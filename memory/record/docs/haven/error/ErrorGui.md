@@ -1,5 +1,5 @@
 ---
-source: [ErrorGui.java](../../../../src/haven/error/ErrorGui.java)
+source: [ErrorGui.java](../../../../../src/haven/error/ErrorGui.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,71 +15,71 @@ Handles Haven error reporting for error gui.
 ### Fields
 
 #### `private JLabel status`
-- Role: Stores the status value.
-- Description: Backs the cached state for this file.
+- Role: Caches the status value.
+- Description: Caches the `status` value for reuse.
 
 #### `private JEditorPane info`
-- Role: Holds the info state.
-- Description: Backs the cached state for this file.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private JPanel details`
-- Role: Holds the details state.
-- Description: Backs the cached state for this file.
+- Role: Caches the details value.
+- Description: Caches the `details` value for reuse.
 
 #### `private JButton closebtn, detbtn`
-- Role: Holds the detbtn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the detbtn value.
+- Description: Caches the `detbtn` value for reuse.
 
 #### `private JButton closebtn, detbtn`
-- Role: Holds the detbtn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the detbtn value.
+- Description: Caches the `detbtn` value for reuse.
 
 #### `private JTextArea exbox`
-- Role: Stores the exbox value.
-- Description: Backs the cached state for this file.
+- Role: Caches the exbox value.
+- Description: Caches the `exbox` value for reuse.
 
 #### `private JScrollPane infoc, exboxc`
-- Role: Holds the exboxc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the exboxc value.
+- Description: Caches the `exboxc` value for reuse.
 
 #### `private JScrollPane infoc, exboxc`
-- Role: Holds the exboxc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the exboxc value.
+- Description: Caches the `exboxc` value for reuse.
 
 #### `private Thread reporter`
-- Role: Holds the reporter state.
-- Description: Backs the cached state for this file.
+- Role: Caches the reporter value.
+- Description: Caches the `reporter` value for reuse.
 
 #### `private boolean done`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 ### Methods
 
 #### `public ErrorGui(java.awt.Frame parent)`
 - Role: Creates a new ErrorGui instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ErrorGui instance from the supplied inputs.
 
 #### `public boolean goterror(Throwable t)`
-- Role: Performs goterror.
-- Description: Supports the goterror operation used by the surrounding class.
+- Role: Handles the goterror path.
+- Description: Implements the goterror operation.
 
 #### `public void connecting()`
-- Role: Performs connecting.
-- Description: Supports the connecting operation used by the surrounding class.
+- Role: Handles the connecting path.
+- Description: Implements the connecting operation.
 
 #### `public void sending()`
-- Role: Performs sending.
-- Description: Supports the sending operation used by the surrounding class.
+- Role: Handles the sending path.
+- Description: Implements the sending operation.
 
 #### `public void done(final String ctype, final String info)`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public void senderror(Exception e)`
-- Role: Performs senderror.
-- Description: Supports the senderror operation used by the surrounding class.
+- Role: Handles the senderror path.
+- Description: Implements the senderror operation.
 
 #### `public abstract void errorsent()`
-- Role: Performs errorsent.
-- Description: Supports the errorsent operation used by the surrounding class.
+- Role: Handles the errorsent path.
+- Description: Implements the errorsent operation.

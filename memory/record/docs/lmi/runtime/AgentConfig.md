@@ -1,5 +1,5 @@
 ---
-source: [AgentConfig.java](../../../../src/lmi/runtime/AgentConfig.java)
+source: [AgentConfig.java](../../../../../src/lmi/runtime/AgentConfig.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,41 +13,41 @@ Carries configuration for a runtime agent.
 ### Constants
 
 #### `private static final String FILE_PATH = "data/agent-config.properties"`
-- Role: Defines the shared file path constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the file path value.
+- Description: Caches the `FILE_PATH` value for reuse.
 
 ### Fields
 
 #### `private final Properties props = new Properties()`
-- Role: Holds the props state.
-- Description: Backs the cached state for this file.
+- Role: Implements the props operation.
+- Description: Implements the properties operation.
 
 ### Methods
 
 #### `public AgentConfig()`
 - Role: Creates a new AgentConfig instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Loads the persisted drive settings from disk.
 
 #### `public void setDrive(String key, boolean on)`
-- Role: Sets the drive.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Stores one agent drive flag.
+- Description: Updates the persisted enablement state for the given drive.
 
 #### `public boolean isDriveEnabled(String key)`
 - Role: Checks whether the drive enabled.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when the requested drive is enabled.
 
 #### `public String getDriveStatus(String key)`
 - Role: Returns the drive status.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the drive status.
 
 #### `public java.util.Set<String> getAllDrives()`
 - Role: Returns the all drives.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the all drives.
 
 #### `private void load()`
 - Role: Coordinates load persistence or lookup.
-- Description: Supports the load operation used by the surrounding class.
+- Description: Reads the drive settings file into memory.
 
 #### `private void save()`
 - Role: Coordinates save persistence or lookup.
-- Description: Supports the save operation used by the surrounding class.
+- Description: Writes the current drive settings back to disk.

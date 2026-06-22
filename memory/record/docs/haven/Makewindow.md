@@ -1,5 +1,5 @@
 ---
-source: [Makewindow.java](../../../src/haven/Makewindow.java)
+source: [Makewindow.java](../../../../src/haven/Makewindow.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -45,166 +45,175 @@ Represents the makewindow Haven component.
 ### Constants
 
 #### `public static final Text qmodl = Text.render("Quality:")`
-- Role: Defines the shared qmodl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the qmodl operation.
+- Description: Renders the current state into an image or image-like object.
+- Value: `Text.render("Quality:")`
 
 #### `public static final Text tooll = Text.render("Tools:")`
-- Role: Defines the shared tooll constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the tooll operation.
+- Description: Renders the current state into an image or image-like object.
+- Value: `Text.render("Tools:")`
 
 #### `public static final Coord boff = UI.scale(new Coord(7, 9))`
-- Role: Defines the shared boff constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the boff operation.
+- Description: Implements the coord operation.
+- Value: `UI.scale(new Coord(7, 9))`
 
 #### `private static final OwnerContext.ClassResolver<Makewindow> ctxr = new OwnerContext.ClassResolver<Makewindow>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<makewindow> ctxr = new owner context.class resolver<makewindow>() operation.
+- Value: `new OwnerContext.ClassResolver<Makewindow>()`
 
 #### `public static final KeyBinding kb_make = KeyBinding.get("make/one", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, 0))`
-- Role: Defines the shared kb make constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kb make operation.
+- Description: Implements the forcode operation.
+- Value: `KeyBinding.get("make/one", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, 0))`
 
 #### `public static final KeyBinding kb_makeall = KeyBinding.get("make/all", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, KeyMatch.C))`
-- Role: Defines the shared kb makeall constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kb makeall operation.
+- Description: Implements the forcode operation.
+- Value: `KeyBinding.get("make/all", KeyMatch.forcode(java.awt.event.KeyEvent.VK_ENTER, KeyMatch.C))`
 
 #### `public static final Coord qmodsz = UI.scale(20, 20)`
-- Role: Defines the shared qmodsz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the qmodsz operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(20, 20)`
 
 #### `private static final Map<Indir<Resource>, Tex> qmicons = new WeakHashMap<>()`
-- Role: Defines the shared qmicons constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the qmicons operation.
+- Description: Implements the private static final map<indir<resource>, tex> qmicons = new weak hash map<>() operation.
+- Value: `new WeakHashMap<>()`
 
 #### `public static final Text text = RichText.render("$i`
-- Role: Defines the shared text constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the text operation.
+- Description: Renders the current state into an image or image-like object.
+- Value: `RichText.render("$i`
 
 ### Fields
 
 #### `public String rcpnm`
-- Role: Stores the rcpnm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rcpnm value.
+- Description: Caches the `rcpnm` value for reuse.
 
 #### `public List<Input> inputs = Collections.emptyList()`
-- Role: Caches inputs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the inputs operation.
+- Description: Implements the empty list operation.
 
 #### `public List<SpecWidget> outputs = Collections.emptyList()`
-- Role: Caches outputs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the outputs operation.
+- Description: Implements the empty list operation.
 
 #### `public List<Indir<Resource>> qmod = Collections.emptyList()`
-- Role: Caches qmod entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the qmod operation.
+- Description: Implements the empty list operation.
 
 #### `public List<Indir<Resource>> tools = new ArrayList<>();`
-- Role: Caches tools entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the tools operation.
+- Description: Implements the public list<indir<resource>> tools = new array list<>(); operation.
 
 #### `private final int xoff = UI.scale(45), qmy = UI.scale(38), outy = UI.scale(65)`
-- Role: Stores the xoff value.
-- Description: Backs the cached state for this file.
+- Role: Implements the xoff operation.
+- Description: Implements the scale operation.
 
 #### `private final int xoff = UI.scale(45), qmy = UI.scale(38), outy = UI.scale(65)`
-- Role: Stores the xoff value.
-- Description: Backs the cached state for this file.
+- Role: Implements the xoff operation.
+- Description: Implements the scale operation.
 
 #### `private final int xoff = UI.scale(45), qmy = UI.scale(38), outy = UI.scale(65)`
-- Role: Stores the xoff value.
-- Description: Backs the cached state for this file.
+- Role: Implements the xoff operation.
+- Description: Implements the scale operation.
 
 #### `public Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public MessageBuf sdt`
-- Role: Holds the sdt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 #### `public int num`
-- Role: Stores the num value.
-- Description: Backs the cached state for this file.
+- Role: Caches the num value.
+- Description: Caches the `num` value for reuse.
 
 #### `private GSprite spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 #### `private Object[] rawinfo`
-- Role: Holds the rawinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawinfo value.
+- Description: Caches the `rawinfo` value for reuse.
 
 #### `private List<ItemInfo> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private int opt = 0`
-- Role: Stores the opt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the opt value.
+- Description: Caches the `opt` value for reuse.
 
 #### `private final List<ItemInfo> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private final TexI tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `private Random rnd = null`
-- Role: Holds the rnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rnd value.
+- Description: Caches the `rnd` value for reuse.
 
 #### `public final Spec spec`
-- Role: Holds the spec state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spec value.
+- Description: Caches the `spec` value for reuse.
 
 #### `public final boolean opt`
 - Role: Tracks the opt flag.
-- Description: Supports the opt operation used by the surrounding class.
+- Description: Caches the `opt` value for reuse.
 
 #### `public Tex num`
-- Role: Stores the num value.
-- Description: Backs the cached state for this file.
+- Role: Caches the num value.
+- Description: Caches the `num` value for reuse.
 
 #### `public final ItemInfo.AttrCache<Pipe.Op> rstate = new ItemInfo.AttrCache<>(this::info, GItem.RStateInfo.combine)`
-- Role: Caches rstate entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rstate operation.
+- Description: Implements the public final item info.attr cache<pipe.op> rstate = new item info.attr cache<>(this::info, g item.r state info.combine) operation.
 
 #### `private double hoverstart`
-- Role: Stores the hoverstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hoverstart value.
+- Description: Caches the `hoverstart` value for reuse.
 
 #### `Object stip, ltip`
-- Role: Holds the ltip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ltip value.
+- Description: Caches the `ltip` value for reuse.
 
 #### `Object stip, ltip`
-- Role: Holds the ltip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ltip value.
+- Description: Caches the `ltip` value for reuse.
 
 #### `public final int idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `public int using = 0`
-- Role: Stores the using value.
-- Description: Backs the cached state for this file.
+- Role: Caches the using value.
+- Description: Caches the `using` value for reuse.
 
 #### `private List<MenuGrid.Pagina> rpag = null`
-- Role: Caches rpag entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the rpag value.
+- Description: Caches the `rpag` value for reuse.
 
 #### `private Coord cc = null`
-- Role: Stores the cc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cc value.
+- Description: Caches the `cc` value for reuse.
 
 #### `private int qmx, toolx`
-- Role: Stores the toolx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the toolx value.
+- Description: Caches the `toolx` value for reuse.
 
 #### `private int qmx, toolx`
-- Role: Stores the toolx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the toolx value.
+- Description: Caches the `toolx` value for reuse.
 
 ### Methods
 
@@ -213,40 +222,40 @@ Represents the makewindow Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public Spec(Indir<Resource> res, Message sdt, int num, Object[] info)`
-- Role: Performs spec.
-- Description: Supports the spec operation used by the surrounding class.
+- Role: Handles the spec path.
+- Description: Implements the spec operation.
 
 #### `public GSprite sprite()`
-- Role: Performs sprite.
-- Description: Supports the sprite operation used by the surrounding class.
+- Role: Handles the sprite path.
+- Description: Implements the sprite operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Makewindow content.
 
 #### `public boolean opt()`
-- Role: Performs opt.
-- Description: Supports the opt operation used by the surrounding class.
+- Role: Handles the opt path.
+- Description: Implements the opt operation.
 
 #### `public SpecTip(List<ItemInfo> info, BufferedImage img)`
-- Role: Performs spec tip.
-- Description: Supports the spec tip operation used by the surrounding class.
+- Role: Handles the spec tip path.
+- Description: Implements the spec tip operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Tex get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public SpecTip shorttip()`
-- Role: Performs shorttip.
-- Description: Supports the shorttip operation used by the surrounding class.
+- Role: Handles the shorttip path.
+- Description: Implements the shorttip operation.
 
 #### `public SpecTip longtip()`
-- Role: Performs longtip.
-- Description: Supports the longtip operation used by the surrounding class.
+- Role: Handles the longtip path.
+- Description: Implements the longtip operation.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
@@ -258,96 +267,96 @@ Represents the makewindow Haven component.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public Makewindow(String rcpnm)`
 - Role: Creates a new Makewindow instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Makewindow instance from the supplied inputs.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `private static Tex qmicon(Indir<Resource> qm)`
-- Role: Performs qmicon.
-- Description: Supports the qmicon operation used by the surrounding class.
+- Role: Handles the qmicon path.
+- Description: Implements the qmicon operation.
 
 #### `public SpecWidget(Spec spec)`
-- Role: Performs spec widget.
-- Description: Supports the spec widget operation used by the surrounding class.
+- Role: Handles the spec widget path.
+- Description: Implements the spec widget operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `public void drawicon(GOut g)`
-- Role: Performs drawicon.
-- Description: Supports the drawicon operation used by the surrounding class.
+- Role: Handles the drawicon path.
+- Description: Draws the icon.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Makewindow content.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public Input(Spec spec, int idx)`
-- Role: Performs input.
-- Description: Supports the input operation used by the surrounding class.
+- Role: Handles the input path.
+- Description: Implements the input operation.
 
 #### `public void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void recipes(List<MenuGrid.Pagina> pag)`
-- Role: Performs recipes.
-- Description: Supports the recipes operation used by the surrounding class.
+- Role: Handles the recipes path.
+- Description: Implements the recipes operation.
 
 #### `public void using(int a)`
-- Role: Performs using.
-- Description: Supports the using operation used by the surrounding class.
+- Role: Handles the using path.
+- Description: Implements the using operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Makewindow content.
 
 #### `public Object tooltip(Coord mc, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `public Optional(Owner owner)`
-- Role: Performs optional.
-- Description: Supports the optional operation used by the surrounding class.
+- Role: Handles the optional path.
+- Description: Implements the optional operation.
 
 #### `public BufferedImage tipimg()`
-- Role: Performs tipimg.
-- Description: Supports the tipimg operation used by the surrounding class.
+- Role: Handles the tipimg path.
+- Description: Implements the tipimg operation.
 
 #### `public Tip shortvar()`
-- Role: Performs shortvar.
-- Description: Supports the shortvar operation used by the surrounding class.
+- Role: Handles the shortvar path.
+- Description: Implements the shortvar operation.

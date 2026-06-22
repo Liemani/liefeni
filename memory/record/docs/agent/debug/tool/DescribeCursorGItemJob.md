@@ -1,5 +1,5 @@
 ---
-source: [DescribeCursorGItemJob.java](../../../../../src/agent/debug/tool/DescribeCursorGItemJob.java)
+source: [DescribeCursorGItemJob.java](../../../../../../src/agent/debug/tool/DescribeCursorGItemJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Describes the currently hovered item for debugging.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Prints details about the item currently under the cursor.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Exposes the help text for the hovered-item inspection job.

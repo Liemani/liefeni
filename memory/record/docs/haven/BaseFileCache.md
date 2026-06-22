@@ -1,81 +1,82 @@
 ---
-source: [BaseFileCache.java](../../../src/haven/BaseFileCache.java)
+source: [BaseFileCache.java](../../../../src/haven/BaseFileCache.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # BaseFileCache
 
-Represents the base file cache Haven component.
+Stores cached resources on disk under a stable base directory.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<URI, BaseFileCache> current = new CacheMap<>()`
-- Role: Defines the shared current constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches active file caches.
+- Description: Reuses one `BaseFileCache` per cache URI.
+- Value: `new CacheMap<>()`
 
 ### Fields
 
 #### `public final URI id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
+- Role: Stores the cache URI.
+- Description: Identifies which logical cache this instance represents.
 
 #### `private final Path base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Stores the cache root.
+- Description: Points to the on-disk directory that backs this cache.
 
 ### Methods
 
 #### `public static Path findroot()`
-- Role: Performs findroot.
-- Description: Supports the findroot operation used by the surrounding class.
+- Role: Finds a cache root.
+- Description: Selects a writable local directory for resource cache storage.
 
 #### `public static Path findbase(URI id) throws IOException`
-- Role: Handles the findbase workflow.
-- Description: Supports the findbase operation used by the surrounding class.
+- Role: Resolves a cache base directory.
+- Description: Allocates or reuses the filesystem directory associated with one cache URI.
 
 #### `public BaseFileCache(URI id) throws IOException`
-- Role: Creates a new BaseFileCache instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Opens a cache instance.
+- Description: Resolves the on-disk root for the supplied cache URI.
 
 #### `public static BaseFileCache get(URI id) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns a cache instance.
+- Description: Reuses or creates the cache object for the given URI.
 
 #### `private static URI mkurn(String id)`
-- Role: Performs mkurn.
-- Description: Supports the mkurn operation used by the surrounding class.
+- Role: Builds a cache URN.
+- Description: Converts a string cache name into the internal URN form.
 
 #### `public static BaseFileCache get(String id) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns a cache instance.
+- Description: Reuses or creates the cache object for the given string identifier.
 
 #### `public static BaseFileCache create()`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
+- Role: Creates the default cache.
+- Description: Chooses the active cache base from the current runtime context.
 
 #### `private String mangle(String el)`
-- Role: Performs mangle.
-- Description: Supports the mangle operation used by the surrounding class.
+- Role: Sanitizes a path component.
+- Description: Converts a resource path component into a filesystem-safe name.
 
 #### `private Path forres(String nm)`
-- Role: Performs forres.
-- Description: Supports the forres operation used by the surrounding class.
+- Role: Resolves a cached file path.
+- Description: Converts a resource name into the backing file-system path.
 
 #### `public InputStream fetch(String name) throws IOException`
-- Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Role: Opens a cached file for reading.
+- Description: Returns an input stream for the cached resource file.
 
 #### `public OutputStream store(String name) throws IOException`
-- Role: Handles the store workflow.
-- Description: Supports the store operation used by the surrounding class.
+- Role: Opens a cached file for writing.
+- Description: Writes to a temporary file and moves it into place on close.
 
 #### `public void remove(String name) throws IOException`
-- Role: Handles the remove workflow.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Deletes a cached file.
+- Description: Removes the cached resource file for the given name.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Returns the cache label.
+- Description: Formats the filesystem root used by this cache.

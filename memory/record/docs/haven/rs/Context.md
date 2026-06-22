@@ -1,25 +1,18 @@
 ---
-source: [Context.java](../../../../src/haven/rs/Context.java)
+source: [Context.java](../../../../../src/haven/rs/Context.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Context
 
-Integrates Haven rendering-server support for context.
+Abstract render-server context that exposes an `Environment`.
 
-## Members
-
-### Constants
-
-### Fields
-
-### Methods
+## Methods
 
 #### `public Environment env()`
-- Role: Performs env.
-- Description: Supports the env operation used by the surrounding class.
+- Role: Returns the backing render environment.
 
 #### `public static Context getdefault()`
-- Role: Performs getdefault.
-- Description: Supports the getdefault operation used by the surrounding class.
+- Role: Returns the default render-server context.
+

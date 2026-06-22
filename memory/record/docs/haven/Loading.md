@@ -1,5 +1,5 @@
 ---
-source: [Loading.java](../../../src/haven/Loading.java)
+source: [Loading.java](../../../../src/haven/Loading.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the loading Haven component.
 
 ### UnwaitableEvent
 
-- Role: Represents unwaitable event within Loading.
-- Description: Describes the nested unwaitable event type used by the enclosing class.
+- Role: Signals that a Loading instance cannot be waited on.
+- Description: Exception thrown when code tries to wait on a non-waitable Loading wrapper.
 
 ## Members
 
@@ -22,79 +22,79 @@ Represents the loading Haven component.
 ### Fields
 
 #### `public final Loading rec`
-- Role: Holds the rec state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rec value.
+- Description: Chains this loading exception to an earlier loading cause.
 
 #### `public final Loading event`
-- Role: Holds the event state.
-- Description: Backs the cached state for this file.
+- Role: Caches the event value.
+- Description: Stores the loading event that could not be waited on.
 
 ### Methods
 
 #### `public Loading()`
 - Role: Creates a new Loading instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Loading instance from the supplied inputs.
 
 #### `public Loading(String msg)`
 - Role: Creates a new Loading instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Loading instance from the supplied inputs.
 
 #### `public Loading(Throwable cause)`
 - Role: Creates a new Loading instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Loading instance from the supplied inputs.
 
 #### `public Loading(String msg, Throwable cause)`
 - Role: Creates a new Loading instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Loading instance from the supplied inputs.
 
 #### `public Loading(Loading rec)`
 - Role: Creates a new Loading instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Loading instance from the supplied inputs.
 
 #### `public Loading(String msg, Loading rec)`
 - Role: Creates a new Loading instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Loading instance from the supplied inputs.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `public UnwaitableEvent(String message, Loading event)`
-- Role: Performs unwaitable event.
-- Description: Supports the unwaitable event operation used by the surrounding class.
+- Role: Wraps a loading event that cannot be waited on.
+- Description: Wraps a loading event that cannot be waited on.
 
 #### `public UnwaitableEvent(Loading event)`
-- Role: Performs unwaitable event.
-- Description: Supports the unwaitable event operation used by the surrounding class.
+- Role: Wraps a loading event that cannot be waited on.
+- Description: Wraps a loading event that cannot be waited on.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public boolean boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Loading exceptions cannot raise priority here, so this returns false.
 
 #### `private void queuewait() throws InterruptedException`
 - Role: Handles the queuewait workflow.
-- Description: Supports the queuewait operation used by the surrounding class.
+- Description: Waits for the loading callback by parking the current thread.
 
 #### `public void waitfor() throws InterruptedException`
 - Role: Handles the waitfor workflow.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Description: Waits for the chained loading exception or the local callback path.
 
 #### `public static <T> T waitforint(Indir<T> x) throws InterruptedException`
 - Role: Handles the waitforint workflow.
-- Description: Supports the waitforint operation used by the surrounding class.
+- Description: Repeatedly resolves the indir while boosting and waiting on any loading exception.
 
 #### `public static <T> T waitfor(Indir<T> x)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Repeatedly resolves the indir and preserves interruption state if needed.
 
 #### `public static <T> T or(Supplier<T> x, T def)`
-- Role: Performs or.
-- Description: Supports the or operation used by the surrounding class.
+- Role: Registers a callback that fires when any supplied waitable becomes ready.
+- Description: Returns the supplier value, or a default value if it is still loading.
 
 #### `public static <T> T or(Supplier<T> x, Supplier<T> def)`
-- Role: Performs or.
-- Description: Supports the or operation used by the surrounding class.
+- Role: Registers a callback that fires when any supplied waitable becomes ready.
+- Description: Returns the supplier value, or falls back to another supplier if it is still loading.

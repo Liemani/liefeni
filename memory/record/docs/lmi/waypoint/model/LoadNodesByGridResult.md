@@ -1,5 +1,5 @@
 ---
-source: [LoadNodesByGridResult.java](../../../../../src/lmi/waypoint/model/LoadNodesByGridResult.java)
+source: [LoadNodesByGridResult.java](../../../../../../src/lmi/waypoint/model/LoadNodesByGridResult.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,15 +15,15 @@ Represents the result of load nodes by grid result.
 ### Fields
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final Array<WpNode> nodes`
-- Role: Caches nodes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the nodes value.
+- Description: Caches the `nodes` value for reuse.
 
 ### Methods
 
 #### `public LoadNodesByGridResult(long gridId, Array<WpNode> nodes)`
 - Role: Creates a new LoadNodesByGridResult instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LoadNodesByGridResult instance from the supplied inputs.

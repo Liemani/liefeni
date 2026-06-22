@@ -1,5 +1,5 @@
 ---
-source: [RenderList.java](../../../../src/haven/render/RenderList.java)
+source: [RenderList.java](../../../../../src/haven/render/RenderList.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,57 +17,57 @@ Defines the render list render pipeline component.
 ### Methods
 
 #### `public GroupPipe state()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Handles the state path.
+- Description: Implements the state operation.
 
 #### `public R obj()`
-- Role: Performs obj.
-- Description: Supports the obj operation used by the surrounding class.
+- Role: Handles the obj path.
+- Description: Implements the obj operation.
 
 #### `public default <T> Slot<T> cast(Class<T> cl)`
-- Role: Performs cast.
-- Description: Supports the cast operation used by the surrounding class.
+- Role: Handles the cast path.
+- Description: Implements the cast operation.
 
 #### `public Locked lock()`
-- Role: Performs lock.
-- Description: Supports the lock operation used by the surrounding class.
+- Role: Handles the lock path.
+- Description: Implements the lock operation.
 
 #### `public Iterable<? extends Slot<?>> slots()`
-- Role: Performs slots.
-- Description: Supports the slots operation used by the surrounding class.
+- Role: Handles the slots path.
+- Description: Implements the slots operation.
 
 #### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(RenderList<?> list)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public default String stats()`
-- Role: Performs stats.
-- Description: Supports the stats operation used by the surrounding class.
+- Role: Handles the stats path.
+- Description: Implements the stats operation.
 
 #### `public void add(Slot<? extends R> slot)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(Slot<? extends R> slot)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void update(Slot<? extends R> slot)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void update(Pipe group, int[] statemask)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public default void syncadd(Adapter tree, Class<? extends R> type)`
-- Role: Performs syncadd.
-- Description: Supports the syncadd operation used by the surrounding class.
+- Role: Handles the syncadd path.
+- Description: Implements the syncadd operation.
 
 #### `public default void asyncadd(Adapter tree, Class<? extends R> type)`
-- Role: Performs asyncadd.
-- Description: Supports the asyncadd operation used by the surrounding class.
+- Role: Handles the asyncadd path.
+- Description: Implements the asyncadd operation.

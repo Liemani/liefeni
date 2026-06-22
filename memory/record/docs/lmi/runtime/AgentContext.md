@@ -1,5 +1,5 @@
 ---
-source: [AgentContext.java](../../../../src/lmi/runtime/AgentContext.java)
+source: [AgentContext.java](../../../../../src/lmi/runtime/AgentContext.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Carries runtime context for an agent.
 ### Fields
 
 #### `private final Stack<Coord> moveHistory = new Stack<>()`
-- Role: Stores the move history value.
-- Description: Backs the cached state for this file.
+- Role: Implements the move history operation.
+- Description: Implements the private final stack<coord> move history = new stack<>() operation.
 
 ### Methods
 
 #### `public void pushBreadcrumb(Coord pos)`
-- Role: Performs push breadcrumb.
-- Description: Supports the push breadcrumb operation used by the surrounding class.
+- Role: Records a new movement breadcrumb.
+- Description: Pushes the current position so the agent can backtrack later.
 
 #### `public Coord popBreadcrumb()`
-- Role: Performs pop breadcrumb.
-- Description: Supports the pop breadcrumb operation used by the surrounding class.
+- Role: Restores the most recent movement breadcrumb.
+- Description: Pops the last recorded position from the breadcrumb stack.
 
 #### `public boolean hasBreadcrumbs()`
 - Role: Checks whether the breadcrumbs.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when the breadcrumb stack is non-empty.

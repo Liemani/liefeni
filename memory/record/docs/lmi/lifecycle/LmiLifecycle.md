@@ -1,5 +1,5 @@
 ---
-source: [LmiLifecycle.java](../../../../src/lmi/lifecycle/LmiLifecycle.java)
+source: [LmiLifecycle.java](../../../../../src/lmi/lifecycle/LmiLifecycle.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -30,11 +30,11 @@ Owns lifecycle transitions across session, world, and widget events.
 
 #### `private LmiLifecycle()`
 - Role: Creates a new LmiLifecycle instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LmiLifecycle instance from the supplied inputs.
 
 #### `public static synchronized void initProcess()`
 - Role: Initializes the LMI process lifecycle.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static synchronized void enterSession(Session session)`
 - Role: Enters the current session.
@@ -46,19 +46,19 @@ Owns lifecycle transitions across session, world, and widget events.
 
 #### `public static synchronized void setRootWidget(RootWidget rootWidget)`
 - Role: Updates the root widget reference.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static synchronized void setGameUI(GameUI gameUI)`
 - Role: Updates the game UI reference.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static synchronized void setMenuGrid(haven.MenuGrid menuGrid)`
 - Role: Updates the menu grid reference.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static synchronized void setMapView(MapView mapView)`
 - Role: Updates the map view reference.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static synchronized void enterWorld(MapView mapView)`
 - Role: Enters the current world.
@@ -70,7 +70,7 @@ Owns lifecycle transitions across session, world, and widget events.
 
 #### `public static synchronized void syncWidgets()`
 - Role: Synchronizes widget state.
-- Description: Supports the sync widgets operation used by the surrounding class.
+- Description: Refreshes widget references after Haven changes the widget tree.
 
 #### `public static synchronized void leaveWidgets()`
 - Role: Leaves the widget tree.
@@ -78,4 +78,4 @@ Owns lifecycle transitions across session, world, and widget events.
 
 #### `private static boolean _widgetsReady()`
 - Role: Checks whether the widget tree is ready.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.

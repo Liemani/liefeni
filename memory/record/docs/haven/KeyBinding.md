@@ -1,5 +1,5 @@
 ---
-source: [KeyBinding.java](../../../src/haven/KeyBinding.java)
+source: [KeyBinding.java](../../../../src/haven/KeyBinding.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,85 +12,86 @@ Represents the key binding Haven component.
 
 ### Bindable
 
-- Role: Represents bindable within KeyBinding.
-- Description: Describes the nested bindable type used by the enclosing class.
+- Role: Marks a widget or object that can expose key bindings.
+- Description: Lets the key-binding system query or derive bindings from UI elements.
 
 ## Members
 
 ### Constants
 
 #### `private static final Map<String, KeyBinding> bindings = new HashMap<>()`
-- Role: Defines the shared bindings constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bindings operation.
+- Description: Implements the private static final map<string, key binding> bindings = new hash map<>() operation.
+- Value: `new HashMap<>()`
 
 ### Fields
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final KeyMatch defkey`
-- Role: Holds the defkey state.
-- Description: Backs the cached state for this file.
+- Role: Caches the defkey value.
+- Description: Caches the `defkey` value for reuse.
 
 #### `public final int modign`
-- Role: Stores the modign value.
-- Description: Backs the cached state for this file.
+- Role: Caches the modign value.
+- Description: Caches the `modign` value for reuse.
 
 #### `public KeyMatch key`
-- Role: Holds the key state.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 ### Methods
 
 #### `private KeyBinding(String id, KeyMatch defkey, int modign)`
 - Role: Creates a new KeyBinding instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the KeyBinding instance from the supplied inputs.
 
 #### `public void set(KeyMatch key)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public boolean set()`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public KeyMatch key()`
-- Role: Performs key.
-- Description: Supports the key operation used by the surrounding class.
+- Role: Handles the key path.
+- Description: Implements the key operation.
 
 #### `public static KeyBinding get(String id, KeyMatch defkey, int modign)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static KeyBinding get(String id, KeyMatch defkey)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static KeyBinding get(String id)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public KeyBinding getbinding(Coord cc)`
-- Role: Performs getbinding.
-- Description: Supports the getbinding operation used by the surrounding class.
+- Role: Handles the getbinding path.
+- Description: Returns the binding.
 
 #### `public BindingQuery(Coord c)`
-- Role: Performs binding query.
-- Description: Supports the binding query operation used by the surrounding class.
+- Role: Handles the binding query path.
+- Description: Implements the binding query operation.
 
 #### `public BindingQuery(BindingQuery from, Coord c)`
-- Role: Performs binding query.
-- Description: Supports the binding query operation used by the surrounding class.
+- Role: Handles the binding query path.
+- Description: Implements the binding query operation.
 
 #### `public BindingQuery derive(Coord c)`
-- Role: Performs derive.
-- Description: Supports the derive operation used by the surrounding class.
+- Role: Handles the derive path.
+- Description: Implements the derive operation.
 
 #### `protected boolean shandle(Widget w)`
-- Role: Performs shandle.
-- Description: Supports the shandle operation used by the surrounding class.
+- Role: Handles the shandle path.
+- Description: Lets a matching widget consume the event.
 
 #### `public static KeyBinding getbinding(Widget wdg, Coord c)`
-- Role: Performs getbinding.
-- Description: Supports the getbinding operation used by the surrounding class.
+- Role: Handles the getbinding path.
+- Description: Returns the binding.

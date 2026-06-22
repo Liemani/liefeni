@@ -1,5 +1,5 @@
 ---
-source: [TexR.java](../../../src/haven/TexR.java)
+source: [TexR.java](../../../../src/haven/TexR.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,95 +32,95 @@ Represents the tex r Haven component.
 ### Fields
 
 #### `transient private byte[] img, mask`
-- Role: Stores the mask value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mask value.
+- Description: Caches the `mask` value for reuse.
 
 #### `transient private byte[] img, mask`
-- Role: Stores the mask value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mask value.
+- Description: Caches the `mask` value for reuse.
 
 #### `transient private final TexL tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `private final Coord off, sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `private final Coord off, sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final TexL tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 ### Methods
 
 #### `public abstract TexL tex()`
-- Role: Performs tex.
-- Description: Supports the tex operation used by the surrounding class.
+- Role: Handles the texture path.
+- Description: Implements the tex operation.
 
 #### `public TexR(Resource res)`
 - Role: Creates a new TexR instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TexR instance from the supplied inputs.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Encoded(Resource res, Message buf)`
-- Role: Performs encoded.
-- Description: Supports the encoded operation used by the surrounding class.
+- Role: Handles the encoded path.
+- Description: Implements the encoded operation.
 
 #### `private Real()`
-- Role: Performs real.
-- Description: Supports the real operation used by the surrounding class.
+- Role: Handles the real path.
+- Description: Implements the real operation.
 
 #### `private BufferedImage rd(final byte[] data)`
-- Role: Performs rd.
-- Description: Supports the rd operation used by the surrounding class.
+- Role: Handles the rd path.
+- Description: Implements the rd operation.
 
 #### `public BufferedImage fill()`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Handles the fill path.
+- Description: Implements the fill operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this TexR for debugging and logging.
 
 #### `public String loadname()`
-- Role: Performs loadname.
-- Description: Supports the loadname operation used by the surrounding class.
+- Role: Handles the loadname path.
+- Description: Loads the name.
 
 #### `public TexL tex()`
-- Role: Performs tex.
-- Description: Supports the tex operation used by the surrounding class.
+- Role: Handles the texture path.
+- Description: Implements the tex operation.
 
 #### `public Integer layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public Image(Resource res, TexL tex, int id)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public Image(Resource res, TexL tex)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public TexL tex()`
-- Role: Performs tex.
-- Description: Supports the tex operation used by the surrounding class.
+- Role: Handles the texture path.
+- Description: Implements the tex operation.
 
 #### `public Integer layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.

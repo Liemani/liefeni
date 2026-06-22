@@ -1,5 +1,5 @@
 ---
-source: [ClickManager.java](../../../../src/lmi/core/ClickManager.java)
+source: [ClickManager.java](../../../../../src/lmi/core/ClickManager.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -16,38 +16,38 @@ Coordinates click-driven interaction handling.
 
 #### `public static volatile boolean isGobClickMode`
 - Role: Tracks the is gob click mode flag.
-- Description: Supports the is gob click mode operation used by the surrounding class.
+- Description: Caches the `isGobClickMode` value for reuse.
 
 #### `public static volatile boolean isAreaSelectMode`
 - Role: Tracks the is area select mode flag.
-- Description: Supports the is area select mode operation used by the surrounding class.
+- Description: Caches the `isAreaSelectMode` value for reuse.
 
 #### `private static haven.ClickData _clickData`
-- Role: Holds the click data state.
-- Description: Backs the cached state for this file.
+- Role: Caches the click data value.
+- Description: Caches the `_clickData` value for reuse.
 
 #### `private static Rect _selectedArea`
-- Role: Stores the selected area value.
-- Description: Backs the cached state for this file.
+- Role: Caches the selected area value.
+- Description: Caches the `_selectedArea` value for reuse.
 
 ### Methods
 
 #### `public static void setClickData(haven.ClickData clickData)`
 - Role: Sets the click data.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static void setSelectedArea(Rect area)`
 - Role: Sets the selected area.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public static void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `public static Gob getGob()`
 - Role: Returns the gob.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the gob.
 
 #### `public static Rect getArea()`
 - Role: Returns the area.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the area.

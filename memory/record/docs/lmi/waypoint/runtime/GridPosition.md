@@ -1,5 +1,5 @@
 ---
-source: [GridPosition.java](../../../../../src/lmi/waypoint/runtime/GridPosition.java)
+source: [GridPosition.java](../../../../../../src/lmi/waypoint/runtime/GridPosition.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Coordinates waypoint runtime state for grid position.
 ### Fields
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final long havenGridId`
-- Role: Stores the haven grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the haven grid id value.
+- Description: Caches the `havenGridId` value for reuse.
 
 #### `public final long mapSegmentId`
-- Role: Stores the map segment id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the map segment id value.
+- Description: Caches the `mapSegmentId` value for reuse.
 
 #### `public final int localX`
-- Role: Stores the local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local x value.
+- Description: Caches the `localX` value for reuse.
 
 #### `public final int localY`
-- Role: Stores the local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the local y value.
+- Description: Caches the `localY` value for reuse.
 
 ### Methods
 
 #### `public GridPosition(long gridId, long havenGridId, long mapSegmentId, int localX, int localY)`
 - Role: Creates a new GridPosition instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GridPosition instance from the supplied inputs.
 
 #### `public Coord local()`
-- Role: Performs local.
-- Description: Supports the local operation used by the surrounding class.
+- Role: Handles the local path.
+- Description: Returns the grid-local coordinate pair.

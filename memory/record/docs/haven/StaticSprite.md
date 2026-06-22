@@ -1,5 +1,5 @@
 ---
-source: [StaticSprite.java](../../../src/haven/StaticSprite.java)
+source: [StaticSprite.java](../../../../src/haven/StaticSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,37 +13,38 @@ Represents the static sprite Haven component.
 ### Constants
 
 #### `public static final Factory fact = new Factory()`
-- Role: Defines the shared fact constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fact operation.
+- Description: Implements the factory operation.
+- Value: `new Factory()`
 
 ### Fields
 
 #### `public final RenderTree.Node[] parts`
-- Role: Stores the parts value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parts value.
+- Description: Caches the `parts` value for reuse.
 
 ### Methods
 
 #### `public StaticSprite(Owner owner, Resource res, RenderTree.Node[] parts)`
 - Role: Creates a new StaticSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StaticSprite instance from the supplied inputs.
 
 #### `public StaticSprite(Owner owner, Resource res, RenderTree.Node part)`
 - Role: Creates a new StaticSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StaticSprite instance from the supplied inputs.
 
 #### `public StaticSprite(Owner owner, Resource res, Message sdt)`
 - Role: Creates a new StaticSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StaticSprite instance from the supplied inputs.
 
 #### `public static RenderTree.Node[] lsparts(Owner owner, Resource res, Message sdt)`
-- Role: Performs lsparts.
-- Description: Supports the lsparts operation used by the surrounding class.
+- Role: Handles the lsparts path.
+- Description: Implements the lsparts operation.
 
 #### `public static RenderTree.Node[] lsparts(Resource res, Message sdt)`
-- Role: Performs lsparts.
-- Description: Supports the lsparts operation used by the surrounding class.
+- Role: Handles the lsparts path.
+- Description: Implements the lsparts operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.

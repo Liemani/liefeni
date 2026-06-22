@@ -1,5 +1,5 @@
 ---
-source: [SessWidget.java](../../../src/haven/SessWidget.java)
+source: [SessWidget.java](../../../../src/haven/SessWidget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the sess widget Haven component.
 
 ### $_
 
-- Role: Represents $ within SessWidget.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the `sess` widget factory.
+- Description: Creates a session widget from the address, port, cookie, and extra arguments.
 
 ### Result
 
-- Role: Represents result within SessWidget.
-- Description: Describes the nested result type used by the enclosing class.
+- Role: Holds the outcome of the connection attempt.
+- Description: Stores either the connected `Session` or the `SessionError` returned by `Session.connect(...)`.
 
 ## Members
 
@@ -27,43 +27,43 @@ Represents the sess widget Haven component.
 ### Fields
 
 #### `private final Defer.Future<Result> conn`
-- Role: Holds the conn state.
-- Description: Backs the cached state for this file.
+- Role: Tracks the pending connection attempt.
+- Description: Completes with either a connected session or a connection error.
 
 #### `private boolean rep = false`
-- Role: Tracks the rep flag.
-- Description: Supports the rep operation used by the surrounding class.
+- Role: Tracks whether the connection result has been reported.
+- Description: Prevents duplicate error handling or duplicate widget replacement.
 
 #### `final Session sess`
-- Role: Stores the sess value.
-- Description: Backs the cached state for this file.
+- Role: Stores the established session.
+- Description: Non-null when the connection succeeded.
 
 #### `final Connection.SessionError error`
-- Role: Stores the error value.
-- Description: Backs the cached state for this file.
+- Role: Stores the connection error.
+- Description: Non-null when the session attempt failed.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
+- Role: Creates a session-connection widget.
+- Description: Starts the connection flow and returns the widget used while it is pending.
 
 #### `Result(Session sess, Connection.SessionError error)`
-- Role: Handles the result workflow.
-- Description: Supports the result operation used by the surrounding class.
+- Role: Wraps the connection result.
+- Description: Stores either the success session or the failure object.
 
 #### `public SessWidget(final String addr, final int port, Session.User acct, boolean encrypt, final byte[] cookie, final Object... args)`
-- Role: Creates a new SessWidget instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Starts the session connection widget.
+- Description: Kicks off the asynchronous session connect attempt.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void uimsg(String name, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Tears down the session widget.
+- Description: Cancels pending work and releases the widget state.

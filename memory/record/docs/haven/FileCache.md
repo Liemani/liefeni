@@ -1,12 +1,12 @@
 ---
-source: [FileCache.java](../../../src/haven/FileCache.java)
+source: [FileCache.java](../../../../src/haven/FileCache.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # FileCache
 
-Represents the file cache Haven component.
+Stores resources as files under a chosen cache directory.
 
 ## Members
 
@@ -15,31 +15,31 @@ Represents the file cache Haven component.
 ### Fields
 
 #### `private final Path base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Stores the cache root.
+- Description: Points to the filesystem base used for cached files.
 
 ### Methods
 
 #### `public FileCache(Path base)`
-- Role: Creates a new FileCache instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Opens a file cache.
+- Description: Binds the cache to the supplied filesystem root.
 
 #### `public static FileCache foruser()`
-- Role: Performs foruser.
-- Description: Supports the foruser operation used by the surrounding class.
+- Role: Finds the user cache directory.
+- Description: Locates or creates the writable cache root under the user home directory.
 
 #### `private Path forres(String nm)`
-- Role: Performs forres.
-- Description: Supports the forres operation used by the surrounding class.
+- Role: Resolves a cache file path.
+- Description: Converts a resource name into the file path inside the cache root.
 
 #### `public OutputStream store(String name) throws IOException`
-- Role: Handles the store workflow.
-- Description: Supports the store operation used by the surrounding class.
+- Role: Writes a cached file.
+- Description: Writes through a temporary file and moves it into place on close.
 
 #### `public InputStream fetch(String name) throws IOException`
-- Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Role: Reads a cached file.
+- Description: Opens the cached file for the requested resource name.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Returns the cache label.
+- Description: Formats the backing directory for debugging.

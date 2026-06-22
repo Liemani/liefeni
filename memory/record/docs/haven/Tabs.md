@@ -1,5 +1,5 @@
 ---
-source: [Tabs.java](../../../src/haven/Tabs.java)
+source: [Tabs.java](../../../../src/haven/Tabs.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the tabs Haven component.
 
 ### Tab
 
-- Role: Represents tab within Tabs.
-- Description: Describes the nested tab type used by the enclosing class.
+- Role: Hosts one tab page.
+- Description: Tab widget that is shown or hidden by the parent Tabs controller.
 
 ### TabButton
 
-- Role: Represents tab button within Tabs.
-- Description: Describes the nested tab button type used by the enclosing class.
+- Role: Switches to one tab page.
+- Description: Button that activates the associated tab when clicked.
 
 ## Members
 
@@ -27,83 +27,83 @@ Represents the tabs Haven component.
 ### Fields
 
 #### `public Widget parent`
-- Role: Stores the parent value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public Coord c, sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `public Coord c, sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `public Tab curtab = null`
-- Role: Holds the curtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curtab value.
+- Description: Caches the `curtab` value for reuse.
 
 #### `public Collection<Tab> tabs = new LinkedList<Tab>()`
-- Role: Caches tabs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the tabs operation.
+- Description: Implements the public collection<tab> tabs = new linked list<tab>() operation.
 
 #### `public TabButton btn`
-- Role: Holds the btn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the btn value.
+- Description: Caches the `btn` value for reuse.
 
 #### `public final Tab tab`
-- Role: Holds the tab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tab value.
+- Description: Caches the `tab` value for reuse.
 
 ### Methods
 
 #### `public Tabs(Coord c, Coord sz, Widget parent)`
 - Role: Creates a new Tabs instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Tabs instance from the supplied inputs.
 
 #### `public Tab()`
-- Role: Performs tab.
-- Description: Supports the tab operation used by the surrounding class.
+- Role: Handles the tab path.
+- Description: Implements the tab operation.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Handles the destroy path.
+- Description: Implements the destroy operation.
 
 #### `public void showtab()`
-- Role: Performs showtab.
-- Description: Supports the showtab operation used by the surrounding class.
+- Role: Handles the showtab path.
+- Description: Implements the showtab operation.
 
 #### `public Tab add()`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public TabButton(int w, String text, Tab tab)`
-- Role: Performs tab button.
-- Description: Supports the tab button operation used by the surrounding class.
+- Role: Handles the tab button path.
+- Description: Implements the tab button operation.
 
 #### `public void click()`
-- Role: Performs click.
-- Description: Supports the click operation used by the surrounding class.
+- Role: Handles the click path.
+- Description: Handles click input for this widget.
 
 #### `public void showtab(Tab tab)`
-- Role: Performs showtab.
-- Description: Supports the showtab operation used by the surrounding class.
+- Role: Handles the showtab path.
+- Description: Implements the showtab operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public Coord contentsz()`
-- Role: Performs contentsz.
-- Description: Supports the contentsz operation used by the surrounding class.
+- Role: Handles the contentsz path.
+- Description: Implements the contentsz operation.
 
 #### `public void pack()`
-- Role: Performs pack.
-- Description: Supports the pack operation used by the surrounding class.
+- Role: Handles the pack path.
+- Description: Implements the pack operation.
 
 #### `public void indpack()`
-- Role: Performs indpack.
-- Description: Supports the indpack operation used by the surrounding class.
+- Role: Handles the indpack path.
+- Description: Implements the indpack operation.
 
 #### `public void changed(Tab from, Tab to)`
-- Role: Performs changed.
-- Description: Supports the changed operation used by the surrounding class.
+- Role: Handles the changed path.
+- Description: Implements the changed operation.

@@ -1,5 +1,5 @@
 ---
-source: [Mul.java](../../../../../src/haven/render/sl/Mul.java)
+source: [Mul.java](../../../../../../src/haven/render/sl/Mul.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the mul shader-language AST node.
 ### Fields
 
 #### `public final Expression[] terms`
-- Role: Holds the terms state.
-- Description: Backs the cached state for this file.
+- Role: Caches the terms value.
+- Description: Caches the `terms` value for reuse.
 
 ### Methods
 
 #### `public Mul(Expression... terms)`
-- Role: Creates a new Mul instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one multiplication expression.
+- Description: Stores the ordered factors used in the product.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the multiplication factors.
+- Description: Walks every factor in source order.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the multiplication expression.
+- Description: Writes the factors with `*` separators.

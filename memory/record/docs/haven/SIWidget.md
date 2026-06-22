@@ -1,5 +1,5 @@
 ---
-source: [SIWidget.java](../../../src/haven/SIWidget.java)
+source: [SIWidget.java](../../../../src/haven/SIWidget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Represents the siwidget Haven component.
 ### Fields
 
 #### `private Tex surf = null`
-- Role: Stores the surf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the surf value.
+- Description: Caches the `surf` value for reuse.
 
 ### Methods
 
 #### `public SIWidget(Coord sz)`
 - Role: Creates a new SIWidget instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SIWidget instance from the supplied inputs.
 
 #### `protected abstract void draw(BufferedImage buf)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SIWidget content.
 
 #### `public BufferedImage draw()`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SIWidget content.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SIWidget content.
 
 #### `public void redraw()`
-- Role: Performs redraw.
-- Description: Supports the redraw operation used by the surrounding class.
+- Role: Handles the redraw path.
+- Description: Implements the redraw operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

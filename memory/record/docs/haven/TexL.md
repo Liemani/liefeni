@@ -1,29 +1,29 @@
 ---
-source: [TexL.java](../../../src/haven/TexL.java)
+source: [TexL.java](../../../../src/haven/TexL.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # TexL
 
-Represents the tex l Haven component.
+Builds a render texture from lazily prepared image data.
 
 ## Nested Types
 
 ### Filler
 
-- Role: Represents filler within TexL.
-- Description: Describes the nested filler type used by the enclosing class.
+- Role: Bridges texture-buffer uploads to `TexL` decoding.
+- Description: Pulls pixel data into a `FillBuffer` and clears the deferred decode reference when finished.
 
 ### Fixed
 
-- Role: Represents fixed within TexL.
-- Description: Describes the nested fixed type used by the enclosing class.
+- Role: Implements a `TexL` backed by one immutable `BufferedImage`.
+- Description: Returns the fixed image from `fill()` for upload.
 
 ### Prepared
 
-- Role: Represents prepared within TexL.
-- Description: Describes the nested prepared type used by the enclosing class.
+- Role: Stores decoded texture data for one render environment.
+- Description: Converts the image into upload buffers, mipmaps, and per-level fill buffers.
 
 ## Members
 
@@ -32,83 +32,83 @@ Represents the tex l Haven component.
 ### Fields
 
 #### `protected Mipmapper mipmap = null`
-- Role: Holds the mipmap state.
-- Description: Backs the cached state for this file.
+- Role: Stores the mipmap generator.
+- Description: Provides mip levels when the texture should be downsampled.
 
 #### `private Future<Prepared> decode = null`
-- Role: Holds the decode state.
-- Description: Backs the cached state for this file.
+- Role: Caches pending decode work.
+- Description: Tracks the asynchronous preparation for the current render environment.
 
 #### `private TexL tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Stores the owning texture.
+- Description: Gives the filler access back to the `TexL` instance being prepared.
 
 #### `final Environment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Stores the render environment.
+- Description: Binds the prepared upload data to the environment that requested it.
 
 #### `FillBuffer[] data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Stores upload buffers.
+- Description: Holds one fill buffer per texture level.
 
 #### `public final BufferedImage img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Stores the fixed image.
+- Description: Holds the image used by the `Fixed` implementation.
 
 ### Methods
 
 #### `public abstract BufferedImage fill()`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Produces image data.
+- Description: Returns the image that should be uploaded as texture content.
 
 #### `public FillBuffer fill(Image img, Environment env)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Supplies buffer data.
+- Description: Returns the prepared upload buffer for the requested mip level.
 
 #### `public void done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Clears the pending decode.
+- Description: Releases the decode reference once preparation has finished.
 
 #### `private static Sampler2D mkimg(Coord sz)`
-- Role: Performs mkimg.
-- Description: Supports the mkimg operation used by the surrounding class.
+- Role: Builds a texture wrapper.
+- Description: Creates the underlying texture object for the requested size.
 
 #### `public TexL(Coord sz)`
-- Role: Creates a new TexL instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a texture loader.
+- Description: Sets up the render texture and binds this instance as its data source.
 
 #### `public void mipmap(Mipmapper mipmap)`
-- Role: Performs mipmap.
-- Description: Supports the mipmap operation used by the surrounding class.
+- Role: Configures mipmap generation.
+- Description: Sets the strategy used when generating lower texture levels.
 
 #### `private FillBuffer filldata(DataBuffer tgt, byte[] pixels)`
-- Role: Performs filldata.
-- Description: Supports the filldata operation used by the surrounding class.
+- Role: Fills a render buffer.
+- Description: Wraps raw pixel bytes into a `FillBuffer` for the target level.
 
 #### `private Prepared(Environment env)`
-- Role: Performs prepared.
-- Description: Supports the prepared operation used by the surrounding class.
+- Role: Prepares texture upload data.
+- Description: Converts the image into per-level upload buffers for one render environment.
 
 #### `void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases prepared upload buffers.
+- Description: Disposes all buffers tied to the prepared texture data.
 
 #### `private Prepared prepare(Environment env)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Ensures prepared data exists.
+- Description: Lazily builds or reuses the prepared upload data for the requested environment.
 
 #### `public String loadname()`
-- Role: Performs loadname.
-- Description: Supports the loadname operation used by the surrounding class.
+- Role: Returns a load label.
+- Description: Supplies a human-readable name for deferred texture preparation.
 
 #### `private FillBuffer fill(Image img, Environment env)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Returns a level buffer.
+- Description: Looks up the prepared buffer for the requested image level.
 
 #### `public Fixed(BufferedImage img)`
-- Role: Performs fixed.
-- Description: Supports the fixed operation used by the surrounding class.
+- Role: Wraps a fixed image.
+- Description: Creates a `TexL` backed by one immutable `BufferedImage`.
 
 #### `public BufferedImage fill()`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Returns the fixed image.
+- Description: Exposes the immutable backing image.

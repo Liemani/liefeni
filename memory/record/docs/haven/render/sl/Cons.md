@@ -1,5 +1,5 @@
 ---
-source: [Cons.java](../../../../../src/haven/render/sl/Cons.java)
+source: [Cons.java](../../../../../../src/haven/render/sl/Cons.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,413 +13,414 @@ Represents the cons shader-language AST node.
 ### Constants
 
 #### `public static final UnaryOperator<Expression> idm = in -> in`
-- Role: Defines the shared idm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Identity mapper for expressions.
+- Description: Returns the input expression unchanged.
+- Value: `in -> in`
 
 ### Fields
 
 ### Methods
 
 #### `public static Statement stmt(Expression e)`
-- Role: Performs stmt.
-- Description: Supports the stmt operation used by the surrounding class.
+- Role: Wraps an expression as a statement.
+- Description: Returns the statement form of the given expression.
 
 #### `public static LBinOp.Assign ass(LValue l, Expression r)`
-- Role: Performs ass.
-- Description: Supports the ass operation used by the surrounding class.
+- Role: Builds an assignment.
+- Description: Creates a simple assignment expression.
 
 #### `public static LBinOp.Assign ass(Variable l, Expression r)`
-- Role: Performs ass.
-- Description: Supports the ass operation used by the surrounding class.
+- Role: Builds an assignment.
+- Description: Creates a simple assignment expression for a variable.
 
 #### `public static Add add(Expression... terms)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Builds an addition expression.
+- Description: Combines expressions with `+`.
 
 #### `public static Mul mul(Expression... terms)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Builds a multiplication expression.
+- Description: Combines expressions with `*`.
 
 #### `public static BinOp.Sub sub(Expression l, Expression r)`
-- Role: Performs sub.
-- Description: Supports the sub operation used by the surrounding class.
+- Role: Builds a subtraction expression.
+- Description: Combines two expressions with `-`.
 
 #### `public static BinOp.Div div(Expression l, Expression r)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Builds a division expression.
+- Description: Combines two expressions with `/`.
 
 #### `public static LBinOp.AAdd aadd(LValue l, Expression r)`
-- Role: Performs aadd.
-- Description: Supports the aadd operation used by the surrounding class.
+- Role: Builds an additive assignment.
+- Description: Produces `l += r` in the shader AST.
 
 #### `public static LBinOp.ASub asub(LValue l, Expression r)`
-- Role: Performs asub.
-- Description: Supports the asub operation used by the surrounding class.
+- Role: Builds a subtractive assignment.
+- Description: Produces `l -= r` in the shader AST.
 
 #### `public static LBinOp.AMul amul(LValue l, Expression r)`
-- Role: Performs amul.
-- Description: Supports the amul operation used by the surrounding class.
+- Role: Builds a multiplicative assignment.
+- Description: Produces `l *= r` in the shader AST.
 
 #### `public static LBinOp.ADiv adiv(LValue l, Expression r)`
-- Role: Performs adiv.
-- Description: Supports the adiv operation used by the surrounding class.
+- Role: Builds a divisive assignment.
+- Description: Produces `l /= r` in the shader AST.
 
 #### `public static BinOp.Div inv(Expression op)`
-- Role: Performs inv.
-- Description: Supports the inv operation used by the surrounding class.
+- Role: Builds a reciprocal expression.
+- Description: Produces `1.0 / op`.
 
 #### `public static PreOp.Neg neg(Expression op)`
-- Role: Performs neg.
-- Description: Supports the neg operation used by the surrounding class.
+- Role: Builds a unary negation.
+- Description: Produces `-op`.
 
 #### `public static LPreOp.Inc incl(LValue op)`
-- Role: Performs incl.
-- Description: Supports the incl operation used by the surrounding class.
+- Role: Builds a prefix increment.
+- Description: Produces `++op`.
 
 #### `public static LPreOp.Dec decl(LValue op)`
-- Role: Performs decl.
-- Description: Supports the decl operation used by the surrounding class.
+- Role: Builds a prefix decrement.
+- Description: Produces `--op`.
 
 #### `public static LPostOp.Inc linc(LValue op)`
-- Role: Performs linc.
-- Description: Supports the linc operation used by the surrounding class.
+- Role: Builds a postfix increment.
+- Description: Produces `op++`.
 
 #### `public static LPostOp.Dec ldec(LValue op)`
-- Role: Performs ldec.
-- Description: Supports the ldec operation used by the surrounding class.
+- Role: Builds a postfix decrement.
+- Description: Produces `op--`.
 
 #### `public static BinOp.Eq eq(Expression l, Expression r)`
-- Role: Performs eq.
-- Description: Supports the eq operation used by the surrounding class.
+- Role: Builds an equality comparison.
+- Description: Produces `l == r`.
 
 #### `public static BinOp.Ne ne(Expression l, Expression r)`
-- Role: Performs ne.
-- Description: Supports the ne operation used by the surrounding class.
+- Role: Builds an inequality comparison.
+- Description: Produces `l != r`.
 
 #### `public static BinOp.Lt lt(Expression l, Expression r)`
-- Role: Performs lt.
-- Description: Supports the lt operation used by the surrounding class.
+- Role: Builds a less-than comparison.
+- Description: Produces `l < r`.
 
 #### `public static BinOp.Gt gt(Expression l, Expression r)`
-- Role: Performs gt.
-- Description: Supports the gt operation used by the surrounding class.
+- Role: Builds a greater-than comparison.
+- Description: Produces `l > r`.
 
 #### `public static BinOp.Le le(Expression l, Expression r)`
-- Role: Performs le.
-- Description: Supports the le operation used by the surrounding class.
+- Role: Builds a less-than-or-equal comparison.
+- Description: Produces `l <= r`.
 
 #### `public static BinOp.Ge ge(Expression l, Expression r)`
-- Role: Performs ge.
-- Description: Supports the ge operation used by the surrounding class.
+- Role: Builds a greater-than-or-equal comparison.
+- Description: Produces `l >= r`.
 
 #### `public static BinOp.Or or(Expression l, Expression r)`
-- Role: Performs or.
-- Description: Supports the or operation used by the surrounding class.
+- Role: Builds a logical-or expression.
+- Description: Produces `l || r`.
 
 #### `public static BinOp.And and(Expression l, Expression r)`
-- Role: Performs and.
-- Description: Supports the and operation used by the surrounding class.
+- Role: Builds a logical-and expression.
+- Description: Produces `l && r`.
 
 #### `public static BinOp.BitOr bitor(Expression l, Expression r)`
-- Role: Performs bitor.
-- Description: Supports the bitor operation used by the surrounding class.
+- Role: Builds a bitwise-or expression.
+- Description: Produces `l | r`.
 
 #### `public static BinOp.BitAnd bitand(Expression l, Expression r)`
-- Role: Performs bitand.
-- Description: Supports the bitand operation used by the surrounding class.
+- Role: Builds a bitwise-and expression.
+- Description: Produces `l & r`.
 
 #### `public static BinOp.LShift lshift(Expression l, Expression r)`
-- Role: Performs lshift.
-- Description: Supports the lshift operation used by the surrounding class.
+- Role: Builds a left-shift expression.
+- Description: Produces `l << r`.
 
 #### `public static BinOp.RShift rshift(Expression l, Expression r)`
-- Role: Performs rshift.
-- Description: Supports the rshift operation used by the surrounding class.
+- Role: Builds a right-shift expression.
+- Description: Produces `l >> r`.
 
 #### `public static LPick pick(LValue val, String el)`
-- Role: Performs pick.
-- Description: Supports the pick operation used by the surrounding class.
+- Role: Builds a writable field or array selection.
+- Description: Produces an lvalue access for the selected element.
 
 #### `public static Pick pick(Expression val, String el)`
-- Role: Performs pick.
-- Description: Supports the pick operation used by the surrounding class.
+- Role: Builds a read-only field or array selection.
+- Description: Produces an rvalue access for the selected element.
 
 #### `public static LFieldRef fref(LValue val, String el)`
-- Role: Performs fref.
-- Description: Supports the fref operation used by the surrounding class.
+- Role: Builds a writable field reference.
+- Description: Produces a field access that can appear on the left-hand side.
 
 #### `public static FieldRef fref(Expression val, String el)`
-- Role: Performs fref.
-- Description: Supports the fref operation used by the surrounding class.
+- Role: Builds a read-only field reference.
+- Description: Produces a field access used as an expression.
 
 #### `public static Index idx(Expression val, Expression idx)`
-- Role: Performs idx.
-- Description: Supports the idx operation used by the surrounding class.
+- Role: Builds an index expression.
+- Description: Produces `val[idx]`.
 
 #### `public static IntLiteral l(int val)`
-- Role: Performs l.
-- Description: Supports the l operation used by the surrounding class.
+- Role: Builds an integer literal.
+- Description: Wraps a Java `int` as a shader integer constant.
 
 #### `public static UIntLiteral ul(int val)`
-- Role: Performs ul.
-- Description: Supports the ul operation used by the surrounding class.
+- Role: Builds an unsigned integer literal.
+- Description: Wraps a Java `int` as a shader unsigned constant.
 
 #### `public static FloatLiteral l(double val)`
-- Role: Performs l.
-- Description: Supports the l operation used by the surrounding class.
+- Role: Builds a floating-point literal.
+- Description: Wraps a Java `double` as a shader float constant.
 
 #### `public static Vec4Cons vec4(Expression... els)`
-- Role: Performs vec4.
-- Description: Supports the vec4 operation used by the surrounding class.
+- Role: Builds a four-component vector constructor.
+- Description: Assembles a `vec4(...)` expression.
 
 #### `public static Vec3Cons vec3(Expression... els)`
-- Role: Performs vec3.
-- Description: Supports the vec3 operation used by the surrounding class.
+- Role: Builds a three-component vector constructor.
+- Description: Assembles a `vec3(...)` expression.
 
 #### `public static Vec2Cons vec2(Expression... els)`
-- Role: Performs vec2.
-- Description: Supports the vec2 operation used by the surrounding class.
+- Role: Builds a two-component vector constructor.
+- Description: Assembles a `vec2(...)` expression.
 
 #### `public static FloatCons floatcons(Expression init)`
-- Role: Performs floatcons.
-- Description: Supports the floatcons operation used by the surrounding class.
+- Role: Builds a float constructor.
+- Description: Converts a scalar expression into float form.
 
 #### `public static IVec4Cons ivec4(Expression... els)`
-- Role: Performs ivec4.
-- Description: Supports the ivec4 operation used by the surrounding class.
+- Role: Builds a four-component integer vector constructor.
+- Description: Assembles an `ivec4(...)` expression.
 
 #### `public static IVec3Cons ivec3(Expression... els)`
-- Role: Performs ivec3.
-- Description: Supports the ivec3 operation used by the surrounding class.
+- Role: Builds a three-component integer vector constructor.
+- Description: Assembles an `ivec3(...)` expression.
 
 #### `public static IVec2Cons ivec2(Expression... els)`
-- Role: Performs ivec2.
-- Description: Supports the ivec2 operation used by the surrounding class.
+- Role: Builds a two-component integer vector constructor.
+- Description: Assembles an `ivec2(...)` expression.
 
 #### `public static IntCons intcons(Expression init)`
-- Role: Performs intcons.
-- Description: Supports the intcons operation used by the surrounding class.
+- Role: Builds an int constructor.
+- Description: Converts an expression into integer form.
 
 #### `public static UVec4Cons uvec4(Expression... els)`
-- Role: Performs uvec4.
-- Description: Supports the uvec4 operation used by the surrounding class.
+- Role: Builds a four-component unsigned vector constructor.
+- Description: Assembles a `uvec4(...)` expression.
 
 #### `public static UVec3Cons uvec3(Expression... els)`
-- Role: Performs uvec3.
-- Description: Supports the uvec3 operation used by the surrounding class.
+- Role: Builds a three-component unsigned vector constructor.
+- Description: Assembles a `uvec3(...)` expression.
 
 #### `public static UVec2Cons uvec2(Expression... els)`
-- Role: Performs uvec2.
-- Description: Supports the uvec2 operation used by the surrounding class.
+- Role: Builds a two-component unsigned vector constructor.
+- Description: Assembles a `uvec2(...)` expression.
 
 #### `public static UIntCons uintcons(Expression init)`
-- Role: Performs uintcons.
-- Description: Supports the uintcons operation used by the surrounding class.
+- Role: Builds a uint constructor.
+- Description: Converts an expression into unsigned integer form.
 
 #### `public static Mat3Cons mat3(Expression... els)`
-- Role: Performs mat3.
-- Description: Supports the mat3 operation used by the surrounding class.
+- Role: Builds a 3x3 matrix constructor.
+- Description: Assembles a `mat3(...)` expression.
 
 #### `public static Expression sin(Expression x)`
-- Role: Performs sin.
-- Description: Supports the sin operation used by the surrounding class.
+- Role: Builds a sine expression.
+- Description: Emits the shader `sin` call.
 
 #### `public static Expression abs(Expression x)`
-- Role: Performs abs.
-- Description: Supports the abs operation used by the surrounding class.
+- Role: Builds an absolute-value expression.
+- Description: Emits the shader `abs` call.
 
 #### `public static Expression sign(Expression x)`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Builds a sign expression.
+- Description: Emits the shader `sign` call.
 
 #### `public static Expression floor(Expression x)`
-- Role: Performs floor.
-- Description: Supports the floor operation used by the surrounding class.
+- Role: Builds a floor expression.
+- Description: Emits the shader `floor` call.
 
 #### `public static Expression ceil(Expression x)`
-- Role: Performs ceil.
-- Description: Supports the ceil operation used by the surrounding class.
+- Role: Builds a ceil expression.
+- Description: Emits the shader `ceil` call.
 
 #### `public static Expression fract(Expression x)`
-- Role: Performs fract.
-- Description: Supports the fract operation used by the surrounding class.
+- Role: Builds a fractional-part expression.
+- Description: Emits the shader `fract` call.
 
 #### `public static Expression mod(Expression x, Expression y)`
-- Role: Performs mod.
-- Description: Supports the mod operation used by the surrounding class.
+- Role: Builds a modulus expression.
+- Description: Emits the shader `mod` call.
 
 #### `public static Expression length(Expression x)`
-- Role: Performs length.
-- Description: Supports the length operation used by the surrounding class.
+- Role: Builds a length expression.
+- Description: Emits the shader `length` call.
 
 #### `public static Expression normalize(Expression x)`
-- Role: Performs normalize.
-- Description: Supports the normalize operation used by the surrounding class.
+- Role: Builds a normalization expression.
+- Description: Emits the shader `normalize` call.
 
 #### `public static Expression distance(Expression x, Expression y)`
 - Role: Returns the distance from the local player.
 - Description: Measures the distance from the current local player position.
 
 #### `public static Expression dot(Expression x, Expression y)`
-- Role: Performs dot.
-- Description: Supports the dot operation used by the surrounding class.
+- Role: Builds a dot-product expression.
+- Description: Emits the shader `dot` call.
 
 #### `public static Expression pow(Expression x, Expression y)`
-- Role: Performs pow.
-- Description: Supports the pow operation used by the surrounding class.
+- Role: Builds an exponentiation expression.
+- Description: Emits the shader `pow` call.
 
 #### `public static Expression exp(Expression x)`
-- Role: Performs exp.
-- Description: Supports the exp operation used by the surrounding class.
+- Role: Builds an exponential expression.
+- Description: Emits the shader `exp` call.
 
 #### `public static Expression log(Expression x)`
-- Role: Performs log.
-- Description: Supports the log operation used by the surrounding class.
+- Role: Builds a natural-log expression.
+- Description: Emits the shader `log` call.
 
 #### `public static Expression exp2(Expression x)`
-- Role: Performs exp2.
-- Description: Supports the exp2 operation used by the surrounding class.
+- Role: Builds a base-2 exponential expression.
+- Description: Emits the shader `exp2` call.
 
 #### `public static Expression log2(Expression x)`
-- Role: Performs log2.
-- Description: Supports the log2 operation used by the surrounding class.
+- Role: Builds a base-2 logarithm expression.
+- Description: Emits the shader `log2` call.
 
 #### `public static Expression sqrt(Expression x)`
-- Role: Performs sqrt.
-- Description: Supports the sqrt operation used by the surrounding class.
+- Role: Builds a square-root expression.
+- Description: Emits the shader `sqrt` call.
 
 #### `public static Expression inversesqrt(Expression x)`
-- Role: Performs inversesqrt.
-- Description: Supports the inversesqrt operation used by the surrounding class.
+- Role: Builds an inverse-square-root expression.
+- Description: Emits the shader `inversesqrt` call.
 
 #### `public static Expression cross(Expression x, Expression y)`
-- Role: Performs cross.
-- Description: Supports the cross operation used by the surrounding class.
+- Role: Builds a cross-product expression.
+- Description: Emits the shader `cross` call.
 
 #### `public static Expression reflect(Expression x, Expression y)`
-- Role: Performs reflect.
-- Description: Supports the reflect operation used by the surrounding class.
+- Role: Builds a reflection-vector expression.
+- Description: Emits the shader `reflect` call.
 
 #### `public static Expression texture2D(Expression s, Expression c)`
-- Role: Performs texture2 d.
-- Description: Supports the texture2 d operation used by the surrounding class.
+- Role: Builds a 2D texture lookup expression.
+- Description: Emits the shader `texture2D` call.
 
 #### `public static Expression shadow2D(Expression s, Expression c)`
-- Role: Performs shadow2 d.
-- Description: Supports the shadow2 d operation used by the surrounding class.
+- Role: Builds a 2D shadow lookup expression.
+- Description: Emits the shader `shadow2D` call.
 
 #### `public static Expression texture3D(Expression s, Expression c)`
-- Role: Performs texture3 d.
-- Description: Supports the texture3 d operation used by the surrounding class.
+- Role: Builds a 3D texture lookup expression.
+- Description: Emits the shader `texture3D` call.
 
 #### `public static Expression textureCube(Expression s, Expression c)`
-- Role: Performs texture cube.
-- Description: Supports the texture cube operation used by the surrounding class.
+- Role: Builds a cube-map texture lookup expression.
+- Description: Emits the shader `textureCube` call.
 
 #### `public static Expression texelFetch(Expression s, Expression c, Expression l)`
-- Role: Performs texel fetch.
-- Description: Supports the texel fetch operation used by the surrounding class.
+- Role: Builds a texel-fetch expression.
+- Description: Emits the shader `texelFetch` call.
 
 #### `public static Expression textureSize(Expression s, Expression lod)`
-- Role: Performs texture size.
-- Description: Supports the texture size operation used by the surrounding class.
+- Role: Builds a texture-size expression.
+- Description: Emits the shader `textureSize` call.
 
 #### `public static Expression mix(Expression x, Expression y, Expression a)`
-- Role: Performs mix.
-- Description: Supports the mix operation used by the surrounding class.
+- Role: Builds a mix expression.
+- Description: Emits the shader `mix` call.
 
 #### `public static Expression clamp(Expression x, Expression a, Expression b)`
-- Role: Performs clamp.
-- Description: Supports the clamp operation used by the surrounding class.
+- Role: Builds a clamp expression.
+- Description: Emits the shader `clamp` call.
 
 #### `public static Expression step(Expression edge, Expression x)`
-- Role: Performs step.
-- Description: Supports the step operation used by the surrounding class.
+- Role: Builds a step expression.
+- Description: Emits the shader `step` call.
 
 #### `public static Expression smoothstep(Expression a, Expression b, Expression x)`
-- Role: Performs smoothstep.
-- Description: Supports the smoothstep operation used by the surrounding class.
+- Role: Builds a smoothstep expression.
+- Description: Emits the shader `smoothstep` call.
 
 #### `public static Expression reduce(Function fun, Expression... es)`
-- Role: Performs reduce.
-- Description: Supports the reduce operation used by the surrounding class.
+- Role: Reduces a variadic expression list.
+- Description: Folds the supplied expressions with the given builtin function.
 
 #### `public static Expression min(Expression... es)`
-- Role: Performs min.
-- Description: Supports the min operation used by the surrounding class.
+- Role: Builds a minimum expression.
+- Description: Emits the shader `min` call across the supplied arguments.
 
 #### `public static Expression max(Expression... es)`
-- Role: Performs max.
-- Description: Supports the max operation used by the surrounding class.
+- Role: Builds a maximum expression.
+- Description: Emits the shader `max` call across the supplied arguments.
 
 #### `public static Expression col4(java.awt.Color c)`
-- Role: Performs col4.
-- Description: Supports the col4 operation used by the surrounding class.
+- Role: Converts an AWT color into a vec4 expression.
+- Description: Normalizes RGBA channels into shader float components.
 
 #### `public static Expression col3(java.awt.Color c)`
-- Role: Performs col3.
-- Description: Supports the col3 operation used by the surrounding class.
+- Role: Converts an AWT color into a vec3 expression.
+- Description: Normalizes RGB channels into shader float components.
 
 #### `public static Expression col4(haven.FColor c)`
-- Role: Performs col4.
-- Description: Supports the col4 operation used by the surrounding class.
+- Role: Converts an FColor into a vec4 expression.
+- Description: Emits the stored linear RGBA values as shader floats.
 
 #### `public static Expression col3(haven.FColor c)`
-- Role: Performs col3.
-- Description: Supports the col3 operation used by the surrounding class.
+- Role: Converts an FColor into a vec3 expression.
+- Description: Emits the stored linear RGB values as shader floats.
 
 #### `public static Expression vec2(haven.Coord c)`
-- Role: Performs vec2.
-- Description: Supports the vec2 operation used by the surrounding class.
+- Role: Converts a Coord into a vec2 expression.
+- Description: Emits the coordinate's x/y values as shader floats.
 
 #### `public static Expression vec3(haven.Coord3f c)`
-- Role: Performs vec3.
-- Description: Supports the vec3 operation used by the surrounding class.
+- Role: Converts a Coord3f into a vec3 expression.
+- Description: Emits the coordinate's x/y/z values as shader floats.
 
 #### `public static Expression vec2(double a, double b)`
-- Role: Performs vec2.
-- Description: Supports the vec2 operation used by the surrounding class.
+- Role: Builds a vec2 expression from doubles.
+- Description: Creates a two-component float vector literal.
 
 #### `public static Expression vec3(double a, double b, double c)`
-- Role: Performs vec3.
-- Description: Supports the vec3 operation used by the surrounding class.
+- Role: Builds a vec3 expression from doubles.
+- Description: Creates a three-component float vector literal.
 
 #### `public static Expression vec4(double a, double b, double c, double d)`
-- Role: Performs vec4.
-- Description: Supports the vec4 operation used by the surrounding class.
+- Role: Builds a vec4 expression from doubles.
+- Description: Creates a four-component float vector literal.
 
 #### `public static Expression ivec2(haven.Coord c)`
-- Role: Performs ivec2.
-- Description: Supports the ivec2 operation used by the surrounding class.
+- Role: Converts a Coord into an ivec2 expression.
+- Description: Emits the coordinate's x/y values as shader integers.
 
 #### `public static Expression ivec2(int a, int b)`
-- Role: Performs ivec2.
-- Description: Supports the ivec2 operation used by the surrounding class.
+- Role: Builds an ivec2 expression from ints.
+- Description: Creates a two-component integer vector literal.
 
 #### `public static Expression ivec3(int a, int b, int c)`
-- Role: Performs ivec3.
-- Description: Supports the ivec3 operation used by the surrounding class.
+- Role: Builds an ivec3 expression from ints.
+- Description: Creates a three-component integer vector literal.
 
 #### `public static Expression ivec4(int a, int b, int c, int d)`
-- Role: Performs ivec4.
-- Description: Supports the ivec4 operation used by the surrounding class.
+- Role: Builds an ivec4 expression from ints.
+- Description: Creates a four-component integer vector literal.
 
 #### `public static Expression uvec2(haven.Coord c)`
-- Role: Performs uvec2.
-- Description: Supports the uvec2 operation used by the surrounding class.
+- Role: Converts a Coord into a uvec2 expression.
+- Description: Emits the coordinate's x/y values as unsigned integers.
 
 #### `public static Expression uvec2(int a, int b)`
-- Role: Performs uvec2.
-- Description: Supports the uvec2 operation used by the surrounding class.
+- Role: Builds a uvec2 expression from ints.
+- Description: Creates a two-component unsigned vector literal.
 
 #### `public static Expression uvec3(int a, int b, int c)`
-- Role: Performs uvec3.
-- Description: Supports the uvec3 operation used by the surrounding class.
+- Role: Builds a uvec3 expression from ints.
+- Description: Creates a three-component unsigned vector literal.
 
 #### `public static Expression uvec4(int a, int b, int c, int d)`
-- Role: Performs uvec4.
-- Description: Supports the uvec4 operation used by the surrounding class.
+- Role: Builds a uvec4 expression from ints.
+- Description: Creates a four-component unsigned vector literal.
 
 #### `public static <T> T id(T a)`
-- Role: Performs id.
-- Description: Supports the id operation used by the surrounding class.
+- Role: Returns the input unchanged.
+- Description: Identity helper for generic values.

@@ -1,5 +1,5 @@
 ---
-source: [Message.java](../../../src/haven/Message.java)
+source: [Message.java](../../../../src/haven/Message.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -30,481 +30,515 @@ Represents a binary message buffer.
 ### Constants
 
 #### `public static final int T_END = 0`
-- Role: Defines the shared t end constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t end value.
+- Description: Caches the `T_END` value for reuse.
+- Value: `0`
 
 #### `public static final int T_INT = 1`
-- Role: Defines the shared t int constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t int value.
+- Description: Caches the `T_INT` value for reuse.
+- Value: `1`
 
 #### `public static final int T_STR = 2`
-- Role: Defines the shared t str constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t str value.
+- Description: Caches the `T_STR` value for reuse.
+- Value: `2`
 
 #### `public static final int T_COORD = 3`
-- Role: Defines the shared t coord constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t coord value.
+- Description: Caches the `T_COORD` value for reuse.
+- Value: `3`
 
 #### `public static final int T_UINT8 = 4`
-- Role: Defines the shared t uint8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t uint8 value.
+- Description: Caches the `T_UINT8` value for reuse.
+- Value: `4`
 
 #### `public static final int T_UINT16 = 5`
-- Role: Defines the shared t uint16 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t uint16 value.
+- Description: Caches the `T_UINT16` value for reuse.
+- Value: `5`
 
 #### `public static final int T_COLOR = 6`
-- Role: Defines the shared t color constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t color value.
+- Description: Caches the `T_COLOR` value for reuse.
+- Value: `6`
 
 #### `public static final int T_FCOLOR = 7`
-- Role: Defines the shared t fcolor constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t fcolor value.
+- Description: Caches the `T_FCOLOR` value for reuse.
+- Value: `7`
 
 #### `public static final int T_TTOL = 8`
-- Role: Defines the shared t ttol constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t ttol value.
+- Description: Caches the `T_TTOL` value for reuse.
+- Value: `8`
 
 #### `public static final int T_INT8 = 9`
-- Role: Defines the shared t int8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t int8 value.
+- Description: Caches the `T_INT8` value for reuse.
+- Value: `9`
 
 #### `public static final int T_INT16 = 10`
-- Role: Defines the shared t int16 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t int16 value.
+- Description: Caches the `T_INT16` value for reuse.
+- Value: `10`
 
 #### `public static final int T_NIL = 12`
-- Role: Defines the shared t nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t nil value.
+- Description: Caches the `T_NIL` value for reuse.
+- Value: `12`
 
 #### `public static final int T_UID = 13`
-- Role: Defines the shared t uid constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t uid value.
+- Description: Caches the `T_UID` value for reuse.
+- Value: `13`
 
 #### `public static final int T_BYTES = 14`
-- Role: Defines the shared t bytes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t bytes value.
+- Description: Caches the `T_BYTES` value for reuse.
+- Value: `14`
 
 #### `public static final int T_FLOAT32 = 15`
-- Role: Defines the shared t float32 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t float32 value.
+- Description: Caches the `T_FLOAT32` value for reuse.
+- Value: `15`
 
 #### `public static final int T_FLOAT64 = 16`
-- Role: Defines the shared t float64 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t float64 value.
+- Description: Caches the `T_FLOAT64` value for reuse.
+- Value: `16`
 
 #### `public static final int T_FCOORD32 = 18`
-- Role: Defines the shared t fcoord32 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t fcoord32 value.
+- Description: Caches the `T_FCOORD32` value for reuse.
+- Value: `18`
 
 #### `public static final int T_FCOORD64 = 19`
-- Role: Defines the shared t fcoord64 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t fcoord64 value.
+- Description: Caches the `T_FCOORD64` value for reuse.
+- Value: `19`
 
 #### `public static final int T_FLOAT8 = 21`
-- Role: Defines the shared t float8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t float8 value.
+- Description: Caches the `T_FLOAT8` value for reuse.
+- Value: `21`
 
 #### `public static final int T_FLOAT16 = 22`
-- Role: Defines the shared t float16 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t float16 value.
+- Description: Caches the `T_FLOAT16` value for reuse.
+- Value: `22`
 
 #### `public static final int T_SNORM8 = 23`
-- Role: Defines the shared t snorm8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t snorm8 value.
+- Description: Caches the `T_SNORM8` value for reuse.
+- Value: `23`
 
 #### `public static final int T_UNORM8 = 24`
-- Role: Defines the shared t unorm8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t unorm8 value.
+- Description: Caches the `T_UNORM8` value for reuse.
+- Value: `24`
 
 #### `public static final int T_MNORM8 = 25`
-- Role: Defines the shared t mnorm8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t mnorm8 value.
+- Description: Caches the `T_MNORM8` value for reuse.
+- Value: `25`
 
 #### `public static final int T_SNORM16 = 26`
-- Role: Defines the shared t snorm16 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t snorm16 value.
+- Description: Caches the `T_SNORM16` value for reuse.
+- Value: `26`
 
 #### `public static final int T_UNORM16 = 27`
-- Role: Defines the shared t unorm16 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t unorm16 value.
+- Description: Caches the `T_UNORM16` value for reuse.
+- Value: `27`
 
 #### `public static final int T_MNORM16 = 28`
-- Role: Defines the shared t mnorm16 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t mnorm16 value.
+- Description: Caches the `T_MNORM16` value for reuse.
+- Value: `28`
 
 #### `public static final int T_SNORM32 = 29`
-- Role: Defines the shared t snorm32 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t snorm32 value.
+- Description: Caches the `T_SNORM32` value for reuse.
+- Value: `29`
 
 #### `public static final int T_UNORM32 = 30`
-- Role: Defines the shared t unorm32 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t unorm32 value.
+- Description: Caches the `T_UNORM32` value for reuse.
+- Value: `30`
 
 #### `public static final int T_MNORM32 = 31`
-- Role: Defines the shared t mnorm32 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t mnorm32 value.
+- Description: Caches the `T_MNORM32` value for reuse.
+- Value: `31`
 
 #### `public static final int T_MAP = 32`
-- Role: Defines the shared t map constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t map value.
+- Description: Caches the `T_MAP` value for reuse.
+- Value: `32`
 
 #### `public static final int T_LONG = 33`
-- Role: Defines the shared t long constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t long value.
+- Description: Caches the `T_LONG` value for reuse.
+- Value: `33`
 
 #### `public static final int T_RESSPEC = 34`
-- Role: Defines the shared t resspec constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t resspec value.
+- Description: Caches the `T_RESSPEC` value for reuse.
+- Value: `34`
 
 #### `public static final int T_RESID = 35`
-- Role: Defines the shared t resid constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the t resid value.
+- Description: Caches the `T_RESID` value for reuse.
+- Value: `35`
 
 #### `public static final Message nil = new Message()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the message operation.
+- Value: `new Message()`
 
 ### Fields
 
 #### `private final static byte[] empty = new byte[0]`
-- Role: Stores the empty value.
-- Description: Backs the cached state for this file.
+- Role: Caches the empty value.
+- Description: Caches the `empty` value for reuse.
 
 #### `public int rh = 0, rt = 0, wh = 0, wt = 0`
-- Role: Stores the rh value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rh value.
+- Description: Caches the `rh` value for reuse.
 
 #### `public int rh = 0, rt = 0, wh = 0, wt = 0`
-- Role: Stores the rh value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rh value.
+- Description: Caches the `rh` value for reuse.
 
 #### `public int rh = 0, rt = 0, wh = 0, wt = 0`
-- Role: Stores the rh value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rh value.
+- Description: Caches the `rh` value for reuse.
 
 #### `public int rh = 0, rt = 0, wh = 0, wt = 0`
-- Role: Stores the rh value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rh value.
+- Description: Caches the `rh` value for reuse.
 
 #### `public byte[] rbuf = empty, wbuf = empty`
-- Role: Stores the rbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rbuf value.
+- Description: Caches the `rbuf` value for reuse.
 
 #### `public byte[] rbuf = empty, wbuf = empty`
-- Role: Stores the rbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rbuf value.
+- Description: Caches the `rbuf` value for reuse.
 
 #### `public Message msg`
-- Role: Holds the msg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 ### Methods
 
 #### `public BinError(String message)`
-- Role: Performs bin error.
-- Description: Supports the bin error operation used by the surrounding class.
+- Role: Handles the bin error path.
+- Description: Implements the bin error operation.
 
 #### `public BinError(String message, Throwable cause)`
-- Role: Performs bin error.
-- Description: Supports the bin error operation used by the surrounding class.
+- Role: Handles the bin error path.
+- Description: Implements the bin error operation.
 
 #### `public BinError(Throwable cause)`
-- Role: Performs bin error.
-- Description: Supports the bin error operation used by the surrounding class.
+- Role: Handles the bin error path.
+- Description: Implements the bin error operation.
 
 #### `public BinError msg(Message msg)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Implements the msg operation.
 
 #### `public EOF(String message)`
-- Role: Performs eof.
-- Description: Supports the eof operation used by the surrounding class.
+- Role: Handles the eof path.
+- Description: Implements the eof operation.
 
 #### `public FormatError(String message)`
-- Role: Performs format error.
-- Description: Supports the format error operation used by the surrounding class.
+- Role: Handles the format error path.
+- Description: Implements the format error operation.
 
 #### `public FormatError(String message, Throwable cause)`
-- Role: Performs format error.
-- Description: Supports the format error operation used by the surrounding class.
+- Role: Handles the format error path.
+- Description: Implements the format error operation.
 
 #### `public abstract boolean underflow(int hint)`
-- Role: Performs underflow.
-- Description: Supports the underflow operation used by the surrounding class.
+- Role: Handles the underflow path.
+- Description: Implements the underflow operation.
 
 #### `private void rensure(int len)`
-- Role: Performs rensure.
-- Description: Supports the rensure operation used by the surrounding class.
+- Role: Handles the rensure path.
+- Description: Implements the rensure operation.
 
 #### `private int rget(int len)`
-- Role: Performs rget.
-- Description: Supports the rget operation used by the surrounding class.
+- Role: Handles the rget path.
+- Description: Implements the rget operation.
 
 #### `public boolean eom()`
-- Role: Performs eom.
-- Description: Supports the eom operation used by the surrounding class.
+- Role: Handles the eom path.
+- Description: Implements the eom operation.
 
 #### `public int int8()`
-- Role: Performs int8.
-- Description: Supports the int8 operation used by the surrounding class.
+- Role: Handles the int8 path.
+- Description: Implements the int8 operation.
 
 #### `public int uint8()`
-- Role: Performs uint8.
-- Description: Supports the uint8 operation used by the surrounding class.
+- Role: Handles the uint8 path.
+- Description: Implements the uint8 operation.
 
 #### `public int int16()`
-- Role: Performs int16.
-- Description: Supports the int16 operation used by the surrounding class.
+- Role: Handles the int16 path.
+- Description: Implements the int16 operation.
 
 #### `public int uint16()`
-- Role: Performs uint16.
-- Description: Supports the uint16 operation used by the surrounding class.
+- Role: Handles the uint16 path.
+- Description: Implements the uint16 operation.
 
 #### `public int int32()`
-- Role: Performs int32.
-- Description: Supports the int32 operation used by the surrounding class.
+- Role: Handles the int32 path.
+- Description: Implements the int32 operation.
 
 #### `public long uint32()`
-- Role: Performs uint32.
-- Description: Supports the uint32 operation used by the surrounding class.
+- Role: Handles the uint32 path.
+- Description: Implements the uint32 operation.
 
 #### `public long int64()`
-- Role: Performs int64.
-- Description: Supports the int64 operation used by the surrounding class.
+- Role: Handles the int64 path.
+- Description: Implements the int64 operation.
 
 #### `public UID uniqid()`
-- Role: Performs uniqid.
-- Description: Supports the uniqid operation used by the surrounding class.
+- Role: Handles the uniqid path.
+- Description: Implements the uniqid operation.
 
 #### `public String string()`
-- Role: Performs string.
-- Description: Supports the string operation used by the surrounding class.
+- Role: Handles the string path.
+- Description: Implements the string operation.
 
 #### `public void skip(int n)`
-- Role: Performs skip.
-- Description: Supports the skip operation used by the surrounding class.
+- Role: Handles the skip path.
+- Description: Implements the skip operation.
 
 #### `public void skip()`
-- Role: Performs skip.
-- Description: Supports the skip operation used by the surrounding class.
+- Role: Handles the skip path.
+- Description: Implements the skip operation.
 
 #### `public byte[] bytes(int n)`
-- Role: Performs bytes.
-- Description: Supports the bytes operation used by the surrounding class.
+- Role: Handles the bytes path.
+- Description: Implements the bytes operation.
 
 #### `public byte[] bytes()`
-- Role: Performs bytes.
-- Description: Supports the bytes operation used by the surrounding class.
+- Role: Handles the bytes path.
+- Description: Implements the bytes operation.
 
 #### `public void bytes(byte[] b, int off, int len)`
-- Role: Performs bytes.
-- Description: Supports the bytes operation used by the surrounding class.
+- Role: Handles the bytes path.
+- Description: Implements the bytes operation.
 
 #### `public void bytes(byte[] b)`
-- Role: Performs bytes.
-- Description: Supports the bytes operation used by the surrounding class.
+- Role: Handles the bytes path.
+- Description: Implements the bytes operation.
 
 #### `public Coord coord()`
-- Role: Performs coord.
-- Description: Supports the coord operation used by the surrounding class.
+- Role: Handles the coord path.
+- Description: Implements the coord operation.
 
 #### `public Color color()`
-- Role: Performs color.
-- Description: Supports the color operation used by the surrounding class.
+- Role: Handles the color path.
+- Description: Implements the color operation.
 
 #### `public FColor fcolor()`
-- Role: Performs fcolor.
-- Description: Supports the fcolor operation used by the surrounding class.
+- Role: Handles the fcolor path.
+- Description: Implements the fcolor operation.
 
 #### `public float float8()`
-- Role: Performs float8.
-- Description: Supports the float8 operation used by the surrounding class.
+- Role: Handles the float8 path.
+- Description: Implements the float8 operation.
 
 #### `public float float16()`
-- Role: Performs float16.
-- Description: Supports the float16 operation used by the surrounding class.
+- Role: Handles the float16 path.
+- Description: Implements the float16 operation.
 
 #### `public float float32()`
-- Role: Performs float32.
-- Description: Supports the float32 operation used by the surrounding class.
+- Role: Handles the float32 path.
+- Description: Implements the float32 operation.
 
 #### `public double float64()`
-- Role: Performs float64.
-- Description: Supports the float64 operation used by the surrounding class.
+- Role: Handles the float64 path.
+- Description: Implements the float64 operation.
 
 #### `public double cpfloat()`
-- Role: Performs cpfloat.
-- Description: Supports the cpfloat operation used by the surrounding class.
+- Role: Handles the cpfloat path.
+- Description: Implements the cpfloat operation.
 
 #### `public float snorm8()`
-- Role: Performs snorm8.
-- Description: Supports the snorm8 operation used by the surrounding class.
+- Role: Handles the snorm8 path.
+- Description: Implements the snorm8 operation.
 
 #### `public float unorm8()`
-- Role: Performs unorm8.
-- Description: Supports the unorm8 operation used by the surrounding class.
+- Role: Handles the unorm8 path.
+- Description: Implements the unorm8 operation.
 
 #### `public float mnorm8()`
-- Role: Performs mnorm8.
-- Description: Supports the mnorm8 operation used by the surrounding class.
+- Role: Handles the mnorm8 path.
+- Description: Implements the mnorm8 operation.
 
 #### `public float snorm16()`
-- Role: Performs snorm16.
-- Description: Supports the snorm16 operation used by the surrounding class.
+- Role: Handles the snorm16 path.
+- Description: Implements the snorm16 operation.
 
 #### `public float unorm16()`
-- Role: Performs unorm16.
-- Description: Supports the unorm16 operation used by the surrounding class.
+- Role: Handles the unorm16 path.
+- Description: Implements the unorm16 operation.
 
 #### `public float mnorm16()`
-- Role: Performs mnorm16.
-- Description: Supports the mnorm16 operation used by the surrounding class.
+- Role: Handles the mnorm16 path.
+- Description: Implements the mnorm16 operation.
 
 #### `public double snorm32()`
-- Role: Performs snorm32.
-- Description: Supports the snorm32 operation used by the surrounding class.
+- Role: Handles the snorm32 path.
+- Description: Implements the snorm32 operation.
 
 #### `public double unorm32()`
-- Role: Performs unorm32.
-- Description: Supports the unorm32 operation used by the surrounding class.
+- Role: Handles the unorm32 path.
+- Description: Implements the unorm32 operation.
 
 #### `public double mnorm32()`
-- Role: Performs mnorm32.
-- Description: Supports the mnorm32 operation used by the surrounding class.
+- Role: Handles the mnorm32 path.
+- Description: Implements the mnorm32 operation.
 
 #### `public Object tto0(int type, Function<Object, ? extends Object> mapper)`
-- Role: Performs tto0.
-- Description: Supports the tto0 operation used by the surrounding class.
+- Role: Handles the tto0 path.
+- Description: Implements the tto0 operation.
 
 #### `public Object tto(int type, Function<Object, ? extends Object> mapper)`
-- Role: Performs tto.
-- Description: Supports the tto operation used by the surrounding class.
+- Role: Handles the tto path.
+- Description: Implements the tto operation.
 
 #### `public Object tto(int type)`
-- Role: Performs tto.
-- Description: Supports the tto operation used by the surrounding class.
+- Role: Handles the tto path.
+- Description: Implements the tto operation.
 
 #### `public Object tto(Function<Object, ? extends Object> mapper)`
-- Role: Performs tto.
-- Description: Supports the tto operation used by the surrounding class.
+- Role: Handles the tto path.
+- Description: Implements the tto operation.
 
 #### `public Object tto()`
-- Role: Performs tto.
-- Description: Supports the tto operation used by the surrounding class.
+- Role: Handles the tto path.
+- Description: Implements the tto operation.
 
 #### `public Object[] list(Function<Object, ? extends Object> mapper)`
-- Role: Performs list.
-- Description: Supports the list operation used by the surrounding class.
+- Role: Handles the list path.
+- Description: Implements the list operation.
 
 #### `public Object[] list()`
-- Role: Performs list.
-- Description: Supports the list operation used by the surrounding class.
+- Role: Handles the list path.
+- Description: Implements the list operation.
 
 #### `public Map<Object, Object> map(Function<Object, ? extends Object> mapper)`
-- Role: Performs map.
-- Description: Supports the map operation used by the surrounding class.
+- Role: Handles the map path.
+- Description: Implements the map operation.
 
 #### `public Map<Object, Object> map()`
-- Role: Performs map.
-- Description: Supports the map operation used by the surrounding class.
+- Role: Handles the map path.
+- Description: Implements the map operation.
 
 #### `public abstract void overflow(int min)`
-- Role: Performs overflow.
-- Description: Supports the overflow operation used by the surrounding class.
+- Role: Handles the overflow path.
+- Description: Implements the overflow operation.
 
 #### `private void wensure(int len)`
-- Role: Performs wensure.
-- Description: Supports the wensure operation used by the surrounding class.
+- Role: Handles the wensure path.
+- Description: Implements the wensure operation.
 
 #### `private int wget(int len)`
-- Role: Performs wget.
-- Description: Supports the wget operation used by the surrounding class.
+- Role: Handles the wget path.
+- Description: Implements the wget operation.
 
 #### `public Message addbytes(byte[] src, int off, int len)`
-- Role: Performs addbytes.
-- Description: Supports the addbytes operation used by the surrounding class.
+- Role: Handles the addbytes path.
+- Description: Adds the bytes.
 
 #### `public Message addbytes(byte[] src)`
-- Role: Performs addbytes.
-- Description: Supports the addbytes operation used by the surrounding class.
+- Role: Handles the addbytes path.
+- Description: Adds the bytes.
 
 #### `public Message addint8(byte num)`
-- Role: Performs addint8.
-- Description: Supports the addint8 operation used by the surrounding class.
+- Role: Handles the addint8 path.
+- Description: Adds the int8.
 
 #### `public Message adduint8(int num)`
-- Role: Performs adduint8.
-- Description: Supports the adduint8 operation used by the surrounding class.
+- Role: Handles the adduint8 path.
+- Description: Adds the uint8.
 
 #### `public Message addint16(short num)`
-- Role: Performs addint16.
-- Description: Supports the addint16 operation used by the surrounding class.
+- Role: Handles the addint16 path.
+- Description: Adds the int16.
 
 #### `public Message adduint16(int num)`
-- Role: Performs adduint16.
-- Description: Supports the adduint16 operation used by the surrounding class.
+- Role: Handles the adduint16 path.
+- Description: Adds the uint16.
 
 #### `public Message addint32(int num)`
-- Role: Performs addint32.
-- Description: Supports the addint32 operation used by the surrounding class.
+- Role: Handles the addint32 path.
+- Description: Adds the int32.
 
 #### `public Message adduint32(long num)`
-- Role: Performs adduint32.
-- Description: Supports the adduint32 operation used by the surrounding class.
+- Role: Handles the adduint32 path.
+- Description: Adds the uint32.
 
 #### `public Message addint64(long num)`
-- Role: Performs addint64.
-- Description: Supports the addint64 operation used by the surrounding class.
+- Role: Handles the addint64 path.
+- Description: Adds the int64.
 
 #### `public Message adduniqid(UID uid)`
-- Role: Performs adduniqid.
-- Description: Supports the adduniqid operation used by the surrounding class.
+- Role: Handles the adduniqid path.
+- Description: Adds the uniqid.
 
 #### `public Message addstring2(String str)`
-- Role: Performs addstring2.
-- Description: Supports the addstring2 operation used by the surrounding class.
+- Role: Handles the addstring2 path.
+- Description: Adds the string2.
 
 #### `public Message addstring(String str)`
-- Role: Performs addstring.
-- Description: Supports the addstring operation used by the surrounding class.
+- Role: Handles the addstring path.
+- Description: Adds the string.
 
 #### `public Message addcoord(Coord c)`
-- Role: Performs addcoord.
-- Description: Supports the addcoord operation used by the surrounding class.
+- Role: Handles the addcoord path.
+- Description: Adds the coord.
 
 #### `public Message addcolor(Color color)`
-- Role: Performs addcolor.
-- Description: Supports the addcolor operation used by the surrounding class.
+- Role: Handles the addcolor path.
+- Description: Adds the color.
 
 #### `public Message addfloat8(float num)`
-- Role: Performs addfloat8.
-- Description: Supports the addfloat8 operation used by the surrounding class.
+- Role: Handles the addfloat8 path.
+- Description: Adds the float8.
 
 #### `public Message addfloat16(float num)`
-- Role: Performs addfloat16.
-- Description: Supports the addfloat16 operation used by the surrounding class.
+- Role: Handles the addfloat16 path.
+- Description: Adds the float16.
 
 #### `public Message addfloat32(float num)`
-- Role: Performs addfloat32.
-- Description: Supports the addfloat32 operation used by the surrounding class.
+- Role: Handles the addfloat32 path.
+- Description: Adds the float32.
 
 #### `public Message addfloat64(double num)`
-- Role: Performs addfloat64.
-- Description: Supports the addfloat64 operation used by the surrounding class.
+- Role: Handles the addfloat64 path.
+- Description: Adds the float64.
 
 #### `public Message addfcolor(FColor color)`
-- Role: Performs addfcolor.
-- Description: Supports the addfcolor operation used by the surrounding class.
+- Role: Handles the addfcolor path.
+- Description: Adds the fcolor.
 
 #### `public Message addtto(Object o)`
-- Role: Performs addtto.
-- Description: Supports the addtto operation used by the surrounding class.
+- Role: Handles the addtto path.
+- Description: Adds the tto.
 
 #### `public Message addlist(Object... args)`
-- Role: Performs addlist.
-- Description: Supports the addlist operation used by the surrounding class.
+- Role: Handles the addlist path.
+- Description: Adds the list.
 
 #### `public Message addmap(Map<?, ?> map)`
-- Role: Performs addmap.
-- Description: Supports the addmap operation used by the surrounding class.
+- Role: Handles the addmap path.
+- Description: Adds the map.

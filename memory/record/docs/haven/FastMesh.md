@@ -1,5 +1,5 @@
 ---
-source: [FastMesh.java](../../../src/haven/FastMesh.java)
+source: [FastMesh.java](../../../../src/haven/FastMesh.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,211 +32,211 @@ Represents the fast mesh Haven component.
 ### Fields
 
 #### `public final VertexBuf vert`
-- Role: Stores the vert value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vert value.
+- Description: Caches the `vert` value for reuse.
 
 #### `public final ShortBuffer indb`
-- Role: Stores the indb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the indb value.
+- Description: Caches the `indb` value for reuse.
 
 #### `public final int num`
-- Role: Stores the num value.
-- Description: Backs the cached state for this file.
+- Role: Caches the num value.
+- Description: Caches the `num` value for reuse.
 
 #### `public final Model model`
-- Role: Holds the model state.
-- Description: Backs the cached state for this file.
+- Role: Caches the model value.
+- Description: Caches the `model` value for reuse.
 
 #### `private Volume3f bounds`
-- Role: Holds the bounds state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bounds value.
+- Description: Caches the `bounds` value for reuse.
 
 #### `public final InstanceBatch bat`
-- Role: Holds the bat state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bat value.
+- Description: Caches the `bat` value for reuse.
 
 #### `private final InstanceBatch.AttributeData attr`
-- Role: Holds the attr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the attr value.
+- Description: Caches the `attr` value for reuse.
 
 #### `private final Layout fmt`
-- Role: Holds the fmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fmt value.
+- Description: Caches the `fmt` value for reuse.
 
 #### `private VertexArray data`
-- Role: Caches data entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private Model model`
-- Role: Holds the model state.
-- Description: Backs the cached state for this file.
+- Role: Caches the model value.
+- Description: Caches the `model` value for reuse.
 
 #### `private int ninst`
-- Role: Stores the ninst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ninst value.
+- Description: Caches the `ninst` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final MeshRes info`
-- Role: Holds the info state.
-- Description: Backs the cached state for this file.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public transient FastMesh m`
-- Role: Holds the m state.
-- Description: Backs the cached state for this file.
+- Role: Caches the m value.
+- Description: Caches the `m` value for reuse.
 
 #### `public transient Material.Res mat`
-- Role: Holds the mat state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mat value.
+- Description: Caches the `mat` value for reuse.
 
 #### `public final Map<String, Object> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private transient short[] tmp`
-- Role: Stores the tmp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tmp value.
+- Description: Caches the `tmp` value for reuse.
 
 #### `private int vbufid`
-- Role: Stores the vbufid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vbufid value.
+- Description: Caches the `vbufid` value for reuse.
 
 #### `@Deprecated public final Map<String, String> rdat`
-- Role: Caches rdat entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the rdat value.
+- Description: Caches the `rdat` value for reuse.
 
 #### `@Deprecated public final int ref`
-- Role: Stores the ref value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ref value.
+- Description: Caches the `ref` value for reuse.
 
 ### Methods
 
 #### `public FastMesh(VertexBuf vert, ShortBuffer ind)`
 - Role: Creates a new FastMesh instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FastMesh instance from the supplied inputs.
 
 #### `public FastMesh(VertexBuf vert, short[] ind)`
 - Role: Creates a new FastMesh instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the FastMesh instance from the supplied inputs.
 
 #### `private FillBuffer indfill(Indices ibuf, Environment env)`
-- Role: Performs indfill.
-- Description: Supports the indfill operation used by the surrounding class.
+- Role: Handles the indfill path.
+- Description: Implements the indfill operation.
 
 #### `private void cbounds()`
-- Role: Performs cbounds.
-- Description: Supports the cbounds operation used by the surrounding class.
+- Role: Handles the cbounds path.
+- Description: Implements the cbounds operation.
 
 #### `public Volume3f bounds()`
-- Role: Performs bounds.
-- Description: Supports the bounds operation used by the surrounding class.
+- Role: Handles the bounds path.
+- Description: Computes the rendered bounds of a part chain.
 
 #### `public Coord3f nbounds()`
-- Role: Performs nbounds.
-- Description: Supports the nbounds operation used by the surrounding class.
+- Role: Handles the nbounds path.
+- Description: Implements the nbounds operation.
 
 #### `public Coord3f pbounds()`
-- Role: Performs pbounds.
-- Description: Supports the pbounds operation used by the surrounding class.
+- Role: Handles the pbounds path.
+- Description: Implements the pbounds operation.
 
 #### `public void draw(Pipe context, Render out)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the FastMesh content.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `private Layout mkfmt(Layout.Input[] ifmt)`
-- Role: Performs mkfmt.
-- Description: Supports the mkfmt operation used by the surrounding class.
+- Role: Handles the mkfmt path.
+- Description: Implements the mkfmt operation.
 
 #### `private VertexArray mkdata(Layout.Input[] ifmt, VertexArray.Buffer ibuf)`
-- Role: Performs mkdata.
-- Description: Supports the mkdata operation used by the surrounding class.
+- Role: Handles the mkdata path.
+- Description: Implements the mkdata operation.
 
 #### `private Instanced(InstanceBatch bat)`
-- Role: Performs instanced.
-- Description: Supports the instanced operation used by the surrounding class.
+- Role: Handles the instanced path.
+- Description: Implements the instanced operation.
 
 #### `public void draw(Pipe context, Render out)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the FastMesh content.
 
 #### `private void modupdate(boolean batupd)`
-- Role: Performs modupdate.
-- Description: Supports the modupdate operation used by the surrounding class.
+- Role: Handles the modupdate path.
+- Description: Implements the modupdate operation.
 
 #### `private void vertupdate()`
-- Role: Performs vertupdate.
-- Description: Supports the vertupdate operation used by the surrounding class.
+- Role: Handles the vertupdate path.
+- Description: Implements the vertupdate operation.
 
 #### `public void iupdate(int idx)`
-- Role: Performs iupdate.
-- Description: Supports the iupdate operation used by the surrounding class.
+- Role: Handles the iupdate path.
+- Description: Implements the iupdate operation.
 
 #### `public void itrim(int idx)`
-- Role: Performs itrim.
-- Description: Supports the itrim operation used by the surrounding class.
+- Role: Handles the itrim path.
+- Description: Implements the itrim operation.
 
 #### `public void commit(Render g)`
-- Role: Performs commit.
-- Description: Supports the commit operation used by the surrounding class.
+- Role: Handles the commit path.
+- Description: Implements the commit operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this FastMesh for debugging and logging.
 
 #### `public Rendered.Instanced instancify(InstanceBatch bat)`
-- Role: Performs instancify.
-- Description: Supports the instancify operation used by the surrounding class.
+- Role: Handles the instancify path.
+- Description: Implements the instancify operation.
 
 #### `public ResourceMesh(VertexBuf vert, short[] ind, MeshRes info)`
-- Role: Performs resource mesh.
-- Description: Supports the resource mesh operation used by the surrounding class.
+- Role: Handles the resource mesh path.
+- Description: Implements the resource mesh operation.
 
 #### `public Map<String, Object> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this FastMesh for debugging and logging.
 
 #### `private static int decdelta(Message buf, boolean[] pickp)`
-- Role: Performs decdelta.
-- Description: Supports the decdelta operation used by the surrounding class.
+- Role: Handles the decdelta path.
+- Description: Implements the decdelta operation.
 
 #### `private static void unstrip(Message buf, short[] ind)`
-- Role: Performs unstrip.
-- Description: Supports the unstrip operation used by the surrounding class.
+- Role: Handles the unstrip path.
+- Description: Implements the unstrip operation.
 
 #### `public MeshRes(Resource res, Message buf)`
-- Role: Performs mesh res.
-- Description: Supports the mesh res operation used by the surrounding class.
+- Role: Handles the mesh resource path.
+- Description: Implements the mesh res operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Integer layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public Map<String, Object> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

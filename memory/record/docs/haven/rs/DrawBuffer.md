@@ -1,61 +1,46 @@
 ---
-source: [DrawBuffer.java](../../../../src/haven/rs/DrawBuffer.java)
+source: [DrawBuffer.java](../../../../../src/haven/rs/DrawBuffer.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # DrawBuffer
 
-Integrates Haven rendering-server support for draw buffer.
+Owns an off-screen render target with color and depth textures, and can produce a screenshot image.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final Environment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Holds the render environment used to submit work.
 
 #### `public final Coord sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Stores the output size.
 
 #### `public final Texture2D color, depth`
-- Role: Stores the depth value.
-- Description: Backs the cached state for this file.
-
-#### `public final Texture2D color, depth`
-- Role: Stores the depth value.
-- Description: Backs the cached state for this file.
+- Role: Store the off-screen color and depth buffers.
 
 #### `private final Pipe.Op basic`
-- Role: Holds the basic state.
-- Description: Backs the cached state for this file.
+- Role: Stores the base render state for drawing into the buffer.
 
 ### Methods
 
 #### `public DrawBuffer(Environment env, Coord sz)`
-- Role: Creates a new DrawBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a draw buffer for one render target size.
 
 #### `public Pipe.Op basic()`
-- Role: Performs basic.
-- Description: Supports the basic operation used by the surrounding class.
+- Role: Returns the base render state.
 
 #### `public GOut graphics()`
-- Role: Performs graphics.
-- Description: Supports the graphics operation used by the surrounding class.
+- Role: Returns a graphics context for drawing into the buffer.
 
 #### `public void draw(Drawn thing)`
-- Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Role: Draws one object into the buffer.
 
 #### `public BufferedImage draw(Pipe.Op state, RenderTree.Node n)`
-- Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Role: Renders a scene node and returns the resulting image.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the backing textures.
+

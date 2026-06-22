@@ -1,5 +1,5 @@
 ---
-source: [DTarget.java](../../../src/haven/DTarget.java)
+source: [DTarget.java](../../../../src/haven/DTarget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,71 +15,71 @@ Represents the dtarget Haven component.
 ### Fields
 
 #### `public final ItemDrag src`
-- Role: Holds the src state.
-- Description: Backs the cached state for this file.
+- Role: Caches the src value.
+- Description: Carries the source drag widget that started the item interaction.
 
 #### `public final ItemEvent root`
-- Role: Holds the root state.
-- Description: Backs the cached state for this file.
+- Role: Caches the root value.
+- Description: Keeps the root item event so acceptance can be reported back.
 
 #### `public boolean handled`
 - Role: Tracks the handled flag.
-- Description: Supports the handled operation used by the surrounding class.
+- Description: Tracks whether a drop or interaction was consumed.
 
 ### Methods
 
 #### `public default boolean drop(Coord cc, Coord ul)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Handles the drop path.
+- Description: Dispatches a drop event using the widget-local and source-local coordinates.
 
 #### `public default boolean iteminteract(Coord cc, Coord ul)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Handles the iteminteract path.
+- Description: Dispatches an item interaction event using the widget-local and source-local coordinates.
 
 #### `public default boolean drop(Drop ev)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Handles the drop path.
+- Description: Reuses the event coordinate to dispatch a drop.
 
 #### `public default boolean iteminteract(Interact ev)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Handles the iteminteract path.
+- Description: Reuses the event coordinate to dispatch an item interaction.
 
 #### `public ItemEvent(Coord c, ItemDrag src)`
-- Role: Performs item event.
-- Description: Supports the item event operation used by the surrounding class.
+- Role: Captures an item drag event.
+- Description: Captures the item drag event at the current coordinate.
 
 #### `public ItemEvent(ItemEvent from, Coord c)`
-- Role: Performs item event.
-- Description: Supports the item event operation used by the surrounding class.
+- Role: Clones an item drag event for child dispatch.
+- Description: Reuses the source drag widget while moving the event to a child widget.
 
 #### `public Drop(Coord c, ItemDrag src)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Dispatches a drop event.
+- Description: Creates a dispatchable drop event for item targets.
 
 #### `public Drop(Drop from, Coord c)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Clones a drop event for child dispatch.
+- Description: Reuses the parent drop event while shifting to child coordinates.
 
 #### `public Drop derive(Coord c)`
-- Role: Performs derive.
-- Description: Supports the derive operation used by the surrounding class.
+- Role: Handles the derive path.
+- Description: Clones the drop event at a new widget-local coordinate.
 
 #### `protected boolean shandle(Widget w)`
-- Role: Performs shandle.
-- Description: Supports the shandle operation used by the surrounding class.
+- Role: Handles the shandle path.
+- Description: Lets widgets other than the source drag consume the drop event.
 
 #### `public Interact(Coord c, ItemDrag src)`
-- Role: Performs interact.
-- Description: Supports the interact operation used by the surrounding class.
+- Role: Handles the interact path.
+- Description: Creates a dispatchable item-interaction event.
 
 #### `public Interact(Interact from, Coord c)`
-- Role: Performs interact.
-- Description: Supports the interact operation used by the surrounding class.
+- Role: Handles the interact path.
+- Description: Reuses the source drag widget while moving the event to a child widget.
 
 #### `public Interact derive(Coord c)`
-- Role: Performs derive.
-- Description: Supports the derive operation used by the surrounding class.
+- Role: Handles the derive path.
+- Description: Clones the interaction event at a new widget-local coordinate.
 
 #### `protected boolean shandle(Widget w)`
-- Role: Performs shandle.
-- Description: Supports the shandle operation used by the surrounding class.
+- Role: Handles the shandle path.
+- Description: Lets widgets other than the source drag consume the interaction event.

@@ -1,5 +1,5 @@
 ---
-source: [SListBox.java](../../../src/haven/SListBox.java)
+source: [SListBox.java](../../../../src/haven/SListBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,169 +13,171 @@ Represents the slist box Haven component.
 ### Constants
 
 #### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
-- Role: Defines the shared every constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the every operation.
+- Description: Implements the color operation.
+- Value: `new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
 
 #### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
-- Role: Defines the shared every constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the every operation.
+- Description: Implements the color operation.
+- Value: `new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
 
 ### Fields
 
 #### `public final int itemh, marg`
-- Role: Stores the marg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the marg value.
+- Description: Caches the `marg` value for reuse.
 
 #### `public final int itemh, marg`
-- Role: Stores the marg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the marg value.
+- Description: Caches the `marg` value for reuse.
 
 #### `public final Scrollbar sb`
-- Role: Holds the sb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sb value.
+- Description: Caches the `sb` value for reuse.
 
 #### `private Map<I, W> curw = new IdentityHashMap<>()`
-- Role: Caches curw entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the curw operation.
+- Description: Implements the private map<i, w> curw = new identity hash map<>() operation.
 
 #### `private I[] curi`
-- Role: Holds the curi state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curi value.
+- Description: Caches the `curi` value for reuse.
 
 #### `private int n = -1, h, curo = 0, itemw = 0`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private int n = -1, h, curo = 0, itemw = 0`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private int n = -1, h, curo = 0, itemw = 0`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private int n = -1, h, curo = 0, itemw = 0`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private int maxy = 0`
-- Role: Stores the maxy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxy value.
+- Description: Caches the `maxy` value for reuse.
 
 #### `private double cury = 0.0`
-- Role: Stores the cury value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cury value.
+- Description: Caches the `cury` value for reuse.
 
 #### `private boolean reset = false`
 - Role: Tracks the reset flag.
-- Description: Supports the reset operation used by the surrounding class.
+- Description: Resets the stream if mark/reset is supported.
 
 ### Methods
 
 #### `public SListBox(Coord sz, int itemh, int marg)`
 - Role: Creates a new SListBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SListBox instance from the supplied inputs.
 
 #### `public SListBox(Coord sz, int itemh)`
 - Role: Creates a new SListBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SListBox instance from the supplied inputs.
 
 #### `protected boolean autoscroll()`
-- Role: Performs autoscroll.
-- Description: Supports the autoscroll operation used by the surrounding class.
+- Role: Handles the autoscroll path.
+- Description: Implements the autoscroll operation.
 
 #### `public int scrollmin()`
-- Role: Performs scrollmin.
-- Description: Supports the scrollmin operation used by the surrounding class.
+- Role: Handles the scrollmin path.
+- Description: Implements the scrollmin operation.
 
 #### `public int scrollmax()`
-- Role: Performs scrollmax.
-- Description: Supports the scrollmax operation used by the surrounding class.
+- Role: Handles the scrollmax path.
+- Description: Implements the scrollmax operation.
 
 #### `public int scrollval()`
-- Role: Performs scrollval.
-- Description: Supports the scrollval operation used by the surrounding class.
+- Role: Handles the scrollval path.
+- Description: Implements the scrollval operation.
 
 #### `public void scrollval(int val)`
-- Role: Performs scrollval.
-- Description: Supports the scrollval operation used by the surrounding class.
+- Role: Handles the scrollval path.
+- Description: Implements the scrollval operation.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public int totalh()`
-- Role: Performs totalh.
-- Description: Supports the totalh operation used by the surrounding class.
+- Role: Handles the totalh path.
+- Description: Implements the totalh operation.
 
 #### `public void minimize()`
-- Role: Performs minimize.
-- Description: Supports the minimize operation used by the surrounding class.
+- Role: Handles the minimize path.
+- Description: Implements the minimize operation.
 
 #### `public void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `public W getcur(I item)`
-- Role: Performs getcur.
-- Description: Supports the getcur operation used by the surrounding class.
+- Role: Handles the getcur path.
+- Description: Returns the cur.
 
 #### `protected void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `protected void drawbg(GOut g, I item, int idx, Area area)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `protected void drawsel(GOut g, I item, int idx, Area area)`
-- Role: Performs drawsel.
-- Description: Supports the drawsel operation used by the surrounding class.
+- Role: Handles the drawsel path.
+- Description: Draws the sel.
 
 #### `protected void drawslot(GOut g, I item, int idx, Area area)`
-- Role: Performs drawslot.
-- Description: Supports the drawslot operation used by the surrounding class.
+- Role: Handles the drawslot path.
+- Description: Draws the slot.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SListBox content.
 
 #### `public int slotat(Coord c)`
-- Role: Performs slotat.
-- Description: Supports the slotat operation used by the surrounding class.
+- Role: Handles the slotat path.
+- Description: Implements the slotat operation.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `protected boolean unselect(int button)`
-- Role: Performs unselect.
-- Description: Supports the unselect operation used by the surrounding class.
+- Role: Handles the unselect path.
+- Description: Implements the unselect operation.
 
 #### `protected boolean slotclick(Coord c, int slot, int button)`
-- Role: Performs slotclick.
-- Description: Supports the slotclick operation used by the surrounding class.
+- Role: Handles the slotclick path.
+- Description: Implements the slotclick operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void display(int idx)`
-- Role: Performs display.
-- Description: Supports the display operation used by the surrounding class.
+- Role: Handles the display path.
+- Description: Implements the display operation.
 
 #### `public void display(I item)`
-- Role: Performs display.
-- Description: Supports the display operation used by the surrounding class.
+- Role: Handles the display path.
+- Description: Implements the display operation.
 
 #### `public void display()`
-- Role: Performs display.
-- Description: Supports the display operation used by the surrounding class.
+- Role: Handles the display path.
+- Description: Implements the display operation.

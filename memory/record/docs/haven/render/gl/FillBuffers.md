@@ -1,5 +1,5 @@
 ---
-source: [FillBuffers.java](../../../../../src/haven/render/gl/FillBuffers.java)
+source: [FillBuffers.java](../../../../../../src/haven/render/gl/FillBuffers.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,51 +22,51 @@ Provides GL backend support for fill buffers.
 ### Fields
 
 #### `private final GLEnvironment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `private final int sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `private boolean pushed = false`
 - Role: Tracks the pushed flag.
-- Description: Supports the pushed operation used by the surrounding class.
+- Description: Caches the `pushed` value for reuse.
 
 #### `private SysBuffer mem = null`
-- Role: Stores the mem value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mem value.
+- Description: Caches the `mem` value for reuse.
 
 ### Methods
 
 #### `public Array(GLEnvironment env, int sz)`
-- Role: Performs array.
-- Description: Supports the array operation used by the surrounding class.
+- Role: Handles the array path.
+- Description: Implements the array operation.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public boolean compatible(Environment env)`
-- Role: Performs compatible.
-- Description: Supports the compatible operation used by the surrounding class.
+- Role: Handles the compatible path.
+- Description: Implements the compatible operation.
 
 #### `public ByteBuffer push()`
-- Role: Performs push.
-- Description: Supports the push operation used by the surrounding class.
+- Role: Handles the push path.
+- Description: Implements the push operation.
 
 #### `public void pull(ByteBuffer buf)`
-- Role: Performs pull.
-- Description: Supports the pull operation used by the surrounding class.
+- Role: Handles the pull path.
+- Description: Implements the pull operation.
 
 #### `public SysBuffer mem()`
-- Role: Performs mem.
-- Description: Supports the mem operation used by the surrounding class.
+- Role: Handles the mem path.
+- Description: Implements the mem operation.
 
 #### `public ByteBuffer data()`
-- Role: Performs data.
-- Description: Supports the data operation used by the surrounding class.
+- Role: Handles the data path.
+- Description: Implements the data operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

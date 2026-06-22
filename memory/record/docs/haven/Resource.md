@@ -1,49 +1,49 @@
 ---
-source: [Resource.java](../../../src/haven/Resource.java)
+source: [Resource.java](../../../../src/haven/Resource.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Resource
 
-Loads and manages client resources.
+Loads client resources, exposes their layers, and keeps the loader/cache infrastructure together.
 
 ## Nested Types
 
 ### AButton
 
-- Role: Represents abutton within Resource.
-- Description: Describes the nested abutton type used by the enclosing class.
+- Role: Describes a clickable resource action.
+- Description: Resource layer used for UI actions and pagina bindings.
 
 ### Anim
 
-- Role: Represents anim within Resource.
-- Description: Describes the nested anim type used by the enclosing class.
+- Role: Describes an animation layer.
+- Description: Resource metadata that drives animation timing and transitions.
 
 ### Audio
 
-- Role: Represents audio within Resource.
-- Description: Describes the nested audio type used by the enclosing class.
+- Role: Describes an audio layer.
+- Description: Resource metadata that exposes sound data for playback.
 
 ### BadResourceException
 
-- Role: Represents bad resource exception within Resource.
-- Description: Describes the nested bad resource exception type used by the enclosing class.
+- Role: Reports a resource loading failure.
+- Description: Exception raised when a resource cannot be decoded or loaded.
 
 ### BadVersionException
 
-- Role: Represents bad version exception within Resource.
-- Description: Describes the nested bad version exception type used by the enclosing class.
+- Role: Reports an unsupported resource version.
+- Description: Exception raised when the resource version does not match the client loader.
 
 ### CacheSource
 
-- Role: Represents cache source within Resource.
-- Description: Describes the nested cache source type used by the enclosing class.
+- Role: Reads resources from the cache.
+- Description: Source implementation that serves resource data from cache storage.
 
 ### Code
 
-- Role: Represents code within Resource.
-- Description: Describes the nested code type used by the enclosing class.
+- Role: Describes a published code layer.
+- Description: Resource layer that carries executable metadata or instantiation hooks.
 
 ### CodeEntry
 
@@ -52,8 +52,8 @@ Loads and manages client resources.
 
 ### FileSource
 
-- Role: Represents file source within Resource.
-- Description: Describes the nested file source type used by the enclosing class.
+- Role: Reads resources from files.
+- Description: Source implementation that serves resource data from the filesystem.
 
 ### Font
 
@@ -72,8 +72,8 @@ Loads and manages client resources.
 
 ### Image
 
-- Role: Represents image within Resource.
-- Description: Describes the nested image type used by the enclosing class.
+- Role: Describes an image layer.
+- Description: Resource layer that exposes a decoded image for rendering.
 
 ### ImageReadException
 
@@ -127,13 +127,13 @@ Loads and manages client resources.
 
 ### Loader
 
-- Role: Represents loader within Resource.
-- Description: Describes the nested loader type used by the enclosing class.
+- Role: Loads resources asynchronously.
+- Description: Helper that resolves resources and coordinates deferred loading work.
 
 ### Loading
 
-- Role: Represents loading within Resource.
-- Description: Describes the nested loading type used by the enclosing class.
+- Role: Represents an in-flight load.
+- Description: Handle returned while a resource is still being loaded.
 
 ### Metadata
 
@@ -142,8 +142,8 @@ Loads and manages client resources.
 
 ### Music
 
-- Role: Represents music within Resource.
-- Description: Describes the nested music type used by the enclosing class.
+- Role: Describes a music layer.
+- Description: Resource metadata that exposes music playback data.
 
 ### Named
 
@@ -172,8 +172,8 @@ Loads and manages client resources.
 
 ### Pagina
 
-- Role: Represents pagina within Resource.
-- Description: Describes the nested pagina type used by the enclosing class.
+- Role: Describes a pagina action.
+- Description: Resource layer used to build menu-grid actions.
 
 ### Pool
 
@@ -255,880 +255,890 @@ Loads and manages client resources.
 ### Constants
 
 #### `public static final Config.Variable<URI> resurl = Config.Variable.propu("haven.resurl", "")`
-- Role: Defines the shared resurl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the resource root configuration.
+- Description: Configurable base URI used when resolving resource files.
+- Value: `Config.Variable.propu("haven.resurl", "")`
 
 #### `public static final Config.Variable<Path> resdir = Config.Variable.propp("haven.resdir", System.getenv("HAFEN_RESDIR"))`
-- Role: Defines the shared resdir constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the resdir operation.
+- Description: Implements the getenv operation.
+- Value: `Config.Variable.propp("haven.resdir", System.getenv("HAFEN_RESDIR"))`
 
 #### `public static final Collection<String> wintraps =`
-- Role: Caches resource entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the wintraps value.
+- Description: Caches the `wintraps` value for reuse.
+- Value: ``
 
 #### `public static final boolean windows = System.getProperty("os.name", "").startsWith("Windows")`
-- Role: Defines the shared windows constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the windows operation.
+- Description: Implements the starts with operation.
+- Value: `System.getProperty("os.name", "").startsWith("Windows")`
 
 #### `private static final boolean[] winsafe`
-- Role: Defines the shared winsafe constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final boolean[] winsafe`
+- Role: Caches the winsafe value.
+- Description: Caches the `winsafe` value for reuse.
 
 #### `public static final Instancer<Object> simple = (cl, res, args) ->`
-- Role: Defines the shared simple constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the simple operation.
+- Description: Implements the public static final instancer<object> simple = (cl, res, args) -> operation.
+- Value: `(cl, res, args) ->`
 
 #### `public static final Map<PublishedCode, Instancer> instancers = new WeakHashMap<>()`
-- Role: Defines the shared instancers constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the instancers operation.
+- Description: Implements the public static final map<published code, instancer> instancers = new weak hash map<>() operation.
+- Value: `new WeakHashMap<>()`
 
 #### `public static final boolean OVERRIDE_ALL = false`
-- Role: Defines the shared override all constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the override all value.
+- Description: Caches the `OVERRIDE_ALL` value for reuse.
+- Value: `false`
 
 #### `private static final Map<Pair<Class<?>, String>, Class<?>> builtinents = new HashMap<>()`
-- Role: Defines the shared builtinents constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the builtinents operation.
+- Description: Implements the private static final map<pair<class<?>, string>, class<?>> builtinents = new hash map<>() operation.
+- Value: `new HashMap<>()`
 
 #### `private static final byte[] RESOURCE_SIG = "Haven Resource 1".getBytes(Utils.ascii)`
-- Role: Defines the shared resource sig constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the resource sig operation.
+- Description: Implements the get bytes operation.
+- Value: `"Haven Resource 1".getBytes(Utils.ascii)`
 
 ### Fields
 
 #### `private static ResCache prscache`
-- Role: Caches prscache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches prscache for reuse.
+- Description: Keeps prscache cached for reuse.
 
 #### `public static ThreadGroup loadergroup = null`
-- Role: Holds the loadergroup state.
-- Description: Backs the cached state for this file.
+- Role: Caches the loadergroup value.
+- Description: Caches the `loadergroup` value for reuse.
 
 #### `private static Map<String, LayerFactory<?>> ltypes = new TreeMap<String, LayerFactory<?>>()`
-- Role: Caches ltypes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the ltypes operation.
+- Description: Implements the private static map<string, layer factory<?>> ltypes = new tree map<string, layer factory<?>>() operation.
 
 #### `public static Class<Image> imgc = Image.class`
-- Role: Stores the imgc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the imgc value.
+- Description: Caches the `imgc` value for reuse.
 
 #### `public static Class<Neg> negc = Neg.class`
-- Role: Holds the negc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the negc value.
+- Description: Caches the `negc` value for reuse.
 
 #### `public static Class<Props> props = Props.class`
-- Role: Holds the props state.
-- Description: Backs the cached state for this file.
+- Role: Caches the props value.
+- Description: Caches the `props` value for reuse.
 
 #### `public static Class<Obstacle> obst = Obstacle.class`
-- Role: Holds the obst state.
-- Description: Backs the cached state for this file.
+- Role: Caches the obst value.
+- Description: Caches the `obst` value for reuse.
 
 #### `public static Class<Anim> animc = Anim.class`
-- Role: Holds the animc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the animc value.
+- Description: Caches the `animc` value for reuse.
 
 #### `public static Class<Pagina> pagina = Pagina.class`
-- Role: Holds the pagina state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pagina value.
+- Description: Caches the `pagina` value for reuse.
 
 #### `public static Class<AButton> action = AButton.class`
-- Role: Holds the action state.
-- Description: Backs the cached state for this file.
+- Role: Caches the action value.
+- Description: Caches the `action` value for reuse.
 
 #### `public static Class<Audio> audio = Audio.class`
-- Role: Stores the audio value.
-- Description: Backs the cached state for this file.
+- Role: Caches the audio value.
+- Description: Caches the `audio` value for reuse.
 
 #### `public static Class<Tooltip> tooltip = Tooltip.class`
-- Role: Holds the tooltip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tooltip value.
+- Description: Caches the `tooltip` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public int ver`
-- Role: Stores the ver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ver value.
+- Description: Caches the `ver` value for reuse.
 
 #### `public ResSource source`
-- Role: Holds the source state.
-- Description: Backs the cached state for this file.
+- Role: Caches the source value.
+- Description: Caches the `source` value for reuse.
 
 #### `public final transient Pool pool`
-- Role: Holds the pool state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pool value.
+- Description: Caches the `pool` value for reuse.
 
 #### `protected Collection<Layer> layers = new LinkedList<Layer>()`
-- Role: Caches layers entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the layers operation.
+- Description: Implements the protected collection<layer> layers = new linked list<layer>() operation.
 
 #### `private boolean used = false`
 - Role: Tracks the used flag.
-- Description: Supports the used operation used by the surrounding class.
+- Description: Caches the `used` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final int ver`
-- Role: Stores the ver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ver value.
+- Description: Caches the `ver` value for reuse.
 
 #### `public final transient Pool pool`
-- Role: Holds the pool state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pool value.
+- Description: Caches the `pool` value for reuse.
 
 #### `public final transient Pool pool`
-- Role: Holds the pool state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pool value.
+- Description: Caches the `pool` value for reuse.
 
 #### `public int prio = 0`
-- Role: Stores the prio value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prio value.
+- Description: Caches the `prio` value for reuse.
 
 #### `private transient Indir<Resource> wver = null`
-- Role: Stores the wver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the wver value.
+- Description: Caches the `wver` value for reuse.
 
 #### `private Throwable verr = null`
-- Role: Holds the verr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the verr value.
+- Description: Caches the `verr` value for reuse.
 
 #### `private transient Resource loaded`
-- Role: Stores the loaded value.
-- Description: Backs the cached state for this file.
+- Role: Tracks whether  has been loaded.
+- Description: Tracks whether  has already been loaded.
 
 #### `public final R rr`
-- Role: Holds the rr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rr value.
+- Description: Caches the `rr` value for reuse.
 
 #### `public final Resource.Resolver bk`
-- Role: Stores the bk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public final Map<Integer, ? extends Object> map`
-- Role: Caches map entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the map value.
+- Description: Caches the `map` value for reuse.
 
 #### `public ResSource back`
-- Role: Holds the back state.
-- Description: Backs the cached state for this file.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `public final transient ResCache cache`
-- Role: Caches cache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches cache for reuse.
+- Description: Keeps cache cached for reuse.
 
 #### `public final String cachedesc`
-- Role: Stores the cachedesc value.
-- Description: Backs the cached state for this file.
+- Role: Caches cachedesc for reuse.
+- Description: Keeps cachedesc cached for reuse.
 
 #### `public final Path base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `public final String base`
-- Role: Stores the base value.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `public URI base`
-- Role: Holds the base state.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `private final Pool.Queued res`
-- Role: Holds the res state.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final int ver`
-- Role: Stores the ver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ver value.
+- Description: Caches the `ver` value for reuse.
 
 #### `public final int curver`
-- Role: Stores the curver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curver value.
+- Description: Caches the `curver` value for reuse.
 
 #### `public final String cursrc`
-- Role: Stores the cursrc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cursrc value.
+- Description: Caches the `cursrc` value for reuse.
 
 #### `public int nloaders = 2`
-- Role: Stores the nloaders value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nloaders value.
+- Description: Caches the `nloaders` value for reuse.
 
 #### `private final Collection<Loader> loaders = new LinkedList<Loader>()`
-- Role: Caches loaders entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Loads the ers.
+- Description: Loads the ers.
 
 #### `private final List<ResSource> sources = new LinkedList<ResSource>()`
-- Role: Caches sources entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the sources operation.
+- Description: Implements the private final list<res source> sources = new linked list<res source>() operation.
 
 #### `private final Map<String, Resource> cache = new CacheMap<String, Resource>()`
-- Role: Caches cache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cache operation.
+- Description: Implements the private final map<string, resource> cache = new cache map<string, resource>() operation.
 
 #### `private final PrioQueue<Queued> queue = new PrioQueue<Queued>()`
-- Role: Caches queue entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queue operation.
+- Description: Implements the private final prio queue<queued> queue = new prio queue<queued>() operation.
 
 #### `private final Map<String, Queued> queued = new HashMap<String, Queued>()`
-- Role: Caches queued entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queued operation.
+- Description: Implements the private final map<string, queued> queued = new hash map<string, queued>() operation.
 
 #### `private final Pool parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `transient final Collection<Queued> rdep = new LinkedList<Queued>()`
-- Role: Caches rdep entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rdep operation.
+- Description: Implements the transient final collection<queued> rdep = new linked list<queued>() operation.
 
 #### `final Waitable.Queue wq = new Waitable.Queue()`
-- Role: Caches wq entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the wq operation.
+- Description: Implements the queue operation.
 
 #### `volatile int prio`
-- Role: Stores the prio value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prio value.
+- Description: Caches the `prio` value for reuse.
 
 #### `Queued awaiting`
-- Role: Holds the awaiting state.
-- Description: Backs the cached state for this file.
+- Role: Caches the awaiting value.
+- Description: Caches the `awaiting` value for reuse.
 
 #### `volatile boolean done = false`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `LoadException error`
-- Role: Holds the error state.
-- Description: Backs the cached state for this file.
+- Role: Caches the error value.
+- Description: Caches the `error` value for reuse.
 
 #### `boolean found = false`
 - Role: Tracks the found flag.
-- Description: Supports the found operation used by the surrounding class.
+- Description: Caches the `found` value for reuse.
 
 #### `private boolean added = false`
 - Role: Tracks the added flag.
-- Description: Supports the added operation used by the surrounding class.
+- Description: Caches the `added` value for reuse.
 
 #### `private final Set<Resource> loadwaited = new HashSet<Resource>()`
-- Role: Caches loadwaited entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Loads the waited.
+- Description: Loads the waited.
 
 #### `private static Pool _local = null`
-- Role: Holds the local state.
-- Description: Backs the cached state for this file.
+- Role: Caches the local value.
+- Description: Caches the `_local` value for reuse.
 
 #### `private static Pool _remote = null`
-- Role: Holds the remote state.
-- Description: Backs the cached state for this file.
+- Role: Caches the remote value.
+- Description: Caches the `_remote` value for reuse.
 
 #### `public Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public ResSource src`
-- Role: Holds the src state.
-- Description: Backs the cached state for this file.
+- Role: Caches the src value.
+- Description: Carries the source drag widget.
 
 #### `public LoadException prev`
-- Role: Holds the prev state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prev value.
+- Description: Caches the `prev` value for reuse.
 
 #### `public final String thing`
-- Role: Stores the thing value.
-- Description: Backs the cached state for this file.
+- Role: Caches the thing value.
+- Description: Carries the object being dragged or hovered.
 
 #### `public final Object found`
-- Role: Holds the found state.
-- Description: Backs the cached state for this file.
+- Role: Caches the found value.
+- Description: Caches the `found` value for reuse.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Pool pool`
-- Role: Holds the pool state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pool value.
+- Description: Caches the `pool` value for reuse.
 
 #### `public final Class<T> cl`
-- Role: Holds the cl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cl value.
+- Description: Caches the `cl` value for reuse.
 
 #### `private final Constructor<T> cons`
-- Role: Holds the cons state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cons value.
+- Description: Caches the `cons` value for reuse.
 
 #### `public final String[] supported = ImageIO.getReaderMIMETypes()`
-- Role: Stores the supported value.
-- Description: Backs the cached state for this file.
+- Role: Implements the supported operation.
+- Description: Implements the get reader mime types operation.
 
 #### `public transient BufferedImage img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `private transient BufferedImage scaled`
-- Role: Stores the scaled value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scaled value.
+- Description: Caches the `scaled` value for reuse.
 
 #### `private transient Tex tex, rawtex`
-- Role: Stores the rawtex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawtex value.
+- Description: Caches the `rawtex` value for reuse.
 
 #### `private transient Tex tex, rawtex`
-- Role: Stores the rawtex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawtex value.
+- Description: Caches the `rawtex` value for reuse.
 
 #### `public final int z, subz`
-- Role: Stores the subz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the subz value.
+- Description: Caches the `subz` value for reuse.
 
 #### `public final int z, subz`
-- Role: Stores the subz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the subz value.
+- Description: Caches the `subz` value for reuse.
 
 #### `public final boolean nooff`
 - Role: Tracks the nooff flag.
-- Description: Supports the nooff operation used by the surrounding class.
+- Description: Caches the `nooff` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Map<String, Object> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public float scale = 1`
-- Role: Stores the scale value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scale value.
+- Description: Caches the `scale` value for reuse.
 
 #### `public Coord sz, o, so, tsz, ssz, stsz`
-- Role: Stores the stsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stsz value.
+- Description: Caches the `stsz` value for reuse.
 
 #### `public Coord sz, o, so, tsz, ssz, stsz`
-- Role: Stores the stsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stsz value.
+- Description: Caches the `stsz` value for reuse.
 
 #### `public Coord sz, o, so, tsz, ssz, stsz`
-- Role: Stores the stsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stsz value.
+- Description: Caches the `stsz` value for reuse.
 
 #### `public Coord sz, o, so, tsz, ssz, stsz`
-- Role: Stores the stsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stsz value.
+- Description: Caches the `stsz` value for reuse.
 
 #### `public Coord sz, o, so, tsz, ssz, stsz`
-- Role: Stores the stsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stsz value.
+- Description: Caches the `stsz` value for reuse.
 
 #### `public Coord sz, o, so, tsz, ssz, stsz`
-- Role: Stores the stsz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stsz value.
+- Description: Caches the `stsz` value for reuse.
 
 #### `public final String t`
-- Role: Stores the t value.
-- Description: Backs the cached state for this file.
+- Role: Caches the t value.
+- Description: Caches the `t` value for reuse.
 
 #### `public Coord cc`
-- Role: Stores the cc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cc value.
+- Description: Caches the `cc` value for reuse.
 
 #### `public Coord[][] ep`
-- Role: Stores the ep value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ep value.
+- Description: Caches the `ep` value for reuse.
 
 #### `public final Map<String, Object> props = new HashMap<>()`
-- Role: Caches props entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the props operation.
+- Description: Implements the public final map<string, object> props = new hash map<>() operation.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Coord2d[][] p`
-- Role: Stores the p value.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 #### `private int[] ids`
-- Role: Stores the ids value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ids value.
+- Description: Caches the `ids` value for reuse.
 
 #### `public int id, d`
-- Role: Stores the d value.
-- Description: Backs the cached state for this file.
+- Role: Caches the d value.
+- Description: Caches the `d` value for reuse.
 
 #### `public int id, d`
-- Role: Stores the d value.
-- Description: Backs the cached state for this file.
+- Role: Caches the d value.
+- Description: Caches the `d` value for reuse.
 
 #### `public Image[][] f`
-- Role: Stores the f value.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `public final String text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final Named parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public final char hk`
-- Role: Stores the hk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hk value.
+- Description: Caches the `hk` value for reuse.
 
 #### `public final String[] ad`
-- Role: Stores the ad value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ad value.
+- Description: Caches the `ad` value for reuse.
 
 #### `Class<? extends Instancer> instancer() default Instancer.class`
-- Role: Holds the instancer state.
-- Description: Backs the cached state for this file.
+- Role: Implements the instancer operation.
+- Description: Implements the instancer operation.
 
 #### `public final Class<I> type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `public final Class<I> type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final Class<R> rtype`
-- Role: Holds the rtype state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rtype value.
+- Description: Caches the `rtype` value for reuse.
 
 #### `public final Class<?>[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 #### `public final Function<Function<Object[], R>, I> maker`
-- Role: Holds the maker state.
-- Description: Backs the cached state for this file.
+- Role: Caches the maker value.
+- Description: Caches the `maker` value for reuse.
 
 #### `public final Class<I> type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `public final Class<R> rtype`
-- Role: Holds the rtype state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rtype value.
+- Description: Caches the `rtype` value for reuse.
 
 #### `public final Class<?>[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 #### `public final Function<Function<Object[], ? extends R>, I> maker`
-- Role: Holds the maker state.
-- Description: Backs the cached state for this file.
+- Role: Caches the maker value.
+- Description: Caches the `maker` value for reuse.
 
 #### `public final Class<I> type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `private final Collection<Instancer<? extends I>> sub = new ArrayList<>()`
-- Role: Caches sub entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the sub operation.
+- Description: Implements the private final collection<instancer<? extends i>> sub = new array list<>() operation.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `transient public final byte[] data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `public final CodeEntry entry`
-- Role: Holds the entry state.
-- Description: Backs the cached state for this file.
+- Role: Caches the entry value.
+- Description: Caches the `entry` value for reuse.
 
 #### `private final ClassLoader[] classpath`
-- Role: Holds the classpath state.
-- Description: Backs the cached state for this file.
+- Role: Caches the classpath value.
+- Description: Caches the `classpath` value for reuse.
 
 #### `public final String clname`
-- Role: Stores the clname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the clname value.
+- Description: Caches the `clname` value for reuse.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private final Map<String, Code> clmap = new HashMap<>()`
-- Role: Caches clmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the clmap operation.
+- Description: Implements the private final map<string, code> clmap = new hash map<>() operation.
 
 #### `private final Map<String, String> pe = new HashMap<>()`
-- Role: Caches pe entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pe operation.
+- Description: Implements the private final map<string, string> pe = new hash map<>() operation.
 
 #### `private final Map<String, Object[]> pa = new HashMap<>()`
-- Role: Caches pa entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pa operation.
+- Description: Implements the private final map<string, object[]> pa = new hash map<>() operation.
 
 #### `private final Collection<Indir<Resource>> classpath = new ArrayList<>()`
-- Role: Caches classpath entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the classpath operation.
+- Description: Implements the private final collection<indir<resource>> classpath = new array list<>() operation.
 
 #### `transient private ClassLoader loader`
-- Role: Holds the loader state.
-- Description: Backs the cached state for this file.
+- Role: Caches the loader value.
+- Description: Caches the `loader` value for reuse.
 
 #### `transient private final Map<String, Class<?>> lpe = new HashMap<>()`
-- Role: Caches lpe entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the lpe operation.
+- Description: Implements the transient private final map<string, class<?>> lpe = new hash map<>() operation.
 
 #### `transient private final Map<String, Object> ipe = new HashMap<>()`
-- Role: Caches ipe entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the ipe operation.
+- Description: Implements the transient private final map<string, object> ipe = new hash map<>() operation.
 
 #### `transient public byte[] coded`
-- Role: Stores the coded value.
-- Description: Backs the cached state for this file.
+- Role: Caches the coded value.
+- Description: Caches the `coded` value for reuse.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Map<String, Object> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public double bvol = 1.0`
-- Role: Stores the bvol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bvol value.
+- Description: Caches the `bvol` value for reuse.
 
 #### `transient javax.sound.midi.Sequence seq`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the seq value.
+- Description: Caches the `seq` value for reuse.
 
 #### `public transient final java.awt.Font font`
-- Role: Holds the font state.
-- Description: Backs the cached state for this file.
+- Role: Caches the font value.
+- Description: Caches the `font` value for reuse.
 
 #### `private transient Named indir = null`
-- Role: Holds the indir state.
-- Description: Backs the cached state for this file.
+- Role: Caches the indir value.
+- Description: Caches the `indir` value for reuse.
 
 ### Methods
 
 #### `public Named(String name, int ver)`
-- Role: Performs named.
-- Description: Supports the named operation used by the surrounding class.
+- Role: Handles the named path.
+- Description: Implements the named operation.
 
 #### `public boolean equals(Object other)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public Spec(Pool pool, String name, int ver)`
-- Role: Performs spec.
-- Description: Supports the spec operation used by the surrounding class.
+- Role: Handles the spec path.
+- Description: Implements the spec operation.
 
 #### `public Spec(Pool pool, String name)`
-- Role: Performs spec.
-- Description: Supports the spec operation used by the surrounding class.
+- Role: Handles the spec path.
+- Description: Implements the spec operation.
 
 #### `public Resource get(int prio)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Resource get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Saved(Pool pool, String name, int ver)`
-- Role: Performs saved.
-- Description: Supports the saved operation used by the surrounding class.
+- Role: Handles the saved path.
+- Description: Implements the saved operation.
 
 #### `public Resource get(int prio)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Resource get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public int savever()`
-- Role: Performs savever.
-- Description: Supports the savever operation used by the surrounding class.
+- Role: Handles the savever path.
+- Description: Saves the ver.
 
 #### `public Indir<Resource> getres(int id)`
 - Role: Returns the resource.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public default Indir<Resource> dynres(UID uid)`
-- Role: Performs dynres.
-- Description: Supports the dynres operation used by the surrounding class.
+- Role: Handles the dynres path.
+- Description: Implements the dynres operation.
 
 #### `public Descriptor(R rr)`
-- Role: Performs descriptor.
-- Description: Supports the descriptor operation used by the surrounding class.
+- Role: Handles the descriptor path.
+- Description: Implements the descriptor operation.
 
 #### `public Maybe<Indir<Resource>> opt(Object desc)`
-- Role: Performs opt.
-- Description: Supports the opt operation used by the surrounding class.
+- Role: Handles the opt path.
+- Description: Implements the opt operation.
 
 #### `public default PType<Indir<Resource>> desc()`
-- Role: Performs desc.
-- Description: Supports the desc operation used by the surrounding class.
+- Role: Handles the desc path.
+- Description: Implements the desc operation.
 
 #### `public default Indir<Resource> getresv(Object desc)`
-- Role: Performs getresv.
-- Description: Supports the getresv operation used by the surrounding class.
+- Role: Handles the getresv path.
+- Description: Returns the resv.
 
 #### `public ResourceMap(Resource.Resolver bk, Map<Integer, ? extends Object> map)`
-- Role: Performs resource map.
-- Description: Supports the resource map operation used by the surrounding class.
+- Role: Handles the resource map path.
+- Description: Implements the resource map operation.
 
 #### `public ResourceMap(Resource.Resolver bk, Message data)`
-- Role: Performs resource map.
-- Description: Supports the resource map operation used by the surrounding class.
+- Role: Handles the resource map path.
+- Description: Implements the resource map operation.
 
 #### `public ResourceMap(Resource.Resolver bk, Object[] args)`
-- Role: Performs resource map.
-- Description: Supports the resource map operation used by the surrounding class.
+- Role: Handles the resource map path.
+- Description: Implements the resource map operation.
 
 #### `public static Map<Integer, Integer> decode(Message sdt)`
-- Role: Performs decode.
-- Description: Supports the decode operation used by the surrounding class.
+- Role: Handles the decode path.
+- Description: Implements the decode operation.
 
 #### `public static Map<Integer, ? extends Object> decode(Object[] args)`
-- Role: Performs decode.
-- Description: Supports the decode operation used by the surrounding class.
+- Role: Handles the decode path.
+- Description: Implements the decode operation.
 
 #### `public Indir<Resource> getres(int id)`
 - Role: Returns the resource.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public Indir<Resource> dynres(UID uid)`
-- Role: Performs dynres.
-- Description: Supports the dynres operation used by the surrounding class.
+- Role: Handles the dynres path.
+- Description: Implements the dynres operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `private Resource(Pool pool, String name, int ver)`
 - Role: Creates a new Resource instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Resource instance from the supplied inputs.
 
 #### `public Virtual(Pool pool, String name, int ver)`
-- Role: Performs virtual.
-- Description: Supports the virtual operation used by the surrounding class.
+- Role: Handles the virtual path.
+- Description: Implements the virtual operation.
 
 #### `public void add(Layer layer)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public static void setcache(ResCache cache)`
-- Role: Performs setcache.
-- Description: Supports the setcache operation used by the surrounding class.
+- Role: Handles the setcache path.
+- Description: Updates the cache.
 
 #### `public String basename()`
-- Role: Performs basename.
-- Description: Supports the basename operation used by the surrounding class.
+- Role: Handles the basename path.
+- Description: Implements the basename operation.
 
 #### `public InputStream get(String name) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public TeeSource(ResSource back)`
-- Role: Performs tee source.
-- Description: Supports the tee source operation used by the surrounding class.
+- Role: Handles the tee source path.
+- Description: Implements the tee source operation.
 
 #### `public InputStream get(String name) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public abstract OutputStream fork(String name) throws IOException`
 - Role: Handles the fork workflow.
-- Description: Supports the fork operation used by the surrounding class.
+- Description: Implements the fork operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public CacheSource(ResCache cache)`
-- Role: Performs cache source.
-- Description: Supports the cache source operation used by the surrounding class.
+- Role: Handles the cache source path.
+- Description: Implements the cache source operation.
 
 #### `public InputStream get(String name) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public static boolean winsafechar(char c)`
-- Role: Performs winsafechar.
-- Description: Supports the winsafechar operation used by the surrounding class.
+- Role: Handles the winsafechar path.
+- Description: Implements the winsafechar operation.
 
 #### `public FileSource(Path base)`
-- Role: Performs file source.
-- Description: Supports the file source operation used by the surrounding class.
+- Role: Handles the file source path.
+- Description: Implements the file source operation.
 
 #### `private static String checkpart(String part, String whole) throws FileNotFoundException`
 - Role: Handles the checkpart workflow.
-- Description: Supports the checkpart operation used by the surrounding class.
+- Description: Implements the checkpart operation.
 
 #### `public InputStream get(String name) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public JarSource(String base)`
-- Role: Performs jar source.
-- Description: Supports the jar source operation used by the surrounding class.
+- Role: Handles the jar source path.
+- Description: Implements the jar source operation.
 
 #### `public InputStream get(String name) throws FileNotFoundException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public HttpSource(URI base)`
-- Role: Performs http source.
-- Description: Supports the http source operation used by the surrounding class.
+- Role: Handles the http source path.
+- Description: Implements the http source operation.
 
 #### `private URI encodeuri(URI raw) throws IOException`
 - Role: Handles the encodeuri workflow.
-- Description: Supports the encodeuri operation used by the surrounding class.
+- Description: Implements the encodeuri operation.
 
 #### `public InputStream get(String name) throws IOException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `private Loading(Pool.Queued res)`
-- Role: Performs loading.
-- Description: Supports the loading operation used by the surrounding class.
+- Role: Handles the loading path.
+- Description: Implements the loading operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public boolean boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Requests a higher priority for the loading wait.
 
 #### `public BadResourceException(String name, int ver, String message, Throwable cause)`
-- Role: Performs bad resource exception.
-- Description: Supports the bad resource exception operation used by the surrounding class.
+- Role: Handles the bad resource exception path.
+- Description: Implements the bad resource exception operation.
 
 #### `public BadResourceException(String name, int ver, String message)`
-- Role: Performs bad resource exception.
-- Description: Supports the bad resource exception operation used by the surrounding class.
+- Role: Handles the bad resource exception path.
+- Description: Implements the bad resource exception operation.
 
 #### `public BadResourceException(String name, int ver, Throwable cause)`
-- Role: Performs bad resource exception.
-- Description: Supports the bad resource exception operation used by the surrounding class.
+- Role: Handles the bad resource exception path.
+- Description: Implements the bad resource exception operation.
 
 #### `public BadResourceException(String name, int ver)`
-- Role: Performs bad resource exception.
-- Description: Supports the bad resource exception operation used by the surrounding class.
+- Role: Handles the bad resource exception path.
+- Description: Implements the bad resource exception operation.
 
 #### `public LoadFailedException(String name, int ver, LoadException cause)`
-- Role: Performs load failed exception.
-- Description: Supports the load failed exception operation used by the surrounding class.
+- Role: Handles the load failed exception path.
+- Description: Implements the load failed exception operation.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `public NoSuchResourceException(String name, int ver, LoadException cause)`
-- Role: Performs no such resource exception.
-- Description: Supports the no such resource exception operation used by the surrounding class.
+- Role: Handles the no such resource exception path.
+- Description: Implements the no such resource exception operation.
 
 #### `public BadVersionException(String name, int ver, int curver, ResSource cursrc)`
-- Role: Performs bad version exception.
-- Description: Supports the bad version exception operation used by the surrounding class.
+- Role: Handles the bad version exception path.
+- Description: Implements the bad version exception operation.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `public Pool(Pool parent, ResSource... sources)`
-- Role: Performs pool.
-- Description: Supports the pool operation used by the surrounding class.
+- Role: Handles the pool path.
+- Description: Implements the pool operation.
 
 #### `public Pool(ResSource... sources)`
-- Role: Performs pool.
-- Description: Supports the pool operation used by the surrounding class.
+- Role: Handles the pool path.
+- Description: Implements the pool operation.
 
 #### `public void add(ResSource src)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `Queued(String name, int ver, int prio)`
 - Role: Handles the queued workflow.
-- Description: Supports the queued operation used by the surrounding class.
+- Description: Implements the queued operation.
 
 #### `public int priority()`
-- Role: Performs priority.
-- Description: Supports the priority operation used by the surrounding class.
+- Role: Handles the priority path.
+- Description: Implements the priority operation.
 
 #### `public void boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Requests a higher priority for the loading wait.
 
 #### `public Resource get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private void done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `private void prior(Queued prior)`
-- Role: Performs prior.
-- Description: Supports the prior operation used by the surrounding class.
+- Role: Handles the prior path.
+- Description: Implements the prior operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `private void handle(Queued res)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public Named load(String name, int ver, int prio)`
 - Role: Loads the target data.
@@ -1143,549 +1153,549 @@ Loads and manages client resources.
 - Description: Loads the target data into the in-memory state.
 
 #### `public Indir<Resource> dynres(long id)`
-- Role: Performs dynres.
-- Description: Supports the dynres operation used by the surrounding class.
+- Role: Handles the dynres path.
+- Description: Implements the dynres operation.
 
 #### `public Indir<Resource> dynres(UID id)`
-- Role: Performs dynres.
-- Description: Supports the dynres operation used by the surrounding class.
+- Role: Handles the dynres path.
+- Description: Implements the dynres operation.
 
 #### `private void ckld()`
-- Role: Performs ckld.
-- Description: Supports the ckld operation used by the surrounding class.
+- Role: Handles the ckld path.
+- Description: Implements the ckld operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public int qdepth()`
-- Role: Performs qdepth.
-- Description: Supports the qdepth operation used by the surrounding class.
+- Role: Handles the qdepth path.
+- Description: Implements the qdepth operation.
 
 #### `public int numloaded()`
-- Role: Performs numloaded.
-- Description: Supports the numloaded operation used by the surrounding class.
+- Role: Handles the numloaded path.
+- Description: Implements the numloaded operation.
 
 #### `public Collection<Resource> cached()`
-- Role: Performs cached.
-- Description: Supports the cached operation used by the surrounding class.
+- Role: Handles the cached path.
+- Description: Implements the cached operation.
 
 #### `public Collection<Resource> used()`
-- Role: Performs used.
-- Description: Supports the used operation used by the surrounding class.
+- Role: Handles the used path.
+- Description: Implements the used operation.
 
 #### `public Collection<Resource> loadwaited()`
-- Role: Performs loadwaited.
-- Description: Supports the loadwaited operation used by the surrounding class.
+- Role: Handles the loadwaited path.
+- Description: Loads the waited.
 
 #### `private Resource loadwaited(Resource res)`
-- Role: Performs loadwaited.
-- Description: Supports the loadwaited operation used by the surrounding class.
+- Role: Handles the loadwaited path.
+- Description: Loads the waited.
 
 #### `public Resource loadwaitint(String name, int ver) throws InterruptedException`
 - Role: Handles the loadwaitint workflow.
-- Description: Supports the loadwaitint operation used by the surrounding class.
+- Description: Loads the waitint.
 
 #### `public Resource loadwaitint(String name) throws InterruptedException`
 - Role: Handles the loadwaitint workflow.
-- Description: Supports the loadwaitint operation used by the surrounding class.
+- Description: Loads the waitint.
 
 #### `public Resource loadwait(String name, int ver)`
-- Role: Performs loadwait.
-- Description: Supports the loadwait operation used by the surrounding class.
+- Role: Handles the loadwait path.
+- Description: Loads the wait.
 
 #### `public Resource loadwait(String name)`
-- Role: Performs loadwait.
-- Description: Supports the loadwait operation used by the surrounding class.
+- Role: Handles the loadwait path.
+- Description: Loads the wait.
 
 #### `public static Pool local()`
-- Role: Performs local.
-- Description: Supports the local operation used by the surrounding class.
+- Role: Handles the local path.
+- Description: Implements the local operation.
 
 #### `public static Pool remote()`
-- Role: Performs remote.
-- Description: Supports the remote operation used by the surrounding class.
+- Role: Handles the remote path.
+- Description: Implements the remote operation.
 
 #### `public static void addurl(URI uri)`
-- Role: Performs addurl.
-- Description: Supports the addurl operation used by the surrounding class.
+- Role: Handles the addurl path.
+- Description: Adds the url.
 
 #### `public LoadException(String msg, Resource res)`
-- Role: Performs load exception.
-- Description: Supports the load exception operation used by the surrounding class.
+- Role: Handles the load exception path.
+- Description: Implements the load exception operation.
 
 #### `public LoadException(String msg, Throwable cause, Resource res)`
-- Role: Performs load exception.
-- Description: Supports the load exception operation used by the surrounding class.
+- Role: Handles the load exception path.
+- Description: Implements the load exception operation.
 
 #### `public LoadException(Throwable cause, Resource res)`
-- Role: Performs load exception.
-- Description: Supports the load exception operation used by the surrounding class.
+- Role: Handles the load exception path.
+- Description: Implements the load exception operation.
 
 #### `public UnknownFormatException(Resource res, String thing, Object found)`
-- Role: Performs unknown format exception.
-- Description: Supports the unknown format exception operation used by the surrounding class.
+- Role: Handles the unknown format exception path.
+- Description: Implements the unknown format exception operation.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `public LoadWarning(Resource res, String msg)`
-- Role: Performs load warning.
-- Description: Supports the load warning operation used by the surrounding class.
+- Role: Handles the load warning path.
+- Description: Implements the load warning operation.
 
 #### `public LoadWarning(Resource res, String msg, Object... args)`
-- Role: Performs load warning.
-- Description: Supports the load warning operation used by the surrounding class.
+- Role: Handles the load warning path.
+- Description: Implements the load warning operation.
 
 #### `public static Coord cdec(Message buf)`
-- Role: Performs cdec.
-- Description: Supports the cdec operation used by the surrounding class.
+- Role: Handles the cdec path.
+- Description: Implements the cdec operation.
 
 #### `public PoolMapper(Pool pool)`
-- Role: Performs pool mapper.
-- Description: Supports the pool mapper operation used by the surrounding class.
+- Role: Handles the pool mapper path.
+- Description: Implements the pool mapper operation.
 
 #### `public Object apply(Object obj)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public abstract void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Resource getres()`
 - Role: Returns the resource.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `protected Function<Object, Object> resmapper()`
-- Role: Performs resmapper.
-- Description: Supports the resmapper operation used by the surrounding class.
+- Role: Handles the resmapper path.
+- Description: Implements the resmapper operation.
 
 #### `public T cons(Resource res, Message buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public LayerConstructor(Class<T> cl)`
-- Role: Performs layer constructor.
-- Description: Supports the layer constructor operation used by the surrounding class.
+- Role: Handles the layer constructor path.
+- Description: Implements the layer constructor operation.
 
 #### `public T cons(Resource res, Message buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public static void addltype(String name, LayerFactory<?> cons)`
-- Role: Performs addltype.
-- Description: Supports the addltype operation used by the surrounding class.
+- Role: Handles the addltype path.
+- Description: Adds the ltype.
 
 #### `public static <T extends Layer> void addltype(String name, Class<T> cl)`
-- Role: Performs addltype.
-- Description: Supports the addltype operation used by the surrounding class.
+- Role: Handles the addltype path.
+- Description: Adds the ltype.
 
 #### `public String value()`
-- Role: Performs value.
-- Description: Supports the value operation used by the surrounding class.
+- Role: Handles the value path.
+- Description: Implements the value operation.
 
 #### `public Map<?, ?> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public T layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public ImageReadException()`
-- Role: Performs image read exception.
-- Description: Supports the image read exception operation used by the surrounding class.
+- Role: Handles the image read exception path.
+- Description: Implements the image read exception operation.
 
 #### `public static BufferedImage readimage(InputStream fp) throws IOException`
 - Role: Handles the readimage workflow.
-- Description: Supports the readimage operation used by the surrounding class.
+- Description: Implements the readimage operation.
 
 #### `public Image(Message buf)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public BufferedImage scaled()`
-- Role: Performs scaled.
-- Description: Supports the scaled operation used by the surrounding class.
+- Role: Handles the scaled path.
+- Description: Implements the scaled operation.
 
 #### `public Tex rawtex()`
-- Role: Performs rawtex.
-- Description: Supports the rawtex operation used by the surrounding class.
+- Role: Handles the rawtex path.
+- Description: Implements the rawtex operation.
 
 #### `public Tex tex()`
-- Role: Performs tex.
-- Description: Supports the tex operation used by the surrounding class.
+- Role: Handles the texture path.
+- Description: Implements the tex operation.
 
 #### `public Integer layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public Map<String, Object> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Tooltip(Message buf)`
-- Role: Performs tooltip.
-- Description: Supports the tooltip operation used by the surrounding class.
+- Role: Handles the tooltip path.
+- Description: Implements the tooltip operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Neg(Message buf)`
-- Role: Performs neg.
-- Description: Supports the neg operation used by the surrounding class.
+- Role: Handles the neg path.
+- Description: Implements the neg operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Props(Message buf)`
-- Role: Performs props.
-- Description: Supports the props operation used by the surrounding class.
+- Role: Handles the props path.
+- Description: Implements the props operation.
 
 #### `public Object get(String nm)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Obstacle(Message buf)`
-- Role: Performs obstacle.
-- Description: Supports the obstacle operation used by the surrounding class.
+- Role: Handles the obstacle path.
+- Description: Implements the obstacle operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public String layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public Anim(Message buf)`
-- Role: Performs anim.
-- Description: Supports the anim operation used by the surrounding class.
+- Role: Handles the anim path.
+- Description: Implements the anim operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Pagina(Message buf)`
-- Role: Performs pagina.
-- Description: Supports the pagina operation used by the surrounding class.
+- Role: Handles the pagina path.
+- Description: Implements the pagina operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public AButton(Message buf)`
-- Role: Performs abutton.
-- Description: Supports the abutton operation used by the surrounding class.
+- Role: Handles the abutton path.
+- Description: Implements the a button operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `Class<? extends Instancer> instancer() default Instancer.class`
 - Role: Handles the instancer workflow.
-- Description: Supports the instancer operation used by the surrounding class.
+- Description: Implements the instancer operation.
 
 #### `public I make(Class<?> cl, Resource res, Object... args)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public static <T, U extends T> T stdmake(Class<T> type, Class<U> cl, Resource ires, Object[] args)`
-- Role: Performs stdmake.
-- Description: Supports the stdmake operation used by the surrounding class.
+- Role: Handles the stdmake path.
+- Description: Implements the stdmake operation.
 
 #### `public Direct(Class<I> type)`
-- Role: Performs direct.
-- Description: Supports the direct operation used by the surrounding class.
+- Role: Handles the direct path.
+- Description: Implements the direct operation.
 
 #### `public I make(Class<?> cl, Resource res, Object... args)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public StaticCall(Class<I> type, String name, Class<R> rtype, Class<?>[] args, Function<Function<Object[], R>, I> maker)`
-- Role: Performs static call.
-- Description: Supports the static call operation used by the surrounding class.
+- Role: Handles the static call path.
+- Description: Implements the static call operation.
 
 #### `public I make(Class <?> cl, Resource res, Object... args)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public Construct(Class<I> type, Class<R> rtype, Class<?>[] args, Function<Function<Object[], ? extends R>, I> maker)`
-- Role: Performs construct.
-- Description: Supports the construct operation used by the surrounding class.
+- Role: Handles the construct path.
+- Description: Implements the construct operation.
 
 #### `public I make(Class <?> cl, Resource res, Object... args)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public Chain(Class<I> type)`
-- Role: Performs chain.
-- Description: Supports the chain operation used by the surrounding class.
+- Role: Handles the chain path.
+- Description: Implements the chain operation.
 
 #### `public void add(Instancer<? extends I> el)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public I make(Class<?> cl, Resource res, Object... args)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public Class<?> type()`
-- Role: Performs type.
-- Description: Supports the type operation used by the surrounding class.
+- Role: Handles the type path.
+- Description: Implements the type operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public Code(Message buf)`
-- Role: Performs code.
-- Description: Supports the code operation used by the surrounding class.
+- Role: Handles the code path.
+- Description: Implements the code operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public ResClassLoader(ClassLoader parent, CodeEntry entry)`
-- Role: Performs res class loader.
-- Description: Supports the res class loader operation used by the surrounding class.
+- Role: Handles the resource class loader path.
+- Description: Implements the res class loader operation.
 
 #### `public Code findcode(String name)`
-- Role: Performs findcode.
-- Description: Supports the findcode operation used by the surrounding class.
+- Role: Handles the findcode path.
+- Description: Finds the code.
 
 #### `public Class<?> findClass(String name) throws ClassNotFoundException`
 - Role: Handles the find class workflow.
-- Description: Supports the find class operation used by the surrounding class.
+- Description: Finds the class.
 
 #### `public static FromResource getsource(Class<?> cl)`
-- Role: Performs getsource.
-- Description: Supports the getsource operation used by the surrounding class.
+- Role: Handles the getsource path.
+- Description: Returns the source.
 
 #### `public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException`
 - Role: Handles the load class workflow.
-- Description: Supports the load class operation used by the surrounding class.
+- Description: Loads the class.
 
 #### `public Resource getres()`
 - Role: Returns the resource.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public LibClassLoader(ClassLoader parent, Collection<ClassLoader> classpath)`
-- Role: Performs lib class loader.
-- Description: Supports the lib class loader operation used by the surrounding class.
+- Role: Handles the lib class loader path.
+- Description: Implements the lib class loader operation.
 
 #### `public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException`
 - Role: Handles the load class workflow.
-- Description: Supports the load class operation used by the surrounding class.
+- Description: Loads the class.
 
 #### `public ResourceClassNotFoundException(String clname, Resource res)`
-- Role: Performs resource class not found exception.
-- Description: Supports the resource class not found exception operation used by the surrounding class.
+- Role: Handles the resource class not found exception path.
+- Description: Implements the resource class not found exception operation.
 
 #### `public CodeEntry(Message buf)`
-- Role: Performs code entry.
-- Description: Supports the code entry operation used by the surrounding class.
+- Role: Handles the code entry path.
+- Description: Implements the code entry operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public ClassLoader loader()`
-- Role: Performs loader.
-- Description: Supports the loader operation used by the surrounding class.
+- Role: Handles the loader path.
+- Description: Loads the er.
 
 #### `private Class<?> getentry(Class<?> cl, boolean fail)`
-- Role: Performs getentry.
-- Description: Supports the getentry operation used by the surrounding class.
+- Role: Handles the getentry path.
+- Description: Returns the entry.
 
 #### `public <T> Class<? extends T> getcl(Class<T> cl, boolean fail)`
-- Role: Performs getcl.
-- Description: Supports the getcl operation used by the surrounding class.
+- Role: Handles the getcl path.
+- Description: Returns the cl.
 
 #### `public <T> Class<? extends T> getcl(Class<T> cl)`
-- Role: Performs getcl.
-- Description: Supports the getcl operation used by the surrounding class.
+- Role: Handles the getcl path.
+- Description: Returns the cl.
 
 #### `public <T> T get(Class<T> cl, boolean fail)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public <T> T get(Class<T> cl)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static Resource classres(final Class<?> cl)`
-- Role: Performs classres.
-- Description: Supports the classres operation used by the surrounding class.
+- Role: Handles the classres path.
+- Description: Implements the classres operation.
 
 #### `public <T> T getcode(Class<T> cl, boolean fail)`
-- Role: Performs getcode.
-- Description: Supports the getcode operation used by the surrounding class.
+- Role: Handles the getcode path.
+- Description: Returns the code.
 
 #### `public Audio(Message buf)`
-- Role: Performs audio.
-- Description: Supports the audio operation used by the surrounding class.
+- Role: Handles the audio path.
+- Description: Implements the audio operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public haven.Audio.CS stream()`
-- Role: Performs stream.
-- Description: Supports the stream operation used by the surrounding class.
+- Role: Handles the stream path.
+- Description: Implements the stream operation.
 
 #### `public String layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public Map<String, Object> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public double bvol()`
-- Role: Performs bvol.
-- Description: Supports the bvol operation used by the surrounding class.
+- Role: Handles the bvol path.
+- Description: Implements the bvol operation.
 
 #### `public Music(Message buf)`
-- Role: Performs music.
-- Description: Supports the music operation used by the surrounding class.
+- Role: Handles the music path.
+- Description: Implements the music operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Font(Message buf)`
-- Role: Performs font.
-- Description: Supports the font operation used by the surrounding class.
+- Role: Handles the font path.
+- Description: Implements the font operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `private void readall(InputStream in, byte[] buf) throws IOException`
 - Role: Handles the readall workflow.
-- Description: Supports the readall operation used by the surrounding class.
+- Description: Implements the readall operation.
 
 #### `public <L extends Layer> Collection<L> layers(final Class<L> cl)`
-- Role: Performs layers.
-- Description: Supports the layers operation used by the surrounding class.
+- Role: Handles the layers path.
+- Description: Implements the layers operation.
 
 #### `public NoSuchLayerException(String message)`
-- Role: Performs no such layer exception.
-- Description: Supports the no such layer exception operation used by the surrounding class.
+- Role: Handles the no such layer exception path.
+- Description: Implements the no such layer exception operation.
 
 #### `public <L extends Layer> L layer(Class<L> cl)`
-- Role: Performs layer.
-- Description: Supports the layer operation used by the surrounding class.
+- Role: Handles the layer path.
+- Description: Implements the layer operation.
 
 #### `public <L extends Layer> L flayer(Class<L> cl)`
-- Role: Performs flayer.
-- Description: Supports the flayer operation used by the surrounding class.
+- Role: Handles the flayer path.
+- Description: Implements the flayer operation.
 
 #### `public <L> Collection<L> layers(Class<L> cl, Predicate<? super L> sel)`
-- Role: Performs layers.
-- Description: Supports the layers operation used by the surrounding class.
+- Role: Handles the layers path.
+- Description: Implements the layers operation.
 
 #### `public <L> L layer(Class<L> cl, Predicate<? super L> sel)`
-- Role: Performs layer.
-- Description: Supports the layer operation used by the surrounding class.
+- Role: Handles the layer path.
+- Description: Implements the layer operation.
 
 #### `public <L> L flayer(Class<L> cl, Predicate<? super L> sel)`
-- Role: Performs flayer.
-- Description: Supports the flayer operation used by the surrounding class.
+- Role: Handles the flayer path.
+- Description: Implements the flayer operation.
 
 #### `public <I, L extends IDLayer<I>> L layer(Class<L> cl, I id)`
-- Role: Performs layer.
-- Description: Supports the layer operation used by the surrounding class.
+- Role: Handles the layer path.
+- Description: Implements the layer operation.
 
 #### `public <I, L extends IDLayer<I>> L flayer(Class<L> cl, I id)`
-- Role: Performs flayer.
-- Description: Supports the flayer operation used by the surrounding class.
+- Role: Handles the flayer path.
+- Description: Implements the flayer operation.
 
 #### `public boolean equals(Object other)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `private void load(Message in)`
 - Role: Loads the target data.
 - Description: Loads the target data into the in-memory state.
 
 #### `public Named indir()`
-- Role: Performs indir.
-- Description: Supports the indir operation used by the surrounding class.
+- Role: Handles the indir path.
+- Description: Implements the indir operation.
 
 #### `public static Image loadrimg(String name)`
-- Role: Performs loadrimg.
-- Description: Supports the loadrimg operation used by the surrounding class.
+- Role: Handles the loadrimg path.
+- Description: Loads the rimg.
 
 #### `public static BufferedImage loadimg(String name)`
-- Role: Performs loadimg.
-- Description: Supports the loadimg operation used by the surrounding class.
+- Role: Handles the loadimg path.
+- Description: Loads the img.
 
 #### `public static BufferedImage loadsimg(String name)`
-- Role: Performs loadsimg.
-- Description: Supports the loadsimg operation used by the surrounding class.
+- Role: Handles the loadsimg path.
+- Description: Loads the simg.
 
 #### `public static Tex loadtex(String name)`
-- Role: Performs loadtex.
-- Description: Supports the loadtex operation used by the surrounding class.
+- Role: Handles the loadtex path.
+- Description: Loads the tex.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Resource for debugging and logging.
 
 #### `public static void loadlist(Pool pool, InputStream list, int prio) throws IOException`
 - Role: Handles the loadlist workflow.
-- Description: Supports the loadlist operation used by the surrounding class.
+- Description: Loads the list.
 
 #### `public static void dumplist(Collection<Resource> list, Writer dest)`
-- Role: Performs dumplist.
-- Description: Supports the dumplist operation used by the surrounding class.
+- Role: Handles the dumplist path.
+- Description: Implements the dumplist operation.
 
 #### `public static void updateloadlist(Path file, Path resdir) throws Exception`
 - Role: Handles the updateloadlist workflow.
-- Description: Supports the updateloadlist operation used by the surrounding class.
+- Description: Updates the loadlist.
 
 #### `private static void usage_getcode(PrintStream out)`
-- Role: Performs usage getcode.
-- Description: Supports the usage getcode operation used by the surrounding class.
+- Role: Handles the usage getcode path.
+- Description: Implements the usage getcode operation.
 
 #### `public static void cmd_getcode(String[] args)`
-- Role: Performs cmd getcode.
-- Description: Supports the cmd getcode operation used by the surrounding class.
+- Role: Handles the cmd getcode path.
+- Description: Implements the cmd getcode operation.
 
 #### `private static void usage_findupdates(PrintStream out)`
-- Role: Performs usage findupdates.
-- Description: Supports the usage findupdates operation used by the surrounding class.
+- Role: Handles the usage findupdates path.
+- Description: Implements the usage findupdates operation.
 
 #### `public static void cmd_findupdates(String[] args)`
-- Role: Performs cmd findupdates.
-- Description: Supports the cmd findupdates operation used by the surrounding class.
+- Role: Handles the cmd findupdates path.
+- Description: Implements the cmd findupdates operation.
 
 #### `public static void main(String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

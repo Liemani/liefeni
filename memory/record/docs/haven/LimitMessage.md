@@ -1,5 +1,5 @@
 ---
-source: [LimitMessage.java](../../../src/haven/LimitMessage.java)
+source: [LimitMessage.java](../../../../src/haven/LimitMessage.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Represents the limit message Haven component.
 ### Fields
 
 #### `private final Message bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `private int left`
-- Role: Stores the left value.
-- Description: Backs the cached state for this file.
+- Role: Caches the left value.
+- Description: Caches the `left` value for reuse.
 
 #### `private final boolean eoferror`
 - Role: Tracks the eoferror flag.
-- Description: Supports the eoferror operation used by the surrounding class.
+- Description: Caches the `eoferror` value for reuse.
 
 ### Methods
 
 #### `public LimitMessage(Message bk, int left, boolean eoferror)`
 - Role: Creates a new LimitMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LimitMessage instance from the supplied inputs.
 
 #### `public LimitMessage(Message bk, int left)`
 - Role: Creates a new LimitMessage instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LimitMessage instance from the supplied inputs.
 
 #### `public boolean underflow(int hint)`
-- Role: Performs underflow.
-- Description: Supports the underflow operation used by the surrounding class.
+- Role: Handles the underflow path.
+- Description: Implements the underflow operation.
 
 #### `public void overflow(int min)`
-- Role: Performs overflow.
-- Description: Supports the overflow operation used by the surrounding class.
+- Role: Handles the overflow path.
+- Description: Implements the overflow operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this LimitMessage for debugging and logging.

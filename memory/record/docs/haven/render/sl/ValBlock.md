@@ -1,230 +1,197 @@
 ---
-source: [ValBlock.java](../../../../../src/haven/render/sl/ValBlock.java)
+source: [ValBlock.java](../../../../../../src/haven/render/sl/ValBlock.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # ValBlock
 
-Represents the val block shader-language AST node.
+Collects deferred shader values, orders their dependencies, and emits local declarations for them.
 
 ## Nested Types
 
-### GValue
+### Value
+Deferred value node with dependency tracking and a target local reference.
 
-- Role: Represents gvalue within ValBlock.
-- Description: Describes the nested gvalue type used by the enclosing class.
+#### Members
+
+##### Fields
+
+#### `public final Type type`
+- Role: Stores the value type.
+- Description: Used when the value is materialized into a local declaration.
+
+#### `public final Symbol name`
+- Role: Stores the generated symbol.
+- Description: Used when emitting the local declaration.
+
+#### `public boolean used`
+- Role: Tracks whether the value is required.
+- Description: Set when the value participates in the emitted program.
+
+#### `public LValue tgt`
+- Role: Stores the emitted local target.
+- Description: Filled during block construction.
+
+#### `protected Expression init`
+- Role: Stores the computed initializer.
+- Description: Built from `root()` and post-modifiers.
+
+##### Methods
+
+#### `public Value(Type type, Symbol name)`
+- Role: Builds a deferred value node.
+- Description: Registers the value in the enclosing block.
+
+#### `public Value(Type type)`
+- Role: Builds a deferred value node with a generated name.
+- Description: Uses an auto-generated symbol.
+
+#### `public void mod(UnaryOperator<Expression> macro, int order)`
+- Role: Adds a post-modifier.
+- Description: Stores a transformation that runs after `root()`.
+
+#### `public abstract Expression root()`
+- Role: Produces the base expression.
+- Description: Implemented by subclasses.
+
+#### `public Expression modexpr(Expression expr)`
+- Role: Applies all registered modifiers.
+- Description: Runs the modifier pipeline in order.
+
+#### `protected void cons1()`
+- Role: Builds the initializer expression.
+- Description: Computes the base expression and applies modifiers.
+
+#### `protected void cons2(Block blk)`
+- Role: Emits the local declaration.
+- Description: Declares the local and stores the target reference.
+
+#### `public Expression ref()`
+- Role: Returns a reference expression.
+- Description: Resolves to the emitted local once construction is complete.
+
+#### `public Expression depref()`
+- Role: Returns a dependency-tracking reference.
+- Description: Registers the dependency while the value is under construction.
+
+#### `public void force()`
+- Role: Marks the value as required.
+- Description: Ensures it is included in the emitted block.
+
+#### `public void depend(Value dep)`
+- Role: Adds a hard dependency.
+- Description: Prevents the dependent value from being emitted after this one.
+
+#### `public void softdep(Value dep)`
+- Role: Adds a soft dependency.
+- Description: Only forces the dependency when it is otherwise used.
+
+#### `public String toString()`
+- Role: Returns a debug string.
+- Description: Shows the value type and name.
 
 ### Group
+Groups several values that share construction and dependency handling.
 
-- Role: Represents group within ValBlock.
-- Description: Describes the nested group type used by the enclosing class.
+#### Members
 
-### Value
+##### Nested Types
 
-- Role: Represents value within ValBlock.
-- Description: Describes the nested value type used by the enclosing class.
+###### GValue
+Grouped deferred value that shares construction with the parent group.
+
+##### Methods
+
+#### `protected abstract void cons1()`
+- Role: Prepares the grouped value block.
+- Description: Implemented by the concrete group owner.
+
+#### `protected abstract void cons2(Block blk)`
+- Role: Emits grouped declarations.
+- Description: Implemented by the concrete group owner.
+
+#### `public void depend(Value dep)`
+- Role: Adds a hard dependency to all grouped values.
+- Description: Propagates the dependency to every member value.
+
+#### `public void softdep(Value dep)`
+- Role: Adds a soft dependency to all grouped values.
+- Description: Propagates the dependency to every member value.
+
+### GValue
+Grouped value that shares construction state with its parent group.
+
+#### Members
+
+##### Fields
+
+#### `public Expression modexpr`
+- Role: Stores the grouped modifier expression.
+- Description: Computed after the shared base expression is resolved.
+
+##### Methods
+
+#### `public GValue(Type type, Symbol name)`
+- Role: Builds a grouped value node.
+- Description: Attaches the value to the parent group.
+
+#### `public GValue(Type type)`
+- Role: Builds a grouped value node with a generated name.
+- Description: Uses an auto-generated symbol.
+
+#### `protected void cons1()`
+- Role: Initializes the shared construction state.
+- Description: Runs the parent group setup once.
+
+#### `protected void cons2(Block blk)`
+- Role: Emits the grouped declaration.
+- Description: Ensures the shared declaration exists before use.
+
+#### `public void addmods(Block blk)`
+- Role: Adds grouped modifiers to the block.
+- Description: Emits the final assignment when the modified expression differs.
+
+#### `public final Expression root()`
+- Role: Disallows direct root construction.
+- Description: Grouped values do not have an independent root expression.
+
+#### `public void depend(Value dep)`
+- Role: Adds a hard dependency for the whole group.
+- Description: Propagates to the parent group.
+
+#### `public void softdep(Value dep)`
+- Role: Adds a soft dependency for the whole group.
+- Description: Propagates to the parent group.
 
 ## Members
 
 ### Constants
 
 #### `private static final ThreadLocal<Value> processing = new ThreadLocal<Value>()`
-- Role: Defines the shared processing constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Tracks the value currently under construction.
+- Description: Used to validate dependency references.
 
 ### Fields
 
 #### `private final Collection<Value> values = new LinkedList<Value>()`
-- Role: Caches values entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores all deferred values.
+- Description: Iterated during block construction.
 
 #### `private final Map<Object, Value> ext = new IdentityHashMap<Object, Value>()`
-- Role: Caches ext entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores extension values by identity.
+- Description: Used by `ext()` to memoize external values.
 
 #### `private boolean lock = false`
-- Role: Tracks the lock flag.
-- Description: Supports the lock operation used by the surrounding class.
-
-#### `public final Type type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
-
-#### `public final Symbol name`
-- Role: Holds the name state.
-- Description: Backs the cached state for this file.
-
-#### `public boolean used`
-- Role: Tracks the used flag.
-- Description: Supports the used operation used by the surrounding class.
-
-#### `public LValue tgt`
-- Role: Holds the tgt state.
-- Description: Backs the cached state for this file.
-
-#### `protected Expression init`
-- Role: Holds the init state.
-- Description: Backs the cached state for this file.
-
-#### `private final Collection<Value> deps = new LinkedList<Value>()`
-- Role: Caches deps entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `private final Collection<Value> sdeps = new LinkedList<Value>()`
-- Role: Caches sdeps entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `private final OrderList<UnaryOperator<Expression>> mods = new OrderList<UnaryOperator<Expression>>()`
-- Role: Caches mods entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `private boolean forced`
-- Role: Tracks the forced flag.
-- Description: Supports the forced operation used by the surrounding class.
-
-#### `private final Collection<GValue> values = new LinkedList<GValue>()`
-- Role: Caches values entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `private final Collection<Value> deps = new LinkedList<Value>()`
-- Role: Caches deps entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `private final Collection<Value> sdeps = new LinkedList<Value>()`
-- Role: Caches sdeps entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `private int state = 0`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
-
-#### `public Expression modexpr`
-- Role: Holds the modexpr state.
-- Description: Backs the cached state for this file.
+- Role: Locks the block during construction.
+- Description: Prevents values from being added after emission starts.
 
 ### Methods
 
-#### `public Value(Type type, Symbol name)`
-- Role: Performs value.
-- Description: Supports the value operation used by the surrounding class.
-
-#### `public Value(Type type)`
-- Role: Performs value.
-- Description: Supports the value operation used by the surrounding class.
-
-#### `public void mod(UnaryOperator<Expression> macro, int order)`
-- Role: Performs mod.
-- Description: Supports the mod operation used by the surrounding class.
-
-#### `public abstract Expression root()`
-- Role: Performs root.
-- Description: Supports the root operation used by the surrounding class.
-
-#### `public Expression modexpr(Expression expr)`
-- Role: Performs modexpr.
-- Description: Supports the modexpr operation used by the surrounding class.
-
-#### `protected void cons1()`
-- Role: Performs cons1.
-- Description: Supports the cons1 operation used by the surrounding class.
-
-#### `protected void cons2(Block blk)`
-- Role: Performs cons2.
-- Description: Supports the cons2 operation used by the surrounding class.
-
-#### `public Expression ref()`
-- Role: Performs ref.
-- Description: Supports the ref operation used by the surrounding class.
-
-#### `public Expression depref()`
-- Role: Performs depref.
-- Description: Supports the depref operation used by the surrounding class.
-
-#### `public void force()`
-- Role: Performs force.
-- Description: Supports the force operation used by the surrounding class.
-
-#### `public void depend(Value dep)`
-- Role: Performs depend.
-- Description: Supports the depend operation used by the surrounding class.
-
-#### `public void softdep(Value dep)`
-- Role: Performs softdep.
-- Description: Supports the softdep operation used by the surrounding class.
-
-#### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
-
-#### `protected abstract void cons1()`
-- Role: Performs cons1.
-- Description: Supports the cons1 operation used by the surrounding class.
-
-#### `protected abstract void cons2(Block blk)`
-- Role: Performs cons2.
-- Description: Supports the cons2 operation used by the surrounding class.
-
-#### `public GValue(Type type, Symbol name)`
-- Role: Performs gvalue.
-- Description: Supports the gvalue operation used by the surrounding class.
-
-#### `public GValue(Type type)`
-- Role: Performs gvalue.
-- Description: Supports the gvalue operation used by the surrounding class.
-
-#### `protected void cons1()`
-- Role: Performs cons1.
-- Description: Supports the cons1 operation used by the surrounding class.
-
-#### `protected void cons2(Block blk)`
-- Role: Performs cons2.
-- Description: Supports the cons2 operation used by the surrounding class.
-
-#### `public void addmods(Block blk)`
-- Role: Performs addmods.
-- Description: Supports the addmods operation used by the surrounding class.
-
-#### `public final Expression root()`
-- Role: Performs root.
-- Description: Supports the root operation used by the surrounding class.
-
-#### `private void depend1(Value dep)`
-- Role: Performs depend1.
-- Description: Supports the depend1 operation used by the surrounding class.
-
-#### `public void depend(Value dep)`
-- Role: Performs depend.
-- Description: Supports the depend operation used by the surrounding class.
-
-#### `private void softdep1(Value dep)`
-- Role: Performs softdep1.
-- Description: Supports the softdep1 operation used by the surrounding class.
-
-#### `public void softdep(Value dep)`
-- Role: Performs softdep.
-- Description: Supports the softdep operation used by the surrounding class.
-
-#### `public void depend(Value dep)`
-- Role: Performs depend.
-- Description: Supports the depend operation used by the surrounding class.
-
-#### `public void softdep(Value dep)`
-- Role: Performs softdep.
-- Description: Supports the softdep operation used by the surrounding class.
-
-#### `private void use(Value val)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
-
-#### `private void add(List<Value> buf, List<Value> closed, Value val)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
-
 #### `public void cons(Block blk)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Emits the deferred values into a block.
+- Description: Resolves dependencies, then materializes the used values.
 
 #### `public <T extends Value> T ext(Object id, Supplier<T> f)`
-- Role: Performs ext.
-- Description: Supports the ext operation used by the surrounding class.
+- Role: Returns a memoized extension value.
+- Description: Creates the value once per identity key.

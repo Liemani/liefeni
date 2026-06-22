@@ -1,5 +1,5 @@
 ---
-source: [SimpleHandler.java](../../../../src/haven/error/SimpleHandler.java)
+source: [SimpleHandler.java](../../../../../src/haven/error/SimpleHandler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -16,14 +16,14 @@ Handles Haven error reporting for simple handler.
 
 #### `private final boolean dump`
 - Role: Tracks the dump flag.
-- Description: Supports the dump operation used by the surrounding class.
+- Description: Caches the `dump` value for reuse.
 
 ### Methods
 
 #### `public SimpleHandler(String name, boolean dump)`
 - Role: Creates a new SimpleHandler instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SimpleHandler instance from the supplied inputs.
 
 #### `public void uncaughtException(Thread t, Throwable e)`
-- Role: Performs uncaught exception.
-- Description: Supports the uncaught exception operation used by the surrounding class.
+- Role: Handles the uncaught exception path.
+- Description: Implements the uncaught exception operation.

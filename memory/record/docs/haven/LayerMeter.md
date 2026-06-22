@@ -1,5 +1,5 @@
 ---
-source: [LayerMeter.java](../../../src/haven/LayerMeter.java)
+source: [LayerMeter.java](../../../../src/haven/LayerMeter.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,81 +20,82 @@ Represents the layer meter Haven component.
 ### Constants
 
 #### `private static final OwnerContext.ClassResolver<LayerMeter> ctxr = new OwnerContext.ClassResolver<LayerMeter>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<layer meter> ctxr = new owner context.class resolver<layer meter>() operation.
+- Value: `new OwnerContext.ClassResolver<LayerMeter>()`
 
 ### Fields
 
 #### `protected ItemInfo.Raw rawinfo = null`
-- Role: Holds the rawinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawinfo value.
+- Description: Caches the `rawinfo` value for reuse.
 
 #### `protected List<ItemInfo> info = Collections.emptyList()`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the info operation.
+- Description: Implements the empty list operation.
 
 #### `protected List<Meter> meters = Collections.emptyList()`
-- Role: Caches meters entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the meters operation.
+- Description: Implements the empty list operation.
 
 #### `public final double a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `a` value for reuse.
 
 #### `public final Color c`
-- Role: Stores the c value.
-- Description: Backs the cached state for this file.
+- Role: Caches the c value.
+- Description: Caches the `c` value for reuse.
 
 #### `private double hoverstart`
-- Role: Stores the hoverstart value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hoverstart value.
+- Description: Caches the `hoverstart` value for reuse.
 
 #### `private Tex shorttip, longtip`
-- Role: Stores the longtip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the longtip value.
+- Description: Caches the `longtip` value for reuse.
 
 #### `private Tex shorttip, longtip`
-- Role: Stores the longtip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the longtip value.
+- Description: Caches the `longtip` value for reuse.
 
 ### Methods
 
 #### `public LayerMeter(Coord sz)`
 - Role: Creates a new LayerMeter instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LayerMeter instance from the supplied inputs.
 
 #### `public Meter(double a, Color c)`
-- Role: Performs meter.
-- Description: Supports the meter operation used by the surrounding class.
+- Role: Handles the meter path.
+- Description: Implements the meter operation.
 
 #### `public void set(List<Meter> meters)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void set(double a, Color c)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `private static double av(Object arg)`
-- Role: Performs av.
-- Description: Supports the av operation used by the surrounding class.
+- Role: Handles the av path.
+- Description: Implements the av operation.
 
 #### `public static List<Meter> decmeters(Object[] args, int s)`
-- Role: Performs decmeters.
-- Description: Supports the decmeters operation used by the surrounding class.
+- Role: Handles the decmeters path.
+- Description: Implements the decmeters operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

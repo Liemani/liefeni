@@ -1,5 +1,5 @@
 ---
-source: [FloatLiteral.java](../../../../../src/haven/render/sl/FloatLiteral.java)
+source: [FloatLiteral.java](../../../../../../src/haven/render/sl/FloatLiteral.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,33 +13,36 @@ Represents the float literal shader-language AST node.
 ### Constants
 
 #### `public static final FloatLiteral z = new FloatLiteral(0)`
-- Role: Defines the shared z constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the z operation.
+- Description: Implements the float literal operation.
+- Value: `new FloatLiteral(0)`
 
 #### `public static final FloatLiteral u = new FloatLiteral(1)`
-- Role: Defines the shared u constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the u operation.
+- Description: Implements the float literal operation.
+- Value: `new FloatLiteral(1)`
 
 #### `public static final FloatLiteral n = new FloatLiteral(-1)`
-- Role: Defines the shared n constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the n operation.
+- Description: Implements the float literal operation.
+- Value: `new FloatLiteral(-1)`
 
 ### Fields
 
 #### `public final double val`
-- Role: Stores the val value.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 ### Methods
 
 #### `public FloatLiteral(double val)`
-- Role: Creates a new FloatLiteral instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one float literal.
+- Description: Stores the numeric value used by the literal node.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the float literal.
+- Description: Float literals have no child expressions.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the float literal.
+- Description: Writes the numeric literal token.

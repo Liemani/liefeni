@@ -1,5 +1,5 @@
 ---
-source: [JOGLBuffer.java](../../../../../src/haven/render/jogl/JOGLBuffer.java)
+source: [JOGLBuffer.java](../../../../../../src/haven/render/jogl/JOGLBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Adapts the render backend to JOGL for joglbuffer.
 ### Fields
 
 #### `public final ByteBuffer data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 ### Methods
 
 #### `public JOGLBuffer(int sz)`
 - Role: Creates a new JOGLBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the JOGLBuffer instance from the supplied inputs.
 
 #### `public JOGLBuffer(ByteBuffer data)`
 - Role: Creates a new JOGLBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the JOGLBuffer instance from the supplied inputs.
 
 #### `public ByteBuffer data()`
-- Role: Performs data.
-- Description: Supports the data operation used by the surrounding class.
+- Role: Handles the data path.
+- Description: Implements the data operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

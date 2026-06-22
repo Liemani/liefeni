@@ -1,5 +1,5 @@
 ---
-source: [MapPrefs.java](../../../src/haven/MapPrefs.java)
+source: [MapPrefs.java](../../../../src/haven/MapPrefs.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,57 +13,58 @@ Represents the map prefs Haven component.
 ### Constants
 
 #### `public static final MapPrefs ROOT = new MapPrefs(null, "", Collections.emptyMap())`
-- Role: Defines the shared root constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the root operation.
+- Description: Implements the empty map operation.
+- Value: `new MapPrefs(null, "", Collections.emptyMap())`
 
 ### Fields
 
 #### `private final Map<? super String, ? super String> props`
-- Role: Caches props entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the props value.
+- Description: Caches the `props` value for reuse.
 
 ### Methods
 
 #### `public MapPrefs(MapPrefs parent, String name, Map<? super String, ? super String> props)`
 - Role: Creates a new MapPrefs instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the MapPrefs instance from the supplied inputs.
 
 #### `public MapPrefs(String name, Map<? super String, ? super String> props)`
 - Role: Creates a new MapPrefs instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the MapPrefs instance from the supplied inputs.
 
 #### `public String getSpi(String key)`
 - Role: Returns the spi.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the spi.
 
 #### `public void putSpi(String key, String val)`
-- Role: Performs put spi.
-- Description: Supports the put spi operation used by the surrounding class.
+- Role: Handles the put spi path.
+- Description: Implements the put spi operation.
 
 #### `public void removeSpi(String key)`
 - Role: Removes the spi.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the spi.
 
 #### `public String[] keysSpi()`
-- Role: Performs keys spi.
-- Description: Supports the keys spi operation used by the surrounding class.
+- Role: Handles the keys spi path.
+- Description: Implements the keys spi operation.
 
 #### `public String[] childrenNamesSpi()`
-- Role: Performs children names spi.
-- Description: Supports the children names spi operation used by the surrounding class.
+- Role: Handles the children names spi path.
+- Description: Implements the children names spi operation.
 
 #### `public AbstractPreferences childSpi(String name)`
-- Role: Performs child spi.
-- Description: Supports the child spi operation used by the surrounding class.
+- Role: Handles the child spi path.
+- Description: Implements the child spi operation.
 
 #### `public void removeNodeSpi()`
 - Role: Removes the node spi.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the node spi.
 
 #### `public void flushSpi()`
-- Role: Performs flush spi.
-- Description: Supports the flush spi operation used by the surrounding class.
+- Role: Handles the flush spi path.
+- Description: Implements the flush spi operation.
 
 #### `public void syncSpi()`
 - Role: Synchronizes the spi.
-- Description: Supports the sync spi operation used by the surrounding class.
+- Description: Implements the sync spi operation.

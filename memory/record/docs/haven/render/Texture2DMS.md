@@ -1,5 +1,5 @@
 ---
-source: [Texture2DMS.java](../../../../src/haven/render/Texture2DMS.java)
+source: [Texture2DMS.java](../../../../../src/haven/render/Texture2DMS.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,55 +22,55 @@ Defines the texture2 dms render pipeline component.
 ### Fields
 
 #### `public final int w, h, s`
-- Role: Stores the s value.
-- Description: Backs the cached state for this file.
+- Role: Caches the s value.
+- Description: Caches the `s` value for reuse.
 
 #### `public final int w, h, s`
-- Role: Stores the s value.
-- Description: Backs the cached state for this file.
+- Role: Caches the s value.
+- Description: Caches the `s` value for reuse.
 
 #### `public final int w, h, s`
-- Role: Stores the s value.
-- Description: Backs the cached state for this file.
+- Role: Caches the s value.
+- Description: Caches the `s` value for reuse.
 
 #### `public final boolean fixed`
 - Role: Tracks the fixed flag.
-- Description: Supports the fixed operation used by the surrounding class.
+- Description: Caches the `fixed` value for reuse.
 
 ### Methods
 
 #### `public Texture2DMS(int w, int h, int s, boolean fixed, VectorFormat ifmt)`
 - Role: Creates a new Texture2DMS instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture2DMS instance from the supplied inputs.
 
 #### `public Texture2DMS(Coord dim, int s, boolean fixed, VectorFormat ifmt)`
 - Role: Creates a new Texture2DMS instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture2DMS instance from the supplied inputs.
 
 #### `public Texture2DMS(Coord dim, int s, VectorFormat ifmt)`
 - Role: Creates a new Texture2DMS instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture2DMS instance from the supplied inputs.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public Image<Texture2DMS> image()`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public Collection<Image<Texture2DMS>> images()`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Handles the images path.
+- Description: Implements the images operation.
 
 #### `public Sampler2DMS(Texture2DMS tex)`
-- Role: Performs sampler2 dms.
-- Description: Supports the sampler2 dms operation used by the surrounding class.
+- Role: Handles the sampler2 dms path.
+- Description: Implements the sampler2 dms operation.
 
 #### `public Sampler2DMS sampler()`
-- Role: Performs sampler.
-- Description: Supports the sampler operation used by the surrounding class.
+- Role: Handles the sampler path.
+- Description: Implements the sampler operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Texture2DMS for debugging and logging.

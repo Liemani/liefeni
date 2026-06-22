@@ -1,12 +1,12 @@
 ---
-source: [Drawable.java](../../../src/haven/Drawable.java)
+source: [Drawable.java](../../../../src/haven/Drawable.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Drawable
 
-Represents the drawable Haven component.
+Provides gob-attached drawable state and placement lookup for renderable attributes.
 
 ## Members
 
@@ -15,31 +15,31 @@ Represents the drawable Haven component.
 ### Fields
 
 #### `protected Gob.Placer placer = null`
-- Role: Stores the placer value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gob placement strategy.
+- Description: Stores the resolved placer used to anchor this drawable in world space.
 
 ### Methods
 
 #### `public Drawable(Gob gob)`
-- Role: Creates a new Drawable instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Binds this drawable to a gob.
+- Description: Attaches the attribute to the owning gob so render code can resolve placement from it.
 
 #### `public abstract Resource getres()`
-- Role: Returns the resource.
-- Description: Exposes the resource that backs this wrapper.
+- Role: Returns the backing resource.
+- Description: Exposes the resource whose placement metadata drives this drawable.
 
 #### `private MCache.SurfaceID getsurf(String surf)`
-- Role: Returns the surface id for the supplied surface name.
-- Description: Maps a surface name to the corresponding `MCache.SurfaceID` value.
+- Role: Resolves a surface identifier.
+- Description: Maps a placement surface name such as `map` or `trn` to the corresponding `MCache.SurfaceID`.
 
 #### `public Gob.Placer placer()`
-- Role: Returns the gob placer.
-- Description: Exposes the placer used when positioning the gob.
+- Role: Returns the resolved gob placer.
+- Description: Lazily builds and caches the placement strategy used to position the gob on the map.
 
 #### `public void gtick(Render g)`
-- Role: Advances the drawable state for the current render tick.
-- Description: Updates per-frame drawable state during the render loop.
+- Role: Provides the per-frame drawable update hook.
+- Description: Subclasses override this to refresh transient render state before the next frame is drawn.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Drawable for debugging and logging.

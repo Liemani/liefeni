@@ -1,5 +1,5 @@
 ---
-source: [LMIException.java](../../../../src/lmi/core/LMIException.java)
+source: [LMIException.java](../../../../../src/lmi/core/LMIException.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,15 +15,15 @@ Represents an LMI-specific runtime error.
 ### Fields
 
 #### `public ExceptionReason reason`
-- Role: Holds the reason state.
-- Description: Backs the cached state for this file.
+- Role: Caches the reason value.
+- Description: Caches the `reason` value for reuse.
 
 ### Methods
 
 #### `public LMIException(ExceptionReason reason)`
 - Role: Creates a new LMIException instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LMIException instance from the supplied inputs.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this LMIException for debugging and logging.

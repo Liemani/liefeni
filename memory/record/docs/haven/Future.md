@@ -1,5 +1,5 @@
 ---
-source: [Future.java](../../../src/haven/Future.java)
+source: [Future.java](../../../../src/haven/Future.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the future Haven component.
 
 ### NotDone
 
-- Role: Represents not done within Future.
-- Description: Describes the nested not done type used by the enclosing class.
+- Role: Signals that the `Simple` future has not been completed yet.
+- Description: Carries the waiting future so callers can register for completion.
 
 ## Members
 
@@ -22,59 +22,59 @@ Represents the future Haven component.
 ### Fields
 
 #### `private final Waitable.Queue wq = new Waitable.Queue()`
-- Role: Caches wq entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the wq operation.
+- Description: Implements the queue operation.
 
 #### `private T val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private Throwable exc`
-- Role: Holds the exc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the exc value.
+- Description: Caches the `exc` value for reuse.
 
 #### `private boolean set = false`
 - Role: Tracks the set flag.
-- Description: Supports the set operation used by the surrounding class.
+- Description: Caches the `set` value for reuse.
 
 #### `public final transient Simple future`
-- Role: Holds the future state.
-- Description: Backs the cached state for this file.
+- Role: Caches the future value.
+- Description: Caches the `future` value for reuse.
 
 ### Methods
 
 #### `public T get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public PastException(Throwable cause)`
-- Role: Performs past exception.
-- Description: Supports the past exception operation used by the surrounding class.
+- Role: Handles the past exception path.
+- Description: Implements the past exception operation.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `private NotDone(Simple future)`
-- Role: Performs not done.
-- Description: Supports the not done operation used by the surrounding class.
+- Role: Handles the not done path.
+- Description: Implements the not done operation.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public T get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void set(T val)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void error(Throwable cause)`
 - Role: Displays an error message.
-- Description: Supports the error operation used by the surrounding class.
+- Description: Implements the error operation.

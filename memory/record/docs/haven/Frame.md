@@ -1,5 +1,5 @@
 ---
-source: [Frame.java](../../../src/haven/Frame.java)
+source: [Frame.java](../../../../src/haven/Frame.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,63 +15,63 @@ Represents the frame Haven component.
 ### Fields
 
 #### `public final IBox box`
-- Role: Holds the box state.
-- Description: Backs the cached state for this file.
+- Role: Caches the box value.
+- Description: Caches the `box` value for reuse.
 
 ### Methods
 
 #### `public Frame(Coord sz, boolean inner, IBox box)`
 - Role: Creates a new Frame instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Frame instance from the supplied inputs.
 
 #### `public Frame(Coord sz, boolean inner)`
 - Role: Creates a new Frame instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Frame instance from the supplied inputs.
 
 #### `public static Frame around(Widget parent, Area area, IBox box)`
-- Role: Performs around.
-- Description: Supports the around operation used by the surrounding class.
+- Role: Handles the around path.
+- Description: Implements the around operation.
 
 #### `public static Frame around(Widget parent, Area area)`
-- Role: Performs around.
-- Description: Supports the around operation used by the surrounding class.
+- Role: Handles the around path.
+- Description: Implements the around operation.
 
 #### `public static Frame around(Widget parent, Iterable<? extends Widget> wl)`
-- Role: Performs around.
-- Description: Supports the around operation used by the surrounding class.
+- Role: Handles the around path.
+- Description: Implements the around operation.
 
 #### `public static Frame around(Widget parent, Widget... ch)`
-- Role: Performs around.
-- Description: Supports the around operation used by the surrounding class.
+- Role: Handles the around path.
+- Description: Implements the around operation.
 
 #### `public static Frame with(Widget child, boolean resize)`
-- Role: Performs with.
-- Description: Supports the with operation used by the surrounding class.
+- Role: Handles the with path.
+- Description: Implements the with operation.
 
 #### `public Coord inner()`
-- Role: Performs inner.
-- Description: Supports the inner operation used by the surrounding class.
+- Role: Handles the inner path.
+- Description: Implements the inner operation.
 
 #### `public Coord xlate(Coord c, boolean in)`
-- Role: Performs xlate.
-- Description: Supports the xlate operation used by the surrounding class.
+- Role: Handles the xlate path.
+- Description: Implements the xlate operation.
 
 #### `public Position getpos(String nm)`
-- Role: Performs getpos.
-- Description: Supports the getpos operation used by the surrounding class.
+- Role: Handles the getpos path.
+- Description: Returns the pos.
 
 #### `public void drawframe(GOut g)`
-- Role: Performs drawframe.
-- Description: Supports the drawframe operation used by the surrounding class.
+- Role: Handles the drawframe path.
+- Description: Draws the frame.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Frame content.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Handles the checkhit path.
+- Description: Implements the checkhit operation.
 
 #### `public <T extends Widget> T addin(T child)`
-- Role: Performs addin.
-- Description: Supports the addin operation used by the surrounding class.
+- Role: Handles the addin path.
+- Description: Adds the in.

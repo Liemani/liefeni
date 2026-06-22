@@ -1,5 +1,5 @@
 ---
-source: [WaypointCutBounds.java](../../../../../src/lmi/waypoint/runtime/WaypointCutBounds.java)
+source: [WaypointCutBounds.java](../../../../../../src/lmi/waypoint/runtime/WaypointCutBounds.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,81 +13,81 @@ Coordinates waypoint runtime state for waypoint cut bounds.
 ### Constants
 
 #### `private static final int CUT_ID_SHIFT = 14`
-- Role: Defines the shared cut id shift constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the cut id shift value.
+- Description: Caches the `CUT_ID_SHIFT` value for reuse.
 
 #### `private static final int GRID_TILE_SIZE = 100`
-- Role: Defines the shared grid tile size constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the grid tile size value.
+- Description: Caches the `GRID_TILE_SIZE` value for reuse.
 
 ### Fields
 
 #### `public final Coord centerCut`
-- Role: Stores the center cut value.
-- Description: Backs the cached state for this file.
+- Role: Caches the center cut value.
+- Description: Caches the `centerCut` value for reuse.
 
 #### `public final Area loadArea`
-- Role: Holds the load area state.
-- Description: Backs the cached state for this file.
+- Role: Caches the load area value.
+- Description: Caches the `loadArea` value for reuse.
 
 #### `public final Area renderArea`
-- Role: Holds the render area state.
-- Description: Backs the cached state for this file.
+- Role: Caches the render area value.
+- Description: Caches the `renderArea` value for reuse.
 
 ### Methods
 
 #### `private WaypointCutBounds(Coord centerCut, Area loadArea, Area renderArea)`
 - Role: Creates a new WaypointCutBounds instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointCutBounds instance from the supplied inputs.
 
 #### `public static WaypointCutBounds aroundVir(Coord vir)`
-- Role: Performs around vir.
-- Description: Supports the around vir operation used by the surrounding class.
+- Role: Handles the around vir path.
+- Description: Implements the around vir operation.
 
 #### `public static WaypointCutBounds aroundWorld(Coord world)`
-- Role: Performs around world.
-- Description: Supports the around world operation used by the surrounding class.
+- Role: Handles the around world path.
+- Description: Implements the around world operation.
 
 #### `public Coord cutOfWorld(Coord world)`
-- Role: Performs cut of world.
-- Description: Supports the cut of world operation used by the surrounding class.
+- Role: Handles the cut of world path.
+- Description: Implements the cut of world operation.
 
 #### `public static Coord cutOfWorld(int x, int y)`
-- Role: Performs cut of world.
-- Description: Supports the cut of world operation used by the surrounding class.
+- Role: Handles the cut of world path.
+- Description: Implements the cut of world operation.
 
 #### `public static Coord cutOriginOfWorld(Coord world)`
-- Role: Performs cut origin of world.
-- Description: Supports the cut origin of world operation used by the surrounding class.
+- Role: Handles the cut origin of world path.
+- Description: Implements the cut origin of world operation.
 
 #### `public static Coord gridOriginOfWorld(Coord world)`
-- Role: Performs grid origin of world.
-- Description: Supports the grid origin of world operation used by the surrounding class.
+- Role: Handles the grid origin of world path.
+- Description: Implements the grid origin of world operation.
 
 #### `public static Coord cutOfVir(int virX, int virY)`
-- Role: Performs cut of vir.
-- Description: Supports the cut of vir operation used by the surrounding class.
+- Role: Handles the cut of vir path.
+- Description: Implements the cut of vir operation.
 
 #### `public Coord cutOfVir(Coord vir)`
-- Role: Performs cut of vir.
-- Description: Supports the cut of vir operation used by the surrounding class.
+- Role: Handles the cut of vir path.
+- Description: Implements the cut of vir operation.
 
 #### `public static Coord cutOriginOfVir(int virX, int virY)`
-- Role: Performs cut origin of vir.
-- Description: Supports the cut origin of vir operation used by the surrounding class.
+- Role: Handles the cut origin of vir path.
+- Description: Implements the cut origin of vir operation.
 
 #### `public static Coord cutOriginOfCut(Coord cut)`
-- Role: Performs cut origin of cut.
-- Description: Supports the cut origin of cut operation used by the surrounding class.
+- Role: Handles the cut origin of cut path.
+- Description: Implements the cut origin of cut operation.
 
 #### `public static int cutIdOfVir(int virX, int virY)`
-- Role: Performs cut id of vir.
-- Description: Supports the cut id of vir operation used by the surrounding class.
+- Role: Handles the cut id of vir path.
+- Description: Implements the cut id of vir operation.
 
 #### `public static int cutIdOfCut(int cutX, int cutY)`
-- Role: Performs cut id of cut.
-- Description: Supports the cut id of cut operation used by the surrounding class.
+- Role: Handles the cut id of cut path.
+- Description: Implements the cut id of cut operation.
 
 #### `public boolean renderContainsCutId(int cutId)`
 - Role: Renders the render contains cut id.
-- Description: Supports the render contains cut id operation used by the surrounding class.
+- Description: Renders the contains cut id.

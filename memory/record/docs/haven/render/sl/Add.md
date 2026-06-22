@@ -1,5 +1,5 @@
 ---
-source: [Add.java](../../../../../src/haven/render/sl/Add.java)
+source: [Add.java](../../../../../../src/haven/render/sl/Add.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the add shader-language AST node.
 ### Fields
 
 #### `public final Expression[] terms`
-- Role: Holds the terms state.
-- Description: Backs the cached state for this file.
+- Role: Caches the terms value.
+- Description: Caches the `terms` value for reuse.
 
 ### Methods
 
 #### `public Add(Expression... terms)`
-- Role: Creates a new Add instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one addition expression.
+- Description: Stores the ordered terms used in the sum.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the addition terms.
+- Description: Walks every term in source order.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the addition expression.
+- Description: Writes the terms with `+` separators.

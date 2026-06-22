@@ -1,82 +1,68 @@
 ---
-source: [RuntimeEventManager.java](../../../../src/lmi/lifecycle/RuntimeEventManager.java)
+source: [RuntimeEventManager.java](../../../../../src/lmi/lifecycle/RuntimeEventManager.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # RuntimeEventManager
 
-Dispatches runtime events to lifecycle listeners.
+Runs a background loop that dispatches lifecycle runtime handlers, including waypoint refresh processing.
 
 ## Nested Types
 
-### RuntimeEventHandler
-### RuntimeEventHandler
-- Role: Represents the runtime event handler helper used by RuntimeEventManager.
-
-- Role: Represents one runtime event callback handler.
-- Description: Acts as one runtime event callback handler.
+### `RuntimeEventHandler`
+- Role: Represents one callback that can stay registered in the runtime event loop until it completes.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object lock = new Object()`
-- Role: Defines the shared lock constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Serializes access to the handler list and worker thread state.
+- Value: `new Object()`
 
 #### `private static final ArrayList<RuntimeEventHandler> handlers = new ArrayList<>()`
-- Role: Coordinates asynchronous runtime event manager work.
-- Description: Supports the handlers operation used by the surrounding class.
+- Role: Stores the active runtime handlers.
+- Value: `new ArrayList<>()`
 
 #### `private static final RuntimeEventHandler waypointRefreshHandler = new RuntimeEventHandler()`
-- Role: Coordinates asynchronous runtime event handler work.
-- Description: Supports the runtime event handler operation used by the surrounding class.
+- Role: Bridges runtime event processing to `WaypointManager.processRefreshRequests()`.
+- Value: anonymous `RuntimeEventHandler` instance that calls `WaypointManager.processRefreshRequests()`
 
 ### Fields
 
 #### `private static Thread thread`
-- Role: Coordinates asynchronous runtime event manager work.
-- Description: Supports the thread operation used by the surrounding class.
+- Role: Holds the background worker thread.
 
 #### `private static boolean running = false`
-- Role: Tracks the running flag.
-- Description: Supports the running operation used by the surrounding class.
+- Role: Tracks whether the runtime event loop should keep running.
 
 ### Methods
 
 #### `private RuntimeEventManager()`
-- Role: Creates a new RuntimeEventManager instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Prevents instantiation.
 
 #### `public static void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Starts the runtime worker thread if it is not already running.
 
 #### `public static void clear()`
-- Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Role: Removes all registered handlers without stopping the worker thread.
 
 #### `public static void registerWaypointRefreshHandler()`
-- Role: Performs register waypoint refresh handler.
-- Description: Supports the register waypoint refresh handler operation used by the surrounding class.
+- Role: Registers the waypoint refresh bridge handler.
 
 #### `public static void unregisterWaypointRefreshHandler()`
-- Role: Performs unregister waypoint refresh handler.
-- Description: Supports the unregister waypoint refresh handler operation used by the surrounding class.
+- Role: Unregisters the waypoint refresh bridge handler.
 
 #### `public static void shutdown()`
-- Role: Performs shutdown.
-- Description: Supports the shutdown operation used by the surrounding class.
+- Role: Stops the worker thread and clears handler state.
 
 #### `private static void _addHandler(RuntimeEventHandler handler)`
-- Role: Performs  add handler.
-- Description: Supports the add handler operation used by the surrounding class.
+- Role: Adds one handler unless it is already present.
 
 #### `private static void _loop()`
-- Role: Performs  loop.
-- Description: Supports the loop operation used by the surrounding class.
+- Role: Waits for handlers, runs them, removes completed ones, and polls again.
 
 #### `boolean handle()`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Returns whether the handler should remain registered after one pass.
+

@@ -1,5 +1,5 @@
 ---
-source: [Test.java](../../../../../src/haven/render/jogl/Test.java)
+source: [Test.java](../../../../../../src/haven/render/jogl/Test.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -25,153 +25,166 @@ Adapts the render backend to JOGL for test.
 ### Constants
 
 #### `static final FColor gay = new FColor(1.0f, 0.0f, 0.5f)`
-- Role: Defines the shared gay constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the gay operation.
+- Description: Implements the f color operation.
+- Value: `new FColor(1.0f, 0.0f, 0.5f)`
 
 #### `static final Coord texsz`
-- Role: Defines the shared texsz constant.
-- Description: Shared constant used by the rest of the class.
+#### `static final Coord texsz`
+- Role: Caches the texsz value.
+- Description: Caches the `texsz` value for reuse.
 
 #### `static final byte[] texdat`
-- Role: Defines the shared texdat constant.
-- Description: Shared constant used by the rest of the class.
+#### `static final byte[] texdat`
+- Role: Caches the texdat value.
+- Description: Caches the `texdat` value for reuse.
 
 #### `static final Texture2D.Sampler2D tex`
-- Role: Defines the shared tex constant.
-- Description: Shared constant used by the rest of the class.
+#### `static final Texture2D.Sampler2D tex`
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `static final Slot<VertexColor> slot = new Slot<>(Slot.Type.DRAW, VertexColor.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the slot operation.
+- Description: Implements the static final slot<vertex color> slot = new slot<>(slot.type.draw, vertex color.class) operation.
+- Value: `new Slot<>(Slot.Type.DRAW, VertexColor.class)`
 
 #### `static final Attribute color = new Attribute(VEC4, "color")`
-- Role: Defines the shared color constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the color operation.
+- Description: Implements the attribute operation.
+- Value: `new Attribute(VEC4, "color")`
 
 #### `static final AutoVarying fcolor = new AutoVarying(VEC4)`
-- Role: Defines the shared fcolor constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fcolor operation.
+- Description: Implements the auto varying operation.
+- Value: `new AutoVarying(VEC4)`
 
 #### `static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the shader value.
+- Description: Caches the `shader` value for reuse.
+- Value: `prog ->`
 
 #### `static final Slot<Tex2D> slot = new Slot<>(Slot.Type.DRAW, Tex2D.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the slot operation.
+- Description: Implements the static final slot<tex2 d> slot = new slot<>(slot.type.draw, tex2 d.class) operation.
+- Value: `new Slot<>(Slot.Type.DRAW, Tex2D.class)`
 
 #### `static final Attribute texc = new Attribute(VEC2, "texc")`
-- Role: Defines the shared texc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the texc operation.
+- Description: Implements the attribute operation.
+- Value: `new Attribute(VEC2, "texc")`
 
 #### `static final Uniform usmp = new Uniform(SAMPLER2D, "tex2d", p -> p.get(slot).tex, slot)`
-- Role: Defines the shared usmp constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the usmp operation.
+- Description: Returns the get value.
+- Value: `new Uniform(SAMPLER2D, "tex2d", p -> p.get(slot).tex, slot)`
 
 #### `static final AutoVarying ftexc = new AutoVarying(VEC2)`
-- Role: Defines the shared ftexc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ftexc operation.
+- Description: Implements the auto varying operation.
+- Value: `new AutoVarying(VEC2)`
 
 #### `static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the shader value.
+- Description: Caches the `shader` value for reuse.
+- Value: `prog ->`
 
 ### Fields
 
 #### `GLWindow wnd`
-- Role: Holds the wnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wnd value.
+- Description: Caches the `wnd` value for reuse.
 
 #### `JOGLEnvironment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `volatile boolean done`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `Pipe base`
-- Role: Holds the base state.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 #### `Area shape`
-- Role: Holds the shape state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shape value.
+- Description: Caches the `shape` value for reuse.
 
 #### `final Texture2D.Sampler2D tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `final VertexColor vc = new VertexColor()`
-- Role: Stores the vc value.
-- Description: Backs the cached state for this file.
+- Role: Implements the vc operation.
+- Description: Implements the vertex color operation.
 
 #### `final Texture2D.Sampler2D tbuf = new Texture2D.Sampler2D(new Texture2D(512, 512, DataBuffer.Usage.STATIC, new VectorFormat(4, NumberFormat.UNORM8), null))`
-- Role: Stores the tbuf value.
-- Description: Backs the cached state for this file.
+- Role: Implements the tbuf operation.
+- Description: Implements the vector format operation.
 
 #### `final Texture2D dbuf = new Texture2D(512, 512, DataBuffer.Usage.STATIC, Texture.DEPTH, new VectorFormat(1, NumberFormat.FLOAT32), null)`
-- Role: Stores the dbuf value.
-- Description: Backs the cached state for this file.
+- Role: Implements the dbuf operation.
+- Description: Implements the vector format operation.
 
 ### Methods
 
 #### `Test()`
 - Role: Creates a new Test instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Test instance from the supplied inputs.
 
 #### `void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static void main(String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `Tex2D(Texture2D.Sampler2D tex)`
 - Role: Handles the tex2 d workflow.
-- Description: Supports the tex2 d operation used by the surrounding class.
+- Description: Implements the tex2 d operation.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `private void display(Render g)`
-- Role: Performs display.
-- Description: Supports the display operation used by the surrounding class.
+- Role: Handles the display path.
+- Description: Implements the display operation.
 
 #### `public void display(GLAutoDrawable wnd)`
-- Role: Performs display.
-- Description: Supports the display operation used by the surrounding class.
+- Role: Handles the display path.
+- Description: Implements the display operation.
 
 #### `public void init(GLAutoDrawable wnd)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public void dispose(GLAutoDrawable wnd)`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void reshape(GLAutoDrawable wnd, int x, int y, int w, int h)`
-- Role: Performs reshape.
-- Description: Supports the reshape operation used by the surrounding class.
+- Role: Handles the reshape path.
+- Description: Implements the reshape operation.
 
 #### `public void keyPressed(KeyEvent ev)`
-- Role: Performs key pressed.
-- Description: Supports the key pressed operation used by the surrounding class.
+- Role: Handles the key pressed path.
+- Description: Implements the key pressed operation.
 
 #### `public void keyReleased(KeyEvent ev)`
-- Role: Performs key released.
-- Description: Supports the key released operation used by the surrounding class.
+- Role: Handles the key released path.
+- Description: Implements the key released operation.

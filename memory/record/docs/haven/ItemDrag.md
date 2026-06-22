@@ -1,5 +1,5 @@
 ---
-source: [ItemDrag.java](../../../src/haven/ItemDrag.java)
+source: [ItemDrag.java](../../../../src/haven/ItemDrag.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Represents the item drag Haven component.
 ### Fields
 
 #### `public Coord doff`
-- Role: Stores the doff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the doff value.
+- Description: Caches the `doff` value for reuse.
 
 ### Methods
 
 #### `public ItemDrag(Coord dc, GItem item)`
 - Role: Creates a new ItemDrag instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ItemDrag instance from the supplied inputs.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void drawmain(GOut g, GSprite spr)`
-- Role: Performs drawmain.
-- Description: Supports the drawmain operation used by the surrounding class.
+- Role: Handles the drawmain path.
+- Description: Draws the main.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.

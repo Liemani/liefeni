@@ -1,5 +1,5 @@
 ---
-source: [LoadSegmentsByCutResult.java](../../../../../src/lmi/waypoint/model/LoadSegmentsByCutResult.java)
+source: [LoadSegmentsByCutResult.java](../../../../../../src/lmi/waypoint/model/LoadSegmentsByCutResult.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the result of load segments by cut result.
 ### Fields
 
 #### `public final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final Array<WpSegment> segments`
-- Role: Caches segments entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the segments value.
+- Description: Caches the `segments` value for reuse.
 
 ### Methods
 
 #### `public LoadSegmentsByCutResult(long graphId, long gridId, Array<WpSegment> segments)`
 - Role: Creates a new LoadSegmentsByCutResult instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LoadSegmentsByCutResult instance from the supplied inputs.

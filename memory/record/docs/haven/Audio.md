@@ -1,5 +1,5 @@
 ---
-source: [Audio.java](../../../src/haven/Audio.java)
+source: [Audio.java](../../../../src/haven/Audio.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,90 +12,97 @@ Implements audio playback, mixing, and resampling support.
 
 ### CS
 
-- Role: Represents cs within Audio.
-- Description: Describes the nested cs type used by the enclosing class.
+- Role: Represents one audio clip source.
+- Description: Shared clip-stream interface for audio playback sources.
 
 ### Clip
 
-- Role: Represents clip within Audio.
-- Description: Describes the nested clip type used by the enclosing class.
+- Role: Base type for audio clips.
+- Description: Abstract clip contract consumed by mixers and players.
 
 ### LDump
 
-- Role: Represents ldump within Audio.
-- Description: Describes the nested ldump type used by the enclosing class.
+- Role: Dumps audio load state for debugging.
+- Description: Helper used to inspect or dump audio clip loading state.
 
 ### Mixer
 
-- Role: Represents mixer within Audio.
-- Description: Describes the nested mixer type used by the enclosing class.
+- Role: Mixes multiple audio sources.
+- Description: Clip implementation that combines child sources into a single stream.
 
 ### Monitor
 
-- Role: Represents monitor within Audio.
-- Description: Describes the nested monitor type used by the enclosing class.
+- Role: Observes an audio stream.
+- Description: Clip wrapper used to inspect or tap audio output without changing it.
 
 ### PCMClip
 
-- Role: Represents pcmclip within Audio.
-- Description: Describes the nested pcmclip type used by the enclosing class.
+- Role: Plays raw PCM data.
+- Description: Clip implementation backed by a PCM input stream.
 
 ### Player
 
-- Role: Represents player within Audio.
-- Description: Describes the nested player type used by the enclosing class.
+- Role: Runs the audio playback thread.
+- Description: Background thread that feeds decoded audio to the output device.
 
 ### Repeater
 
-- Role: Represents repeater within Audio.
-- Description: Describes the nested repeater type used by the enclosing class.
+- Role: Repeats a clip indefinitely.
+- Description: Abstract clip wrapper that loops its child audio source.
 
 ### Resampler
 
-- Role: Represents resampler within Audio.
-- Description: Describes the nested resampler type used by the enclosing class.
+- Role: Resamples audio to the output format.
+- Description: Clip wrapper that converts sample rate and format on the fly.
 
 ### VolAdjust
 
-- Role: Represents vol adjust within Audio.
-- Description: Describes the nested vol adjust type used by the enclosing class.
+- Role: Applies volume scaling.
+- Description: Clip wrapper that multiplies sample amplitude by a gain factor.
 
 ### VorbisClip
 
-- Role: Represents vorbis clip within Audio.
-- Description: Describes the nested vorbis clip type used by the enclosing class.
+- Role: Decodes Vorbis audio.
+- Description: Clip implementation backed by a Vorbis decoder.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<String> outname = Config.Variable.prop("haven.audio-output", "")`
-- Role: Defines the shared outname constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the outname operation.
+- Description: Implements the prop operation.
+- Value: `Config.Variable.prop("haven.audio-output", "")`
 
 #### `public static final AudioFormat fmt = new AudioFormat(44100, 16, 2, true, false)`
-- Role: Defines the shared fmt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fmt operation.
+- Description: Implements the audio format operation.
+- Value: `new AudioFormat(44100, 16, 2, true, false)`
 
 #### `public static final Class<Clip> clip = Clip.class`
-- Role: Defines the shared clip constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
+- Value: `Clip.class`
 
 #### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-- Role: Defines the shared un8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the un8 value.
+- Description: Caches the `UN8` value for reuse.
+- Value: `0, SN8 = 1, SN16 = 2, SN32 = 3`
 
 #### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-- Role: Defines the shared un8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the un8 value.
+- Description: Caches the `UN8` value for reuse.
+- Value: `0, SN8 = 1, SN16 = 2, SN32 = 3`
 
 #### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-- Role: Defines the shared un8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the un8 value.
+- Description: Caches the `UN8` value for reuse.
+- Value: `0, SN8 = 1, SN16 = 2, SN32 = 3`
 
 #### `public static final int UN8 = 0, SN8 = 1, SN16 = 2, SN32 = 3`
-- Role: Defines the shared un8 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the un8 value.
+- Description: Caches the `UN8` value for reuse.
+- Value: `0, SN8 = 1, SN16 = 2, SN32 = 3`
 
 ### Fields
 
@@ -104,399 +111,399 @@ Implements audio playback, mixing, and resampling support.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public static double volume = Double.parseDouble(Utils.getpref("sfxvol", "1.0"))`
-- Role: Stores the volume value.
-- Description: Backs the cached state for this file.
+- Role: Implements the volume operation.
+- Description: Implements the getpref operation.
 
 #### `private static int bufsize = Utils.getprefi("audiobuf", Math.round(fmt.getSampleRate() * 0.05f)) * fmt.getFrameSize()`
-- Role: Stores the bufsize value.
-- Description: Backs the cached state for this file.
+- Role: Implements the bufsize operation.
+- Description: Implements the get frame size operation.
 
 #### `private static Player player`
-- Role: Holds the player state.
-- Description: Backs the cached state for this file.
+- Role: Caches the player value.
+- Description: Caches the `player` value for reuse.
 
 #### `public final boolean cont`
 - Role: Tracks the cont flag.
-- Description: Supports the cont operation used by the surrounding class.
+- Description: Caches the `cont` value for reuse.
 
 #### `private final Collection<CS> clips = new LinkedList<CS>()`
-- Role: Caches clips entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the clips operation.
+- Description: Implements the private final collection<cs> clips = new linked list<cs>() operation.
 
 #### `public final InputStream clip`
-- Role: Holds the clip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
 
 #### `public final int sch, sfmt, ssz`
-- Role: Stores the ssz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ssz value.
+- Description: Caches the `ssz` value for reuse.
 
 #### `public final int sch, sfmt, ssz`
-- Role: Stores the ssz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ssz value.
+- Description: Caches the `ssz` value for reuse.
 
 #### `public final int sch, sfmt, ssz`
-- Role: Stores the ssz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ssz value.
+- Description: Caches the `ssz` value for reuse.
 
 #### `public int size = -1`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 #### `private final byte[] dbuf = new byte[256]`
-- Role: Stores the dbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dbuf value.
+- Description: Caches the `dbuf` value for reuse.
 
 #### `private int head = 0, tail = 0`
-- Role: Stores the head value.
-- Description: Backs the cached state for this file.
+- Role: Caches the head value.
+- Description: Caches the `head` value for reuse.
 
 #### `private int head = 0, tail = 0`
-- Role: Stores the head value.
-- Description: Backs the cached state for this file.
+- Role: Caches the head value.
+- Description: Caches the `head` value for reuse.
 
 #### `private boolean eof = false`
 - Role: Tracks the eof flag.
-- Description: Supports the eof operation used by the surrounding class.
+- Description: Caches the `eof` value for reuse.
 
 #### `public final VorbisStream clip`
-- Role: Holds the clip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clip value.
+- Description: Caches the `clip` value for reuse.
 
 #### `private float[][] data = new float[1][0]`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private int dp = 0`
-- Role: Stores the dp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dp value.
+- Description: Caches the `dp` value for reuse.
 
 #### `public final CS bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public double vol = 1.0, bal = 0.0`
-- Role: Stores the vol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vol value.
+- Description: Caches the `vol` value for reuse.
 
 #### `public double vol = 1.0, bal = 0.0`
-- Role: Stores the vol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vol value.
+- Description: Caches the `vol` value for reuse.
 
 #### `private double[] cvol =`
 - Role: Stores the audio state.
-- Description: Backs the cached state for this file.
+- Description: Caches the `cvol` value for reuse.
 
 #### `public final CS bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public double irate, orate`
-- Role: Stores the orate value.
-- Description: Backs the cached state for this file.
+- Role: Caches the orate value.
+- Description: Caches the `orate` value for reuse.
 
 #### `public double irate, orate`
-- Role: Stores the orate value.
-- Description: Backs the cached state for this file.
+- Role: Caches the orate value.
+- Description: Caches the `orate` value for reuse.
 
 #### `public double sp = 1.0`
-- Role: Stores the sp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sp value.
+- Description: Caches the `sp` value for reuse.
 
 #### `private double ack`
-- Role: Stores the ack value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ack value.
+- Description: Caches the `ack` value for reuse.
 
 #### `private double[] lval =`
 - Role: Stores the audio state.
-- Description: Backs the cached state for this file.
+- Description: Caches the `lval` value for reuse.
 
 #### `private double[] lval =`
 - Role: Stores the audio state.
-- Description: Backs the cached state for this file.
+- Description: Caches the `lval` value for reuse.
 
 #### `private double[][] data =`
 - Role: Stores the audio state.
-- Description: Backs the cached state for this file.
+- Description: Caches the `data` value for reuse.
 
 #### `private int dp = 0, dl = 0`
-- Role: Stores the dp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dp value.
+- Description: Caches the `dp` value for reuse.
 
 #### `private int dp = 0, dl = 0`
-- Role: Stores the dp value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dp value.
+- Description: Caches the `dp` value for reuse.
 
 #### `public final CS bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public boolean eof = false`
 - Role: Tracks the eof flag.
-- Description: Supports the eof operation used by the surrounding class.
+- Description: Caches the `eof` value for reuse.
 
 #### `private CS cur = null`
-- Role: Holds the cur state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 #### `public final CS bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `private double val = 0.0`
-- Role: Stores the val value.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private int n = 0, iv`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private int n = 0, iv`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private final CS stream`
-- Role: Holds the stream state.
-- Description: Backs the cached state for this file.
+- Role: Caches the stream value.
+- Description: Caches the `stream` value for reuse.
 
 #### `private final int nch`
-- Role: Stores the nch value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nch value.
+- Description: Caches the `nch` value for reuse.
 
 #### `private volatile boolean reopen = false`
 - Role: Tracks whether reopen is open.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `private static Map<Resource, Clip> resclips = new HashMap<>()`
-- Role: Caches resclips entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the resclips operation.
+- Description: Implements the private static map<resource, clip> resclips = new hash map<>() operation.
 
 ### Methods
 
 #### `public static void setvolume(double volume)`
-- Role: Performs setvolume.
-- Description: Supports the setvolume operation used by the surrounding class.
+- Role: Handles the setvolume path.
+- Description: Updates the volume.
 
 #### `public int get(double[][] buf, int len)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public CS stream()`
-- Role: Performs stream.
-- Description: Supports the stream operation used by the surrounding class.
+- Role: Handles the stream path.
+- Description: Implements the stream operation.
 
 #### `public default String layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public default double bvol()`
-- Role: Performs bvol.
-- Description: Supports the bvol operation used by the surrounding class.
+- Role: Handles the bvol path.
+- Description: Implements the bvol operation.
 
 #### `public Mixer(boolean continuous)`
-- Role: Performs mixer.
-- Description: Supports the mixer operation used by the surrounding class.
+- Role: Handles the mixer path.
+- Description: Implements the mixer operation.
 
 #### `public Mixer()`
-- Role: Performs mixer.
-- Description: Supports the mixer operation used by the surrounding class.
+- Role: Handles the mixer path.
+- Description: Implements the mixer operation.
 
 #### `public int get(double[][] dst, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void add(CS clip)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void stop(CS clip)`
 - Role: Stops the current workflow.
-- Description: Supports the stop operation used by the surrounding class.
+- Description: Implements the stop operation.
 
 #### `public boolean playing(CS clip)`
-- Role: Performs playing.
-- Description: Supports the playing operation used by the surrounding class.
+- Role: Handles the playing path.
+- Description: Implements the playing operation.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public boolean empty()`
-- Role: Performs empty.
-- Description: Supports the empty operation used by the surrounding class.
+- Role: Handles the empty path.
+- Description: Implements the empty operation.
 
 #### `public Collection<CS> current()`
-- Role: Performs current.
-- Description: Supports the current operation used by the surrounding class.
+- Role: Handles the current path.
+- Description: Implements the current operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public PCMClip(InputStream clip, int nch, int sfmt)`
-- Role: Performs pcmclip.
-- Description: Supports the pcmclip operation used by the surrounding class.
+- Role: Handles the pcmclip path.
+- Description: Implements the pcm clip operation.
 
 #### `public PCMClip size(int size)`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `private int read(byte[] buf, int off, int len)`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public int get(double[][] dst, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public static CS fromwav(InputStream clip) throws IOException`
 - Role: Handles the fromwav workflow.
-- Description: Supports the fromwav operation used by the surrounding class.
+- Description: Implements the fromwav operation.
 
 #### `private static int u8(InputStream clip) throws IOException`
 - Role: Handles the u8 workflow.
-- Description: Supports the u8 operation used by the surrounding class.
+- Description: Implements the u8 operation.
 
 #### `private static int u16(InputStream clip) throws IOException`
 - Role: Handles the u16 workflow.
-- Description: Supports the u16 operation used by the surrounding class.
+- Description: Implements the u16 operation.
 
 #### `private static int s32(InputStream clip) throws IOException`
 - Role: Handles the s32 workflow.
-- Description: Supports the s32 operation used by the surrounding class.
+- Description: Implements the s32 operation.
 
 #### `public VorbisClip(VorbisStream clip)`
-- Role: Performs vorbis clip.
-- Description: Supports the vorbis clip operation used by the surrounding class.
+- Role: Handles the vorbis clip path.
+- Description: Implements the vorbis clip operation.
 
 #### `public VorbisClip(InputStream bs) throws IOException`
 - Role: Handles the vorbis clip workflow.
-- Description: Supports the vorbis clip operation used by the surrounding class.
+- Description: Implements the vorbis clip operation.
 
 #### `public int get(double[][] dst, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public VolAdjust(CS bk, double vol)`
-- Role: Performs vol adjust.
-- Description: Supports the vol adjust operation used by the surrounding class.
+- Role: Handles the vol adjust path.
+- Description: Implements the vol adjust operation.
 
 #### `public VolAdjust(CS bk)`
-- Role: Performs vol adjust.
-- Description: Supports the vol adjust operation used by the surrounding class.
+- Role: Handles the vol adjust path.
+- Description: Implements the vol adjust operation.
 
 #### `public int get(double[][] dst, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Resampler(CS bk, double irate, double orate)`
-- Role: Performs resampler.
-- Description: Supports the resampler operation used by the surrounding class.
+- Role: Handles the resampler path.
+- Description: Implements the resampler operation.
 
 #### `public Resampler(CS bk, double irate)`
-- Role: Performs resampler.
-- Description: Supports the resampler operation used by the surrounding class.
+- Role: Handles the resampler path.
+- Description: Implements the resampler operation.
 
 #### `public Resampler(CS bk)`
-- Role: Performs resampler.
-- Description: Supports the resampler operation used by the surrounding class.
+- Role: Handles the resampler path.
+- Description: Implements the resampler operation.
 
 #### `public int get(double[][] dst, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Resampler sp(double sp)`
-- Role: Performs sp.
-- Description: Supports the sp operation used by the surrounding class.
+- Role: Handles the sp path.
+- Description: Implements the sp operation.
 
 #### `public Monitor(CS bk)`
-- Role: Performs monitor.
-- Description: Supports the monitor operation used by the surrounding class.
+- Role: Handles the monitor path.
+- Description: Implements the monitor operation.
 
 #### `public int get(double[][] dst, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `protected void eof()`
-- Role: Performs eof.
-- Description: Supports the eof operation used by the surrounding class.
+- Role: Handles the eof path.
+- Description: Implements the eof operation.
 
 #### `public void finwait() throws InterruptedException`
 - Role: Handles the finwait workflow.
-- Description: Supports the finwait operation used by the surrounding class.
+- Description: Implements the finwait operation.
 
 #### `public int get(double[][] buf, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `protected abstract CS cons()`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public LDump(CS bk, int iv)`
-- Role: Performs ldump.
-- Description: Supports the ldump operation used by the surrounding class.
+- Role: Handles the ldump path.
+- Description: Implements the l dump operation.
 
 #### `public LDump(CS bk)`
-- Role: Performs ldump.
-- Description: Supports the ldump operation used by the surrounding class.
+- Role: Handles the ldump path.
+- Description: Implements the l dump operation.
 
 #### `public int get(double[][] buf, int ns)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `Player(CS stream)`
 - Role: Handles the player workflow.
-- Description: Supports the player operation used by the surrounding class.
+- Description: Implements the player operation.
 
 #### `private int fillbuf(byte[] dst, int off, int len)`
-- Role: Performs fillbuf.
-- Description: Supports the fillbuf operation used by the surrounding class.
+- Role: Handles the fillbuf path.
+- Description: Implements the fillbuf operation.
 
 #### `static SourceDataLine getline() throws LineUnavailableException`
-- Role: Returns the line value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the line.
+- Description: Returns the line.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `void reopen(boolean async)`
-- Role: Performs reopen.
-- Description: Supports the reopen operation used by the surrounding class.
+- Role: Handles the reopen path.
+- Description: Implements the reopen operation.
 
 #### `private static Player ckpl(boolean creat)`
-- Role: Performs ckpl.
-- Description: Supports the ckpl operation used by the surrounding class.
+- Role: Handles the ckpl path.
+- Description: Implements the ckpl operation.
 
 #### `public static void play(CS clip)`
-- Role: Performs play.
-- Description: Supports the play operation used by the surrounding class.
+- Role: Handles the play path.
+- Description: Implements the play operation.
 
 #### `public static void stop(CS clip)`
 - Role: Stops the current workflow.
-- Description: Supports the stop operation used by the surrounding class.
+- Description: Implements the stop operation.
 
 #### `public static Clip resclip(Resource res)`
-- Role: Performs resclip.
-- Description: Supports the resclip operation used by the surrounding class.
+- Role: Handles the resclip path.
+- Description: Implements the resclip operation.
 
 #### `public static CS fromres(Resource res)`
-- Role: Performs fromres.
-- Description: Supports the fromres operation used by the surrounding class.
+- Role: Handles the fromres path.
+- Description: Implements the fromres operation.
 
 #### `public static void play(Resource res)`
-- Role: Performs play.
-- Description: Supports the play operation used by the surrounding class.
+- Role: Handles the play path.
+- Description: Implements the play operation.
 
 #### `public static int bufsize()`
-- Role: Performs bufsize.
-- Description: Supports the bufsize operation used by the surrounding class.
+- Role: Handles the bufsize path.
+- Description: Implements the bufsize operation.
 
 #### `public static void bufsize(int nsz, boolean async)`
-- Role: Performs bufsize.
-- Description: Supports the bufsize operation used by the surrounding class.
+- Role: Handles the bufsize path.
+- Description: Implements the bufsize operation.
 
 #### `public static void main(String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

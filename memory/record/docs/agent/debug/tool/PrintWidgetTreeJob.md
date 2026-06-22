@@ -1,5 +1,5 @@
 ---
-source: [PrintWidgetTreeJob.java](../../../../../src/agent/debug/tool/PrintWidgetTreeJob.java)
+source: [PrintWidgetTreeJob.java](../../../../../../src/agent/debug/tool/PrintWidgetTreeJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Prints the current widget tree.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Prints the current widget tree from the root widget downward.
 
 #### `private void iterateWidget(haven.Widget widget, int indentCount)`
-- Role: Performs iterate widget.
-- Description: Supports the iterate widget operation used by the surrounding class.
+- Role: Handles the iterate widget path.
+- Description: Recursively prints the widget hierarchy with indentation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the job description.
+- Description: Exposes the short help text shown in the menu and console.

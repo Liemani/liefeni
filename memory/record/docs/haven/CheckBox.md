@@ -1,5 +1,5 @@
 ---
-source: [CheckBox.java](../../../src/haven/CheckBox.java)
+source: [CheckBox.java](../../../../src/haven/CheckBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,46 +12,50 @@ Represents the check box Haven component.
 
 ### $_
 
-- Role: Represents $ within CheckBox.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the `chkbox` widget factory.
+- Description: Creates a checkbox widget from the widget resource system.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex lbox = Resource.loadtex("gfx/hud/chkbox")`
-- Role: Defines the shared lbox constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lbox operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chkbox")`
 
 #### `public static final Tex lmark = Resource.loadtex("gfx/hud/chkmark")`
-- Role: Defines the shared lmark constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lmark operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chkmark")`
 
 #### `public static final Tex sbox = Resource.loadtex("gfx/hud/chkboxs")`
-- Role: Defines the shared sbox constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the sbox operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chkboxs")`
 
 #### `public static final Tex smark = Resource.loadtex("gfx/hud/chkmarks")`
-- Role: Defines the shared smark constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the smark operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/chkmarks")`
 
 ### Fields
 
 #### `public final Tex box, mark`
-- Role: Stores the mark value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mark value.
+- Description: Caches the `mark` value for reuse.
 
 #### `public final Tex box, mark`
-- Role: Stores the mark value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mark value.
+- Description: Caches the `mark` value for reuse.
 
 #### `public final Coord loff`
-- Role: Stores the loff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the loff value.
+- Description: Caches the `loff` value for reuse.
 
 #### `Text lbl`
-- Role: Stores the lbl value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lbl value.
+- Description: Caches the `lbl` value for reuse.
 
 ### Methods
 
@@ -61,16 +65,16 @@ Represents the check box Haven component.
 
 #### `public CheckBox(String lbl, boolean lg)`
 - Role: Creates a new CheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CheckBox instance from the supplied inputs.
 
 #### `public CheckBox(String lbl)`
 - Role: Creates a new CheckBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CheckBox instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the CheckBox content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.

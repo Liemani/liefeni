@@ -1,5 +1,5 @@
 ---
-source: [WaypointSceneBuilder.java](../../../../../src/lmi/waypoint/runtime/WaypointSceneBuilder.java)
+source: [WaypointSceneBuilder.java](../../../../../../src/lmi/waypoint/runtime/WaypointSceneBuilder.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,18 +11,12 @@ Builds waypoint scene state from current runtime inputs.
 ## Nested Types
 
 ### BuildResult
-### BuildResult
-- Role: Represents the build result helper used by WaypointSceneBuilder.
-
 - Role: Carries the result of building a waypoint scene.
-- Description: Describes the nested build result type used by the enclosing class.
+- Description: Returns both the assembled scene and the selected managed nodes.
 
 ### NodeVisibility
-### NodeVisibility
-- Role: Represents the node visibility helper used by WaypointSceneBuilder.
-
 - Role: Classifies how a waypoint node should appear in the scene.
-- Description: Describes the nested node visibility type used by the enclosing class.
+- Description: Separates drawable, hidden, and skipped nodes during scene assembly.
 
 ## Members
 
@@ -31,35 +25,35 @@ Builds waypoint scene state from current runtime inputs.
 ### Fields
 
 #### `public final WaypointScene scene`
-- Role: Stores the scene value.
-- Description: Backs the cached state for this file.
+- Role: Stores the current waypoint scene snapshot.
+- Description: Stores the current waypoint scene snapshot.
 
 #### `public final Array<ManagedWpNode> selectedManagedNodes`
-- Role: Caches selected managed nodes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Tracks the managed waypoint nodes selected for inspection or editing.
+- Description: Tracks the managed waypoint nodes selected for inspection or editing.
 
 ### Methods
 
 #### `private WaypointSceneBuilder()`
 - Role: Creates a new WaypointSceneBuilder instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointSceneBuilder instance from the supplied inputs.
 
 #### `public static BuildResult build(`
 - Role: Handles the build workflow.
-- Description: Supports the build operation used by the surrounding class.
+- Description: Assembles a scene snapshot from the current runtime context.
 
 #### `private static void _appendResidentEdge(`
 - Role: Handles the append resident edge workflow.
-- Description: Supports the append resident edge operation used by the surrounding class.
+- Description: Adds resident edges to the scene result.
 
 #### `private static NodeVisibility _classifyNode(long gridId, WaypointGridBounds bounds)`
-- Role: Performs  classify node.
-- Description: Supports the classify node operation used by the surrounding class.
+- Role: Classifies whether a node should be drawn or skipped.
+- Description: Compares node grid ids against the current bounds.
 
 #### `private static ResolvedNode _resolvedNode(WaypointGridBounds bounds, ManagedWpNode node)`
-- Role: Performs  resolved node.
-- Description: Supports the resolved node operation used by the surrounding class.
+- Role: Builds a resolved node for the current scene.
+- Description: Wraps the managed node with draw-time visibility data.
 
 #### `BuildResult(WaypointScene scene, Array<ManagedWpNode> selectedManagedNodes)`
 - Role: Handles the build result workflow.
-- Description: Supports the build result operation used by the surrounding class.
+- Description: Stores the built scene and the selected node set.

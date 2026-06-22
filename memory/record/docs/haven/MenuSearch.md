@@ -1,5 +1,5 @@
 ---
-source: [MenuSearch.java](../../../src/haven/MenuSearch.java)
+source: [MenuSearch.java](../../../../src/haven/MenuSearch.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,98 +12,100 @@ Represents the menu search Haven component.
 
 ### Result
 
-- Role: Represents result within MenuSearch.
-- Description: Describes the nested result type used by the enclosing class.
+- Role: Represents one menu search result.
+- Description: Result row that binds a paginated menu button to its searchable label state.
 
 ### Results
 
-- Role: Represents results within MenuSearch.
-- Description: Describes the nested results type used by the enclosing class.
+- Role: Renders the result list.
+- Description: Scrollable list widget that displays menu-search matches and selection state.
 
 ## Members
 
 ### Constants
 
 #### `private static final Text.Foundry elf = CharWnd.attrf`
-- Role: Defines the shared elf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the elf value.
+- Description: Caches the `elf` value for reuse.
+- Value: `CharWnd.attrf`
 
 #### `private static final int elh = elf.height() + UI.scale(2)`
-- Role: Defines the shared elh constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the elh operation.
+- Description: Implements the scale operation.
+- Value: `elf.height() + UI.scale(2)`
 
 ### Fields
 
 #### `public final MenuGrid menu`
-- Role: Stores the menu value.
-- Description: Backs the cached state for this file.
+- Role: Caches the menu value.
+- Description: Caches the `menu` value for reuse.
 
 #### `public final Results rls`
-- Role: Holds the rls state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rls value.
+- Description: Caches the `rls` value for reuse.
 
 #### `public final TextEntry sbox`
-- Role: Stores the sbox value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sbox value.
+- Description: Caches the `sbox` value for reuse.
 
 #### `private Pagina root`
-- Role: Holds the root state.
-- Description: Backs the cached state for this file.
+- Role: Caches the root value.
+- Description: Keeps the root event so acceptance can be reported back.
 
 #### `private List<Result> cur = Collections.emptyList()`
-- Role: Caches cur entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cur operation.
+- Description: Implements the empty list operation.
 
 #### `private List<Result> filtered = Collections.emptyList()`
-- Role: Caches filtered entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the filtered operation.
+- Description: Implements the empty list operation.
 
 #### `private boolean recons = false`
 - Role: Tracks the recons flag.
-- Description: Supports the recons operation used by the surrounding class.
+- Description: Caches the `recons` value for reuse.
 
 #### `public final PagButton btn`
-- Role: Holds the btn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the btn value.
+- Description: Caches the `btn` value for reuse.
 
 ### Methods
 
 #### `private Result(PagButton btn)`
-- Role: Performs result.
-- Description: Supports the result operation used by the surrounding class.
+- Role: Handles the result path.
+- Description: Implements the result operation.
 
 #### `private Results(Coord sz)`
-- Role: Performs results.
-- Description: Supports the results operation used by the surrounding class.
+- Role: Handles the results path.
+- Description: Implements the results operation.
 
 #### `protected List<Result> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Widget makeitem(Result el, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `public MenuSearch(MenuGrid menu)`
 - Role: Creates a new MenuSearch instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the MenuSearch instance from the supplied inputs.
 
 #### `private void refilter()`
-- Role: Performs refilter.
-- Description: Supports the refilter operation used by the surrounding class.
+- Role: Handles the refilter path.
+- Description: Implements the refilter operation.
 
 #### `private void updlist()`
-- Role: Performs updlist.
-- Description: Supports the updlist operation used by the surrounding class.
+- Role: Handles the updlist path.
+- Description: Implements the updlist operation.
 
 #### `public void setroot(Pagina nr)`
-- Role: Performs setroot.
-- Description: Supports the setroot operation used by the surrounding class.
+- Role: Handles the setroot path.
+- Description: Updates the root.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.

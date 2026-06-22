@@ -1,5 +1,5 @@
 ---
-source: [RecordJob.java](../../../../../src/agent/tool/waypoint/RecordJob.java)
+source: [RecordJob.java](../../../../../../src/agent/tool/waypoint/RecordJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,24 +18,24 @@ Implements a waypoint job for record job.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private static boolean _ensureGraphSelected()`
-- Role: Performs  ensure graph selected.
-- Description: Supports the ensure graph selected operation used by the surrounding class.
+- Role: Handles the ensure graph selected path.
+- Description: Implements the ensure graph selected operation.
 
 #### `private static ResolvedNode _selectStartNode()`
-- Role: Performs  select start node.
-- Description: Supports the select start node operation used by the surrounding class.
+- Role: Handles the select start node path.
+- Description: Implements the select start node operation.
 
 #### `private static void _moveToStartNode(ResolvedNode startNode)`
-- Role: Performs  move to start node.
-- Description: Supports the move to start node operation used by the surrounding class.
+- Role: Handles the move to start node path.
+- Description: Implements the move to start node operation.
 
 #### `private static RecordingSession _startRecording(ResolvedNode startNode)`
-- Role: Performs  start recording.
-- Description: Supports the start recording operation used by the surrounding class.
+- Role: Handles the start recording path.
+- Description: Implements the start recording operation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

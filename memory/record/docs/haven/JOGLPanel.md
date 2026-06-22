@@ -1,5 +1,5 @@
 ---
-source: [JOGLPanel.java](../../../src/haven/JOGLPanel.java)
+source: [JOGLPanel.java](../../../../src/haven/JOGLPanel.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,129 +12,130 @@ Represents the joglpanel Haven component.
 
 ### ProfileException
 
-- Role: Represents profile exception within JOGLPanel.
-- Description: Describes the nested profile exception type used by the enclosing class.
+- Role: Signals JOGL profile-debug failures.
+- Description: Wraps an error raised while profiling the OpenGL panel lifecycle.
 
 ## Members
 
 ### Constants
 
 #### `private static final boolean dumpbgl = true`
-- Role: Defines the shared dumpbgl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the dumpbgl value.
+- Description: Caches the `dumpbgl` value for reuse.
+- Value: `true`
 
 ### Fields
 
 #### `public boolean aswap`
 - Role: Tracks the aswap flag.
-- Description: Supports the aswap operation used by the surrounding class.
+- Description: Caches the `aswap` value for reuse.
 
 #### `private JOGLEnvironment env = null`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `private Area shape`
-- Role: Holds the shape state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shape value.
+- Description: Caches the `shape` value for reuse.
 
 #### `private Pipe base, wnd`
-- Role: Holds the wnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wnd value.
+- Description: Caches the `wnd` value for reuse.
 
 #### `private Pipe base, wnd`
-- Role: Holds the wnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wnd value.
+- Description: Caches the `wnd` value for reuse.
 
 #### `private final Loop main = new Loop(this)`
-- Role: Holds the main state.
-- Description: Backs the cached state for this file.
+- Role: Implements the main operation.
+- Description: Implements the loop operation.
 
 #### `public final String availability`
-- Role: Stores the availability value.
-- Description: Backs the cached state for this file.
+- Role: Caches the availability value.
+- Description: Caches the `availability` value for reuse.
 
 #### `private final haven.error.ErrorHandler errh = haven.error.ErrorHandler.find()`
-- Role: Stores the errh value.
-- Description: Backs the cached state for this file.
+- Role: Implements the errh operation.
+- Description: Finds the requested data.
 
 #### `private Robot awtrobot`
-- Role: Holds the awtrobot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the awtrobot value.
+- Description: Caches the `awtrobot` value for reuse.
 
 #### `private Map<String, Console.Command> cmdmap = new TreeMap<String, Console.Command>()`
-- Role: Caches cmdmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cmdmap operation.
+- Description: Implements the private map<string, console.command> cmdmap = new tree map<string, console.command>() operation.
 
 ### Methods
 
 #### `public ProfileException(Throwable cause)`
-- Role: Performs profile exception.
-- Description: Supports the profile exception operation used by the surrounding class.
+- Role: Handles the profile exception path.
+- Description: Implements the profile exception operation.
 
 #### `private static GLCapabilities mkcaps()`
-- Role: Performs mkcaps.
-- Description: Supports the mkcaps operation used by the surrounding class.
+- Role: Handles the mkcaps path.
+- Description: Implements the mkcaps operation.
 
 #### `public JOGLPanel()`
 - Role: Creates a new JOGLPanel instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the JOGLPanel instance from the supplied inputs.
 
 #### `private boolean iswap()`
-- Role: Performs iswap.
-- Description: Supports the iswap operation used by the surrounding class.
+- Role: Handles the iswap path.
+- Description: Returns whether the wap is true.
 
 #### `private void initgl(GL gl)`
-- Role: Performs initgl.
-- Description: Supports the initgl operation used by the surrounding class.
+- Role: Handles the initgl path.
+- Description: Implements the initgl operation.
 
 #### `private void setenv(JOGLEnvironment env)`
-- Role: Performs setenv.
-- Description: Supports the setenv operation used by the surrounding class.
+- Role: Handles the setenv path.
+- Description: Updates the env.
 
 #### `private void redraw(GL gl)`
-- Role: Performs redraw.
-- Description: Supports the redraw operation used by the surrounding class.
+- Role: Handles the redraw path.
+- Description: Implements the redraw operation.
 
 #### `public GLEnvironment env()`
-- Role: Performs env.
-- Description: Supports the env operation used by the surrounding class.
+- Role: Handles the env path.
+- Description: Implements the env operation.
 
 #### `public Area shape()`
-- Role: Performs shape.
-- Description: Supports the shape operation used by the surrounding class.
+- Role: Handles the shape path.
+- Description: Implements the shape operation.
 
 #### `public Pipe basestate()`
-- Role: Performs basestate.
-- Description: Supports the basestate operation used by the surrounding class.
+- Role: Handles the basestate path.
+- Description: Implements the basestate operation.
 
 #### `public void glswap(haven.render.gl.GL gl)`
-- Role: Performs glswap.
-- Description: Supports the glswap operation used by the surrounding class.
+- Role: Handles the glswap path.
+- Description: Implements the glswap operation.
 
 #### `private void uglyjoglhack() throws InterruptedException`
 - Role: Handles the uglyjoglhack workflow.
-- Description: Supports the uglyjoglhack operation used by the surrounding class.
+- Description: Implements the uglyjoglhack operation.
 
 #### `private void renderloop()`
-- Role: Performs renderloop.
-- Description: Supports the renderloop operation used by the surrounding class.
+- Role: Handles the renderloop path.
+- Description: Renders the loop.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public UI newui(UI.Runner fun)`
-- Role: Performs newui.
-- Description: Supports the newui operation used by the surrounding class.
+- Role: Handles the newui path.
+- Description: Implements the newui operation.
 
 #### `public void background(boolean bg)`
-- Role: Performs background.
-- Description: Supports the background operation used by the surrounding class.
+- Role: Handles the background path.
+- Description: Implements the background operation.
 
 #### `public void setmousepos(Coord c)`
-- Role: Performs setmousepos.
-- Description: Supports the setmousepos operation used by the surrounding class.
+- Role: Handles the setmousepos path.
+- Description: Updates the mousepos.
 
 #### `public Map<String, Console.Command> findcmds()`
 - Role: Returns the available console commands.
-- Description: Exposes the requested value without mutating state.
+- Description: Finds the cmds.

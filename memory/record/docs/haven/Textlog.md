@@ -1,5 +1,5 @@
 ---
-source: [Textlog.java](../../../src/haven/Textlog.java)
+source: [Textlog.java](../../../../src/haven/Textlog.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the textlog Haven component.
 
 ### $_
 
-- Role: Represents $ within Textlog.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the `textlog` widget factory.
+- Description: Creates the scrolling text log widget from resource arguments.
 
 ## Members
 
@@ -22,40 +22,40 @@ Represents the textlog Haven component.
 ### Fields
 
 #### `static Tex texpap = Resource.loadtex("gfx/hud/texpap")`
-- Role: Stores the texpap value.
-- Description: Backs the cached state for this file.
+- Role: Implements the texpap operation.
+- Description: Implements the loadtex operation.
 
 #### `static Tex schain = Resource.loadtex("gfx/hud/schain")`
-- Role: Stores the schain value.
-- Description: Backs the cached state for this file.
+- Role: Implements the schain operation.
+- Description: Implements the loadtex operation.
 
 #### `static Tex sflarp = Resource.loadtex("gfx/hud/sflarp")`
-- Role: Stores the sflarp value.
-- Description: Backs the cached state for this file.
+- Role: Implements the sflarp operation.
+- Description: Implements the loadtex operation.
 
 #### `static RichText.Foundry fnd = new RichText.Foundry(TextAttribute.FAMILY, "SansSerif", TextAttribute.SIZE, UI.scale(9f), TextAttribute.FOREGROUND, Color.BLACK)`
-- Role: Stores the fnd value.
-- Description: Backs the cached state for this file.
+- Role: Implements the fnd operation.
+- Description: Implements the scale operation.
 
 #### `List<Text> lines`
-- Role: Caches lines entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the lines value.
+- Description: Caches the `lines` value for reuse.
 
 #### `int maxy, cury`
-- Role: Stores the cury value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cury value.
+- Description: Caches the `cury` value for reuse.
 
 #### `int maxy, cury`
-- Role: Stores the cury value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cury value.
+- Description: Caches the `cury` value for reuse.
 
 #### `int margin = UI.scale(3)`
-- Role: Stores the margin value.
-- Description: Backs the cached state for this file.
+- Role: Implements the margin operation.
+- Description: Implements the scale operation.
 
 #### `UI.Grab sdrag = null`
-- Role: Stores the sdrag value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdrag value.
+- Description: Caches the `sdrag` value for reuse.
 
 ### Methods
 
@@ -65,40 +65,40 @@ Represents the textlog Haven component.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Textlog content.
 
 #### `public Textlog(Coord sz)`
 - Role: Creates a new Textlog instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Textlog instance from the supplied inputs.
 
 #### `public void append(String line, Color col)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public void append(String line)`
-- Role: Performs append.
-- Description: Supports the append operation used by the surrounding class.
+- Role: Handles the append path.
+- Description: Implements the append operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `private void update(Coord c)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.

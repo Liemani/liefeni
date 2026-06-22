@@ -1,5 +1,5 @@
 ---
-source: [TexRaw.java](../../../src/haven/TexRaw.java)
+source: [TexRaw.java](../../../../src/haven/TexRaw.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Represents the tex raw Haven component.
 ### Fields
 
 #### `public final Sampler2D back`
-- Role: Holds the back state.
-- Description: Backs the cached state for this file.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `public final boolean invert`
 - Role: Tracks the invert flag.
-- Description: Supports the invert operation used by the surrounding class.
+- Description: Caches the `invert` value for reuse.
 
 #### `private final ColorTex st`
-- Role: Stores the st value.
-- Description: Backs the cached state for this file.
+- Role: Caches the st value.
+- Description: Caches the `st` value for reuse.
 
 ### Methods
 
 #### `public TexRaw(Sampler2D back, boolean invert)`
 - Role: Creates a new TexRaw instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TexRaw instance from the supplied inputs.
 
 #### `public TexRaw(Sampler2D back)`
 - Role: Creates a new TexRaw instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TexRaw instance from the supplied inputs.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public void render(GOut g, float[] gc, float[] tc)`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

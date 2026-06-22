@@ -1,5 +1,5 @@
 ---
-source: [VaoBindState.java](../../../../../src/haven/render/gl/VaoBindState.java)
+source: [VaoBindState.java](../../../../../../src/haven/render/gl/VaoBindState.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,37 +13,38 @@ Provides GL backend support for vao bind state.
 ### Constants
 
 #### `public static final boolean DO_GL_EBO_FIXUP = true`
-- Role: Defines the shared do gl ebo fixup constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the do gl ebo fixup value.
+- Description: Caches the `DO_GL_EBO_FIXUP` value for reuse.
+- Value: `true`
 
 ### Fields
 
 #### `public final GLVertexArray vao`
-- Role: Caches vao entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the vao value.
+- Description: Caches the `vao` value for reuse.
 
 #### `public final GLBuffer ebo`
-- Role: Stores the ebo value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ebo value.
+- Description: Caches the `ebo` value for reuse.
 
 ### Methods
 
 #### `public VaoBindState(GLVertexArray vao, GLBuffer ebo)`
 - Role: Creates a new VaoBindState instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the VaoBindState instance from the supplied inputs.
 
 #### `public void apply(BGL gl)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public void unapply(BGL gl)`
-- Role: Performs unapply.
-- Description: Supports the unapply operation used by the surrounding class.
+- Role: Handles the unapply path.
+- Description: Implements the unapply operation.
 
 #### `public void applyto(BGL gl, GLState sthat)`
-- Role: Performs applyto.
-- Description: Supports the applyto operation used by the surrounding class.
+- Role: Handles the applyto path.
+- Description: Implements the applyto operation.
 
 #### `public static void apply(BGL gl, Applier st, GLVertexArray vao, GLBuffer ebo)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

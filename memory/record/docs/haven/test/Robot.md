@@ -1,5 +1,5 @@
 ---
-source: [Robot.java](../../../../src/haven/test/Robot.java)
+source: [Robot.java](../../../../../src/haven/test/Robot.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Provides a Haven test helper for robot.
 ### Fields
 
 #### `public TestClient c`
-- Role: Holds the c state.
-- Description: Backs the cached state for this file.
+- Role: Caches the c value.
+- Description: Caches the `c` value for reuse.
 
 ### Methods
 
 #### `public Robot(TestClient cl)`
 - Role: Creates a new Robot instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Robot instance from the supplied inputs.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Handles the destroy path.
+- Description: Implements the destroy operation.
 
 #### `public void newwdg(int id, Widget w, Object... args)`
-- Role: Performs newwdg.
-- Description: Supports the newwdg operation used by the surrounding class.
+- Role: Handles the newwdg path.
+- Description: Implements the newwdg operation.
 
 #### `public void dstwdg(int id, Widget w)`
-- Role: Performs dstwdg.
-- Description: Supports the dstwdg operation used by the surrounding class.
+- Role: Handles the dstwdg path.
+- Description: Implements the dstwdg operation.
 
 #### `public void uimsg(int id, Widget w, String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

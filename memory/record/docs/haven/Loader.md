@@ -1,5 +1,5 @@
 ---
-source: [Loader.java](../../../src/haven/Loader.java)
+source: [Loader.java](../../../../src/haven/Loader.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the loader Haven component.
 
 ### Future
 
-- Role: Represents future within Loader.
-- Description: Describes the nested future type used by the enclosing class.
+- Role: Represents one deferred task managed by `Loader`.
+- Description: Stores the supplier, completion state, cancellation state, and last loading exception.
 
 ## Members
 
@@ -22,119 +22,119 @@ Represents the loader Haven component.
 ### Fields
 
 #### `private final double timeout = 5.0`
-- Role: Stores the timeout value.
-- Description: Backs the cached state for this file.
+- Role: Caches the timeout value.
+- Description: Caches the `timeout` value for reuse.
 
 #### `private final int maxthreads = 4`
-- Role: Stores the maxthreads value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxthreads value.
+- Description: Caches the `maxthreads` value for reuse.
 
 #### `private final Queue<Future<?>> queue = new LinkedList<>()`
-- Role: Caches queue entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queue operation.
+- Description: Implements the private final queue<future<?>> queue = new linked list<>() operation.
 
 #### `private final Map<Future<?>, Waiting> loading = new IdentityHashMap<>()`
-- Role: Caches loading entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Loads the ing.
+- Description: Loads the ing.
 
 #### `private final Collection<Thread> pool = new ArrayList<>()`
-- Role: Caches pool entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the pool operation.
+- Description: Implements the private final collection<thread> pool = new array list<>() operation.
 
 #### `private final AtomicInteger busy = new AtomicInteger(0)`
-- Role: Stores the busy value.
-- Description: Backs the cached state for this file.
+- Role: Implements the busy operation.
+- Description: Implements the atomic integer operation.
 
 #### `public final Supplier<T> task`
-- Role: Holds the task state.
-- Description: Backs the cached state for this file.
+- Role: Caches the task value.
+- Description: Caches the `task` value for reuse.
 
 #### `private final boolean capex`
 - Role: Tracks the capex flag.
-- Description: Supports the capex operation used by the surrounding class.
+- Description: Caches the `capex` value for reuse.
 
 #### `private final Object runmon = new Object()`
-- Role: Holds the runmon state.
-- Description: Backs the cached state for this file.
+- Role: Implements the runmon operation.
+- Description: Implements the object operation.
 
 #### `private T val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private Throwable exc`
-- Role: Holds the exc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the exc value.
+- Description: Caches the `exc` value for reuse.
 
 #### `private Loading curload = null`
-- Role: Holds the curload state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curload value.
+- Description: Caches the `curload` value for reuse.
 
 #### `private Thread running = null`
-- Role: Holds the running state.
-- Description: Backs the cached state for this file.
+- Role: Caches the running value.
+- Description: Caches the `running` value for reuse.
 
 #### `private boolean done = false, cancelled = false, restarted = false`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `private boolean done = false, cancelled = false, restarted = false`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `private boolean done = false, cancelled = false, restarted = false`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 ### Methods
 
 #### `private Future(Supplier<T> task, boolean capex)`
-- Role: Performs future.
-- Description: Supports the future operation used by the surrounding class.
+- Role: Handles the future path.
+- Description: Implements the future operation.
 
 #### `private void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public boolean cancel()`
-- Role: Performs cancel.
-- Description: Supports the cancel operation used by the surrounding class.
+- Role: Cancels the current waiting registration.
+- Description: Cancels the current waiting registration.
 
 #### `public void restart()`
-- Role: Performs restart.
-- Description: Supports the restart operation used by the surrounding class.
+- Role: Handles the restart path.
+- Description: Implements the restart operation.
 
 #### `public T get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public Loading lastload()`
-- Role: Performs lastload.
-- Description: Supports the lastload operation used by the surrounding class.
+- Role: Handles the lastload path.
+- Description: Implements the lastload operation.
 
 #### `private void loop()`
-- Role: Performs loop.
-- Description: Supports the loop operation used by the surrounding class.
+- Role: Handles the loop path.
+- Description: Implements the loop operation.
 
 #### `private void check()`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Handles the check path.
+- Description: Implements the check operation.
 
 #### `public <T> Future<T> defer(Supplier<T> task, boolean capex)`
-- Role: Performs defer.
-- Description: Supports the defer operation used by the surrounding class.
+- Role: Handles the defer path.
+- Description: Implements the defer operation.
 
 #### `public <T> Future<T> defer(Supplier<T> task)`
-- Role: Performs defer.
-- Description: Supports the defer operation used by the surrounding class.
+- Role: Handles the defer path.
+- Description: Implements the defer operation.
 
 #### `public <T> Future<T> defer(Runnable task, T result)`
-- Role: Performs defer.
-- Description: Supports the defer operation used by the surrounding class.
+- Role: Handles the defer path.
+- Description: Implements the defer operation.
 
 #### `public String stats()`
-- Role: Performs stats.
-- Description: Supports the stats operation used by the surrounding class.
+- Role: Handles the stats path.
+- Description: Implements the stats operation.

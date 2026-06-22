@@ -1,5 +1,5 @@
 ---
-source: [FieldRef.java](../../../../../src/haven/render/sl/FieldRef.java)
+source: [FieldRef.java](../../../../../../src/haven/render/sl/FieldRef.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Represents the field ref shader-language AST node.
 ### Fields
 
 #### `public final Expression val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `public final String el`
-- Role: Stores the el value.
-- Description: Backs the cached state for this file.
+- Role: Caches the el value.
+- Description: Caches the `el` value for reuse.
 
 ### Methods
 
 #### `public FieldRef(Expression val, String el)`
-- Role: Creates a new FieldRef instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one field reference.
+- Description: Stores the base expression and field name.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the base expression.
+- Description: Walks the value that owns the referenced field.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the field reference.
+- Description: Writes the field access syntax for the stored expression.

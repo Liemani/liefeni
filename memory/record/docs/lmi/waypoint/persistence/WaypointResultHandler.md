@@ -1,5 +1,5 @@
 ---
-source: [WaypointResultHandler.java](../../../../../src/lmi/waypoint/persistence/WaypointResultHandler.java)
+source: [WaypointResultHandler.java](../../../../../../src/lmi/waypoint/persistence/WaypointResultHandler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,9 +17,9 @@ Provides waypoint persistence support for waypoint result handler.
 ### Methods
 
 #### `void onSuccess(R result)`
-- Role: Performs on success.
-- Description: Supports the on success operation used by the surrounding class.
+- Role: Receives a successful waypoint DB result.
+- Description: Handles the result after the executor finishes without error.
 
 #### `void onFailure(Exception error)`
-- Role: Performs on failure.
-- Description: Supports the on failure operation used by the surrounding class.
+- Role: Receives a failed waypoint DB result.
+- Description: Handles the exception raised by the executor thread.

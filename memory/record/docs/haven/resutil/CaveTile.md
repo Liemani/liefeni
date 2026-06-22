@@ -1,105 +1,111 @@
 ---
-source: [CaveTile.java](../../../../src/haven/resutil/CaveTile.java)
+source: [CaveTile.java](../../../../../src/haven/resutil/CaveTile.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # CaveTile
 
-Provides resource helper logic for cave tile.
+Builds cave walls and cave-floor transitions for tiles that border open terrain.
 
 ## Nested Types
 
-### Factory
-
-- Role: Represents factory within CaveTile.
-- Description: Describes the nested factory type used by the enclosing class.
-
 ### Walls
+Caches the wall vertex strips for a specific map mesh.
 
-- Role: Represents walls within CaveTile.
-- Description: Describes the nested walls type used by the enclosing class.
+#### Members
+
+##### Fields
+
+#### `public final MapMesh m`
+- Role: Stores the owning map mesh.
+- Description: Used when sampling ground height and random seeds.
+
+#### `public final Scan cs`
+- Role: Stores the tile scan window.
+- Description: Covers the mesh neighborhood used by wall generation.
+
+#### `public final Vertex[][] wv`
+- Role: Caches per-tile wall vertices.
+- Description: Each tile position stores its prebuilt wall strip.
+
+#### `private MapMesh.MapSurface ms`
+- Role: Stores the active surface helper.
+- Description: Used to create wall vertices from the ground surface.
+
+##### Methods
+
+#### `public Walls(MapMesh m)`
+- Role: Builds the wall cache for a map mesh.
+- Description: Prepares the scan window and per-tile cache arrays.
+
+#### `public Vertex[] fortile(Coord tc)`
+- Role: Returns the wall vertices for one tile.
+- Description: Lazily creates the strip and reuses it for later calls.
+
+### Factory
+Creates cave tiles from the `cave` tileset resource.
+
+#### Members
+
+##### Methods
+
+#### `public Tiler create(int id, Tileset set)`
+- Role: Builds a `CaveTile`.
+- Description: Resolves wall material and optional ground tiler from resource data.
 
 ## Members
 
 ### Constants
 
 #### `public static final float h = 16`
-- Role: Defines the shared h constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the wall height.
+- Description: Controls how tall the cave wall geometry is built.
 
 #### `public static final MapMesh.DataID<Walls> walls = MapMesh.makeid(Walls.class)`
-- Role: Defines the shared walls constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Registers the wall cache on the map mesh.
+- Description: Lets the mesh store cave-wall data per mesh instance.
 
-#### `private static final Coord[] tces =`
-- Role: Defines the shared cave tile constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final Coord[] tces = {new Coord(0, -1), new Coord(1, 0), new Coord(0, 1), new Coord(-1, 0)}`
+- Role: Lists tile-edge offsets.
+- Description: Used when checking the four sides of a tile.
 
-#### `private static final Coord[] tccs =`
-- Role: Defines the shared cave tile constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final Coord[] tccs = {new Coord(0, 0), new Coord(1, 0), new Coord(1, 1), new Coord(0, 1)}`
+- Role: Lists tile-corner offsets.
+- Description: Used when building wall geometry around a tile.
 
 ### Fields
 
 #### `public final Material wtex`
-- Role: Holds the wtex state.
-- Description: Backs the cached state for this file.
+- Role: Stores the wall material.
+- Description: Applied to the wall faces.
 
 #### `public final Tiler ground`
-- Role: Holds the ground state.
-- Description: Backs the cached state for this file.
-
-#### `public final MapMesh m`
-- Role: Holds the m state.
-- Description: Backs the cached state for this file.
-
-#### `public final Scan cs`
-- Role: Holds the cs state.
-- Description: Backs the cached state for this file.
-
-#### `public final Vertex[][] wv`
-- Role: Stores the wv value.
-- Description: Backs the cached state for this file.
-
-#### `private MapMesh.MapSurface ms`
-- Role: Holds the ms state.
-- Description: Backs the cached state for this file.
+- Role: Stores the optional ground tiler.
+- Description: Reused when laying the cave floor.
 
 ### Methods
 
-#### `public Walls(MapMesh m)`
-- Role: Performs walls.
-- Description: Supports the walls operation used by the surrounding class.
-
-#### `public Vertex[] fortile(Coord tc)`
-- Role: Performs fortile.
-- Description: Supports the fortile operation used by the surrounding class.
-
-#### `public Tiler create(int id, Tileset set)`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
-
 #### `public CaveTile(int id, Tileset set, Material wtex, Tiler ground)`
-- Role: Creates a new CaveTile instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a cave tile definition.
+- Description: Stores the wall material and optional ground tiler.
 
 #### `private void modelwall(Walls w, Coord ltc, Coord rtc)`
-- Role: Performs modelwall.
-- Description: Supports the modelwall operation used by the surrounding class.
+- Role: Builds a wall segment.
+- Description: Adds vertical wall faces between neighboring tile strips.
 
 #### `public void model(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs model.
-- Description: Supports the model operation used by the surrounding class.
+- Role: Builds cave wall model data.
+- Description: Adds wall geometry only where the neighbor is not another cave tile.
 
 #### `private void mkwall(MapMesh m, Walls w, Coord ltc, Coord rtc)`
-- Role: Performs mkwall.
-- Description: Supports the mkwall operation used by the surrounding class.
+- Role: Emits a wall segment into the mesh.
+- Description: Creates textured wall faces for the visible edge.
 
 #### `public void lay(MapMesh m, Random rnd, Coord lc, Coord gc)`
-- Role: Performs lay.
-- Description: Supports the lay operation used by the surrounding class.
+- Role: Lays cave geometry into the mesh.
+- Description: Builds visible walls and then delegates to the optional ground tiler.
 
 #### `public void trans(MapMesh m, Random rnd, Tiler gt, Coord lc, Coord gc, int z, int bmask, int cmask)`
-- Role: Performs trans.
-- Description: Supports the trans operation used by the surrounding class.
+- Role: Handles cave transitions.
+- Description: This tile does not add extra transition geometry.

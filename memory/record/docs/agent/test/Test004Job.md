@@ -1,5 +1,5 @@
 ---
-source: [Test004Job.java](../../../../src/agent/test/Test004Job.java)
+source: [Test004Job.java](../../../../../src/agent/test/Test004Job.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Implements a test job for test004 job.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

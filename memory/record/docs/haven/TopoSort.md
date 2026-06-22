@@ -1,5 +1,5 @@
 ---
-source: [TopoSort.java](../../../src/haven/TopoSort.java)
+source: [TopoSort.java](../../../../src/haven/TopoSort.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -27,107 +27,107 @@ Represents the topo sort Haven component.
 ### Fields
 
 #### `protected final Hash<? super T> hash`
-- Role: Holds the hash state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `protected final Set<T> nodes`
-- Role: Caches nodes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the nodes value.
+- Description: Caches the `nodes` value for reuse.
 
 #### `protected final Graph<T> edges`
-- Role: Holds the edges state.
-- Description: Backs the cached state for this file.
+- Role: Caches the edges value.
+- Description: Caches the `edges` value for reuse.
 
 #### `public final Hash<? super T> hash`
-- Role: Holds the hash state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `public final Map<T, Set<T>> fwd`
-- Role: Caches fwd entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the fwd value.
+- Description: Caches the `fwd` value for reuse.
 
 #### `public final Map<T, Set<T>> rwd`
-- Role: Caches rwd entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the rwd value.
+- Description: Caches the `rwd` value for reuse.
 
 #### `protected List<T> order`
-- Role: Caches order entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the order value.
+- Description: Caches the `order` value for reuse.
 
 ### Methods
 
 #### `public Graph(Hash<? super T> hash)`
-- Role: Performs graph.
-- Description: Supports the graph operation used by the surrounding class.
+- Role: Handles the graph path.
+- Description: Implements the graph operation.
 
 #### `public <S extends T> Graph(Hash<? super T> hash, Graph<S> from)`
-- Role: Performs graph.
-- Description: Supports the graph operation used by the surrounding class.
+- Role: Handles the graph path.
+- Description: Implements the graph operation.
 
 #### `public void add(T from, T to)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(T from, T to)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public boolean removefrom(T from)`
-- Role: Performs removefrom.
-- Description: Supports the removefrom operation used by the surrounding class.
+- Role: Handles the removefrom path.
+- Description: Removes the from.
 
 #### `public boolean removeto(T to)`
-- Role: Performs removeto.
-- Description: Supports the removeto operation used by the surrounding class.
+- Role: Handles the removeto path.
+- Description: Removes the to.
 
 #### `public Collection<T> from(T from)`
-- Role: Performs from.
-- Description: Supports the from operation used by the surrounding class.
+- Role: Handles the from path.
+- Description: Implements the from operation.
 
 #### `public Collection<T> to(T to)`
-- Role: Performs to.
-- Description: Supports the to operation used by the surrounding class.
+- Role: Handles the to path.
+- Description: Implements the to operation.
 
 #### `public TopoSort(Hash<? super T> hash)`
 - Role: Creates a new TopoSort instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TopoSort instance from the supplied inputs.
 
 #### `public TopoSort()`
 - Role: Creates a new TopoSort instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TopoSort instance from the supplied inputs.
 
 #### `public TopoSort add(T before, T after)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public TopoSort add(Iterable<? extends T> order)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `private void remove(T before, T after)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public List<T> sort()`
-- Role: Performs sort.
-- Description: Supports the sort operation used by the surrounding class.
+- Role: Handles the sort path.
+- Description: Implements the sort operation.
 
 #### `public InconsistentOrder(String message)`
-- Role: Performs inconsistent order.
-- Description: Supports the inconsistent order operation used by the surrounding class.
+- Role: Handles the inconsistent order path.
+- Description: Implements the inconsistent order operation.
 
 #### `public InconsistentOrder()`
-- Role: Performs inconsistent order.
-- Description: Supports the inconsistent order operation used by the surrounding class.
+- Role: Handles the inconsistent order path.
+- Description: Implements the inconsistent order operation.
 
 #### `protected List<T> pickbad()`
-- Role: Performs pickbad.
-- Description: Supports the pickbad operation used by the surrounding class.
+- Role: Handles the pickbad path.
+- Description: Implements the pickbad operation.
 
 #### `protected List<T> pick(Collection<T> from)`
-- Role: Performs pick.
-- Description: Supports the pick operation used by the surrounding class.
+- Role: Handles the pick path.
+- Description: Implements the pick operation.
 
 #### `protected Collection<Collection<T>> findcycles()`
-- Role: Performs findcycles.
-- Description: Supports the findcycles operation used by the surrounding class.
+- Role: Handles the findcycles path.
+- Description: Finds the cycles.

@@ -1,7 +1,7 @@
 ---
-source: [Varying.java](../../../../../src/haven/render/sl/Varying.java)
+source: [Varying.java](../../../../../../src/haven/render/sl/Varying.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Varying
@@ -10,40 +10,38 @@ Represents the varying shader-language AST node.
 
 ## Nested Types
 
-### Def
-
-- Role: Represents def within Varying.
-- Description: Describes the nested def type used by the enclosing class.
-
 ### Interpol
+Interpolation mode used when emitting the varying.
 
-- Role: Represents interpol within Varying.
-- Description: Describes the nested interpol type used by the enclosing class.
+### Def
+Top-level varying declaration emitted into the vertex and fragment shader contexts.
+
+#### Members
+
+##### Methods
+
+#### `public void output(Output out)`
+- Role: Emits the varying declaration.
+- Description: Writes interpolation qualifiers and vertex/fragment direction keywords.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public Interpol ipol = Interpol.NORMAL`
-- Role: Stores the ipol value.
-- Description: Backs the cached state for this file.
+- Role: Stores the interpolation mode.
+- Description: Defaults to smooth interpolation.
 
 ### Methods
 
 #### `protected Interpol ipol(Context ctx)`
-- Role: Performs ipol.
-- Description: Supports the ipol operation used by the surrounding class.
+- Role: Returns the interpolation mode for the current context.
+- Description: Hook for subclasses.
 
 #### `public Varying(Type type, Symbol name)`
-- Role: Creates a new Varying instance.
-- Description: Constructs the instance and initializes its default state.
-
-#### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Creates a new varying.
+- Description: Stores the type and symbol for the varying.
 
 #### `public void use(Context ctx)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Registers the varying in the shader context.
+- Description: Adds a definition if needed.

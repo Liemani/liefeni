@@ -1,5 +1,5 @@
 ---
-source: [NotImplemented.java](../../../../../src/haven/render/gl/NotImplemented.java)
+source: [NotImplemented.java](../../../../../../src/haven/render/gl/NotImplemented.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Provides GL backend support for not implemented.
 
 #### `public NotImplemented(String message, Throwable cause)`
 - Role: Creates a new NotImplemented instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the NotImplemented instance from the supplied inputs.
 
 #### `public NotImplemented(String message)`
 - Role: Creates a new NotImplemented instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the NotImplemented instance from the supplied inputs.
 
 #### `public NotImplemented()`
 - Role: Creates a new NotImplemented instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the NotImplemented instance from the supplied inputs.

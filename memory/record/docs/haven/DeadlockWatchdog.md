@@ -1,5 +1,5 @@
 ---
-source: [DeadlockWatchdog.java](../../../src/haven/DeadlockWatchdog.java)
+source: [DeadlockWatchdog.java](../../../../src/haven/DeadlockWatchdog.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the deadlock watchdog Haven component.
 
 ### DeadlockException
 
-- Role: Represents deadlock exception within DeadlockWatchdog.
-- Description: Describes the nested deadlock exception type used by the enclosing class.
+- Role: Reports a detected deadlock.
+- Description: Wraps the captured thread-state snapshot for later logging or inspection.
 
 ### ThreadState
 
-- Role: Represents thread state within DeadlockWatchdog.
-- Description: Describes the nested thread state type used by the enclosing class.
+- Role: Captures one thread's lock and stack state.
+- Description: Stores the thread name, stack trace, locks, and lock depth information.
 
 ## Members
 
@@ -28,54 +28,54 @@ Represents the deadlock watchdog Haven component.
 
 #### `private boolean running = true`
 - Role: Tracks the running flag.
-- Description: Supports the running operation used by the surrounding class.
+- Description: Caches the `running` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public final StackTraceElement[] trace`
-- Role: Holds the trace state.
-- Description: Backs the cached state for this file.
+- Role: Caches the trace value.
+- Description: Caches the `trace` value for reuse.
 
 #### `public final String[] locks`
-- Role: Stores the locks value.
-- Description: Backs the cached state for this file.
+- Role: Caches the locks value.
+- Description: Caches the `locks` value for reuse.
 
 #### `public final int[] lockdepth`
-- Role: Stores the lockdepth value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lockdepth value.
+- Description: Caches the `lockdepth` value for reuse.
 
 #### `public final ThreadState[] threads`
-- Role: Holds the threads state.
-- Description: Backs the cached state for this file.
+- Role: Caches the threads value.
+- Description: Caches the `threads` value for reuse.
 
 ### Methods
 
 #### `public DeadlockWatchdog(ThreadGroup tg)`
 - Role: Creates a new DeadlockWatchdog instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DeadlockWatchdog instance from the supplied inputs.
 
 #### `public DeadlockWatchdog()`
 - Role: Creates a new DeadlockWatchdog instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DeadlockWatchdog instance from the supplied inputs.
 
 #### `public ThreadState(ThreadInfo mi)`
-- Role: Performs thread state.
-- Description: Supports the thread state operation used by the surrounding class.
+- Role: Handles the thread state path.
+- Description: Implements the thread state operation.
 
 #### `public DeadlockException(ThreadState[] threads)`
-- Role: Performs deadlock exception.
-- Description: Supports the deadlock exception operation used by the surrounding class.
+- Role: Handles the deadlock exception path.
+- Description: Implements the deadlock exception operation.
 
 #### `protected void report(ThreadInfo[] threads)`
-- Role: Performs report.
-- Description: Supports the report operation used by the surrounding class.
+- Role: Handles the report path.
+- Description: Implements the report operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void quit()`
-- Role: Performs quit.
-- Description: Supports the quit operation used by the surrounding class.
+- Role: Handles the quit path.
+- Description: Implements the quit operation.

@@ -1,5 +1,5 @@
 ---
-source: [ErrorStatus.java](../../../../src/haven/error/ErrorStatus.java)
+source: [ErrorStatus.java](../../../../../src/haven/error/ErrorStatus.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,41 +17,41 @@ Handles Haven error reporting for error status.
 ### Methods
 
 #### `public boolean goterror(Throwable t)`
-- Role: Performs goterror.
-- Description: Supports the goterror operation used by the surrounding class.
+- Role: Handles the goterror path.
+- Description: Implements the goterror operation.
 
 #### `public void connecting()`
-- Role: Performs connecting.
-- Description: Supports the connecting operation used by the surrounding class.
+- Role: Handles the connecting path.
+- Description: Implements the connecting operation.
 
 #### `public void sending()`
-- Role: Performs sending.
-- Description: Supports the sending operation used by the surrounding class.
+- Role: Handles the sending path.
+- Description: Implements the sending operation.
 
 #### `public void done(String ctype, String info)`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public void senderror(Exception e)`
-- Role: Performs senderror.
-- Description: Supports the senderror operation used by the surrounding class.
+- Role: Handles the senderror path.
+- Description: Implements the senderror operation.
 
 #### `public boolean goterror(Throwable t)`
-- Role: Performs goterror.
-- Description: Supports the goterror operation used by the surrounding class.
+- Role: Handles the goterror path.
+- Description: Implements the goterror operation.
 
 #### `public void connecting()`
-- Role: Performs connecting.
-- Description: Supports the connecting operation used by the surrounding class.
+- Role: Handles the connecting path.
+- Description: Implements the connecting operation.
 
 #### `public void sending()`
-- Role: Performs sending.
-- Description: Supports the sending operation used by the surrounding class.
+- Role: Handles the sending path.
+- Description: Implements the sending operation.
 
 #### `public void done(String ctype, String info)`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public void senderror(Exception e)`
-- Role: Performs senderror.
-- Description: Supports the senderror operation used by the surrounding class.
+- Role: Handles the senderror path.
+- Description: Implements the senderror operation.

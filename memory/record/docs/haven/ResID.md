@@ -1,5 +1,5 @@
 ---
-source: [ResID.java](../../../src/haven/ResID.java)
+source: [ResID.java](../../../../src/haven/ResID.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the res id Haven component.
 
 ### ResolveMapper
 
-- Role: Represents resolve mapper within ResID.
-- Description: Describes the nested resolve mapper type used by the enclosing class.
+- Role: Rewrites ResID instances through a resource resolver.
+- Description: Function adapter that replaces unresolved resource ids with ids bound to a specific resolver.
 
 ## Members
 
@@ -22,79 +22,79 @@ Represents the res id Haven component.
 ### Fields
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Resource.Resolver src`
-- Role: Stores the src value.
-- Description: Backs the cached state for this file.
+- Role: Caches the src value.
+- Description: Carries the source drag widget.
 
 #### `public final Resource.Resolver rr`
-- Role: Stores the rr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rr value.
+- Description: Caches the `rr` value for reuse.
 
 ### Methods
 
 #### `private ResID(int id, Resource.Resolver src)`
 - Role: Creates a new ResID instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ResID instance from the supplied inputs.
 
 #### `private ResID(int id)`
 - Role: Creates a new ResID instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ResID instance from the supplied inputs.
 
 #### `public static ResID of(int id)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a ResID value from the supplied components.
+- Description: Builds a ResID value from the supplied components.
 
 #### `public ResID src(Resource.Resolver src)`
-- Role: Performs src.
-- Description: Supports the src operation used by the surrounding class.
+- Role: Handles the src path.
+- Description: Implements the src operation.
 
 #### `public Resource get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public int intValue()`
-- Role: Performs int value.
-- Description: Supports the int value operation used by the surrounding class.
+- Role: Handles the int value path.
+- Description: Implements the int value operation.
 
 #### `public byte byteValue()`
-- Role: Performs byte value.
-- Description: Supports the byte value operation used by the surrounding class.
+- Role: Handles the byte value path.
+- Description: Implements the byte value operation.
 
 #### `public short shortValue()`
-- Role: Performs short value.
-- Description: Supports the short value operation used by the surrounding class.
+- Role: Handles the short value path.
+- Description: Implements the short value operation.
 
 #### `public long longValue()`
-- Role: Performs long value.
-- Description: Supports the long value operation used by the surrounding class.
+- Role: Handles the long value path.
+- Description: Implements the long value operation.
 
 #### `public float floatValue()`
-- Role: Performs float value.
-- Description: Supports the float value operation used by the surrounding class.
+- Role: Handles the float value path.
+- Description: Implements the float value operation.
 
 #### `public double doubleValue()`
-- Role: Performs double value.
-- Description: Supports the double value operation used by the surrounding class.
+- Role: Handles the double value path.
+- Description: Implements the double value operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object x)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this ResID for debugging and logging.
 
 #### `public ResolveMapper(Resource.Resolver rr)`
-- Role: Performs resolve mapper.
-- Description: Supports the resolve mapper operation used by the surrounding class.
+- Role: Handles the resolve mapper path.
+- Description: Implements the resolve mapper operation.
 
 #### `public Object apply(Object obj)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

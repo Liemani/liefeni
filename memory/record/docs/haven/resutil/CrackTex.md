@@ -1,124 +1,128 @@
 ---
-source: [CrackTex.java](../../../../src/haven/resutil/CrackTex.java)
+source: [CrackTex.java](../../../../../src/haven/resutil/CrackTex.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # CrackTex
 
-Provides resource helper logic for crack tex.
+Loads a packed 3D crack texture and renders it as an instanced overlay with rotation and tint.
 
 ## Nested Types
 
 ### Decoder
+Decodes the gzip-compressed 3D texture data into mipmapped fill buffers.
 
-- Role: Represents decoder within CrackTex.
-- Description: Describes the nested decoder type used by the enclosing class.
+#### Members
+
+##### Fields
+
+#### `public final Supplier<InputStream> src`
+- Role: Stores the source stream supplier.
+- Description: Opened when the texture data is actually decoded.
+
+#### `private Defer.Future<FillBuffer[]> decode`
+- Role: Tracks an in-flight decode job.
+- Description: Avoids decoding the same texture more than once.
+
+#### `private FillBuffer[] data`
+- Role: Stores the decoded mip buffers.
+- Description: Reused after a successful decode.
+
+##### Methods
+
+#### `public Decoder(Supplier<InputStream> src)`
+- Role: Builds a decoder for the compressed texture.
+- Description: Stores the source stream supplier for later use.
+
+#### `private FillBuffer[] decode(Texture3D tex, Environment env)`
+- Role: Expands the gzip source into texture levels.
+- Description: Decodes all mip levels into `FillBuffer` instances.
+
+#### `public FillBuffer fill(Texture.Image img, Environment env)`
+- Role: Provides the decoded data for a mip level.
+- Description: Lazily triggers decode and retries when the environment changes.
+
+#### `public void done()`
+- Role: Clears the cached decode state.
+- Description: Resets the future and the decoded buffer cache.
 
 ## Members
 
 ### Constants
 
-#### `public static final Slot<CrackTex> slot = new Slot<>(Slot.Type.DRAW, CrackTex.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+#### `public static final Slot<CrackTex> slot = new Slot<>(Slot.Type.DRAW, CrackTex.class)...`
+- Role: Registers the crack overlay state.
+- Description: The slot is instanced so repeated cracks can vary per object.
 
 #### `public static final int texsz = 256`
-- Role: Defines the shared texsz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the source texture size.
+- Description: The crack data is decoded at this resolution.
 
 #### `public static final Sampler3D[] imgs`
-- Role: Defines the shared imgs constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the built-in crack textures.
+- Description: Loaded once from packaged gzip resources.
 
 #### `private static final Uniform u_tex = new Uniform(SAMPLER3D, "cracktex", p -> p.get(slot).img, slot)`
-- Role: Defines the shared u tex constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the crack texture to the shader.
+- Description: Reads the current sampler from render state.
 
 #### `private static final Uniform u_col = new Uniform(VEC3, "crackcol", p -> p.get(slot).color, slot)`
-- Role: Defines the shared u col constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the tint color to the shader.
+- Description: Multiplies the sampled texture before output.
 
 #### `private static final InstancedUniform u_rot = new InstancedUniform.Vec4("crackrot", p -> p.get(slot).rot, slot)`
-- Role: Defines the shared u rot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the rotation to the shader.
+- Description: Carries per-instance orientation data.
 
 #### `private static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the crack overlay shader.
+- Description: Samples the 3D texture using a rotated local vector.
 
 #### `private static final Map<Sampler3D, Instancer<CrackTex>> instids = new WeakHashMap<>()`
-- Role: Defines the shared instids constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches instancers by texture.
+- Description: Avoids rebuilding identical instanced state for the same sampler.
 
 ### Fields
 
 #### `public final Sampler3D img`
-- Role: Holds the img state.
-- Description: Backs the cached state for this file.
+- Role: Stores the crack texture.
+- Description: Sampled by the shader.
 
 #### `public final Color color`
-- Role: Stores the color value.
-- Description: Backs the cached state for this file.
+- Role: Stores the tint color.
+- Description: Applied to the sampled texture.
 
 #### `public final float[] rot`
-- Role: Stores the rot value.
-- Description: Backs the cached state for this file.
-
-#### `public final Supplier<InputStream> src`
-- Role: Holds the src state.
-- Description: Backs the cached state for this file.
-
-#### `private Defer.Future<FillBuffer[]> decode`
-- Role: Stores the decode value.
-- Description: Backs the cached state for this file.
-
-#### `private FillBuffer[] data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Stores the rotation quaternion.
+- Description: Computed from the axis/angle constructor arguments.
 
 ### Methods
 
-#### `public Decoder(Supplier<InputStream> src)`
-- Role: Performs decoder.
-- Description: Supports the decoder operation used by the surrounding class.
-
-#### `private FillBuffer[] decode(Texture3D tex, Environment env)`
-- Role: Performs decode.
-- Description: Supports the decode operation used by the surrounding class.
-
-#### `public FillBuffer fill(Texture.Image img, Environment env)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
-
-#### `public void done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
-
-#### `public static Sampler3D loadtex(Supplier<InputStream> fp)`
-- Role: Performs loadtex.
-- Description: Supports the loadtex operation used by the surrounding class.
-
 #### `public CrackTex(Sampler3D img, Color color, Coord3f rax, float rang)`
-- Role: Creates a new CrackTex instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a crack overlay with custom rotation.
+- Description: Stores the texture, tint, and rotation matrix.
 
 #### `public CrackTex(Sampler3D img, Color color)`
-- Role: Creates a new CrackTex instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a crack overlay without rotation.
+- Description: Uses the identity axis and zero angle.
+
+#### `public static Sampler3D loadtex(Supplier<InputStream> fp)`
+- Role: Loads the 3D texture sampler.
+- Description: Creates a `Texture3D` and configures linear filtering.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the crack overlay shader.
+- Description: Applies the texture sample and tint to fragment color.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Installs the crack overlay state.
+- Description: Publishes the current crack texture to rendering.
 
 #### `private Instancer<CrackTex> instancer()`
-- Role: Performs instancer.
-- Description: Supports the instancer operation used by the surrounding class.
+- Role: Returns the instancer for this texture.
+- Description: Reuses one instancer per crack sampler.
 
 #### `public InstancedAttribute[] attribs()`
-- Role: Performs attribs.
-- Description: Supports the attribs operation used by the surrounding class.
+- Role: Exposes the instanced rotation attribute.
+- Description: Supplies the per-instance crack orientation to the renderer.

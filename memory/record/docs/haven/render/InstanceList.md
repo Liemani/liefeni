@@ -1,5 +1,5 @@
 ---
-source: [InstanceList.java](../../../../src/haven/render/InstanceList.java)
+source: [InstanceList.java](../../../../../src/haven/render/InstanceList.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,33 +12,33 @@ Defines the instance list render pipeline component.
 
 ### InstKey
 
-- Role: Represents inst key within InstanceList.
-- Description: Describes the nested inst key type used by the enclosing class.
+- Role: Keys one instanced slot state.
+- Description: Identifies a render slot and caches the instancing state derived from it.
 
 ### Instance
 
-- Role: Represents instance within InstanceList.
-- Description: Describes the nested instance type used by the enclosing class.
+- Role: Stores one instanced render batch.
+- Description: Holds the batch data emitted for one render slot instance.
 
 ### InstanceState
 
-- Role: Represents instance state within InstanceList.
-- Description: Describes the nested instance state type used by the enclosing class.
+- Role: Captures one instance state snapshot.
+- Description: Stores the pipe state that feeds the instancing cache.
 
 ### InstancedSlot
 
-- Role: Represents instanced slot within InstanceList.
-- Description: Describes the nested instanced slot type used by the enclosing class.
+- Role: Manages one instanced render slot.
+- Description: Bridges a render list slot to its batch and state bookkeeping.
 
 ### Sole
 
-- Role: Represents sole within InstanceList.
-- Description: Describes the nested sole type used by the enclosing class.
+- Role: Tracks one unshared instance path.
+- Description: Keeps the state for a slot that should be rendered without batching.
 
 ### StateSum
 
-- Role: Represents state sum within InstanceList.
-- Description: Describes the nested state sum type used by the enclosing class.
+- Role: Summarizes a grouped state set.
+- Description: Aggregates pipe state so instance batching can compare it cheaply.
 
 ## Members
 
@@ -47,112 +47,112 @@ Defines the instance list render pipeline component.
 ### Fields
 
 #### `private final List<RenderList<Rendered>> clients = new ArrayList<>()`
-- Role: Caches clients entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the clients operation.
+- Description: Implements the private final list<render list<rendered>> clients = new array list<>() operation.
 
 #### `private final Adapter master`
-- Role: Holds the master state.
-- Description: Backs the cached state for this file.
+- Role: Caches the master value.
+- Description: Caches the `master` value for reuse.
 
 #### `private final Map<InstKey, Object> instreg = new HashMap<>()`
-- Role: Caches instreg entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the instreg operation.
+- Description: Implements the private final map<inst key, object> instreg = new hash map<>() operation.
 
 #### `private final Map<Slot<? extends Rendered>, Object> bypassed = new IdentityHashMap<>(), invalid = new IdentityHashMap<>()`
-- Role: Caches bypassed entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the bypassed operation.
+- Description: Implements the private final map<slot<? extends rendered>, object> bypassed = new identity hash map<>(), invalid = new identity hash map<>() operation.
 
 #### `private final Map<Slot<? extends Rendered>, Object> bypassed = new IdentityHashMap<>(), invalid = new IdentityHashMap<>()`
-- Role: Caches bypassed entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the bypassed operation.
+- Description: Implements the private final map<slot<? extends rendered>, object> bypassed = new identity hash map<>(), invalid = new identity hash map<>() operation.
 
 #### `private final Map<Slot<? extends Rendered>, InstKey> uslotmap = new IdentityHashMap<>()`
-- Role: Caches uslotmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the uslotmap operation.
+- Description: Implements the private final map<slot<? extends rendered>, inst key> uslotmap = new identity hash map<>() operation.
 
 #### `private final Map<Slot<? extends Rendered>, InstancedSlot.Instance> islotmap = new IdentityHashMap<>()`
-- Role: Caches islotmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Returns whether the lotmap is true.
+- Description: Returns whether the lotmap is true.
 
 #### `private final Map<Pipe, Object> ipipemap = new IdentityHashMap<>()`
-- Role: Caches ipipemap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the ipipemap operation.
+- Description: Implements the private final map<pipe, object> ipipemap = new identity hash map<>() operation.
 
 #### `private final Map<Pipe, Object> upipemap = new IdentityHashMap<>()`
-- Role: Caches upipemap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the upipemap operation.
+- Description: Implements the private final map<pipe, object> upipemap = new identity hash map<>() operation.
 
 #### `private final Set<InstancedSlot> dirty = new HashSet<>()`
-- Role: Caches dirty entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the dirty operation.
+- Description: Implements the private final set<instanced slot> dirty = new hash set<>() operation.
 
 #### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
-- Role: Stores the ninst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ninst value.
+- Description: Caches the `ninst` value for reuse.
 
 #### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
-- Role: Stores the ninst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ninst value.
+- Description: Caches the `ninst` value for reuse.
 
 #### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
-- Role: Stores the ninst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ninst value.
+- Description: Caches the `ninst` value for reuse.
 
 #### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
-- Role: Stores the ninst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ninst value.
+- Description: Caches the `ninst` value for reuse.
 
 #### `private int nbypass, ninvalid, nuinst, nbatches, ninst`
-- Role: Stores the ninst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ninst value.
+- Description: Caches the `ninst` value for reuse.
 
 #### `private static int[][][] _stcounts =`
 - Role: Stores the instance list state.
-- Description: Backs the cached state for this file.
+- Description: Caches the `_stcounts` value for reuse.
 
 #### `final Object instid`
-- Role: Holds the instid state.
-- Description: Backs the cached state for this file.
+- Role: Caches the instid value.
+- Description: Caches the `instid` value for reuse.
 
 #### `final Pipe[] ust`
-- Role: Holds the ust state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ust value.
+- Description: Caches the `ust` value for reuse.
 
 #### `final Instancer[] instids`
-- Role: Holds the instids state.
-- Description: Backs the cached state for this file.
+- Role: Caches the instids value.
+- Description: Caches the `instids` value for reuse.
 
 #### `final int[] instidmap`
-- Role: Stores the instidmap value.
-- Description: Backs the cached state for this file.
+- Role: Caches the instidmap value.
+- Description: Caches the `instidmap` value for reuse.
 
 #### `final int[] mask`
-- Role: Stores the mask value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mask value.
+- Description: Caches the `mask` value for reuse.
 
 #### `final InstKey key`
-- Role: Holds the key state.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 #### `final Instanced rend`
-- Role: Holds the rend state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rend value.
+- Description: Caches the `rend` value for reuse.
 
 #### `final InstanceState ist`
-- Role: Holds the ist state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ist value.
+- Description: Caches the `ist` value for reuse.
 
 #### `final GroupPipe ust`
-- Role: Holds the ust state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ust value.
+- Description: Caches the `ust` value for reuse.
 
 #### `Instance[] insts`
-- Role: Holds the insts state.
-- Description: Backs the cached state for this file.
+- Role: Caches the insts value.
+- Description: Caches the `insts` value for reuse.
 
 #### `int ni`
-- Role: Stores the ni value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ni value.
+- Description: Caches the `ni` value for reuse.
 
 #### `boolean backdirty, selfdirty`
 - Role: Tracks whether selfdirty is dirty.
@@ -163,275 +163,275 @@ Defines the instance list render pipeline component.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `final Slot<? extends Rendered> slot`
-- Role: Holds the slot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the slot value.
+- Description: Caches the `slot` value for reuse.
 
 #### `final Pipe[] rpipes`
-- Role: Holds the rpipes state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rpipes value.
+- Description: Caches the `rpipes` value for reuse.
 
 #### `int idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `private GroupPipe state = null`
-- Role: Holds the state state.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `final InstKey key`
-- Role: Holds the key state.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 #### `final Slot<? extends Rendered> slot`
-- Role: Holds the slot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the slot value.
+- Description: Caches the `slot` value for reuse.
 
 #### `final Pipe[] rpipes`
-- Role: Holds the rpipes state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rpipes value.
+- Description: Caches the `rpipes` value for reuse.
 
 ### Methods
 
 #### `private static int[][] stcounts(int n)`
-- Role: Performs stcounts.
-- Description: Supports the stcounts operation used by the surrounding class.
+- Role: Handles the stcounts path.
+- Description: Implements the stcounts operation.
 
 #### `private static Pipe[] uinststate(GroupPipe st, int ls)`
-- Role: Performs uinststate.
-- Description: Supports the uinststate operation used by the surrounding class.
+- Role: Handles the uinststate path.
+- Description: Implements the uinststate operation.
 
 #### `private static <T extends State> Instancer<T> instid0(Pipe buf, State.Slot<T> slot)`
-- Role: Performs instid0.
-- Description: Supports the instid0 operation used by the surrounding class.
+- Role: Handles the instid0 path.
+- Description: Implements the instid0 operation.
 
 #### `private static Instancer[] instids(GroupPipe st, int ls)`
-- Role: Performs instids.
-- Description: Supports the instids operation used by the surrounding class.
+- Role: Handles the instids path.
+- Description: Implements the instids operation.
 
 #### `InstKey(Slot<? extends Rendered> slot)`
 - Role: Handles the inst key workflow.
-- Description: Supports the inst key operation used by the surrounding class.
+- Description: Implements the inst key operation.
 
 #### `boolean valid()`
-- Role: Performs valid.
-- Description: Supports the valid operation used by the surrounding class.
+- Role: Handles the valid path.
+- Description: Implements the valid operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `private boolean equals(InstKey that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object x)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this InstanceList for debugging and logging.
 
 #### `private <T extends State> void inststate0(State.Slot<T> slot, GroupPipe from, InstancedSlot batch)`
-- Role: Performs inststate0.
-- Description: Supports the inststate0 operation used by the surrounding class.
+- Role: Handles the inststate0 path.
+- Description: Implements the inststate0 operation.
 
 #### `InstanceState(GroupPipe from, InstancedSlot batch)`
 - Role: Handles the instance state workflow.
-- Description: Supports the instance state operation used by the surrounding class.
+- Description: Implements the instance state operation.
 
 #### `public static int compare(InstanceState x, InstanceState y)`
-- Role: Performs compare.
-- Description: Supports the compare operation used by the surrounding class.
+- Role: Handles the compare path.
+- Description: Implements the compare operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this InstanceList for debugging and logging.
 
 #### `Instance(Slot<? extends Rendered> slot)`
 - Role: Handles the instance workflow.
-- Description: Supports the instance operation used by the surrounding class.
+- Description: Implements the instance operation.
 
 #### `void register()`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `void unregister()`
-- Role: Performs unregister.
-- Description: Supports the unregister operation used by the surrounding class.
+- Role: Handles the unregister path.
+- Description: Implements the unregister operation.
 
 #### `void update(Pipe group, int[] mask)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `InstancedSlot(InstKey key, Slot<? extends Rendered>[] slots)`
 - Role: Handles the instanced slot workflow.
-- Description: Supports the instanced slot operation used by the surrounding class.
+- Description: Implements the instanced slot operation.
 
 #### `void register()`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `void unregister()`
-- Role: Performs unregister.
-- Description: Supports the unregister operation used by the surrounding class.
+- Role: Handles the unregister path.
+- Description: Implements the unregister operation.
 
 #### `private void iupdate(int idx)`
-- Role: Performs iupdate.
-- Description: Supports the iupdate operation used by the surrounding class.
+- Role: Handles the iupdate path.
+- Description: Implements the iupdate operation.
 
 #### `private void itrim(int idx)`
-- Role: Performs itrim.
-- Description: Supports the itrim operation used by the surrounding class.
+- Role: Handles the itrim path.
+- Description: Implements the itrim operation.
 
 #### `Instance add(Slot<? extends Rendered> ns, InstancedSlot replace)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `Instance remove(Instance inst)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `void update(Slot<? extends Rendered> ns)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public Pipe group(int idx)`
-- Role: Performs group.
-- Description: Supports the group operation used by the surrounding class.
+- Role: Handles the group path.
+- Description: Implements the group operation.
 
 #### `public int gstate(int id)`
-- Role: Performs gstate.
-- Description: Supports the gstate operation used by the surrounding class.
+- Role: Handles the gstate path.
+- Description: Implements the gstate operation.
 
 #### `public int nstates()`
-- Role: Performs nstates.
-- Description: Supports the nstates operation used by the surrounding class.
+- Role: Handles the nstates path.
+- Description: Implements the nstates operation.
 
 #### `public Rendered obj()`
-- Role: Performs obj.
-- Description: Supports the obj operation used by the surrounding class.
+- Role: Handles the obj path.
+- Description: Implements the obj operation.
 
 #### `public GroupPipe state()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Handles the state path.
+- Description: Implements the state operation.
 
 #### `public State.Slot<?>[] batchstates()`
-- Role: Performs batchstates.
-- Description: Supports the batchstates operation used by the surrounding class.
+- Role: Handles the batchstates path.
+- Description: Implements the batchstates operation.
 
 #### `public <T extends State> T batchstate(State.Slot<T> slot)`
-- Role: Performs batchstate.
-- Description: Supports the batchstate operation used by the surrounding class.
+- Role: Handles the batchstate path.
+- Description: Implements the batchstate operation.
 
 #### `public int instances()`
-- Role: Performs instances.
-- Description: Supports the instances operation used by the surrounding class.
+- Role: Handles the instances path.
+- Description: Implements the instances operation.
 
 #### `public Pipe inststate(int idx)`
-- Role: Performs inststate.
-- Description: Supports the inststate operation used by the surrounding class.
+- Role: Handles the inststate path.
+- Description: Implements the inststate operation.
 
 #### `public void instupdate()`
-- Role: Performs instupdate.
-- Description: Supports the instupdate operation used by the surrounding class.
+- Role: Handles the instupdate path.
+- Description: Implements the instupdate operation.
 
 #### `public <T extends State> void update(State.Slot<? super T> slot, T state)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `private void commit(Render g)`
-- Role: Performs commit.
-- Description: Supports the commit operation used by the surrounding class.
+- Role: Handles the commit path.
+- Description: Implements the commit operation.
 
 #### `Sole(InstKey key, Slot<? extends Rendered> slot)`
 - Role: Handles the sole workflow.
-- Description: Supports the sole operation used by the surrounding class.
+- Description: Implements the sole operation.
 
 #### `void register()`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `void unregister()`
-- Role: Performs unregister.
-- Description: Supports the unregister operation used by the surrounding class.
+- Role: Handles the unregister path.
+- Description: Implements the unregister operation.
 
 #### `void update(Pipe group, int[] mask)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `private void cladd(Slot<? extends Rendered> slot)`
-- Role: Performs cladd.
-- Description: Supports the cladd operation used by the surrounding class.
+- Role: Handles the cladd path.
+- Description: Implements the cladd operation.
 
 #### `private void clremove(Slot<? extends Rendered> slot)`
-- Role: Performs clremove.
-- Description: Supports the clremove operation used by the surrounding class.
+- Role: Handles the clremove path.
+- Description: Implements the clremove operation.
 
 #### `private void clupdate(Slot<? extends Rendered> slot)`
-- Role: Performs clupdate.
-- Description: Supports the clupdate operation used by the surrounding class.
+- Role: Handles the clupdate path.
+- Description: Implements the clupdate operation.
 
 #### `private void clupdate(Pipe group, int[] mask)`
-- Role: Performs clupdate.
-- Description: Supports the clupdate operation used by the surrounding class.
+- Role: Handles the clupdate path.
+- Description: Implements the clupdate operation.
 
 #### `public InstanceList(Adapter master)`
 - Role: Creates a new InstanceList instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the InstanceList instance from the supplied inputs.
 
 #### `private void add0(Slot<? extends Rendered> slot, InstKey key, boolean prevsole, InstancedSlot previnst)`
-- Role: Performs add0.
-- Description: Supports the add0 operation used by the surrounding class.
+- Role: Handles the add0 path.
+- Description: Adds the 0.
 
 #### `public void add(Slot<? extends Rendered> slot)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `private void remove0(InstancedSlot b, InstancedSlot.Instance inst, boolean unreg)`
-- Role: Performs remove0.
-- Description: Supports the remove0 operation used by the surrounding class.
+- Role: Handles the remove0 path.
+- Description: Removes the 0.
 
 #### `public void remove(Slot<? extends Rendered> slot)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void update(Slot<? extends Rendered> slot)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void update(Pipe group, int[] mask)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void commit(Render g)`
-- Role: Performs commit.
-- Description: Supports the commit operation used by the surrounding class.
+- Role: Handles the commit path.
+- Description: Implements the commit operation.
 
 #### `public Locked lock()`
-- Role: Performs lock.
-- Description: Supports the lock operation used by the surrounding class.
+- Role: Handles the lock path.
+- Description: Implements the lock operation.
 
 #### `public Iterable<Slot<?>> slots()`
-- Role: Performs slots.
-- Description: Supports the slots operation used by the surrounding class.
+- Role: Handles the slots path.
+- Description: Implements the slots operation.
 
 #### `public <R> void add(RenderList<R> list, Class<? extends R> type)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(RenderList<?> list)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public String stats()`
-- Role: Performs stats.
-- Description: Supports the stats operation used by the surrounding class.
+- Role: Handles the stats path.
+- Description: Implements the stats operation.

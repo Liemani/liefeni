@@ -1,5 +1,5 @@
 ---
-source: [AuthClient.java](../../../src/haven/AuthClient.java)
+source: [AuthClient.java](../../../../src/haven/AuthClient.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,327 +12,334 @@ Represents the auth client Haven component.
 
 ### AuthException
 
-- Role: Represents auth exception within AuthClient.
-- Description: Describes the nested auth exception type used by the enclosing class.
+- Role: Signals an authentication failure.
+- Description: Runtime exception raised when authentication cannot complete.
 
 ### Credentials
 
-- Role: Represents credentials within AuthClient.
-- Description: Describes the nested credentials type used by the enclosing class.
+- Role: Stores one credential set.
+- Description: Username/password or token-based credential container used for authentication.
 
 ### NativeCred
 
-- Role: Represents native cred within AuthClient.
-- Description: Describes the nested native cred type used by the enclosing class.
+- Role: Stores native authentication credentials.
+- Description: Credentials sourced from the native platform or client environment.
 
 ### Obfuscation
 
-- Role: Represents obfuscation within AuthClient.
-- Description: Describes the nested obfuscation type used by the enclosing class.
+- Role: Describes password obfuscation.
+- Description: Helper used to mask or transform credential input before transport.
 
 ### SrpAssertion
 
-- Role: Represents srp assertion within AuthClient.
-- Description: Describes the nested srp assertion type used by the enclosing class.
+- Role: Carries an SRP assertion.
+- Description: SRP-derived proof used during secure authentication.
 
 ### TokenCred
 
-- Role: Represents token cred within AuthClient.
-- Description: Describes the nested token cred type used by the enclosing class.
+- Role: Stores token-based credentials.
+- Description: Credential subtype that authenticates with a token instead of a password.
 
 ### TokenInfo
 
-- Role: Represents token info within AuthClient.
-- Description: Describes the nested token info type used by the enclosing class.
+- Role: Stores token metadata.
+- Description: Information associated with token lifetime and validation state.
 
 ## Members
 
 ### Constants
 
 #### `public static final int DEFPORT = 1871`
-- Role: Defines the shared defport constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the defport value.
+- Description: Caches the `DEFPORT` value for reuse.
+- Value: `1871`
 
 #### `public static final Config.Variable<Boolean> strictcert = Config.Variable.propb("haven.auth-cert-strict", true)`
-- Role: Defines the shared strictcert constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the strictcert operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.auth-cert-strict", true)`
 
 #### `private static final SslHelper ssl`
-- Role: Defines the shared ssl constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final SslHelper ssl`
+- Role: Caches the ssl value.
+- Description: Caches the `ssl` value for reuse.
 
 #### `public static final Digest.Algorithm digest = Digest.SHA256`
-- Role: Defines the shared digest constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the digest value.
+- Description: Caches the `digest` value for reuse.
+- Value: `Digest.SHA256`
 
 #### `public static final BigInteger N = b2i(new byte[]`
-- Role: Defines the shared n constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the n operation.
+- Description: Implements the b2i operation.
+- Value: `b2i(new byte[]`
 
 #### `public static final BigInteger g = n(2)`
-- Role: Defines the shared g constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the g operation.
+- Description: Implements the n operation.
+- Value: `n(2)`
 
 #### `public static final BigInteger k = b2i(Digest.hash(digest, i2b(N), i2b(g)))`
-- Role: Defines the shared k constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the k operation.
+- Description: Implements the i2b operation.
+- Value: `b2i(Digest.hash(digest, i2b(N), i2b(g)))`
 
 ### Fields
 
 #### `private SocketChannel sk`
-- Role: Holds the sk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sk value.
+- Description: Caches the `sk` value for reuse.
 
 #### `private SslChannel ssk`
-- Role: Holds the ssk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ssk value.
+- Description: Caches the `ssk` value for reuse.
 
 #### `private final InputStream skin`
-- Role: Holds the skin state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skin value.
+- Description: Caches the `skin` value for reuse.
 
 #### `private final OutputStream skout`
-- Role: Holds the skout state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skout value.
+- Description: Caches the `skout` value for reuse.
 
 #### `public final ByteChannel bk`
-- Role: Stores the bk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public byte key = (byte)0xa5`
-- Role: Stores the key value.
-- Description: Backs the cached state for this file.
+- Role: Implements the key operation.
+- Description: Implements the public byte key = (byte)0xa5 operation.
 
 #### `private boolean senthead = false`
 - Role: Tracks the senthead flag.
-- Description: Supports the senthead operation used by the surrounding class.
+- Description: Caches the `senthead` value for reuse.
 
 #### `public byte[] id = new byte[]`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public String desc = ""`
-- Role: Stores the desc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `public final byte[] A`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `A` value for reuse.
 
 #### `public final byte[] K`
-- Role: Stores the k value.
-- Description: Backs the cached state for this file.
+- Role: Caches the k value.
+- Description: Caches the `K` value for reuse.
 
 #### `public final String username`
-- Role: Stores the username value.
-- Description: Backs the cached state for this file.
+- Role: Caches the username value.
+- Description: Caches the `username` value for reuse.
 
 #### `private final byte[] pw`
-- Role: Stores the pw value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pw value.
+- Description: Caches the `pw` value for reuse.
 
 #### `private final Runnable clean`
-- Role: Holds the clean state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clean value.
+- Description: Caches the `clean` value for reuse.
 
 #### `public final String acctname`
-- Role: Stores the acctname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the acctname value.
+- Description: Caches the `acctname` value for reuse.
 
 #### `public final byte[] token`
-- Role: Stores the token value.
-- Description: Backs the cached state for this file.
+- Role: Caches the token value.
+- Description: Caches the `token` value for reuse.
 
 #### `private final Runnable clean`
-- Role: Holds the clean state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clean value.
+- Description: Caches the `clean` value for reuse.
 
 ### Methods
 
 #### `public Obfuscation(ByteChannel bk)`
-- Role: Performs obfuscation.
-- Description: Supports the obfuscation operation used by the surrounding class.
+- Role: Handles the obfuscation path.
+- Description: Implements the obfuscation operation.
 
 #### `private void obf(ByteBuffer data, int a, int b)`
-- Role: Performs obf.
-- Description: Supports the obf operation used by the surrounding class.
+- Role: Handles the obf path.
+- Description: Implements the obf operation.
 
 #### `public int read(ByteBuffer dst) throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public int write(ByteBuffer src) throws IOException`
 - Role: Writes the target data.
-- Description: Supports the write operation used by the surrounding class.
+- Description: Implements the write operation.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public boolean isOpen()`
 - Role: Checks whether the open.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `private void connect(NamedSocketAddress srv, boolean obf) throws IOException`
 - Role: Handles the connect workflow.
-- Description: Supports the connect operation used by the surrounding class.
+- Description: Implements the connect operation.
 
 #### `public AuthClient(NamedSocketAddress srv) throws IOException`
 - Role: Creates a new AuthClient instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the AuthClient instance from the supplied inputs.
 
 #### `private void checkname(String host, SSLSession sess) throws IOException`
 - Role: Handles the checkname workflow.
-- Description: Supports the checkname operation used by the surrounding class.
+- Description: Implements the checkname operation.
 
 #### `public SocketAddress address()`
-- Role: Performs address.
-- Description: Supports the address operation used by the surrounding class.
+- Role: Handles the address path.
+- Description: Adds the ress.
 
 #### `public byte[] getcookie() throws IOException`
-- Role: Returns the cookie value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cookie.
+- Description: Returns the cookie.
 
 #### `public String getalias() throws IOException`
-- Role: Returns the alias value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the alias.
+- Description: Returns the alias.
 
 #### `public List<Map<?, ?>> gethosts() throws IOException`
-- Role: Returns the hosts value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the hosts.
+- Description: Returns the hosts.
 
 #### `public List<NamedSocketAddress> gethosts(NamedSocketAddress defaults) throws IOException`
-- Role: Returns the hosts value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the hosts.
+- Description: Returns the hosts.
 
 #### `public TokenInfo id(byte[] id)`
-- Role: Performs id.
-- Description: Supports the id operation used by the surrounding class.
+- Role: Handles the id path.
+- Description: Implements the id operation.
 
 #### `public TokenInfo desc(String desc)`
-- Role: Performs desc.
-- Description: Supports the desc operation used by the surrounding class.
+- Role: Handles the desc path.
+- Description: Implements the desc operation.
 
 #### `public Object[] encode()`
-- Role: Performs encode.
-- Description: Supports the encode operation used by the surrounding class.
+- Role: Handles the encode path.
+- Description: Implements the encode operation.
 
 #### `public static TokenInfo forhost()`
-- Role: Performs forhost.
-- Description: Supports the forhost operation used by the surrounding class.
+- Role: Handles the forhost path.
+- Description: Implements the forhost operation.
 
 #### `public byte[] gettoken(TokenInfo info) throws IOException`
-- Role: Returns the token value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the token.
+- Description: Returns the token.
 
 #### `public byte[] gettoken() throws IOException`
-- Role: Returns the token value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the token.
+- Description: Returns the token.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `private void sendmsg(MessageBuf msg) throws IOException`
 - Role: Handles the sendmsg workflow.
-- Description: Supports the sendmsg operation used by the surrounding class.
+- Description: Implements the sendmsg operation.
 
 #### `private void esendmsg(Object... args) throws IOException`
 - Role: Handles the esendmsg workflow.
-- Description: Supports the esendmsg operation used by the surrounding class.
+- Description: Implements the esendmsg operation.
 
 #### `private static void readall(InputStream in, byte[] buf) throws IOException`
 - Role: Handles the readall workflow.
-- Description: Supports the readall operation used by the surrounding class.
+- Description: Implements the readall operation.
 
 #### `private Message recvmsg() throws IOException`
 - Role: Handles the recvmsg workflow.
-- Description: Supports the recvmsg operation used by the surrounding class.
+- Description: Implements the recvmsg operation.
 
 #### `public Message cmd(Object... args) throws IOException`
 - Role: Handles the cmd workflow.
-- Description: Supports the cmd operation used by the surrounding class.
+- Description: Implements the cmd operation.
 
 #### `public abstract String tryauth(AuthClient cl) throws IOException`
 - Role: Handles the tryauth workflow.
-- Description: Supports the tryauth operation used by the surrounding class.
+- Description: Implements the tryauth operation.
 
 #### `public abstract String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public void discard()`
-- Role: Performs discard.
-- Description: Supports the discard operation used by the surrounding class.
+- Role: Handles the discard path.
+- Description: Implements the discard operation.
 
 #### `public AuthException(String msg)`
-- Role: Performs auth exception.
-- Description: Supports the auth exception operation used by the surrounding class.
+- Role: Handles the auth exception path.
+- Description: Implements the auth exception operation.
 
 #### `public static BigInteger n(long v)`
-- Role: Performs n.
-- Description: Supports the n operation used by the surrounding class.
+- Role: Handles the n path.
+- Description: Implements the n operation.
 
 #### `public static BigInteger b2i(byte[] b)`
-- Role: Performs b2i.
-- Description: Supports the b2i operation used by the surrounding class.
+- Role: Handles the b2i path.
+- Description: Implements the b2i operation.
 
 #### `public static byte[] i2b(BigInteger i)`
-- Role: Performs i2b.
-- Description: Supports the i2b operation used by the surrounding class.
+- Role: Handles the i2b path.
+- Description: Implements the i2b operation.
 
 #### `public SrpAssertion(byte[] phash, byte[] Bb)`
-- Role: Performs srp assertion.
-- Description: Supports the srp assertion operation used by the surrounding class.
+- Role: Handles the srp assertion path.
+- Description: Implements the srp assertion operation.
 
 #### `public byte[] sign(byte[] msg)`
-- Role: Performs sign.
-- Description: Supports the sign operation used by the surrounding class.
+- Role: Handles the sign path.
+- Description: Implements the sign operation.
 
 #### `public NativeCred(String username, byte[] pw)`
-- Role: Performs native cred.
-- Description: Supports the native cred operation used by the surrounding class.
+- Role: Handles the native cred path.
+- Description: Implements the native cred operation.
 
 #### `public NativeCred(String username, String pw)`
-- Role: Performs native cred.
-- Description: Supports the native cred operation used by the surrounding class.
+- Role: Handles the native cred path.
+- Description: Implements the native cred operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static byte[] prehash(byte[] pw, Object[] spec)`
-- Role: Performs prehash.
-- Description: Supports the prehash operation used by the surrounding class.
+- Role: Handles the prehash path.
+- Description: Implements the prehash operation.
 
 #### `private byte[] hashpw(AuthClient cl) throws IOException`
 - Role: Handles the hashpw workflow.
-- Description: Supports the hashpw operation used by the surrounding class.
+- Description: Returns whether the hpw is present.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
 - Role: Handles the tryauth workflow.
-- Description: Supports the tryauth operation used by the surrounding class.
+- Description: Implements the tryauth operation.
 
 #### `public void discard()`
-- Role: Performs discard.
-- Description: Supports the discard operation used by the surrounding class.
+- Role: Handles the discard path.
+- Description: Implements the discard operation.
 
 #### `public TokenCred(String acctname, byte[] token)`
-- Role: Performs token cred.
-- Description: Supports the token cred operation used by the surrounding class.
+- Role: Handles the token cred path.
+- Description: Implements the token cred operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public String tryauth(AuthClient cl) throws IOException`
 - Role: Handles the tryauth workflow.
-- Description: Supports the tryauth operation used by the surrounding class.
+- Description: Implements the tryauth operation.
 
 #### `public void discard()`
-- Role: Performs discard.
-- Description: Supports the discard operation used by the surrounding class.
+- Role: Handles the discard path.
+- Description: Implements the discard operation.
 
 #### `public static void main(final String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

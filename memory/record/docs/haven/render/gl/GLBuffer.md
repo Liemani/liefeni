@@ -1,5 +1,5 @@
 ---
-source: [GLBuffer.java](../../../../../src/haven/render/gl/GLBuffer.java)
+source: [GLBuffer.java](../../../../../../src/haven/render/gl/GLBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Provides GL backend support for glbuffer.
 ### Fields
 
 #### `private int id, state = 0`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `private int id, state = 0`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 ### Methods
 
 #### `public GLBuffer(GLEnvironment env)`
 - Role: Creates a new GLBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLBuffer instance from the supplied inputs.
 
 #### `public void create(GL gl)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.
 
 #### `public int glid()`
-- Role: Performs glid.
-- Description: Supports the glid operation used by the surrounding class.
+- Role: Handles the glid path.
+- Description: Implements the glid operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this GLBuffer for debugging and logging.

@@ -1,5 +1,5 @@
 ---
-source: [Homing.java](../../../src/haven/Homing.java)
+source: [Homing.java](../../../../src/haven/Homing.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the homing Haven component.
 
 ### $homing
 
-- Role: Represents $homing within Homing.
-- Description: Describes the nested $homing type used by the enclosing class.
+- Role: Applies homing movement updates from the cache stream.
+- Description: Delta decoder that installs or updates a Homing attribute on a gob.
 
 ## Members
 
@@ -22,43 +22,43 @@ Represents the homing Haven component.
 ### Fields
 
 #### `public long tgt`
-- Role: Stores the tgt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `public Coord2d tc`
-- Role: Stores the tc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tc value.
+- Description: Caches the `tc` value for reuse.
 
 #### `public double v, dist`
-- Role: Stores the dist value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dist value.
+- Description: Caches the `dist` value for reuse.
 
 #### `public double v, dist`
-- Role: Stores the dist value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dist value.
+- Description: Caches the `dist` value for reuse.
 
 ### Methods
 
 #### `public Homing(Gob gob, long tgt, Coord2d tc, double v)`
 - Role: Creates a new Homing instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Homing instance from the supplied inputs.
 
 #### `public Coord3f getc()`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Handles the getc path.
+- Description: Returns the c.
 
 #### `public double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `public void move(Coord2d c)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public void ctick(double dt)`
-- Role: Performs ctick.
-- Description: Supports the ctick operation used by the surrounding class.
+- Role: Advances the client-thread state.
+- Description: Advances the client-thread state.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

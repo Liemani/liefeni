@@ -1,5 +1,5 @@
 ---
-source: [CommandHandler.java](../../../../src/lmi/lifecycle/CommandHandler.java)
+source: [CommandHandler.java](../../../../../src/lmi/lifecycle/CommandHandler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,11 +11,8 @@ Dispatches lifecycle commands into the runtime.
 ## Nested Types
 
 ### ACommand
-### ACommand
-- Role: Represents the acommand helper used by CommandHandler.
-
-- Role: Wraps one lifecycle command definition.
-- Description: Describes the nested acommand type used by the enclosing class.
+- Role: Binds the `a` console command.
+- Description: Forwards console arguments into `AgentManager.run(...)`.
 
 ## Members
 
@@ -26,9 +23,9 @@ Dispatches lifecycle commands into the runtime.
 ### Methods
 
 #### `public static void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Registers the `a` console command.
+- Description: Wires the console entry point into `AgentManager.run(...)`.
 
 #### `public void run(Console cons, String[] args) throws Exception`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Dispatches the parsed console command into the runtime.

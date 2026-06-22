@@ -1,5 +1,5 @@
 ---
-source: [CoordNd.java](../../../src/haven/CoordNd.java)
+source: [CoordNd.java](../../../../src/haven/CoordNd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,113 +13,114 @@ Represents an N-dimensional coordinate.
 ### Constants
 
 #### `public static final CoordNd o = new CoordNd(0)`
-- Role: Defines the shared o constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the o operation.
+- Description: Implements the coord nd operation.
+- Value: `new CoordNd(0)`
 
 ### Fields
 
 #### `public final double[] el`
-- Role: Stores the el value.
-- Description: Backs the cached state for this file.
+- Role: Caches the el value.
+- Description: Caches the `el` value for reuse.
 
 ### Methods
 
 #### `public CoordNd(int n)`
 - Role: Creates a new CoordNd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CoordNd instance from the supplied inputs.
 
 #### `public CoordNd(double... el)`
 - Role: Creates a new CoordNd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CoordNd instance from the supplied inputs.
 
 #### `public double el(int i)`
-- Role: Performs el.
-- Description: Supports the el operation used by the surrounding class.
+- Role: Handles the el path.
+- Description: Implements the el operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `private CoordNd op(DoubleUnaryOperator op)`
-- Role: Performs op.
-- Description: Supports the op operation used by the surrounding class.
+- Role: Handles the op path.
+- Description: Implements the op operation.
 
 #### `private CoordNd op(DoubleBinaryOperator op, double[] b)`
-- Role: Performs op.
-- Description: Supports the op operation used by the surrounding class.
+- Role: Handles the op path.
+- Description: Implements the op operation.
 
 #### `public CoordNd add(CoordNd b)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public CoordNd inv()`
-- Role: Performs inv.
-- Description: Supports the inv operation used by the surrounding class.
+- Role: Handles the inv path.
+- Description: Implements the inv operation.
 
 #### `public CoordNd sub(CoordNd b)`
-- Role: Performs sub.
-- Description: Supports the sub operation used by the surrounding class.
+- Role: Subtracts the supplied value from this CoordNd.
+- Description: Subtracts the supplied value from this CoordNd.
 
 #### `public CoordNd mul(double f)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies this CoordNd by the supplied value.
+- Description: Multiplies this CoordNd by the supplied value.
 
 #### `public CoordNd mul(CoordNd b)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies this CoordNd by the supplied value.
+- Description: Multiplies this CoordNd by the supplied value.
 
 #### `public CoordNd div(double f)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Divides this CoordNd by the supplied value.
+- Description: Divides this CoordNd by the supplied value.
 
 #### `public CoordNd div(CoordNd b)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Divides this CoordNd by the supplied value.
+- Description: Divides this CoordNd by the supplied value.
 
 #### `public CoordNd mod(double b)`
-- Role: Performs mod.
-- Description: Supports the mod operation used by the surrounding class.
+- Role: Handles the mod path.
+- Description: Implements the mod operation.
 
 #### `public CoordNd mod(CoordNd b)`
-- Role: Performs mod.
-- Description: Supports the mod operation used by the surrounding class.
+- Role: Handles the mod path.
+- Description: Implements the mod operation.
 
 #### `public CoordNd round()`
-- Role: Performs round.
-- Description: Supports the round operation used by the surrounding class.
+- Role: Handles the round path.
+- Description: Implements the round operation.
 
 #### `public CoordNd floor()`
-- Role: Performs floor.
-- Description: Supports the floor operation used by the surrounding class.
+- Role: Handles the floor path.
+- Description: Implements the floor operation.
 
 #### `public CoordNd ceil()`
-- Role: Performs ceil.
-- Description: Supports the ceil operation used by the surrounding class.
+- Role: Handles the ceil path.
+- Description: Implements the ceil operation.
 
 #### `public double dmul(CoordNd b)`
-- Role: Performs dmul.
-- Description: Supports the dmul operation used by the surrounding class.
+- Role: Handles the dmul path.
+- Description: Implements the dmul operation.
 
 #### `public double abs()`
-- Role: Performs abs.
-- Description: Supports the abs operation used by the surrounding class.
+- Role: Returns the vector length of this CoordNd.
+- Description: Returns the vector length of this CoordNd.
 
 #### `public CoordNd norm(double l)`
-- Role: Performs norm.
-- Description: Supports the norm operation used by the surrounding class.
+- Role: Normalizes this CoordNd to the requested length.
+- Description: Normalizes this CoordNd to the requested length.
 
 #### `public CoordNd norm()`
-- Role: Performs norm.
-- Description: Supports the norm operation used by the surrounding class.
+- Role: Normalizes this CoordNd to the requested length.
+- Description: Normalizes this CoordNd to the requested length.
 
 #### `public double dist(CoordNd o)`
-- Role: Performs dist.
-- Description: Supports the dist operation used by the surrounding class.
+- Role: Computes the distance to another CoordNd.
+- Description: Computes the distance to another CoordNd.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this CoordNd for debugging and logging.

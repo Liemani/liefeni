@@ -1,5 +1,5 @@
 ---
-source: [DesktopBrowser.java](../../../src/haven/DesktopBrowser.java)
+source: [DesktopBrowser.java](../../../../src/haven/DesktopBrowser.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the desktop browser Haven component.
 ### Fields
 
 #### `private final Desktop desktop`
-- Role: Holds the desktop state.
-- Description: Backs the cached state for this file.
+- Role: Caches the desktop value.
+- Description: Caches the `desktop` value for reuse.
 
 ### Methods
 
 #### `private DesktopBrowser(Desktop desktop)`
 - Role: Creates a new DesktopBrowser instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the DesktopBrowser instance from the supplied inputs.
 
 #### `public static DesktopBrowser create()`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public void show(URL url)`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.

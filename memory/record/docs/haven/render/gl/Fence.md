@@ -1,5 +1,5 @@
 ---
-source: [Fence.java](../../../../../src/haven/render/gl/Fence.java)
+source: [Fence.java](../../../../../../src/haven/render/gl/Fence.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Provides GL backend support for fence.
 ### Fields
 
 #### `private int state`
-- Role: Stores the state value.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 ### Methods
 
 #### `public Fence()`
 - Role: Creates a new Fence instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Fence instance from the supplied inputs.
 
 #### `public void run(GL gl)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void abort()`
-- Role: Performs abort.
-- Description: Supports the abort operation used by the surrounding class.
+- Role: Handles the abort path.
+- Description: Implements the abort operation.
 
 #### `public boolean waitfor() throws InterruptedException`
 - Role: Handles the waitfor workflow.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public static Fence make(BGL gl)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.

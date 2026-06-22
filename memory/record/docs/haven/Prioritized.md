@@ -1,5 +1,5 @@
 ---
-source: [Prioritized.java](../../../src/haven/Prioritized.java)
+source: [Prioritized.java](../../../../src/haven/Prioritized.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,5 +17,5 @@ Represents the prioritized Haven component.
 ### Methods
 
 #### `public int priority()`
-- Role: Performs priority.
-- Description: Supports the priority operation used by the surrounding class.
+- Role: Handles the priority path.
+- Description: Implements the priority operation.

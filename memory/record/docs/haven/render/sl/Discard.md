@@ -1,5 +1,5 @@
 ---
-source: [Discard.java](../../../../../src/haven/render/sl/Discard.java)
+source: [Discard.java](../../../../../../src/haven/render/sl/Discard.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,13 +17,13 @@ Represents the discard shader-language AST node.
 ### Methods
 
 #### `public Discard()`
-- Role: Creates a new Discard instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a discard statement.
+- Description: Represents the shader `discard` command.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the discard statement.
+- Description: Discard has no child expressions to walk.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the discard statement.
+- Description: Writes the shader `discard;` statement.

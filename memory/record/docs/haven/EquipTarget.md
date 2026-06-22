@@ -1,5 +1,5 @@
 ---
-source: [EquipTarget.java](../../../src/haven/EquipTarget.java)
+source: [EquipTarget.java](../../../../src/haven/EquipTarget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,39 +15,39 @@ Represents the equip target Haven component.
 ### Fields
 
 #### `public final Supplier<Pipe.Op> nil = () -> Pipe.Op.nil`
-- Role: Holds the nil state.
-- Description: Backs the cached state for this file.
+- Role: Implements the nil operation.
+- Description: Implements the public final supplier<pipe.op> nil = () -> pipe.op.nil operation.
 
 #### `public final String tgt, nm, ctx`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ctx value.
+- Description: Caches the `ctx` value for reuse.
 
 #### `public final String tgt, nm, ctx`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ctx value.
+- Description: Caches the `ctx` value for reuse.
 
 #### `public final String tgt, nm, ctx`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ctx value.
+- Description: Caches the `ctx` value for reuse.
 
 ### Methods
 
 #### `public Supplier<? extends Pipe.Op> eqpoint(String nm, Message dat)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Handles the eqpoint path.
+- Description: Implements the eqpoint operation.
 
 #### `public NoSuchTarget(EquipTarget tgt, String nm, Object ctx)`
-- Role: Performs no such target.
-- Description: Supports the no such target operation used by the surrounding class.
+- Role: Handles the no such target path.
+- Description: Implements the no such target operation.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `public static Supplier<? extends Pipe.Op> eqpoint(EquipTarget tgt, String nm, Message dat, Object ctx)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Handles the eqpoint path.
+- Description: Implements the eqpoint operation.
 
 #### `public static Supplier<? extends Pipe.Op> eqpoint(EquipTarget tgt, String nm, Message dat)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Handles the eqpoint path.
+- Description: Implements the eqpoint operation.

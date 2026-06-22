@@ -1,5 +1,5 @@
 ---
-source: [GobFinder.java](../../../../src/lmi/core/GobFinder.java)
+source: [GobFinder.java](../../../../../src/lmi/core/GobFinder.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,41 +17,41 @@ Locates gobs from cached Haven state.
 ### Methods
 
 #### `public static Gob closest()`
-- Role: Performs closest.
-- Description: Supports the closest operation used by the surrounding class.
+- Role: Returns the nearest gob to the local player.
+- Description: Searches the current map state for the closest candidate.
 
 #### `public static Gob closestOf(String name)`
-- Role: Performs closest of.
-- Description: Supports the closest of operation used by the surrounding class.
+- Role: Returns the nearest gob with the requested resource name.
+- Description: Filters the current map state by resource name before distance comparison.
 
 #### `public static Gob byId(long gobId)`
-- Role: Performs by id.
-- Description: Supports the by id operation used by the surrounding class.
+- Role: Returns the gob with the requested id.
+- Description: Looks up the gob directly from the current world state.
 
 #### `public static Gob at(Coord position)`
-- Role: Performs at.
-- Description: Supports the at operation used by the surrounding class.
+- Role: Returns the gob at the given map coordinate.
+- Description: Matches gobs against the requested tile position.
 
 #### `public static Gob at(int x, int y)`
-- Role: Performs at.
-- Description: Supports the at operation used by the surrounding class.
+- Role: Returns the gob at the given tile coordinates.
+- Description: Matches gobs against the requested tile position.
 
 #### `public static Array<Gob> all()`
-- Role: Performs all.
-- Description: Supports the all operation used by the surrounding class.
+- Role: Returns all known gobs.
+- Description: Copies the current world gob list into a new array.
 
 #### `public static Array<Gob> where(Predicate<Gob> predicate)`
-- Role: Performs where.
-- Description: Supports the where operation used by the surrounding class.
+- Role: Returns gobs that satisfy the supplied predicate.
+- Description: Filters the current world gob list.
 
 #### `public static Array<Gob> in(Rect area)`
-- Role: Performs in.
-- Description: Supports the in operation used by the surrounding class.
+- Role: Returns gobs that fall inside the given area.
+- Description: Filters by the current gob position against the rectangle.
 
 #### `public static Array<Gob> inSelectedArea()`
-- Role: Performs in selected area.
-- Description: Supports the in selected area operation used by the surrounding class.
+- Role: Returns gobs inside the last selected area.
+- Description: Uses the area selection stored by the UI pipeline.
 
 #### `private static Gob _closestWhere(java.util.function.Predicate<Gob> predicate)`
-- Role: Performs  closest where.
-- Description: Supports the closest where operation used by the surrounding class.
+- Role: Finds the nearest gob matching the predicate.
+- Description: Combines filtering and distance ordering in one pass.

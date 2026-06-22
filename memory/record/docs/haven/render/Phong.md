@@ -1,5 +1,5 @@
 ---
-source: [Phong.java](../../../../src/haven/render/Phong.java)
+source: [Phong.java](../../../../../src/haven/render/Phong.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,190 +12,192 @@ Defines the phong render pipeline component.
 
 ### CelShade
 
-- Role: Represents cel shade within Phong.
-- Description: Describes the nested cel shade type used by the enclosing class.
+- Role: Builds cel-shading lighting code.
+- Description: Generates the shader variant that quantizes lighting into bands.
 
 ### DoLight
 
-- Role: Represents do light within Phong.
-- Description: Describes the nested do light type used by the enclosing class.
+- Role: Assembles per-fragment lighting code.
+- Description: Builds the lighting expressions that combine material and light state.
 
 ## Members
 
 ### Constants
 
 #### `public static final Struct s_material = Struct.make(new Symbol.Shared("material"),`
-- Role: Defines the shared s material constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the s material operation.
+- Description: Implements the shared operation.
+- Value: `Struct.make(new Symbol.Shared("material"),`
 
 #### `public static final Function celramp = new Function.Def(VEC3)`
-- Role: Defines the shared celramp constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the celramp operation.
+- Description: Implements the def operation.
+- Value: `new Function.Def(VEC3)`
 
 ### Fields
 
 #### `private final Uniform material`
-- Role: Holds the material state.
-- Description: Backs the cached state for this file.
+- Role: Caches the material value.
+- Description: Caches the `material` value for reuse.
 
 #### `public final GValue bcol = new GValue(VEC3), scol = new GValue(VEC3)`
-- Role: Holds the bcol state.
-- Description: Backs the cached state for this file.
+- Role: Implements the bcol operation.
+- Description: Implements the g value operation.
 
 #### `public final GValue bcol = new GValue(VEC3), scol = new GValue(VEC3)`
-- Role: Holds the bcol state.
-- Description: Backs the cached state for this file.
+- Role: Implements the bcol operation.
+- Description: Implements the g value operation.
 
 #### `public final boolean pfrag`
 - Role: Tracks the pfrag flag.
-- Description: Supports the pfrag operation used by the surrounding class.
+- Description: Caches the `pfrag` value for reuse.
 
 #### `private final ProgramContext prog`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 #### `private final Expression vert, edir, norm`
-- Role: Holds the norm state.
-- Description: Backs the cached state for this file.
+- Role: Caches the norm value.
+- Description: Caches the `norm` value for reuse.
 
 #### `private final Expression vert, edir, norm`
-- Role: Holds the norm state.
-- Description: Backs the cached state for this file.
+- Role: Caches the norm value.
+- Description: Caches the `norm` value for reuse.
 
 #### `private final Expression vert, edir, norm`
-- Role: Holds the norm state.
-- Description: Backs the cached state for this file.
+- Role: Caches the norm value.
+- Description: Caches the `norm` value for reuse.
 
 #### `public final boolean dif, spc`
 - Role: Tracks the spc flag.
-- Description: Supports the spc operation used by the surrounding class.
+- Description: Caches the `spc` value for reuse.
 
 #### `public final boolean dif, spc`
 - Role: Tracks the spc flag.
-- Description: Supports the spc operation used by the surrounding class.
+- Description: Caches the `spc` value for reuse.
 
 #### `public final Expression ls = param(IN, s_light).ref()`
-- Role: Holds the ls state.
-- Description: Backs the cached state for this file.
+- Role: Implements the ls operation.
+- Description: Implements the ref operation.
 
 #### `public final Expression i = param(IN, INT).ref()`
-- Role: Holds the i state.
-- Description: Backs the cached state for this file.
+- Role: Implements the i operation.
+- Description: Implements the ref operation.
 
 #### `public final Expression vert = param(IN, VEC3).ref()`
-- Role: Holds the vert state.
-- Description: Backs the cached state for this file.
+- Role: Implements the vert operation.
+- Description: Implements the ref operation.
 
 #### `public final Expression edir = param(IN, VEC3).ref()`
-- Role: Holds the edir state.
-- Description: Backs the cached state for this file.
+- Role: Implements the edir operation.
+- Description: Implements the ref operation.
 
 #### `public final Expression norm = param(IN, VEC3).ref()`
-- Role: Holds the norm state.
-- Description: Backs the cached state for this file.
+- Role: Implements the norm operation.
+- Description: Implements the ref operation.
 
 #### `public final LValue diff = param(INOUT, VEC3).ref()`
-- Role: Holds the diff state.
-- Description: Backs the cached state for this file.
+- Role: Implements the diff operation.
+- Description: Implements the ref operation.
 
 #### `public final LValue spec = param(INOUT, VEC3).ref()`
-- Role: Holds the spec state.
-- Description: Backs the cached state for this file.
+- Role: Implements the spec operation.
+- Description: Implements the ref operation.
 
 #### `public final Expression mat = material.ref()`
-- Role: Holds the mat state.
-- Description: Backs the cached state for this file.
+- Role: Implements the mat operation.
+- Description: Implements the ref operation.
 
 #### `public final Expression shine = fref(mat, "shine")`
-- Role: Holds the shine state.
-- Description: Backs the cached state for this file.
+- Role: Implements the shine operation.
+- Description: Implements the fref operation.
 
 #### `public final Value lvl, dir, dl, sl`
-- Role: Holds the sl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sl value.
+- Description: Caches the `sl` value for reuse.
 
 #### `public final Value lvl, dir, dl, sl`
-- Role: Holds the sl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sl value.
+- Description: Caches the `sl` value for reuse.
 
 #### `public final Value lvl, dir, dl, sl`
-- Role: Holds the sl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sl value.
+- Description: Caches the `sl` value for reuse.
 
 #### `public final Value lvl, dir, dl, sl`
-- Role: Holds the sl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sl value.
+- Description: Caches the `sl` value for reuse.
 
 #### `public final ValBlock dvals = new ValBlock()`
-- Role: Holds the dvals state.
-- Description: Backs the cached state for this file.
+- Role: Implements the dvals operation.
+- Description: Implements the val block operation.
 
 #### `public final ValBlock svals = new ValBlock()`
-- Role: Holds the svals state.
-- Description: Backs the cached state for this file.
+- Role: Implements the svals operation.
+- Description: Implements the val block operation.
 
 #### `private final OrderList<Runnable> mods = new OrderList<Runnable>()`
-- Role: Caches mods entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the mods operation.
+- Description: Implements the private final order list<runnable> mods = new order list<runnable>() operation.
 
 #### `public Block dcalc, scalc`
-- Role: Holds the scalc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the scalc value.
+- Description: Caches the `scalc` value for reuse.
 
 #### `public Block dcalc, scalc`
-- Role: Holds the scalc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the scalc value.
+- Description: Caches the `scalc` value for reuse.
 
 #### `public Statement dcurs, scurs`
-- Role: Holds the scurs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the scurs value.
+- Description: Caches the `scurs` value for reuse.
 
 #### `public Statement dcurs, scurs`
-- Role: Holds the scurs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the scurs value.
+- Description: Caches the `scurs` value for reuse.
 
 #### `public final DoLight dolight`
-- Role: Holds the dolight state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dolight value.
+- Description: Caches the `dolight` value for reuse.
 
 ### Methods
 
 #### `public CelShade(boolean dif, boolean spc)`
-- Role: Performs cel shade.
-- Description: Supports the cel shade operation used by the surrounding class.
+- Role: Handles the cel shade path.
+- Description: Implements the cel shade operation.
 
 #### `public void modify(ProgramContext prog)`
-- Role: Performs modify.
-- Description: Supports the modify operation used by the surrounding class.
+- Role: Handles the modify path.
+- Description: Implements the modify operation.
 
 #### `private DoLight()`
-- Role: Performs do light.
-- Description: Supports the do light operation used by the surrounding class.
+- Role: Handles the do light path.
+- Description: Implements the do light operation.
 
 #### `protected void cons()`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public void mod(Runnable mod, int order)`
-- Role: Performs mod.
-- Description: Supports the mod operation used by the surrounding class.
+- Role: Handles the mod path.
+- Description: Implements the mod operation.
 
 #### `public void cons1()`
-- Role: Performs cons1.
-- Description: Supports the cons1 operation used by the surrounding class.
+- Role: Handles the cons1 path.
+- Description: Implements the cons1 operation.
 
 #### `public void cons2(Block blk)`
-- Role: Performs cons2.
-- Description: Supports the cons2 operation used by the surrounding class.
+- Role: Handles the cons2 path.
+- Description: Implements the cons2 operation.
 
 #### `private void fmod(final FragmentContext fctx, final Expression bcol, final Expression scol)`
-- Role: Performs fmod.
-- Description: Supports the fmod operation used by the surrounding class.
+- Role: Handles the fmod path.
+- Description: Implements the fmod operation.
 
 #### `public Phong(VertexContext vctx, Uniform.Data<?> material)`
 - Role: Creates a new Phong instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Phong instance from the supplied inputs.
 
 #### `public Phong(FragmentContext fctx, Uniform.Data<?> material)`
 - Role: Creates a new Phong instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Phong instance from the supplied inputs.

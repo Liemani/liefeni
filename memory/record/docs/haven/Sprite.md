@@ -1,5 +1,5 @@
 ---
-source: [Sprite.java](../../../src/haven/Sprite.java)
+source: [Sprite.java](../../../../src/haven/Sprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,48 +12,48 @@ Represents a drawable Haven sprite.
 
 ### CDel
 
-- Role: Represents cdel within Sprite.
-- Description: Describes the nested cdel type used by the enclosing class.
+- Role: Signals sprite disposal callbacks.
+- Description: Lets sprite implementations clean up when their owner is removed.
 
 ### CUpd
 
-- Role: Represents cupd within Sprite.
-- Description: Describes the nested cupd type used by the enclosing class.
+- Role: Signals sprite update callbacks.
+- Description: Lets sprite implementations react to tick/update events.
 
 ### FactMaker
 
-- Role: Represents fact maker within Sprite.
-- Description: Describes the nested fact maker type used by the enclosing class.
+- Role: Resolves published sprite factories.
+- Description: Chains published-code instancers into a sprite factory lookup.
 
 ### Factory
 
-- Role: Represents factory within Sprite.
-- Description: Describes the nested factory type used by the enclosing class.
+- Role: Creates a sprite from a resource and owner context.
+- Description: Standard sprite construction hook used by the resource system.
 
 ### Mill
 
-- Role: Represents mill within Sprite.
-- Description: Describes the nested mill type used by the enclosing class.
+- Role: Creates sprite instances from raw resource data.
+- Description: Acts as the factory helper that instantiates sprites during loading.
 
 ### Owner
 
-- Role: Represents owner within Sprite.
-- Description: Describes the nested owner type used by the enclosing class.
+- Role: Provides the runtime context for sprite creation.
+- Description: Supplies access to gob, session, and resource lookups.
 
 ### RecOwner
 
-- Role: Represents rec owner within Sprite.
-- Description: Describes the nested rec owner type used by the enclosing class.
+- Role: Wraps the owner context for recursive sprite creation.
+- Description: Reuses an existing owner while overriding resource lookup behavior.
 
 ### ResourceException
 
-- Role: Represents resource exception within Sprite.
-- Description: Describes the nested resource exception type used by the enclosing class.
+- Role: Reports sprite resource-loading failures.
+- Description: Wraps problems encountered while resolving a sprite resource.
 
 ### UIOwner
 
-- Role: Represents uiowner within Sprite.
-- Description: Describes the nested uiowner type used by the enclosing class.
+- Role: Exposes a widget as sprite owner context.
+- Description: Lets UI-backed sprites resolve their widget and session dependencies.
 
 ## Members
 
@@ -62,32 +62,32 @@ Represents a drawable Haven sprite.
 ### Fields
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Owner owner`
-- Role: Holds the owner state.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 #### `public static List<Factory> factories = new LinkedList<Factory>()`
-- Role: Caches factories entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the factories operation.
+- Description: Implements the public static list<factory> factories = new linked list<factory>() operation.
 
 #### `public final Widget wdg`
-- Role: Stores the wdg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the wdg value.
+- Description: Caches the `wdg` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final byte[] sdt`
-- Role: Stores the sdt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 #### `public Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 ### Methods
 
@@ -101,19 +101,19 @@ Represents a drawable Haven sprite.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Resource getres()`
 - Role: Returns the resource.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Sprite for debugging and logging.
 
 #### `public UIOwner(Widget wdg)`
-- Role: Performs uiowner.
-- Description: Supports the uiowner operation used by the surrounding class.
+- Role: Handles the uiowner path.
+- Description: Implements the ui owner operation.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
@@ -121,19 +121,19 @@ Represents a drawable Haven sprite.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public void delete()`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.
 
 #### `public void update(Message sdt)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public FactMaker()`
-- Role: Performs fact maker.
-- Description: Supports the fact maker operation used by the surrounding class.
+- Role: Handles the fact maker path.
+- Description: Implements the fact maker operation.
 
 #### `public Sprite create(Owner owner, Resource res, Message sdt)`
 - Role: Creates the target object.
@@ -144,48 +144,48 @@ Represents a drawable Haven sprite.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public FromRes(Indir<Resource> res, byte[] sdt)`
-- Role: Performs from res.
-- Description: Supports the from res operation used by the surrounding class.
+- Role: Handles the from resource path.
+- Description: Implements the from res operation.
 
 #### `public Sprite create(Owner owner)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Sprite for debugging and logging.
 
 #### `public static Mill<Sprite> of(Indir<Resource> res, byte[] sdt)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a Sprite value from the supplied components.
+- Description: Builds a Sprite value from the supplied components.
 
 #### `public static Mill<Sprite> of(Indir<Resource> res, Message sdt)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a Sprite value from the supplied components.
+- Description: Builds a Sprite value from the supplied components.
 
 #### `public static Mill<Sprite> of(Resource res, Message sdt)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a Sprite value from the supplied components.
+- Description: Builds a Sprite value from the supplied components.
 
 #### `public static Mill<Sprite> of(ResData dat)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a Sprite value from the supplied components.
+- Description: Builds a Sprite value from the supplied components.
 
 #### `public ResourceException(String msg, Resource res)`
-- Role: Performs resource exception.
-- Description: Supports the resource exception operation used by the surrounding class.
+- Role: Handles the resource exception path.
+- Description: Implements the resource exception operation.
 
 #### `public ResourceException(String msg, Throwable cause, Resource res)`
-- Role: Performs resource exception.
-- Description: Supports the resource exception operation used by the surrounding class.
+- Role: Handles the resource exception path.
+- Description: Implements the resource exception operation.
 
 #### `protected Sprite(Owner owner, Resource res)`
 - Role: Creates a new Sprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Sprite instance from the supplied inputs.
 
 #### `public static int decnum(Message sdt)`
-- Role: Performs decnum.
-- Description: Supports the decnum operation used by the surrounding class.
+- Role: Handles the decnum path.
+- Description: Implements the decnum operation.
 
 #### `public static Sprite create(Owner owner, Resource res, Message sdt)`
 - Role: Creates the target object.
@@ -193,24 +193,24 @@ Represents a drawable Haven sprite.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Sprite content.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
 - Description: Updates per-frame drawable state during the render loop.
 
 #### `public void age()`
-- Role: Performs age.
-- Description: Supports the age operation used by the surrounding class.
+- Role: Advances the sprite to its mature state.
+- Description: Advances the sprite to its mature state.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Sprite for debugging and logging.

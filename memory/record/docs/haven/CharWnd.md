@@ -1,5 +1,5 @@
 ---
-source: [CharWnd.java](../../../src/haven/CharWnd.java)
+source: [CharWnd.java](../../../../src/haven/CharWnd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -50,329 +50,343 @@ Represents the char wnd Haven component.
 ### Constants
 
 #### `public static final RichText.Foundry ifnd = new RichText.Foundry(RichText.IMAGESRC, RichText.ImageSource.legacy,`
-- Role: Defines the shared ifnd constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ifnd operation.
+- Description: Implements the foundry operation.
+- Value: `new RichText.Foundry(RichText.IMAGESRC, RichText.ImageSource.legacy,`
 
 #### `public static final Text.Furnace catf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Window.ctex), UI.scale(3), UI.scale(2), new Color(96, 48, 0))`
-- Role: Defines the shared catf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the catf operation.
+- Description: Implements the color operation.
+- Value: `new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Window.ctex), UI.scale(3), UI.scale(2), new Color(96, 48, 0))`
 
 #### `public static final Text.Furnace failf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Resource.loadimg("gfx/hud/fontred")), UI.scale(3), UI.scale(2), new Color(96, 48, 0))`
-- Role: Defines the shared failf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the failf operation.
+- Description: Implements the color operation.
+- Value: `new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Resource.loadimg("gfx/hud/fontred")), UI.scale(3), UI.scale(2), new Color(96, 48, 0))`
 
 #### `public static final Text.Foundry attrf = new Text.Foundry(Text.fraktur.deriveFont((float)Math.floor(UI.scale(18.0)))).aa(true)`
-- Role: Defines the shared attrf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the attrf operation.
+- Description: Implements the aa operation.
+- Value: `new Text.Foundry(Text.fraktur.deriveFont((float)Math.floor(UI.scale(18.0)))).aa(true)`
 
 #### `public static final PUtils.Convolution iconfilter = new PUtils.Lanczos(3)`
-- Role: Defines the shared iconfilter constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the iconfilter operation.
+- Description: Implements the lanczos operation.
+- Value: `new PUtils.Lanczos(3)`
 
 #### `public static final int attrw = BAttrWnd.FoodMeter.frame.sz().x - wbox.bisz().x`
-- Role: Defines the shared attrw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the attrw operation.
+- Description: Implements the bisz operation.
+- Value: `BAttrWnd.FoodMeter.frame.sz().x - wbox.bisz().x`
 
 #### `public static final Color debuff = new Color(255, 128, 128)`
-- Role: Defines the shared debuff constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the debuff operation.
+- Description: Implements the color operation.
+- Value: `new Color(255, 128, 128)`
 
 #### `public static final Color buff = new Color(128, 255, 128)`
-- Role: Defines the shared buff constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the buff operation.
+- Description: Implements the color operation.
+- Value: `new Color(128, 255, 128)`
 
 #### `public static final Color tbuff = new Color(128, 128, 255)`
-- Role: Defines the shared tbuff constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the tbuff operation.
+- Description: Implements the color operation.
+- Value: `new Color(128, 128, 255)`
 
 #### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
-- Role: Defines the shared every constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the every operation.
+- Description: Implements the color operation.
+- Value: `new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
 
 #### `public static final Color every = new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
-- Role: Defines the shared every constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the every operation.
+- Description: Implements the color operation.
+- Value: `new Color(255, 255, 255, 16), other = new Color(255, 255, 255, 32)`
 
 #### `public static final int width = UI.scale(255)`
-- Role: Defines the shared width constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the width operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(255)`
 
 #### `public static final int height = UI.scale(260)`
-- Role: Defines the shared height constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the height operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(260)`
 
 #### `private static final OwnerContext.ClassResolver<AttrWdg> ctxr = new OwnerContext.ClassResolver<AttrWdg>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<attr wdg> ctxr = new owner context.class resolver<attr wdg>() operation.
+- Value: `new OwnerContext.ClassResolver<AttrWdg>()`
 
 ### Fields
 
 #### `public BAttrWnd battr`
-- Role: Holds the battr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the battr value.
+- Description: Caches the `battr` value for reuse.
 
 #### `public SAttrWnd sattr`
-- Role: Holds the sattr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sattr value.
+- Description: Caches the `sattr` value for reuse.
 
 #### `public SkillWnd skill`
-- Role: Holds the skill state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skill value.
+- Description: Caches the `skill` value for reuse.
 
 #### `public FightWnd fight`
-- Role: Holds the fight state.
-- Description: Backs the cached state for this file.
+- Role: Caches the fight value.
+- Description: Caches the `fight` value for reuse.
 
 #### `public WoundWnd wound`
-- Role: Holds the wound state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wound value.
+- Description: Caches the `wound` value for reuse.
 
 #### `public QuestWnd quest`
-- Role: Holds the quest state.
-- Description: Backs the cached state for this file.
+- Role: Caches the quest value.
+- Description: Caches the `quest` value for reuse.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-- Role: Holds the questtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the questtab value.
+- Description: Caches the `questtab` value for reuse.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-- Role: Holds the questtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the questtab value.
+- Description: Caches the `questtab` value for reuse.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-- Role: Holds the questtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the questtab value.
+- Description: Caches the `questtab` value for reuse.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-- Role: Holds the questtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the questtab value.
+- Description: Caches the `questtab` value for reuse.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-- Role: Holds the questtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the questtab value.
+- Description: Caches the `questtab` value for reuse.
 
 #### `public final Tabs.Tab battrtab, sattrtab, skilltab, fighttab, woundtab, questtab`
-- Role: Holds the questtab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the questtab value.
+- Description: Caches the `questtab` value for reuse.
 
 #### `public int exp, enc`
-- Role: Stores the enc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the enc value.
+- Description: Caches the `enc` value for reuse.
 
 #### `public int exp, enc`
-- Role: Stores the enc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the enc value.
+- Description: Caches the `enc` value for reuse.
 
 #### `public final Class<? extends Widget> tcl`
-- Role: Stores the tcl value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tcl value.
+- Description: Caches the `tcl` value for reuse.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private Widget tab = null`
-- Role: Stores the tab value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tab value.
+- Description: Caches the `tab` value for reuse.
 
 #### `private final Supplier<V> val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private final Function<V, String> fmt`
-- Role: Stores the fmt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fmt value.
+- Description: Caches the `fmt` value for reuse.
 
 #### `private final Function<V, Color> col`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Caches the col value.
+- Description: Caches the `col` value for reuse.
 
 #### `private Coord oc`
-- Role: Stores the oc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oc value.
+- Description: Caches the `oc` value for reuse.
 
 #### `private Color lc`
-- Role: Stores the lc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lc value.
+- Description: Caches the `lc` value for reuse.
 
 #### `private V lv`
-- Role: Holds the lv state.
-- Description: Backs the cached state for this file.
+- Role: Caches the lv value.
+- Description: Caches the `lv` value for reuse.
 
 #### `private Tex img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `private Indir<Tex> loading`
-- Role: Stores the loading value.
-- Description: Backs the cached state for this file.
+- Role: Tracks whether  is currently loading.
+- Description: Tracks whether  is currently loading.
 
 #### `private final Scrollbar sb`
-- Role: Holds the sb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sb value.
+- Description: Caches the `sb` value for reuse.
 
 #### `public final String nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `public final Glob.CAttr attr`
-- Role: Stores the attr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the attr value.
+- Description: Caches the `attr` value for reuse.
 
 #### `private ItemInfo.Raw rinfo = null`
-- Role: Holds the rinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rinfo value.
+- Description: Caches the `rinfo` value for reuse.
 
 #### `private List<ItemInfo> binfo = null`
-- Role: Caches binfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the binfo value.
+- Description: Caches the `binfo` value for reuse.
 
 #### `private List<ItemInfo> tipinfo`
-- Role: Caches tipinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the tipinfo value.
+- Description: Caches the `tipinfo` value for reuse.
 
 #### `private Tex tipimg = null`
-- Role: Stores the tipimg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tipimg value.
+- Description: Caches the `tipimg` value for reuse.
 
 ### Methods
 
 #### `public TabProxy(Class<? extends Widget> tcl, String id)`
-- Role: Performs tab proxy.
-- Description: Supports the tab proxy operation used by the surrounding class.
+- Role: Handles the tab proxy path.
+- Description: Implements the tab proxy operation.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void uimsg(String nm, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public <T> T getchild(Class<T> cl)`
-- Role: Performs getchild.
-- Description: Supports the getchild operation used by the surrounding class.
+- Role: Handles the getchild path.
+- Description: Returns the child.
 
 #### `private RLabel(Supplier<V> val, Function<V, String> fmt, Function<V, Color> col, V ival)`
-- Role: Performs rlabel.
-- Description: Supports the rlabel operation used by the surrounding class.
+- Role: Handles the rlabel path.
+- Description: Implements the r label operation.
 
 #### `public RLabel(Supplier<V> val, Function<V, String> fmt, Function<V, Color> col)`
-- Role: Performs rlabel.
-- Description: Supports the rlabel operation used by the surrounding class.
+- Role: Handles the rlabel path.
+- Description: Implements the r label operation.
 
 #### `public RLabel(Supplier<V> val, Function<V, String> fmt, Color col)`
-- Role: Performs rlabel.
-- Description: Supports the rlabel operation used by the surrounding class.
+- Role: Handles the rlabel path.
+- Description: Implements the r label operation.
 
 #### `private void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `protected void attached()`
-- Role: Performs attached.
-- Description: Supports the attached operation used by the surrounding class.
+- Role: Handles the attached path.
+- Description: Implements the attached operation.
 
 #### `public void settext(String text)`
-- Role: Performs settext.
-- Description: Supports the settext operation used by the surrounding class.
+- Role: Handles the settext path.
+- Description: Updates the text.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public static RichText.ImageSource resimg(Resource res)`
-- Role: Performs resimg.
-- Description: Supports the resimg operation used by the surrounding class.
+- Role: Handles the resimg path.
+- Description: Implements the resimg operation.
 
 #### `public static RichText.Document resdoc(Resource res, String text)`
-- Role: Performs resdoc.
-- Description: Supports the resdoc operation used by the surrounding class.
+- Role: Handles the resdoc path.
+- Description: Implements the resdoc operation.
 
 #### `public LoadingTextBox(Coord sz, String text, RichText.Foundry fnd)`
-- Role: Performs loading text box.
-- Description: Supports the loading text box operation used by the surrounding class.
+- Role: Handles the loading text box path.
+- Description: Implements the loading text box operation.
 
 #### `public LoadingTextBox(Coord sz, String text, Object... attrs)`
-- Role: Performs loading text box.
-- Description: Supports the loading text box operation used by the surrounding class.
+- Role: Handles the loading text box path.
+- Description: Implements the loading text box operation.
 
 #### `public ImageInfoBox(Coord sz)`
-- Role: Performs image info box.
-- Description: Supports the image info box operation used by the surrounding class.
+- Role: Handles the image info box path.
+- Description: Implements the image info box operation.
 
 #### `public void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `public Coord marg()`
-- Role: Performs marg.
-- Description: Supports the marg operation used by the surrounding class.
+- Role: Handles the marg path.
+- Description: Implements the marg operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the CharWnd content.
 
 #### `public void set(Tex img)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void set(Indir<Tex> loading)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void draw(BufferedImage img, Graphics g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the CharWnd content.
 
 #### `public static BufferedImage render(BufferedImage base, List<ItemInfo> info)`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public AttrWdg(Coord sz, Glob glob, String attr)`
-- Role: Performs attr wdg.
-- Description: Supports the attr wdg operation used by the surrounding class.
+- Role: Handles the attr widget path.
+- Description: Implements the attr wdg operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public static <T extends Widget> T settip(T wdg, String resnm)`
-- Role: Performs settip.
-- Description: Supports the settip operation used by the surrounding class.
+- Role: Handles the settip path.
+- Description: Updates the tip.
 
 #### `public CharWnd(Glob glob)`
 - Role: Creates a new CharWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the CharWnd instance from the supplied inputs.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `public void uimsg(String nm, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

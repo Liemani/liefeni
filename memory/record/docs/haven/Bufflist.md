@@ -1,5 +1,5 @@
 ---
-source: [Bufflist.java](../../../src/haven/Bufflist.java)
+source: [Bufflist.java](../../../../src/haven/Bufflist.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,20 +12,22 @@ Represents the bufflist Haven component.
 
 ### Managed
 
-- Role: Represents managed within Bufflist.
-- Description: Describes the nested managed type used by the enclosing class.
+- Role: Marks a buff slot managed by external layout logic.
+- Description: Interface for buff widgets that are positioned and refreshed by the buff list controller.
 
 ## Members
 
 ### Constants
 
 #### `public static final int margin = UI.scale(2)`
-- Role: Defines the shared margin constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the margin operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(2)`
 
 #### `public static final int num = 5`
-- Role: Defines the shared num constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the num value.
+- Description: Caches the `num` value for reuse.
+- Value: `5`
 
 ### Fields
 
@@ -33,24 +35,24 @@ Represents the bufflist Haven component.
 
 #### `public void move(Coord c, double off)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public Bufflist()`
 - Role: Creates a new Bufflist instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Bufflist instance from the supplied inputs.
 
 #### `private void arrange(Widget imm)`
-- Role: Performs arrange.
-- Description: Supports the arrange operation used by the surrounding class.
+- Role: Handles the arrange path.
+- Description: Implements the arrange operation.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `public void cdestroy(Widget ch)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Handles the cdestroy path.
+- Description: Implements the cdestroy operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Bufflist content.

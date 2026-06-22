@@ -1,5 +1,5 @@
 ---
-source: [SegmentResolution.java](../../../../../src/lmi/waypoint/recording/SegmentResolution.java)
+source: [SegmentResolution.java](../../../../../../src/lmi/waypoint/recording/SegmentResolution.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -16,38 +16,38 @@ Coordinates waypoint recording work for segment resolution.
 
 #### `final boolean resolved`
 - Role: Tracks the resolved flag.
-- Description: Supports the resolved operation used by the surrounding class.
+- Description: Caches the `resolved` value for reuse.
 
 #### `final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `final long referenceGridId`
-- Role: Stores the reference grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the reference grid id value.
+- Description: Caches the `referenceGridId` value for reuse.
 
 #### `final int referenceLocalX`
-- Role: Stores the reference local x value.
-- Description: Backs the cached state for this file.
+- Role: Caches the reference local x value.
+- Description: Caches the `referenceLocalX` value for reuse.
 
 #### `final int referenceLocalY`
-- Role: Stores the reference local y value.
-- Description: Backs the cached state for this file.
+- Role: Caches the reference local y value.
+- Description: Caches the `referenceLocalY` value for reuse.
 
 #### `final String errorMessage`
-- Role: Stores the error message value.
-- Description: Backs the cached state for this file.
+- Role: Caches the error message value.
+- Description: Caches the `errorMessage` value for reuse.
 
 ### Methods
 
 #### `private SegmentResolution(boolean resolved, long graphId, long referenceGridId, int referenceLocalX,`
 - Role: Creates a new SegmentResolution instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SegmentResolution instance from the supplied inputs.
 
 #### `static SegmentResolution resolved(long graphId, long referenceGridId, int referenceLocalX, int referenceLocalY)`
 - Role: Coordinates resolved persistence or lookup.
-- Description: Supports the resolved operation used by the surrounding class.
+- Description: Resolves the d.
 
 #### `static SegmentResolution failed(String errorMessage)`
-- Role: Performs failed.
-- Description: Supports the failed operation used by the surrounding class.
+- Role: Handles the failed path.
+- Description: Implements the failed operation.

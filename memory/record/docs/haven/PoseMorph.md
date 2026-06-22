@@ -1,5 +1,5 @@
 ---
-source: [PoseMorph.java](../../../src/haven/PoseMorph.java)
+source: [PoseMorph.java](../../../../src/haven/PoseMorph.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,186 +12,190 @@ Represents the pose morph Haven component.
 
 ### $Res
 
-- Role: Represents $res within PoseMorph.
-- Description: Describes the nested $res type used by the enclosing class.
+- Role: Registers the resource-published pose morph helper.
+- Description: Builds a `PoseMorph` from a mesh resource.
 
 ### BoneData
 
-- Role: Represents bone data within PoseMorph.
-- Description: Describes the nested bone data type used by the enclosing class.
+- Role: Stores per-bone morph input data.
+- Description: Keeps the apv buffer and named bone data for the mesh.
 
 ### Morphed
 
-- Role: Represents morphed within PoseMorph.
-- Description: Describes the nested morphed type used by the enclosing class.
+- Role: Marks geometry transformed by pose morphing.
+- Description: Acts as the geometry render-state slot for morphed meshes.
 
 ### Old$Res
 
-- Role: Represents old$res within PoseMorph.
-- Description: Describes the nested old$res type used by the enclosing class.
+- Role: Supports the legacy pose-morph resource format.
+- Description: Retains compatibility with older published resource data.
 
 ### Shader
 
-- Role: Represents shader within PoseMorph.
-- Description: Describes the nested shader type used by the enclosing class.
+- Role: Builds the morphing shader for a specific bone count.
+- Description: Caches shader variants keyed by skeleton size.
 
 ### WeightData
 
-- Role: Represents weight data within PoseMorph.
-- Description: Describes the nested weight data type used by the enclosing class.
+- Role: Stores per-vertex morph weights.
+- Description: Holds the apv buffer used to deform vertices by bone weights.
 
 ## Members
 
 ### Constants
 
 #### `public static final State.Slot<Morphed> slot = new State.Slot<>(State.Slot.Type.GEOM, Morphed.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the slot operation.
+- Description: Implements the public static final state.slot<morphed> slot = new state.slot<>(state.slot.type.geom, morphed.class) operation.
+- Value: `new State.Slot<>(State.Slot.Type.GEOM, Morphed.class)`
 
 #### `public static final Attribute vba = new Attribute(IVEC4, "vba")`
-- Role: Defines the shared vba constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the vba operation.
+- Description: Implements the attribute operation.
+- Value: `new Attribute(IVEC4, "vba")`
 
 #### `public static final Attribute vbw = new Attribute(VEC4, "vbw")`
-- Role: Defines the shared vbw constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the vbw operation.
+- Description: Implements the attribute operation.
+- Value: `new Attribute(VEC4, "vbw")`
 
 #### `private static final WeakHashedSet<Shader> interned = new WeakHashedSet<>(Hash.eq)`
-- Role: Defines the shared interned constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the interned operation.
+- Description: Implements the private static final weak hashed set<shader> interned = new weak hashed set<>(hash.eq) operation.
+- Value: `new WeakHashedSet<>(Hash.eq)`
 
 ### Fields
 
 #### `public final Pose pose`
-- Role: Holds the pose state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pose value.
+- Description: Caches the `pose` value for reuse.
 
 #### `private final int[] bperm`
-- Role: Stores the bperm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bperm value.
+- Description: Caches the `bperm` value for reuse.
 
 #### `private Morphed last`
-- Role: Holds the last state.
-- Description: Backs the cached state for this file.
+- Role: Caches the last .
+- Description: Caches the last  value.
 
 #### `private int lastseq`
-- Role: Stores the lastseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last seq.
+- Description: Caches the last seq value.
 
 #### `final int nb`
-- Role: Stores the nb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nb value.
+- Description: Caches the `nb` value for reuse.
 
 #### `final Uniform bo`
-- Role: Holds the bo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bo value.
+- Description: Caches the `bo` value for reuse.
 
 #### `final Function skanp, skand`
-- Role: Holds the skand state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skand value.
+- Description: Caches the `skand` value for reuse.
 
 #### `final Function skanp, skand`
-- Role: Holds the skand state.
-- Description: Backs the cached state for this file.
+- Role: Caches the skand value.
+- Description: Caches the `skand` value for reuse.
 
 #### `public final float[][] offs`
-- Role: Stores the offs value.
-- Description: Backs the cached state for this file.
+- Role: Caches the offs value.
+- Description: Caches the `offs` value for reuse.
 
 #### `private final ShaderMacro shader`
-- Role: Holds the shader state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shader value.
+- Description: Caches the `shader` value for reuse.
 
 #### `public final String[] names`
-- Role: Stores the names value.
-- Description: Backs the cached state for this file.
+- Role: Caches the names value.
+- Description: Caches the `names` value for reuse.
 
 ### Methods
 
 #### `private static int[] mkperm(Skeleton skel, BoneData bd)`
-- Role: Performs mkperm.
-- Description: Supports the mkperm operation used by the surrounding class.
+- Role: Handles the mkperm path.
+- Description: Builds the bone permutation table for the mesh.
 
 #### `public PoseMorph(Pose pose, FastMesh mesh)`
 - Role: Creates a new PoseMorph instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PoseMorph instance from the supplied inputs.
 
 #### `public static boolean boned(FastMesh mesh)`
-- Role: Performs boned.
-- Description: Supports the boned operation used by the surrounding class.
+- Role: Handles the boned path.
+- Description: Returns true when the mesh has pose-morph bone data.
 
 #### `public static String boneidp(FastMesh mesh)`
-- Role: Performs boneidp.
-- Description: Supports the boneidp operation used by the surrounding class.
+- Role: Handles the boneidp path.
+- Description: Returns the bone-id prefix for the mesh.
 
 #### `public Morphed state()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Handles the state path.
+- Description: Returns the geometry state marker for this morph.
 
 #### `Shader(int nb)`
 - Role: Handles the shader workflow.
-- Description: Supports the shader operation used by the surrounding class.
+- Description: Builds a shader variant for the requested bone count.
 
 #### `Function skan(boolean pos)`
-- Role: Performs skan.
-- Description: Supports the skan operation used by the surrounding class.
+- Role: Handles the skan path.
+- Description: Returns the shader function for position or direction data.
 
 #### `public void morph(ValBlock.Value val, MeshMorph.MorphType type, VertexContext vctx)`
-- Role: Performs morph.
-- Description: Supports the morph operation used by the surrounding class.
+- Role: Handles the morph path.
+- Description: Writes the mesh morph values into the vertex context.
 
 #### `public void modify(ProgramContext prog)`
-- Role: Performs modify.
-- Description: Supports the modify operation used by the surrounding class.
+- Role: Handles the modify path.
+- Description: Injects the pose-morph shader state into the program context.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public static Shader get(int nb)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Morphed(float[][] offs)`
-- Role: Performs morphed.
-- Description: Supports the morphed operation used by the surrounding class.
+- Role: Handles the morphed path.
+- Description: Implements the morphed operation.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public BoneData(int apv, IntBuffer data, String[] names)`
-- Role: Performs bone data.
-- Description: Supports the bone data operation used by the surrounding class.
+- Role: Handles the bone data path.
+- Description: Implements the bone data operation.
 
 #### `public WeightData(int apv, FloatBuffer data)`
-- Role: Performs weight data.
-- Description: Supports the weight data operation used by the surrounding class.
+- Role: Handles the weight data path.
+- Description: Implements the weight data operation.
 
 #### `private static void read(Collection<VertexBuf.AttribData> dst, Message buf, int nv, int mba, NumberFormat fmt)`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public void cons(Collection<VertexBuf.AttribData> dst, Resource res, Message buf, int nv)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public static void sortweights(FloatBuffer bw, IntBuffer ba, int mba)`
-- Role: Performs sortweights.
-- Description: Supports the sortweights operation used by the surrounding class.
+- Role: Handles the sortweights path.
+- Description: Implements the sortweights operation.
 
 #### `public static void normweights(FloatBuffer bw, IntBuffer ba, int mba)`
-- Role: Performs normweights.
-- Description: Supports the normweights operation used by the surrounding class.
+- Role: Handles the normweights path.
+- Description: Implements the normweights operation.

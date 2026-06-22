@@ -1,5 +1,5 @@
 ---
-source: [IBox.java](../../../src/haven/IBox.java)
+source: [IBox.java](../../../../src/haven/IBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,107 +15,107 @@ Represents the ibox Haven component.
 ### Fields
 
 #### `public final Tex ctl, ctr, cbl, cbr`
-- Role: Stores the cbr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cbr value.
+- Description: Caches the `cbr` value for reuse.
 
 #### `public final Tex ctl, ctr, cbl, cbr`
-- Role: Stores the cbr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cbr value.
+- Description: Caches the `cbr` value for reuse.
 
 #### `public final Tex ctl, ctr, cbl, cbr`
-- Role: Stores the cbr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cbr value.
+- Description: Caches the `cbr` value for reuse.
 
 #### `public final Tex ctl, ctr, cbl, cbr`
-- Role: Stores the cbr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cbr value.
+- Description: Caches the `cbr` value for reuse.
 
 #### `public final Tex bl, br, bt, bb`
-- Role: Stores the bb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bb value.
+- Description: Caches the `bb` value for reuse.
 
 #### `public final Tex bl, br, bt, bb`
-- Role: Stores the bb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bb value.
+- Description: Caches the `bb` value for reuse.
 
 #### `public final Tex bl, br, bt, bb`
-- Role: Stores the bb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bb value.
+- Description: Caches the `bb` value for reuse.
 
 #### `public final Tex bl, br, bt, bb`
-- Role: Stores the bb value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bb value.
+- Description: Caches the `bb` value for reuse.
 
 ### Methods
 
 #### `public Coord btloff()`
-- Role: Performs btloff.
-- Description: Supports the btloff operation used by the surrounding class.
+- Role: Handles the btloff path.
+- Description: Implements the btloff operation.
 
 #### `public Coord ctloff()`
-- Role: Performs ctloff.
-- Description: Supports the ctloff operation used by the surrounding class.
+- Role: Handles the ctloff path.
+- Description: Implements the ctloff operation.
 
 #### `public Coord bbroff()`
-- Role: Performs bbroff.
-- Description: Supports the bbroff operation used by the surrounding class.
+- Role: Handles the bbroff path.
+- Description: Implements the bbroff operation.
 
 #### `public Coord cbroff()`
-- Role: Performs cbroff.
-- Description: Supports the cbroff operation used by the surrounding class.
+- Role: Handles the cbroff path.
+- Description: Implements the cbroff operation.
 
 #### `public Coord bisz()`
-- Role: Performs bisz.
-- Description: Supports the bisz operation used by the surrounding class.
+- Role: Handles the bisz path.
+- Description: Implements the bisz operation.
 
 #### `public Coord cisz()`
-- Role: Performs cisz.
-- Description: Supports the cisz operation used by the surrounding class.
+- Role: Handles the cisz path.
+- Description: Implements the cisz operation.
 
 #### `public void draw(GOut g, Coord tl, Coord sz)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the IBox content.
 
 #### `public Images(Tex ctl, Tex ctr, Tex cbl, Tex cbr, Tex bl, Tex br, Tex bt, Tex bb)`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Handles the images path.
+- Description: Implements the images operation.
 
 #### `public Images(String base, String ctl, String ctr, String cbl, String cbr, String bl, String br, String bt, String bb)`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Handles the images path.
+- Description: Implements the images operation.
 
 #### `public Coord btloff()`
-- Role: Performs btloff.
-- Description: Supports the btloff operation used by the surrounding class.
+- Role: Handles the btloff path.
+- Description: Implements the btloff operation.
 
 #### `public Coord ctloff()`
-- Role: Performs ctloff.
-- Description: Supports the ctloff operation used by the surrounding class.
+- Role: Handles the ctloff path.
+- Description: Implements the ctloff operation.
 
 #### `public Coord bbroff()`
-- Role: Performs bbroff.
-- Description: Supports the bbroff operation used by the surrounding class.
+- Role: Handles the bbroff path.
+- Description: Implements the bbroff operation.
 
 #### `public Coord cbroff()`
-- Role: Performs cbroff.
-- Description: Supports the cbroff operation used by the surrounding class.
+- Role: Handles the cbroff path.
+- Description: Implements the cbroff operation.
 
 #### `public Coord bisz()`
-- Role: Performs bisz.
-- Description: Supports the bisz operation used by the surrounding class.
+- Role: Handles the bisz path.
+- Description: Implements the bisz operation.
 
 #### `public Coord cisz()`
-- Role: Performs cisz.
-- Description: Supports the cisz operation used by the surrounding class.
+- Role: Handles the cisz path.
+- Description: Implements the cisz operation.
 
 #### `public Scaled(Tex ctl, Tex ctr, Tex cbl, Tex cbr, Tex bl, Tex br, Tex bt, Tex bb)`
-- Role: Performs scaled.
-- Description: Supports the scaled operation used by the surrounding class.
+- Role: Handles the scaled path.
+- Description: Implements the scaled operation.
 
 #### `public Scaled(String base, String ctl, String ctr, String cbl, String cbr, String bl, String br, String bt, String bb)`
-- Role: Performs scaled.
-- Description: Supports the scaled operation used by the surrounding class.
+- Role: Handles the scaled path.
+- Description: Implements the scaled operation.
 
 #### `public void draw(GOut g, Coord tl, Coord sz)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the IBox content.

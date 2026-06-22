@@ -1,473 +1,474 @@
 ---
-source: [Coord.java](../../../src/haven/Coord.java)
+source: [Coord.java](../../../../src/haven/Coord.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Coord
 
-Represents a 2D integer coordinate.
+Represents a 2D integer coordinate used throughout map, UI, and render layout code.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord ZERO = Coord.zero()`
-- Role: Defines the shared zero constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the zero coordinate constant.
+- Description: Shared immutable zero coordinate used throughout Haven.
+- Value: `Coord.zero()`
 
 ### Fields
 
 #### `public int x, y`
-- Role: Stores the y value.
-- Description: Backs the cached state for this file.
+- Role: Stores the integer components.
+- Description: Holds the x and y values of the coordinate.
 
 #### `public int x, y`
-- Role: Stores the y value.
-- Description: Backs the cached state for this file.
+- Role: Stores the integer components.
+- Description: Holds the x and y values of the coordinate.
 
 #### `public static Coord z = new Coord(0, 0)`
-- Role: Stores the z value.
-- Description: Backs the cached state for this file.
+- Role: Stores the zero alias.
+- Description: Legacy mutable zero-coordinate alias used by older code.
 
 #### `public static Coord[] uecw =`
-- Role: Stores the coord state.
-- Description: Backs the cached state for this file.
+- Role: Stores clockwise unit offsets.
+- Description: Cached neighbor offsets for east-clockwise traversal.
 
 #### `public static Coord[] uccw =`
-- Role: Stores the coord state.
-- Description: Backs the cached state for this file.
+- Role: Stores counterclockwise unit offsets.
+- Description: Cached square-corner offsets for counterclockwise traversal.
 
 #### `public static Coord[] upcw =`
-- Role: Stores the coord state.
-- Description: Backs the cached state for this file.
+- Role: Stores eight-way offsets.
+- Description: Cached offsets for the eight cells around the origin.
 
 #### `public static Coord[] usqc =`
-- Role: Stores the coord state.
-- Description: Backs the cached state for this file.
+- Role: Stores square-cell offsets.
+- Description: Cached 3x3 neighborhood offsets centered on the origin.
 
 ### Methods
 
 #### `public Coord(int x, int y)`
-- Role: Creates a new Coord instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a coordinate from two integers.
+- Description: Stores the supplied x and y components.
 
 #### `public Coord(Coord c)`
-- Role: Creates a new Coord instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Copies another coordinate.
+- Description: Creates a new coordinate with the same integer components.
 
 #### `public Coord(Coord3f c)`
-- Role: Creates a new Coord instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Projects a 3D coordinate into 2D.
+- Description: Drops the z component and stores the integer x/y values.
 
 #### `public Coord()`
-- Role: Creates a new Coord instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates the origin.
+- Description: Initializes the coordinate to `(0, 0)`.
 
 #### `public Coord(java.awt.Dimension d)`
-- Role: Creates a new Coord instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Converts an AWT dimension.
+- Description: Copies width and height into integer coordinate form.
 
 #### `public static Coord of(int x, int y)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a coordinate.
+- Description: Returns a new coordinate with the supplied x and y values.
 
 #### `public static Coord of(int x)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a square coordinate.
+- Description: Returns a new coordinate with both components set to the same value.
 
 #### `public static Coord of(Coord c)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Copies a coordinate.
+- Description: Returns a new coordinate with the same components as the source.
 
 #### `public static Coord sc(double a, double r)`
-- Role: Performs sc.
-- Description: Supports the sc operation used by the surrounding class.
+- Role: Converts polar coordinates.
+- Description: Returns an integer coordinate computed from angle and radius.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when the other object has the same components.
 
 #### `public boolean equals(int X, int Y)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when both integer components match.
 
 #### `public int compareTo(Coord c)`
-- Role: Performs compare to.
-- Description: Supports the compare to operation used by the surrounding class.
+- Role: Orders coordinates for sorting.
+- Description: Sorts by y first and then by x, matching Haven's top-to-bottom ordering.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Combines the integer components into a stable hash value.
 
 #### `public Coord add(int ax, int ay)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds offsets.
+- Description: Returns a new coordinate shifted by the supplied deltas.
 
 #### `public Coord add(Coord b)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds another coordinate.
+- Description: Returns a new coordinate shifted by another coordinate.
 
 #### `public Coord sub(int ax, int ay)`
-- Role: Performs sub.
-- Description: Supports the sub operation used by the surrounding class.
+- Role: Subtracts offsets.
+- Description: Returns a new coordinate reduced by the supplied deltas.
 
 #### `public Coord sub(Coord b)`
-- Role: Performs sub.
-- Description: Supports the sub operation used by the surrounding class.
+- Role: Subtracts another coordinate.
+- Description: Returns a new coordinate reduced by another coordinate.
 
 #### `public Coord mul(int f)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Scales both components.
+- Description: Returns a new coordinate multiplied by one integer scale factor.
 
 #### `public Coord mul(int fx, int fy)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Scales each component separately.
+- Description: Returns a new coordinate multiplied by separate x and y scale factors.
 
 #### `public Coord mul(double f)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Scales both components.
+- Description: Returns a rounded integer coordinate after multiplying by a scalar.
 
 #### `public Coord mul(double fx, double fy)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Scales each component separately.
+- Description: Returns a rounded integer coordinate after multiplying x and y independently.
 
 #### `public Coord inv()`
-- Role: Performs inv.
-- Description: Supports the inv operation used by the surrounding class.
+- Role: Negates the coordinate.
+- Description: Returns the coordinate mirrored around the origin.
 
 #### `public Coord mul(Coord f)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies by another coordinate.
+- Description: Returns a coordinate whose components are multiplied pairwise.
 
 #### `public Coord2d mul(Coord2d f)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies into floating-point space.
+- Description: Returns a floating-point coordinate scaled by this integer coordinate.
 
 #### `public Coord div(Coord d)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Divides by another coordinate.
+- Description: Returns floor-divided integer components using the supplied divisor.
 
 #### `public Coord div(int d)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Divides by one scalar.
+- Description: Returns floor-divided integer components using the same divisor for both axes.
 
 #### `public Coord div(double d)`
-- Role: Performs div.
-- Description: Supports the div operation used by the surrounding class.
+- Role: Divides by a floating-point scalar.
+- Description: Returns rounded integer components after dividing by the supplied scalar.
 
 #### `public Coord mod(Coord d)`
-- Role: Performs mod.
-- Description: Supports the mod operation used by the surrounding class.
+- Role: Computes component-wise modulo.
+- Description: Returns wrapped coordinates using floor modulo for each axis.
 
 #### `public boolean isect2(Coord ul, Coord br)`
-- Role: Performs isect2.
-- Description: Supports the isect2 operation used by the surrounding class.
+- Role: Tests rectangle intersection.
+- Description: Returns whether the coordinate lies inside the half-open rectangle.
 
 #### `public boolean isect(Coord c, Coord s)`
-- Role: Performs isect.
-- Description: Supports the isect operation used by the surrounding class.
+- Role: Tests rectangle intersection.
+- Description: Returns whether the coordinate lies inside a rectangle defined by origin and size.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats the coordinate as `(x, y)`.
 
 #### `public double angle(Coord o)`
-- Role: Performs angle.
-- Description: Supports the angle operation used by the surrounding class.
+- Role: Computes the angle to another point.
+- Description: Returns the direction from this coordinate to the supplied coordinate.
 
 #### `public double abs()`
-- Role: Performs abs.
-- Description: Supports the abs operation used by the surrounding class.
+- Role: Computes the vector length.
+- Description: Returns the Euclidean length of the coordinate vector.
 
 #### `public Coord norm(double n)`
-- Role: Performs norm.
-- Description: Supports the norm operation used by the surrounding class.
+- Role: Normalizes to a target length.
+- Description: Returns the coordinate scaled to the requested magnitude.
 
 #### `public double dist(Coord o)`
-- Role: Performs dist.
-- Description: Supports the dist operation used by the surrounding class.
+- Role: Computes distance.
+- Description: Returns the Euclidean distance to another coordinate.
 
 #### `public Coord clip(Coord ul, Coord sz)`
-- Role: Performs clip.
-- Description: Supports the clip operation used by the surrounding class.
+- Role: Clamps to a rectangle.
+- Description: Returns the coordinate clamped to the supplied origin and size.
 
 #### `public Coord clip(Area area)`
-- Role: Performs clip.
-- Description: Supports the clip operation used by the surrounding class.
+- Role: Clamps to an area.
+- Description: Returns the coordinate clamped to the supplied `Area`.
 
 #### `public Coord clipi(Area area)`
-- Role: Performs clipi.
-- Description: Supports the clipi operation used by the surrounding class.
+- Role: Clamps to an integer area.
+- Description: Returns the coordinate clamped while preserving interior inclusion rules.
 
 #### `public Iterable<Coord> offsets(Coord... list)`
-- Role: Performs offsets.
-- Description: Supports the offsets operation used by the surrounding class.
+- Role: Iterates translated coordinates.
+- Description: Returns each input offset added to this coordinate.
 
 #### `public Coord wy(int y)`
-- Role: Performs wy.
-- Description: Supports the wy operation used by the surrounding class.
+- Role: Replaces only the y component.
+- Description: Returns a copy with the same x value and the supplied y value.
 
 #### `public Coord addy(int dy)`
-- Role: Performs addy.
-- Description: Supports the addy operation used by the surrounding class.
+- Role: Shifts only the y component.
+- Description: Returns a copy moved vertically by `dy`.
 
 #### `public Coord min(int x, int y)`
-- Role: Performs min.
-- Description: Supports the min operation used by the surrounding class.
+- Role: Clamps both components from above.
+- Description: Returns a coordinate whose x and y are each limited by the supplied values.
 
 #### `public Coord min(Coord c)`
-- Role: Performs min.
-- Description: Supports the min operation used by the surrounding class.
+- Role: Clamps both components from above.
+- Description: Returns a coordinate with each component limited by another coordinate.
 
 #### `public Coord max(int x, int y)`
-- Role: Performs max.
-- Description: Supports the max operation used by the surrounding class.
+- Role: Clamps both components from below.
+- Description: Returns a coordinate whose x and y are each raised to the supplied minimum values.
 
 #### `public Coord max(Coord c)`
-- Role: Performs max.
-- Description: Supports the max operation used by the surrounding class.
+- Role: Clamps both components from below.
+- Description: Returns a coordinate with each component raised to another coordinate's value.
 
 #### `public int max()`
-- Role: Performs max.
-- Description: Supports the max operation used by the surrounding class.
+- Role: Returns the larger component.
+- Description: Compares x and y and returns the larger value.
 
 #### `public int min()`
-- Role: Performs min.
-- Description: Supports the min operation used by the surrounding class.
+- Role: Returns the smaller component.
+- Description: Compares x and y and returns the smaller value.
 
 #### `public void init(int x, int y)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Reinitializes this coordinate.
+- Description: Overwrites the stored x and y values in place.
 
 #### `public void init(Coord coord)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Reinitializes this coordinate from another coordinate.
+- Description: Overwrites the stored x and y values in place.
 
 #### `public Coord assign(int x, int y)`
-- Role: Performs assign.
-- Description: Supports the assign operation used by the surrounding class.
+- Role: Assigns new coordinate values.
+- Description: Updates this coordinate in place and returns it.
 
 #### `public Coord assign(Coord coord)`
-- Role: Performs assign.
-- Description: Supports the assign operation used by the surrounding class.
+- Role: Assigns values from another coordinate.
+- Description: Updates this coordinate in place and returns it.
 
 #### `public static Coord of(haven.Coord2d coord2d)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a Coord value from the supplied components.
+- Description: Builds a Coord value from the supplied components.
 
 #### `public static Coord zero()`
-- Role: Performs zero.
-- Description: Supports the zero operation used by the surrounding class.
+- Role: Returns the origin coordinate.
+- Description: Returns a new coordinate set to `(0, 0)`.
 
 #### `public haven.Coord2d toCoord2d()`
-- Role: Performs to coord2d.
-- Description: Supports the to coord2d operation used by the surrounding class.
+- Role: Converts to floating-point coordinates.
+- Description: Returns the same point as a `Coord2d`.
 
 #### `public boolean equals(Coord coord)`
-- Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Role: Compares two coordinates.
+- Description: Returns true when both x and y values match.
 
 #### `public Coord subtract(int x, int y)`
-- Role: Performs subtract.
-- Description: Supports the subtract operation used by the surrounding class.
+- Role: Subtracts raw offsets.
+- Description: Returns a coordinate shifted by the supplied deltas.
 
 #### `public Coord multiply(int x, int y)`
-- Role: Performs multiply.
-- Description: Supports the multiply operation used by the surrounding class.
+- Role: Multiplies by raw scale factors.
+- Description: Returns a coordinate scaled independently per axis.
 
 #### `public Coord divide(int x, int y)`
-- Role: Performs divide.
-- Description: Supports the divide operation used by the surrounding class.
+- Role: Divides by raw scale factors.
+- Description: Returns a floor-divided coordinate scaled independently per axis.
 
 #### `public Coord floorDivide(int x, int y)`
-- Role: Performs floor divide.
-- Description: Supports the floor divide operation used by the surrounding class.
+- Role: Floor-divides by raw scale factors.
+- Description: Returns a floor-divided coordinate scaled independently per axis.
 
 #### `public Coord ceilDivide(int x, int y)`
-- Role: Performs ceil divide.
-- Description: Supports the ceil divide operation used by the surrounding class.
+- Role: Ceil-divides by raw scale factors.
+- Description: Returns a ceiling-divided coordinate scaled independently per axis.
 
 #### `public Coord subtract(Coord coord)`
-- Role: Performs subtract.
-- Description: Supports the subtract operation used by the surrounding class.
+- Role: Subtracts another coordinate.
+- Description: Returns the component-wise difference.
 
 #### `public Coord multiply(Coord coord)`
-- Role: Performs multiply.
-- Description: Supports the multiply operation used by the surrounding class.
+- Role: Multiplies by another coordinate.
+- Description: Returns the component-wise product.
 
 #### `public Coord divide(Coord coord)`
-- Role: Performs divide.
-- Description: Supports the divide operation used by the surrounding class.
+- Role: Divides by another coordinate.
+- Description: Returns the component-wise floor division.
 
 #### `public Coord floorDivide(Coord coord)`
-- Role: Performs floor divide.
-- Description: Supports the floor divide operation used by the surrounding class.
+- Role: Floor-divides by another coordinate.
+- Description: Returns the component-wise floor division.
 
 #### `public Coord ceilDivide(Coord coord)`
-- Role: Performs ceil divide.
-- Description: Supports the ceil divide operation used by the surrounding class.
+- Role: Ceil-divides by another coordinate.
+- Description: Returns the component-wise ceiling division.
 
 #### `public Coord add(int value)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the same value to both axes.
+- Description: Returns a coordinate shifted by `value` on x and y.
 
 #### `public Coord subtract(int value)`
-- Role: Performs subtract.
-- Description: Supports the subtract operation used by the surrounding class.
+- Role: Subtracts the same value from both axes.
+- Description: Returns a coordinate shifted negatively by `value`.
 
 #### `public Coord multiply(int value)`
-- Role: Performs multiply.
-- Description: Supports the multiply operation used by the surrounding class.
+- Role: Scales both axes equally.
+- Description: Returns a coordinate multiplied by `value`.
 
 #### `public Coord divide(int value)`
-- Role: Performs divide.
-- Description: Supports the divide operation used by the surrounding class.
+- Role: Divides both axes equally.
+- Description: Returns a coordinate floor-divided by `value`.
 
 #### `public Coord floorDivide(int value)`
-- Role: Performs floor divide.
-- Description: Supports the floor divide operation used by the surrounding class.
+- Role: Floor-divides both axes equally.
+- Description: Returns a coordinate floor-divided by `value`.
 
 #### `public Coord ceilDivide(int value)`
-- Role: Performs ceil divide.
-- Description: Supports the ceil divide operation used by the surrounding class.
+- Role: Ceil-divides both axes equally.
+- Description: Returns a coordinate ceiling-divided by `value`.
 
 #### `public Coord assignAdd(int x, int y)`
-- Role: Performs assign add.
-- Description: Supports the assign add operation used by the surrounding class.
+- Role: Adds raw offsets in place.
+- Description: Mutates this coordinate by adding the supplied deltas.
 
 #### `public Coord assignSubtract(int x, int y)`
-- Role: Performs assign subtract.
-- Description: Supports the assign subtract operation used by the surrounding class.
+- Role: Subtracts raw offsets in place.
+- Description: Mutates this coordinate by subtracting the supplied deltas.
 
 #### `public Coord assignMultiply(int x, int y)`
-- Role: Performs assign multiply.
-- Description: Supports the assign multiply operation used by the surrounding class.
+- Role: Multiplies by raw factors in place.
+- Description: Mutates this coordinate by multiplying x and y separately.
 
 #### `public Coord assignDivide(int x, int y)`
-- Role: Performs assign divide.
-- Description: Supports the assign divide operation used by the surrounding class.
+- Role: Divides by raw factors in place.
+- Description: Mutates this coordinate by floor-dividing x and y separately.
 
 #### `public Coord assignFloorDivide(int x, int y)`
-- Role: Performs assign floor divide.
-- Description: Supports the assign floor divide operation used by the surrounding class.
+- Role: Floor-divides by raw factors in place.
+- Description: Mutates this coordinate by floor-dividing x and y separately.
 
 #### `public Coord assignCeilDivide(int x, int y)`
-- Role: Performs assign ceil divide.
-- Description: Supports the assign ceil divide operation used by the surrounding class.
+- Role: Ceil-divides by raw factors in place.
+- Description: Mutates this coordinate by ceiling-dividing x and y separately.
 
 #### `public Coord assignAdd(Coord coord)`
-- Role: Performs assign add.
-- Description: Supports the assign add operation used by the surrounding class.
+- Role: Adds another coordinate in place.
+- Description: Mutates this coordinate by adding another coordinate's components.
 
 #### `public Coord assignSubtract(Coord coord)`
-- Role: Performs assign subtract.
-- Description: Supports the assign subtract operation used by the surrounding class.
+- Role: Subtracts another coordinate in place.
+- Description: Mutates this coordinate by subtracting another coordinate's components.
 
 #### `public Coord assignMultiply(Coord coord)`
-- Role: Performs assign multiply.
-- Description: Supports the assign multiply operation used by the surrounding class.
+- Role: Multiplies by another coordinate in place.
+- Description: Mutates this coordinate by multiplying x and y separately.
 
 #### `public Coord assignDivide(Coord coord)`
-- Role: Performs assign divide.
-- Description: Supports the assign divide operation used by the surrounding class.
+- Role: Divides by another coordinate in place.
+- Description: Mutates this coordinate by floor-dividing x and y separately.
 
 #### `public Coord assignFloorDivide(Coord coord)`
-- Role: Performs assign floor divide.
-- Description: Supports the assign floor divide operation used by the surrounding class.
+- Role: Floor-divides by another coordinate in place.
+- Description: Mutates this coordinate by floor-dividing x and y separately.
 
 #### `public Coord assignCeilDivide(Coord coord)`
-- Role: Performs assign ceil divide.
-- Description: Supports the assign ceil divide operation used by the surrounding class.
+- Role: Ceil-divides by another coordinate in place.
+- Description: Mutates this coordinate by ceiling-dividing x and y separately.
 
 #### `public Coord assignAdd(int value)`
-- Role: Performs assign add.
-- Description: Supports the assign add operation used by the surrounding class.
+- Role: Adds the same value to both axes in place.
+- Description: Mutates this coordinate by adding `value` to x and y.
 
 #### `public Coord assignSubtract(int value)`
-- Role: Performs assign subtract.
-- Description: Supports the assign subtract operation used by the surrounding class.
+- Role: Subtracts the same value from both axes in place.
+- Description: Mutates this coordinate by subtracting `value` from x and y.
 
 #### `public Coord assignMultiply(int value)`
-- Role: Performs assign multiply.
-- Description: Supports the assign multiply operation used by the surrounding class.
+- Role: Scales both axes equally in place.
+- Description: Mutates this coordinate by multiplying x and y by `value`.
 
 #### `public Coord assignDivide(int value)`
-- Role: Performs assign divide.
-- Description: Supports the assign divide operation used by the surrounding class.
+- Role: Divides both axes equally in place.
+- Description: Mutates this coordinate by floor-dividing x and y by `value`.
 
 #### `public Coord assignFloorDivide(int value)`
-- Role: Performs assign floor divide.
-- Description: Supports the assign floor divide operation used by the surrounding class.
+- Role: Floor-divides both axes equally in place.
+- Description: Mutates this coordinate by floor-dividing x and y by `value`.
 
 #### `public Coord assignCeilDivide(int value)`
-- Role: Performs assign ceil divide.
-- Description: Supports the assign ceil divide operation used by the surrounding class.
+- Role: Ceil-divides both axes equally in place.
+- Description: Mutates this coordinate by ceiling-dividing x and y by `value`.
 
 #### `public Coord assignAdd(double value)`
-- Role: Performs assign add.
-- Description: Supports the assign add operation used by the surrounding class.
+- Role: Adds a scalar to both axes in place.
+- Description: Mutates this coordinate by adding the same floating value to x and y.
 
 #### `public Coord assignSubtract(double value)`
-- Role: Performs assign subtract.
-- Description: Supports the assign subtract operation used by the surrounding class.
+- Role: Subtracts a scalar from both axes in place.
+- Description: Mutates this coordinate by subtracting the same floating value from x and y.
 
 #### `public Coord assignMultiply(double value)`
-- Role: Performs assign multiply.
-- Description: Supports the assign multiply operation used by the surrounding class.
+- Role: Scales both axes by a scalar in place.
+- Description: Mutates this coordinate by multiplying x and y by the same floating value.
 
 #### `public Coord assignDivide(double value)`
-- Role: Performs assign divide.
-- Description: Supports the assign divide operation used by the surrounding class.
+- Role: Divides both axes by a scalar in place.
+- Description: Mutates this coordinate by dividing x and y by the same floating value.
 
 #### `public Coord assignFloorDivide(double value)`
-- Role: Performs assign floor divide.
-- Description: Supports the assign floor divide operation used by the surrounding class.
+- Role: Floor-divides both axes by a scalar in place.
+- Description: Mutates this coordinate by floor-dividing x and y by the same floating value.
 
 #### `public Coord assignCeilDivide(double value)`
-- Role: Performs assign ceil divide.
-- Description: Supports the assign ceil divide operation used by the surrounding class.
+- Role: Ceil-divides both axes by a scalar in place.
+- Description: Mutates this coordinate by ceiling-dividing x and y by the same floating value.
 
 #### `public Coord center()`
-- Role: Performs center.
-- Description: Supports the center operation used by the surrounding class.
+- Role: Returns the coordinate centered on the tile grid.
+- Description: Adjusts this coordinate to the center point of the current tile.
 
 #### `public Coord north()`
-- Role: Performs north.
-- Description: Supports the north operation used by the surrounding class.
+- Role: Returns the coordinate one tile north.
+- Description: Shifts the y component upward by one tile step.
 
 #### `public Coord east()`
-- Role: Performs east.
-- Description: Supports the east operation used by the surrounding class.
+- Role: Returns the coordinate one tile east.
+- Description: Shifts the x component right by one tile step.
 
 #### `public Coord west()`
-- Role: Performs west.
-- Description: Supports the west operation used by the surrounding class.
+- Role: Returns the coordinate one tile west.
+- Description: Shifts the x component left by one tile step.
 
 #### `public Coord south()`
-- Role: Performs south.
-- Description: Supports the south operation used by the surrounding class.
+- Role: Returns the coordinate one tile south.
+- Description: Shifts the y component downward by one tile step.
 
 #### `public Coord offset(int x, int y)`
-- Role: Performs offset.
-- Description: Supports the offset operation used by the surrounding class.
+- Role: Returns a coordinate offset by raw deltas.
+- Description: Adds the supplied x and y values to this coordinate.
 
 #### `public Coord tileMin()`
-- Role: Performs tile min.
-- Description: Supports the tile min operation used by the surrounding class.
+- Role: Returns the lower tile corner.
+- Description: Floors this coordinate to the tile grid minimum.
 
 #### `public Coord tileMax()`
-- Role: Performs tile max.
-- Description: Supports the tile max operation used by the surrounding class.
+- Role: Returns the upper tile corner.
+- Description: Ceils this coordinate to the tile grid maximum.
 
 #### `public double diagonal()`
-- Role: Performs diagonal.
-- Description: Supports the diagonal operation used by the surrounding class.
+- Role: Returns the diagonal distance estimate.
+- Description: Uses the Euclidean length rounded up to the nearest whole value.
 
 #### `public double distance(Coord coord)`
-- Role: Returns the distance from the local player.
-- Description: Measures the distance from the current local player position.
+- Role: Returns the Euclidean distance to another coordinate.
+- Description: Measures the straight-line distance between two map positions.
 
 #### `public int rectilinearDistance(Coord coord)`
-- Role: Performs rectilinear distance.
-- Description: Supports the rectilinear distance operation used by the surrounding class.
+- Role: Returns the Manhattan distance to another coordinate.
+- Description: Adds the absolute x and y differences.

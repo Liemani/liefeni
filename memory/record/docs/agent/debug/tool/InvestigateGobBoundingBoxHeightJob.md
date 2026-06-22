@@ -1,5 +1,5 @@
 ---
-source: [InvestigateGobBoundingBoxHeightJob.java](../../../../../src/agent/debug/tool/InvestigateGobBoundingBoxHeightJob.java)
+source: [InvestigateGobBoundingBoxHeightJob.java](../../../../../../src/agent/debug/tool/InvestigateGobBoundingBoxHeightJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Investigates gob bounding-box height for debugging.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Prints the gob bounding-box height investigation result.
 
 #### `private void _carryHeight(Gob gob, Coord putPoint)`
-- Role: Performs  carry height.
-- Description: Supports the carry height operation used by the surrounding class.
+- Role: Handles the carry height path.
+- Description: Measures the height offset used while carrying a gob.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Exposes the help text for the bounding-box height investigation job.

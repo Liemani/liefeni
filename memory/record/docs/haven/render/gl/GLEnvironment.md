@@ -1,5 +1,5 @@
 ---
-source: [GLEnvironment.java](../../../../../src/haven/render/gl/GLEnvironment.java)
+source: [GLEnvironment.java](../../../../../../src/haven/render/gl/GLEnvironment.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -50,545 +50,548 @@ Provides GL backend support for glenvironment.
 ### Constants
 
 #### `public static final boolean debuglog = false, labels = false`
-- Role: Defines the shared debuglog constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the debuglog value.
+- Description: Caches the `debuglog` value for reuse.
+- Value: `false, labels = false`
 
 #### `public static final boolean debuglog = false, labels = false`
-- Role: Defines the shared debuglog constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the debuglog value.
+- Description: Caches the `debuglog` value for reuse.
+- Value: `false, labels = false`
 
 #### `private static final java.util.regex.Pattern slvp = java.util.regex.Pattern.compile("^(\\d+)\\.(\\d+)")`
-- Role: Defines the shared slvp constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the slvp operation.
+- Description: Implements the compile operation.
+- Value: `java.util.regex.Pattern.compile("^(\\d+)\\.(\\d+)")`
 
 ### Fields
 
 #### `public final Caps caps`
-- Role: Holds the caps state.
-- Description: Backs the cached state for this file.
+- Role: Caches the caps value.
+- Description: Caches the `caps` value for reuse.
 
 #### `public int nilfbo_id = 0, nilfbo_db = 0`
-- Role: Stores the nilfbo id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nilfbo id value.
+- Description: Caches the `nilfbo_id` value for reuse.
 
 #### `public int nilfbo_id = 0, nilfbo_db = 0`
-- Role: Stores the nilfbo id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nilfbo id value.
+- Description: Caches the `nilfbo_id` value for reuse.
 
 #### `final Object drawmon = new Object()`
-- Role: Holds the drawmon state.
-- Description: Backs the cached state for this file.
+- Role: Draws the mon.
+- Description: Draws the mon.
 
 #### `final Object prepmon = new Object()`
-- Role: Holds the prepmon state.
-- Description: Backs the cached state for this file.
+- Role: Implements the prepmon operation.
+- Description: Implements the object operation.
 
 #### `final Collection<GLObject> disposed = new LinkedList<>()`
-- Role: Caches disposed entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the disposed operation.
+- Description: Implements the final collection<gl object> disposed = new linked list<>() operation.
 
 #### `final List<GLQuery> queries = new LinkedList<>(); // Synchronized on drawmon`
-- Role: Caches queries entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queries operation.
+- Description: Implements the final list<gl query> queries = new linked list<>(); // synchronized on drawmon operation.
 
 #### `final Queue<Runnable> callbacks = new LinkedList<>()`
-- Role: Caches callbacks entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the callbacks operation.
+- Description: Implements the final queue<runnable> callbacks = new linked list<>() operation.
 
 #### `Thread cbthread = null`
-- Role: Holds the cbthread state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cbthread value.
+- Description: Caches the `cbthread` value for reuse.
 
 #### `final Queue<GLRender> submitted = new LinkedList<>()`
-- Role: Caches submitted entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the submitted operation.
+- Description: Implements the final queue<gl render> submitted = new linked list<>() operation.
 
 #### `Area wnd`
-- Role: Holds the wnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wnd value.
+- Description: Caches the `wnd` value for reuse.
 
 #### `private GLRender prep = null`
-- Role: Holds the prep state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prep value.
+- Description: Caches the `prep` value for reuse.
 
 #### `private Applier curstate = new Applier(this)`
-- Role: Holds the curstate state.
-- Description: Backs the cached state for this file.
+- Role: Implements the curstate operation.
+- Description: Implements the applier operation.
 
 #### `private boolean invalid = false`
 - Role: Tracks whether invalid is valid.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final Caps caps`
-- Role: Holds the caps state.
-- Description: Backs the cached state for this file.
+- Role: Caches the caps value.
+- Description: Caches the `caps` value for reuse.
 
 #### `public final String vendor, version, renderer`
-- Role: Stores the renderer value.
-- Description: Backs the cached state for this file.
+- Role: Caches the renderer value.
+- Description: Caches the `renderer` value for reuse.
 
 #### `public final String vendor, version, renderer`
-- Role: Stores the renderer value.
-- Description: Backs the cached state for this file.
+- Role: Caches the renderer value.
+- Description: Caches the `renderer` value for reuse.
 
 #### `public final String vendor, version, renderer`
-- Role: Stores the renderer value.
-- Description: Backs the cached state for this file.
+- Role: Caches the renderer value.
+- Description: Caches the `renderer` value for reuse.
 
 #### `public final int major, minor, glslver`
-- Role: Stores the glslver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the glslver value.
+- Description: Caches the `glslver` value for reuse.
 
 #### `public final int major, minor, glslver`
-- Role: Stores the glslver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the glslver value.
+- Description: Caches the `glslver` value for reuse.
 
 #### `public final int major, minor, glslver`
-- Role: Stores the glslver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the glslver value.
+- Description: Caches the `glslver` value for reuse.
 
 #### `public final Collection<String> exts`
-- Role: Caches exts entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the exts value.
+- Description: Caches the `exts` value for reuse.
 
 #### `public final int maxtargets`
-- Role: Stores the maxtargets value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxtargets value.
+- Description: Caches the `maxtargets` value for reuse.
 
 #### `public final float anisotropy`
-- Role: Stores the anisotropy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the anisotropy value.
+- Description: Caches the `anisotropy` value for reuse.
 
 #### `public final float linemin, linemax`
-- Role: Stores the linemax value.
-- Description: Backs the cached state for this file.
+- Role: Caches the linemax value.
+- Description: Caches the `linemax` value for reuse.
 
 #### `public final float linemin, linemax`
-- Role: Stores the linemax value.
-- Description: Backs the cached state for this file.
+- Role: Caches the linemax value.
+- Description: Caches the `linemax` value for reuse.
 
 #### `final int[] stats_obj = new int[MemStats.values().length]`
-- Role: Stores the stats obj value.
-- Description: Backs the cached state for this file.
+- Role: Implements the stats obj operation.
+- Description: Implements the values operation.
 
 #### `final long[] stats_mem = new long[MemStats.values().length]`
-- Role: Stores the stats mem value.
-- Description: Backs the cached state for this file.
+- Role: Implements the stats mem operation.
+- Description: Implements the values operation.
 
 #### `public final int src, type, id, sev`
-- Role: Stores the sev value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sev value.
+- Description: Caches the `sev` value for reuse.
 
 #### `public final int src, type, id, sev`
-- Role: Stores the sev value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sev value.
+- Description: Caches the `sev` value for reuse.
 
 #### `public final int src, type, id, sev`
-- Role: Stores the sev value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sev value.
+- Description: Caches the `sev` value for reuse.
 
 #### `public final int src, type, id, sev`
-- Role: Stores the sev value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sev value.
+- Description: Caches the `sev` value for reuse.
 
 #### `public final String msg`
-- Role: Stores the msg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `private final Supplier<T> bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `private T d = null`
-- Role: Holds the d state.
-- Description: Backs the cached state for this file.
+- Role: Caches the d value.
+- Description: Caches the `d` value for reuse.
 
 #### `public final Supplier<GLVertexArray> tempvao = new TempData<>(() -> new GLVertexArray(this))`
-- Role: Caches tempvao entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the tempvao operation.
+- Description: Implements the gl vertex array operation.
 
 #### `public final Supplier<GLBuffer> tempvertex = new TempData<>(() -> new GLBuffer(this))`
-- Role: Stores the tempvertex value.
-- Description: Backs the cached state for this file.
+- Role: Implements the tempvertex operation.
+- Description: Implements the gl buffer operation.
 
 #### `public final Supplier<GLBuffer> tempindex = new TempData<>(() -> new GLBuffer(this))`
-- Role: Stores the tempindex value.
-- Description: Backs the cached state for this file.
+- Role: Implements the tempindex operation.
+- Description: Implements the gl buffer operation.
 
 #### `final int hash`
-- Role: Stores the hash value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `final ShaderMacro[] shaders`
-- Role: Holds the shaders state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shaders value.
+- Description: Caches the `shaders` value for reuse.
 
 #### `final GLProgram prog`
-- Role: Holds the prog state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 #### `SavedProg next`
-- Role: Holds the next state.
-- Description: Backs the cached state for this file.
+- Role: Caches the next value.
+- Description: Caches the `next` value for reuse.
 
 #### `boolean used = true`
 - Role: Tracks the used flag.
-- Description: Supports the used operation used by the surrounding class.
+- Description: Caches the `used` value for reuse.
 
 #### `private final Object pmon = new Object()`
-- Role: Holds the pmon state.
-- Description: Backs the cached state for this file.
+- Role: Implements the pmon operation.
+- Description: Implements the object operation.
 
 #### `private SavedProg[] ptab = new SavedProg[32]`
-- Role: Holds the ptab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ptab value.
+- Description: Caches the `ptab` value for reuse.
 
 #### `private int nprog = 0`
-- Role: Stores the nprog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nprog value.
+- Description: Caches the `nprog` value for reuse.
 
 #### `private double lastpclean = Utils.rtime()`
-- Role: Stores the lastpclean value.
-- Description: Backs the cached state for this file.
+- Role: Implements the lastpclean operation.
+- Description: Implements the rtime operation.
 
 #### `private final Object seqmon = new Object()`
-- Role: Holds the seqmon state.
-- Description: Backs the cached state for this file.
+- Role: Implements the seqmon operation.
+- Description: Implements the object operation.
 
 #### `private boolean[] sequse = new boolean[16]`
 - Role: Tracks the sequse flag.
-- Description: Supports the sequse operation used by the surrounding class.
+- Description: Caches the `sequse` value for reuse.
 
 #### `private int seqhead = 1, seqtail = seqhead`
-- Role: Stores the seqhead value.
-- Description: Backs the cached state for this file.
+- Role: Caches the seqhead value.
+- Description: Caches the `seqhead` value for reuse.
 
 #### `private int seqhead = 1, seqtail = seqhead`
-- Role: Stores the seqhead value.
-- Description: Backs the cached state for this file.
+- Role: Caches the seqhead value.
+- Description: Caches the `seqhead` value for reuse.
 
 #### `public final int no`
-- Role: Stores the no value.
-- Description: Backs the cached state for this file.
+- Role: Caches the no value.
+- Description: Caches the `no` value for reuse.
 
 #### `private final Runnable clean`
-- Role: Holds the clean state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clean value.
+- Description: Caches the `clean` value for reuse.
 
 #### `private final String desc`
-- Role: Stores the desc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `private volatile boolean cleaned = false`
 - Role: Tracks the cleaned flag.
-- Description: Supports the cleaned operation used by the surrounding class.
+- Description: Caches the `cleaned` value for reuse.
 
 ### Methods
 
 #### `public HardwareException(String msg, Caps caps)`
-- Role: Performs hardware exception.
-- Description: Supports the hardware exception operation used by the surrounding class.
+- Role: Handles the hardware exception path.
+- Description: Implements the hardware exception operation.
 
 #### `public static int glgeti(GL gl, int param)`
-- Role: Performs glgeti.
-- Description: Supports the glgeti operation used by the surrounding class.
+- Role: Handles the glgeti path.
+- Description: Implements the glgeti operation.
 
 #### `public static int glcondi(GL gl, int param, int def)`
-- Role: Performs glcondi.
-- Description: Supports the glcondi operation used by the surrounding class.
+- Role: Handles the glcondi path.
+- Description: Implements the glcondi operation.
 
 #### `public static float glgetf(GL gl, int param)`
-- Role: Performs glgetf.
-- Description: Supports the glgetf operation used by the surrounding class.
+- Role: Handles the glgetf path.
+- Description: Implements the glgetf operation.
 
 #### `public static String glconds(GL gl, int param)`
-- Role: Performs glconds.
-- Description: Supports the glconds operation used by the surrounding class.
+- Role: Handles the glconds path.
+- Description: Implements the glconds operation.
 
 #### `public Caps(GL gl)`
-- Role: Performs caps.
-- Description: Supports the caps operation used by the surrounding class.
+- Role: Handles the caps path.
+- Description: Implements the caps operation.
 
 #### `public void checkreq()`
-- Role: Performs checkreq.
-- Description: Supports the checkreq operation used by the surrounding class.
+- Role: Handles the checkreq path.
+- Description: Implements the checkreq operation.
 
 #### `public String vendor()`
-- Role: Performs vendor.
-- Description: Supports the vendor operation used by the surrounding class.
+- Role: Handles the vendor path.
+- Description: Implements the vendor operation.
 
 #### `public String driver()`
-- Role: Performs driver.
-- Description: Supports the driver operation used by the surrounding class.
+- Role: Handles the driver path.
+- Description: Implements the driver operation.
 
 #### `public String device()`
-- Role: Performs device.
-- Description: Supports the device operation used by the surrounding class.
+- Role: Handles the device path.
+- Description: Implements the device operation.
 
 #### `protected abstract Caps mkcaps(GL initgl)`
-- Role: Performs mkcaps.
-- Description: Supports the mkcaps operation used by the surrounding class.
+- Role: Handles the mkcaps path.
+- Description: Implements the mkcaps operation.
 
 #### `public GLEnvironment(GL initgl, Area wnd)`
 - Role: Creates a new GLEnvironment instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLEnvironment instance from the supplied inputs.
 
 #### `private void initialize(GL gl)`
-- Role: Performs initialize.
-- Description: Supports the initialize operation used by the surrounding class.
+- Role: Handles the initialize path.
+- Description: Implements the initialize operation.
 
 #### `public GLRender render()`
-- Role: Performs render.
-- Description: Supports the render operation used by the surrounding class.
+- Role: Renders the document or text into a RichText image.
+- Description: Renders the document or text into a `RichText` image.
 
 #### `public GLDrawList drawlist()`
-- Role: Performs drawlist.
-- Description: Supports the drawlist operation used by the surrounding class.
+- Role: Handles the drawlist path.
+- Description: Draws the list.
 
 #### `public void reshape(Area wnd)`
-- Role: Performs reshape.
-- Description: Supports the reshape operation used by the surrounding class.
+- Role: Handles the reshape path.
+- Description: Implements the reshape operation.
 
 #### `public Area shape()`
-- Role: Performs shape.
-- Description: Supports the shape operation used by the surrounding class.
+- Role: Handles the shape path.
+- Description: Implements the shape operation.
 
 #### `private void ckcbt()`
-- Role: Performs ckcbt.
-- Description: Supports the ckcbt operation used by the surrounding class.
+- Role: Handles the ckcbt path.
+- Description: Implements the ckcbt operation.
 
 #### `private void cbloop()`
-- Role: Performs cbloop.
-- Description: Supports the cbloop operation used by the surrounding class.
+- Role: Handles the cbloop path.
+- Description: Implements the cbloop operation.
 
 #### `void callback(Runnable cb)`
-- Role: Performs callback.
-- Description: Supports the callback operation used by the surrounding class.
+- Role: Handles the callback path.
+- Description: Implements the callback operation.
 
 #### `public void synccallbacks() throws InterruptedException`
 - Role: Handles the synccallbacks workflow.
-- Description: Supports the synccallbacks operation used by the surrounding class.
+- Description: Implements the synccallbacks operation.
 
 #### `private void checkqueries(GL gl)`
-- Role: Performs checkqueries.
-- Description: Supports the checkqueries operation used by the surrounding class.
+- Role: Handles the checkqueries path.
+- Description: Implements the checkqueries operation.
 
 #### `public DebugMessage(int src, int type, int id, int sev, String msg)`
-- Role: Performs debug message.
-- Description: Supports the debug message operation used by the surrounding class.
+- Role: Handles the debug message path.
+- Description: Implements the debug message operation.
 
 #### `private List<DebugMessage> getdebuglog(GL gl)`
-- Role: Performs getdebuglog.
-- Description: Supports the getdebuglog operation used by the surrounding class.
+- Role: Handles the getdebuglog path.
+- Description: Returns the debuglog.
 
 #### `private void checkdebuglog(GL gl)`
-- Role: Performs checkdebuglog.
-- Description: Supports the checkdebuglog operation used by the surrounding class.
+- Role: Handles the checkdebuglog path.
+- Description: Implements the checkdebuglog operation.
 
 #### `public void process(GL gl)`
-- Role: Performs process.
-- Description: Supports the process operation used by the surrounding class.
+- Role: Handles the process path.
+- Description: Implements the process operation.
 
 #### `public void finish(GL gl) throws InterruptedException`
 - Role: Handles the finish workflow.
-- Description: Supports the finish operation used by the surrounding class.
+- Description: Implements the finish operation.
 
 #### `public void submit(Render cmd)`
-- Role: Performs submit.
-- Description: Supports the submit operation used by the surrounding class.
+- Role: Handles the submit path.
+- Description: Implements the submit operation.
 
 #### `public void submitwait() throws InterruptedException`
 - Role: Handles the submitwait workflow.
-- Description: Supports the submitwait operation used by the surrounding class.
+- Description: Implements the submitwait operation.
 
 #### `private BufferBGL disposeall()`
-- Role: Performs disposeall.
-- Description: Supports the disposeall operation used by the surrounding class.
+- Role: Handles the disposeall path.
+- Description: Implements the disposeall operation.
 
 #### `public abstract SysBuffer malloc(int sz)`
-- Role: Performs malloc.
-- Description: Supports the malloc operation used by the surrounding class.
+- Role: Handles the malloc path.
+- Description: Implements the malloc operation.
 
 #### `public abstract SysBuffer subsume(ByteBuffer data, int sz)`
-- Role: Performs subsume.
-- Description: Supports the subsume operation used by the surrounding class.
+- Role: Handles the subsume path.
+- Description: Implements the subsume operation.
 
 #### `public FillBuffer fillbuf(DataBuffer tgt, int from, int to)`
-- Role: Performs fillbuf.
-- Description: Supports the fillbuf operation used by the surrounding class.
+- Role: Handles the fillbuf path.
+- Description: Implements the fillbuf operation.
 
 #### `public FillBuffer fillbuf(DataBuffer target)`
-- Role: Performs fillbuf.
-- Description: Supports the fillbuf operation used by the surrounding class.
+- Role: Handles the fillbuf path.
+- Description: Implements the fillbuf operation.
 
 #### `GLRender prepare()`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `void prepare(GLObject obj)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `void prepare(BGL.Request req)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `void prepare(Consumer<GLRender> func)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `Disposable prepare(Model.Indices buf)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `Disposable prepare(VertexArray.Buffer buf)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLVertexArray prepare(Model mod, GLProgram prog)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex2D prepare(Texture2D tex)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex2D prepare(Texture2D.Sampler2D smp)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex3D prepare(Texture3D tex)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex3D prepare(Texture3D.Sampler3D smp)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex2DArray prepare(Texture2DArray tex)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex2DArray prepare(Texture2DArray.Sampler2DArray smp)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex2DMS prepare(Texture2DMS tex)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.Tex2DMS prepare(Texture2DMS.Sampler2DMS smp)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.TexCube prepare(TextureCube tex)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `GLTexture.TexCube prepare(TextureCube.SamplerCube smp)`
-- Role: Performs prepare.
-- Description: Supports the prepare operation used by the surrounding class.
+- Role: Handles the prepare path.
+- Description: Implements the prepare operation.
 
 #### `Object prepuval(Object val)`
-- Role: Performs prepuval.
-- Description: Supports the prepuval operation used by the surrounding class.
+- Role: Handles the prepuval path.
+- Description: Implements the prepuval operation.
 
 #### `Object prepfval(Object val)`
-- Role: Performs prepfval.
-- Description: Supports the prepfval operation used by the surrounding class.
+- Role: Handles the prepfval path.
+- Description: Implements the prepfval operation.
 
 #### `public TempData(Supplier<T> bk)`
-- Role: Performs temp data.
-- Description: Supports the temp data operation used by the surrounding class.
+- Role: Handles the temp data path.
+- Description: Implements the temp data operation.
 
 #### `public T get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `SavedProg(int hash, ShaderMacro[] shaders, GLProgram prog)`
 - Role: Handles the saved prog workflow.
-- Description: Supports the saved prog operation used by the surrounding class.
+- Description: Implements the saved prog operation.
 
 #### `private SavedProg findprog(int hash, ShaderMacro[] shaders)`
-- Role: Performs findprog.
-- Description: Supports the findprog operation used by the surrounding class.
+- Role: Handles the findprog path.
+- Description: Finds the prog.
 
 #### `private void rehash(int nlen)`
-- Role: Performs rehash.
-- Description: Supports the rehash operation used by the surrounding class.
+- Role: Handles the rehash path.
+- Description: Implements the rehash operation.
 
 #### `private void putprog(int hash, ShaderMacro[] shaders, GLProgram prog)`
-- Role: Performs putprog.
-- Description: Supports the putprog operation used by the surrounding class.
+- Role: Handles the putprog path.
+- Description: Implements the putprog operation.
 
 #### `public GLProgram getprog(int hash, ShaderMacro[] shaders)`
-- Role: Performs getprog.
-- Description: Supports the getprog operation used by the surrounding class.
+- Role: Handles the getprog path.
+- Description: Returns the prog.
 
 #### `private void cleanprogs()`
-- Role: Performs cleanprogs.
-- Description: Supports the cleanprogs operation used by the surrounding class.
+- Role: Handles the cleanprogs path.
+- Description: Implements the cleanprogs operation.
 
 #### `public Object progdump()`
-- Role: Performs progdump.
-- Description: Supports the progdump operation used by the surrounding class.
+- Role: Handles the progdump path.
+- Description: Implements the progdump operation.
 
 #### `public boolean compatible(DrawList ob)`
-- Role: Performs compatible.
-- Description: Supports the compatible operation used by the surrounding class.
+- Role: Handles the compatible path.
+- Description: Implements the compatible operation.
 
 #### `public boolean compatible(Texture ob)`
-- Role: Performs compatible.
-- Description: Supports the compatible operation used by the surrounding class.
+- Role: Handles the compatible path.
+- Description: Implements the compatible operation.
 
 #### `public boolean compatible(DataBuffer ob)`
-- Role: Performs compatible.
-- Description: Supports the compatible operation used by the surrounding class.
+- Role: Handles the compatible path.
+- Description: Implements the compatible operation.
 
 #### `public void clean()`
-- Role: Performs clean.
-- Description: Supports the clean operation used by the surrounding class.
+- Role: Handles the clean path.
+- Description: Implements the clean operation.
 
 #### `private void seqresize(int nsz)`
-- Role: Performs seqresize.
-- Description: Supports the seqresize operation used by the surrounding class.
+- Role: Handles the seqresize path.
+- Description: Implements the seqresize operation.
 
 #### `int seqreg()`
-- Role: Performs seqreg.
-- Description: Supports the seqreg operation used by the surrounding class.
+- Role: Handles the seqreg path.
+- Description: Implements the seqreg operation.
 
 #### `void sequnreg(int seq)`
-- Role: Performs sequnreg.
-- Description: Supports the sequnreg operation used by the surrounding class.
+- Role: Handles the sequnreg path.
+- Description: Implements the sequnreg operation.
 
 #### `int dispseq()`
-- Role: Performs dispseq.
-- Description: Supports the dispseq operation used by the surrounding class.
+- Role: Handles the dispseq path.
+- Description: Implements the dispseq operation.
 
 #### `Sequence(Object owner)`
 - Role: Handles the sequence workflow.
-- Description: Supports the sequence operation used by the surrounding class.
+- Description: Implements the sequence operation.
 
 #### `private void disposed()`
-- Role: Performs disposed.
-- Description: Supports the disposed operation used by the surrounding class.
+- Role: Handles the disposed path.
+- Description: Implements the disposed operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public int numprogs()`
-- Role: Performs numprogs.
-- Description: Supports the numprogs operation used by the surrounding class.
+- Role: Handles the numprogs path.
+- Description: Implements the numprogs operation.
 
 #### `public Caps caps()`
-- Role: Performs caps.
-- Description: Supports the caps operation used by the surrounding class.
+- Role: Handles the caps path.
+- Description: Implements the caps operation.
 
 #### `public String memstats()`
-- Role: Performs memstats.
-- Description: Supports the memstats operation used by the surrounding class.
+- Role: Handles the memstats path.
+- Description: Implements the memstats operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

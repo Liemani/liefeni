@@ -1,5 +1,5 @@
 ---
-source: [SaveCurrentGridEffect.java](../../../../src/agent/debug/SaveCurrentGridEffect.java)
+source: [SaveCurrentGridEffect.java](../../../../../src/agent/debug/SaveCurrentGridEffect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Triggers a debug save of the current Haven grid.
 
 #### `public void execute()`
 - Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Description: Triggers a debug save of the current Haven grid.
 
 #### `public static String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Returns the effect name.
+- Description: Exposes the command name shown in the menu grid.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the effect description.
+- Description: Exposes the short help text for the debug effect.

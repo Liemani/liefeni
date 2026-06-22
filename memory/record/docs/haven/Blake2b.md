@@ -1,212 +1,219 @@
 ---
-source: [Blake2b.java](../../../src/haven/Blake2b.java)
+source: [Blake2b.java](../../../../src/haven/Blake2b.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Blake2b
 
-Represents the blake2b Haven component.
+Implements the BLAKE2b digest algorithm used by the client.
 
 ## Nested Types
 
 ### State
 
-- Role: Represents state within Blake2b.
-- Description: Describes the nested state type used by the enclosing class.
+- Role: Holds the incremental BLAKE2b compression state.
+- Description: Keeps chaining values, byte counters, flags, and the buffered input block.
 
 ## Members
 
 ### Constants
 
 #### `public static final int BLOCKBYTES = 128`
-- Role: Defines the shared blockbytes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the compression block size.
+- Description: BLAKE2b processes input in 128-byte blocks.
+- Value: `128`
 
 #### `public static final int OUTBYTES = 64`
-- Role: Defines the shared outbytes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the default digest size.
+- Description: The unqualified constructor returns a 64-byte digest.
+- Value: `64`
 
 #### `public static final int KEYBYTES = 64`
-- Role: Defines the shared keybytes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the maximum key size.
+- Description: Keyed hashing rejects keys longer than 64 bytes.
+- Value: `64`
 
 #### `public static final int SALTBYTES = 16`
-- Role: Defines the shared saltbytes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the salt field size.
+- Description: The parameter block reserves 16 bytes for salt.
+- Value: `16`
 
 #### `public static final int PERSONALBYTES = 16`
-- Role: Defines the shared personalbytes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the personalization field size.
+- Description: The parameter block reserves 16 bytes for personalization.
+- Value: `16`
 
 #### `private static final long IV[] =`
-- Role: Defines the shared blake2b constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the BLAKE2b initialization vector.
+- Description: These are the fixed IV words from the BLAKE2b specification.
+- Value: ``
 
 #### `private static final byte Σ[][] =`
-- Role: Defines the shared blake2b constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the BLAKE2b message permutation schedule.
+- Description: Each row defines one round's message word order.
+- Value: ``
 
 ### Fields
 
 #### `private final int digest_length`
-- Role: Stores the digest length value.
-- Description: Backs the cached state for this file.
+- Role: Stores the requested digest length.
+- Description: Controls how many bytes are returned from `digest()`.
 
 #### `private final int key_length`
-- Role: Stores the key length value.
-- Description: Backs the cached state for this file.
+- Role: Stores the key length used for parameter packing.
+- Description: Written into the parameter block when keyed mode is enabled.
 
 #### `private final int fanout = 1, depth = 1`
-- Role: Stores the fanout value.
-- Description: Backs the cached state for this file.
+- Role: Fixes the tree hashing fanout and depth.
+- Description: This implementation uses the standard sequential mode parameters.
 
 #### `private final int fanout = 1, depth = 1`
-- Role: Stores the fanout value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fanout value.
+- Description: Caches the `fanout` value for reuse.
 
 #### `private final int leaf_length = 0, node_offset = 0`
-- Role: Stores the leaf length value.
-- Description: Backs the cached state for this file.
+- Role: Leaves the tree leaf parameters unset.
+- Description: Sequential hashing does not use tree leaves or node offsets here.
 
 #### `private final int leaf_length = 0, node_offset = 0`
-- Role: Stores the leaf length value.
-- Description: Backs the cached state for this file.
+- Role: Caches the leaf length value.
+- Description: Caches the `leaf_length` value for reuse.
 
 #### `private final int xof_length = 0, node_depth = 0`
-- Role: Stores the xof length value.
-- Description: Backs the cached state for this file.
+- Role: Leaves the extended-output and node-depth parameters unset.
+- Description: These parameters stay zero for the sequential client hash use.
 
 #### `private final int xof_length = 0, node_depth = 0`
-- Role: Stores the xof length value.
-- Description: Backs the cached state for this file.
+- Role: Caches the xof length value.
+- Description: Caches the `xof_length` value for reuse.
 
 #### `private final int inner_length = 0`
-- Role: Stores the inner length value.
-- Description: Backs the cached state for this file.
+- Role: Leaves the inner digest length unset.
+- Description: Tree hashing support is not used by this implementation.
 
 #### `private final byte[] salt = new byte[SALTBYTES]`
-- Role: Stores the salt value.
-- Description: Backs the cached state for this file.
+- Role: Stores the optional salt parameter.
+- Description: Mixed into the parameter block when the caller supplies salt bytes.
 
 #### `private final byte[] personal = new byte[PERSONALBYTES]`
-- Role: Stores the personal value.
-- Description: Backs the cached state for this file.
+- Role: Stores the optional personalization parameter.
+- Description: Mixed into the parameter block when the caller supplies personalization bytes.
 
 #### `private State zygote = null`
-- Role: Holds the zygote state.
-- Description: Backs the cached state for this file.
+- Role: Stores the precomputed keyed initial state.
+- Description: Used to clone the keyed digest setup without rebuilding it each time.
 
 #### `private boolean first = true`
-- Role: Tracks the first flag.
-- Description: Supports the first operation used by the surrounding class.
+- Role: Tracks whether the initial unkeyed state has been handed out.
+- Description: The first call to `get()` creates a fresh state, later calls clone the zygote.
 
 #### `private final long[] h = new long[8]`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `private final long[] t = new long[2]`
-- Role: Stores the t value.
-- Description: Backs the cached state for this file.
+- Role: Caches the t value.
+- Description: Caches the `t` value for reuse.
 
 #### `private final long[] f = new long[2]`
-- Role: Stores the f value.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `private final byte[] buf = new byte[BLOCKBYTES]`
-- Role: Stores the buf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the buf value.
+- Description: Caches the `buf` value for reuse.
 
 #### `private final int outlen = digest_length`
-- Role: Stores the outlen value.
-- Description: Backs the cached state for this file.
+- Role: Caches the outlen value.
+- Description: Caches the `outlen` value for reuse.
 
 #### `private int buflen = 0`
-- Role: Stores the buflen value.
-- Description: Backs the cached state for this file.
+- Role: Caches the buflen value.
+- Description: Caches the `buflen` value for reuse.
 
 #### `private boolean last_node = false`
 - Role: Tracks the last node flag.
-- Description: Supports the last node operation used by the surrounding class.
+- Description: Caches the last node value.
 
 ### Methods
 
 #### `public Blake2b(int digest_length, byte[] key, byte[] salt, byte[] personal)`
 - Role: Creates a new Blake2b instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Blake2b instance from the supplied inputs.
 
 #### `public Blake2b(byte[] key)`
 - Role: Creates a new Blake2b instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Blake2b instance from the supplied inputs.
 
 #### `public Blake2b(int digest_length)`
 - Role: Creates a new Blake2b instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Blake2b instance from the supplied inputs.
 
 #### `public Blake2b()`
 - Role: Creates a new Blake2b instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Blake2b instance from the supplied inputs.
 
 #### `public int diglen()`
-- Role: Performs diglen.
-- Description: Supports the diglen operation used by the surrounding class.
+- Role: Returns the configured digest length.
+- Description: Reports how many bytes this algorithm instance produces.
 
 #### `public int blocklen()`
-- Role: Performs blocklen.
-- Description: Supports the blocklen operation used by the surrounding class.
+- Role: Returns the compression block size.
+- Description: Reports the fixed 128-byte block length.
 
 #### `public Digest get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Returns a new digest state.
+- Description: Creates the first state lazily and then clones the keyed zygote for later callers.
 
 #### `private byte[] packed()`
-- Role: Performs packed.
-- Description: Supports the packed operation used by the surrounding class.
+- Role: Builds the parameter block.
+- Description: Encodes digest size, key size, tree parameters, salt, and personalization.
 
 #### `private State()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Creates a fresh compression state.
+- Description: Seeds the chaining values from the IV and packed parameters.
 
 #### `private State(State from)`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Copies an existing compression state.
+- Description: Clones the chaining values, counters, flags, and buffered bytes.
 
 #### `private void increment_counter(long inc)`
-- Role: Performs increment counter.
-- Description: Supports the increment counter operation used by the surrounding class.
+- Role: Advances the processed byte counter.
+- Description: Updates the low and high counter words with overflow handling.
 
 #### `private void set_lastnode()`
-- Role: Sets the lastnode.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Marks the current node as the last leaf/node.
+- Description: Sets the final-node flag used by tree hashing.
 
 #### `private boolean is_lastblock()`
-- Role: Checks whether the lastblock.
-- Description: Returns a boolean result for the described condition.
+- Role: Checks whether finalization already happened.
+- Description: Returns true after the final block flag has been set.
 
 #### `private void set_lastblock()`
-- Role: Sets the lastblock.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Marks the current input block as final.
+- Description: Also propagates the last-node flag when needed.
 
 #### `private void G(long[] m, long[] v, int r, int i, int a, int b, int c, int d)`
-- Role: Performs g.
-- Description: Supports the g operation used by the surrounding class.
+- Role: Performs one BLAKE2b mixing step.
+- Description: Applies the G function to the selected message words and working state words.
 
 #### `private void ROUND(long[] m, long[] v, int r)`
-- Role: Performs round.
-- Description: Supports the round operation used by the surrounding class.
+- Role: Runs one full compression round.
+- Description: Applies the G function in both column and diagonal passes.
 
 #### `private void compress(byte[] buf, int off)`
-- Role: Performs compress.
-- Description: Supports the compress operation used by the surrounding class.
+- Role: Mixes one input block into the chaining state.
+- Description: Loads the message words, runs 12 rounds, and folds the result back into `h`.
 
 #### `public Digest update(byte[] src, int off, int len)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Absorbs more input bytes into the hash state.
+- Description: Buffers partial blocks and compresses each full block as it becomes available.
 
 #### `public byte[] digest()`
-- Role: Performs digest.
-- Description: Supports the digest operation used by the surrounding class.
+- Role: Finalizes the hash and returns the output bytes.
+- Description: Pads the last block, compresses it, and serializes the chaining value.
 
 #### `public State copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Duplicates the current digest state.
+- Description: Lets callers continue from the same partial hash without reprocessing input.

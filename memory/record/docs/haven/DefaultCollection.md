@@ -1,5 +1,5 @@
 ---
-source: [DefaultCollection.java](../../../src/haven/DefaultCollection.java)
+source: [DefaultCollection.java](../../../../src/haven/DefaultCollection.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,49 +17,49 @@ Represents the default collection Haven component.
 ### Methods
 
 #### `public default int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public default boolean isEmpty()`
 - Role: Checks whether the empty.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public default void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public default boolean remove(Object el)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public default boolean add(E el)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public default boolean contains(Object o)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.
 
 #### `public default boolean retainAll(Collection<?> c)`
-- Role: Performs retain all.
-- Description: Supports the retain all operation used by the surrounding class.
+- Role: Handles the retain all path.
+- Description: Implements the retain all operation.
 
 #### `public default boolean removeAll(Collection<?> c)`
 - Role: Removes the all.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the all.
 
 #### `public default boolean addAll(Collection<? extends E> c)`
 - Role: Adds the all.
-- Description: Adds the all to the current collection or state.
+- Description: Adds the all.
 
 #### `public default boolean containsAll(Collection<?> c)`
-- Role: Performs contains all.
-- Description: Supports the contains all operation used by the surrounding class.
+- Role: Handles the contains all path.
+- Description: Implements the contains all operation.
 
 #### `public default <T> T[] toArray(T[] buf)`
-- Role: Performs to array.
-- Description: Supports the to array operation used by the surrounding class.
+- Role: Handles the to array path.
+- Description: Implements the to array operation.
 
 #### `public default Object[] toArray()`
-- Role: Performs to array.
-- Description: Supports the to array operation used by the surrounding class.
+- Role: Handles the to array path.
+- Description: Implements the to array operation.

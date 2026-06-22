@@ -1,5 +1,5 @@
 ---
-source: [Tonemapper.java](../../../src/haven/Tonemapper.java)
+source: [Tonemapper.java](../../../../src/haven/Tonemapper.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,29 +13,30 @@ Represents the tonemapper Haven component.
 ### Constants
 
 #### `public static final State justgamma = new RUtils.AdHoc(prog ->`
-- Role: Defines the shared justgamma constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the justgamma operation.
+- Description: Implements the ad hoc operation.
+- Value: `new RUtils.AdHoc(prog ->`
 
 ### Fields
 
 #### `public final State draw`
-- Role: Holds the draw state.
-- Description: Backs the cached state for this file.
+- Role: Caches the draw value.
+- Description: Caches the `draw` value for reuse.
 
 ### Methods
 
 #### `public Tonemapper(State draw)`
 - Role: Creates a new Tonemapper instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Tonemapper instance from the supplied inputs.
 
 #### `public void run(GOut g, Texture2D.Sampler2D in)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public int order()`
-- Role: Performs order.
-- Description: Supports the order operation used by the surrounding class.
+- Role: Implements the order operation.
+- Description: Implements the order operation.
 
 #### `public FrameFormat outformat(FrameFormat in)`
-- Role: Performs outformat.
-- Description: Supports the outformat operation used by the surrounding class.
+- Role: Returns the output framebuffer format.
+- Description: Returns the output framebuffer format.

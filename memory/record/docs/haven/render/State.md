@@ -1,5 +1,5 @@
 ---
-source: [State.java](../../../../src/haven/render/State.java)
+source: [State.java](../../../../../src/haven/render/State.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,130 +12,131 @@ Defines the state render pipeline component.
 
 ### Instancable
 
-- Role: Represents instancable within State.
-- Description: Describes the nested instancable type used by the enclosing class.
+- Role: Describes instanced state binding.
+- Description: Creates state values for per-instance rendering.
 
 ### Instancer
 
-- Role: Represents instancer within State.
-- Description: Describes the nested instancer type used by the enclosing class.
+- Role: Builds instanced state values.
+- Description: Produces the per-instance state object for a slot.
 
 ### Slot
 
-- Role: Represents slot within State.
-- Description: Describes the nested slot type used by the enclosing class.
+- Role: Identifies one render state slot.
+- Description: Defines where a state lives and how it is indexed.
 
 ### Slots
 
-- Role: Represents slots within State.
-- Description: Describes the nested slots type used by the enclosing class.
+- Role: Stores the global slot registry.
+- Description: Tracks all declared state slots in creation order.
 
 ### StandAlone
 
-- Role: Represents stand alone within State.
-- Description: Describes the nested stand alone type used by the enclosing class.
+- Role: Describes a standalone render state.
+- Description: Provides a state slot that can be applied directly.
 
 ### Type
 
-- Role: Represents type within State.
-- Description: Describes the nested type type used by the enclosing class.
+- Role: Groups state by binding class.
+- Description: Classifies slots by when and how they participate in rendering.
 
 ## Members
 
 ### Constants
 
 #### `public static final ShaderMacro mkinstanced = prog ->`
-- Role: Defines the shared mkinstanced constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Builds the instanced-state shader helper.
+- Description: Shared macro that wires up instance-state support.
+- Value: `prog ->`
 
 ### Fields
 
 #### `static Slots slots = new Slots(new Slot<?>[0])`
-- Role: Holds the slots state.
-- Description: Backs the cached state for this file.
+- Role: Implements the slots operation.
+- Description: Implements the slots operation.
 
 #### `public final Type type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Class<T> scl`
-- Role: Holds the scl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the scl value.
+- Description: Caches the `scl` value for reuse.
 
 #### `private int depid = -1`
-- Role: Stores the depid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the depid value.
+- Description: Caches the `depid` value for reuse.
 
 #### `public Instancable<T> instanced`
-- Role: Holds the instanced state.
-- Description: Backs the cached state for this file.
+- Role: Caches the instanced value.
+- Description: Caches the `instanced` value for reuse.
 
 #### `public final Slot<?>[] idlist`
-- Role: Holds the idlist state.
-- Description: Backs the cached state for this file.
+- Role: Caches the idlist value.
+- Description: Caches the `idlist` value for reuse.
 
 #### `public final Pipe.Op nil = p -> p.put(this, null)`
-- Role: Holds the nil state.
-- Description: Backs the cached state for this file.
+- Role: Implements the nil operation.
+- Description: Implements the put operation.
 
 #### `public final Slot<StandAlone> slot`
-- Role: Holds the slot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the slot value.
+- Description: Caches the `slot` value for reuse.
 
 ### Methods
 
 #### `public Slots(Slot<?>[] idlist)`
-- Role: Performs slots.
-- Description: Supports the slots operation used by the surrounding class.
+- Role: Stores the slot registry.
+- Description: Captures the current global slot list.
 
 #### `public Slot(Type type, Class<T> scl)`
-- Role: Performs slot.
-- Description: Supports the slot operation used by the surrounding class.
+- Role: Creates one render-state slot.
+- Description: Registers the slot type and backing state class.
 
 #### `public Slot<T> instanced(Instancable<T> inst)`
-- Role: Performs instanced.
-- Description: Supports the instanced operation used by the surrounding class.
+- Role: Attaches instanced state.
+- Description: Links a slot to its instanced state provider.
 
 #### `public static Slot<?> byid(int id)`
-- Role: Performs byid.
-- Description: Supports the byid operation used by the surrounding class.
+- Role: Looks up a slot by id.
+- Description: Returns the slot registered for the given numeric id.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this State for debugging and logging.
 
 #### `public static int numslots()`
-- Role: Performs numslots.
-- Description: Supports the numslots operation used by the surrounding class.
+- Role: Returns the number of slots.
+- Description: Reports how many render-state slots exist globally.
 
 #### `public T inststate(T uinst, InstanceBatch batch)`
-- Role: Performs inststate.
-- Description: Supports the inststate operation used by the surrounding class.
+- Role: Builds the instance state value.
+- Description: Resolves the per-instance value for this slot.
 
 #### `public static <S extends State> Instancer<S> dummy()`
-- Role: Performs dummy.
-- Description: Supports the dummy operation used by the surrounding class.
+- Role: Returns a no-op instancer.
+- Description: Provides a default instancer for states that need no instance data.
 
 #### `public Instancer<T> instid(T uinst)`
-- Role: Performs instid.
-- Description: Supports the instid operation used by the surrounding class.
+- Role: Returns the slot instancer.
+- Description: Exposes the instanced-state provider for this slot.
 
 #### `public static <S extends State> Instancable<S> dummy()`
-- Role: Performs dummy.
-- Description: Supports the dummy operation used by the surrounding class.
+- Role: Returns a no-op instancable.
+- Description: Provides a default instancable for states that need no instance data.
 
 #### `public abstract ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro.
+- Description: Exposes the macro needed to register this state.
 
 #### `public StandAlone(Slot.Type type)`
-- Role: Performs stand alone.
-- Description: Supports the stand alone operation used by the surrounding class.
+- Role: Builds a standalone state slot.
+- Description: Creates a slot that can be applied without an enclosing state class.
 
 #### `public void apply(Pipe p)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies state to a pipe.
+- Description: Writes this state instance into the current render pipe.

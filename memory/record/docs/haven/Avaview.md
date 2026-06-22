@@ -1,185 +1,188 @@
 ---
-source: [Avaview.java](../../../src/haven/Avaview.java)
+source: [Avaview.java](../../../../src/haven/Avaview.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Avaview
 
-Represents the avaview Haven component.
+Renders an avatar preview from a live gob or decoded avatar description.
 
 ## Nested Types
 
 ### $_
 
-- Role: Represents $ within Avaview.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Builds the `av` widget instance from the resource system.
+- Description: Converts widget arguments into an `Avaview` and wraps it in a `ProxyFrame` when needed.
 
 ### AvaOwner
 
-- Role: Represents ava owner within Avaview.
-- Description: Describes the nested ava owner type used by the enclosing class.
+- Role: Supplies owner-context access for the composited avatar.
+- Description: Resolves `Avaview`, `Glob`, `Session`, and `Resource.Resolver` lookups for the avatar renderer.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex missing = Resource.loadtex("gfx/hud/equip/missing")`
-- Role: Defines the shared missing constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Loads the fallback avatar image.
+- Description: Displayed when no avatar image is available.
+- Value: `Resource.loadtex("gfx/hud/equip/missing")`
 
 #### `public static final Coord dasz = missing.sz()`
-- Role: Defines the shared dasz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the default avatar widget size.
+- Description: Reuses the fallback image size when no custom size is provided.
+- Value: `missing.sz()`
 
 #### `private static final OwnerContext.ClassResolver<Avaview> ctxr = new OwnerContext.ClassResolver<Avaview>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Resolves owner-context services for avatar rendering.
+- Description: Maps `Avaview`, `Glob`, `Session`, and `Resource.Resolver` lookups.
+- Value: `new OwnerContext.ClassResolver<Avaview>()`
 
 ### Fields
 
 #### `public FColor clearcolor = FColor.BLACK`
-- Role: Stores the clearcolor value.
-- Description: Backs the cached state for this file.
+- Role: Stores the background clear color.
+- Description: Used when no avatar image or 3D view is drawn.
 
 #### `public long avagob`
-- Role: Stores the avagob value.
-- Description: Backs the cached state for this file.
+- Role: Stores the avatar gob id to display.
+- Description: When set, the widget follows that gob's avatar data.
 
 #### `public Desc avadesc`
-- Role: Holds the avadesc state.
-- Description: Backs the cached state for this file.
+- Role: Stores a standalone avatar description.
+- Description: Used when rendering from decoded avatar data instead of a live gob.
 
 #### `public Resource.Resolver resmap = null`
-- Role: Stores the resmap value.
-- Description: Backs the cached state for this file.
+- Role: Stores the resource resolver for avatar data.
+- Description: Used to resolve external resources when rendering a standalone description.
 
 #### `private Composited comp`
-- Role: Holds the comp state.
-- Description: Backs the cached state for this file.
+- Role: Stores the composited avatar skeleton state.
+- Description: Rebuilt when the underlying gob or descriptor changes.
 
 #### `private RenderTree.Slot compslot`
-- Role: Holds the compslot state.
-- Description: Backs the cached state for this file.
+- Role: Stores the render-tree slot for the avatar model.
+- Description: Used to add or remove the avatar from the render tree.
 
 #### `private List<Composited.MD> cmod = null`
-- Role: Caches cmod entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the current model modifications.
+- Description: Cached so the avatar only re-applies changes when they differ.
 
 #### `private List<Composited.ED> cequ = null`
-- Role: Caches cequ entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the current equipment changes.
+- Description: Cached so the avatar only re-applies equipment when needed.
 
 #### `private final String camnm`
-- Role: Stores the camnm value.
-- Description: Backs the cached state for this file.
+- Role: Stores the bone-offset camera name.
+- Description: Used to locate the camera anchor in the avatar skeleton.
 
 #### `private Collection<ResData> nposes = null, lposes = null`
-- Role: Caches nposes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the pending and last pose collections.
+- Description: Keeps the active pose set and the previous one for interpolation.
 
 #### `private Collection<ResData> nposes = null, lposes = null`
-- Role: Caches nposes entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the pending and last pose collections.
+- Description: Keeps the active pose set and the previous one for interpolation.
 
 #### `private boolean nposesold`
 - Role: Tracks the nposesold flag.
-- Description: Supports the nposesold operation used by the surrounding class.
+- Description: Marks whether the legacy pose set is active.
 
 #### `private final AvaOwner avaowner = new AvaOwner()`
-- Role: Holds the avaowner state.
-- Description: Backs the cached state for this file.
+- Role: Provides owner-context access for the avatar renderer.
+- Description: Supplies skeleton and resource services to `Composited`.
 
 #### `private Indir<Resource> lbase = null`
-- Role: Stores the lbase value.
-- Description: Backs the cached state for this file.
+- Role: Stores the current skeleton base resource.
+- Description: Reused until the avatar's skeleton base changes.
 
 ### Methods
 
 #### `public Widget create(UI ui, Object[] args)`
-- Role: Creates the target object.
-- Description: Constructs the target object from the supplied inputs.
+- Role: Creates an avatar view widget.
+- Description: Parses the widget arguments and wraps the view in a `ProxyFrame` when needed.
 
 #### `public Avaview(Coord sz, long avagob, String camnm)`
-- Role: Creates a new Avaview instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates an avatar preview of the requested size.
+- Description: Sets up the default light and outline state for avatar rendering.
 
 #### `protected void makeproj()`
-- Role: Performs makeproj.
-- Description: Supports the makeproj operation used by the surrounding class.
+- Role: Builds the avatar projection.
+- Description: Uses a fixed frustum tuned for the preview widget.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Receives server updates for avatar state and poses.
 
 #### `public void pop(Desc ava, Resource.Resolver resmap)`
 - Role: Applies avatar description updates.
-- Description: Supports the pop operation used by the surrounding class.
+- Description: Applies a new avatar description and resolver.
 
 #### `public void pop(Desc ava)`
 - Role: Applies avatar description updates.
-- Description: Supports the pop operation used by the surrounding class.
+- Description: Applies a new avatar description.
 
 #### `public void chposes(Collection<ResData> poses, boolean interp)`
 - Role: Changes the active pose set.
-- Description: Supports the chposes operation used by the surrounding class.
+- Description: Replaces the current pose set and optionally interpolates.
 
 #### `private void updposes()`
 - Role: Updates the active pose set.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Rebuilds the pose list and updates the rendered avatar.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.
-- Description: Constructs a random appearance context from the supplied inputs.
+- Description: Builds the random seed used for avatar appearance.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns owner-context services for the avatar renderer.
 
 #### `public Collection<Location.Chain> getloc()`
 - Role: Returns the avatar location.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the composited avatar render location.
 
 #### `public double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `private void initcomp(Composite gc)`
 - Role: Initializes the composited avatar model.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Builds the composited avatar from the game character.
 
 #### `private static Camera makecam(Resource base, Composited comp, String camnm)`
 - Role: Creates the avatar camera.
-- Description: Constructs the avatar camera from the supplied inputs.
+- Description: Builds the camera used to render the avatar model.
 
 #### `private Composite getgcomp()`
 - Role: Returns the global composited avatar model.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the shared composite used for this avatar.
 
 #### `private static List<MD> copy1(List<MD> in)`
-- Role: Copies the first shader operand.
-- Description: Supports the copy1 operation used by the surrounding class.
+- Role: Clones the model modification list.
+- Description: Copies each `MD` entry so the avatar can mutate them independently.
 
 #### `private static List<ED> copy2(List<ED> in)`
-- Role: Copies the second shader operand.
-- Description: Supports the copy2 operation used by the surrounding class.
+- Role: Clones the equipment change list.
+- Description: Copies each `ED` entry so the avatar can mutate them independently.
 
 #### `public void updcomp()`
 - Role: Updates the composited avatar model.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `protected FColor clearcolor()`
-- Role: Returns the clear color value.
-- Description: Exposes the requested value without mutating state.
+- Role: Clears the color.
+- Description: Clears the color.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Avaview content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.

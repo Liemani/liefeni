@@ -1,5 +1,5 @@
 ---
-source: [Hook.java](../../../../src/lmi/bridge/Hook.java)
+source: [Hook.java](../../../../../src/lmi/bridge/Hook.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,96 +18,96 @@ Receives Haven callbacks and forwards them into LMI bridge actions.
 
 #### `public static void didMsgReceive(int id, String msg, Object... args)`
 - Role: Handles the received message callback.
-- Description: Supports the did msg receive operation used by the surrounding class.
+- Description: Logs incoming Haven messages and hands them to the bridge-side handlers.
 
 #### `private static void _recursivePrintObject(int indent, Object... args)`
 - Role: Recursively prints nested object values for debugging.
-- Description: Supports the recursive print object operation used by the surrounding class.
+- Description: Walks nested arguments so debug output stays readable.
 
 #### `private static void _indent(int indent)`
 - Role: Writes indentation for debug output.
-- Description: Supports the indent operation used by the surrounding class.
+- Description: Emits leading spaces for nested debug lines.
 
 #### `public static void willMsgSend(Widget sender, String msg, Object... args)`
 - Role: Handles the outgoing message callback.
-- Description: Supports the will msg send operation used by the surrounding class.
+- Description: Observes outgoing widget messages before Haven sends them.
 
 #### `public static void willQueueMessage(int seq)`
 - Role: Handles the queued message callback.
-- Description: Supports the will queue message operation used by the surrounding class.
+- Description: Records the sequence number of a queued Haven message.
 
 #### `public static void didGetACK(RMessage rMessage)`
 - Role: Handles the ACK callback.
-- Description: Supports the did get ack operation used by the surrounding class.
+- Description: Confirms that Haven acknowledged a queued message.
 
 #### `public static void newWidgetDidAdded(Widget widget)`
 - Role: Handles the widget-added callback.
-- Description: Supports the new widget did added operation used by the surrounding class.
+- Description: Detects newly added widgets so LMI can attach bridge state.
 
 #### `public static void flowerMenuDidDestroyed()`
 - Role: Handles the flower menu destruction callback.
-- Description: Supports the flower menu did destroyed operation used by the surrounding class.
+- Description: Clears flower-menu bridge state when the menu closes.
 
 #### `public static void progressDidAdded(GameUI.Progress widget)`
 - Role: Handles the progress widget callback.
-- Description: Supports the progress did added operation used by the surrounding class.
+- Description: Captures the progress widget when Haven creates it.
 
 #### `public static void progressDidDestroyed()`
 - Role: Handles the progress widget destruction callback.
-- Description: Supports the progress did destroyed operation used by the surrounding class.
+- Description: Clears the stored progress widget when Haven removes it.
 
 #### `public static boolean menuGridWillUse(MenuGrid.PagButton button)`
 - Role: Handles the menu grid use callback.
-- Description: Supports the menu grid will use operation used by the surrounding class.
+- Description: Intercepts menu-grid usage so LMI actions can run first.
 
 #### `public static boolean willPaginaDropToBelt(MenuGrid.Pagina pag)`
 - Role: Handles the pagina drop callback.
-- Description: Supports the will pagina drop to belt operation used by the surrounding class.
+- Description: Tracks pagina drops into the belt before Haven handles them.
 
 #### `public static boolean didClicked(Coord2d coord2d, int mouseButton, ClickData clickData)`
 - Role: Handles the click callback.
-- Description: Supports the did clicked operation used by the surrounding class.
+- Description: Captures click coordinates and button state for LMI actions.
 
 #### `public static boolean areaDidSelected(Coord first, Coord second)`
 - Role: Handles the area selection callback.
-- Description: Supports the area did selected operation used by the surrounding class.
+- Description: Reports the selected area corners to downstream actions.
 
 #### `public static void keyDidDown(java.awt.event.KeyEvent keyEvent)`
 - Role: Handles the key-down callback.
-- Description: Supports the key did down operation used by the surrounding class.
+- Description: Forwards keyboard input to LMI hotkey handling.
 
 #### `public static void remoteUIDidConstructed(RemoteUI remoteUI)`
 - Role: Handles the remote UI construction callback.
-- Description: Supports the remote uidid constructed operation used by the surrounding class.
+- Description: Hooks the remote UI once Haven finishes constructing it.
 
 #### `public static void mapViewDidDraw(MapView mapView, GOut g)`
 - Role: Handles the map view draw callback.
-- Description: Supports the map view did draw operation used by the surrounding class.
+- Description: Lets LMI overlays render during the map view draw pass.
 
 #### `public static void mapViewGobsDidFinishLoading(MapView mapView)`
 - Role: Handles the map view loading callback.
-- Description: Supports the map view gobs did finish loading operation used by the surrounding class.
+- Description: Signals that map gobs are ready for waypoint or overlay work.
 
 #### `public static void didEnterPortal()`
 - Role: Handles the portal-entry callback.
-- Description: Supports the did enter portal operation used by the surrounding class.
+- Description: Marks the portal entry transition for lifecycle handling.
 
 #### `public static void didSpeak(long gobId, String msg)`
 - Role: Handles the speech callback.
-- Description: Supports the did speak operation used by the surrounding class.
+- Description: Captures gob speech for debug or chat-related hooks.
 
 #### `public static void plobDidPlaced(MapView.Plob plob)`
 - Role: Handles the plob placement callback.
-- Description: Supports the plob did placed operation used by the surrounding class.
+- Description: Stores the active placement object for later hook logic.
 
 #### `private static void _captureEnteringPortal(int mouseButton, ClickData clickData)`
 - Role: Captures the entering portal from a click event.
-- Description: Supports the capture entering portal operation used by the surrounding class.
+- Description: Extracts the portal target from the original click event.
 
 #### `private static String _gobResname(ClickData clickData)`
 - Role: Returns the gob resource name from click data.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the gob resname operation.
 
 #### `private static Coord _gobPosition(ClickData clickData)`
 - Role: Returns the gob position from click data.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the gob position operation.

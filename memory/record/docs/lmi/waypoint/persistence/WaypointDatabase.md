@@ -1,137 +1,137 @@
 ---
-source: [WaypointDatabase.java](../../../../../src/lmi/waypoint/persistence/WaypointDatabase.java)
+source: [WaypointDatabase.java](../../../../../../src/lmi/waypoint/persistence/WaypointDatabase.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # WaypointDatabase
 
-Provides low-level SQL helpers for waypoint persistence.
+Provides the low-level SQL helpers for waypoint persistence, including schema initialization, direct row lookups, and row inserts/updates.
 
 ## Members
 
 ### Constants
 
 #### `private static final String WAYPOINT_SCHEMA_NAMESPACE = "waypoint"`
-- Role: Defines the shared waypoint schema namespace constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Names the waypoint schema namespace.
+- Description: Used for schema metadata and versioning.
+- Value: `"waypoint"`
 
 #### `private static final int WAYPOINT_SCHEMA_VERSION = 1`
-- Role: Defines the shared waypoint schema version constant.
-- Description: Shared constant used by the rest of the class.
-
-### Fields
+- Role: Declares the current waypoint schema version.
+- Description: Compared against the stored DB version during initialization.
+- Value: `1`
 
 ### Methods
 
 #### `private WaypointDatabase()`
-- Role: Creates a new WaypointDatabase instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Prevents instantiation.
+- Description: SQL helper class only.
 
 #### `static void initialize(Connection conn) throws Exception`
-- Role: Handles the initialize workflow.
-- Description: Supports the initialize operation used by the surrounding class.
+- Role: Initializes the waypoint database schema state.
+- Description: Enables foreign keys, checks schema version metadata, and creates the schema on first run.
 
 #### `static CreateNodeResult createNode(`
-- Role: Handles the create node workflow.
-- Description: Supports the create node operation used by the surrounding class.
+- Role: Creates a waypoint node record.
+- Description: Creates a graph when needed, checks for duplicate node positions, and inserts a new `wp_node` row.
 
 #### `static ArrayList<WpNodeRecord> loadNodesByGraph(Connection conn, long graphId)`
-- Role: Coordinates load nodes by graph persistence or lookup.
-- Description: Supports the load nodes by graph operation used by the surrounding class.
+- Role: Loads waypoint nodes for a graph.
+- Description: Returns `wp_node` rows ordered by id for the given graph.
 
 #### `static ArrayList<WpNodeRecord> loadNodesByGridId(Connection conn, long gridId)`
-- Role: Coordinates load nodes by grid id persistence or lookup.
-- Description: Supports the load nodes by grid id operation used by the surrounding class.
+- Role: Loads waypoint nodes for a grid.
+- Description: Returns `wp_node` rows ordered by id for the given grid.
 
 #### `static WpNodeRecord findNodeById(Connection conn, long wpNodeId)`
-- Role: Returns the node by id.
-- Description: Exposes the requested value without mutating state.
+- Role: Finds one waypoint node by id.
+- Description: Returns the matching `wp_node` row or `null`.
 
 #### `static WpNodeRecord findNodeByGraphAndGridLocal(Connection conn, long graphId, long gridId, int localX, int localY)`
-- Role: Finds a waypoint node by graph and local grid coordinates.
-- Description: Supports the find node by graph and grid local operation used by the surrounding class.
+- Role: Finds a node by graph and local grid coordinates.
+- Description: Returns the first matching `wp_node` row for the given graph and local position.
 
 #### `static ArrayList<WpEdgeRecord> loadEdgesByGraph(Connection conn, long graphId)`
-- Role: Coordinates load edges by graph persistence or lookup.
-- Description: Supports the load edges by graph operation used by the surrounding class.
+- Role: Loads waypoint edges for a graph.
+- Description: Returns `wp_edge` rows ordered by id for the given graph.
 
 #### `static ArrayList<WpSegmentRecord> loadSegmentsByGridId(Connection conn, long gridId)`
-- Role: Coordinates load segments by grid id persistence or lookup.
-- Description: Supports the load segments by grid id operation used by the surrounding class.
+- Role: Loads waypoint segments for a grid.
+- Description: Returns `wp_segment` rows ordered by edge, step, and id for the given grid.
 
 #### `static ArrayList<WpSegmentRecord> loadSegmentsByGraphAndCut(Connection conn, long graphId, int cutId)`
-- Role: Coordinates load segments by graph and cut persistence or lookup.
-- Description: Supports the load segments by graph and cut operation used by the surrounding class.
+- Role: Compatibility wrapper for loading segments.
+- Description: Delegates to `loadSegmentsByGridId(...)` with the current grid/cut identifier model.
 
 #### `static ArrayList<WpPointRecord> loadPointsByGridId(Connection conn, long gridId)`
-- Role: Coordinates load points by grid id persistence or lookup.
-- Description: Supports the load points by grid id operation used by the surrounding class.
+- Role: Loads waypoint points for a grid.
+- Description: Returns `wp_point` rows ordered by segment and step for the given grid.
 
 #### `static ArrayList<WpPointRecord> loadPointsByGraphAndCut(Connection conn, long graphId, int cutId)`
-- Role: Coordinates load points by graph and cut persistence or lookup.
-- Description: Supports the load points by graph and cut operation used by the surrounding class.
+- Role: Compatibility wrapper for loading points.
+- Description: Delegates to `loadPointsByGridId(...)` with the current grid/cut identifier model.
 
 #### `static String jdbcUrl() throws Exception`
-- Role: Handles the jdbc url workflow.
-- Description: Supports the jdbc url operation used by the surrounding class.
+- Role: Builds the SQLite JDBC URL.
+- Description: Locates the running JAR or classpath base, ensures `data/`, and points at `data/liefeni.db`.
 
 #### `private static void enableForeignKeys(Connection conn) throws SQLException`
-- Role: Handles the enable foreign keys workflow.
-- Description: Supports the enable foreign keys operation used by the surrounding class.
+- Role: Enables SQLite foreign keys.
+- Description: Runs the `PRAGMA foreign_keys = ON` statement.
 
 #### `private static void ensureSchemaVersionTable(Connection conn) throws SQLException`
-- Role: Coordinates ensure schema version table persistence or lookup.
-- Description: Supports the ensure schema version table operation used by the surrounding class.
+- Role: Ensures the schema version metadata table exists.
+- Description: Creates the `wp_meta` table if it does not exist.
 
 #### `private static Integer loadSchemaVersion(Connection conn) throws SQLException`
-- Role: Coordinates load schema version persistence or lookup.
-- Description: Supports the load schema version operation used by the surrounding class.
+- Role: Reads the stored schema version.
+- Description: Returns the version value from `wp_meta`, or `null` when it has not been stored yet.
 
 #### `private static void saveSchemaVersion(Connection conn, int version) throws SQLException`
-- Role: Coordinates save schema version persistence or lookup.
-- Description: Supports the save schema version operation used by the surrounding class.
+- Role: Persists the schema version.
+- Description: Stores the current version in `wp_meta`.
 
 #### `private static void createSchema(Connection conn) throws SQLException`
-- Role: Handles the create schema workflow.
-- Description: Supports the create schema operation used by the surrounding class.
+- Role: Creates the waypoint schema.
+- Description: Creates the `wp_graph`, `wp_node`, `wp_edge`, `wp_segment`, `wp_point`, `map_segment`, and `map_grid` tables plus indexes.
 
 #### `static long insertWpNode(Connection conn, long graphId, long gridId, int localX, int localY, String name) throws SQLException`
-- Role: Mutates the insert wp node state.
-- Description: Supports the insert wp node operation used by the surrounding class.
+- Role: Inserts a waypoint node with an explicit grid id.
+- Description: Writes a `wp_node` row for the given graph, grid, local coordinates, and name.
 
 #### `private static long insertWpNode(Connection conn, long graphId, int localX, int localY, String name) throws SQLException`
-- Role: Mutates the insert wp node state.
-- Description: Supports the insert wp node operation used by the surrounding class.
+- Role: Inserts a waypoint node without a grid id.
+- Description: Legacy helper that writes a `wp_node` row using the graph-local coordinates.
 
 #### `private static long insertWpGraph(Connection conn) throws SQLException`
-- Role: Mutates the insert wp graph state.
-- Description: Supports the insert wp graph operation used by the surrounding class.
+- Role: Inserts a waypoint graph row.
+- Description: Creates a new `wp_graph` row and returns its id.
 
 #### `static long insertWpEdge(Connection conn, long node0Id, long node1Id, int direction,`
-- Role: Mutates the insert wp edge state.
-- Description: Supports the insert wp edge operation used by the surrounding class.
+- Role: Inserts a waypoint edge row.
+- Description: Writes a `wp_edge` row that connects two nodes with direction and cost values.
 
 #### `static long insertWpSegment(Connection conn, long edgeId, int step, long gridId) throws SQLException`
-- Role: Mutates the insert wp segment state.
-- Description: Supports the insert wp segment operation used by the surrounding class.
+- Role: Inserts a waypoint segment row.
+- Description: Writes a `wp_segment` row for an edge step on a specific grid.
 
 #### `static long insertWpPoint(Connection conn, long segmentId, long gridId, int step, int localX, int localY,`
-- Role: Mutates the insert wp point state.
-- Description: Supports the insert wp point operation used by the surrounding class.
+- Role: Inserts a waypoint point row.
+- Description: Writes a `wp_point` row that records a local click position within a segment.
 
 #### `static void updateWpNode(Connection conn, long id, long graphId, long gridId, int localX, int localY,`
-- Role: Mutates the update wp node state.
-- Description: Supports the update wp node operation used by the surrounding class.
+- Role: Updates a waypoint node row.
+- Description: Rewrites the stored waypoint node coordinates and related metadata.
 
 #### `static long saveMapGridIfMissing(Connection conn, long mapSegmentId, int localX, int localY, long havenGridId) throws SQLException`
-- Role: Coordinates save map grid if missing persistence or lookup.
-- Description: Supports the save map grid if missing operation used by the surrounding class.
+- Role: Ensures a `map_grid` row exists for the Haven grid.
+- Description: Inserts the matching `map_segment` first when needed, then inserts or returns the existing `map_grid` row.
 
 #### `private static Long findMapGridIdByHavenId(Connection conn, long havenGridId) throws SQLException`
-- Role: Handles the find map grid id by haven id workflow.
-- Description: Supports the find map grid id by haven id operation used by the surrounding class.
+- Role: Looks up a `map_grid` row by Haven grid id.
+- Description: Returns the stored waypoint map-grid id for the supplied Haven grid id, or `null`.
 
 #### `private static void saveMapSegmentIfMissing(Connection conn, long mapSegmentId) throws SQLException`
-- Role: Coordinates save map segment if missing persistence or lookup.
-- Description: Supports the save map segment if missing operation used by the surrounding class.
+- Role: Ensures a `map_segment` row exists.
+- Description: Inserts the segment row only when the segment id has not been stored yet.

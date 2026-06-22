@@ -1,5 +1,5 @@
 ---
-source: [RUtils.java](../../../src/haven/RUtils.java)
+source: [RUtils.java](../../../../src/haven/RUtils.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -45,177 +45,180 @@ Represents the rutils Haven component.
 ### Constants
 
 #### `private static final int[][] deforder =`
-- Role: Defines the shared rutils constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the deforder value.
+- Description: Caches the `deforder` value for reuse.
+- Value: ``
 
 #### `public static final State.Slot<State> adhoc = new State.Slot<>(State.Slot.Type.DRAW, State.class)`
-- Role: Defines the shared adhoc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the adhoc operation.
+- Description: Implements the public static final state.slot<state> adhoc = new state.slot<>(state.slot.type.draw, state.class) operation.
+- Value: `new State.Slot<>(State.Slot.Type.DRAW, State.class)`
 
 #### `public static final State.Slot<State> adhocg = new State.Slot<State>(State.Slot.Type.GEOM, State.class)`
-- Role: Defines the shared adhocg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the adhocg operation.
+- Description: Implements the public static final state.slot<state> adhocg = new state.slot<state>(state.slot.type.geom, state.class) operation.
+- Value: `new State.Slot<State>(State.Slot.Type.GEOM, State.class)`
 
 ### Fields
 
 #### `public final R r`
-- Role: Holds the r state.
-- Description: Backs the cached state for this file.
+- Role: Caches the r value.
+- Description: Caches the `r` value for reuse.
 
 #### `private final Collection<Slot> slots = new ArrayList<>(1)`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the slots operation.
+- Description: Implements the private final collection<slot> slots = new array list<>(1) operation.
 
 #### `private Op cstate`
-- Role: Holds the cstate state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cstate value.
+- Description: Caches the `cstate` value for reuse.
 
 #### `private boolean inited = false`
 - Role: Tracks the inited flag.
-- Description: Supports the inited operation used by the surrounding class.
+- Description: Caches the `inited` value for reuse.
 
 #### `public final Supplier<BufferedImage> src`
-- Role: Stores the src value.
-- Description: Backs the cached state for this file.
+- Role: Caches the src value.
+- Description: Carries the source drag widget.
 
 #### `public final int[][] order`
-- Role: Stores the order value.
-- Description: Backs the cached state for this file.
+- Role: Caches the order value.
+- Description: Caches the `order` value for reuse.
 
 #### `private BufferedImage data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private final ShaderMacro sh`
-- Role: Holds the sh state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sh value.
+- Description: Caches the `sh` value for reuse.
 
 #### `private final ShaderMacro sh`
-- Role: Holds the sh state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sh value.
+- Description: Caches the `sh` value for reuse.
 
 #### `private final Node[] children`
-- Role: Stores the children value.
-- Description: Backs the cached state for this file.
+- Role: Caches the children value.
+- Description: Caches the `children` value for reuse.
 
 ### Methods
 
 #### `public static Collection<Slot> multiadd(Collection<Slot> slots, Node node)`
-- Role: Performs multiadd.
-- Description: Supports the multiadd operation used by the surrounding class.
+- Role: Handles the multiadd path.
+- Description: Implements the multiadd operation.
 
 #### `public static void multirem(Collection<Slot> slots)`
-- Role: Performs multirem.
-- Description: Supports the multirem operation used by the surrounding class.
+- Role: Handles the multirem path.
+- Description: Implements the multirem operation.
 
 #### `public static void readd(Collection<Slot> slots, Consumer<Slot> add, Runnable revert)`
-- Role: Performs readd.
-- Description: Supports the readd operation used by the surrounding class.
+- Role: Handles the readd path.
+- Description: Implements the readd operation.
 
 #### `public StateNode(R r)`
-- Role: Performs state node.
-- Description: Supports the state node operation used by the surrounding class.
+- Role: Handles the state node path.
+- Description: Implements the state node operation.
 
 #### `protected abstract Op state()`
-- Role: Performs state.
-- Description: Supports the state operation used by the surrounding class.
+- Role: Handles the state path.
+- Description: Implements the state operation.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void added(Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public static <R extends RenderTree.Node> StateNode<R> of(R r, Supplier<? extends Op> st)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a RUtils value from the supplied components.
+- Description: Builds a RUtils value from the supplied components.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this RUtils for debugging and logging.
 
 #### `public StateTickNode(R r)`
-- Role: Performs state tick node.
-- Description: Supports the state tick node operation used by the surrounding class.
+- Role: Handles the state tick node path.
+- Description: Implements the state tick node operation.
 
 #### `public TickList.Ticking ticker()`
-- Role: Performs ticker.
-- Description: Supports the ticker operation used by the surrounding class.
+- Role: Handles the ticker path.
+- Description: Advances the er state.
 
 #### `public void autotick(double dt)`
-- Role: Performs autotick.
-- Description: Supports the autotick operation used by the surrounding class.
+- Role: Handles the autotick path.
+- Description: Implements the autotick operation.
 
 #### `public static <R extends RenderTree.Node> StateTickNode<R> of(R r, Supplier<? extends Op> st)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a RUtils value from the supplied components.
+- Description: Builds a RUtils value from the supplied components.
 
 #### `public CubeFill(Supplier<BufferedImage> src)`
-- Role: Performs cube fill.
-- Description: Supports the cube fill operation used by the surrounding class.
+- Role: Handles the cube fill path.
+- Description: Implements the cube fill operation.
 
 #### `private Coord osz()`
-- Role: Performs osz.
-- Description: Supports the osz operation used by the surrounding class.
+- Role: Handles the osz path.
+- Description: Implements the osz operation.
 
 #### `private BufferedImage getsrc(TextureCube tex)`
-- Role: Performs getsrc.
-- Description: Supports the getsrc operation used by the surrounding class.
+- Role: Handles the getsrc path.
+- Description: Returns the src.
 
 #### `public FillBuffer fill(Image gimg, Environment env)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Handles the fill path.
+- Description: Implements the fill operation.
 
 #### `public void done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public TextureCube mktex()`
-- Role: Performs mktex.
-- Description: Supports the mktex operation used by the surrounding class.
+- Role: Handles the mktex path.
+- Description: Implements the mktex operation.
 
 #### `public AdHoc(ShaderMacro sh)`
-- Role: Performs ad hoc.
-- Description: Supports the ad hoc operation used by the surrounding class.
+- Role: Handles the ad hoc path.
+- Description: Implements the ad hoc operation.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe buf)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public GeomAdHoc(ShaderMacro sh)`
-- Role: Performs geom ad hoc.
-- Description: Supports the geom ad hoc operation used by the surrounding class.
+- Role: Handles the geom ad hoc path.
+- Description: Implements the geom ad hoc operation.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public void apply(Pipe buf)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public ComposedNode(Node... children)`
-- Role: Performs composed node.
-- Description: Supports the composed node operation used by the surrounding class.
+- Role: Handles the composed node path.
+- Description: Implements the composed node operation.
 
 #### `public void added(Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public static Node compose(Node... children)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Handles the compose path.
+- Description: Implements the compose operation.
 
 #### `public static Node compose(Collection<? extends Node> children)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Handles the compose path.
+- Description: Implements the compose operation.

@@ -1,5 +1,5 @@
 ---
-source: [HashBMap.java](../../../src/haven/HashBMap.java)
+source: [HashBMap.java](../../../../src/haven/HashBMap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,51 +15,51 @@ Represents the hash bmap Haven component.
 ### Fields
 
 #### `private final Map<K, V> fmap`
-- Role: Caches fmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the fmap value.
+- Description: Caches the `fmap` value for reuse.
 
 #### `private final Map<V, K> rmap`
-- Role: Caches rmap entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the rmap value.
+- Description: Caches the `rmap` value for reuse.
 
 #### `private final BMap<V, K> rev`
-- Role: Caches rev entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the rev value.
+- Description: Caches the `rev` value for reuse.
 
 #### `private Set<Entry<K, V>> entries = null`
-- Role: Caches entries entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the entries value.
+- Description: Caches the `entries` value for reuse.
 
 ### Methods
 
 #### `private HashBMap(Map<K, V> f, Map<V, K> r, BMap<V, K> rev)`
 - Role: Creates a new HashBMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HashBMap instance from the supplied inputs.
 
 #### `public HashBMap()`
 - Role: Creates a new HashBMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HashBMap instance from the supplied inputs.
 
 #### `public boolean containsKey(Object k)`
-- Role: Performs contains key.
-- Description: Supports the contains key operation used by the surrounding class.
+- Role: Handles the contains key path.
+- Description: Implements the contains key operation.
 
 #### `public Set<Entry<K, V>> entrySet()`
-- Role: Performs entry set.
-- Description: Supports the entry set operation used by the surrounding class.
+- Role: Handles the entry set path.
+- Description: Implements the entry set operation.
 
 #### `public V get(Object k)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public V put(K k, V v)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public V remove(Object k)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public BMap<V, K> reverse()`
-- Role: Performs reverse.
-- Description: Supports the reverse operation used by the surrounding class.
+- Role: Handles the reverse path.
+- Description: Implements the reverse operation.

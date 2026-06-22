@@ -1,5 +1,5 @@
 ---
-source: [HSlider.java](../../../src/haven/HSlider.java)
+source: [HSlider.java](../../../../src/haven/HSlider.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,69 +13,72 @@ Represents the hslider Haven component.
 ### Constants
 
 #### `static final Tex sflarp = Resource.loadtex("gfx/hud/sflarp")`
-- Role: Defines the shared sflarp constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the sflarp operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/sflarp")`
 
 #### `static final Tex schain`
-- Role: Defines the shared schain constant.
-- Description: Shared constant used by the rest of the class.
+#### `static final Tex schain`
+- Role: Caches the schain value.
+- Description: Caches the `schain` value for reuse.
 
 #### `static final int chcut = UI.scale(7)`
-- Role: Defines the shared chcut constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the chcut operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(7)`
 
 ### Fields
 
 #### `public int val, min, max`
-- Role: Stores the max value.
-- Description: Backs the cached state for this file.
+- Role: Caches the max value.
+- Description: Caches the `max` value for reuse.
 
 #### `public int val, min, max`
-- Role: Stores the max value.
-- Description: Backs the cached state for this file.
+- Role: Caches the max value.
+- Description: Caches the `max` value for reuse.
 
 #### `public int val, min, max`
-- Role: Stores the max value.
-- Description: Backs the cached state for this file.
+- Role: Caches the max value.
+- Description: Caches the `max` value for reuse.
 
 #### `private UI.Grab drag = null`
-- Role: Stores the drag value.
-- Description: Backs the cached state for this file.
+- Role: Caches the drag value.
+- Description: Caches the `drag` value for reuse.
 
 ### Methods
 
 #### `public HSlider(int w, int min, int max, int val)`
 - Role: Creates a new HSlider instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HSlider instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the HSlider content.
 
 #### `private void update(Coord c)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public void changed()`
-- Role: Performs changed.
-- Description: Supports the changed operation used by the surrounding class.
+- Role: Handles the changed path.
+- Description: Implements the changed operation.
 
 #### `public void fchanged()`
-- Role: Performs fchanged.
-- Description: Supports the fchanged operation used by the surrounding class.
+- Role: Handles the fchanged path.
+- Description: Implements the fchanged operation.
 
 #### `public void resize(int w)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.

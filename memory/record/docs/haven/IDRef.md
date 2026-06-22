@@ -1,5 +1,5 @@
 ---
-source: [IDRef.java](../../../src/haven/IDRef.java)
+source: [IDRef.java](../../../../src/haven/IDRef.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the idref Haven component.
 
 ### WRef
 
-- Role: Represents wref within IDRef.
-- Description: Describes the nested wref type used by the enclosing class.
+- Role: Wraps a weakly referenced interned value.
+- Description: Weak reference entry used by the IDRef intern table.
 
 ## Members
 
@@ -22,43 +22,43 @@ Represents the idref Haven component.
 ### Fields
 
 #### `private static Map<Object, WRef> map = new HashMap<Object, WRef>()`
-- Role: Caches map entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the map operation.
+- Description: Implements the private static map<object, w ref> map = new hash map<object, w ref>() operation.
 
 #### `private static ReferenceQueue<IDRef> queue = new ReferenceQueue<IDRef>()`
-- Role: Caches queue entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the queue operation.
+- Description: Implements the private static reference queue<id ref> queue = new reference queue<id ref>() operation.
 
 #### `private static int nextseq = 0`
-- Role: Stores the nextseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nextseq value.
+- Description: Caches the `nextseq` value for reuse.
 
 #### `private final Object val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `private final int seq`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the seq value.
+- Description: Caches the `seq` value for reuse.
 
 #### `private final Object val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 ### Methods
 
 #### `private IDRef(Object val)`
 - Role: Creates a new IDRef instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the IDRef instance from the supplied inputs.
 
 #### `private WRef(IDRef ref, Object val)`
-- Role: Performs wref.
-- Description: Supports the wref operation used by the surrounding class.
+- Role: Handles the wref path.
+- Description: Implements the w ref operation.
 
 #### `public static IDRef intern(Object x)`
-- Role: Performs intern.
-- Description: Supports the intern operation used by the surrounding class.
+- Role: Handles the intern path.
+- Description: Implements the intern operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this IDRef for debugging and logging.

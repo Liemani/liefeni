@@ -1,5 +1,5 @@
 ---
-source: [DescribeAgentStackEffect.java](../../../../src/agent/debug/DescribeAgentStackEffect.java)
+source: [DescribeAgentStackEffect.java](../../../../../src/agent/debug/DescribeAgentStackEffect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Prints the current agent stack for debugging.
 
 #### `public void execute()`
 - Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Description: Runs the queued request and posts its callback result back through the sync manager.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

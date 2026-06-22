@@ -1,5 +1,5 @@
 ---
-source: [RichTextBox.java](../../../src/haven/RichTextBox.java)
+source: [RichTextBox.java](../../../../src/haven/RichTextBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,85 +13,86 @@ Represents the rich text box Haven component.
 ### Constants
 
 #### `private static final int marg = UI.scale(10)`
-- Role: Defines the shared marg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the marg operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(10)`
 
 ### Fields
 
 #### `public final RichText.Foundry fnd`
-- Role: Stores the fnd value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fnd value.
+- Description: Caches the `fnd` value for reuse.
 
 #### `public Color bg = Color.BLACK`
-- Role: Stores the bg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bg value.
+- Description: Caches the `bg` value for reuse.
 
 #### `private Indir<? extends RichText.Document> render`
-- Role: Stores the render value.
-- Description: Backs the cached state for this file.
+- Role: Caches the render value.
+- Description: Caches the `render` value for reuse.
 
 #### `private RichText text`
-- Role: Stores the text value.
-- Description: Backs the cached state for this file.
+- Role: Caches the text value.
+- Description: Caches the `text` value for reuse.
 
 #### `private Scrollbar sb`
-- Role: Holds the sb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sb value.
+- Description: Caches the `sb` value for reuse.
 
 ### Methods
 
 #### `public RichTextBox(Coord sz, RichText.Foundry fnd, Indir<? extends RichText.Document> doc)`
 - Role: Creates a new RichTextBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RichTextBox instance from the supplied inputs.
 
 #### `public RichTextBox(Coord sz, Indir<? extends RichText.Document> doc)`
 - Role: Creates a new RichTextBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RichTextBox instance from the supplied inputs.
 
 #### `public RichTextBox(Coord sz, String text, RichText.Foundry fnd)`
 - Role: Creates a new RichTextBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RichTextBox instance from the supplied inputs.
 
 #### `public RichTextBox(Coord sz, String text, Object... attrs)`
 - Role: Creates a new RichTextBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the RichTextBox instance from the supplied inputs.
 
 #### `private void ckrender()`
-- Role: Performs ckrender.
-- Description: Supports the ckrender operation used by the surrounding class.
+- Role: Handles the ckrender path.
+- Description: Implements the ckrender operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the RichTextBox content.
 
 #### `public void set(Indir<? extends RichText.Document> doc)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void set(RichText.Document doc)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void settext(Indir<String> text)`
-- Role: Performs settext.
-- Description: Supports the settext operation used by the surrounding class.
+- Role: Handles the settext path.
+- Description: Updates the text.
 
 #### `public void settext(String text, Object... attrs)`
-- Role: Performs settext.
-- Description: Supports the settext operation used by the surrounding class.
+- Role: Handles the settext path.
+- Description: Updates the text.
 
 #### `public void settext(String text)`
-- Role: Performs settext.
-- Description: Supports the settext operation used by the surrounding class.
+- Role: Handles the settext path.
+- Description: Updates the text.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.

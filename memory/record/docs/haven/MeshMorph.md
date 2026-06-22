@@ -1,5 +1,5 @@
 ---
-source: [MeshMorph.java](../../../src/haven/MeshMorph.java)
+source: [MeshMorph.java](../../../../src/haven/MeshMorph.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,47 +32,47 @@ Represents the mesh morph Haven component.
 ### Fields
 
 #### `public final VertexContext vctx`
-- Role: Stores the vctx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vctx value.
+- Description: Caches the `vctx` value for reuse.
 
 #### `private final Collection<Morpher> morphs = new ArrayList<>()`
-- Role: Caches morphs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the morphs operation.
+- Description: Implements the private final collection<morpher> morphs = new array list<>() operation.
 
 #### `private final Collection<Attrib> morphed = new ArrayList<>()`
-- Role: Caches morphed entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the morphed operation.
+- Description: Implements the private final collection<attrib> morphed = new array list<>() operation.
 
 #### `final Value va`
-- Role: Holds the va state.
-- Description: Backs the cached state for this file.
+- Role: Caches the va value.
+- Description: Caches the `va` value for reuse.
 
 #### `final MorphType type`
-- Role: Holds the type state.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 ### Methods
 
 #### `public void morph(Value val, MorphType type, VertexContext vctx)`
-- Role: Performs morph.
-- Description: Supports the morph operation used by the surrounding class.
+- Role: Handles the morph path.
+- Description: Implements the morph operation.
 
 #### `Attrib(Value va, MorphType type)`
 - Role: Handles the attrib workflow.
-- Description: Supports the attrib operation used by the surrounding class.
+- Description: Implements the attrib operation.
 
 #### `private MeshMorph(VertexContext vctx)`
 - Role: Creates a new MeshMorph instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the MeshMorph instance from the supplied inputs.
 
 #### `public void add(Morpher morph)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void add(Value va, MorphType type)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public static MeshMorph get(VertexContext vctx)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.

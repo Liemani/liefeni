@@ -1,5 +1,5 @@
 ---
-source: [SprDrawable.java](../../../src/haven/SprDrawable.java)
+source: [SprDrawable.java](../../../../src/haven/SprDrawable.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,36 +13,37 @@ Represents the spr drawable Haven component.
 ### Constants
 
 #### `private static final ClassResolver<SprDrawable> ctxr = new ClassResolver<SprDrawable>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final class resolver<spr drawable> ctxr = new class resolver<spr drawable>() operation.
+- Value: `new ClassResolver<SprDrawable>()`
 
 ### Fields
 
 #### `public final Sprite spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 ### Methods
 
 #### `public SprDrawable(Gob gob, Sprite.Mill<?> mk)`
 - Role: Creates a new SprDrawable instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SprDrawable instance from the supplied inputs.
 
 #### `public SprDrawable(Gob gob, Sprite spr)`
 - Role: Creates a new SprDrawable instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SprDrawable instance from the supplied inputs.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void ctick(double dt)`
-- Role: Performs ctick.
-- Description: Supports the ctick operation used by the surrounding class.
+- Role: Advances the client-thread state.
+- Description: Advances the client-thread state.
 
 #### `public void gtick(Render g)`
 - Role: Advances the drawable state for the current render tick.
@@ -54,11 +55,11 @@ Represents the spr drawable Haven component.
 
 #### `public static <S extends Sprite> S apply(Gob gob, Sprite.Mill<S> mk)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Random mkrandoom()`
 - Role: Creates a random appearance context.

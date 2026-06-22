@@ -1,5 +1,5 @@
 ---
-source: [Window.java](../../../src/haven/Window.java)
+source: [Window.java](../../../../src/haven/Window.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,302 +12,337 @@ Represents the window Haven component.
 
 ### $_
 
-- Role: Represents $ within Window.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the window widget resource.
+- Description: Factory that creates a Window widget from size, caption, and large-window arguments.
 
 ### Animation
 
-- Role: Represents animation within Window.
-- Description: Describes the nested animation type used by the enclosing class.
+- Role: Marks a window animation.
+- Description: Animation contract used by Window transitions and decoration effects.
 
 ### Deco
 
-- Role: Represents deco within Window.
-- Description: Describes the nested deco type used by the enclosing class.
+- Role: Represents one window decoration.
+- Description: Base class for window frame implementations.
 
 ### DefaultDeco
 
-- Role: Represents default deco within Window.
-- Description: Describes the nested default deco type used by the enclosing class.
+- Role: Provides the default window decoration.
+- Description: Draggable window frame with caption bar, close button, and optional resize behavior.
 
 ### DragDeco
 
-- Role: Represents drag deco within Window.
-- Description: Describes the nested drag deco type used by the enclosing class.
+- Role: Enables dragging through the decoration.
+- Description: Decoration variant that forwards mouse drags to the owning window.
 
 ### FadeAnim
 
-- Role: Represents fade anim within Window.
-- Description: Describes the nested fade anim type used by the enclosing class.
+- Role: Fades a window in or out.
+- Description: Animation implementation that interpolates window opacity over time.
 
 ### NilAnim
 
-- Role: Represents nil anim within Window.
-- Description: Describes the nested nil anim type used by the enclosing class.
+- Role: Represents a no-op window animation.
+- Description: Animation implementation that performs no transition work.
 
 ### NormAnim
 
-- Role: Represents norm anim within Window.
-- Description: Describes the nested norm anim type used by the enclosing class.
+- Role: Represents a normalized window animation.
+- Description: Base animation helper for the standard window transition path.
 
 ### Transition
 
-- Role: Represents transition within Window.
-- Description: Describes the nested transition type used by the enclosing class.
+- Role: Bridges one animation state to another.
+- Description: Generic transition contract used by window animation state machines.
 
 ## Members
 
 ### Constants
 
 #### `public static final Pipe.Op bgblend = FragColor.blend.nil`
-- Role: Defines the shared bgblend constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the bgblend value.
+- Description: Caches the `bgblend` value for reuse.
+- Value: `FragColor.blend.nil`
 
 #### `public static final Pipe.Op cblend = FragColor.blend(new BlendMode(BlendMode.Function.ADD, BlendMode.Factor.SRC_ALPHA, BlendMode.Factor.INV_SRC_ALPHA,`
-- Role: Defines the shared cblend constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cblend operation.
+- Description: Implements the blend mode operation.
+- Value: `FragColor.blend(new BlendMode(BlendMode.Function.ADD, BlendMode.Factor.SRC_ALPHA, BlendMode.Factor.INV_SRC_ALPHA,`
 
 #### `public static final Tex bg = Resource.loadtex("gfx/hud/wnd/lg/bg")`
-- Role: Defines the shared bg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bg operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/bg")`
 
 #### `public static final Tex bgl = Resource.loadtex("gfx/hud/wnd/lg/bgl")`
-- Role: Defines the shared bgl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bgl operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/bgl")`
 
 #### `public static final Tex bgr = Resource.loadtex("gfx/hud/wnd/lg/bgr")`
-- Role: Defines the shared bgr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bgr operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/bgr")`
 
 #### `public static final Tex cl = Resource.loadtex("gfx/hud/wnd/lg/cl")`
-- Role: Defines the shared cl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cl operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/cl")`
 
 #### `public static final TexI cm = new TexI(Resource.loadsimg("gfx/hud/wnd/lg/cm"))`
-- Role: Defines the shared cm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cm operation.
+- Description: Implements the loadsimg operation.
+- Value: `new TexI(Resource.loadsimg("gfx/hud/wnd/lg/cm"))`
 
 #### `public static final Tex cr = Resource.loadtex("gfx/hud/wnd/lg/cr")`
-- Role: Defines the shared cr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cr operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/cr")`
 
 #### `public static final Tex tm = Resource.loadtex("gfx/hud/wnd/lg/tm")`
-- Role: Defines the shared tm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the tm operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/tm")`
 
 #### `public static final Tex tr = Resource.loadtex("gfx/hud/wnd/lg/tr")`
-- Role: Defines the shared tr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the tr operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/tr")`
 
 #### `public static final Tex lm = Resource.loadtex("gfx/hud/wnd/lg/lm")`
-- Role: Defines the shared lm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lm operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/lm")`
 
 #### `public static final Tex lb = Resource.loadtex("gfx/hud/wnd/lg/lb")`
-- Role: Defines the shared lb constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lb operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/lb")`
 
 #### `public static final Tex rm = Resource.loadtex("gfx/hud/wnd/lg/rm")`
-- Role: Defines the shared rm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the rm operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/rm")`
 
 #### `public static final Tex bl = Resource.loadtex("gfx/hud/wnd/lg/bl")`
-- Role: Defines the shared bl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bl operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/bl")`
 
 #### `public static final Tex bm = Resource.loadtex("gfx/hud/wnd/lg/bm")`
-- Role: Defines the shared bm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bm operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/bm")`
 
 #### `public static final Tex br = Resource.loadtex("gfx/hud/wnd/lg/br")`
-- Role: Defines the shared br constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the br operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/lg/br")`
 
 #### `public static final Tex sizer = Resource.loadtex("gfx/hud/wnd/sizer")`
-- Role: Defines the shared sizer constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the sizer operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/wnd/sizer")`
 
 #### `public static final Coord tlm = UI.scale(18, 30)`
-- Role: Defines the shared tlm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the tlm operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(18, 30)`
 
 #### `public static final Coord brm = UI.scale(13, 22)`
-- Role: Defines the shared brm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the brm operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(13, 22)`
 
 #### `public static final Coord cpo = UI.rscale(36, 16.4)`
-- Role: Defines the shared cpo constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cpo operation.
+- Description: Implements the rscale operation.
+- Value: `UI.rscale(36, 16.4)`
 
 #### `public static final int capo = 7, capio = 2`
-- Role: Defines the shared capo constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the capo value.
+- Description: Caches the `capo` value for reuse.
+- Value: `7, capio = 2`
 
 #### `public static final int capo = 7, capio = 2`
-- Role: Defines the shared capo constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the capo value.
+- Description: Caches the `capo` value for reuse.
+- Value: `7, capio = 2`
 
 #### `public static final Coord dlmrgn = UI.scale(23, 14)`
-- Role: Defines the shared dlmrgn constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the dlmrgn operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(23, 14)`
 
 #### `public static final Coord dsmrgn = UI.scale(9, 9)`
-- Role: Defines the shared dsmrgn constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the dsmrgn operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(9, 9)`
 
 #### `public static final BufferedImage ctex = Resource.loadsimg("gfx/hud/fonttex")`
-- Role: Defines the shared ctex constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctex operation.
+- Description: Implements the loadsimg operation.
+- Value: `Resource.loadsimg("gfx/hud/fonttex")`
 
 #### `@Deprecated public static final Text.Furnace cf = DefaultDeco.cf`
-- Role: Defines the shared cf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the cf value.
+- Description: Caches the `cf` value for reuse.
+- Value: `DefaultDeco.cf`
 
 #### `@Deprecated public static final Text.Furnace ncf = DefaultDeco.ncf`
-- Role: Defines the shared ncf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the ncf value.
+- Description: Caches the `ncf` value for reuse.
+- Value: `DefaultDeco.ncf`
 
 #### `public static final IBox wbox = new IBox.Scaled("gfx/hud/wnd", "tl", "tr", "bl", "br", "extvl", "extvr", "extht", "exthb")`
-- Role: Defines the shared wbox constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the wbox operation.
+- Description: Implements the scaled operation.
+- Value: `new IBox.Scaled("gfx/hud/wnd", "tl", "tr", "bl", "br", "extvl", "extvr", "extht", "exthb")`
 
 #### `private static final BufferedImage[] cbtni = new BufferedImage[]`
-- Role: Defines the shared cbtni constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the cbtni value.
+- Description: Caches the `cbtni` value for reuse.
+- Value: `new BufferedImage[]`
 
 #### `public static final Text.Forge cf = new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 15).aa(true), ctex),`
-- Role: Defines the shared cf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the cf operation.
+- Description: Implements the aa operation.
+- Value: `new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 15).aa(true), ctex),`
 
 #### `public static final Text.Forge ncf = new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 15).aa(true), ctex),`
-- Role: Defines the shared ncf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ncf operation.
+- Description: Implements the aa operation.
+- Value: `new PUtils.BlurFurn(new PUtils.TexFurn(new Text.Foundry(Text.fraktur, 15).aa(true), ctex),`
 
 #### `public static final Transition<?, ?> niltrans = new Transition<Animation, Animation>()`
-- Role: Defines the shared niltrans constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the niltrans operation.
+- Description: Implements the public static final transition<?, ?> niltrans = new transition<animation, animation>() operation.
+- Value: `new Transition<Animation, Animation>()`
 
 #### `public static final double minfac = 0.1`
-- Role: Defines the shared minfac constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the minfac value.
+- Description: Caches the `minfac` value for reuse.
+- Value: `0.1`
 
 #### `public static final double time = 0.1`
-- Role: Defines the shared time constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the time value.
+- Description: Caches the `time` value for reuse.
+- Value: `0.1`
 
 #### `public static final Transition<?, ?> trans = new Transition<FadeAnim, FadeAnim>()`
-- Role: Defines the shared trans constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the trans operation.
+- Description: Implements the public static final transition<?, ?> trans = new transition<fade anim, fade anim>() operation.
+- Value: `new Transition<FadeAnim, FadeAnim>()`
 
 ### Fields
 
 #### `public Deco deco`
-- Role: Holds the deco state.
-- Description: Backs the cached state for this file.
+- Role: Caches the deco value.
+- Description: Caches the `deco` value for reuse.
 
 #### `public String cap`
-- Role: Stores the cap value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cap value.
+- Description: Caches the `cap` value for reuse.
 
 #### `public TexRaw gbuf = null`
-- Role: Stores the gbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gbuf value.
+- Description: Caches the `gbuf` value for reuse.
 
 #### `private FragColor gout`
-- Role: Stores the gout value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gout value.
+- Description: Caches the `gout` value for reuse.
 
 #### `private Pipe.Op gbasic`
-- Role: Holds the gbasic state.
-- Description: Backs the cached state for this file.
+- Role: Caches the gbasic value.
+- Description: Caches the `gbasic` value for reuse.
 
 #### `private UI.Grab dm = null`
-- Role: Stores the dm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dm value.
+- Description: Caches the `dm` value for reuse.
 
 #### `private Coord doff`
-- Role: Stores the doff value.
-- Description: Backs the cached state for this file.
+- Role: Caches the doff value.
+- Description: Caches the `doff` value for reuse.
 
 #### `public boolean large = false`
 - Role: Tracks the large flag.
-- Description: Supports the large operation used by the surrounding class.
+- Description: Caches the `large` value for reuse.
 
 #### `public final boolean lg`
 - Role: Tracks the lg flag.
-- Description: Supports the lg operation used by the surrounding class.
+- Description: Caches the `lg` value for reuse.
 
 #### `public final IButton cbtn`
-- Role: Holds the cbtn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cbtn value.
+- Description: Caches the `cbtn` value for reuse.
 
 #### `public boolean dragsize, cfocus`
 - Role: Tracks the cfocus flag.
-- Description: Supports the cfocus operation used by the surrounding class.
+- Description: Caches the `cfocus` value for reuse.
 
 #### `public boolean dragsize, cfocus`
 - Role: Tracks the cfocus flag.
-- Description: Supports the cfocus operation used by the surrounding class.
+- Description: Caches the `cfocus` value for reuse.
 
 #### `public Area aa, ca`
-- Role: Holds the ca state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ca value.
+- Description: Caches the `ca` value for reuse.
 
 #### `public Area aa, ca`
-- Role: Holds the ca state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ca value.
+- Description: Caches the `ca` value for reuse.
 
 #### `public Coord cptl = Coord.z, cpsz = Coord.z`
-- Role: Stores the cptl value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cptl value.
+- Description: Caches the `cptl` value for reuse.
 
 #### `public Coord cptl = Coord.z, cpsz = Coord.z`
-- Role: Stores the cptl value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cptl value.
+- Description: Caches the `cptl` value for reuse.
 
 #### `public int cmw`
-- Role: Stores the cmw value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cmw value.
+- Description: Caches the `cmw` value for reuse.
 
 #### `public Text cap = null`
-- Role: Stores the cap value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cap value.
+- Description: Caches the `cap` value for reuse.
 
 #### `private UI.Grab szdrag`
-- Role: Stores the szdrag value.
-- Description: Backs the cached state for this file.
+- Role: Caches the szdrag value.
+- Description: Caches the `szdrag` value for reuse.
 
 #### `private Coord szdragc`
-- Role: Stores the szdragc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the szdragc value.
+- Description: Caches the `szdragc` value for reuse.
 
 #### `private Transition<?, ?> trans = null`
-- Role: Holds the trans state.
-- Description: Backs the cached state for this file.
+- Role: Caches the trans value.
+- Description: Caches the `trans` value for reuse.
 
 #### `private Animation anim = null`
-- Role: Holds the anim state.
-- Description: Backs the cached state for this file.
+- Role: Caches the anim value.
+- Description: Caches the `anim` value for reuse.
 
 #### `private String animst = null`
-- Role: Stores the animst value.
-- Description: Backs the cached state for this file.
+- Role: Caches the animst value.
+- Description: Caches the `animst` value for reuse.
 
 #### `public final double s`
-- Role: Stores the s value.
-- Description: Backs the cached state for this file.
+- Role: Caches the s value.
+- Description: Caches the `s` value for reuse.
 
 #### `public final boolean rev`
 - Role: Tracks the rev flag.
-- Description: Supports the rev operation used by the surrounding class.
+- Description: Caches the `rev` value for reuse.
 
 #### `public double a = 0.0, na = 0.0`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `a` value for reuse.
 
 #### `public double a = 0.0, na = 0.0`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `a` value for reuse.
 
 ### Methods
 
@@ -317,280 +352,280 @@ Represents the window Haven component.
 
 #### `private Window(Coord sz, String cap, boolean lg, Deco deco, boolean defdeco)`
 - Role: Creates a new Window instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Window instance from the supplied inputs.
 
 #### `public Window(Coord sz, String cap, boolean lg, Deco deco)`
 - Role: Creates a new Window instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Window instance from the supplied inputs.
 
 #### `public Window(Coord sz, String cap, boolean lg)`
 - Role: Creates a new Window instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Window instance from the supplied inputs.
 
 #### `public Window(Coord sz, String cap)`
 - Role: Creates a new Window instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Window instance from the supplied inputs.
 
 #### `protected Deco makedeco()`
-- Role: Performs makedeco.
-- Description: Supports the makedeco operation used by the surrounding class.
+- Role: Handles the makedeco path.
+- Description: Implements the makedeco operation.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void chcap(String cap)`
-- Role: Performs chcap.
-- Description: Supports the chcap operation used by the surrounding class.
+- Role: Handles the chcap path.
+- Description: Implements the chcap operation.
 
 #### `public void chdeco(Deco deco)`
-- Role: Performs chdeco.
-- Description: Supports the chdeco operation used by the surrounding class.
+- Role: Handles the chdeco path.
+- Description: Implements the chdeco operation.
 
 #### `public Deco()`
-- Role: Performs deco.
-- Description: Supports the deco operation used by the surrounding class.
+- Role: Handles the deco path.
+- Description: Implements the deco operation.
 
 #### `public abstract void iresize(Coord isz)`
-- Role: Performs iresize.
-- Description: Supports the iresize operation used by the surrounding class.
+- Role: Handles the iresize path.
+- Description: Implements the iresize operation.
 
 #### `public abstract Area contarea()`
-- Role: Performs contarea.
-- Description: Supports the contarea operation used by the surrounding class.
+- Role: Handles the contarea path.
+- Description: Implements the contarea operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public DefaultDeco(boolean lg)`
-- Role: Performs default deco.
-- Description: Supports the default deco operation used by the surrounding class.
+- Role: Handles the default deco path.
+- Description: Implements the default deco operation.
 
 #### `public DefaultDeco()`
-- Role: Performs default deco.
-- Description: Supports the default deco operation used by the surrounding class.
+- Role: Handles the default deco path.
+- Description: Implements the default deco operation.
 
 #### `public DefaultDeco dragsize(boolean v)`
-- Role: Performs dragsize.
-- Description: Supports the dragsize operation used by the surrounding class.
+- Role: Handles the dragsize path.
+- Description: Implements the dragsize operation.
 
 #### `public void iresize(Coord isz)`
-- Role: Performs iresize.
-- Description: Supports the iresize operation used by the surrounding class.
+- Role: Handles the iresize path.
+- Description: Implements the iresize operation.
 
 #### `public Area contarea()`
-- Role: Performs contarea.
-- Description: Supports the contarea operation used by the surrounding class.
+- Role: Handles the contarea path.
+- Description: Implements the contarea operation.
 
 #### `protected void cdraw(GOut g)`
-- Role: Performs cdraw.
-- Description: Supports the cdraw operation used by the surrounding class.
+- Role: Handles the cdraw path.
+- Description: Implements the cdraw operation.
 
 #### `protected void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `protected void drawframe(GOut g)`
-- Role: Performs drawframe.
-- Description: Supports the drawframe operation used by the surrounding class.
+- Role: Handles the drawframe path.
+- Description: Draws the frame.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Window content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Handles the checkhit path.
+- Description: Implements the checkhit operation.
 
 #### `public void cdraw(GOut g)`
-- Role: Performs cdraw.
-- Description: Supports the cdraw operation used by the surrounding class.
+- Role: Handles the cdraw path.
+- Description: Implements the cdraw operation.
 
 #### `public Pipe.Op gbasic()`
-- Role: Performs gbasic.
-- Description: Supports the gbasic operation used by the surrounding class.
+- Role: Handles the gbasic path.
+- Description: Implements the gbasic operation.
 
 #### `protected void drawbuf(GOut g)`
-- Role: Performs drawbuf.
-- Description: Supports the drawbuf operation used by the surrounding class.
+- Role: Handles the drawbuf path.
+- Description: Draws the buf.
 
 #### `protected void drawfin(GOut g, Tex buf)`
-- Role: Performs drawfin.
-- Description: Supports the drawfin operation used by the surrounding class.
+- Role: Handles the drawfin path.
+- Description: Draws the fin.
 
 #### `public void draw(GOut og)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Window content.
 
 #### `public Coord contentsz()`
-- Role: Performs contentsz.
-- Description: Supports the contentsz operation used by the surrounding class.
+- Role: Handles the contentsz path.
+- Description: Implements the contentsz operation.
 
 #### `public Area ca()`
-- Role: Performs ca.
-- Description: Supports the ca operation used by the surrounding class.
+- Role: Handles the ca path.
+- Description: Implements the ca operation.
 
 #### `public Coord csz()`
-- Role: Performs csz.
-- Description: Supports the csz operation used by the surrounding class.
+- Role: Handles the csz path.
+- Description: Implements the csz operation.
 
 #### `private void resize2(Coord sz)`
-- Role: Performs resize2.
-- Description: Supports the resize2 operation used by the surrounding class.
+- Role: Handles the resize2 path.
+- Description: Implements the resize2 operation.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public Coord xlate(Coord c, boolean in)`
-- Role: Performs xlate.
-- Description: Supports the xlate operation used by the surrounding class.
+- Role: Handles the xlate path.
+- Description: Implements the xlate operation.
 
 #### `public void drag(Coord off)`
-- Role: Performs drag.
-- Description: Supports the drag operation used by the surrounding class.
+- Role: Handles the drag path.
+- Description: Implements the drag operation.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Handles the checkhit path.
+- Description: Implements the checkhit operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean handle(Event ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `public void reqclose()`
-- Role: Performs reqclose.
-- Description: Supports the reqclose operation used by the surrounding class.
+- Role: Handles the reqclose path.
+- Description: Implements the reqclose operation.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g, Tex tex)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Window content.
 
 #### `public S show(Window wnd, H hiding)`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.
 
 #### `public H hide(Window wnd, S showing)`
-- Role: Performs hide.
-- Description: Supports the hide operation used by the surrounding class.
+- Role: Handles the hide path.
+- Description: Implements the hide operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `private <H extends Animation> Animation show0(Transition<?, H> trans, Animation h)`
-- Role: Performs show0.
-- Description: Supports the show0 operation used by the surrounding class.
+- Role: Handles the show0 path.
+- Description: Implements the show0 operation.
 
 #### `private <S extends Animation> Animation hide0(Transition<S, ?> trans, Animation s)`
-- Role: Performs hide0.
-- Description: Supports the hide0 operation used by the surrounding class.
+- Role: Handles the hide0 path.
+- Description: Implements the hide0 operation.
 
 #### `public void settrans(Transition<?, ?> trans)`
-- Role: Performs settrans.
-- Description: Supports the settrans operation used by the surrounding class.
+- Role: Handles the settrans path.
+- Description: Updates the trans.
 
 #### `public boolean visible()`
 - Role: Returns whether the widget is visible.
 - Description: Controls whether the overlay participates in rendering.
 
 #### `private void initanim()`
-- Role: Performs initanim.
-- Description: Supports the initanim operation used by the surrounding class.
+- Role: Handles the initanim path.
+- Description: Implements the initanim operation.
 
 #### `public void show()`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.
 
 #### `public void hide()`
-- Role: Performs hide.
-- Description: Supports the hide operation used by the surrounding class.
+- Role: Handles the hide path.
+- Description: Implements the hide operation.
 
 #### `public void reqdestroy()`
-- Role: Performs reqdestroy.
-- Description: Supports the reqdestroy operation used by the surrounding class.
+- Role: Handles the reqdestroy path.
+- Description: Implements the reqdestroy operation.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g, Tex tex)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Window content.
 
 #### `public NormAnim(double t, double fromn, boolean rev)`
-- Role: Performs norm anim.
-- Description: Supports the norm anim operation used by the surrounding class.
+- Role: Handles the norm anim path.
+- Description: Implements the norm anim operation.
 
 #### `public NormAnim(double t, NormAnim from, boolean rev)`
-- Role: Performs norm anim.
-- Description: Supports the norm anim operation used by the surrounding class.
+- Role: Handles the norm anim path.
+- Description: Implements the norm anim operation.
 
 #### `public NormAnim(double t)`
-- Role: Performs norm anim.
-- Description: Supports the norm anim operation used by the surrounding class.
+- Role: Handles the norm anim path.
+- Description: Implements the norm anim operation.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void stick(double a)`
-- Role: Performs stick.
-- Description: Supports the stick operation used by the surrounding class.
+- Role: Handles the stick path.
+- Description: Implements the stick operation.
 
 #### `public FadeAnim(boolean hide, FadeAnim from)`
-- Role: Performs fade anim.
-- Description: Supports the fade anim operation used by the surrounding class.
+- Role: Handles the fade anim path.
+- Description: Implements the fade anim operation.
 
 #### `public void draw(GOut g, Tex tex)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Window content.
 
 #### `protected Transition<?, ?> deftrans()`
-- Role: Performs deftrans.
-- Description: Supports the deftrans operation used by the surrounding class.
+- Role: Handles the deftrans path.
+- Description: Implements the deftrans operation.
 
 #### `public static void main(String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.
 
 #### `public boolean isTitle(String text)`
 - Role: Checks whether the title.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.

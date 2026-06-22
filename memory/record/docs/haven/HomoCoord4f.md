@@ -1,5 +1,5 @@
 ---
-source: [HomoCoord4f.java](../../../src/haven/HomoCoord4f.java)
+source: [HomoCoord4f.java](../../../../src/haven/HomoCoord4f.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,123 +15,123 @@ Represents the homo coord4f Haven component.
 ### Fields
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public static int NX = 1, PX = 2, NY = 4, PY = 8, NZ = 16, PZ = 32, AX = NX | PX, AY = NY | PY, AZ = NZ | PZ`
-- Role: Stores the nx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nx value.
+- Description: Caches the `NX` value for reuse.
 
 #### `public float x, y, z, w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public float x, y, z, w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public float x, y, z, w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public float x, y, z, w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 ### Methods
 
 #### `public HomoCoord4f(float x, float y, float z, float w)`
 - Role: Creates a new HomoCoord4f instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HomoCoord4f instance from the supplied inputs.
 
 #### `public static HomoCoord4f of(float x, float y, float z, float w)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a HomoCoord4f value from the supplied components.
+- Description: Builds a HomoCoord4f value from the supplied components.
 
 #### `public static HomoCoord4f of(float x, float y, float z)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a HomoCoord4f value from the supplied components.
+- Description: Builds a HomoCoord4f value from the supplied components.
 
 #### `public static HomoCoord4f of(Coord3f c)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a HomoCoord4f value from the supplied components.
+- Description: Builds a HomoCoord4f value from the supplied components.
 
 #### `public boolean equals(HomoCoord4f o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public static HomoCoord4f fromiclip(Matrix4f iproj, Coord3f cc)`
-- Role: Performs fromiclip.
-- Description: Supports the fromiclip operation used by the surrounding class.
+- Role: Handles the fromiclip path.
+- Description: Implements the fromiclip operation.
 
 #### `public static HomoCoord4f fromclip(Matrix4f proj, Coord3f cc)`
-- Role: Performs fromclip.
-- Description: Supports the fromclip operation used by the surrounding class.
+- Role: Handles the fromclip path.
+- Description: Implements the fromclip operation.
 
 #### `public static HomoCoord4f fromindc(Matrix4f iproj, Coord3f nc)`
-- Role: Performs fromindc.
-- Description: Supports the fromindc operation used by the surrounding class.
+- Role: Handles the fromindc path.
+- Description: Implements the fromindc operation.
 
 #### `public static HomoCoord4f fromndc(Matrix4f proj, Coord3f nc)`
-- Role: Performs fromndc.
-- Description: Supports the fromndc operation used by the surrounding class.
+- Role: Handles the fromndc path.
+- Description: Implements the fromndc operation.
 
 #### `public static HomoCoord4f lineclip(HomoCoord4f a, HomoCoord4f b, int planes)`
-- Role: Performs lineclip.
-- Description: Supports the lineclip operation used by the surrounding class.
+- Role: Handles the lineclip path.
+- Description: Implements the lineclip operation.
 
 #### `public static HomoCoord4f lineclip(HomoCoord4f a, HomoCoord4f b)`
-- Role: Performs lineclip.
-- Description: Supports the lineclip operation used by the surrounding class.
+- Role: Handles the lineclip path.
+- Description: Implements the lineclip operation.
 
 #### `public boolean clipped(int planes)`
-- Role: Performs clipped.
-- Description: Supports the clipped operation used by the surrounding class.
+- Role: Handles the clipped path.
+- Description: Implements the clipped operation.
 
 #### `public boolean clipped()`
-- Role: Performs clipped.
-- Description: Supports the clipped operation used by the surrounding class.
+- Role: Handles the clipped path.
+- Description: Implements the clipped operation.
 
 #### `public Coord3f pdiv()`
-- Role: Performs pdiv.
-- Description: Supports the pdiv operation used by the surrounding class.
+- Role: Handles the pdiv path.
+- Description: Implements the pdiv operation.
 
 #### `public Coord3f toview(Area view)`
-- Role: Performs toview.
-- Description: Supports the toview operation used by the surrounding class.
+- Role: Handles the toview path.
+- Description: Implements the toview operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this HomoCoord4f for debugging and logging.

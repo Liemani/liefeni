@@ -1,5 +1,5 @@
 ---
-source: [WaypointDebug.java](../../../../src/lmi/waypoint/WaypointDebug.java)
+source: [WaypointDebug.java](../../../../../src/lmi/waypoint/WaypointDebug.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Provides waypoint-specific debug helpers.
 
 #### `private WaypointDebug()`
 - Role: Creates a new WaypointDebug instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointDebug instance from the supplied inputs.
 
 #### `public static Array<String> lines()`
-- Role: Performs lines.
-- Description: Supports the lines operation used by the surrounding class.
+- Role: Returns the current waypoint debug lines.
+- Description: Builds a human-readable summary of waypoint runtime state.
 
 #### `private static String _sceneSummary()`
-- Role: Performs  scene summary.
-- Description: Supports the scene summary operation used by the surrounding class.
+- Role: Builds the waypoint scene summary.
+- Description: Condenses the current scene into a single debug line.

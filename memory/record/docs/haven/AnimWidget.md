@@ -1,5 +1,5 @@
 ---
-source: [AnimWidget.java](../../../src/haven/AnimWidget.java)
+source: [AnimWidget.java](../../../../src/haven/AnimWidget.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,95 +15,95 @@ Represents the anim widget Haven component.
 ### Fields
 
 #### `public final AnimWidget w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public final Collection<Anim> anims = new ArrayList<>()`
-- Role: Caches anims entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the anims operation.
+- Description: Implements the public final collection<anim> anims = new array list<>() operation.
 
 #### `public final Collection<Anim> nanims = new ArrayList<>()`
-- Role: Caches nanims entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the nanims operation.
+- Description: Implements the public final collection<anim> nanims = new array list<>() operation.
 
 #### `public final AnimWidget w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `private double a = 0.0`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Caches the a value.
+- Description: Caches the `a` value for reuse.
 
 #### `private final double s`
-- Role: Stores the s value.
-- Description: Backs the cached state for this file.
+- Role: Caches the s value.
+- Description: Caches the `s` value for reuse.
 
 ### Methods
 
 #### `public <E extends Event> void listen(Class<E> t, EventHandler<? super E> h)`
-- Role: Performs listen.
-- Description: Supports the listen operation used by the surrounding class.
+- Role: Handles the listen path.
+- Description: Implements the listen operation.
 
 #### `public boolean deafen(EventHandler<?> h)`
-- Role: Performs deafen.
-- Description: Supports the deafen operation used by the surrounding class.
+- Role: Handles the deafen path.
+- Description: Implements the deafen operation.
 
 #### `public <H extends EventHandler<?>> H listening(Class<H> cl)`
-- Role: Performs listening.
-- Description: Supports the listening operation used by the surrounding class.
+- Role: Handles the listening path.
+- Description: Implements the listening operation.
 
 #### `public Handler(AnimWidget w)`
-- Role: Performs handler.
-- Description: Supports the handler operation used by the surrounding class.
+- Role: Handles the handler path.
+- Description: Implements the handler operation.
 
 #### `private void checkempty()`
-- Role: Performs checkempty.
-- Description: Supports the checkempty operation used by the surrounding class.
+- Role: Handles the checkempty path.
+- Description: Implements the checkempty operation.
 
 #### `public boolean handle(TickEvent ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public void add(Anim anim)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(Anim anim)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public static Handler get(AnimWidget w, boolean creat)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public default <A extends Anim> A animated(Class<A> type)`
-- Role: Performs animated.
-- Description: Supports the animated operation used by the surrounding class.
+- Role: Handles the animated path.
+- Description: Implements the animated operation.
 
 #### `public default void clearanims(Class<?> type)`
-- Role: Performs clearanims.
-- Description: Supports the clearanims operation used by the surrounding class.
+- Role: Handles the clearanims path.
+- Description: Clears the anims.
 
 #### `public Anim(AnimWidget w)`
-- Role: Performs anim.
-- Description: Supports the anim operation used by the surrounding class.
+- Role: Handles the anim path.
+- Description: Implements the anim operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public abstract boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public NormAnim(AnimWidget w, double s)`
-- Role: Performs norm anim.
-- Description: Supports the norm anim operation used by the surrounding class.
+- Role: Handles the norm anim path.
+- Description: Implements the norm anim operation.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public abstract void ntick(double a)`
-- Role: Performs ntick.
-- Description: Supports the ntick operation used by the surrounding class.
+- Role: Handles the ntick path.
+- Description: Implements the ntick operation.

@@ -1,5 +1,5 @@
 ---
-source: [WaypointReadRequest.java](../../../../../src/lmi/waypoint/persistence/WaypointReadRequest.java)
+source: [WaypointReadRequest.java](../../../../../../src/lmi/waypoint/persistence/WaypointReadRequest.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---

@@ -1,5 +1,5 @@
 ---
-source: [Matrix4f.java](../../../src/haven/Matrix4f.java)
+source: [Matrix4f.java](../../../../src/haven/Matrix4f.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,105 +13,106 @@ Represents the matrix4f Haven component.
 ### Constants
 
 #### `public static final Matrix4f id = identity()`
-- Role: Defines the shared id constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id operation.
+- Description: Implements the identity operation.
+- Value: `identity()`
 
 ### Fields
 
 #### `public final float[] m`
-- Role: Stores the m value.
-- Description: Backs the cached state for this file.
+- Role: Caches the m value.
+- Description: Caches the `m` value for reuse.
 
 ### Methods
 
 #### `public Matrix4f()`
 - Role: Creates a new Matrix4f instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Matrix4f instance from the supplied inputs.
 
 #### `public Matrix4f(Matrix4f b)`
 - Role: Creates a new Matrix4f instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Matrix4f instance from the supplied inputs.
 
 #### `public Matrix4f(float e00, float e01, float e02, float e03, float e10, float e11, float e12, float e13, float e20, float e21, float e22, float e23, float e30, float e31, float e32, float e33)`
 - Role: Creates a new Matrix4f instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Matrix4f instance from the supplied inputs.
 
 #### `public Matrix4f(float[] m)`
 - Role: Creates a new Matrix4f instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Matrix4f instance from the supplied inputs.
 
 #### `public static Matrix4f identity()`
-- Role: Performs identity.
-- Description: Supports the identity operation used by the surrounding class.
+- Role: Handles the identity path.
+- Description: Implements the identity operation.
 
 #### `public Matrix4f load(Matrix4f o)`
 - Role: Loads the target data.
 - Description: Loads the target data into the in-memory state.
 
 #### `public float get(int x, int y)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void set(int x, int y, float v)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public boolean equals(Matrix4f that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public Matrix4f add(Matrix4f b)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public Coord3f mul4(Coord3f b)`
-- Role: Performs mul4.
-- Description: Supports the mul4 operation used by the surrounding class.
+- Role: Handles the mul4 path.
+- Description: Implements the mul4 operation.
 
 #### `public float[] mul4(float[] b)`
-- Role: Performs mul4.
-- Description: Supports the mul4 operation used by the surrounding class.
+- Role: Handles the mul4 path.
+- Description: Implements the mul4 operation.
 
 #### `public HomoCoord4f mul4(HomoCoord4f b)`
-- Role: Performs mul4.
-- Description: Supports the mul4 operation used by the surrounding class.
+- Role: Handles the mul4 path.
+- Description: Implements the mul4 operation.
 
 #### `public Matrix4f mul(Matrix4f o)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies this Matrix4f by the supplied value.
+- Description: Multiplies this Matrix4f by the supplied value.
 
 #### `public Matrix4f mul1(Matrix4f o)`
-- Role: Performs mul1.
-- Description: Supports the mul1 operation used by the surrounding class.
+- Role: Handles the mul1 path.
+- Description: Implements the mul1 operation.
 
 #### `public Matrix4f transpose()`
-- Role: Performs transpose.
-- Description: Supports the transpose operation used by the surrounding class.
+- Role: Handles the transpose path.
+- Description: Implements the transpose operation.
 
 #### `public float[] trim3()`
-- Role: Performs trim3.
-- Description: Supports the trim3 operation used by the surrounding class.
+- Role: Handles the trim3 path.
+- Description: Implements the trim3 operation.
 
 #### `public Matrix4f trim3(float e33)`
-- Role: Performs trim3.
-- Description: Supports the trim3 operation used by the surrounding class.
+- Role: Handles the trim3 path.
+- Description: Implements the trim3 operation.
 
 #### `public Matrix4f invert()`
-- Role: Performs invert.
-- Description: Supports the invert operation used by the surrounding class.
+- Role: Handles the invert path.
+- Description: Implements the invert operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Matrix4f for debugging and logging.
 
 #### `public String toString2()`
-- Role: Performs to string2.
-- Description: Supports the to string2 operation used by the surrounding class.
+- Role: Handles the to string2 path.
+- Description: Implements the to string2 operation.

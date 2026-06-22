@@ -1,12 +1,12 @@
 ---
-source: [Fightview.java](../../../src/haven/Fightview.java)
+source: [Fightview.java](../../../../src/haven/Fightview.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Fightview
 
-Represents the fightview Haven component.
+Manages the combat relation list and current fight controls.
 
 ## Nested Types
 
@@ -50,240 +50,248 @@ Represents the fightview Haven component.
 ### Constants
 
 #### `public static final Tex bg = Resource.loadtex("gfx/hud/bosq")`
-- Role: Defines the shared bg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the fight-view background texture.
+- Description: Loads the base panel texture used for relation rows.
+- Value: `Resource.loadtex("gfx/hud/bosq")`
 
 #### `public static final int height = 5`
-- Role: Defines the shared height constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Sets the visible relation count.
+- Description: Controls how many relation rows fit in the list view.
+- Value: `5`
 
 #### `public static final int ymarg = UI.scale(5)`
-- Role: Defines the shared ymarg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Sets vertical spacing.
+- Description: Provides the row gap used between relation entries.
+- Value: `UI.scale(5)`
 
 #### `public static final int width = UI.scale(175)`
-- Role: Defines the shared width constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Sets the fight-view width.
+- Description: Controls the width of the combat panel.
+- Value: `UI.scale(175)`
 
 #### `public static final Coord avasz = Coord.of(bg.sz().y - UI.scale(6))`
-- Role: Defines the shared avasz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Sizes the combat avatar area.
+- Description: Sets the square avatar region inside the fight panel.
+- Value: `Coord.of(bg.sz().y - UI.scale(6))`
 
 #### `public static final Coord cavac = new Coord(width - Avaview.dasz.x - UI.scale(10), UI.scale(10))`
-- Role: Defines the shared cavac constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Positions the main avatar block.
+- Description: Places the avatar panel inside the fight-view background.
+- Value: `new Coord(width - Avaview.dasz.x - UI.scale(10), UI.scale(10))`
 
 #### `public static final Coord cgivec = new Coord(cavac.x - UI.scale(35), cavac.y)`
-- Role: Defines the shared cgivec constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Positions the give button.
+- Description: Places the give action next to the avatar block.
+- Value: `new Coord(cavac.x - UI.scale(35), cavac.y)`
 
 #### `public static final Coord cpursc = new Coord(cavac.x - UI.scale(75), cgivec.y + UI.scale(35))`
-- Role: Defines the shared cpursc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Positions the pursue button.
+- Description: Places the pursue action under the main avatar controls.
+- Value: `new Coord(cavac.x - UI.scale(75), cgivec.y + UI.scale(35))`
 
 ### Fields
 
 #### `public final LinkedList<Relation> lsrel = new LinkedList<Relation>()`
-- Role: Caches lsrel entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores all combat relations.
+- Description: Keeps the current list of opponents or relations from the server.
 
 #### `public final Bufflist buffs = add(new Bufflist())`
-- Role: Holds the buffs state.
-- Description: Backs the cached state for this file.
+- Role: Hosts global combat buffs.
+- Description: Keeps the shared buff list attached to the fight view.
 
 #### `public final Map<Long, Widget> obinfo = new HashMap<>()`
-- Role: Caches obinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores per-gob combat UI subtrees.
+- Description: Keeps auxiliary widgets attached to each relation gob id.
 
 #### `public final Rellist lsdisp`
-- Role: Holds the lsdisp state.
-- Description: Backs the cached state for this file.
+- Role: Stores the scrollable relation list widget.
+- Description: Renders the non-main combat relations.
 
 #### `public Relation current = null`
-- Role: Holds the current state.
-- Description: Backs the cached state for this file.
+- Role: Tracks the focused relation.
+- Description: Points to the relation currently shown as the main opponent.
 
 #### `public Indir<Resource> blk, batk, iatk`
-- Role: Stores the iatk value.
-- Description: Backs the cached state for this file.
+- Role: Stores combat action resources.
+- Description: Tracks block, basic attack, and interrupt attack resources.
 
 #### `public Indir<Resource> blk, batk, iatk`
-- Role: Stores the iatk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the iatk value.
+- Description: Caches the `iatk` value for reuse.
 
 #### `public Indir<Resource> blk, batk, iatk`
-- Role: Stores the iatk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the iatk value.
+- Description: Caches the `iatk` value for reuse.
 
 #### `public double atkcs, atkct`
-- Role: Stores the atkct value.
-- Description: Backs the cached state for this file.
+- Role: Tracks attack cooldown timing.
+- Description: Stores the current and target attack cooldown values.
 
 #### `public double atkcs, atkct`
-- Role: Stores the atkct value.
-- Description: Backs the cached state for this file.
+- Role: Caches the atkct value.
+- Description: Caches the `atkct` value for reuse.
 
 #### `public Indir<Resource> lastact = null`
-- Role: Stores the lastact value.
-- Description: Backs the cached state for this file.
+- Role: Stores the last combat action.
+- Description: Remembers the most recent action resource used in combat.
 
 #### `public double lastuse = 0`
-- Role: Stores the lastuse value.
-- Description: Backs the cached state for this file.
+- Role: Tracks the last action time.
+- Description: Stores when the last combat action was used.
 
 #### `public Mainrel curdisp`
-- Role: Holds the curdisp state.
-- Description: Backs the cached state for this file.
+- Role: Stores the displayed main relation widget.
+- Description: Points to the relation currently shown in the main panel.
 
 #### `private List<Relation> nonmain = Collections.emptyList()`
-- Role: Caches nonmain entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the nonmain operation.
+- Description: Implements the empty list operation.
 
 #### `public final long gobid`
-- Role: Stores the gobid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gobid value.
+- Description: Caches the `gobid` value for reuse.
 
 #### `public final Bufflist buffs = add(new Bufflist())`
-- Role: Holds the buffs state.
-- Description: Backs the cached state for this file.
+- Role: Implements the buffs operation.
+- Description: Implements the bufflist operation.
 
 #### `public final Bufflist relbuffs = add(new Bufflist())`
-- Role: Holds the relbuffs state.
-- Description: Backs the cached state for this file.
+- Role: Implements the relbuffs operation.
+- Description: Implements the bufflist operation.
 
 #### `public int gst, ip, oip`
-- Role: Stores the oip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oip value.
+- Description: Caches the `oip` value for reuse.
 
 #### `public int gst, ip, oip`
-- Role: Stores the oip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oip value.
+- Description: Caches the `oip` value for reuse.
 
 #### `public int gst, ip, oip`
-- Role: Stores the oip value.
-- Description: Backs the cached state for this file.
+- Role: Caches the oip value.
+- Description: Caches the `oip` value for reuse.
 
 #### `public Indir<Resource> lastact = null`
-- Role: Stores the lastact value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last act.
+- Description: Caches the last act value.
 
 #### `public double lastuse = 0`
-- Role: Stores the lastuse value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last use.
+- Description: Caches the last use value.
 
 #### `public boolean invalid = false`
 - Role: Tracks whether invalid is valid.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final Relation rel`
-- Role: Holds the rel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rel value.
+- Description: Caches the `rel` value for reuse.
 
 #### `public final Avaview ava`
-- Role: Holds the ava state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ava value.
+- Description: Caches the `ava` value for reuse.
 
 #### `public final GiveButton give`
-- Role: Holds the give state.
-- Description: Backs the cached state for this file.
+- Role: Caches the give value.
+- Description: Caches the `give` value for reuse.
 
 #### `public final Button purs`
-- Role: Holds the purs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the purs value.
+- Description: Caches the `purs` value for reuse.
 
 #### `public final Relation rel`
-- Role: Holds the rel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rel value.
+- Description: Caches the `rel` value for reuse.
 
 #### `public final Avaview ava`
-- Role: Holds the ava state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ava value.
+- Description: Caches the `ava` value for reuse.
 
 #### `public final GiveButton give`
-- Role: Holds the give state.
-- Description: Backs the cached state for this file.
+- Role: Caches the give value.
+- Description: Caches the `give` value for reuse.
 
 #### `public final Button purs`
-- Role: Holds the purs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the purs value.
+- Description: Caches the `purs` value for reuse.
 
 #### `public final long id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 ### Methods
 
 #### `public Relation(long gobid)`
-- Role: Performs relation.
-- Description: Supports the relation operation used by the surrounding class.
+- Role: Handles the relation path.
+- Description: Implements the relation operation.
 
 #### `public void give(int state)`
-- Role: Performs give.
-- Description: Supports the give operation used by the surrounding class.
+- Role: Handles the give path.
+- Description: Implements the give operation.
 
 #### `public void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void use(Indir<Resource> act)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Handles the use path.
+- Description: Implements the use operation.
 
 #### `public Relbox(Relation rel)`
-- Role: Performs relbox.
-- Description: Supports the relbox operation used by the surrounding class.
+- Role: Handles the relbox path.
+- Description: Implements the relbox operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Fightview content.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public Rellist(int h)`
-- Role: Performs rellist.
-- Description: Supports the rellist operation used by the surrounding class.
+- Role: Handles the rellist path.
+- Description: Implements the rellist operation.
 
 #### `protected List<Relation> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Relbox makeitem(Relation rel, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `protected void drawslot(GOut g, Relation item, int idx, Area area)`
-- Role: Performs drawslot.
-- Description: Supports the drawslot operation used by the surrounding class.
+- Role: Handles the drawslot path.
+- Description: Draws the slot.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `protected boolean unselect(int button)`
-- Role: Performs unselect.
-- Description: Supports the unselect operation used by the surrounding class.
+- Role: Handles the unselect path.
+- Description: Implements the unselect operation.
 
 #### `public Mainrel(Relation rel)`
-- Role: Performs mainrel.
-- Description: Supports the mainrel operation used by the surrounding class.
+- Role: Handles the mainrel path.
+- Description: Implements the mainrel operation.
 
 #### `private void lpack()`
-- Role: Performs lpack.
-- Description: Supports the lpack operation used by the surrounding class.
+- Role: Handles the lpack path.
+- Description: Implements the lpack operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Fightview content.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public void use(Indir<Resource> act)`
-- Role: Performs use.
-- Description: Supports the use operation used by the surrounding class.
+- Role: Handles the use path.
+- Description: Implements the use operation.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.
@@ -291,52 +299,52 @@ Represents the fightview Haven component.
 
 #### `public Fightview()`
 - Role: Creates a new Fightview instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Fightview instance from the supplied inputs.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `public Widget obinfo(long gobid, boolean creat)`
-- Role: Performs obinfo.
-- Description: Supports the obinfo operation used by the surrounding class.
+- Role: Handles the obinfo path.
+- Description: Implements the obinfo operation.
 
 #### `public <T extends Widget> T obinfo(long gobid, Class<T> cl, boolean creat)`
-- Role: Performs obinfo.
-- Description: Supports the obinfo operation used by the surrounding class.
+- Role: Handles the obinfo path.
+- Description: Implements the obinfo operation.
 
 #### `public default int prio()`
-- Role: Performs prio.
-- Description: Supports the prio operation used by the surrounding class.
+- Role: Handles the prio path.
+- Description: Implements the prio operation.
 
 #### `public default Coord2d grav()`
-- Role: Performs grav.
-- Description: Supports the grav operation used by the surrounding class.
+- Role: Handles the grav path.
+- Description: Implements the grav operation.
 
 #### `private void layout()`
-- Role: Performs layout.
-- Description: Supports the layout operation used by the surrounding class.
+- Role: Handles the layout path.
+- Description: Lays out parts on wrapped lines and aligns their baselines.
 
 #### `private void updrel()`
-- Role: Performs updrel.
-- Description: Supports the updrel operation used by the surrounding class.
+- Role: Handles the updrel path.
+- Description: Implements the updrel operation.
 
 #### `private void setcur(Relation rel)`
-- Role: Performs setcur.
-- Description: Supports the setcur operation used by the surrounding class.
+- Role: Handles the setcur path.
+- Description: Updates the cur.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public Notfound(long id)`
-- Role: Performs notfound.
-- Description: Supports the notfound operation used by the surrounding class.
+- Role: Handles the notfound path.
+- Description: Implements the notfound operation.
 
 #### `private Relation getrel(long gobid)`
-- Role: Performs getrel.
-- Description: Supports the getrel operation used by the surrounding class.
+- Role: Handles the getrel path.
+- Description: Returns the rel.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

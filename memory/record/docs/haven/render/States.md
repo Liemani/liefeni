@@ -1,5 +1,5 @@
 ---
-source: [States.java](../../../../src/haven/render/States.java)
+source: [States.java](../../../../../src/haven/render/States.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,245 +12,254 @@ Defines the states render pipeline component.
 
 ### Builtin
 
-- Role: Represents builtin within States.
-- Description: Describes the nested builtin type used by the enclosing class.
+- Role: Defines one built-in render state.
+- Description: Serves as the base type for state objects that write themselves into a pipe.
 
 ### DepthBias
 
-- Role: Represents depth bias within States.
-- Description: Describes the nested depth bias type used by the enclosing class.
+- Role: Defines depth bias state.
+- Description: Sets polygon offset values used while rendering depth-tested geometry.
 
 ### Depthtest
 
-- Role: Represents depthtest within States.
-- Description: Describes the nested depthtest type used by the enclosing class.
+- Role: Defines depth test state.
+- Description: Controls which depth comparison is used for a draw call.
 
 ### Facecull
 
-- Role: Represents facecull within States.
-- Description: Describes the nested facecull type used by the enclosing class.
+- Role: Defines face culling state.
+- Description: Controls which winding order is discarded during rendering.
 
 ### LineWidth
 
-- Role: Represents line width within States.
-- Description: Describes the nested line width type used by the enclosing class.
+- Role: Defines line width state.
+- Description: Carries the raster line width used for wireframe-like rendering.
 
 ### Mode
 
-- Role: Represents mode within States.
-- Description: Describes the nested mode type used by the enclosing class.
+- Role: Defines a face-cull mode.
+- Description: Enumerates how triangle orientation is interpreted during culling.
 
 ### Scissor
 
-- Role: Represents scissor within States.
-- Description: Describes the nested scissor type used by the enclosing class.
+- Role: Defines scissor state.
+- Description: Stores the clip rectangle applied to the current framebuffer.
 
 ### Test
 
-- Role: Represents test within States.
-- Description: Describes the nested test type used by the enclosing class.
+- Role: Defines a depth test function.
+- Description: Enumerates the comparison used for depth-buffer testing.
 
 ### Viewport
 
-- Role: Represents viewport within States.
-- Description: Describes the nested viewport type used by the enclosing class.
+- Role: Defines viewport state.
+- Description: Stores the framebuffer rectangle used for projection and scissor setup.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<State> vxf = new Slot<State>(Slot.Type.SYS, State.class)`
-- Role: Defines the shared vxf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the vxf operation.
+- Description: Implements the public static final slot<state> vxf = new slot<state>(slot.type.sys, state.class) operation.
+- Value: `new Slot<State>(Slot.Type.SYS, State.class)`
 
 #### `public static final Slot<Viewport> viewport = new Slot<Viewport>(Slot.Type.SYS, Viewport.class)`
-- Role: Defines the shared viewport constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the viewport operation.
+- Description: Implements the public static final slot<viewport> viewport = new slot<viewport>(slot.type.sys, viewport.class) operation.
+- Value: `new Slot<Viewport>(Slot.Type.SYS, Viewport.class)`
 
 #### `public static final Slot<Scissor> scissor = new Slot<Scissor>(Slot.Type.SYS, Scissor.class)`
-- Role: Defines the shared scissor constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the scissor operation.
+- Description: Implements the public static final slot<scissor> scissor = new slot<scissor>(slot.type.sys, scissor.class) operation.
+- Value: `new Slot<Scissor>(Slot.Type.SYS, Scissor.class)`
 
 #### `public static final Slot<Facecull> facecull = new Slot<Facecull>(Slot.Type.GEOM, Facecull.class)`
-- Role: Defines the shared facecull constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the facecull operation.
+- Description: Implements the public static final slot<facecull> facecull = new slot<facecull>(slot.type.geom, facecull.class) operation.
+- Value: `new Slot<Facecull>(Slot.Type.GEOM, Facecull.class)`
 
 #### `public static final Slot<Depthtest> depthtest = new Slot<Depthtest>(Slot.Type.GEOM, Depthtest.class)`
-- Role: Defines the shared depthtest constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the depthtest operation.
+- Description: Implements the public static final slot<depthtest> depthtest = new slot<depthtest>(slot.type.geom, depthtest.class) operation.
+- Value: `new Slot<Depthtest>(Slot.Type.GEOM, Depthtest.class)`
 
 #### `public static final Pipe.Op none = p ->`
-- Role: Defines the shared none constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the none value.
+- Description: Caches the `none` value for reuse.
+- Value: `p ->`
 
 #### `public static final State.StandAlone maskdepth = new State.StandAlone(Slot.Type.GEOM)`
-- Role: Defines the shared maskdepth constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the maskdepth operation.
+- Description: Implements the stand alone operation.
+- Value: `new State.StandAlone(Slot.Type.GEOM)`
 
 #### `public static final Slot<LineWidth> linewidth = new Slot<LineWidth>(Slot.Type.GEOM, LineWidth.class)`
-- Role: Defines the shared linewidth constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the linewidth operation.
+- Description: Implements the public static final slot<line width> linewidth = new slot<line width>(slot.type.geom, line width.class) operation.
+- Value: `new Slot<LineWidth>(Slot.Type.GEOM, LineWidth.class)`
 
 #### `public static final Slot<DepthBias> depthbias = new Slot<DepthBias>(Slot.Type.GEOM, DepthBias.class)`
-- Role: Defines the shared depthbias constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the depthbias operation.
+- Description: Implements the public static final slot<depth bias> depthbias = new slot<depth bias>(slot.type.geom, depth bias.class) operation.
+- Value: `new Slot<DepthBias>(Slot.Type.GEOM, DepthBias.class)`
 
 ### Fields
 
 #### `public final Area area`
-- Role: Holds the area state.
-- Description: Backs the cached state for this file.
+- Role: Caches the area value.
+- Description: Caches the `area` value for reuse.
 
 #### `public final Area area`
-- Role: Holds the area state.
-- Description: Backs the cached state for this file.
+- Role: Caches the area value.
+- Description: Caches the `area` value for reuse.
 
 #### `public final Mode mode`
-- Role: Holds the mode state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mode value.
+- Description: Caches the `mode` value for reuse.
 
 #### `public final Test test`
-- Role: Holds the test state.
-- Description: Backs the cached state for this file.
+- Role: Caches the test value.
+- Description: Caches the `test` value for reuse.
 
 #### `public final float w`
-- Role: Stores the w value.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `public final float factor, units`
-- Role: Stores the units value.
-- Description: Backs the cached state for this file.
+- Role: Caches the units value.
+- Description: Caches the `units` value for reuse.
 
 #### `public final float factor, units`
-- Role: Stores the units value.
-- Description: Backs the cached state for this file.
+- Role: Caches the units value.
+- Description: Caches the `units` value for reuse.
 
 ### Methods
 
 #### `private States()`
 - Role: Creates a new States instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the States instance from the supplied inputs.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the shader macro used by this context.
+- Description: Returns the shader macro used by this context.
 
 #### `public Viewport(Area area)`
-- Role: Performs viewport.
-- Description: Supports the viewport operation used by the surrounding class.
+- Role: Handles the viewport path.
+- Description: Implements the viewport operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this States for debugging and logging.
 
 #### `public Scissor(Area area)`
-- Role: Performs scissor.
-- Description: Supports the scissor operation used by the surrounding class.
+- Role: Handles the scissor path.
+- Description: Implements the scissor operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this States for debugging and logging.
 
 #### `public Facecull(Mode mode)`
-- Role: Performs facecull.
-- Description: Supports the facecull operation used by the surrounding class.
+- Role: Handles the facecull path.
+- Description: Implements the facecull operation.
 
 #### `public Facecull()`
-- Role: Performs facecull.
-- Description: Supports the facecull operation used by the surrounding class.
+- Role: Handles the facecull path.
+- Description: Implements the facecull operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this States for debugging and logging.
 
 #### `public Depthtest(Test test)`
-- Role: Performs depthtest.
-- Description: Supports the depthtest operation used by the surrounding class.
+- Role: Handles the depthtest path.
+- Description: Implements the depthtest operation.
 
 #### `public Depthtest()`
-- Role: Performs depthtest.
-- Description: Supports the depthtest operation used by the surrounding class.
+- Role: Handles the depthtest path.
+- Description: Implements the depthtest operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this States for debugging and logging.
 
 #### `public LineWidth(float w)`
-- Role: Performs line width.
-- Description: Supports the line width operation used by the surrounding class.
+- Role: Handles the line width path.
+- Description: Implements the line width operation.
 
 #### `public LineWidth(double w)`
-- Role: Performs line width.
-- Description: Supports the line width operation used by the surrounding class.
+- Role: Handles the line width path.
+- Description: Implements the line width operation.
 
 #### `public LineWidth(int w)`
-- Role: Performs line width.
-- Description: Supports the line width operation used by the surrounding class.
+- Role: Handles the line width path.
+- Description: Implements the line width operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this States for debugging and logging.
 
 #### `public DepthBias(float factor, float units)`
-- Role: Performs depth bias.
-- Description: Supports the depth bias operation used by the surrounding class.
+- Role: Handles the depth texture bias path.
+- Description: Implements the depth bias operation.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public void apply(Pipe p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this States for debugging and logging.

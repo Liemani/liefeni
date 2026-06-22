@@ -1,5 +1,5 @@
 ---
-source: [PackCont.java](../../../src/haven/PackCont.java)
+source: [PackCont.java](../../../../src/haven/PackCont.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -38,101 +38,101 @@ Represents the pack cont Haven component.
 
 #### `public boolean packpar`
 - Role: Tracks the packpar flag.
-- Description: Supports the packpar operation used by the surrounding class.
+- Description: Caches the `packpar` value for reuse.
 
 #### `private boolean packed = false`
 - Role: Tracks the packed flag.
-- Description: Supports the packed operation used by the surrounding class.
+- Description: Caches the `packed` value for reuse.
 
 #### `public final List<Widget> order = new ArrayList<>()`
-- Role: Caches order entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the order operation.
+- Description: Implements the public final list<widget> order = new array list<>() operation.
 
 #### `public int margin = 0`
-- Role: Stores the margin value.
-- Description: Backs the cached state for this file.
+- Role: Caches the margin value.
+- Description: Caches the `margin` value for reuse.
 
 ### Methods
 
 #### `public PackCont()`
 - Role: Creates a new PackCont instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PackCont instance from the supplied inputs.
 
 #### `public PackCont packpar(boolean packpar)`
-- Role: Performs packpar.
-- Description: Supports the packpar operation used by the surrounding class.
+- Role: Handles the packpar path.
+- Description: Implements the packpar operation.
 
 #### `public <T extends Widget> T add(T child)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void cdestroy(Widget ch)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Handles the cdestroy path.
+- Description: Implements the cdestroy operation.
 
 #### `public void cresize(Widget ch)`
-- Role: Performs cresize.
-- Description: Supports the cresize operation used by the surrounding class.
+- Role: Handles the cresize path.
+- Description: Implements the cresize operation.
 
 #### `public void pack()`
-- Role: Performs pack.
-- Description: Supports the pack operation used by the surrounding class.
+- Role: Handles the pack path.
+- Description: Implements the pack operation.
 
 #### `private void repack0()`
-- Role: Performs repack0.
-- Description: Supports the repack0 operation used by the surrounding class.
+- Role: Handles the repack0 path.
+- Description: Implements the repack0 operation.
 
 #### `protected abstract void repack()`
-- Role: Performs repack.
-- Description: Supports the repack operation used by the surrounding class.
+- Role: Handles the repack path.
+- Description: Implements the repack operation.
 
 #### `public LinPack margin(int margin)`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `protected abstract Coord pad(int p)`
-- Role: Performs pad.
-- Description: Supports the pad operation used by the surrounding class.
+- Role: Handles the pad path.
+- Description: Implements the pad operation.
 
 #### `public <T extends Widget> T last(T child, int pad)`
-- Role: Performs last.
-- Description: Supports the last operation used by the surrounding class.
+- Role: Handles the last path.
+- Description: Implements the last operation.
 
 #### `public <T extends Widget> T insert(T child, int p, int pad)`
-- Role: Performs insert.
-- Description: Supports the insert operation used by the surrounding class.
+- Role: Handles the insert path.
+- Description: Implements the insert operation.
 
 #### `public <T extends Widget> T after(T child, Widget after, int pad)`
-- Role: Performs after.
-- Description: Supports the after operation used by the surrounding class.
+- Role: Handles the after path.
+- Description: Implements the after operation.
 
 #### `public <T extends Widget> T before(T child, Widget after, int pad)`
-- Role: Performs before.
-- Description: Supports the before operation used by the surrounding class.
+- Role: Handles the before path.
+- Description: Implements the before operation.
 
 #### `public void cdestroy(Widget ch)`
-- Role: Performs cdestroy.
-- Description: Supports the cdestroy operation used by the surrounding class.
+- Role: Handles the cdestroy path.
+- Description: Implements the cdestroy operation.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `protected Coord pad(int p)`
-- Role: Performs pad.
-- Description: Supports the pad operation used by the surrounding class.
+- Role: Handles the pad path.
+- Description: Implements the pad operation.
 
 #### `protected void repack()`
-- Role: Performs repack.
-- Description: Supports the repack operation used by the surrounding class.
+- Role: Handles the repack path.
+- Description: Implements the repack operation.
 
 #### `protected Coord pad(int p)`
-- Role: Performs pad.
-- Description: Supports the pad operation used by the surrounding class.
+- Role: Handles the pad path.
+- Description: Implements the pad operation.
 
 #### `protected void repack()`
-- Role: Performs repack.
-- Description: Supports the repack operation used by the surrounding class.
+- Role: Handles the repack path.
+- Description: Implements the repack operation.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.

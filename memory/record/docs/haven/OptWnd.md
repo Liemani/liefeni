@@ -1,5 +1,5 @@
 ---
-source: [OptWnd.java](../../../src/haven/OptWnd.java)
+source: [OptWnd.java](../../../../src/haven/OptWnd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -60,189 +60,192 @@ Represents the opt wnd Haven component.
 ### Constants
 
 #### `private static final Text kbtt = RichText.render("$col[255,255,0]`
-- Role: Defines the shared kbtt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the kbtt operation.
+- Description: Renders the current state into an image or image-like object.
+- Value: `RichText.render("$col[255,255,0]`
 
 #### `public static final String msg = "Bind other elements..."`
-- Role: Defines the shared msg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
+- Value: `"Bind other elements..."`
 
 #### `public static final Resource curs = Resource.local().loadwait("gfx/hud/curs/wrench")`
-- Role: Defines the shared curs constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the curs operation.
+- Description: Implements the loadwait operation.
+- Value: `Resource.local().loadwait("gfx/hud/curs/wrench")`
 
 ### Fields
 
 #### `public final Panel main`
-- Role: Holds the main state.
-- Description: Backs the cached state for this file.
+- Role: Caches the main value.
+- Description: Caches the `main` value for reuse.
 
 #### `public Panel current`
-- Role: Holds the current state.
-- Description: Backs the cached state for this file.
+- Role: Tracks the current .
+- Description: Tracks the current .
 
 #### `public final Panel tgt`
-- Role: Holds the tgt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `public final int key`
-- Role: Stores the key value.
-- Description: Backs the cached state for this file.
+- Role: Caches the key value.
+- Description: Caches the `key` value for reuse.
 
 #### `private final Widget back`
-- Role: Stores the back value.
-- Description: Backs the cached state for this file.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `private CPanel curcf`
-- Role: Holds the curcf state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curcf value.
+- Description: Caches the `curcf` value for reuse.
 
 #### `public GSettings prefs`
-- Role: Holds the prefs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the prefs value.
+- Description: Caches the `prefs` value for reuse.
 
 #### `public final KeyBinding cmd`
-- Role: Holds the cmd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cmd value.
+- Description: Caches the `cmd` value for reuse.
 
 #### `private UI.Grab mg, kg`
-- Role: Stores the kg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the kg value.
+- Description: Caches the `kg` value for reuse.
 
 #### `private UI.Grab mg, kg`
-- Role: Stores the kg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the kg value.
+- Description: Caches the `kg` value for reuse.
 
 #### `private KeyBinding cmd`
-- Role: Holds the cmd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cmd value.
+- Description: Caches the `cmd` value for reuse.
 
 ### Methods
 
 #### `public void chpanel(Panel p)`
-- Role: Performs chpanel.
-- Description: Supports the chpanel operation used by the surrounding class.
+- Role: Handles the chpanel path.
+- Description: Implements the chpanel operation.
 
 #### `public void cresize(Widget ch)`
-- Role: Performs cresize.
-- Description: Supports the cresize operation used by the surrounding class.
+- Role: Handles the cresize path.
+- Description: Implements the cresize operation.
 
 #### `public PButton(int w, String title, int key, Panel tgt)`
-- Role: Performs pbutton.
-- Description: Supports the pbutton operation used by the surrounding class.
+- Role: Handles the pbutton path.
+- Description: Implements the p button operation.
 
 #### `public void click()`
-- Role: Performs click.
-- Description: Supports the click operation used by the surrounding class.
+- Role: Handles the click path.
+- Description: Handles click input for this widget.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `public Panel()`
-- Role: Performs panel.
-- Description: Supports the panel operation used by the surrounding class.
+- Role: Handles the panel path.
+- Description: Implements the panel operation.
 
 #### `private void error(String msg)`
 - Role: Displays an error message.
-- Description: Supports the error operation used by the surrounding class.
+- Description: Implements the error operation.
 
 #### `public VideoPanel(Panel prev)`
-- Role: Performs video panel.
-- Description: Supports the video panel operation used by the surrounding class.
+- Role: Handles the video panel path.
+- Description: Implements the video panel operation.
 
 #### `public CPanel(GSettings gprefs)`
-- Role: Performs cpanel.
-- Description: Supports the cpanel operation used by the surrounding class.
+- Role: Handles the cpanel path.
+- Description: Implements the c panel operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the OptWnd content.
 
 #### `private void resetcf()`
-- Role: Performs resetcf.
-- Description: Supports the resetcf operation used by the surrounding class.
+- Role: Handles the resetcf path.
+- Description: Resets the cf.
 
 #### `public AudioPanel(Panel back)`
-- Role: Performs audio panel.
-- Description: Supports the audio panel operation used by the surrounding class.
+- Role: Handles the audio panel path.
+- Description: Implements the audio panel operation.
 
 #### `public InterfacePanel(Panel back)`
-- Role: Performs interface panel.
-- Description: Supports the interface panel operation used by the surrounding class.
+- Role: Handles the interface panel path.
+- Description: Implements the interface panel operation.
 
 #### `private int addbtn(Widget cont, String nm, KeyBinding cmd, int y)`
-- Role: Performs addbtn.
-- Description: Supports the addbtn operation used by the surrounding class.
+- Role: Handles the addbtn path.
+- Description: Adds the btn.
 
 #### `public BindingPanel(Panel back)`
-- Role: Performs binding panel.
-- Description: Supports the binding panel operation used by the surrounding class.
+- Role: Handles the binding panel path.
+- Description: Implements the binding panel operation.
 
 #### `public SetButton(int w, KeyBinding cmd)`
-- Role: Performs set button.
-- Description: Supports the set button operation used by the surrounding class.
+- Role: Handles the set button path.
+- Description: Implements the set button operation.
 
 #### `public void set(KeyMatch key)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the OptWnd content.
 
 #### `protected KeyMatch mkmatch(KeyEvent ev)`
-- Role: Performs mkmatch.
-- Description: Supports the mkmatch operation used by the surrounding class.
+- Role: Handles the mkmatch path.
+- Description: Implements the mkmatch operation.
 
 #### `protected boolean handle(KeyEvent ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.
 
 #### `public PointBind(int w)`
-- Role: Performs point bind.
-- Description: Supports the point bind operation used by the surrounding class.
+- Role: Handles the point bind path.
+- Description: Implements the point bind operation.
 
 #### `public void click()`
-- Role: Performs click.
-- Description: Supports the click operation used by the surrounding class.
+- Role: Handles the click path.
+- Description: Handles click input for this widget.
 
 #### `private boolean handle(KeyEvent ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public boolean mouseup(MouseUpEvent ev)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Handles the mouseup path.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public boolean getcurs(CursorQuery ev)`
 - Role: Returns the current cursor state.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the curs.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Processes keyboard input before the widget handles it.
 
 #### `public OptWnd(boolean gopts)`
 - Role: Creates a new OptWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the OptWnd instance from the supplied inputs.
 
 #### `public OptWnd()`
 - Role: Creates a new OptWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the OptWnd instance from the supplied inputs.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public void show()`
-- Role: Performs show.
-- Description: Supports the show operation used by the surrounding class.
+- Role: Handles the show path.
+- Description: Implements the show operation.

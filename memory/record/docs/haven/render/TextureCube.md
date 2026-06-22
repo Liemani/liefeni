@@ -1,5 +1,5 @@
 ---
-source: [TextureCube.java](../../../../src/haven/render/TextureCube.java)
+source: [TextureCube.java](../../../../../src/haven/render/TextureCube.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,75 +32,75 @@ Defines the texture cube render pipeline component.
 ### Fields
 
 #### `public final int w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `public final int w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `private final boolean pot`
 - Role: Tracks the pot flag.
-- Description: Supports the pot operation used by the surrounding class.
+- Description: Caches the `pot` value for reuse.
 
 #### `public final Face face`
-- Role: Holds the face state.
-- Description: Backs the cached state for this file.
+- Role: Caches the face value.
+- Description: Caches the `face` value for reuse.
 
 ### Methods
 
 #### `public TextureCube(int w, int h, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new TextureCube instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TextureCube instance from the supplied inputs.
 
 #### `public TextureCube(int w, int h, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new TextureCube instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TextureCube instance from the supplied inputs.
 
 #### `public TextureCube(Coord dim, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new TextureCube instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TextureCube instance from the supplied inputs.
 
 #### `public TextureCube(Coord dim, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new TextureCube instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TextureCube instance from the supplied inputs.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public CubeImage(TextureCube tex, int w, int h, Face face, int level)`
-- Role: Performs cube image.
-- Description: Supports the cube image operation used by the surrounding class.
+- Role: Handles the cube image path.
+- Description: Implements the cube image operation.
 
 #### `public boolean equals(CubeImage that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this TextureCube for debugging and logging.
 
 #### `public CubeImage image(Face face, int level)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public Collection<CubeImage> images()`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Handles the images path.
+- Description: Implements the images operation.
 
 #### `public SamplerCube(TextureCube tex)`
-- Role: Performs sampler cube.
-- Description: Supports the sampler cube operation used by the surrounding class.
+- Role: Handles the sampler cube path.
+- Description: Implements the sampler cube operation.
 
 #### `public SamplerCube sampler()`
-- Role: Performs sampler.
-- Description: Supports the sampler operation used by the surrounding class.
+- Role: Handles the sampler path.
+- Description: Implements the sampler operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this TextureCube for debugging and logging.

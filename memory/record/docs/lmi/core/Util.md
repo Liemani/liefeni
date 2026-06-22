@@ -1,5 +1,5 @@
 ---
-source: [Util.java](../../../../src/lmi/core/Util.java)
+source: [Util.java](../../../../../src/lmi/core/Util.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,11 +11,19 @@ Provides shared low-level utility helpers for LMI.
 ## Nested Types
 
 ### MemberType
-### MemberType
-- Role: Represents the member type helper used by Util.
+Classifies reflected members as fields or methods.
 
-- Role: Classifies reflected members as fields or methods.
-- Description: Describes the nested member type type used by the enclosing class.
+#### Members
+
+##### Methods
+
+#### `public boolean isField()`
+- Role: Checks whether the field.
+- Description: Returns true when this enum value is `FIELD`.
+
+#### `boolean isMethod()`
+- Role: Checks whether the method.
+- Description: Returns true when this enum value is `METHOD`.
 
 ## Members
 
@@ -24,123 +32,123 @@ Provides shared low-level utility helpers for LMI.
 ### Fields
 
 #### `private static Coord _mapViewCenter`
-- Role: Stores the map view center value.
-- Description: Backs the cached state for this file.
+- Role: Caches the map view center value.
+- Description: Caches the `_mapViewCenter` value for reuse.
 
 #### `private static double rttStartTime`
-- Role: Stores the rtt start time value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rtt start time value.
+- Description: Caches the `rttStartTime` value for reuse.
 
 #### `public static double srtt`
-- Role: Stores the srtt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the srtt value.
+- Description: Caches the `srtt` value for reuse.
 
 ### Methods
 
 #### `public boolean isField()`
 - Role: Checks whether the field.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when this enum value is `FIELD`.
 
 #### `boolean isMethod()`
 - Role: Checks whether the method.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when this enum value is `METHOD`.
 
 #### `static boolean fieldHasModifier(Field field, int modifier)`
-- Role: Performs field has modifier.
-- Description: Supports the field has modifier operation used by the surrounding class.
+- Role: Checks a field modifier.
+- Description: Returns whether the reflected field contains the requested modifier bit.
 
 #### `static boolean methodHasModifier(Method method, int modifier)`
-- Role: Performs method has modifier.
-- Description: Supports the method has modifier operation used by the surrounding class.
+- Role: Checks a method modifier.
+- Description: Returns whether the reflected method contains the requested modifier bit.
 
 #### `static boolean isClassType(Object object)`
 - Role: Checks whether the class type.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns true when the object is a `Class` instance.
 
 #### `static <T> boolean contains(T array[], T element)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Checks whether the array contains an element.
+- Description: Compares array entries by identity and stops on the first match.
 
 #### `private static void printPublicFieldList(Class classObject)`
-- Role: Logs the public field list.
-- Description: Logs the public field list for diagnostics and debugging.
+- Role: Prints public fields.
+- Description: Prints every public field declared on the class and its superclasses.
 
 #### `private static void printPublicMethodList(Class classObject)`
-- Role: Logs the public method list.
-- Description: Logs the public method list for diagnostics and debugging.
+- Role: Prints public methods.
+- Description: Prints every public zero-argument method declared on the class and its superclasses.
 
 #### `static Object getFieldValueFromObjectByNameAsClass(Object object, String name, Class classObject) throws Exception`
-- Role: Returns the field value from object by name as class value.
-- Description: Exposes the requested value without mutating state.
+- Role: Reads a reflected field value.
+- Description: Walks the class hierarchy until it finds the named field and reads its value.
 
 #### `static Object getMethodValueFromObjectByNameAsClass(Object object, String name, Class<?> classObject) throws Exception`
-- Role: Returns the method value from object by name as class value.
-- Description: Exposes the requested value without mutating state.
+- Role: Reads a reflected method value.
+- Description: Walks the class hierarchy until it finds the named zero-arg method and invokes it on the object.
 
 #### `public static void insertIndent(int indentCount)`
-- Role: Performs insert indent.
-- Description: Supports the insert indent operation used by the surrounding class.
+- Role: Writes indentation.
+- Description: Prints the requested number of two-space indents.
 
 #### `public static String convertToString(byte[] array, int offset)`
-- Role: Performs convert to string.
-- Description: Supports the convert to string operation used by the surrounding class.
+- Role: Converts a byte array slice into a string.
+- Description: Decodes a zero-terminated byte string starting at the given offset.
 
 #### `public static int strlen(byte[] array, int stringOffset)`
-- Role: Performs strlen.
-- Description: Supports the strlen operation used by the surrounding class.
+- Role: Measures string length.
+- Description: Counts bytes until the first zero terminator from the given offset.
 
 #### `public static int stoi(String string)`
-- Role: Performs stoi.
-- Description: Supports the stoi operation used by the surrounding class.
+- Role: Parses a decimal string.
+- Description: Parses an integer from a string.
 
 #### `public static boolean nameSet_includesResourcePath(String[] nameSet, String resourcePath)`
-- Role: Performs name set includes resource path.
-- Description: Supports the name set includes resource path operation used by the surrounding class.
+- Role: Checks whether a resource path is present.
+- Description: Returns true when the resource path ends with any supplied name.
 
 #### `public static void debugPrint(Exception e)`
-- Role: Logs the print.
-- Description: Logs the print for diagnostics and debugging.
+- Role: Prints a debug exception.
+- Description: Prints the exception, its stack trace, and the call site that triggered it.
 
 #### `public static void debugPrintHeader(String description)`
-- Role: Logs the print header.
-- Description: Logs the print header for diagnostics and debugging.
+- Role: Prints a debug header.
+- Description: Prints a one-line debug header that includes the current call site.
 
 #### `private static void _debugPrintHeader(String description, int depth)`
-- Role: Performs  debug print header.
-- Description: Supports the debug print header operation used by the surrounding class.
+- Role: Prints an internal debug header.
+- Description: Formats a debug header using the requested stack depth offset.
 
 #### `private static void _debugPrint(String description)`
-- Role: Performs  debug print.
-- Description: Supports the debug print operation used by the surrounding class.
+- Role: Prints an internal debug line.
+- Description: Prints the description and then emits a stack trace for diagnostics.
 
 #### `private static String _location(StackTraceElement el)`
-- Role: Performs  location.
-- Description: Supports the location operation used by the surrounding class.
+- Role: Formats a stack-trace location.
+- Description: Formats class and method data into a location string.
 
 #### `public static void debugPrint(Object object)`
-- Role: Logs the print.
-- Description: Logs the print for diagnostics and debugging.
+- Role: Prints a debug value.
+- Description: Prints the object text together with a diagnostic stack trace.
 
 #### `public static void debugPrint()`
-- Role: Logs the print.
-- Description: Logs the print for diagnostics and debugging.
+- Role: Prints a blank debug line.
+- Description: Prints a blank diagnostic line for the current call site.
 
 #### `public static void initMapViewCenterByMapView(haven.MapView mapView)`
-- Role: Initializes the map view center by map view.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Stores the map view center.
+- Description: Caches the current MapView center coordinate for later debug use.
 
 #### `public static Set<String> consoleCommands()`
-- Role: Performs console commands.
-- Description: Supports the console commands operation used by the surrounding class.
+- Role: Returns console commands.
+- Description: Returns the command names currently exposed by the UI console.
 
 #### `public static void startRtt()`
-- Role: Performs start rtt.
-- Description: Supports the start rtt operation used by the surrounding class.
+- Role: Starts RTT measurement.
+- Description: Captures the start time used for RTT sampling.
 
 #### `public static void updateRtt()`
-- Role: Updates the rtt.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Role: Updates RTT.
+- Description: Updates the smoothed RTT estimate from the most recent sample.
 
 #### `public static boolean isESC(java.awt.event.KeyEvent keyEvent)`
-- Role: Checks whether the esc.
-- Description: Returns a boolean result for the described condition.
+- Role: Checks whether the ESC key was pressed.
+- Description: Returns whether the key event corresponds to Escape.

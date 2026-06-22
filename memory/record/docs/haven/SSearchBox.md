@@ -1,12 +1,12 @@
 ---
-source: [SSearchBox.java](../../../src/haven/SSearchBox.java)
+source: [SSearchBox.java](../../../../src/haven/SSearchBox.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # SSearchBox
 
-Represents the ssearch box Haven component.
+Adds incremental text search behavior to a scrollable list box.
 
 ## Members
 
@@ -15,63 +15,63 @@ Represents the ssearch box Haven component.
 ### Fields
 
 #### `public String searching = null`
-- Role: Stores the searching value.
-- Description: Backs the cached state for this file.
+- Role: Stores the active search text.
+- Description: Null when search mode is off.
 
 #### `private List<I> filtered = null`
-- Role: Caches filtered entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the filtered item list.
+- Description: Holds the current search results while search mode is active.
 
 #### `private Text info`
-- Role: Stores the info value.
-- Description: Backs the cached state for this file.
+- Role: Stores the search result summary text.
+- Description: Rendered as the `matches/total` overlay while searching.
 
 ### Methods
 
 #### `protected abstract List<? extends I> allitems()`
-- Role: Performs allitems.
-- Description: Supports the allitems operation used by the surrounding class.
+- Role: Returns the complete item list.
+- Description: Implemented by subclasses to supply all searchable items.
 
 #### `protected abstract boolean searchmatch(I item, String text)`
-- Role: Performs searchmatch.
-- Description: Supports the searchmatch operation used by the surrounding class.
+- Role: Tests whether one item matches the search text.
+- Description: Implemented by subclasses with their own matching rules.
 
 #### `protected List<? extends I> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Returns the active item list.
+- Description: Switches between the full list and the filtered search results.
 
 #### `public SSearchBox(Coord sz, int itemh, int marg)`
-- Role: Creates a new SSearchBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a searchable list box.
+- Description: Configures the list size and item height, then enables focus.
 
 #### `public SSearchBox(Coord sz, int itemh)`
-- Role: Creates a new SSearchBox instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a searchable list box with no margin.
+- Description: Convenience constructor that defaults the margin to zero.
 
 #### `public boolean keydown(KeyDownEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Handles keyboard input for the search box.
 
 #### `private void updinfo()`
-- Role: Performs updinfo.
-- Description: Supports the updinfo operation used by the surrounding class.
+- Role: Rebuilds the search summary text.
+- Description: Shows the active query and result counts.
 
 #### `public void search(String text)`
-- Role: Performs search.
-- Description: Supports the search operation used by the surrounding class.
+- Role: Filters the list by search text.
+- Description: Recomputes results, preserves selection when possible, and updates the overlay text.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Renders the search box, filtered items, and info text.
 
 #### `public void stopsearch()`
-- Role: Performs stopsearch.
-- Description: Supports the stopsearch operation used by the surrounding class.
+- Role: Clears the active search.
+- Description: Restores the full item list and drops the summary overlay.
 
 #### `public void lostfocus()`
-- Role: Performs lostfocus.
-- Description: Supports the lostfocus operation used by the surrounding class.
+- Role: Ends search mode when focus leaves the widget.
+- Description: Search is always canceled on focus loss.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Handles item selection and click focus inside the search box.

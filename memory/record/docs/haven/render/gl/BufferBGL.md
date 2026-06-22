@@ -1,5 +1,5 @@
 ---
-source: [BufferBGL.java](../../../../../src/haven/render/gl/BufferBGL.java)
+source: [BufferBGL.java](../../../../../../src/haven/render/gl/BufferBGL.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,89 +20,91 @@ Provides GL backend support for buffer bgl.
 ### Constants
 
 #### `public static final boolean DEBUG = false`
-- Role: Defines the shared debug constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the debug value.
+- Description: Caches the `DEBUG` value for reuse.
+- Value: `false`
 
 #### `public static final BufferBGL empty = new BufferBGL(0)`
-- Role: Defines the shared empty constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the empty operation.
+- Description: Implements the buffer bgl operation.
+- Value: `new BufferBGL(0)`
 
 ### Fields
 
 #### `private static Profile curprof = null`
-- Role: Stores the curprof value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curprof value.
+- Description: Caches the `curprof` value for reuse.
 
 #### `private Command[] list`
-- Role: Holds the list state.
-- Description: Backs the cached state for this file.
+- Role: Caches the list value.
+- Description: Caches the `list` value for reuse.
 
 #### `private int n = 0`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private double stime`
-- Role: Stores the stime value.
-- Description: Backs the cached state for this file.
+- Role: Caches the stime value.
+- Description: Caches the `stime` value for reuse.
 
 #### `private int n`
-- Role: Stores the n value.
-- Description: Backs the cached state for this file.
+- Role: Caches the n value.
+- Description: Caches the `n` value for reuse.
 
 #### `private Command[] cmds = new Command[128]`
-- Role: Holds the cmds state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cmds value.
+- Description: Caches the `cmds` value for reuse.
 
 #### `private double[] times = new double[128]`
-- Role: Stores the times value.
-- Description: Backs the cached state for this file.
+- Role: Caches the times value.
+- Description: Caches the `times` value for reuse.
 
 #### `public final Request start = gl ->`
-- Role: Holds the start state.
-- Description: Backs the cached state for this file.
+- Role: Caches the start value.
+- Description: Caches the `start` value for reuse.
 
 #### `public final Request stop = gl ->`
-- Role: Holds the stop state.
-- Description: Backs the cached state for this file.
+- Role: Caches the stop value.
+- Description: Caches the `stop` value for reuse.
 
 ### Methods
 
 #### `public BufferBGL(int c)`
 - Role: Creates a new BufferBGL instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the BufferBGL instance from the supplied inputs.
 
 #### `public BufferBGL()`
 - Role: Creates a new BufferBGL instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the BufferBGL instance from the supplied inputs.
 
 #### `public void run(GL gl)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void abort()`
-- Role: Performs abort.
-- Description: Supports the abort operation used by the surrounding class.
+- Role: Handles the abort path.
+- Description: Implements the abort operation.
 
 #### `protected void add(Command cmd)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public BufferBGL trim()`
-- Role: Performs trim.
-- Description: Supports the trim operation used by the surrounding class.
+- Role: Handles the trim path.
+- Description: Implements the trim operation.
 
 #### `protected Iterable<Command> dump()`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.
 
 #### `private void register(Command cmd)`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `public void dump(PrintStream out)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.
 
 #### `public Request dump(Path out)`
-- Role: Performs dump.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Handles the dump path.
+- Description: Implements the dump operation.

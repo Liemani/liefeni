@@ -1,5 +1,5 @@
 ---
-source: [Test.java](../../../../../src/haven/render/lwjgl/Test.java)
+source: [Test.java](../../../../../../src/haven/render/lwjgl/Test.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,73 +20,74 @@ Adapts the render backend to LWJGL for test.
 ### Constants
 
 #### `static final FColor gay = new FColor(1.0f, 0.0f, 0.5f)`
-- Role: Defines the shared gay constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the gay operation.
+- Description: Implements the f color operation.
+- Value: `new FColor(1.0f, 0.0f, 0.5f)`
 
 ### Fields
 
 #### `Frame wnd`
-- Role: Holds the wnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wnd value.
+- Description: Caches the `wnd` value for reuse.
 
 #### `TestPanel p`
-- Role: Holds the p state.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 #### `volatile boolean done = false`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `LWJGLEnvironment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `Pipe base`
-- Role: Holds the base state.
-- Description: Backs the cached state for this file.
+- Role: Caches the base value.
+- Description: Caches the `base` value for reuse.
 
 ### Methods
 
 #### `TestPanel()`
 - Role: Handles the test panel workflow.
-- Description: Supports the test panel operation used by the surrounding class.
+- Description: Implements the test panel operation.
 
 #### `static GLData mkcaps()`
-- Role: Performs mkcaps.
-- Description: Supports the mkcaps operation used by the surrounding class.
+- Role: Handles the mkcaps path.
+- Description: Implements the mkcaps operation.
 
 #### `public void initGL()`
 - Role: Initializes the gl.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `public void paintGL()`
-- Role: Performs paint gl.
-- Description: Supports the paint gl operation used by the surrounding class.
+- Role: Handles the paint gl path.
+- Description: Implements the paint gl operation.
 
 #### `public LWJGLEnvironment mkenv()`
-- Role: Performs mkenv.
-- Description: Supports the mkenv operation used by the surrounding class.
+- Role: Handles the mkenv path.
+- Description: Implements the mkenv operation.
 
 #### `Test()`
 - Role: Creates a new Test instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Test instance from the supplied inputs.
 
 #### `void draw(Render g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Test content.
 
 #### `void draw()`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Test content.
 
 #### `void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `void reshape(Area wnd)`
-- Role: Performs reshape.
-- Description: Supports the reshape operation used by the surrounding class.
+- Role: Handles the reshape path.
+- Description: Implements the reshape operation.
 
 #### `public static void main(String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.

@@ -1,5 +1,5 @@
 ---
-source: [WaypointGridResolver.java](../../../../../src/lmi/waypoint/runtime/WaypointGridResolver.java)
+source: [WaypointGridResolver.java](../../../../../../src/lmi/waypoint/runtime/WaypointGridResolver.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,8 +13,8 @@ Resolves current Haven grid metadata for waypoint operations.
 ### Constants
 
 #### `private static final Map<Long, ResolvedGrid> resolvedByHavenGridId = new HashMap<>()`
-- Role: Defines the shared resolved by haven grid id constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Resolves the d by haven grid id.
+- Description: Resolves the d by haven grid id.
 
 ### Fields
 
@@ -22,24 +22,24 @@ Resolves current Haven grid metadata for waypoint operations.
 
 #### `private WaypointGridResolver()`
 - Role: Creates a new WaypointGridResolver instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointGridResolver instance from the supplied inputs.
 
 #### `public static synchronized void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Drops cached grid resolutions before the next session starts.
 
 #### `public static synchronized ResolvedGrid resolveGrid(Coord gc)`
 - Role: Coordinates resolve grid persistence or lookup.
-- Description: Supports the resolve grid operation used by the surrounding class.
+- Description: Resolves the Haven grid for the given map coordinate.
 
 #### `static synchronized ResolvedGrid resolvedGrid(long havenGridId)`
 - Role: Coordinates resolved grid persistence or lookup.
-- Description: Supports the resolved grid operation used by the surrounding class.
+- Description: Returns the cached resolution for the given Haven grid id.
 
 #### `static synchronized void putResolvedGrid(long havenGridId, ResolvedGrid grid)`
-- Role: Performs put resolved grid.
-- Description: Supports the put resolved grid operation used by the surrounding class.
+- Role: Caches one resolved grid result.
+- Description: Stores the resolved grid so later callers can reuse it.
 
 #### `private static MapFile mapFile()`
-- Role: Performs map file.
-- Description: Supports the map file operation used by the surrounding class.
+- Role: Returns the active map file.
+- Description: Resolves the map file used when looking up grid metadata.

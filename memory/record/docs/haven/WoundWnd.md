@@ -1,5 +1,5 @@
 ---
-source: [WoundWnd.java](../../../src/haven/WoundWnd.java)
+source: [WoundWnd.java](../../../../src/haven/WoundWnd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -60,102 +60,104 @@ Represents the wound wnd Haven component.
 ### Constants
 
 #### `public static final Text.Foundry namef = new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
-- Role: Defines the shared namef constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the namef operation.
+- Description: Implements the aa operation.
+- Value: `new Text.Foundry(Text.serif.deriveFont(java.awt.Font.BOLD), 16).aa(true)`
 
 #### `private static final OwnerContext.ClassResolver<Wound> ctxr = new OwnerContext.ClassResolver<Wound>()`
-- Role: Defines the shared ctxr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ctxr operation.
+- Description: Implements the private static final owner context.class resolver<wound> ctxr = new owner context.class resolver<wound>() operation.
+- Value: `new OwnerContext.ClassResolver<Wound>()`
 
 ### Fields
 
 #### `public final Widget woundbox`
-- Role: Stores the woundbox value.
-- Description: Backs the cached state for this file.
+- Role: Caches the woundbox value.
+- Description: Caches the `woundbox` value for reuse.
 
 #### `public final WoundList wounds`
-- Role: Caches wounds entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the wounds value.
+- Description: Caches the `wounds` value for reuse.
 
 #### `public Wound.Info wound`
-- Role: Holds the wound state.
-- Description: Backs the cached state for this file.
+- Role: Caches the wound value.
+- Description: Caches the `wound` value for reuse.
 
 #### `public final RichText.Document doc`
-- Role: Stores the doc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the doc value.
+- Description: Caches the `doc` value for reuse.
 
 #### `public final Glob glob`
-- Role: Stores the glob value.
-- Description: Backs the cached state for this file.
+- Role: Caches the glob value.
+- Description: Caches the `glob` value for reuse.
 
 #### `public final int id, parentid`
-- Role: Stores the parentid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parentid value.
+- Description: Caches the `parentid` value for reuse.
 
 #### `public final int id, parentid`
-- Role: Stores the parentid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parentid value.
+- Description: Caches the `parentid` value for reuse.
 
 #### `public Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public int level`
-- Role: Stores the level value.
-- Description: Backs the cached state for this file.
+- Role: Caches the level value.
+- Description: Caches the `level` value for reuse.
 
 #### `public ItemInfo.Raw rawinfo`
-- Role: Holds the rawinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rawinfo value.
+- Description: Caches the `rawinfo` value for reuse.
 
 #### `private String sortkey = "\uffff"`
-- Role: Stores the sortkey value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sortkey value.
+- Description: Caches the `sortkey` value for reuse.
 
 #### `private List<ItemInfo> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private List<ItemInfo> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public List<Wound> wounds = new ArrayList<Wound>()`
-- Role: Caches wounds entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the wounds operation.
+- Description: Implements the public list<wound> wounds = new array list<wound>() operation.
 
 #### `private boolean loading = false`
 - Role: Tracks the loading flag.
-- Description: Supports the loading operation used by the surrounding class.
+- Description: Tracks whether  is currently loading.
 
 #### `private final Comparator<Wound> wcomp = new Comparator<Wound>()`
-- Role: Holds the wcomp state.
-- Description: Backs the cached state for this file.
+- Role: Implements the wcomp operation.
+- Description: Implements the private final comparator<wound> wcomp = new comparator<wound>() operation.
 
 #### `public final Wound w`
-- Role: Holds the w state.
-- Description: Backs the cached state for this file.
+- Role: Caches the w value.
+- Description: Caches the `w` value for reuse.
 
 #### `private Widget qd, nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `private Widget qd, nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `private Object dres, dinfo`
-- Role: Holds the dinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dinfo value.
+- Description: Caches the `dinfo` value for reuse.
 
 #### `private Object dres, dinfo`
-- Role: Holds the dinfo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dinfo value.
+- Description: Caches the `dinfo` value for reuse.
 
 ### Methods
 
@@ -164,173 +166,173 @@ Represents the wound wnd Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public default Widget qwdg(int h)`
-- Role: Performs qwdg.
-- Description: Supports the qwdg operation used by the surrounding class.
+- Role: Handles the qwdg path.
+- Description: Implements the qwdg operation.
 
 #### `public default String qstr()`
-- Role: Performs qstr.
-- Description: Supports the qstr operation used by the surrounding class.
+- Role: Handles the qstr path.
+- Description: Implements the qstr operation.
 
 #### `public default int qprio()`
-- Role: Performs qprio.
-- Description: Supports the qprio operation used by the surrounding class.
+- Role: Handles the qprio path.
+- Description: Implements the qprio operation.
 
 #### `public WoundPagina(Owner owner, RichText.Document doc)`
-- Role: Performs wound pagina.
-- Description: Supports the wound pagina operation used by the surrounding class.
+- Role: Handles the wound pagina path.
+- Description: Implements the wound pagina operation.
 
 #### `public WoundPagina(Owner owner, Resource.Pagina pag)`
-- Role: Performs wound pagina.
-- Description: Supports the wound pagina operation used by the surrounding class.
+- Role: Handles the wound pagina path.
+- Description: Implements the wound pagina operation.
 
 #### `public void layout(Layout l)`
-- Role: Performs layout.
-- Description: Supports the layout operation used by the surrounding class.
+- Role: Handles the layout path.
+- Description: Lays out parts on wrapped lines and aligns their baselines.
 
 #### `public int order()`
-- Role: Performs order.
-- Description: Supports the order operation used by the surrounding class.
+- Role: Implements the order operation.
+- Description: Implements the order operation.
 
 #### `private Wound(Glob glob, int id, Indir<Resource> res, int parentid)`
-- Role: Performs wound.
-- Description: Supports the wound operation used by the surrounding class.
+- Role: Handles the wound path.
+- Description: Implements the wound operation.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public BufferedImage icon()`
-- Role: Performs icon.
-- Description: Supports the icon operation used by the surrounding class.
+- Role: Handles the icon path.
+- Description: Implements the icon operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public int woundid()`
-- Role: Performs woundid.
-- Description: Supports the woundid operation used by the surrounding class.
+- Role: Handles the woundid path.
+- Description: Implements the woundid operation.
 
 #### `public WoundBox(int id)`
-- Role: Performs wound box.
-- Description: Supports the wound box operation used by the surrounding class.
+- Role: Handles the wound box path.
+- Description: Implements the wound box operation.
 
 #### `protected void added()`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public Wound wound()`
-- Role: Performs wound.
-- Description: Supports the wound operation used by the surrounding class.
+- Role: Handles the wound path.
+- Description: Implements the wound operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `public BufferedImage renderinfo(int width)`
-- Role: Performs renderinfo.
-- Description: Supports the renderinfo operation used by the surrounding class.
+- Role: Handles the renderinfo path.
+- Description: Renders the info.
 
 #### `public int woundid()`
-- Role: Performs woundid.
-- Description: Supports the woundid operation used by the surrounding class.
+- Role: Handles the woundid path.
+- Description: Implements the woundid operation.
 
 #### `public Widget create(UI ui, Object[] args)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `private WoundList(Coord sz)`
-- Role: Performs wound list.
-- Description: Supports the wound list operation used by the surrounding class.
+- Role: Handles the wound list path.
+- Description: Implements the wound list operation.
 
 #### `protected List<Wound> items()`
-- Role: Performs items.
-- Description: Supports the items operation used by the surrounding class.
+- Role: Handles the items path.
+- Description: Implements the items operation.
 
 #### `protected Widget makeitem(Wound w, int idx, Coord sz)`
-- Role: Performs makeitem.
-- Description: Supports the makeitem operation used by the surrounding class.
+- Role: Handles the makeitem path.
+- Description: Implements the makeitem operation.
 
 #### `private List<Wound> treesort(List<Wound> from, int pid, int level)`
-- Role: Performs treesort.
-- Description: Supports the treesort operation used by the surrounding class.
+- Role: Handles the treesort path.
+- Description: Implements the treesort operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public Item(Coord sz, Wound w)`
-- Role: Performs item.
-- Description: Supports the item operation used by the surrounding class.
+- Role: Handles the item path.
+- Description: Implements the item operation.
 
 #### `private QuickInfo getqdat(List<ItemInfo> info)`
-- Role: Performs getqdat.
-- Description: Supports the getqdat operation used by the surrounding class.
+- Role: Handles the getqdat path.
+- Description: Returns the qdat.
 
 #### `private void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public boolean drop(Coord cc, Coord ul)`
-- Role: Performs drop.
-- Description: Supports the drop operation used by the surrounding class.
+- Role: Handles the drop path.
+- Description: Implements the drop operation.
 
 #### `public boolean iteminteract(Coord cc, Coord ul)`
-- Role: Performs iteminteract.
-- Description: Supports the iteminteract operation used by the surrounding class.
+- Role: Handles the iteminteract path.
+- Description: Implements the iteminteract operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the WoundWnd content.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `protected void drawslot(GOut g, Wound w, int idx, Area area)`
-- Role: Performs drawslot.
-- Description: Supports the drawslot operation used by the surrounding class.
+- Role: Handles the drawslot path.
+- Description: Draws the slot.
 
 #### `protected boolean unselect(int button)`
-- Role: Performs unselect.
-- Description: Supports the unselect operation used by the surrounding class.
+- Role: Handles the unselect path.
+- Description: Implements the unselect operation.
 
 #### `public Wound get(int id)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void add(Wound w)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public Wound remove(int id)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public WoundWnd()`
 - Role: Creates a new WoundWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WoundWnd instance from the supplied inputs.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `private void decwound(Object[] args, int a, int len)`
-- Role: Performs decwound.
-- Description: Supports the decwound operation used by the surrounding class.
+- Role: Handles the decwound path.
+- Description: Implements the decwound operation.
 
 #### `public void uimsg(String nm, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

@@ -1,5 +1,5 @@
 ---
-source: [HackSocket.java](../../../src/haven/HackSocket.java)
+source: [HackSocket.java](../../../../src/haven/HackSocket.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,18 +12,18 @@ Represents the hack socket Haven component.
 
 ### HackInputStream
 
-- Role: Represents hack input stream within HackSocket.
-- Description: Describes the nested hack input stream type used by the enclosing class.
+- Role: Wraps the socket input stream with interrupt handling.
+- Description: InputStream adapter that cooperates with thread interruption.
 
 ### HackOutputStream
 
-- Role: Represents hack output stream within HackSocket.
-- Description: Describes the nested hack output stream type used by the enclosing class.
+- Role: Wraps the socket output stream with interrupt handling.
+- Description: OutputStream adapter that cooperates with thread interruption.
 
 ### InterruptAction
 
-- Role: Represents interrupt action within HackSocket.
-- Description: Describes the nested interrupt action type used by the enclosing class.
+- Role: Records the current thread interrupt state.
+- Description: Per-thread runnable used to restore or clear interruption during socket operations.
 
 ## Members
 
@@ -32,99 +32,99 @@ Represents the hack socket Haven component.
 ### Fields
 
 #### `private InputStream in = null`
-- Role: Holds the in state.
-- Description: Backs the cached state for this file.
+- Role: Caches the in value.
+- Description: Caches the `in` value for reuse.
 
 #### `private OutputStream out = null`
-- Role: Holds the out state.
-- Description: Backs the cached state for this file.
+- Role: Caches the out value.
+- Description: Caches the `out` value for reuse.
 
 #### `private ThreadLocal<InterruptAction> ia = new ThreadLocal<InterruptAction>()`
-- Role: Stores the ia value.
-- Description: Backs the cached state for this file.
+- Role: Implements the ia operation.
+- Description: Implements the private thread local<interrupt action> ia = new thread local<interrupt action>() operation.
 
 #### `private boolean interrupted`
 - Role: Tracks the interrupted flag.
-- Description: Supports the interrupted operation used by the surrounding class.
+- Description: Caches the `interrupted` value for reuse.
 
 #### `private InputStream bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `private OutputStream bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 ### Methods
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private void hook()`
-- Role: Performs hook.
-- Description: Supports the hook operation used by the surrounding class.
+- Role: Handles the hook path.
+- Description: Implements the hook operation.
 
 #### `private void release() throws ClosedByInterruptException`
 - Role: Handles the release workflow.
-- Description: Supports the release operation used by the surrounding class.
+- Description: Implements the release operation.
 
 #### `public void connect(SocketAddress address, int timeout) throws IOException`
 - Role: Handles the connect workflow.
-- Description: Supports the connect operation used by the surrounding class.
+- Description: Implements the connect operation.
 
 #### `public void connect(SocketAddress address) throws IOException`
 - Role: Handles the connect workflow.
-- Description: Supports the connect operation used by the surrounding class.
+- Description: Implements the connect operation.
 
 #### `private HackInputStream(InputStream bk)`
-- Role: Performs hack input stream.
-- Description: Supports the hack input stream operation used by the surrounding class.
+- Role: Handles the hack input stream path.
+- Description: Implements the hack input stream operation.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public int read() throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public int read(byte[] buf) throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public int read(byte[] buf, int off, int len) throws IOException`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `private HackOutputStream(OutputStream bk)`
-- Role: Performs hack output stream.
-- Description: Supports the hack output stream operation used by the surrounding class.
+- Role: Handles the hack output stream path.
+- Description: Implements the hack output stream operation.
 
 #### `public void close() throws IOException`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public void flush() throws IOException`
 - Role: Handles the flush workflow.
-- Description: Supports the flush operation used by the surrounding class.
+- Description: Implements the flush operation.
 
 #### `public void write(int b) throws IOException`
 - Role: Writes the target data.
-- Description: Supports the write operation used by the surrounding class.
+- Description: Implements the write operation.
 
 #### `public void write(byte[] buf) throws IOException`
 - Role: Writes the target data.
-- Description: Supports the write operation used by the surrounding class.
+- Description: Implements the write operation.
 
 #### `public void write(byte[] buf, int off, int len) throws IOException`
 - Role: Writes the target data.
-- Description: Supports the write operation used by the surrounding class.
+- Description: Implements the write operation.
 
 #### `public InputStream getInputStream() throws IOException`
-- Role: Returns the input stream value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the input stream.
+- Description: Returns the input stream.
 
 #### `public OutputStream getOutputStream() throws IOException`
-- Role: Returns the output stream value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the output stream.
+- Description: Returns the output stream.

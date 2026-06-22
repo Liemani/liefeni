@@ -1,19 +1,19 @@
 ---
-source: [Party.java](../../../src/haven/Party.java)
+source: [Party.java](../../../../src/haven/Party.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Party
 
-Represents the party Haven component.
+Tracks the current party roster, leader, and each member's last known gob position.
 
 ## Nested Types
 
 ### Member
 
-- Role: Represents member within Party.
-- Description: Describes the nested member type used by the enclosing class.
+- Role: Stores one party member entry.
+- Description: Keeps the gob id, cached position, direction memory, and display color for one party member.
 
 ## Members
 
@@ -22,71 +22,71 @@ Represents the party Haven component.
 ### Fields
 
 #### `public Map<Long, Member> memb = Collections.emptyMap()`
-- Role: Caches memb entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the current party members by gob id.
+- Description: Starts as an empty roster until server state populates the party.
 
 #### `public Member leader = null`
-- Role: Holds the leader state.
-- Description: Backs the cached state for this file.
+- Role: Stores the current party leader.
+- Description: Points at the member entry selected as the leader, or `null` when unset.
 
 #### `public int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Stores the party id.
+- Description: Identifies the current party instance reported by the server.
 
 #### `private final Glob glob`
-- Role: Stores the glob value.
-- Description: Backs the cached state for this file.
+- Role: Provides access to gob lookups for party members.
+- Description: Used to resolve a member's live gob from its gob id.
 
 #### `private int mseq = 0`
-- Role: Stores the mseq value.
-- Description: Backs the cached state for this file.
+- Role: Tracks the latest membership sequence.
+- Description: Keeps the most recent party update sequence applied to the roster.
 
 #### `public final long gobid`
-- Role: Stores the gobid value.
-- Description: Backs the cached state for this file.
+- Role: Stores the member gob id.
+- Description: This is the world gob id the party entry points at.
 
 #### `public final int seq`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Stores the member sequence number.
+- Description: Used to keep party entries in server update order.
 
 #### `private Coord2d c = null`
-- Role: Stores the c value.
-- Description: Backs the cached state for this file.
+- Role: Remembers the last known member position.
+- Description: Preserves the previous coordinate when the live gob is not available.
 
 #### `private double ma = Math.random() * Math.PI * 2`
-- Role: Stores the ma value.
-- Description: Backs the cached state for this file.
+- Role: Holds the remembered movement angle.
+- Description: Initialized to a random heading and updated as the member moves.
 
 #### `private double oa = Double.NaN`
-- Role: Stores the oa value.
-- Description: Backs the cached state for this file.
+- Role: Holds the observed angle when available.
+- Description: Falls back to the remembered movement angle if no fresh angle is known.
 
 #### `public Color col = Color.BLACK`
-- Role: Stores the col value.
-- Description: Backs the cached state for this file.
+- Role: Stores the member's display color.
+- Description: Used by UI rendering for party member labeling.
 
 ### Methods
 
 #### `public Party(Glob glob)`
-- Role: Creates a new Party instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a party tracker for the supplied world.
+- Description: Binds the roster to the `Glob` used for gob lookup.
 
 #### `public Member(long gobid)`
-- Role: Performs member.
-- Description: Supports the member operation used by the surrounding class.
+- Role: Creates one member entry for the given gob id.
+- Description: Starts the cache state for a party member reference.
 
 #### `public Gob getgob()`
-- Role: Performs getgob.
-- Description: Supports the getgob operation used by the surrounding class.
+- Role: Resolves the member's live gob.
+- Description: Looks up the current gob from `glob.oc` using `gobid`.
 
 #### `public Coord2d getc()`
-- Role: Performs getc.
-- Description: Supports the getc operation used by the surrounding class.
+- Role: Returns the best available member position.
+- Description: Uses the live gob coordinate when possible, otherwise returns the cached fallback position.
 
 #### `void setc(Coord2d c)`
-- Role: Performs setc.
-- Description: Supports the setc operation used by the surrounding class.
+- Role: Updates the cached member position.
+- Description: Also refreshes the remembered movement angle when the coordinate changes.
 
 #### `public double geta()`
-- Role: Performs geta.
-- Description: Supports the geta operation used by the surrounding class.
+- Role: Returns the best available member direction.
+- Description: Prefers the observed angle and falls back to the remembered heading.

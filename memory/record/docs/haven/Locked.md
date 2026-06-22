@@ -1,5 +1,5 @@
 ---
-source: [Locked.java](../../../src/haven/Locked.java)
+source: [Locked.java](../../../../src/haven/Locked.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Represents the locked Haven component.
 ### Fields
 
 #### `private final Lock lk`
-- Role: Holds the lk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the lk value.
+- Description: Caches the `lk` value for reuse.
 
 #### `private boolean held`
 - Role: Tracks the held flag.
-- Description: Supports the held operation used by the surrounding class.
+- Description: Caches the `held` value for reuse.
 
 ### Methods
 
 #### `public Locked(Lock lk)`
 - Role: Creates a new Locked instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Locked instance from the supplied inputs.
 
 #### `public void unlock()`
-- Role: Performs unlock.
-- Description: Supports the unlock operation used by the surrounding class.
+- Role: Handles the unlock path.
+- Description: Implements the unlock operation.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.

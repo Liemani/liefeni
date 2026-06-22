@@ -1,5 +1,5 @@
 ---
-source: [ClickData.java](../../../src/haven/ClickData.java)
+source: [ClickData.java](../../../../src/haven/ClickData.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,27 +15,27 @@ Represents the click data Haven component.
 ### Fields
 
 #### `public final Clickable ci`
-- Role: Holds the ci state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ci value.
+- Description: Caches the `ci` value for reuse.
 
 #### `public final Slot slot`
-- Role: Holds the slot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the slot value.
+- Description: Caches the `slot` value for reuse.
 
 ### Methods
 
 #### `public ClickData(Clickable ci, Slot slot)`
 - Role: Creates a new ClickData instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ClickData instance from the supplied inputs.
 
 #### `public Object[] array()`
-- Role: Performs array.
-- Description: Supports the array operation used by the surrounding class.
+- Role: Handles the array path.
+- Description: Implements the array operation.
 
 #### `public Object[] clickargs()`
-- Role: Performs clickargs.
-- Description: Supports the clickargs operation used by the surrounding class.
+- Role: Handles the clickargs path.
+- Description: Handles args interaction.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this ClickData for debugging and logging.

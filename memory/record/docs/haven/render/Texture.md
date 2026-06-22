@@ -1,5 +1,5 @@
 ---
-source: [Texture.java](../../../../src/haven/render/Texture.java)
+source: [Texture.java](../../../../../src/haven/render/Texture.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,256 +12,257 @@ Defines the texture render pipeline component.
 
 ### Filter
 
-- Role: Represents filter within Texture.
-- Description: Describes the nested filter type used by the enclosing class.
+- Role: Defines texture filtering modes.
+- Description: Selects how texture samples are filtered when magnified or minified.
 
 ### Image
 
-- Role: Represents image within Texture.
-- Description: Describes the nested image type used by the enclosing class.
+- Role: Describes one texture image level.
+- Description: Carries the texture handle together with size and mip level metadata.
 
 ### Sampler
 
-- Role: Represents sampler within Texture.
-- Description: Describes the nested sampler type used by the enclosing class.
+- Role: Configures texture sampling.
+- Description: Stores wrap, filter, anisotropy, and border settings for a texture.
 
 ### Wrapping
 
-- Role: Represents wrapping within Texture.
-- Description: Describes the nested wrapping type used by the enclosing class.
+- Role: Defines texture wrap modes.
+- Description: Selects how texture coordinates repeat, clamp, or mirror at edges.
 
 ## Members
 
 ### Constants
 
 #### `public static final VectorFormat DEPTH = new VectorFormat(1, NumberFormat.DEPTH)`
-- Role: Defines the shared depth constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the depth operation.
+- Description: Implements the vector format operation.
+- Value: `new VectorFormat(1, NumberFormat.DEPTH)`
 
 ### Fields
 
 #### `public final VectorFormat ifmt, efmt`
-- Role: Holds the efmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the efmt value.
+- Description: Caches the `efmt` value for reuse.
 
 #### `public final VectorFormat ifmt, efmt`
-- Role: Holds the efmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the efmt value.
+- Description: Caches the `efmt` value for reuse.
 
 #### `public final DataBuffer.Usage usage`
-- Role: Stores the usage value.
-- Description: Backs the cached state for this file.
+- Role: Caches the usage value.
+- Description: Caches the `usage` value for reuse.
 
 #### `public final DataBuffer.Filler<? super Image> init`
-- Role: Stores the init value.
-- Description: Backs the cached state for this file.
+- Role: Caches the init value.
+- Description: Caches the `init` value for reuse.
 
 #### `public boolean srgb = false`
 - Role: Tracks the srgb flag.
-- Description: Supports the srgb operation used by the surrounding class.
+- Description: Caches the `srgb` value for reuse.
 
 #### `public Swizzle eperm`
-- Role: Holds the eperm state.
-- Description: Backs the cached state for this file.
+- Role: Caches the eperm value.
+- Description: Caches the `eperm` value for reuse.
 
 #### `public boolean shared = false`
 - Role: Tracks the shared flag.
-- Description: Supports the shared operation used by the surrounding class.
+- Description: Caches the `shared` value for reuse.
 
 #### `public Disposable ro`
-- Role: Holds the ro state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ro value.
+- Description: Caches the `ro` value for reuse.
 
 #### `public Object desc`
-- Role: Holds the desc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `public final T tex`
-- Role: Holds the tex state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `public final int w, h, d`
-- Role: Stores the d value.
-- Description: Backs the cached state for this file.
+- Role: Caches the d value.
+- Description: Caches the `d` value for reuse.
 
 #### `public final int w, h, d`
-- Role: Stores the d value.
-- Description: Backs the cached state for this file.
+- Role: Caches the d value.
+- Description: Caches the `d` value for reuse.
 
 #### `public final int w, h, d`
-- Role: Stores the d value.
-- Description: Backs the cached state for this file.
+- Role: Caches the d value.
+- Description: Caches the `d` value for reuse.
 
 #### `public final int level`
-- Role: Stores the level value.
-- Description: Backs the cached state for this file.
+- Role: Caches the level value.
+- Description: Caches the `level` value for reuse.
 
 #### `public final T tex`
-- Role: Holds the tex state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
-- Role: Holds the magfilter state.
-- Description: Backs the cached state for this file.
+- Role: Caches the magfilter value.
+- Description: Caches the `magfilter` value for reuse.
 
 #### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
-- Role: Holds the magfilter state.
-- Description: Backs the cached state for this file.
+- Role: Caches the magfilter value.
+- Description: Caches the `magfilter` value for reuse.
 
 #### `public Filter magfilter = Filter.LINEAR, minfilter = Filter.NEAREST, mipfilter = null`
-- Role: Holds the magfilter state.
-- Description: Backs the cached state for this file.
+- Role: Caches the magfilter value.
+- Description: Caches the `magfilter` value for reuse.
 
 #### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
-- Role: Holds the swrap state.
-- Description: Backs the cached state for this file.
+- Role: Caches the swrap value.
+- Description: Caches the `swrap` value for reuse.
 
 #### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
-- Role: Holds the swrap state.
-- Description: Backs the cached state for this file.
+- Role: Caches the swrap value.
+- Description: Caches the `swrap` value for reuse.
 
 #### `public Wrapping swrap = Wrapping.REPEAT, twrap = Wrapping.REPEAT, rwrap = Wrapping.REPEAT`
-- Role: Holds the swrap state.
-- Description: Backs the cached state for this file.
+- Role: Caches the swrap value.
+- Description: Caches the `swrap` value for reuse.
 
 #### `public float anisotropy = 0.0f`
-- Role: Stores the anisotropy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the anisotropy value.
+- Description: Caches the `anisotropy` value for reuse.
 
 #### `public FColor border = FColor.BLACK`
-- Role: Stores the border value.
-- Description: Backs the cached state for this file.
+- Role: Caches the border value.
+- Description: Caches the `border` value for reuse.
 
 #### `public Disposable ro`
-- Role: Holds the ro state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ro value.
+- Description: Caches the `ro` value for reuse.
 
 ### Methods
 
 #### `public Texture(DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new Texture instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture instance from the supplied inputs.
 
 #### `public Image(T tex, int w, int h, int d, int level)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public boolean equals(Image that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Texture for debugging and logging.
 
 #### `public abstract Collection<? extends Image<? extends Texture>> images()`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Handles the images path.
+- Description: Implements the images operation.
 
 #### `public abstract Sampler<? extends Texture> sampler()`
-- Role: Performs sampler.
-- Description: Supports the sampler operation used by the surrounding class.
+- Role: Handles the sampler path.
+- Description: Implements the sampler operation.
 
 #### `public Texture srgb()`
-- Role: Performs srgb.
-- Description: Supports the srgb operation used by the surrounding class.
+- Role: Handles the srgb path.
+- Description: Implements the srgb operation.
 
 #### `public Texture eperm(Swizzle eperm)`
-- Role: Performs eperm.
-- Description: Supports the eperm operation used by the surrounding class.
+- Role: Handles the eperm path.
+- Description: Implements the eperm operation.
 
 #### `public Texture shared()`
-- Role: Performs shared.
-- Description: Supports the shared operation used by the surrounding class.
+- Role: Handles the shared path.
+- Description: Implements the shared operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public Sampler(T tex)`
-- Role: Performs sampler.
-- Description: Supports the sampler operation used by the surrounding class.
+- Role: Handles the sampler path.
+- Description: Implements the sampler operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public Sampler<T> magfilter(Filter v)`
-- Role: Performs magfilter.
-- Description: Supports the magfilter operation used by the surrounding class.
+- Role: Handles the magfilter path.
+- Description: Implements the magfilter operation.
 
 #### `public Sampler<T> minfilter(Filter v)`
-- Role: Performs minfilter.
-- Description: Supports the minfilter operation used by the surrounding class.
+- Role: Handles the minfilter path.
+- Description: Implements the minfilter operation.
 
 #### `public Sampler<T> mipfilter(Filter v)`
-- Role: Performs mipfilter.
-- Description: Supports the mipfilter operation used by the surrounding class.
+- Role: Handles the mipfilter path.
+- Description: Implements the mipfilter operation.
 
 #### `public Sampler<T> swrap(Wrapping v)`
-- Role: Performs swrap.
-- Description: Supports the swrap operation used by the surrounding class.
+- Role: Handles the swrap path.
+- Description: Implements the swrap operation.
 
 #### `public Sampler<T> twrap(Wrapping v)`
-- Role: Performs twrap.
-- Description: Supports the twrap operation used by the surrounding class.
+- Role: Handles the twrap path.
+- Description: Implements the twrap operation.
 
 #### `public Sampler<T> rwrap(Wrapping v)`
-- Role: Performs rwrap.
-- Description: Supports the rwrap operation used by the surrounding class.
+- Role: Handles the rwrap path.
+- Description: Implements the rwrap operation.
 
 #### `public Sampler<T> wrapmode(Wrapping v)`
-- Role: Performs wrapmode.
-- Description: Supports the wrapmode operation used by the surrounding class.
+- Role: Handles the wrapmode path.
+- Description: Implements the wrapmode operation.
 
 #### `public Sampler<T> anisotropy(float v)`
-- Role: Performs anisotropy.
-- Description: Supports the anisotropy operation used by the surrounding class.
+- Role: Handles the anisotropy path.
+- Description: Implements the anisotropy operation.
 
 #### `public Sampler<T> border(FColor v)`
-- Role: Performs border.
-- Description: Supports the border operation used by the surrounding class.
+- Role: Handles the border path.
+- Description: Implements the border operation.
 
 #### `public Sampler<T> copy(Sampler<?> that)`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public int parhash()`
-- Role: Performs parhash.
-- Description: Supports the parhash operation used by the surrounding class.
+- Role: Handles the parhash path.
+- Description: Implements the parhash operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean parequals(Sampler<?> that)`
-- Role: Performs parequals.
-- Description: Supports the parequals operation used by the surrounding class.
+- Role: Handles the parequals path.
+- Description: Implements the parequals operation.
 
 #### `private boolean equals(Sampler<?> that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Texture for debugging and logging.
 
 #### `String descfmt()`
-- Role: Performs descfmt.
-- Description: Supports the descfmt operation used by the surrounding class.
+- Role: Handles the descfmt path.
+- Description: Implements the descfmt operation.
 
 #### `public Texture desc(Object desc)`
-- Role: Performs desc.
-- Description: Supports the desc operation used by the surrounding class.
+- Role: Handles the desc path.
+- Description: Implements the desc operation.

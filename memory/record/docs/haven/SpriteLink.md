@@ -1,5 +1,5 @@
 ---
-source: [SpriteLink.java](../../../src/haven/SpriteLink.java)
+source: [SpriteLink.java](../../../../src/haven/SpriteLink.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,70 +12,71 @@ Represents the sprite link Haven component.
 
 ### ByRes
 
-- Role: Represents by res within SpriteLink.
-- Description: Describes the nested by res type used by the enclosing class.
+- Role: Chooses a sprite factory by referenced resource.
+- Description: Loads a secondary resource and forwards sprite creation to it.
 
 ### ByTile
 
-- Role: Represents by tile within SpriteLink.
-- Description: Describes the nested by tile type used by the enclosing class.
+- Role: Chooses a sprite factory by tile tags.
+- Description: Looks up the current tile's tags and selects the matching sprite factory or default.
 
 ## Members
 
 ### Constants
 
 #### `public static final Factory sfact = new Factory()`
-- Role: Defines the shared sfact constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the sfact operation.
+- Description: Implements the factory operation.
+- Value: `new Factory()`
 
 ### Fields
 
 #### `public final Factory f`
-- Role: Holds the f state.
-- Description: Backs the cached state for this file.
+- Role: Caches the f value.
+- Description: Caches the `f` value for reuse.
 
 #### `private final String[] tag`
-- Role: Stores the tag value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tag value.
+- Description: Caches the `tag` value for reuse.
 
 #### `private final Factory[] sub`
-- Role: Holds the sub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sub value.
+- Description: Caches the `sub` value for reuse.
 
 #### `private final Factory def`
-- Role: Holds the def state.
-- Description: Backs the cached state for this file.
+- Role: Caches the def value.
+- Description: Caches the `def` value for reuse.
 
 #### `private final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 ### Methods
 
 #### `private ByTile(Resource res, Message buf, Map<Integer, Factory> refs)`
-- Role: Performs by tile.
-- Description: Supports the by tile operation used by the surrounding class.
+- Role: Handles the by tile path.
+- Description: Implements the by tile operation.
 
 #### `public Sprite create(Owner owner, Resource res, Message sdt)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `private ByRes(Resource res, Message buf, Map<Integer, Factory> refs)`
-- Role: Performs by res.
-- Description: Supports the by res operation used by the surrounding class.
+- Role: Handles the by resource path.
+- Description: Implements the by res operation.
 
 #### `public Sprite create(Owner owner, Resource res, Message sdt)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this SpriteLink for debugging and logging.
 
 #### `public SpriteLink(Resource res, Message buf)`
 - Role: Creates a new SpriteLink instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SpriteLink instance from the supplied inputs.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.

@@ -1,5 +1,5 @@
 ---
-source: [DataBuffer.java](../../../../src/haven/render/DataBuffer.java)
+source: [DataBuffer.java](../../../../../src/haven/render/DataBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,57 +17,57 @@ Defines the data buffer render pipeline component.
 ### Methods
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Reports buffer size.
+- Description: Returns the logical size of the buffer.
 
 #### `public FillBuffer fill(T buf, Environment env)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Creates a fill buffer.
+- Description: Opens a writable view on the buffer for the given environment.
 
 #### `public default void done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes buffer filling.
+- Description: Completes the fill operation after the staged data has been written.
 
 #### `public static Filler<DataBuffer> of(ByteBuffer data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps byte-buffer data.
+- Description: Builds a filler that copies the provided byte buffer.
 
 #### `public static Filler<DataBuffer> of(ShortBuffer data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps short-buffer data.
+- Description: Builds a filler that copies the provided short buffer.
 
 #### `public static Filler<DataBuffer> of(IntBuffer data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps int-buffer data.
+- Description: Builds a filler that copies the provided int buffer.
 
 #### `public static Filler<DataBuffer> of(FloatBuffer data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps float-buffer data.
+- Description: Builds a filler that copies the provided float buffer.
 
 #### `public static Filler<DataBuffer> of(byte[] data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps byte-array data.
+- Description: Builds a filler that copies the provided byte array.
 
 #### `public static Filler<DataBuffer> of(short[] data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps short-array data.
+- Description: Builds a filler that copies the provided short array.
 
 #### `public static Filler<DataBuffer> of(int[] data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps int-array data.
+- Description: Builds a filler that copies the provided int array.
 
 #### `public static Filler<DataBuffer> of(float[] data)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Wraps float-array data.
+- Description: Builds a filler that copies the provided float array.
 
 #### `public static Filler<DataBuffer> zero()`
-- Role: Performs zero.
-- Description: Supports the zero operation used by the surrounding class.
+- Role: Builds a zero filler.
+- Description: Creates a filler that clears the buffer contents.
 
 #### `public FillBuffer fill(T buf, Environment env, int from, int to)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Creates a ranged fill buffer.
+- Description: Opens a writable view for a subrange of the buffer.
 
 #### `public default FillBuffer fill(T buf, Environment env)`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Creates a full fill buffer.
+- Description: Opens a writable view covering the entire buffer.

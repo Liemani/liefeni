@@ -1,5 +1,5 @@
 ---
-source: [EnumInterval.java](../../../src/haven/EnumInterval.java)
+source: [EnumInterval.java](../../../../src/haven/EnumInterval.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Represents the enum interval Haven component.
 ### Fields
 
 #### `private final Class<? extends E> cl`
-- Role: Holds the cl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cl value.
+- Description: Caches the `cl` value for reuse.
 
 #### `private final E lo, hi`
-- Role: Holds the hi state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hi value.
+- Description: Caches the `hi` value for reuse.
 
 #### `private final E lo, hi`
-- Role: Holds the hi state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hi value.
+- Description: Caches the `hi` value for reuse.
 
 ### Methods
 
 #### `public EnumInterval(E lo, E hi)`
 - Role: Creates a new EnumInterval instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the EnumInterval instance from the supplied inputs.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public E get(int i)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public int indexOf(Object o)`
-- Role: Performs index of.
-- Description: Supports the index of operation used by the surrounding class.
+- Role: Handles the index of path.
+- Description: Implements the index of operation.
 
 #### `public boolean contains(Object o)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.

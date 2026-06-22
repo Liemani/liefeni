@@ -1,5 +1,5 @@
 ---
-source: [MeshBuf.java](../../../src/haven/MeshBuf.java)
+source: [MeshBuf.java](../../../../src/haven/MeshBuf.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,355 +12,358 @@ Represents the mesh buf Haven component.
 
 ### ALayerID
 
-- Role: Represents alayer id within MeshBuf.
-- Description: Describes the nested alayer id type used by the enclosing class.
+- Role: Identifies an attribute-backed layer.
+- Description: Creates a typed layer instance from a vertex attribute definition.
 
 ### AttribData
 
-- Role: Represents attrib data within MeshBuf.
-- Description: Describes the nested attrib data type used by the enclosing class.
+- Role: Holds packed attribute data.
+- Description: Wraps float buffers for vertex attributes and carries the attribute format.
 
 ### AttribLayer
 
-- Role: Represents attrib layer within MeshBuf.
-- Description: Describes the nested attrib layer type used by the enclosing class.
+- Role: Stores one mesh attribute layer.
+- Description: Binds a layer to a render attribute and exposes packing behavior.
 
 ### CLayerID
 
-- Role: Represents clayer id within MeshBuf.
-- Description: Describes the nested clayer id type used by the enclosing class.
+- Role: Identifies a class-constructed layer.
+- Description: Instantiates a layer by reflecting the nested layer constructor on demand.
 
 ### Col
 
-- Role: Represents col within MeshBuf.
-- Description: Describes the nested col type used by the enclosing class.
+- Role: Stores per-vertex color data.
+- Description: Packs RGBA color values into a vertex buffer layer.
 
 ### Face
 
-- Role: Represents face within MeshBuf.
-- Description: Describes the nested face type used by the enclosing class.
+- Role: Stores one triangle face.
+- Description: Links three mesh vertices into a single face record.
 
 ### Layer
 
-- Role: Represents layer within MeshBuf.
-- Description: Describes the nested layer type used by the enclosing class.
+- Role: Defines one mesh data layer.
+- Description: Manages per-vertex payloads and converts them into vertex-buffer data.
 
 ### LayerID
 
-- Role: Represents layer id within MeshBuf.
-- Description: Describes the nested layer id type used by the enclosing class.
+- Role: Identifies a mesh layer type.
+- Description: Creates or resolves the layer instance associated with a buffer.
 
 ### LayerMapper
 
-- Role: Represents layer mapper within MeshBuf.
-- Description: Describes the nested layer mapper type used by the enclosing class.
+- Role: Maps source vertex layers into mesh layers.
+- Description: Bridges source vertex buffer attributes to mesh-local layers during copy.
 
 ### Tex
 
-- Role: Represents tex within MeshBuf.
-- Description: Describes the nested tex type used by the enclosing class.
+- Role: Stores per-vertex texture coordinates.
+- Description: Packs 2D texture coordinates into a mesh layer.
 
 ### V1LayerID
 
-- Role: Represents v1 layer id within MeshBuf.
-- Description: Describes the nested v1 layer id type used by the enclosing class.
+- Role: Identifies a one-component attribute layer.
+- Description: Creates a `Vec1Layer` bound to a render attribute.
 
 ### V2LayerID
 
-- Role: Represents v2 layer id within MeshBuf.
-- Description: Describes the nested v2 layer id type used by the enclosing class.
+- Role: Identifies a two-component attribute layer.
+- Description: Creates a `Vec2Layer` bound to a render attribute.
 
 ### V3LayerID
 
-- Role: Represents v3 layer id within MeshBuf.
-- Description: Describes the nested v3 layer id type used by the enclosing class.
+- Role: Identifies a three-component attribute layer.
+- Description: Creates a `Vec3Layer` bound to a render attribute.
 
 ### V4LayerID
 
-- Role: Represents v4 layer id within MeshBuf.
-- Description: Describes the nested v4 layer id type used by the enclosing class.
+- Role: Identifies a four-component attribute layer.
+- Description: Creates a `Vec4Layer` bound to a render attribute.
 
 ### Vec1Layer
 
-- Role: Represents vec1 layer within MeshBuf.
-- Description: Describes the nested vec1 layer type used by the enclosing class.
+- Role: Stores scalar attribute data.
+- Description: Packs one float per vertex for custom shader attributes.
 
 ### Vec2Layer
 
-- Role: Represents vec2 layer within MeshBuf.
-- Description: Describes the nested vec2 layer type used by the enclosing class.
+- Role: Stores two-component attribute data.
+- Description: Packs two floats per vertex for custom shader attributes.
 
 ### Vec3Layer
 
-- Role: Represents vec3 layer within MeshBuf.
-- Description: Describes the nested vec3 layer type used by the enclosing class.
+- Role: Stores three-component attribute data.
+- Description: Packs three floats per vertex for custom shader attributes.
 
 ### Vec4Layer
 
-- Role: Represents vec4 layer within MeshBuf.
-- Description: Describes the nested vec4 layer type used by the enclosing class.
+- Role: Stores four-component attribute data.
+- Description: Packs four floats per vertex for custom shader attributes.
 
 ### Vertex
 
-- Role: Represents vertex within MeshBuf.
-- Description: Describes the nested vertex type used by the enclosing class.
+- Role: Stores one mesh vertex.
+- Description: Holds position, normal, and per-layer attributes for a vertex in the buffer.
 
 ## Members
 
 ### Constants
 
 #### `public static final LayerID<Tex> tex = new CLayerID<Tex>(Tex.class)`
-- Role: Defines the shared tex constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the tex operation.
+- Description: Implements the public static final layer id<tex> tex = new c layer id<tex>(tex.class) operation.
+- Value: `new CLayerID<Tex>(Tex.class)`
 
 #### `public static final LayerID<Col> col = new CLayerID<Col>(Col.class)`
-- Role: Defines the shared col constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the col operation.
+- Description: Implements the public static final layer id<col> col = new c layer id<col>(col.class) operation.
+- Value: `new CLayerID<Col>(Col.class)`
 
 #### `private static final LayerMapper defmapper = new LayerMapper()`
-- Role: Defines the shared defmapper constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the defmapper operation.
+- Description: Implements the layer mapper operation.
+- Value: `new LayerMapper()`
 
 ### Fields
 
 #### `public final Collection<Vertex> v = new ArrayList<Vertex>()`
-- Role: Caches v entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the v operation.
+- Description: Implements the public final collection<vertex> v = new array list<vertex>() operation.
 
 #### `public final Collection<Face> f = new ArrayList<Face>()`
-- Role: Caches f entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the f operation.
+- Description: Implements the public final collection<face> f = new array list<face>() operation.
 
 #### `private VertexBuf vbuf = null`
-- Role: Stores the vbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the vbuf value.
+- Description: Caches the `vbuf` value for reuse.
 
 #### `private int nextid = 0`
-- Role: Stores the nextid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nextid value.
+- Description: Caches the `nextid` value for reuse.
 
 #### `private Layer<?>[] layers = new Layer<?>[0]`
-- Role: Holds the layers state.
-- Description: Backs the cached state for this file.
+- Role: Caches the layers value.
+- Description: Caches the `layers` value for reuse.
 
 #### `private LayerID<?>[] lids = new LayerID<?>[0]`
-- Role: Holds the lids state.
-- Description: Backs the cached state for this file.
+- Role: Caches the lids value.
+- Description: Caches the `lids` value for reuse.
 
 #### `public final int idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `public final Class<L> cl`
-- Role: Holds the cl state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cl value.
+- Description: Caches the `cl` value for reuse.
 
 #### `private final java.lang.reflect.Constructor<L> cons`
-- Role: Holds the cons state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cons value.
+- Description: Caches the `cons` value for reuse.
 
 #### `public final Attribute attrib`
-- Role: Holds the attrib state.
-- Description: Backs the cached state for this file.
+- Role: Caches the attrib value.
+- Description: Caches the `attrib` value for reuse.
 
 #### `public final Attribute attrib`
-- Role: Holds the attrib state.
-- Description: Backs the cached state for this file.
+- Role: Caches the attrib value.
+- Description: Caches the `attrib` value for reuse.
 
 #### `public Coord3f pos, nrm`
-- Role: Stores the nrm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nrm value.
+- Description: Caches the `nrm` value for reuse.
 
 #### `public Coord3f pos, nrm`
-- Role: Stores the nrm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nrm value.
+- Description: Caches the `nrm` value for reuse.
 
 #### `private Object[] attrs = new Object[layers.length]`
-- Role: Holds the attrs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the attrs value.
+- Description: Caches the `attrs` value for reuse.
 
 #### `private short idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `public final Vertex v1, v2, v3`
-- Role: Stores the v3 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v3 value.
+- Description: Caches the `v3` value for reuse.
 
 #### `public final Vertex v1, v2, v3`
-- Role: Stores the v3 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v3 value.
+- Description: Caches the `v3` value for reuse.
 
 #### `public final Vertex v1, v2, v3`
-- Role: Stores the v3 value.
-- Description: Backs the cached state for this file.
+- Role: Caches the v3 value.
+- Description: Caches the `v3` value for reuse.
 
 ### Methods
 
 #### `public Layer()`
-- Role: Performs layer.
-- Description: Supports the layer operation used by the surrounding class.
+- Role: Handles the layer path.
+- Description: Implements the layer operation.
 
 #### `public void set(Vertex v, T data)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `public T get(Vertex v)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public abstract VertexBuf.AttribData build(Collection<T> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public void copy(VertexBuf src, Vertex[] vmap, int off)`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public abstract L cons(MeshBuf buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public CLayerID(Class<L> cl)`
-- Role: Performs clayer id.
-- Description: Supports the clayer id operation used by the surrounding class.
+- Role: Handles the clayer id path.
+- Description: Implements the c layer id operation.
 
 #### `public L cons(MeshBuf buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public VertexBuf.TexelData build(Collection<Coord3f> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public void copy(VertexBuf buf, Vertex[] vmap, int off)`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public VertexBuf.ColorData build(Collection<Color> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public AttribData(Attribute attrib, int nc, FloatBuffer data)`
-- Role: Performs attrib data.
-- Description: Supports the attrib data operation used by the surrounding class.
+- Role: Handles the attrib data path.
+- Description: Implements the attrib data operation.
 
 #### `public AttribLayer(Attribute attrib)`
-- Role: Performs attrib layer.
-- Description: Supports the attrib layer operation used by the surrounding class.
+- Role: Handles the attrib layer path.
+- Description: Implements the attrib layer operation.
 
 #### `public Vec1Layer(Attribute attrib)`
-- Role: Performs vec1 layer.
-- Description: Supports the vec1 layer operation used by the surrounding class.
+- Role: Handles the vec1 layer path.
+- Description: Implements the vec1 layer operation.
 
 #### `public AttribData build(Collection<Float> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public Vec2Layer(Attribute attrib)`
-- Role: Performs vec2 layer.
-- Description: Supports the vec2 layer operation used by the surrounding class.
+- Role: Handles the vec2 layer path.
+- Description: Implements the vec2 layer operation.
 
 #### `public AttribData build(Collection<Coord3f> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public Vec3Layer(Attribute attrib)`
-- Role: Performs vec3 layer.
-- Description: Supports the vec3 layer operation used by the surrounding class.
+- Role: Handles the vec3 layer path.
+- Description: Implements the vec3 layer operation.
 
 #### `public AttribData build(Collection<Coord3f> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public Vec4Layer(Attribute attrib)`
-- Role: Performs vec4 layer.
-- Description: Supports the vec4 layer operation used by the surrounding class.
+- Role: Handles the vec4 layer path.
+- Description: Implements the vec4 layer operation.
 
 #### `public AttribData build(Collection<float[]> in)`
-- Role: Performs build.
-- Description: Supports the build operation used by the surrounding class.
+- Role: Handles the build path.
+- Description: Implements the build operation.
 
 #### `public ALayerID(Attribute attrib)`
-- Role: Performs alayer id.
-- Description: Supports the alayer id operation used by the surrounding class.
+- Role: Handles the alayer id path.
+- Description: Implements the a layer id operation.
 
 #### `public V1LayerID(Attribute attrib)`
-- Role: Performs v1 layer id.
-- Description: Supports the v1 layer id operation used by the surrounding class.
+- Role: Handles the v1 layer id path.
+- Description: Implements the v1 layer id operation.
 
 #### `public Vec1Layer cons(MeshBuf buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public V2LayerID(Attribute attrib)`
-- Role: Performs v2 layer id.
-- Description: Supports the v2 layer id operation used by the surrounding class.
+- Role: Handles the v2 layer id path.
+- Description: Implements the v2 layer id operation.
 
 #### `public Vec2Layer cons(MeshBuf buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public V3LayerID(Attribute attrib)`
-- Role: Performs v3 layer id.
-- Description: Supports the v3 layer id operation used by the surrounding class.
+- Role: Handles the v3 layer id path.
+- Description: Implements the v3 layer id operation.
 
 #### `public Vec3Layer cons(MeshBuf buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public V4LayerID(Attribute attrib)`
-- Role: Performs v4 layer id.
-- Description: Supports the v4 layer id operation used by the surrounding class.
+- Role: Handles the v4 layer id path.
+- Description: Implements the v4 layer id operation.
 
 #### `public Vec4Layer cons(MeshBuf buf)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Handles the cons path.
+- Description: Implements the cons operation.
 
 #### `public <L extends Layer> L layer(LayerID<L> id)`
-- Role: Performs layer.
-- Description: Supports the layer operation used by the surrounding class.
+- Role: Handles the layer path.
+- Description: Implements the layer operation.
 
 #### `public Vertex(Coord3f pos, Coord3f nrm)`
-- Role: Performs vertex.
-- Description: Supports the vertex operation used by the surrounding class.
+- Role: Handles the vertex path.
+- Description: Implements the vertex operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this MeshBuf for debugging and logging.
 
 #### `public Face(Vertex v1, Vertex v2, Vertex v3)`
-- Role: Performs face.
-- Description: Supports the face operation used by the surrounding class.
+- Role: Handles the face path.
+- Description: Implements the face operation.
 
 #### `public Layer mapbuf(MeshBuf buf, VertexBuf.AttribData src)`
-- Role: Performs mapbuf.
-- Description: Supports the mapbuf operation used by the surrounding class.
+- Role: Handles the mapbuf path.
+- Description: Implements the mapbuf operation.
 
 #### `public Vertex[] copy(FastMesh src, LayerMapper mapper)`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public Vertex[] copy(FastMesh src)`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `private <T> VertexBuf.AttribData mklayer(Layer<T> l, Object[] abuf)`
-- Role: Performs mklayer.
-- Description: Supports the mklayer operation used by the surrounding class.
+- Role: Handles the mklayer path.
+- Description: Implements the mklayer operation.
 
 #### `private void mkvbuf()`
-- Role: Performs mkvbuf.
-- Description: Supports the mkvbuf operation used by the surrounding class.
+- Role: Handles the mkvbuf path.
+- Description: Implements the mkvbuf operation.
 
 #### `public void clearfaces()`
-- Role: Performs clearfaces.
-- Description: Supports the clearfaces operation used by the surrounding class.
+- Role: Handles the clearfaces path.
+- Description: Clears the faces.
 
 #### `public FastMesh mkmesh()`
-- Role: Performs mkmesh.
-- Description: Supports the mkmesh operation used by the surrounding class.
+- Role: Handles the mkmesh path.
+- Description: Implements the mkmesh operation.
 
 #### `public boolean emptyp()`
-- Role: Performs emptyp.
-- Description: Supports the emptyp operation used by the surrounding class.
+- Role: Handles the emptyp path.
+- Description: Implements the emptyp operation.

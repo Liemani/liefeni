@@ -1,5 +1,5 @@
 ---
-source: [UI.java](../../../src/haven/UI.java)
+source: [UI.java](../../../../src/haven/UI.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,1015 +12,1024 @@ Owns the active client UI tree and event dispatch.
 
 ### AddWidget
 
-- Role: Represents add widget within UI.
-- Description: Describes the nested add widget type used by the enclosing class.
+- Role: Queues widget attachment work.
+- Description: Command that adds a widget on the UI thread.
 
 ### AfterDraw
 
-- Role: Represents after draw within UI.
-- Description: Describes the nested after draw type used by the enclosing class.
+- Role: Runs work after the frame is drawn.
+- Description: Callback executed after rendering completes for a UI tick.
 
 ### Command
 
-- Role: Represents command within UI.
-- Description: Describes the nested command type used by the enclosing class.
+- Role: Represents one queued UI command.
+- Description: Work item executed by the UI command queue.
 
 ### CommandException
 
-- Role: Represents command exception within UI.
-- Description: Describes the nested command exception type used by the enclosing class.
+- Role: Signals a UI command failure.
+- Description: Runtime exception raised when a queued UI command fails.
 
 ### CommandQueue
 
-- Role: Represents command queue within UI.
-- Description: Describes the nested command queue type used by the enclosing class.
+- Role: Runs queued UI commands.
+- Description: Background runner that drains the UI command queue.
 
 ### Context
 
-- Role: Represents context within UI.
-- Description: Describes the nested context type used by the enclosing class.
+- Role: Provides UI-related context lookup.
+- Description: Base context contract used for widget and session object resolution.
 
 ### Cursor
 
-- Role: Represents cursor within UI.
-- Description: Describes the nested cursor type used by the enclosing class.
+- Role: Tracks cursor state.
+- Description: Cursor wrapper used for pointer state and cursor image management.
 
 ### DstWidget
 
-- Role: Represents dst widget within UI.
-- Description: Describes the nested dst widget type used by the enclosing class.
+- Role: Targets a widget for UI messages.
+- Description: Destination widget reference used by queued UI operations.
 
 ### ErrorMessage
 
-- Role: Represents error message within UI.
-- Description: Describes the nested error message type used by the enclosing class.
+- Role: Represents a UI error notice.
+- Description: Message wrapper used to surface errors to the player.
 
 ### Grab
 
-- Role: Represents grab within UI.
-- Description: Describes the nested grab type used by the enclosing class.
+- Role: Tracks a temporary UI grab.
+- Description: Base class for input grabs such as mouse and pointer capture.
 
 ### InfoMessage
 
-- Role: Represents info message within UI.
-- Description: Describes the nested info message type used by the enclosing class.
+- Role: Represents a UI info notice.
+- Description: Message wrapper used to surface informational notices.
 
 ### NewWidget
 
-- Role: Represents new widget within UI.
-- Description: Describes the nested new widget type used by the enclosing class.
+- Role: Creates a widget on the UI thread.
+- Description: Command that instantiates and attaches a widget.
 
 ### Notice
 
-- Role: Represents notice within UI.
-- Description: Describes the nested notice type used by the enclosing class.
+- Role: Represents a queued notice message.
+- Description: Notice record used by the UI notification system.
 
 ### NoticeEvent
 
-- Role: Represents notice event within UI.
-- Description: Describes the nested notice event type used by the enclosing class.
+- Role: Dispatches a UI notice.
+- Description: Event object that carries a notice to handlers.
 
 ### PointerGrab
 
-- Role: Represents pointer grab within UI.
-- Description: Describes the nested pointer grab type used by the enclosing class.
+- Role: Captures pointer input.
+- Description: Grab type used for pointer-specific input capture.
 
 ### Receiver
 
-- Role: Represents receiver within UI.
-- Description: Describes the nested receiver type used by the enclosing class.
+- Role: Receives UI messages.
+- Description: Handler contract for inbound UI message dispatch.
 
 ### Runner
 
-- Role: Represents runner within UI.
-- Description: Describes the nested runner type used by the enclosing class.
+- Role: Runs deferred UI work.
+- Description: Runnable wrapper executed on the UI thread.
 
 ### SimpleMessage
 
-- Role: Represents simple message within UI.
-- Description: Describes the nested simple message type used by the enclosing class.
+- Role: Represents a plain UI message.
+- Description: Simple message wrapper without extra payload behavior.
 
 ### UIException
 
-- Role: Represents uiexception within UI.
-- Description: Describes the nested uiexception type used by the enclosing class.
+- Role: Signals a UI failure.
+- Description: Runtime exception raised from UI lifecycle and command handling.
 
 ### UIWarning
 
-- Role: Represents uiwarning within UI.
-- Description: Describes the nested uiwarning type used by the enclosing class.
+- Role: Signals a non-fatal UI warning.
+- Description: Warning wrapper used for recoverable UI problems.
 
 ### UiMessage
 
-- Role: Represents ui message within UI.
-- Description: Describes the nested ui message type used by the enclosing class.
+- Role: Represents a queued UI message.
+- Description: Message record delivered through the UI message queue.
 
 ### WidgetConsole
 
-- Role: Represents widget console within UI.
-- Description: Describes the nested widget console type used by the enclosing class.
+- Role: Exposes the widget console.
+- Description: Console directory that routes commands to widgets.
 
 ### WidgetGrab
 
-- Role: Represents widget grab within UI.
-- Description: Describes the nested widget grab type used by the enclosing class.
+- Role: Captures widget input.
+- Description: Grab type that forwards events to a specific widget.
 
 ## Members
 
 ### Constants
 
 #### `private static final double scalef`
-- Role: Defines the shared scalef constant.
-- Description: Shared constant used by the rest of the class.
+#### `private static final double scalef`
+- Role: Defines the scalef constant.
+- Description: Scale factor applied to UI layout and coordinate conversion.
 
 #### `private static final java.util.concurrent.atomic.AtomicInteger nextid = new java.util.concurrent.atomic.AtomicInteger(0)`
-- Role: Defines the shared nextid constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the nextid constant.
+- Description: Monotonically increasing identifier source for queued commands.
+- Value: `new java.util.concurrent.atomic.AtomicInteger(0)`
 
 #### `private static final boolean cmdjitter = false`
-- Role: Defines the shared cmdjitter constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the cmdjitter constant.
+- Description: Debug flag that controls UI command queue diagnostics.
+- Value: `false`
 
 #### `private static final boolean cmddump = false`
-- Role: Defines the shared cmddump constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the cmddump constant.
+- Description: Debug flag that controls UI command queue diagnostics.
+- Value: `false`
 
 #### `public static final Audio.Clip nosfx = () -> null`
-- Role: Defines the shared nosfx constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the nosfx constant.
+- Description: No-op sound clip used when UI feedback has no audio.
+- Value: `() -> null`
 
 #### `public static final Color color = new Color(192, 0, 0)`
-- Role: Defines the shared color constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the color constant.
+- Description: Color used for error-style UI notices.
+- Value: `new Color(192, 0, 0)`
 
 #### `public static final Audio.Clip sfx = Audio.resclip(Resource.local().loadwait("sfx/error"))`
-- Role: Defines the shared sfx constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the sfx constant.
+- Description: Sound clip used for UI notices.
+- Value: `Audio.resclip(Resource.local().loadwait("sfx/error"))`
 
 #### `public static final Audio.Clip sfx = Audio.resclip(Resource.local().loadwait("sfx/msg"))`
-- Role: Defines the shared sfx constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the sfx constant.
+- Description: Sound clip used for UI notices.
+- Value: `Audio.resclip(Resource.local().loadwait("sfx/msg"))`
 
 #### `public static final Config.Variable<Double> uiscale = Config.Variable.propf("haven.uiscale", null)`
-- Role: Defines the shared uiscale constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the uiscale constant.
+- Description: Persistent UI scale preference read from configuration.
+- Value: `Config.Variable.propf("haven.uiscale", null)`
 
 ### Fields
 
 #### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
-- Role: Stores the mod shift value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mod shift value.
+- Description: Caches the `MOD_SHIFT` value for reuse.
 
 #### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
-- Role: Stores the mod shift value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mod shift value.
+- Description: Caches the `MOD_SHIFT` value for reuse.
 
 #### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
-- Role: Stores the mod shift value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mod shift value.
+- Description: Caches the `MOD_SHIFT` value for reuse.
 
 #### `public static int MOD_SHIFT = KeyMatch.S, MOD_CTRL = KeyMatch.C, MOD_META = KeyMatch.M, MOD_SUPER = KeyMatch.SUPER`
-- Role: Stores the mod shift value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mod shift value.
+- Description: Caches the `MOD_SHIFT` value for reuse.
 
 #### `public RootWidget root`
-- Role: Stores the root value.
-- Description: Backs the cached state for this file.
+- Role: Caches the root value.
+- Description: Keeps the root event so acceptance can be reported back.
 
 #### `private final List<Grab> grabs = new CopyOnWriteArrayList<Grab>()`
-- Role: Caches grabs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Active input grabs currently registered with the UI.
+- Description: Active input grabs currently registered with the UI.
 
 #### `private final Map<Integer, Widget> widgets = new TreeMap<Integer, Widget>()`
-- Role: Caches widgets entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Widget table indexed by runtime id.
+- Description: Widget table indexed by runtime id.
 
 #### `private final Map<Widget, Integer> rwidgets = new HashMap<Widget, Integer>()`
-- Role: Caches rwidgets entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Reverse lookup from widget instance to widget id.
+- Description: Reverse lookup from widget instance to widget id.
 
 #### `Environment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `Receiver rcvr`
-- Role: Holds the rcvr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rcvr value.
+- Description: Caches the `rcvr` value for reuse.
 
 #### `public Coord mc = Coord.z, lcc = Coord.z`
-- Role: Stores the mc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mc value.
+- Description: Caches the `mc` value for reuse.
 
 #### `public Coord mc = Coord.z, lcc = Coord.z`
-- Role: Stores the mc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mc value.
+- Description: Caches the `mc` value for reuse.
 
 #### `public Session sess`
-- Role: Stores the sess value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sess value.
+- Description: Caches the `sess` value for reuse.
 
 #### `public boolean modshift, modctrl, modmeta, modsuper`
-- Role: Tracks the modsuper flag.
-- Description: Supports the modsuper operation used by the surrounding class.
+- Role: Tracks whether modsuper is enabled.
+- Description: Super modifier state mirrored from input events.
 
 #### `public boolean modshift, modctrl, modmeta, modsuper`
-- Role: Tracks the modsuper flag.
-- Description: Supports the modsuper operation used by the surrounding class.
+- Role: Tracks whether modsuper is enabled.
+- Description: Super modifier state mirrored from input events.
 
 #### `public boolean modshift, modctrl, modmeta, modsuper`
-- Role: Tracks the modsuper flag.
-- Description: Supports the modsuper operation used by the surrounding class.
+- Role: Tracks whether modsuper is enabled.
+- Description: Super modifier state mirrored from input events.
 
 #### `public boolean modshift, modctrl, modmeta, modsuper`
-- Role: Tracks the modsuper flag.
-- Description: Supports the modsuper operation used by the surrounding class.
+- Role: Tracks whether modsuper is enabled.
+- Description: Super modifier state mirrored from input events.
 
 #### `public Object lasttip`
-- Role: Holds the lasttip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the last tip.
+- Description: Caches the last tip value.
 
 #### `public double lastevent, lasttick`
-- Role: Stores the lasttick value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last tick.
+- Description: Caches the last tick value.
 
 #### `public double lastevent, lasttick`
-- Role: Stores the lasttick value.
-- Description: Backs the cached state for this file.
+- Role: Caches the last tick.
+- Description: Caches the last tick value.
 
 #### `public Widget mouseon`
-- Role: Stores the mouseon value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mouseon value.
+- Description: Caches the `mouseon` value for reuse.
 
 #### `public Console cons = new WidgetConsole()`
-- Role: Holds the cons state.
-- Description: Backs the cached state for this file.
+- Role: Implements the cons operation.
+- Description: Implements the widget console operation.
 
 #### `private Collection<AfterDraw> afterdraws = new LinkedList<AfterDraw>()`
-- Role: Caches afterdraws entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Callbacks scheduled to run after a draw pass.
+- Description: Callbacks scheduled to run after a draw pass.
 
 #### `private final Context uictx`
-- Role: Stores the uictx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the uictx value.
+- Description: Caches the `uictx` value for reuse.
 
 #### `public GSettings gprefs = GSettings.load(true)`
-- Role: Holds the gprefs state.
-- Description: Backs the cached state for this file.
+- Role: Implements the gprefs operation.
+- Description: Loads the requested data.
 
 #### `private boolean gprefsdirty = false`
 - Role: Tracks whether gprefsdirty is dirty.
-- Description: Boolean flag used to guard the surrounding lifecycle state.
+- Description: Marks preferences as needing persistence.
 
 #### `public final ActAudio.Root audio = new ActAudio.Root()`
-- Role: Stores the audio value.
-- Description: Backs the cached state for this file.
+- Role: Implements the audio operation.
+- Description: Implements the root operation.
 
 #### `public final Loader loader`
-- Role: Holds the loader state.
-- Description: Backs the cached state for this file.
+- Role: Caches the loader value.
+- Description: Caches the `loader` value for reuse.
 
 #### `public final CommandQueue queue = new CommandQueue()`
-- Role: Caches queue entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: UI command queue used for deferred work.
+- Description: Command queue used for deferred UI work.
 
 #### `public final Runner back`
-- Role: Holds the back state.
-- Description: Backs the cached state for this file.
+- Role: Caches the back value.
+- Description: Caches the `back` value for reuse.
 
 #### `public String mname`
-- Role: Stores the mname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mname value.
+- Description: Caches the `mname` value for reuse.
 
 #### `public Object[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 #### `public String mname`
-- Role: Stores the mname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mname value.
+- Description: Caches the `mname` value for reuse.
 
 #### `public Object[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 #### `public final int id = nextid.getAndIncrement()`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Implements the id operation.
+- Description: Implements the get and increment operation.
 
 #### `public final Collection<Integer> deps = new ArrayList<>()`
-- Role: Caches deps entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Command ids that must complete before this command runs.
+- Description: Command ids that must complete before this command runs.
 
 #### `public final Collection<Integer> bars = new ArrayList<>()`
-- Role: Caches bars entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Command ids that act as hard barriers.
+- Description: Command ids that act as hard barriers.
 
 #### `public final Collection<Command> next = new ArrayList<>()`
-- Role: Caches next entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Commands scheduled to run after this one completes.
+- Description: Commands scheduled to run after this one completes.
 
 #### `public final Collection<Command> wait = new ArrayList<>()`
-- Role: Caches wait entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Commands currently waiting on this command.
+- Description: Commands currently waiting on this command.
 
 #### `public final Runnable action`
-- Role: Holds the action state.
-- Description: Backs the cached state for this file.
+- Role: Caches the action value.
+- Description: Caches the `action` value for reuse.
 
 #### `public final Command cmd`
-- Role: Holds the cmd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cmd value.
+- Description: Caches the `cmd` value for reuse.
 
 #### `private final Map<Integer, Command> score = new HashMap<>()`
-- Role: Caches score entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Dependency ranking table used by the queue runner.
+- Description: Dependency ranking table used by the queue runner.
 
 #### `private int inflight = 0`
-- Role: Stores the inflight value.
-- Description: Backs the cached state for this file.
+- Role: Caches the inflight value.
+- Description: Caches the `inflight` value for reuse.
 
 #### `private Collection<Integer> or_deps = null, or_bars = null`
-- Role: Caches or deps entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Alternate dependency set used while resolving queue prerequisites.
+- Description: Alternate dependency set used while resolving UI command prerequisites.
 
 #### `private Collection<Integer> or_deps = null, or_bars = null`
-- Role: Caches or deps entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Alternate dependency set used while resolving queue prerequisites.
+- Description: Alternate dependency set used while resolving UI command prerequisites.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final String typenm`
-- Role: Stores the typenm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the typenm value.
+- Description: Caches the `typenm` value for reuse.
 
 #### `public final Object[] cargs`
-- Role: Holds the cargs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cargs value.
+- Description: Caches the `cargs` value for reuse.
 
 #### `private transient Widget.Factory type`
-- Role: Stores the type value.
-- Description: Backs the cached state for this file.
+- Role: Caches the type value.
+- Description: Caches the `type` value for reuse.
 
 #### `private transient Widget wdg = null`
-- Role: Stores the wdg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the wdg value.
+- Description: Caches the `wdg` value for reuse.
 
 #### `private final MultiMap<Integer, Integer> shadowchildren = new HashMultiMap<>()`
-- Role: Caches shadowchildren entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Pending child widgets grouped by parent id while attaching widgets.
+- Description: Pending child-to-parent attachment map used until both widget ids are known.
 
 #### `private final Map<Integer, Integer> shadowparents = new HashMap<>()`
-- Role: Caches shadowparents entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Parent widget id for each pending child while attaching widgets.
+- Description: Pending parent-to-child attachment map used until both widget ids are known.
 
 #### `public final int id, parent`
-- Role: Stores the parent value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public final int id, parent`
-- Role: Stores the parent value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public final Object[] pargs`
-- Role: Holds the pargs state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pargs value.
+- Description: Caches the `pargs` value for reuse.
 
 #### `public final Widget owner`
-- Role: Stores the owner value.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 #### `public final Class<E> etype`
-- Role: Holds the etype state.
-- Description: Backs the cached state for this file.
+- Role: Caches the etype value.
+- Description: Caches the `etype` value for reuse.
 
 #### `public final EventHandler<? super E> handler`
-- Role: Stores the handler value.
-- Description: Backs the cached state for this file.
+- Role: Receives the completion callback for the queued request.
+- Description: Receives the completion callback for the queued request.
 
 #### `public final Widget wdg`
-- Role: Stores the wdg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the wdg value.
+- Description: Caches the `wdg` value for reuse.
 
 #### `public final Widget wdg`
-- Role: Stores the wdg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the wdg value.
+- Description: Caches the `wdg` value for reuse.
 
 #### `public final EventHandler<? super E> bk`
-- Role: Stores the bk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final String msg`
-- Role: Stores the msg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `public final Object[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 #### `public String msg`
-- Role: Stores the msg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `public Color color`
-- Role: Stores the color value.
-- Description: Backs the cached state for this file.
+- Role: Caches the color value.
+- Description: Caches the `color` value for reuse.
 
 #### `public Audio.Clip sfx`
-- Role: Stores the sfx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sfx value.
+- Description: Caches the `sfx` value for reuse.
 
 #### `public final Notice msg`
-- Role: Holds the msg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `private Widget prevtt = null`
-- Role: Stores the prevtt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prevtt value.
+- Description: Caches the `prevtt` value for reuse.
 
 #### `public final Map<Audio.Clip, Double> lastmsgsfx = new HashMap<>()`
-- Role: Caches lastmsgsfx entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Most recent play time for each message sound clip.
+- Description: Last play time per message sound clip to avoid repeating the same notice too quickly.
 
 #### `private static double maxscale = -1`
-- Role: Stores the maxscale value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxscale value.
+- Description: Caches the `maxscale` value for reuse.
 
 ### Methods
 
 #### `public void rcvmsg(int widget, String msg, Object... args)`
-- Role: Performs rcvmsg.
-- Description: Supports the rcvmsg operation used by the surrounding class.
+- Role: Queues an inbound widget message.
+- Description: Enqueues a widget message for the UI command queue.
 
 #### `public Runner run(UI ui) throws InterruptedException`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public default void init(UI ui)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Initializes a receiver.
+- Description: Called when a receiver is attached to a UI instance.
 
 #### `public default String title()`
-- Role: Performs title.
-- Description: Supports the title operation used by the surrounding class.
+- Role: Returns a title string.
+- Description: Returns the title associated with this receiver.
 
 #### `public Proxy(Runner back)`
-- Role: Performs proxy.
-- Description: Supports the proxy operation used by the surrounding class.
+- Role: Wraps another UI runner.
+- Description: Wraps another runner and forwards UI lifecycle calls.
 
 #### `public Runner run(UI ui) throws InterruptedException`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void init(UI ui)`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Initializes the wrapped receiver.
+- Description: Initialises the wrapped receiver chain against the active UI instance.
 
 #### `public String title()`
-- Role: Performs title.
-- Description: Supports the title operation used by the surrounding class.
+- Role: Returns a title string.
+- Description: Returns the title associated with this receiver.
 
 #### `void setmousepos(Coord c)`
-- Role: Performs setmousepos.
-- Description: Supports the setmousepos operation used by the surrounding class.
+- Role: Updates the mouse position.
+- Description: Updates the cursor position shared with widget code.
 
 #### `public void draw(GOut g)`
-- Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Role: Draws the UI tree.
+- Description: Draws the root widget and any queued after-draw callbacks.
 
 #### `public void setgprefs(GSettings prefs)`
-- Role: Performs setgprefs.
-- Description: Supports the setgprefs operation used by the surrounding class.
+- Role: Sets global preferences.
+- Description: Stores the global preference object used for later saves.
 
 #### `private void findcmds(Map<String, Command> map, Widget wdg)`
 - Role: Returns the available console commands.
-- Description: Exposes the requested value without mutating state.
+- Description: Recursively collects console commands from the widget tree.
 
 #### `public Map<String, Command> findcmds()`
 - Role: Returns the available console commands.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the full widget-console command map.
 
 #### `public UIException(String message, String mname, Object... args)`
-- Role: Performs uiexception.
-- Description: Supports the uiexception operation used by the surrounding class.
+- Role: Represents a UI command failure.
+- Description: Builds the exception that carries widget command context.
 
 #### `public void printStackTrace(java.io.PrintStream out)`
 - Role: Logs the stack trace.
-- Description: Logs the stack trace for diagnostics and debugging.
+- Description: Prints the stack trace together with the message context.
 
 #### `public UIWarning(String message, String mname, Object... args)`
-- Role: Performs uiwarning.
-- Description: Supports the uiwarning operation used by the surrounding class.
+- Role: Represents a UI warning.
+- Description: Builds a non-fatal warning with widget context.
 
 #### `public UI(Context uictx, Coord sz, Runner fun)`
 - Role: Creates a new UI instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Initializes the UI with the provided context, size, and runner.
 
 #### `public Command(Runnable action)`
-- Role: Performs command.
-- Description: Supports the command operation used by the surrounding class.
+- Role: Wraps a UI command.
+- Description: Captures one runnable action together with its dependency metadata.
 
 #### `public Command dep(int id, boolean bar)`
-- Role: Performs dep.
-- Description: Supports the dep operation used by the surrounding class.
+- Role: Adds a dependency edge.
+- Description: Marks a widget id as a dependency or barrier for this command.
 
 #### `private String fl(String id, Collection<?> l)`
-- Role: Performs fl.
-- Description: Supports the fl operation used by the surrounding class.
+- Role: Formats a command field.
+- Description: Formats a collection field for debugging output.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this UI for debugging and logging.
 
 #### `public CommandException(Command cmd, Throwable cause)`
-- Role: Performs command exception.
-- Description: Supports the command exception operation used by the surrounding class.
+- Role: Wraps a command failure.
+- Description: Wraps a command failure with the failing command context.
 
 #### `public String getMessage()`
 - Role: Returns the message.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the message.
 
 #### `private CommandQueue()`
-- Role: Performs command queue.
-- Description: Supports the command queue operation used by the surrounding class.
+- Role: Owns the UI command scheduler.
+- Description: Initializes the dependency-aware UI command scheduler.
 
 #### `private void run(Command cmd)`
-- Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Role: Runs one queued command.
+- Description: Executes the runnable and translates failures into command exceptions.
 
 #### `private void execute(Command cmd)`
-- Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Role: Dispatches one queued command.
+- Description: Defers command execution onto the loader thread.
 
 #### `public void submit(Command cmd)`
-- Role: Performs submit.
-- Description: Supports the submit operation used by the surrounding class.
+- Role: Submits a queued command.
+- Description: Registers dependencies and starts the command when it is ready.
 
 #### `public void finish(Command cmd)`
-- Role: Performs finish.
-- Description: Supports the finish operation used by the surrounding class.
+- Role: Finishes a queued command.
+- Description: Releases dependent commands and clears matching barrier state.
 
 #### `public void drain()`
-- Role: Performs drain.
-- Description: Supports the drain operation used by the surrounding class.
+- Role: Waits for queued commands.
+- Description: Blocks until the command queue becomes idle.
 
 #### `public void setreceiver(Receiver rcvr)`
-- Role: Performs setreceiver.
-- Description: Supports the setreceiver operation used by the surrounding class.
+- Role: Stores the message receiver.
+- Description: Replaces the current UI message receiver.
 
 #### `public void bind(Widget w, int id)`
-- Role: Performs bind.
-- Description: Supports the bind operation used by the surrounding class.
+- Role: Registers a widget id.
+- Description: Stores forward and reverse widget lookup entries.
 
 #### `public Widget getwidget(int id)`
-- Role: Performs getwidget.
-- Description: Supports the getwidget operation used by the surrounding class.
+- Role: Resolves a widget by id.
+- Description: Returns the widget registered for the given id.
 
 #### `public int widgetid(Widget wdg)`
-- Role: Performs widgetid.
-- Description: Supports the widgetid operation used by the surrounding class.
+- Role: Resolves a widget id.
+- Description: Returns the id registered for the given widget, or -1.
 
 #### `public void drawafter(AfterDraw ad)`
-- Role: Performs drawafter.
-- Description: Supports the drawafter operation used by the surrounding class.
+- Role: Schedules an after-draw callback.
+- Description: Adds a callback that will run after the next UI draw.
 
 #### `public void tick()`
-- Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Role: Advances the UI state.
+- Description: Updates time, dispatches tick events, and flushes dirty preferences.
 
 #### `public void gtick(Render out)`
-- Role: Advances the drawable state for the current render tick.
-- Description: Updates per-frame drawable state during the render loop.
+- Role: Advances the render state.
+- Description: Dispatches the graphics tick event to the widget tree.
 
 #### `public void draw(GOut g)`
-- Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Role: Draws the UI tree.
+- Description: Draws the root widget and any queued after-draw callbacks.
 
 #### `private void submitcmd(Command cmd)`
-- Role: Performs submitcmd.
-- Description: Supports the submitcmd operation used by the surrounding class.
+- Role: Submits a command with overrides.
+- Description: Applies queued barrier overrides and sends the command to the scheduler.
 
 #### `private NewWidget(int id, Widget.Factory type, Object... cargs)`
-- Role: Performs new widget.
-- Description: Supports the new widget operation used by the surrounding class.
+- Role: Builds a new widget command.
+- Description: Stores the factory-based widget creation request.
 
 #### `private NewWidget(int id, String type, Object... cargs)`
-- Role: Performs new widget.
-- Description: Supports the new widget operation used by the surrounding class.
+- Role: Builds a new widget command.
+- Description: Stores the named widget creation request.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this UI for debugging and logging.
 
 #### `public void newwidget(int id, Widget.Factory type, Object... cargs)`
-- Role: Performs newwidget.
-- Description: Supports the newwidget operation used by the surrounding class.
+- Role: Implements the newwidget operation.
+- Description: Implements the newwidget operation.
 
 #### `public void newwidget(int id, String type, Object... cargs) throws InterruptedException`
 - Role: Handles the newwidget workflow.
-- Description: Supports the newwidget operation used by the surrounding class.
+- Description: Queues creation of a widget by factory name.
 
 #### `private AddWidget(int id, int parent, Object... pargs)`
-- Role: Performs add widget.
-- Description: Supports the add widget operation used by the surrounding class.
+- Role: Implements the add widget operation.
+- Description: Implements the add widget operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this UI for debugging and logging.
 
 #### `public void addwidget(int id, int parent, Object... pargs)`
-- Role: Performs addwidget.
-- Description: Supports the addwidget operation used by the surrounding class.
+- Role: Adds the widget.
+- Description: Adds the widget.
 
 #### `public void wdgbarrier(Collection<Integer> deps, Collection<Integer> bars)`
-- Role: Performs wdgbarrier.
-- Description: Supports the wdgbarrier operation used by the surrounding class.
+- Role: Implements the wdgbarrier operation.
+- Description: Implements the wdgbarrier operation.
 
 #### `public void newwidgetp(int id, Widget.Factory type, int parent, Object[] pargs, Object... cargs)`
-- Role: Performs newwidgetp.
-- Description: Supports the newwidgetp operation used by the surrounding class.
+- Role: Implements the newwidgetp operation.
+- Description: Implements the newwidgetp operation.
 
 #### `public void newwidgetp(int id, String type, int parent, Object[] pargs, Object... cargs) throws InterruptedException`
 - Role: Handles the newwidgetp workflow.
-- Description: Supports the newwidgetp operation used by the surrounding class.
+- Description: Queues named widget creation and parent attachment together.
 
 #### `private Grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)`
-- Role: Performs grab.
-- Description: Supports the grab operation used by the surrounding class.
+- Role: Implements the grab operation.
+- Description: Implements the grab operation.
 
 #### `public void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes this grab from the active grab stack.
 
 #### `private boolean check(Event ev)`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Implements the check operation.
+- Description: Implements the check operation.
 
 #### `public <E extends Event> Grab<E> grab(Widget owner, Class<E> etype, EventHandler<? super E> handler)`
-- Role: Performs grab.
-- Description: Supports the grab operation used by the surrounding class.
+- Role: Implements the grab operation.
+- Description: Implements the grab operation.
 
 #### `public WidgetGrab(Widget wdg)`
-- Role: Performs widget grab.
-- Description: Supports the widget grab operation used by the surrounding class.
+- Role: Implements the widget grab operation.
+- Description: Implements the widget grab operation.
 
 #### `public boolean handle(Event ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Implements the handle operation.
+- Description: Implements the handle operation.
 
 #### `public PointerGrab(Widget wdg, EventHandler<? super E> bk)`
-- Role: Performs pointer grab.
-- Description: Supports the pointer grab operation used by the surrounding class.
+- Role: Implements the pointer grab operation.
+- Description: Implements the pointer grab operation.
 
 #### `public boolean handle(E ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Implements the handle operation.
+- Description: Implements the handle operation.
 
 #### `public Grab grabmouse(Widget wdg)`
-- Role: Performs grabmouse.
-- Description: Supports the grabmouse operation used by the surrounding class.
+- Role: Implements the grabmouse operation.
+- Description: Implements the grabmouse operation.
 
 #### `public Grab grabkeys(Widget wdg)`
-- Role: Performs grabkeys.
-- Description: Supports the grabkeys operation used by the surrounding class.
+- Role: Implements the grabkeys operation.
+- Description: Implements the grabkeys operation.
 
 #### `private void removeid(Widget wdg)`
-- Role: Performs removeid.
-- Description: Supports the removeid operation used by the surrounding class.
+- Role: Removes the matching element instance.
+- Description: Deletes a widget and all descendants from the lookup tables.
 
 #### `public void removed(Widget wdg)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Removes the d.
+- Description: Removes the d.
 
 #### `public void destroy(Widget wdg)`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Implements the destroy operation.
+- Description: Implements the destroy operation.
 
 #### `public boolean dispatch(Widget to, Event ev)`
-- Role: Performs dispatch.
-- Description: Supports the dispatch operation used by the surrounding class.
+- Role: Implements the dispatch operation.
+- Description: Implements the dispatch operation.
 
 #### `public <E extends Event> E dispatchq(Widget to, E ev)`
-- Role: Performs dispatchq.
-- Description: Supports the dispatchq operation used by the surrounding class.
+- Role: Implements the dispatchq operation.
+- Description: Implements the dispatchq operation.
 
 #### `private DstWidget(int id)`
-- Role: Performs dst widget.
-- Description: Supports the dst widget operation used by the surrounding class.
+- Role: Implements the dst widget operation.
+- Description: Implements the dst widget operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this UI for debugging and logging.
 
 #### `public void destroy(int id)`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Implements the destroy operation.
+- Description: Implements the destroy operation.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Implements the wdgmsg operation.
+- Description: Sends a widget message through the UI message path.
 
 #### `private UiMessage(int id, String msg, Object[] args)`
-- Role: Performs ui message.
-- Description: Supports the ui message operation used by the surrounding class.
+- Role: Implements the ui message operation.
+- Description: Implements the ui message operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this UI for debugging and logging.
 
 #### `public void uimsg(int id, String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Hooks the inbound message and schedules widget dispatch.
 
 #### `public String message()`
-- Role: Performs message.
-- Description: Supports the message operation used by the surrounding class.
+- Role: Implements the message operation.
+- Description: Implements the message operation.
 
 #### `public default Color color()`
-- Role: Performs color.
-- Description: Supports the color operation used by the surrounding class.
+- Role: Implements the color operation.
+- Description: Implements the color operation.
 
 #### `public default Audio.Clip sfx()`
-- Role: Performs sfx.
-- Description: Supports the sfx operation used by the surrounding class.
+- Role: Implements the sfx operation.
+- Description: Implements the sfx operation.
 
 #### `public default boolean handle(Widget w)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Implements the handle operation.
+- Description: Implements the handle operation.
 
 #### `public default boolean handler(Widget w)`
-- Role: Performs handler.
-- Description: Supports the handler operation used by the surrounding class.
+- Role: Implements the handler operation.
+- Description: Implements the handler operation.
 
 #### `public default boolean msg(Notice msg)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Lets a notice handler consume the notice directly.
 
 #### `public default boolean msg(NoticeEvent ev)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Lets a notice handler consume the propagated notice event.
 
 #### `public FactMaker()`
-- Role: Performs fact maker.
-- Description: Supports the fact maker operation used by the surrounding class.
+- Role: Implements the fact maker operation.
+- Description: Implements the fact maker operation.
 
 #### `public Notice format(OwnerContext owner, Object... args)`
-- Role: Performs format.
-- Description: Supports the format operation used by the surrounding class.
+- Role: Implements the format operation.
+- Description: Implements the format operation.
 
 #### `public SimpleMessage(String msg, Color color, Audio.Clip sfx)`
-- Role: Performs simple message.
-- Description: Supports the simple message operation used by the surrounding class.
+- Role: Implements the simple message operation.
+- Description: Implements the simple message operation.
 
 #### `public SimpleMessage(String msg)`
-- Role: Performs simple message.
-- Description: Supports the simple message operation used by the surrounding class.
+- Role: Implements the simple message operation.
+- Description: Implements the simple message operation.
 
 #### `public String message()`
-- Role: Performs message.
-- Description: Supports the message operation used by the surrounding class.
+- Role: Implements the message operation.
+- Description: Implements the message operation.
 
 #### `public Color color()`
-- Role: Performs color.
-- Description: Supports the color operation used by the surrounding class.
+- Role: Implements the color operation.
+- Description: Implements the color operation.
 
 #### `public Audio.Clip sfx()`
-- Role: Performs sfx.
-- Description: Supports the sfx operation used by the surrounding class.
+- Role: Implements the sfx operation.
+- Description: Implements the sfx operation.
 
 #### `protected Color defcolor()`
-- Role: Performs defcolor.
-- Description: Supports the defcolor operation used by the surrounding class.
+- Role: Implements the defcolor operation.
+- Description: Implements the defcolor operation.
 
 #### `protected Audio.Clip defsfx()`
-- Role: Performs defsfx.
-- Description: Supports the defsfx operation used by the surrounding class.
+- Role: Implements the defsfx operation.
+- Description: Implements the defsfx operation.
 
 #### `public ErrorMessage(String msg)`
-- Role: Performs error message.
-- Description: Supports the error message operation used by the surrounding class.
+- Role: Implements the error message operation.
+- Description: Implements the error message operation.
 
 #### `protected Color defcolor()`
-- Role: Performs defcolor.
-- Description: Supports the defcolor operation used by the surrounding class.
+- Role: Implements the defcolor operation.
+- Description: Implements the defcolor operation.
 
 #### `protected Audio.Clip defsfx()`
-- Role: Performs defsfx.
-- Description: Supports the defsfx operation used by the surrounding class.
+- Role: Implements the defsfx operation.
+- Description: Implements the defsfx operation.
 
 #### `public InfoMessage(String msg)`
-- Role: Performs info message.
-- Description: Supports the info message operation used by the surrounding class.
+- Role: Implements the info message operation.
+- Description: Implements the info message operation.
 
 #### `public InfoMessage(String msg, Color color, Audio.Clip sfx)`
-- Role: Performs info message.
-- Description: Supports the info message operation used by the surrounding class.
+- Role: Implements the info message operation.
+- Description: Implements the info message operation.
 
 #### `protected Audio.Clip defsfx()`
-- Role: Performs defsfx.
-- Description: Supports the defsfx operation used by the surrounding class.
+- Role: Implements the defsfx operation.
+- Description: Implements the defsfx operation.
 
 #### `public NoticeEvent(Notice msg)`
-- Role: Performs notice event.
-- Description: Supports the notice event operation used by the surrounding class.
+- Role: Broadcasts a UI notice.
+- Description: Propagates a notice through the widget tree.
 
 #### `protected boolean propagation(Widget from)`
-- Role: Performs propagation.
-- Description: Supports the propagation operation used by the surrounding class.
+- Role: Implements the propagation operation.
+- Description: Propagates hover state into child widgets.
 
 #### `protected boolean shandle(Widget w)`
-- Role: Performs shandle.
-- Description: Supports the shandle operation used by the surrounding class.
+- Role: Implements the shandle operation.
+- Description: Lets a matching widget consume the event.
 
 #### `public void msg(Notice msg)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Sends a notice event to the root widget tree.
 
 #### `public void msg(String msg, Color color, Audio.Clip sfx)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Wraps text, color, and sound into a SimpleMessage.
 
 #### `public void error(String msg)`
 - Role: Displays an error message.
-- Description: Supports the error operation used by the surrounding class.
+- Description: Wraps text in an ErrorMessage and broadcasts it.
 
 #### `public void msg(String msg)`
 - Role: Displays an in-game message.
-- Description: Supports the msg operation used by the surrounding class.
+- Description: Wraps text in an InfoMessage and broadcasts it.
 
 #### `private void setmods(InputEvent ev)`
-- Role: Performs setmods.
-- Description: Supports the setmods operation used by the surrounding class.
+- Role: Updates the mods.
+- Description: Updates the mods.
 
 #### `private Grab[] c(Collection<Grab> g)`
-- Role: Performs c.
-- Description: Supports the c operation used by the surrounding class.
+- Role: Implements the c operation.
+- Description: Implements the c operation.
 
 #### `public void keydown(KeyEvent ev)`
-- Role: Performs keydown.
-- Description: Supports the keydown operation used by the surrounding class.
+- Role: Processes keyboard input before the widget handles it.
+- Description: Updates modifiers, runs hooks, and dispatches key-down input.
 
 #### `public void keyup(KeyEvent ev)`
-- Role: Performs keyup.
-- Description: Supports the keyup operation used by the surrounding class.
+- Role: Implements the keyup operation.
+- Description: Implements the keyup operation.
 
 #### `public void mousedown(MouseEvent ev, Coord c, int button)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Caches mouse position and dispatches mouse-down input.
 
 #### `public void mouseup(MouseEvent ev, Coord c, int button)`
-- Role: Performs mouseup.
-- Description: Supports the mouseup operation used by the surrounding class.
+- Role: Finishes a drag or click interaction on the minimap.
+- Description: Finishes a drag or click interaction on the minimap.
 
 #### `public void mousemove(MouseEvent ev, Coord c)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Updates drag state while the mouse moves across the minimap.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public void mousehover(Coord c)`
-- Role: Performs mousehover.
-- Description: Supports the mousehover operation used by the surrounding class.
+- Role: Updates hover state and tooltip selection for minimap content.
+- Description: Updates hover state and tooltip selection for minimap content.
 
 #### `public void setmousepos(Coord c)`
-- Role: Performs setmousepos.
-- Description: Supports the setmousepos operation used by the surrounding class.
+- Role: Updates the mousepos.
+- Description: Updates the mousepos.
 
 #### `public void mousewheel(MouseEvent ev, Coord c, int ia, double sa)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Zooms or pans the minimap in response to the mouse wheel.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public Object getcurs(Coord c)`
 - Role: Returns the current cursor state.
-- Description: Exposes the requested value without mutating state.
+- Description: Queries the widget tree for the cursor override at a point.
 
 #### `public Object tooltip(Coord c)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Queries the widget tree for the current tooltip widget.
 
 #### `public static int modflags(InputEvent ev)`
-- Role: Performs modflags.
-- Description: Supports the modflags operation used by the surrounding class.
+- Role: Implements the modflags operation.
+- Description: Implements the modflags operation.
 
 #### `public int modflags()`
-- Role: Performs modflags.
-- Description: Supports the modflags operation used by the surrounding class.
+- Role: Implements the modflags operation.
+- Description: Implements the modflags operation.
 
 #### `public Environment getenv()`
-- Role: Performs getenv.
-- Description: Supports the getenv operation used by the surrounding class.
+- Role: Returns the env.
+- Description: Returns the env.
 
 #### `public void destroy()`
-- Role: Performs destroy.
-- Description: Supports the destroy operation used by the surrounding class.
+- Role: Implements the destroy operation.
+- Description: Implements the destroy operation.
 
 #### `public void sfx(Audio.CS clip)`
-- Role: Performs sfx.
-- Description: Supports the sfx operation used by the surrounding class.
+- Role: Implements the sfx operation.
+- Description: Implements the sfx operation.
 
 #### `public void sfx(Audio.Clip clip)`
-- Role: Performs sfx.
-- Description: Supports the sfx operation used by the surrounding class.
+- Role: Implements the sfx operation.
+- Description: Implements the sfx operation.
 
 #### `public void sfx(Resource clip)`
-- Role: Performs sfx.
-- Description: Supports the sfx operation used by the surrounding class.
+- Role: Implements the sfx operation.
+- Description: Implements the sfx operation.
 
 #### `public void sfxrl(Audio.Clip clip)`
-- Role: Performs sfxrl.
-- Description: Supports the sfxrl operation used by the surrounding class.
+- Role: Implements the sfxrl operation.
+- Description: Implements the sfxrl operation.
 
 #### `public Resource.Pool pool()`
-- Role: Performs pool.
-- Description: Supports the pool operation used by the surrounding class.
+- Role: Implements the pool operation.
+- Description: Implements the pool operation.
 
 #### `public static double scale(double v)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static float scale(float v)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static int scale(int v)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static int rscale(double v)`
-- Role: Performs rscale.
-- Description: Supports the rscale operation used by the surrounding class.
+- Role: Implements the rscale operation.
+- Description: Implements the rscale operation.
 
 #### `public static Coord scale(Coord v)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static Coord scale(int x, int y)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static Coord rscale(double x, double y)`
-- Role: Performs rscale.
-- Description: Supports the rscale operation used by the surrounding class.
+- Role: Implements the rscale operation.
+- Description: Implements the rscale operation.
 
 #### `public static Coord2d scale(Coord2d v)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `static public Font scale(Font f, float size)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static <T extends Tex> ScaledTex<T> scale(T tex)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static <T extends Tex> ScaledTex<T> scale(ScaledTex<T> tex)`
-- Role: Performs scale.
-- Description: Supports the scale operation used by the surrounding class.
+- Role: Implements the scale operation.
+- Description: Implements the scale operation.
 
 #### `public static double unscale(double v)`
-- Role: Performs unscale.
-- Description: Supports the unscale operation used by the surrounding class.
+- Role: Implements the unscale operation.
+- Description: Implements the unscale operation.
 
 #### `public static float unscale(float v)`
-- Role: Performs unscale.
-- Description: Supports the unscale operation used by the surrounding class.
+- Role: Implements the unscale operation.
+- Description: Implements the unscale operation.
 
 #### `public static int unscale(int v)`
-- Role: Performs unscale.
-- Description: Supports the unscale operation used by the surrounding class.
+- Role: Implements the unscale operation.
+- Description: Implements the unscale operation.
 
 #### `public static Coord unscale(Coord v)`
-- Role: Performs unscale.
-- Description: Supports the unscale operation used by the surrounding class.
+- Role: Implements the unscale operation.
+- Description: Implements the unscale operation.
 
 #### `public static double maxscale()`
-- Role: Performs maxscale.
-- Description: Supports the maxscale operation used by the surrounding class.
+- Role: Implements the maxscale operation.
+- Description: Implements the maxscale operation.
 
 #### `private static double loadscale()`
-- Role: Performs loadscale.
-- Description: Supports the loadscale operation used by the surrounding class.
+- Role: Loads the scale.
+- Description: Loads the scale.

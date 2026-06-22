@@ -1,21 +1,15 @@
 ---
-source: [Walker.java](../../../../../src/haven/render/sl/Walker.java)
+source: [Walker.java](../../../../../../src/haven/render/sl/Walker.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Walker
 
-Represents the walker shader-language AST node.
+Visitor interface for walking shader-language AST nodes.
 
-## Members
-
-### Constants
-
-### Fields
-
-### Methods
+## Methods
 
 #### `public void el(Element e)`
-- Role: Performs el.
-- Description: Supports the el operation used by the surrounding class.
+- Role: Visits one AST element.
+- Description: Called for each child node during tree walking.

@@ -1,5 +1,5 @@
 ---
-source: [TestView.java](../../../src/haven/TestView.java)
+source: [TestView.java](../../../../src/haven/TestView.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,73 +20,76 @@ Represents the test view Haven component.
 ### Constants
 
 #### `static final FastMesh borkamesh = Resource.remote().loadwait("gfx/test/borka").layer(FastMesh.MeshRes.class).m`
-- Role: Defines the shared borkamesh constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the borkamesh operation.
+- Description: Implements the layer operation.
+- Value: `Resource.remote().loadwait("gfx/test/borka").layer(FastMesh.MeshRes.class).m`
 
 #### `static final Material borkamat = Resource.remote().loadwait("gfx/test/borka").layer(Material.Res.class).get()`
-- Role: Defines the shared borkamat constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the borkamat operation.
+- Description: Returns the get value.
+- Value: `Resource.remote().loadwait("gfx/test/borka").layer(Material.Res.class).get()`
 
 #### `public static final Model data`
-- Role: Defines the shared data constant.
-- Description: Shared constant used by the rest of the class.
+#### `public static final Model data`
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 ### Fields
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-- Role: Stores the dist value.
-- Description: Backs the cached state for this file.
+- Role: Implements the dist operation.
+- Description: Implements the float dist = 15, e = (float)math.pi * 3 / 2, a = (float)math.pi / 2, rot = 0 operation.
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-- Role: Stores the dist value.
-- Description: Backs the cached state for this file.
+- Role: Implements the dist operation.
+- Description: Implements the float dist = 15, e = (float)math.pi * 3 / 2, a = (float)math.pi / 2, rot = 0 operation.
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-- Role: Stores the dist value.
-- Description: Backs the cached state for this file.
+- Role: Implements the dist operation.
+- Description: Implements the float dist = 15, e = (float)math.pi * 3 / 2, a = (float)math.pi / 2, rot = 0 operation.
 
 #### `float dist = 15, e = (float)Math.PI * 3 / 2, a = (float)Math.PI / 2, rot = 0`
-- Role: Stores the dist value.
-- Description: Backs the cached state for this file.
+- Role: Implements the dist operation.
+- Description: Implements the float dist = 15, e = (float)math.pi * 3 / 2, a = (float)math.pi / 2, rot = 0 operation.
 
 #### `final RenderTree.Slot[] borka =`
-- Role: Holds the test view state.
-- Description: Backs the cached state for this file.
+- Role: Caches the borka value.
+- Description: Caches the `borka` value for reuse.
 
 #### `final Light.PhongLight light = new Light.PhongLight(true, FColor.BLACK, FColor.WHITE, FColor.BLACK, FColor.BLACK, 0)`
-- Role: Holds the light state.
-- Description: Backs the cached state for this file.
+- Role: Implements the light operation.
+- Description: Implements the phong light operation.
 
 ### Methods
 
 #### `public TestView(Coord sz)`
 - Role: Creates a new TestView instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the TestView instance from the supplied inputs.
 
 #### `public void draw(Pipe state, Render out)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the TestView content.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `private void setcam()`
-- Role: Performs setcam.
-- Description: Supports the setcam operation used by the surrounding class.
+- Role: Handles the setcam path.
+- Description: Updates the cam.
 
 #### `public void mousemove(MouseMoveEvent ev)`
-- Role: Performs mousemove.
-- Description: Supports the mousemove operation used by the surrounding class.
+- Role: Handles the mousemove path.
+- Description: Updates drag state while the mouse moves across the minimap.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `protected FColor clearcolor()`
-- Role: Returns the clear color value.
-- Description: Exposes the requested value without mutating state.
+- Role: Clears the color.
+- Description: Clears the color.

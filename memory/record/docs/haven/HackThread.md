@@ -1,12 +1,12 @@
 ---
-source: [HackThread.java](../../../src/haven/HackThread.java)
+source: [HackThread.java](../../../../src/haven/HackThread.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # HackThread
 
-Represents the hack thread Haven component.
+Thread wrapper that preserves Haven thread-group behavior and interruption hooks.
 
 ## Members
 
@@ -15,35 +15,35 @@ Represents the hack thread Haven component.
 ### Fields
 
 #### `private Set<Runnable> ils = new HashSet<Runnable>()`
-- Role: Caches ils entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores interrupt listeners.
+- Description: Holds callbacks that should run when the thread is interrupted.
 
 ### Methods
 
 #### `public HackThread(ThreadGroup tg, Runnable target, String name)`
-- Role: Creates a new HackThread instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a wrapped thread.
+- Description: Forces the thread into the current Haven thread group when needed.
 
 #### `public HackThread(Runnable target, String name)`
-- Role: Creates a new HackThread instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a wrapped thread.
+- Description: Convenience constructor using the current Haven thread group.
 
 #### `public HackThread(String name)`
-- Role: Creates a new HackThread instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a named wrapped thread.
+- Description: Convenience constructor without an explicit runnable target.
 
 #### `public static ThreadGroup tg()`
-- Role: Performs tg.
-- Description: Supports the tg operation used by the surrounding class.
+- Role: Returns the active thread group.
+- Description: Uses the current thread's group as the Haven group anchor.
 
 #### `public void addil(Runnable r)`
-- Role: Performs addil.
-- Description: Supports the addil operation used by the surrounding class.
+- Role: Registers an interrupt listener.
+- Description: Adds a callback that runs when this thread is interrupted.
 
 #### `public void remil(Runnable r)`
-- Role: Performs remil.
-- Description: Supports the remil operation used by the surrounding class.
+- Role: Removes an interrupt listener.
+- Description: Unregisters a previously added interruption callback.
 
 #### `public void interrupt()`
-- Role: Performs interrupt.
-- Description: Supports the interrupt operation used by the surrounding class.
+- Role: Interrupts the thread.
+- Description: Runs the base interrupt logic and then invokes every registered listener.

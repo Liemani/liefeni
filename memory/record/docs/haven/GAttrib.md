@@ -1,5 +1,5 @@
 ---
-source: [GAttrib.java](../../../src/haven/GAttrib.java)
+source: [GAttrib.java](../../../../src/haven/GAttrib.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the gattrib Haven component.
 
 ### Parser
 
-- Role: Represents parser within GAttrib.
-- Description: Describes the nested parser type used by the enclosing class.
+- Role: Parses one published gob-attribute delta class.
+- Description: Converts a resource-published parser into a `Gob` attribute applier.
 
 ### ParserMaker
 
-- Role: Represents parser maker within GAttrib.
-- Description: Describes the nested parser maker type used by the enclosing class.
+- Role: Builds a `GAttrib.Parser` from published code.
+- Description: Resolves either a parser class or a static `parse(Gob, Message)` method.
 
 ## Members
 
@@ -27,39 +27,39 @@ Represents the gattrib Haven component.
 ### Fields
 
 #### `public final Gob gob`
-- Role: Stores the gob value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gob value.
+- Description: Caches the `gob` value for reuse.
 
 #### `Collection<RenderTree.Slot> slots`
-- Role: Caches slots entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the slots value.
+- Description: Caches the `slots` value for reuse.
 
 ### Methods
 
 #### `public GAttrib(Gob gob)`
 - Role: Creates a new GAttrib instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GAttrib instance from the supplied inputs.
 
 #### `public void ctick(double dt)`
-- Role: Performs ctick.
-- Description: Supports the ctick operation used by the surrounding class.
+- Role: Advances the client-thread state.
+- Description: Advances the client-thread state.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public Parser make(Class<?> cl, Resource ires, Object... argv)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public void apply(Gob gob, Message sdt)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

@@ -1,5 +1,5 @@
 ---
-source: [IntCons.java](../../../../../src/haven/render/sl/IntCons.java)
+source: [IntCons.java](../../../../../../src/haven/render/sl/IntCons.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the int cons shader-language AST node.
 ### Fields
 
 #### `public final Expression init`
-- Role: Holds the init state.
-- Description: Backs the cached state for this file.
+- Role: Caches the init value.
+- Description: Caches the `init` value for reuse.
 
 ### Methods
 
 #### `public IntCons(Expression init)`
-- Role: Creates a new IntCons instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one int literal expression.
+- Description: Stores the initializer expression for the int constructor.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the initializer.
+- Description: Walks the source expression for the int constructor.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the int constructor.
+- Description: Writes the `int(...)` expression to output.

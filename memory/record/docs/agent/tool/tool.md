@@ -1,5 +1,5 @@
 ---
-source: [tool.java](../../../../src/agent/tool/tool.java)
+source: [tool.java](../../../../../src/agent/tool/tool.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,17 +17,17 @@ Provides tool support for tool.
 ### Methods
 
 #### `public static String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Returns the tool name.
+- Description: Exposes the display name for the tool folder entry.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the tool description.
+- Description: Exposes the help text for the tool folder entry.
 
 #### `public static String icon()`
-- Role: Performs icon.
-- Description: Supports the icon operation used by the surrounding class.
+- Role: Returns the tool icon path.
+- Description: Exposes the icon resource used by the menu grid.
 
 #### `public static String sortkey()`
-- Role: Performs sortkey.
-- Description: Supports the sortkey operation used by the surrounding class.
+- Role: Returns the tool sort key.
+- Description: Exposes the ordering key used by the menu grid.

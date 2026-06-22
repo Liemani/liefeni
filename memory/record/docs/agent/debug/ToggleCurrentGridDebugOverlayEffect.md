@@ -1,5 +1,5 @@
 ---
-source: [ToggleCurrentGridDebugOverlayEffect.java](../../../../src/agent/debug/ToggleCurrentGridDebugOverlayEffect.java)
+source: [ToggleCurrentGridDebugOverlayEffect.java](../../../../../src/agent/debug/ToggleCurrentGridDebugOverlayEffect.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,12 +18,12 @@ Toggles the current-grid debug overlay.
 
 #### `public void execute()`
 - Role: Executes the operation.
-- Description: Supports the execute operation used by the surrounding class.
+- Description: Runs the queued request and posts its callback result back through the sync manager.
 
 #### `public static String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

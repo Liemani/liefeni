@@ -1,5 +1,5 @@
 ---
-source: [AgentRegistry.java](../../../../src/lmi/runtime/AgentRegistry.java)
+source: [AgentRegistry.java](../../../../../src/lmi/runtime/AgentRegistry.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -11,151 +11,193 @@ Tracks available agents and their metadata.
 ## Nested Types
 
 ### Entry
-### Entry
-- Role: Represents the entry helper used by AgentRegistry.
+Represents one executable agent registry entry.
 
-- Role: Represents one executable agent registry entry.
-- Description: Acts as one executable agent registry entry.
+#### Members
+
+##### Fields
+
+#### `private final Kind kind`
+- Role: Stores whether the entry is a job or effect.
+- Description: Used when presenting registry metadata.
+
+#### `private final Class<?> cls`
+- Role: Stores the backing class.
+- Description: Used for command naming and display.
+
+#### `private final String commandName`
+- Role: Stores the CLI command name.
+- Description: Derived from the class name by stripping `Job` or `Effect`.
+
+##### Methods
+
+#### `static Entry job(Class<? extends Job> cls)`
+- Role: Builds a job entry.
+- Description: Creates an entry for a concrete job class.
+
+#### `static Entry effect(Class<? extends Effect> cls)`
+- Role: Builds an effect entry.
+- Description: Creates an entry for a concrete effect class.
+
+#### `public Kind kind()`
+- Role: Returns the entry kind.
+- Description: Distinguishes job entries from effect entries.
+
+#### `public Class<?> cls()`
+- Role: Returns the backing class.
+- Description: Exposes the registered class object.
+
+#### `public String className()`
+- Role: Returns the fully qualified class name.
+- Description: Used when sorting or displaying registry entries.
+
+#### `public String simpleName()`
+- Role: Returns the simple class name.
+- Description: Used for display and command naming.
+
+#### `public String commandName()`
+- Role: Returns the command name.
+- Description: This is the user-facing command key.
+
+#### `public String packageName()`
+- Role: Returns the package name.
+- Description: Used when grouping registry entries.
 
 ### Kind
-### Kind
-- Role: Represents the kind helper used by AgentRegistry.
-
-- Role: Classifies agent registry entries as jobs or effects.
-- Description: Describes the nested kind type used by the enclosing class.
+Classifies registry entries as jobs or effects.
 
 ## Members
 
 ### Constants
 
 #### `private static final String BASE_PACKAGE = "agent"`
-- Role: Defines the shared base package constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the base package value.
+- Description: Caches the `BASE_PACKAGE` value for reuse.
 
 #### `private static final String BASE_PATH = "agent/"`
-- Role: Defines the shared base path constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the base path value.
+- Description: Caches the `BASE_PATH` value for reuse.
 
 #### `private static final Map<String, Class<? extends Job>> jobMap = new TreeMap<>()`
-- Role: Defines the shared job map constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the job map operation.
+- Description: Implements the private static final map<string, class<? extends job>> job map = new tree map<>() operation.
 
 #### `private static final Map<String, Class<? extends Effect>> effectMap = new TreeMap<>()`
-- Role: Defines the shared effect map constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the effect map operation.
+- Description: Implements the private static final map<string, class<? extends effect>> effect map = new tree map<>() operation.
 
 #### `private static final Map<String, Class<?>> folderMetadataMap = new HashMap<>()`
-- Role: Defines the shared folder metadata map constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the folder metadata map operation.
+- Description: Implements the private static final map<string, class<?>> folder metadata map = new hash map<>() operation.
 
 #### `private static final List<Entry> executableEntries = new ArrayList<>()`
-- Role: Defines the shared executable entries constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the executable entries operation.
+- Description: Implements the private static final list<entry> executable entries = new array list<>() operation.
 
 ### Fields
 
 #### `private static boolean initialized = false`
 - Role: Tracks whether initialized is initialized.
-- Description: Boolean flag used to guard the surrounding lifecycle state.
+- Description: Marks whether the registry scan has already run.
 
 #### `private final Kind kind`
-- Role: Holds the kind state.
-- Description: Backs the cached state for this file.
+- Role: Caches the kind value.
+- Description: Caches the `kind` value for reuse.
 
 #### `private final Class<?> cls`
-- Role: Holds the cls state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cls value.
+- Description: Caches the `cls` value for reuse.
 
 #### `private final String commandName`
-- Role: Stores the command name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the command name value.
+- Description: Caches the `commandName` value for reuse.
 
 ### Methods
 
 #### `public static synchronized void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Scans the agent packages and builds the registry tables.
+- Description: Discovers jobs, effects, and folder metadata once per process.
 
 #### `public static Map<String, Class<? extends Job>> jobMap()`
-- Role: Performs job map.
-- Description: Supports the job map operation used by the surrounding class.
+- Role: Returns the registered job map.
+- Description: Exposes the lookup table used to resolve job commands.
 
 #### `public static Class<? extends Job> jobClass(String name)`
-- Role: Performs job class.
-- Description: Supports the job class operation used by the surrounding class.
+- Role: Returns the job class for the given command name.
+- Description: Resolves a user command to its concrete job class.
 
 #### `public static Class<? extends Effect> effectClass(String name)`
-- Role: Performs effect class.
-- Description: Supports the effect class operation used by the surrounding class.
+- Role: Returns the effect class for the given command name.
+- Description: Resolves a user command to its concrete effect class.
 
 #### `public static Class<?> folderMetadataClass(String packageName)`
-- Role: Performs folder metadata class.
-- Description: Supports the folder metadata class operation used by the surrounding class.
+- Role: Returns the metadata class for a package folder.
+- Description: Resolves folder-level metadata when a package has no executable entry.
 
 #### `public static List<Entry> executableEntries()`
-- Role: Performs executable entries.
-- Description: Supports the executable entries operation used by the surrounding class.
+- Role: Returns all executable agent entries.
+- Description: Produces the merged list of jobs and effects for menus.
 
 #### `private static void _scanAgentPackage()`
-- Role: Performs  scan agent package.
-- Description: Supports the scan agent package operation used by the surrounding class.
+- Role: Scans the `agent` package tree.
+- Description: Finds concrete agents and metadata classes under `src/agent`.
 
 #### `private static void _registerClass(String path)`
-- Role: Performs  register class.
-- Description: Supports the register class operation used by the surrounding class.
+- Role: Registers one discovered agent class.
+- Description: Classifies the class as a job, effect, or folder metadata entry.
 
 #### `private static boolean _isFolderMetadataClass(Class<?> cls)`
-- Role: Performs  is folder metadata class.
-- Description: Supports the is folder metadata class operation used by the surrounding class.
+- Role: Checks whether the class is package metadata.
+- Description: Identifies `*` directory marker classes used for menus.
 
 #### `private static boolean _isConcreteJobClass(Class<?> cls)`
-- Role: Performs  is concrete job class.
-- Description: Supports the is concrete job class operation used by the surrounding class.
+- Role: Checks whether the class is a runnable job.
+- Description: Filters out abstract or non-public job definitions.
 
 #### `private static boolean _isConcreteEffectClass(Class<?> cls)`
-- Role: Performs  is concrete effect class.
-- Description: Supports the is concrete effect class operation used by the surrounding class.
+- Role: Checks whether the class is a runnable effect.
+- Description: Filters out abstract or non-public effect definitions.
 
 #### `private static String _jobCommandName(Class<? extends Job> cls)`
-- Role: Performs  job command name.
-- Description: Supports the job command name operation used by the surrounding class.
+- Role: Derives the job command name.
+- Description: Strips the `Job` suffix from the registered class name.
 
 #### `private static String _effectCommandName(Class<? extends Effect> cls)`
-- Role: Performs  effect command name.
-- Description: Supports the effect command name operation used by the surrounding class.
+- Role: Derives the effect command name.
+- Description: Strips the `Effect` suffix from the registered class name.
 
 #### `private Entry(Kind kind, Class<?> cls, String commandName)`
-- Role: Performs entry.
-- Description: Supports the entry operation used by the surrounding class.
+- Role: Handles the entry path.
+- Description: Builds one registry entry from a discovered class.
 
 #### `static Entry job(Class<? extends Job> cls)`
-- Role: Performs job.
-- Description: Supports the job operation used by the surrounding class.
+- Role: Handles the job path.
+- Description: Builds a registry entry for a job class.
 
 #### `static Entry effect(Class<? extends Effect> cls)`
-- Role: Performs effect.
-- Description: Supports the effect operation used by the surrounding class.
+- Role: Handles the effect path.
+- Description: Builds a registry entry for an effect class.
 
 #### `public Kind kind()`
-- Role: Performs kind.
-- Description: Supports the kind operation used by the surrounding class.
+- Role: Handles the kind path.
+- Description: Returns whether the entry is a job or effect.
 
 #### `public Class<?> cls()`
-- Role: Performs cls.
-- Description: Supports the cls operation used by the surrounding class.
+- Role: Handles the cls path.
+- Description: Returns the registered class object.
 
 #### `public String className()`
-- Role: Performs class name.
-- Description: Supports the class name operation used by the surrounding class.
+- Role: Handles the class name path.
+- Description: Returns the fully qualified class name.
 
 #### `public String simpleName()`
-- Role: Performs simple name.
-- Description: Supports the simple name operation used by the surrounding class.
+- Role: Handles the simple name path.
+- Description: Returns the simple class name.
 
 #### `public String commandName()`
-- Role: Performs command name.
-- Description: Supports the command name operation used by the surrounding class.
+- Role: Handles the command name path.
+- Description: Returns the command key used by menus and console dispatch.
 
 #### `public String packageName()`
-- Role: Performs package name.
-- Description: Supports the package name operation used by the surrounding class.
+- Role: Handles the package name path.
+- Description: Returns the package name used for grouping.

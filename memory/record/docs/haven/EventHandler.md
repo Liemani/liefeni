@@ -1,5 +1,5 @@
 ---
-source: [EventHandler.java](../../../src/haven/EventHandler.java)
+source: [EventHandler.java](../../../../src/haven/EventHandler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,39 +15,39 @@ Represents the event handler Haven component.
 ### Fields
 
 #### `public final Class<E> t`
-- Role: Holds the t state.
-- Description: Backs the cached state for this file.
+- Role: Caches the t value.
+- Description: Caches the `t` value for reuse.
 
 #### `public final EventHandler<? super E> h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `public final EventHandler<? super E> bk`
-- Role: Stores the bk value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 #### `public final Predicate<? super E> sel`
-- Role: Holds the sel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sel value.
+- Description: Caches the `sel` value for reuse.
 
 ### Methods
 
 #### `public boolean handle(E ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public Listener(Class<E> t, EventHandler<? super E> h)`
-- Role: Performs listener.
-- Description: Supports the listener operation used by the surrounding class.
+- Role: Handles the listener path.
+- Description: Implements the listener operation.
 
 #### `public boolean check(Object ev)`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Handles the check path.
+- Description: Implements the check operation.
 
 #### `public Filter(EventHandler<? super E> bk, Predicate<? super E> sel)`
-- Role: Performs filter.
-- Description: Supports the filter operation used by the surrounding class.
+- Role: Handles the filter path.
+- Description: Implements the filter operation.
 
 #### `public boolean handle(E ev)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.

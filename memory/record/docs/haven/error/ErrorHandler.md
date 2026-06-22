@@ -1,5 +1,5 @@
 ---
-source: [ErrorHandler.java](../../../../src/haven/error/ErrorHandler.java)
+source: [ErrorHandler.java](../../../../../src/haven/error/ErrorHandler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,81 +20,82 @@ Handles Haven error reporting for error handler.
 ### Constants
 
 #### `private static final String[] sysprops =`
-- Role: Defines the shared error handler constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sysprops value.
+- Description: Caches the `sysprops` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `private final URL errordest`
-- Role: Holds the errordest state.
-- Description: Backs the cached state for this file.
+- Role: Caches the errordest value.
+- Description: Caches the `errordest` value for reuse.
 
 #### `private final ThreadGroup initial`
-- Role: Holds the initial state.
-- Description: Backs the cached state for this file.
+- Role: Caches the initial value.
+- Description: Caches the `initial` value for reuse.
 
 #### `private Map<String, Object> props = new HashMap<String, Object>()`
-- Role: Caches props entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the props operation.
+- Description: Implements the private map<string, object> props = new hash map<string, object>() operation.
 
 #### `private Reporter reporter`
-- Role: Holds the reporter state.
-- Description: Backs the cached state for this file.
+- Role: Caches the reporter value.
+- Description: Caches the `reporter` value for reuse.
 
 #### `private Queue<Report> errors = new LinkedList<Report>()`
-- Role: Caches errors entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the errors operation.
+- Description: Implements the private queue<report> errors = new linked list<report>() operation.
 
 #### `private ErrorStatus status`
-- Role: Holds the status state.
-- Description: Backs the cached state for this file.
+- Role: Caches the status value.
+- Description: Caches the `status` value for reuse.
 
 ### Methods
 
 #### `public static ErrorHandler find()`
-- Role: Performs find.
-- Description: Supports the find operation used by the surrounding class.
+- Role: Handles the find path.
+- Description: Finds the requested data.
 
 #### `public static void setprop(String key, Object val)`
-- Role: Performs setprop.
-- Description: Supports the setprop operation used by the surrounding class.
+- Role: Handles the setprop path.
+- Description: Updates the prop.
 
 #### `public void lsetprop(String key, Object val)`
-- Role: Performs lsetprop.
-- Description: Supports the lsetprop operation used by the surrounding class.
+- Role: Handles the lsetprop path.
+- Description: Implements the lsetprop operation.
 
 #### `public Reporter(ErrorStatus status)`
-- Role: Performs reporter.
-- Description: Supports the reporter operation used by the surrounding class.
+- Role: Handles the reporter path.
+- Description: Implements the reporter operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private void doreport(Report r) throws IOException`
 - Role: Handles the doreport workflow.
-- Description: Supports the doreport operation used by the surrounding class.
+- Description: Implements the doreport operation.
 
 #### `public void report(Thread th, Throwable t)`
-- Role: Performs report.
-- Description: Supports the report operation used by the surrounding class.
+- Role: Handles the report path.
+- Description: Implements the report operation.
 
 #### `private void defprops()`
-- Role: Performs defprops.
-- Description: Supports the defprops operation used by the surrounding class.
+- Role: Handles the defprops path.
+- Description: Implements the defprops operation.
 
 #### `public ErrorHandler(ErrorStatus ui, URL errordest)`
 - Role: Creates a new ErrorHandler instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ErrorHandler instance from the supplied inputs.
 
 #### `public ErrorHandler(URL errordest)`
 - Role: Creates a new ErrorHandler instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ErrorHandler instance from the supplied inputs.
 
 #### `public void sethandler(ErrorStatus handler)`
-- Role: Performs sethandler.
-- Description: Supports the sethandler operation used by the surrounding class.
+- Role: Handles the sethandler path.
+- Description: Updates the handler.
 
 #### `public void uncaughtException(Thread t, Throwable e)`
-- Role: Performs uncaught exception.
-- Description: Supports the uncaught exception operation used by the surrounding class.
+- Role: Handles the uncaught exception path.
+- Description: Implements the uncaught exception operation.

@@ -1,5 +1,5 @@
 ---
-source: [GLObject.java](../../../../../src/haven/render/gl/GLObject.java)
+source: [GLObject.java](../../../../../../src/haven/render/gl/GLObject.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,97 +20,99 @@ Provides GL backend support for globject.
 ### Constants
 
 #### `public static final boolean LEAK_CHECK = true`
-- Role: Defines the shared leak check constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the leak check value.
+- Description: Caches the `LEAK_CHECK` value for reuse.
+- Value: `true`
 
 #### `private static final java.util.concurrent.atomic.AtomicInteger ar = new java.util.concurrent.atomic.AtomicInteger(0)`
-- Role: Defines the shared ar constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the ar operation.
+- Description: Implements the atomic integer operation.
+- Value: `new java.util.concurrent.atomic.AtomicInteger(0)`
 
 ### Fields
 
 #### `public final GLEnvironment env`
-- Role: Holds the env state.
-- Description: Backs the cached state for this file.
+- Role: Caches the env value.
+- Description: Caches the `env` value for reuse.
 
 #### `private boolean del = false, disp = false`
 - Role: Tracks the del flag.
-- Description: Supports the del operation used by the surrounding class.
+- Description: Caches the `del` value for reuse.
 
 #### `private boolean del = false, disp = false`
 - Role: Tracks the del flag.
-- Description: Supports the del operation used by the surrounding class.
+- Description: Caches the `del` value for reuse.
 
 #### `private GLEnvironment.MemStats pool = null`
-- Role: Holds the pool state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pool value.
+- Description: Caches the `pool` value for reuse.
 
 #### `private long mem`
-- Role: Stores the mem value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mem value.
+- Description: Caches the `mem` value for reuse.
 
 #### `private int rc = 0`
-- Role: Stores the rc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rc value.
+- Description: Caches the `rc` value for reuse.
 
 #### `int dispseq`
-- Role: Stores the dispseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the dispseq value.
+- Description: Caches the `dispseq` value for reuse.
 
 #### `private final Disposable lck = (LEAK_CHECK && leakcheck()) ? Finalizer.leakcheck(this) : null`
-- Role: Holds the lck state.
-- Description: Backs the cached state for this file.
+- Role: Implements the lck operation.
+- Description: Implements the leakcheck operation.
 
 #### `public Throwable disptrace = null`
-- Role: Holds the disptrace state.
-- Description: Backs the cached state for this file.
+- Role: Caches the disptrace value.
+- Description: Caches the `disptrace` value for reuse.
 
 ### Methods
 
 #### `public GLObject(GLEnvironment env)`
 - Role: Creates a new GLObject instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLObject instance from the supplied inputs.
 
 #### `public abstract void create(GL gl)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public void abortcreate()`
-- Role: Performs abortcreate.
-- Description: Supports the abortcreate operation used by the surrounding class.
+- Role: Handles the abortcreate path.
+- Description: Implements the abortcreate operation.
 
 #### `protected abstract void delete(GL gl)`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.
 
 #### `protected boolean leakcheck()`
-- Role: Performs leakcheck.
-- Description: Supports the leakcheck operation used by the surrounding class.
+- Role: Handles the leakcheck path.
+- Description: Implements the leakcheck operation.
 
 #### `protected void dispose0()`
-- Role: Performs dispose0.
-- Description: Supports the dispose0 operation used by the surrounding class.
+- Role: Handles the dispose0 path.
+- Description: Implements the dispose0 operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public UseAfterFreeException(Throwable cause)`
-- Role: Performs use after free exception.
-- Description: Supports the use after free exception operation used by the surrounding class.
+- Role: Handles the use after free exception path.
+- Description: Implements the use after free exception operation.
 
 #### `void get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `void put()`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `protected void ckstate(int st, int ex)`
-- Role: Performs ckstate.
-- Description: Supports the ckstate operation used by the surrounding class.
+- Role: Handles the ckstate path.
+- Description: Implements the ckstate operation.
 
 #### `protected void setmem(GLEnvironment.MemStats pool, long mem)`
-- Role: Performs setmem.
-- Description: Supports the setmem operation used by the surrounding class.
+- Role: Handles the setmem path.
+- Description: Updates the mem.

@@ -1,5 +1,5 @@
 ---
-source: [Volume3f.java](../../../src/haven/Volume3f.java)
+source: [Volume3f.java](../../../../src/haven/Volume3f.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,95 +15,95 @@ Represents the volume3f Haven component.
 ### Fields
 
 #### `public Coord3f n, p`
-- Role: Stores the p value.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 #### `public Coord3f n, p`
-- Role: Stores the p value.
-- Description: Backs the cached state for this file.
+- Role: Caches the p value.
+- Description: Caches the `p` value for reuse.
 
 ### Methods
 
 #### `public Volume3f(Coord3f n, Coord3f p)`
 - Role: Creates a new Volume3f instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Volume3f instance from the supplied inputs.
 
 #### `public static Volume3f corn(Coord3f n, Coord3f p)`
-- Role: Performs corn.
-- Description: Supports the corn operation used by the surrounding class.
+- Role: Handles the corn path.
+- Description: Implements the corn operation.
 
 #### `public static Volume3f point(Coord3f c)`
-- Role: Performs point.
-- Description: Supports the point operation used by the surrounding class.
+- Role: Handles the point path.
+- Description: Implements the point operation.
 
 #### `public static Volume3f sized(Coord3f n, Coord3f sz)`
-- Role: Performs sized.
-- Description: Supports the sized operation used by the surrounding class.
+- Role: Handles the sized path.
+- Description: Implements the sized operation.
 
 #### `public static Volume3f sized(Coord3f sz)`
-- Role: Performs sized.
-- Description: Supports the sized operation used by the surrounding class.
+- Role: Handles the sized path.
+- Description: Implements the sized operation.
 
 #### `public boolean equals(Volume3f o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public Coord3f sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public boolean positive()`
-- Role: Performs positive.
-- Description: Supports the positive operation used by the surrounding class.
+- Role: Handles the positive path.
+- Description: Implements the positive operation.
 
 #### `public boolean contains(Coord3f c)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.
 
 #### `public boolean isects(Volume3f o)`
-- Role: Performs isects.
-- Description: Supports the isects operation used by the surrounding class.
+- Role: Handles the isects path.
+- Description: Returns whether the ects is true.
 
 #### `public boolean contains(Volume3f o)`
-- Role: Performs contains.
-- Description: Supports the contains operation used by the surrounding class.
+- Role: Handles the contains path.
+- Description: Implements the contains operation.
 
 #### `public Coord3f closest(Coord3f c)`
-- Role: Performs closest.
-- Description: Supports the closest operation used by the surrounding class.
+- Role: Handles the closest path.
+- Description: Implements the closest operation.
 
 #### `public float volume()`
-- Role: Performs volume.
-- Description: Supports the volume operation used by the surrounding class.
+- Role: Handles the volume path.
+- Description: Implements the volume operation.
 
 #### `public Volume3f xl(Coord3f off)`
-- Role: Performs xl.
-- Description: Supports the xl operation used by the surrounding class.
+- Role: Handles the xl path.
+- Description: Implements the xl operation.
 
 #### `public Volume3f margin(Coord3f nm, Coord3f pm)`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `public Volume3f margin(Coord3f m)`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `public Volume3f margin(float m)`
-- Role: Performs margin.
-- Description: Supports the margin operation used by the surrounding class.
+- Role: Handles the margin path.
+- Description: Implements the margin operation.
 
 #### `public Volume3f include(Coord3f c)`
-- Role: Performs include.
-- Description: Supports the include operation used by the surrounding class.
+- Role: Handles the include path.
+- Description: Implements the include operation.
 
 #### `public Volume3f include(Volume3f v)`
-- Role: Performs include.
-- Description: Supports the include operation used by the surrounding class.
+- Role: Handles the include path.
+- Description: Implements the include operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Volume3f for debugging and logging.

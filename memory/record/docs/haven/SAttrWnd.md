@@ -1,5 +1,5 @@
 ---
-source: [SAttrWnd.java](../../../src/haven/SAttrWnd.java)
+source: [SAttrWnd.java](../../../../src/haven/SAttrWnd.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,76 +32,76 @@ Represents the sattr wnd Haven component.
 ### Fields
 
 #### `public final Collection<SAttr> attrs`
-- Role: Caches attrs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the attrs value.
+- Description: Caches the `attrs` value for reuse.
 
 #### `private final Coord studyc`
-- Role: Stores the studyc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the studyc value.
+- Description: Caches the `studyc` value for reuse.
 
 #### `private CharWnd chr`
-- Role: Stores the chr value.
-- Description: Backs the cached state for this file.
+- Role: Caches the chr value.
+- Description: Caches the `chr` value for reuse.
 
 #### `private int scost`
-- Role: Stores the scost value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scost value.
+- Description: Caches the `scost` value for reuse.
 
 #### `public final Text rnm`
-- Role: Stores the rnm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rnm value.
+- Description: Caches the `rnm` value for reuse.
 
 #### `public final Tex img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `public final Color bg`
-- Role: Stores the bg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bg value.
+- Description: Caches the `bg` value for reuse.
 
 #### `public int tbv, cost`
-- Role: Stores the cost value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cost value.
+- Description: Caches the `cost` value for reuse.
 
 #### `public int tbv, cost`
-- Role: Stores the cost value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cost value.
+- Description: Caches the `cost` value for reuse.
 
 #### `private final IButton add, sub`
-- Role: Holds the sub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sub value.
+- Description: Caches the `sub` value for reuse.
 
 #### `private final IButton add, sub`
-- Role: Holds the sub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sub value.
+- Description: Caches the `sub` value for reuse.
 
 #### `private Text ct`
-- Role: Stores the ct value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ct value.
+- Description: Caches the `ct` value for reuse.
 
 #### `private int cbv, ccv`
-- Role: Stores the ccv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ccv value.
+- Description: Caches the `ccv` value for reuse.
 
 #### `private int cbv, ccv`
-- Role: Stores the ccv value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ccv value.
+- Description: Caches the `ccv` value for reuse.
 
 #### `public final Widget study`
-- Role: Stores the study value.
-- Description: Backs the cached state for this file.
+- Role: Caches the study value.
+- Description: Caches the `study` value for reuse.
 
 #### `public int texp, tw, tenc`
-- Role: Stores the tenc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tenc value.
+- Description: Caches the `tenc` value for reuse.
 
 #### `public int texp, tw, tenc`
-- Role: Stores the tenc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tenc value.
+- Description: Caches the `tenc` value for reuse.
 
 #### `public int texp, tw, tenc`
-- Role: Stores the tenc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tenc value.
+- Description: Caches the `tenc` value for reuse.
 
 ### Methods
 
@@ -110,69 +110,69 @@ Represents the sattr wnd Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `private SAttr(Glob glob, String attr, Color bg)`
-- Role: Performs sattr.
-- Description: Supports the sattr operation used by the surrounding class.
+- Role: Handles the sattr path.
+- Description: Implements the s attr operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the SAttrWnd content.
 
 #### `private void updcost()`
-- Role: Performs updcost.
-- Description: Supports the updcost operation used by the surrounding class.
+- Role: Handles the updcost path.
+- Description: Implements the updcost operation.
 
 #### `public void adj(int a)`
-- Role: Performs adj.
-- Description: Supports the adj operation used by the surrounding class.
+- Role: Handles the adj path.
+- Description: Implements the adj operation.
 
 #### `public void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public RLabel<?> explabel()`
-- Role: Performs explabel.
-- Description: Supports the explabel operation used by the surrounding class.
+- Role: Handles the explabel path.
+- Description: Implements the explabel operation.
 
 #### `public RLabel<?> enclabel()`
-- Role: Performs enclabel.
-- Description: Supports the enclabel operation used by the surrounding class.
+- Role: Handles the enclabel path.
+- Description: Implements the enclabel operation.
 
 #### `protected void attached()`
-- Role: Performs attached.
-- Description: Supports the attached operation used by the surrounding class.
+- Role: Handles the attached path.
+- Description: Implements the attached operation.
 
 #### `private StudyInfo(Coord sz, Widget study)`
-- Role: Performs study info.
-- Description: Supports the study info operation used by the surrounding class.
+- Role: Handles the study info path.
+- Description: Implements the study info operation.
 
 #### `private void upd()`
-- Role: Performs upd.
-- Description: Supports the upd operation used by the surrounding class.
+- Role: Handles the upd path.
+- Description: Implements the upd operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `private void buy()`
-- Role: Performs buy.
-- Description: Supports the buy operation used by the surrounding class.
+- Role: Handles the buy path.
+- Description: Implements the buy operation.
 
 #### `private void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `public SAttrWnd(Glob glob)`
 - Role: Creates a new SAttrWnd instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SAttrWnd instance from the supplied inputs.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.

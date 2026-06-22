@@ -1,5 +1,5 @@
 ---
-source: [Patrol000Job.java](../../../../src/agent/test/Patrol000Job.java)
+source: [Patrol000Job.java](../../../../../src/agent/test/Patrol000Job.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,15 +15,15 @@ Implements a test job for patrol000 job.
 ### Fields
 
 #### `private Array<haven.Coord> _path = new Array<>()`
-- Role: Caches path entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the path operation.
+- Description: Implements the private array<haven.coord>  path = new array<>() operation.
 
 ### Methods
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.

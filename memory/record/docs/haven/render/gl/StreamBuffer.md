@@ -1,5 +1,5 @@
 ---
-source: [StreamBuffer.java](../../../../../src/haven/render/gl/StreamBuffer.java)
+source: [StreamBuffer.java](../../../../../../src/haven/render/gl/StreamBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,83 +22,83 @@ Provides GL backend support for stream buffer.
 ### Fields
 
 #### `public final GLBuffer rbuf`
-- Role: Stores the rbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rbuf value.
+- Description: Caches the `rbuf` value for reuse.
 
 #### `public final int size`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 #### `private SysBuffer[] xfbufs =`
-- Role: Holds the stream buffer state.
-- Description: Backs the cached state for this file.
+- Role: Caches the xfbufs value.
+- Description: Caches the `xfbufs` value for reuse.
 
 #### `private boolean[] used =`
 - Role: Tracks whether  is active.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final ByteBuffer data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private final boolean[] clear`
 - Role: Tracks the clear flag.
-- Description: Supports the clear operation used by the surrounding class.
+- Description: Caches the `clear` value for reuse.
 
 #### `private final Runnable clean`
-- Role: Holds the clean state.
-- Description: Backs the cached state for this file.
+- Role: Caches the clean value.
+- Description: Caches the `clean` value for reuse.
 
 ### Methods
 
 #### `public StreamBuffer(GLEnvironment env, int size)`
 - Role: Creates a new StreamBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the StreamBuffer instance from the supplied inputs.
 
 #### `private SysBuffer mkbuf()`
-- Role: Performs mkbuf.
-- Description: Supports the mkbuf operation used by the surrounding class.
+- Role: Handles the mkbuf path.
+- Description: Implements the mkbuf operation.
 
 #### `public ByteBuffer get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void put(ByteBuffer buf)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public void put(BGL gl, ByteBuffer buf)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public Fill()`
-- Role: Performs fill.
-- Description: Supports the fill operation used by the surrounding class.
+- Role: Handles the fill path.
+- Description: Implements the fill operation.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public boolean compatible(Environment env)`
-- Role: Performs compatible.
-- Description: Supports the compatible operation used by the surrounding class.
+- Role: Handles the compatible path.
+- Description: Implements the compatible operation.
 
 #### `public ByteBuffer push()`
-- Role: Performs push.
-- Description: Supports the push operation used by the surrounding class.
+- Role: Handles the push path.
+- Description: Implements the push operation.
 
 #### `public void pull(ByteBuffer buf)`
-- Role: Performs pull.
-- Description: Supports the pull operation used by the surrounding class.
+- Role: Handles the pull path.
+- Description: Implements the pull operation.
 
 #### `ByteBuffer get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.

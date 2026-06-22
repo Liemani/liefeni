@@ -1,94 +1,102 @@
 ---
-source: [Symbol.java](../../../../../src/haven/render/sl/Symbol.java)
+source: [Symbol.java](../../../../../../src/haven/render/sl/Symbol.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Symbol
 
-Represents the symbol shader-language AST node.
+Represents a shader-language symbol that resolves to a context-specific name.
 
 ## Nested Types
 
-### Fix
-
-- Role: Represents fix within Symbol.
-- Description: Describes the nested fix type used by the enclosing class.
-
 ### Gen
+Generated symbol name with a prefix and per-context uniqueness.
 
-- Role: Represents gen within Symbol.
-- Description: Describes the nested gen type used by the enclosing class.
+#### Members
 
-### Shared
-
-- Role: Represents shared within Symbol.
-- Description: Describes the nested shared type used by the enclosing class.
-
-## Members
-
-### Constants
-
-### Fields
+##### Fields
 
 #### `public final String prefix`
-- Role: Stores the prefix value.
-- Description: Backs the cached state for this file.
+- Role: Stores the symbol prefix.
+- Description: Used when generating a unique name in the context.
+
+##### Methods
+
+#### `public Gen(String prefix)`
+- Role: Builds a generated symbol with an explicit prefix.
+- Description: Stores the prefix used when generating names.
+
+#### `public Gen()`
+- Role: Builds a generated symbol with the default prefix.
+- Description: Uses `g` as the default prefix.
+
+#### `public String name(Context ctx)`
+- Role: Resolves the generated symbol name.
+- Description: Reuses an existing name in the context or generates a new one.
+
+#### `public String toString()`
+- Role: Returns a debug string.
+- Description: Shows the generated-symbol prefix.
+
+### Fix
+Fixed literal symbol name.
+
+#### Members
+
+##### Fields
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Stores the fixed symbol text.
+- Description: Returned unchanged when the symbol is resolved.
+
+##### Methods
+
+#### `public Fix(String name)`
+- Role: Builds a fixed symbol.
+- Description: Stores the literal name.
+
+#### `public String name(Context ctx)`
+- Role: Resolves the fixed symbol name.
+- Description: Registers the literal name in the context or verifies that it is unused.
+
+#### `public String toString()`
+- Role: Returns a debug string.
+- Description: Shows the literal symbol name.
+
+### Shared
+Context-shared symbol that uses one generated name across shader and program scopes.
+
+#### Members
+
+##### Fields
 
 #### `public final String prefix`
-- Role: Stores the prefix value.
-- Description: Backs the cached state for this file.
+- Role: Stores the shared prefix.
+- Description: Used when generating the shared symbol name.
+
+##### Methods
+
+#### `public Shared(String prefix)`
+- Role: Builds a shared symbol with an explicit prefix.
+- Description: Stores the prefix used for shared-name generation.
+
+#### `public Shared()`
+- Role: Builds a shared symbol with the default prefix.
+- Description: Uses `s_g` as the default prefix.
+
+#### `public String name(Context ctx)`
+- Role: Resolves the shared symbol name.
+- Description: Requires a shader context and reuses one generated name across compatible contexts.
+
+#### `public String toString()`
+- Role: Returns a debug string.
+- Description: Shows the shared-symbol prefix.
+
+## Members
 
 ### Methods
 
 #### `public abstract String name(Context ctx)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
-
-#### `public Gen(String prefix)`
-- Role: Performs gen.
-- Description: Supports the gen operation used by the surrounding class.
-
-#### `public Gen()`
-- Role: Performs gen.
-- Description: Supports the gen operation used by the surrounding class.
-
-#### `public String name(Context ctx)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
-
-#### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
-
-#### `public Fix(String name)`
-- Role: Performs fix.
-- Description: Supports the fix operation used by the surrounding class.
-
-#### `public String name(Context ctx)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
-
-#### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
-
-#### `public Shared(String prefix)`
-- Role: Performs shared.
-- Description: Supports the shared operation used by the surrounding class.
-
-#### `public Shared()`
-- Role: Performs shared.
-- Description: Supports the shared operation used by the surrounding class.
-
-#### `public String name(Context ctx)`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
-
-#### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Resolves the symbol to a context-specific name.
+- Description: Implemented by each symbol strategy.

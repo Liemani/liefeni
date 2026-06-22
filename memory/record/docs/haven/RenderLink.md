@@ -1,5 +1,5 @@
 ---
-source: [RenderLink.java](../../../src/haven/RenderLink.java)
+source: [RenderLink.java](../../../../src/haven/RenderLink.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,175 +15,175 @@ Represents the render link Haven component.
 ### Fields
 
 #### `public final Resource srcres`
-- Role: Stores the srcres value.
-- Description: Backs the cached state for this file.
+- Role: Caches the srcres value.
+- Description: Caches the `srcres` value for reuse.
 
 #### `public final Indir<Resource> mesh, mat`
-- Role: Stores the mat value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mat value.
+- Description: Caches the `mat` value for reuse.
 
 #### `public final Indir<Resource> mesh, mat`
-- Role: Stores the mat value.
-- Description: Backs the cached state for this file.
+- Role: Caches the mat value.
+- Description: Caches the `mat` value for reuse.
 
 #### `public final int meshid, matid`
-- Role: Stores the matid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the matid value.
+- Description: Caches the `matid` value for reuse.
 
 #### `public final int meshid, matid`
-- Role: Stores the matid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the matid value.
+- Description: Caches the `matid` value for reuse.
 
 #### `private Node res = null`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Indir<Resource> from`
-- Role: Stores the from value.
-- Description: Backs the cached state for this file.
+- Role: Caches the from value.
+- Description: Caches the `from` value for reuse.
 
 #### `public final int meshid, meshmask`
-- Role: Stores the meshmask value.
-- Description: Backs the cached state for this file.
+- Role: Caches the meshmask value.
+- Description: Caches the `meshmask` value for reuse.
 
 #### `public final int meshid, meshmask`
-- Role: Stores the meshmask value.
-- Description: Backs the cached state for this file.
+- Role: Caches the meshmask value.
+- Description: Caches the `meshmask` value for reuse.
 
 #### `private Node res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Resource from`
-- Role: Stores the from value.
-- Description: Backs the cached state for this file.
+- Role: Caches the from value.
+- Description: Caches the `from` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Object[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 #### `private Resource lres`
-- Role: Stores the lres value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lres value.
+- Description: Caches the `lres` value for reuse.
 
 #### `private RenderLink link = null`
-- Role: Holds the link state.
-- Description: Backs the cached state for this file.
+- Role: Caches the link value.
+- Description: Caches the `link` value for reuse.
 
 #### `public transient final RenderLink l`
-- Role: Holds the l state.
-- Description: Backs the cached state for this file.
+- Role: Caches the l value.
+- Description: Caches the `l` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Map<String, Object> info`
-- Role: Caches info entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 ### Methods
 
 #### `public Node make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public default Node make()`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public MeshMat(Resource srcres, Indir<Resource> mesh, int meshid, Indir<Resource> mat, int matid)`
-- Role: Performs mesh mat.
-- Description: Supports the mesh mat operation used by the surrounding class.
+- Role: Handles the mesh mat path.
+- Description: Implements the mesh mat operation.
 
 #### `public static MeshMat parse(Resource res, Message buf)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public Node make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public AmbientLink(Indir<Resource> res)`
-- Role: Performs ambient link.
-- Description: Supports the ambient link operation used by the surrounding class.
+- Role: Handles the ambient link path.
+- Description: Implements the ambient link operation.
 
 #### `public static AmbientLink parse(Resource res, Message buf)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public Node make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public Collect(Indir<Resource> from, int meshid, int meshmask)`
-- Role: Performs collect.
-- Description: Supports the collect operation used by the surrounding class.
+- Role: Handles the collect path.
+- Description: Implements the collect operation.
 
 #### `public static Collect parse(Resource res, Message buf)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public Node make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public ResSprite(Indir<Resource> res)`
-- Role: Performs res sprite.
-- Description: Supports the res sprite operation used by the surrounding class.
+- Role: Handles the resource sprite path.
+- Description: Implements the res sprite operation.
 
 #### `public static ResSprite parse(Resource res, Message buf)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public Node make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public Parameters(Resource from, Indir<Resource> res, Object[] args)`
-- Role: Performs parameters.
-- Description: Supports the parameters operation used by the surrounding class.
+- Role: Handles the parameters path.
+- Description: Implements the parameters operation.
 
 #### `public static Parameters parse(Resource res, Message buf)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public Node make(Owner owner)`
-- Role: Performs make.
-- Description: Supports the make operation used by the surrounding class.
+- Role: Handles the make path.
+- Description: Implements the make operation.
 
 #### `public ArgMaker()`
-- Role: Performs arg maker.
-- Description: Supports the arg maker operation used by the surrounding class.
+- Role: Handles the arg maker path.
+- Description: Implements the arg maker operation.
 
 #### `public RenderLink parse(Resource res, Object... args)`
-- Role: Performs parse.
-- Description: Supports the parse operation used by the surrounding class.
+- Role: Handles the parse path.
+- Description: Implements the parse operation.
 
 #### `public Res(Resource res, Message buf)`
-- Role: Performs res.
-- Description: Supports the res operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the res operation.
 
 #### `public Integer layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public Map<String, Object> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.

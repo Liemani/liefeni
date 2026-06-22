@@ -1,5 +1,5 @@
 ---
-source: [PortalMonitor.java](../../../../src/lmi/runtime/PortalMonitor.java)
+source: [PortalMonitor.java](../../../../../src/lmi/runtime/PortalMonitor.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,33 +13,33 @@ Monitors portal-related runtime events.
 ### Constants
 
 #### `private static final Object lock = new Object()`
-- Role: Defines the shared lock constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the lock operation.
+- Description: Implements the object operation.
 
 ### Fields
 
 #### `private static long enteredGeneration = 0L`
-- Role: Stores the entered generation value.
-- Description: Backs the cached state for this file.
+- Role: Caches the entered generation value.
+- Description: Caches the `enteredGeneration` value for reuse.
 
 ### Methods
 
 #### `private PortalMonitor()`
 - Role: Creates a new PortalMonitor instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PortalMonitor instance from the supplied inputs.
 
 #### `public static void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Resets the portal entry marker before the next transition.
 
 #### `public static long generation()`
-- Role: Performs generation.
-- Description: Supports the generation operation used by the surrounding class.
+- Role: Returns the current portal generation counter.
+- Description: Exposes the portal entry sequence number.
 
 #### `public static void waitNextEnter(long previousGeneration)`
-- Role: Performs wait next enter.
-- Description: Supports the wait next enter operation used by the surrounding class.
+- Role: Blocks until the portal generation advances.
+- Description: Waits for the next portal-entry event after the supplied generation.
 
 #### `public static void notifyDidEnterPortal()`
-- Role: Performs notify did enter portal.
-- Description: Supports the notify did enter portal operation used by the surrounding class.
+- Role: Marks that Haven entered a portal.
+- Description: Advances the portal generation and wakes waiting callers.

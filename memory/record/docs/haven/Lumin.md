@@ -1,5 +1,5 @@
 ---
-source: [Lumin.java](../../../src/haven/Lumin.java)
+source: [Lumin.java](../../../../src/haven/Lumin.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the lumin Haven component.
 
 ### $lumin
 
-- Role: Represents $lumin within Lumin.
-- Description: Describes the nested $lumin type used by the enclosing class.
+- Role: Applies luminance updates from the object cache.
+- Description: Delta decoder that installs or updates a Lumin attribute on a gob.
 
 ## Members
 
@@ -22,23 +22,23 @@ Represents the lumin Haven component.
 ### Fields
 
 #### `Coord off`
-- Role: Stores the off value.
-- Description: Backs the cached state for this file.
+- Role: Caches the off value.
+- Description: Caches the `off` value for reuse.
 
 #### `int sz, str`
-- Role: Stores the str value.
-- Description: Backs the cached state for this file.
+- Role: Caches the str value.
+- Description: Caches the `str` value for reuse.
 
 #### `int sz, str`
-- Role: Stores the str value.
-- Description: Backs the cached state for this file.
+- Role: Caches the str value.
+- Description: Caches the `str` value for reuse.
 
 ### Methods
 
 #### `public Lumin(Gob g, Coord off, int sz, int str)`
 - Role: Creates a new Lumin instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Lumin instance from the supplied inputs.
 
 #### `public void apply(Gob g, OCache.AttrDelta msg)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

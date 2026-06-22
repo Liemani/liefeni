@@ -1,5 +1,5 @@
 ---
-source: [UniformApplier.java](../../../../../src/haven/render/gl/UniformApplier.java)
+source: [UniformApplier.java](../../../../../../src/haven/render/gl/UniformApplier.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,57 +13,58 @@ Provides GL backend support for uniform applier.
 ### Constants
 
 #### `private static final Map<Type, TypeMapping> mappings = new HashMap<>()`
-- Role: Defines the shared mappings constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the mappings operation.
+- Description: Implements the private static final map<type, type mapping> mappings = new hash map<>() operation.
+- Value: `new HashMap<>()`
 
 ### Fields
 
 #### `public final String varnm`
-- Role: Stores the varnm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the varnm value.
+- Description: Caches the `varnm` value for reuse.
 
 #### `public final Type vartype`
-- Role: Holds the vartype state.
-- Description: Backs the cached state for this file.
+- Role: Caches the vartype value.
+- Description: Caches the `vartype` value for reuse.
 
 #### `public final Class<?> valtype`
-- Role: Holds the valtype state.
-- Description: Backs the cached state for this file.
+- Role: Caches the valtype value.
+- Description: Caches the `valtype` value for reuse.
 
 #### `private final Map<Class<?>, UniformApplier<?>> reg = new HashMap<>()`
-- Role: Caches reg entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the reg operation.
+- Description: Implements the private final map<class<?>, uniform applier<?>> reg = new hash map<>() operation.
 
 #### `private final Map<Class<?>, UniformApplier<?>> cache = new HashMap<>()`
-- Role: Caches cache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cache operation.
+- Description: Implements the private final map<class<?>, uniform applier<?>> cache = new hash map<>() operation.
 
 ### Methods
 
 #### `public NoMappingException(String varnm, Type vartype, Class<?> valtype)`
-- Role: Performs no mapping exception.
-- Description: Supports the no mapping exception operation used by the surrounding class.
+- Role: Handles the no mapping exception path.
+- Description: Implements the no mapping exception operation.
 
 #### `public static <T> void register(Type type, Class<T> cl, UniformApplier<T> fn)`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `public static <T> UniformApplier<T> get(Type type, Class<T> cl)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private static <T> void apply0(BGL gl, UniformApplier<T> fn, UniformID var, Type type, Object val)`
-- Role: Performs apply0.
-- Description: Supports the apply0 operation used by the surrounding class.
+- Role: Handles the apply0 path.
+- Description: Implements the apply0 operation.
 
 #### `private static void apply(BGL gl, Type type, UniformID var, Object val)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public static void apply(BGL gl, GLProgram prog, Uniform var, Object val)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public void apply(BGL gl, UniformID var, Type type, T value)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.

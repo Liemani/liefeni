@@ -1,57 +1,53 @@
 ---
-source: [WaypointStore.java](../../../../../src/lmi/waypoint/persistence/WaypointStore.java)
+source: [WaypointStore.java](../../../../../../src/lmi/waypoint/persistence/WaypointStore.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # WaypointStore
 
-Coordinates high-level waypoint persistence requests and batching.
+Provides the public asynchronous façade for waypoint persistence and batching, while delegating the actual JDBC work to `WaypointDbExecutor` and `WaypointDatabase`.
 
 ## Members
-
-### Constants
-
-### Fields
 
 ### Methods
 
 #### `private WaypointStore()`
-- Role: Creates a new WaypointStore instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Prevents instantiation.
+- Description: Static façade only.
 
 #### `public static void initializeAsync(WaypointResultHandler<EmptyWaypointResult> handler)`
-- Role: Performs initialize async.
-- Description: Supports the initialize async operation used by the surrounding class.
+- Role: Enqueues waypoint DB initialization.
+- Description: Submits the initialization work to the DB executor and returns the completion through the handler.
 
 #### `public static void createNodeAsync(`
-- Role: Handles the create node async workflow.
-- Description: Supports the create node async operation used by the surrounding class.
+- Role: Enqueues waypoint node creation.
+- Description: Wraps node creation in a write transaction and returns a `CreateNodeResult` through the handler.
 
 #### `public static void loadNodesByGraphAsync(long graphId, WaypointResultHandler<LoadNodesByGraphResult> handler)`
-- Role: Coordinates load nodes by graph async persistence or lookup.
-- Description: Supports the load nodes by graph async operation used by the surrounding class.
+- Role: Enqueues node loading by graph.
+- Description: Reads `wp_node` rows for a graph and maps them to `WpNode` objects.
 
 #### `public static void loadNodesByGridAsync(long gridId, WaypointResultHandler<LoadNodesByGridResult> handler)`
-- Role: Coordinates load nodes by grid async persistence or lookup.
-- Description: Supports the load nodes by grid async operation used by the surrounding class.
+- Role: Enqueues node loading by grid.
+- Description: Reads `wp_node` rows for a grid and maps them to `WpNode` objects.
 
 #### `public static void loadEdgesByGraphAsync(long graphId, WaypointResultHandler<LoadEdgesByGraphResult> handler)`
-- Role: Coordinates load edges by graph async persistence or lookup.
-- Description: Supports the load edges by graph async operation used by the surrounding class.
+- Role: Enqueues edge loading by graph.
+- Description: Reads `wp_edge` rows for a graph and maps them to `WpEdge` objects.
 
 #### `public static void loadSegmentsByGridAsync(long graphId, long gridId, WaypointResultHandler<LoadSegmentsByCutResult> handler)`
-- Role: Coordinates load segments by grid async persistence or lookup.
-- Description: Supports the load segments by grid async operation used by the surrounding class.
+- Role: Enqueues segment loading by grid.
+- Description: Reads `wp_segment` rows for a grid and maps them to `WpSegment` objects.
 
 #### `public static void loadPointsByGridAsync(long graphId, long gridId, WaypointResultHandler<LoadPointsByCutResult> handler)`
-- Role: Coordinates load points by grid async persistence or lookup.
-- Description: Supports the load points by grid async operation used by the surrounding class.
+- Role: Enqueues point loading by grid.
+- Description: Reads `wp_point` rows for a grid and maps them to `WpPoint` objects.
 
 #### `public static SaveBatchResult applySaveBatch(Connection conn, SaveBatch batch) throws Exception`
-- Role: Handles the apply save batch workflow.
-- Description: Supports the apply save batch operation used by the surrounding class.
+- Role: Applies a batched waypoint save on an existing connection.
+- Description: Runs `WpNodeSnapshot` updates inside a transaction and commits or rolls back the connection.
 
 #### `public static void saveMapGridIfMissingAsync(`
-- Role: Coordinates save map grid if missing async persistence or lookup.
-- Description: Supports the save map grid if missing async operation used by the surrounding class.
+- Role: Enqueues map-grid bootstrap persistence.
+- Description: Writes a waypoint `map_grid` row only when the Haven grid has not been stored yet.

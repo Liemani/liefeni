@@ -1,5 +1,5 @@
 ---
-source: [Texture2D.java](../../../../src/haven/render/Texture2D.java)
+source: [Texture2D.java](../../../../../src/haven/render/Texture2D.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Defines the texture2 d render pipeline component.
 
 ### Sampler2D
 
-- Role: Represents sampler2 d within Texture2D.
-- Description: Describes the nested sampler2 d type used by the enclosing class.
+- Role: Represents a 2D texture sampler.
+- Description: Wraps a `Texture2D` instance for sampling in the render pipe.
 
 ## Members
 
@@ -22,55 +22,55 @@ Defines the texture2 d render pipeline component.
 ### Fields
 
 #### `public final int w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `public final int w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `private final boolean pot`
 - Role: Tracks the pot flag.
-- Description: Supports the pot operation used by the surrounding class.
+- Description: Caches the `pot` value for reuse.
 
 ### Methods
 
 #### `public Texture2D(int w, int h, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
-- Role: Creates a new Texture2D instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a sized 2D texture.
+- Description: Stores the texture dimensions, formats, usage, and filler.
 
 #### `public Texture2D(int w, int h, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new Texture2D instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture2D instance from the supplied inputs.
 
 #### `public Texture2D(Coord dim, DataBuffer.Usage usage, VectorFormat ifmt, VectorFormat efmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new Texture2D instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture2D instance from the supplied inputs.
 
 #### `public Texture2D(Coord dim, DataBuffer.Usage usage, VectorFormat ifmt, DataBuffer.Filler<? super Image> init)`
 - Role: Creates a new Texture2D instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Texture2D instance from the supplied inputs.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Returns the texture size.
+- Description: Exposes the 2D width and height as a coordinate.
 
 #### `public Image<Texture2D> image(int level)`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Returns one mip image.
+- Description: Exposes the texture image for the requested mip level.
 
 #### `public Collection<Image<Texture2D>> images()`
-- Role: Performs images.
-- Description: Supports the images operation used by the surrounding class.
+- Role: Returns all mip images.
+- Description: Exposes the full image collection for this texture.
 
 #### `public Sampler2D(Texture2D tex)`
-- Role: Performs sampler2 d.
-- Description: Supports the sampler2 d operation used by the surrounding class.
+- Role: Creates one 2D texture sampler.
+- Description: Wraps the underlying texture object for shader use.
 
 #### `public Sampler2D sampler()`
-- Role: Performs sampler.
-- Description: Supports the sampler operation used by the surrounding class.
+- Role: Returns the texture sampler.
+- Description: Exposes a sampler bound to this texture.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Texture2D for debugging and logging.

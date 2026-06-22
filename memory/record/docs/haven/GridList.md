@@ -1,5 +1,5 @@
 ---
-source: [GridList.java](../../../src/haven/GridList.java)
+source: [GridList.java](../../../../src/haven/GridList.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,137 +12,138 @@ Represents the grid list Haven component.
 
 ### Group
 
-- Role: Represents group within GridList.
-- Description: Describes the nested group type used by the enclosing class.
+- Role: Represents one visual group of grid-list items.
+- Description: Holds the group name, item list, and layout metrics for grouped rendering.
 
 ## Members
 
 ### Constants
 
 #### `public static final Text.Furnace dcatf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 18).aa(true), Window.ctex), 2, 1, new Color(96, 48, 0))`
-- Role: Defines the shared dcatf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the dcatf operation.
+- Description: Implements the color operation.
+- Value: `new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 18).aa(true), Window.ctex), 2, 1, new Color(96, 48, 0))`
 
 ### Fields
 
 #### `public final Text.Furnace catf`
-- Role: Stores the catf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the catf value.
+- Description: Caches the `catf` value for reuse.
 
 #### `public final Scrollbar sb`
-- Role: Holds the sb state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sb value.
+- Description: Caches the `sb` value for reuse.
 
 #### `public T sel = null`
-- Role: Holds the sel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sel value.
+- Description: Caches the `sel` value for reuse.
 
 #### `public int gmarg = 10`
-- Role: Stores the gmarg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gmarg value.
+- Description: Caches the `gmarg` value for reuse.
 
 #### `private final List<Group> groups = new ArrayList<>()`
-- Role: Caches groups entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the groups operation.
+- Description: Implements the private final list<group> groups = new array list<>() operation.
 
 #### `public final Coord itemsz, marg`
-- Role: Stores the marg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the marg value.
+- Description: Caches the `marg` value for reuse.
 
 #### `public final Coord itemsz, marg`
-- Role: Stores the marg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the marg value.
+- Description: Caches the `marg` value for reuse.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public List<T> items`
-- Role: Caches items entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the items value.
+- Description: Caches the `items` value for reuse.
 
 #### `private int sy, ey`
-- Role: Stores the ey value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ey value.
+- Description: Caches the `ey` value for reuse.
 
 #### `private int sy, ey`
-- Role: Stores the ey value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ey value.
+- Description: Caches the `ey` value for reuse.
 
 #### `private Text rname`
-- Role: Stores the rname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rname value.
+- Description: Caches the `rname` value for reuse.
 
 #### `public java.util.function.Function<T, Object> itemtooltip = null`
-- Role: Holds the itemtooltip state.
-- Description: Backs the cached state for this file.
+- Role: Caches the itemtooltip value.
+- Description: Caches the `itemtooltip` value for reuse.
 
 ### Methods
 
 #### `public Group(Coord itemsz, Coord marg, String name, List<T> items)`
-- Role: Performs group.
-- Description: Supports the group operation used by the surrounding class.
+- Role: Handles the group path.
+- Description: Implements the group operation.
 
 #### `public void update(List<T> items)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public Text rname()`
-- Role: Performs rname.
-- Description: Supports the rname operation used by the surrounding class.
+- Role: Handles the rname path.
+- Description: Implements the rname operation.
 
 #### `public GridList(Coord sz)`
 - Role: Creates a new GridList instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GridList instance from the supplied inputs.
 
 #### `protected void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void resize(Coord sz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `protected void drawbg(GOut g)`
-- Role: Performs drawbg.
-- Description: Supports the drawbg operation used by the surrounding class.
+- Role: Handles the drawbg path.
+- Description: Draws the bg.
 
 #### `protected void drawsel(GOut g)`
-- Role: Performs drawsel.
-- Description: Supports the drawsel operation used by the surrounding class.
+- Role: Handles the drawsel path.
+- Description: Draws the sel.
 
 #### `protected abstract void drawitem(GOut g, T item)`
-- Role: Performs drawitem.
-- Description: Supports the drawitem operation used by the surrounding class.
+- Role: Handles the drawitem path.
+- Description: Draws the item.
 
 #### `private static int adjx(int col, int iw, int rw, int ww)`
-- Role: Performs adjx.
-- Description: Supports the adjx operation used by the surrounding class.
+- Role: Handles the adjx path.
+- Description: Implements the adjx operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GridList content.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public T itemat(Coord c)`
-- Role: Performs itemat.
-- Description: Supports the itemat operation used by the surrounding class.
+- Role: Handles the itemat path.
+- Description: Implements the itemat operation.
 
 #### `public void change(T item)`
-- Role: Performs change.
-- Description: Supports the change operation used by the surrounding class.
+- Role: Handles the change path.
+- Description: Implements the change operation.
 
 #### `protected void itemclick(T item, int button)`
-- Role: Performs itemclick.
-- Description: Supports the itemclick operation used by the surrounding class.
+- Role: Handles the itemclick path.
+- Description: Implements the itemclick operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.
 
 #### `public Object tooltip(Coord c, Widget prev)`
 - Role: Returns the tooltip for the given cursor position.
-- Description: Exposes the requested value without mutating state.
+- Description: Builds the tooltip for the current cursor position.

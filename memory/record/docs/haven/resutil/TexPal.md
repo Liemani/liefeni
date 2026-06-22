@@ -1,56 +1,49 @@
 ---
-source: [TexPal.java](../../../../src/haven/resutil/TexPal.java)
+source: [TexPal.java](../../../../../src/haven/resutil/TexPal.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # TexPal
 
-Provides resource helper logic for tex pal.
-
-## Nested Types
-
-### $res
-
-- Role: Represents $res within TexPal.
-- Description: Describes the nested $res type used by the enclosing class.
+Provides a palette-adjusted texture state for draw-time color replacement.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<TexPal> slot = new Slot<TexPal>(Slot.Type.DRAW, TexPal.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Registers the palette texture state.
+- Description: Stores the active palette replacement in the render pipe.
 
 #### `private static final Uniform ctex = new Uniform(SAMPLER2D, p -> p.get(slot).tex.img, slot)`
-- Role: Defines the shared ctex constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes the palette source texture.
+- Description: Reads the image from the wrapped texture renderer.
 
 #### `private static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the palette shader path.
+- Description: Swaps the original texture colors through the palette texture.
 
 ### Fields
 
 #### `public final TexRender tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Stores the palette texture renderer.
+- Description: The renderer is sampled by the shader.
 
 ### Methods
 
 #### `public TexPal(TexRender tex)`
-- Role: Creates a new TexPal instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a palette texture state.
+- Description: Stores the renderer used for palette lookup.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the palette shader.
+- Description: Applies the palette replacement step during drawing.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Installs the state into the draw pipe.
+- Description: Makes the palette texture visible to the shader.
 
 #### `public void cons(Material.Buffer buf, Object... args)`
-- Role: Performs cons.
-- Description: Supports the cons operation used by the surrounding class.
+- Role: Serializes the palette state into a material buffer.
+- Description: Supports material decoding from resources.

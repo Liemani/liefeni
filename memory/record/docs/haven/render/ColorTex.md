@@ -1,5 +1,5 @@
 ---
-source: [ColorTex.java](../../../../src/haven/render/ColorTex.java)
+source: [ColorTex.java](../../../../../src/haven/render/ColorTex.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,33 +13,36 @@ Defines the color tex render pipeline component.
 ### Constants
 
 #### `public static final Slot<ColorTex> slot = new Slot<>(Slot.Type.DRAW, ColorTex.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Publishes color-texture state.
+- Description: Shared slot used to expose the active color texture to the pipe.
+- Value: `new Slot<>(Slot.Type.DRAW, ColorTex.class)`
 
 #### `public static final Attribute texc = Tex2D.texc`
-- Role: Defines the shared texc constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Reuses the shared texture-coordinate attribute.
+- Description: Uses the 2D texture coordinate attribute from `Tex2D`.
+- Value: `Tex2D.texc`
 
 #### `private static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Builds the color-texture shader.
+- Description: Returns the shader macro that samples the bound texture.
+- Value: `prog ->`
 
 ### Fields
 
 #### `public final Texture2D.Sampler2D data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 ### Methods
 
 #### `public ColorTex(Texture2D.Sampler2D data)`
-- Role: Creates a new ColorTex instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Stores one sampled color texture.
+- Description: Wraps the texture sampler used for color lookup.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Builds the color-texture shader.
+- Description: Returns the shader macro that samples the bound texture.
 
 #### `public void apply(Pipe p)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies color-texture state.
+- Description: Writes the active sampler into the current pipe.

@@ -1,61 +1,62 @@
 ---
-source: [NodeWrap.java](../../../../src/haven/render/NodeWrap.java)
+source: [NodeWrap.java](../../../../../src/haven/render/NodeWrap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # NodeWrap
 
-Defines the node wrap render pipeline component.
+Composes render-tree node wrappers into one wrapping chain.
 
 ## Members
 
 ### Constants
 
 #### `public static final NodeWrap nil = n -> n`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Provides the identity node wrapper.
+- Description: Returns nodes unchanged.
+- Value: `n -> n`
 
 ### Fields
 
 #### `private final NodeWrap[] wraps`
-- Role: Stores the wraps value.
-- Description: Backs the cached state for this file.
+- Role: Stores the wrapper chain.
+- Description: Applied in sequence when a node is wrapped.
 
 ### Methods
 
 #### `public RenderTree.Node apply(RenderTree.Node node)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Wraps one render-tree node.
+- Description: Applies the configured wrapper chain and returns the resulting node.
 
 #### `public NodeWrap wrap()`
-- Role: Performs wrap.
-- Description: Supports the wrap operation used by the surrounding class.
+- Role: Returns the reusable wrapper function.
+- Description: Exposes the current wrapper chain as a `NodeWrap`.
 
 #### `public RenderTree.Node wrapped()`
-- Role: Performs wrapped.
-- Description: Supports the wrapped operation used by the surrounding class.
+- Role: Returns the wrapped node.
+- Description: Exposes the node after all wrappers have been applied.
 
 #### `public Composed(NodeWrap... wraps)`
-- Role: Performs composed.
-- Description: Supports the composed operation used by the surrounding class.
+- Role: Builds a composed wrapper chain.
+- Description: Stores the input wrappers in the order they will be applied.
 
 #### `public RenderTree.Node apply(RenderTree.Node node)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Applies the wrapper chain to a node.
+- Description: Returns the node after passing it through all composed wrappers.
 
 #### `public boolean equals(Object o)`
-- Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Role: Compares wrapper chains.
+- Description: Treats two composed wrappers as equal when they contain the same chain.
 
 #### `public int hashCode()`
-- Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the chain hash code.
+- Description: Hashes the wrapper sequence for interning and comparisons.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the wrapper chain.
+- Description: Returns a debug string for the composed wrapper sequence.
 
 #### `public static NodeWrap compose(NodeWrap... w)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Builds one composed wrapper.
+- Description: Returns a wrapper that applies the input wrappers in order.

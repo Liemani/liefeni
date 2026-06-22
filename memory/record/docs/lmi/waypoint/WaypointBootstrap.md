@@ -1,5 +1,5 @@
 ---
-source: [WaypointBootstrap.java](../../../../src/lmi/waypoint/WaypointBootstrap.java)
+source: [WaypointBootstrap.java](../../../../../src/lmi/waypoint/WaypointBootstrap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,12 +22,12 @@ Bootstraps waypoint runtime wiring and startup state.
 
 #### `private WaypointBootstrap()`
 - Role: Creates a new WaypointBootstrap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the WaypointBootstrap instance from the supplied inputs.
 
 #### `public static synchronized void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Initializes waypoint runtime wiring.
+- Description: Prepares waypoint managers and persistence helpers once per process.
 
 #### `public static synchronized boolean initialized()`
-- Role: Performs initialized.
-- Description: Supports the initialized operation used by the surrounding class.
+- Role: Returns whether waypoint bootstrap already ran.
+- Description: Reports whether the waypoint runtime is ready.

@@ -1,5 +1,5 @@
 ---
-source: [IMeter.java](../../../src/haven/IMeter.java)
+source: [IMeter.java](../../../../src/haven/IMeter.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,30 +12,33 @@ Represents the imeter Haven component.
 
 ### $_
 
-- Role: Represents $ within IMeter.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the inventory meter widget resource.
+- Description: Factory that creates an IMeter from a meter background resource and meter list.
 
 ## Members
 
 ### Constants
 
 #### `public static final Coord off = UI.scale(22, 7)`
-- Role: Defines the shared off constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the off operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(22, 7)`
 
 #### `public static final Coord fsz = UI.scale(101, 24)`
-- Role: Defines the shared fsz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fsz operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(101, 24)`
 
 #### `public static final Coord msz = UI.scale(75, 10)`
-- Role: Defines the shared msz constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the msz operation.
+- Description: Implements the scale operation.
+- Value: `UI.scale(75, 10)`
 
 ### Fields
 
 #### `public final Indir<Resource> bg`
-- Role: Stores the bg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bg value.
+- Description: Caches the `bg` value for reuse.
 
 ### Methods
 
@@ -45,12 +48,12 @@ Represents the imeter Haven component.
 
 #### `public IMeter(Indir<Resource> bg, List<Meter> meters)`
 - Role: Creates a new IMeter instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the IMeter instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the IMeter content.
 
 #### `public String resourceName()`
-- Role: Performs resource name.
-- Description: Supports the resource name operation used by the surrounding class.
+- Role: Handles the resource name path.
+- Description: Implements the resource name operation.

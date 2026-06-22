@@ -1,5 +1,5 @@
 ---
-source: [Abortable.java](../../../../src/haven/render/Abortable.java)
+source: [Abortable.java](../../../../../src/haven/render/Abortable.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,5 +17,5 @@ Defines the abortable render pipeline component.
 ### Methods
 
 #### `public void abort()`
-- Role: Performs abort.
-- Description: Supports the abort operation used by the surrounding class.
+- Role: Cancels the pending operation.
+- Description: Marks the current action as aborted and stops follow-up work.

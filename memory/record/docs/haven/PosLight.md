@@ -1,5 +1,5 @@
 ---
-source: [PosLight.java](../../../src/haven/PosLight.java)
+source: [PosLight.java](../../../../src/haven/PosLight.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,55 +15,55 @@ Represents the pos light Haven component.
 ### Fields
 
 #### `public float[] pos`
-- Role: Stores the pos value.
-- Description: Backs the cached state for this file.
+- Role: Caches the pos value.
+- Description: Caches the `pos` value for reuse.
 
 #### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-- Role: Stores the ac value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ac value.
+- Description: Caches the `ac` value for reuse.
 
 #### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-- Role: Stores the ac value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ac value.
+- Description: Caches the `ac` value for reuse.
 
 #### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-- Role: Stores the ac value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ac value.
+- Description: Caches the `ac` value for reuse.
 
 #### `public float ac = 1.0f, al = 0.0f, aq = 0.0f, at = 0.1f`
-- Role: Stores the ac value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ac value.
+- Description: Caches the `ac` value for reuse.
 
 #### `public static float atoverride = 0`
-- Role: Stores the atoverride value.
-- Description: Backs the cached state for this file.
+- Role: Caches the atoverride value.
+- Description: Caches the `atoverride` value for reuse.
 
 ### Methods
 
 #### `public PosLight(FColor col, Coord3f pos)`
 - Role: Creates a new PosLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PosLight instance from the supplied inputs.
 
 #### `public PosLight(Color col, Coord3f pos)`
 - Role: Creates a new PosLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PosLight instance from the supplied inputs.
 
 #### `public PosLight(FColor amb, FColor dif, FColor spc, Coord3f pos)`
 - Role: Creates a new PosLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PosLight instance from the supplied inputs.
 
 #### `public PosLight(Color amb, Color dif, Color spc, Coord3f pos)`
 - Role: Creates a new PosLight instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the PosLight instance from the supplied inputs.
 
 #### `public void move(Coord3f pos)`
 - Role: Moves the current state.
-- Description: Supports the move operation used by the surrounding class.
+- Description: Implements the move operation.
 
 #### `public void att(float c, float l, float q)`
-- Role: Performs att.
-- Description: Supports the att operation used by the surrounding class.
+- Role: Handles the att path.
+- Description: Implements the att operation.
 
 #### `public Object[] params(GroupPipe state)`
-- Role: Performs params.
-- Description: Supports the params operation used by the surrounding class.
+- Role: Handles the params path.
+- Description: Implements the params operation.

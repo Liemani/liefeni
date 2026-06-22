@@ -1,5 +1,5 @@
 ---
-source: [BMap.java](../../../src/haven/BMap.java)
+source: [BMap.java](../../../../src/haven/BMap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,5 +17,5 @@ Represents the bmap Haven component.
 ### Methods
 
 #### `public BMap<V, K> reverse()`
-- Role: Performs reverse.
-- Description: Supports the reverse operation used by the surrounding class.
+- Role: Handles the reverse path.
+- Description: Implements the reverse operation.

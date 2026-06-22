@@ -1,5 +1,5 @@
 ---
-source: [Job.java](../../../src/agent/Job.java)
+source: [Job.java](../../../../src/agent/Job.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,4 +18,4 @@ Base type for long-running agent jobs.
 
 #### `public abstract void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Defines the long-running agent entry point.

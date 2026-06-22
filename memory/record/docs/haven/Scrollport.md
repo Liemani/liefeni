@@ -1,5 +1,5 @@
 ---
-source: [Scrollport.java](../../../src/haven/Scrollport.java)
+source: [Scrollport.java](../../../../src/haven/Scrollport.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the scrollport Haven component.
 
 ### $_
 
-- Role: Represents $ within Scrollport.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the scrollport widget resource.
+- Description: Factory that creates a Scrollport from the requested size.
 
 ### Scrollcont
 
-- Role: Represents scrollcont within Scrollport.
-- Description: Describes the nested scrollcont type used by the enclosing class.
+- Role: Hosts the scrollable content area.
+- Description: Inner widget that applies the vertical scroll offset and clips children to the visible area.
 
 ## Members
 
@@ -27,16 +27,16 @@ Represents the scrollport Haven component.
 ### Fields
 
 #### `public final Scrollbar bar`
-- Role: Holds the bar state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bar value.
+- Description: Caches the `bar` value for reuse.
 
 #### `public final Scrollcont cont`
-- Role: Holds the cont state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cont value.
+- Description: Caches the `cont` value for reuse.
 
 #### `public int sy = 0`
-- Role: Stores the sy value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sy value.
+- Description: Caches the `sy` value for reuse.
 
 ### Methods
 
@@ -46,40 +46,40 @@ Represents the scrollport Haven component.
 
 #### `public Scrollport(Coord sz)`
 - Role: Creates a new Scrollport instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Scrollport instance from the supplied inputs.
 
 #### `public Scrollcont(Coord sz)`
-- Role: Performs scrollcont.
-- Description: Supports the scrollcont operation used by the surrounding class.
+- Role: Handles the scrollcont path.
+- Description: Implements the scrollcont operation.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public <T extends Widget> T add(T child)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public Coord xlate(Coord c, boolean in)`
-- Role: Performs xlate.
-- Description: Supports the xlate operation used by the surrounding class.
+- Role: Handles the xlate path.
+- Description: Implements the xlate operation.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Scrollport content.
 
 #### `public boolean mousewheel(MouseWheelEvent ev)`
-- Role: Performs mousewheel.
-- Description: Supports the mousewheel operation used by the surrounding class.
+- Role: Handles the mousewheel path.
+- Description: Zooms or pans the minimap in response to the mouse wheel.
 
 #### `public void addchild(Widget child, Object... args)`
-- Role: Performs addchild.
-- Description: Supports the addchild operation used by the surrounding class.
+- Role: Handles the addchild path.
+- Description: Adds the child.
 
 #### `public void resize(Coord nsz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.

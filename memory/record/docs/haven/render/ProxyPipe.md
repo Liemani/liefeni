@@ -1,5 +1,5 @@
 ---
-source: [ProxyPipe.java](../../../../src/haven/render/ProxyPipe.java)
+source: [ProxyPipe.java](../../../../../src/haven/render/ProxyPipe.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,35 +15,35 @@ Defines the proxy pipe render pipeline component.
 ### Fields
 
 #### `private Pipe bk`
-- Role: Holds the bk state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bk value.
+- Description: Caches the `bk` value for reuse.
 
 ### Methods
 
 #### `public ProxyPipe(Pipe bk)`
 - Role: Creates a new ProxyPipe instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ProxyPipe instance from the supplied inputs.
 
 #### `public ProxyPipe()`
 - Role: Creates a new ProxyPipe instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ProxyPipe instance from the supplied inputs.
 
 #### `public <T extends State> T get(Slot<T> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Reads through to a backing pipe.
+- Description: Returns the state from the proxied pipe.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Exposes proxied states.
+- Description: Returns the state snapshot from the backing pipe.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Copies the proxied pipe.
+- Description: Produces a copy of the current backing pipe reference.
 
 #### `public Pipe update(Pipe np)`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Replaces the backing pipe.
+- Description: Swaps the proxied pipe and returns the updated wrapper.
 
 #### `public int[] dupdate(Pipe np)`
-- Role: Performs dupdate.
-- Description: Supports the dupdate operation used by the surrounding class.
+- Role: Computes proxy update deltas.
+- Description: Returns the state differences caused by a new backing pipe.

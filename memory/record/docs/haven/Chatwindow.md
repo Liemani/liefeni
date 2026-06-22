@@ -1,5 +1,5 @@
 ---
-source: [Chatwindow.java](../../../src/haven/Chatwindow.java)
+source: [Chatwindow.java](../../../../src/haven/Chatwindow.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,30 +20,31 @@ Represents the chatwindow Haven component.
 ### Constants
 
 #### `private static final PrintWriter stdout = new PrintWriter(System.out)`
-- Role: Defines the shared stdout constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the stdout operation.
+- Description: Implements the print writer operation.
+- Value: `new PrintWriter(System.out)`
 
 ### Fields
 
 #### `public final TextEntry in`
-- Role: Stores the in value.
-- Description: Backs the cached state for this file.
+- Role: Caches the in value.
+- Description: Caches the `in` value for reuse.
 
 #### `public final Textlog out`
-- Role: Stores the out value.
-- Description: Backs the cached state for this file.
+- Role: Caches the out value.
+- Description: Caches the `out` value for reuse.
 
 #### `private boolean stdio`
 - Role: Tracks the stdio flag.
-- Description: Supports the stdio operation used by the surrounding class.
+- Description: Caches the `stdio` value for reuse.
 
 #### `private Thread reader`
-- Role: Holds the reader state.
-- Description: Backs the cached state for this file.
+- Role: Caches the reader value.
+- Description: Caches the `reader` value for reuse.
 
 #### `private final StringBuilder readbuf = new StringBuilder()`
-- Role: Stores the readbuf value.
-- Description: Backs the cached state for this file.
+- Role: Implements the readbuf operation.
+- Description: Implements the string builder operation.
 
 ### Methods
 
@@ -53,20 +54,20 @@ Represents the chatwindow Haven component.
 
 #### `public Chatwindow(Coord sz)`
 - Role: Creates a new Chatwindow instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Chatwindow instance from the supplied inputs.
 
 #### `private void stdin()`
-- Role: Performs stdin.
-- Description: Supports the stdin operation used by the surrounding class.
+- Role: Handles the stdin path.
+- Description: Implements the stdin operation.
 
 #### `public void stdio(boolean on)`
-- Role: Performs stdio.
-- Description: Supports the stdio operation used by the surrounding class.
+- Role: Handles the stdio path.
+- Description: Implements the stdio operation.
 
 #### `public void uimsg(String msg, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.

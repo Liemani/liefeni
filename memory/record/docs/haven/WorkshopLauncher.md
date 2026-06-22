@@ -1,5 +1,5 @@
 ---
-source: [WorkshopLauncher.java](../../../src/haven/WorkshopLauncher.java)
+source: [WorkshopLauncher.java](../../../../src/haven/WorkshopLauncher.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,28 +12,28 @@ Represents the workshop launcher Haven component.
 
 ### Chooser
 
-- Role: Represents chooser within WorkshopLauncher.
-- Description: Describes the nested chooser type used by the enclosing class.
+- Role: Presents the workshop client chooser.
+- Description: Swing dialog that lets the user pick one workshop client entry.
 
 ### ClassUnloader
 
-- Role: Represents class unloader within WorkshopLauncher.
-- Description: Describes the nested class unloader type used by the enclosing class.
+- Role: Filters workshop classes during class loading.
+- Description: Custom class loader that hides unloaded workshop resources from lookup.
 
 ### Client
 
-- Role: Represents client within WorkshopLauncher.
-- Description: Describes the nested client type used by the enclosing class.
+- Role: Stores one workshop client entry.
+- Description: Launch metadata for a discovered workshop client.
 
 ### MessageException
 
-- Role: Represents message exception within WorkshopLauncher.
-- Description: Describes the nested message exception type used by the enclosing class.
+- Role: Signals a launch message failure.
+- Description: Runtime exception used when launcher message exchange fails.
 
 ### Updater
 
-- Role: Represents updater within WorkshopLauncher.
-- Description: Describes the nested updater type used by the enclosing class.
+- Role: Downloads or refreshes workshop clients.
+- Description: Background worker that updates local workshop content before launch.
 
 ## Members
 
@@ -42,119 +42,119 @@ Represents the workshop launcher Haven component.
 ### Fields
 
 #### `public final UGItem item`
-- Role: Holds the item state.
-- Description: Backs the cached state for this file.
+- Role: Caches the item value.
+- Description: Caches the `item` value for reuse.
 
 #### `public final Path path`
-- Role: Stores the path value.
-- Description: Backs the cached state for this file.
+- Role: Caches the path value.
+- Description: Caches the `path` value for reuse.
 
 #### `public final Properties props`
-- Role: Holds the props state.
-- Description: Backs the cached state for this file.
+- Role: Caches the props value.
+- Description: Caches the `props` value for reuse.
 
 #### `public final URI unload`
-- Role: Holds the unload state.
-- Description: Backs the cached state for this file.
+- Role: Caches the unload value.
+- Description: Caches the `unload` value for reuse.
 
 #### `public final List<Client> clients`
-- Role: Caches clients entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the clients value.
+- Description: Caches the `clients` value for reuse.
 
 #### `private JList clist`
-- Role: Caches clist entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the clist value.
+- Description: Caches the `clist` value for reuse.
 
 #### `private JCheckBox memo`
-- Role: Holds the memo state.
-- Description: Backs the cached state for this file.
+- Role: Caches the memo value.
+- Description: Caches the `memo` value for reuse.
 
 #### `private JButton lbtn`
-- Role: Holds the lbtn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the lbtn value.
+- Description: Caches the `lbtn` value for reuse.
 
 #### `public final Iterator<UGItem> items`
-- Role: Holds the items state.
-- Description: Backs the cached state for this file.
+- Role: Caches the items value.
+- Description: Caches the `items` value for reuse.
 
 #### `private JProgressBar prog`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 ### Methods
 
 #### `public Client(UGItem item, Path path, Properties props)`
-- Role: Performs client.
-- Description: Supports the client operation used by the surrounding class.
+- Role: Handles the client path.
+- Description: Implements the client operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.
 
 #### `public MessageException(String msg)`
-- Role: Performs message exception.
-- Description: Supports the message exception operation used by the surrounding class.
+- Role: Handles the message exception path.
+- Description: Implements the message exception operation.
 
 #### `public static Path findjvm() throws IOException`
 - Role: Handles the findjvm workflow.
-- Description: Supports the findjvm operation used by the surrounding class.
+- Description: Finds the jvm.
 
 #### `public static void centerwnd(JFrame wnd)`
-- Role: Performs centerwnd.
-- Description: Supports the centerwnd operation used by the surrounding class.
+- Role: Handles the centerwnd path.
+- Description: Centers the wnd.
 
 #### `public ClassUnloader()`
-- Role: Performs class unloader.
-- Description: Supports the class unloader operation used by the surrounding class.
+- Role: Handles the class unloader path.
+- Description: Implements the class unloader operation.
 
 #### `private boolean resunloadp(URL url)`
-- Role: Performs resunloadp.
-- Description: Supports the resunloadp operation used by the surrounding class.
+- Role: Handles the resunloadp path.
+- Description: Implements the resunloadp operation.
 
 #### `public URL getResource(String name)`
 - Role: Returns the resource.
-- Description: Exposes the resource that backs this wrapper.
+- Description: Returns the resource.
 
 #### `public Enumeration<URL> getResources(String name) throws IOException`
-- Role: Returns the resources value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the resources.
+- Description: Returns the resources.
 
 #### `public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException`
 - Role: Handles the load class workflow.
-- Description: Supports the load class operation used by the surrounding class.
+- Description: Loads the class.
 
 #### `public static boolean launch(Client cl) throws IOException`
 - Role: Handles the launch workflow.
-- Description: Supports the launch operation used by the surrounding class.
+- Description: Implements the launch operation.
 
 #### `public Chooser(List<Client> clients)`
-- Role: Performs chooser.
-- Description: Supports the chooser operation used by the surrounding class.
+- Role: Handles the chooser path.
+- Description: Implements the chooser operation.
 
 #### `private void save(Client cl)`
 - Role: Saves the current data.
 - Description: Saves the current data through the persistence pipeline.
 
 #### `public void claunch(Client cl)`
-- Role: Performs claunch.
-- Description: Supports the claunch operation used by the surrounding class.
+- Role: Handles the claunch path.
+- Description: Implements the claunch operation.
 
 #### `public Updater(Collection<UGItem> items)`
-- Role: Performs updater.
-- Description: Supports the updater operation used by the surrounding class.
+- Role: Handles the updater path.
+- Description: Implements the updater operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static boolean launchlast(Collection<Client> clients)`
-- Role: Performs launchlast.
-- Description: Supports the launchlast operation used by the surrounding class.
+- Role: Handles the launchlast path.
+- Description: Implements the launchlast operation.
 
 #### `public static void main2(String[] args)`
-- Role: Performs main2.
-- Description: Supports the main2 operation used by the surrounding class.
+- Role: Handles the main2 path.
+- Description: Implements the main2 operation.
 
 #### `public static void main(final String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.

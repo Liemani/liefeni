@@ -1,5 +1,5 @@
 ---
-source: [LFieldRef.java](../../../../../src/haven/render/sl/LFieldRef.java)
+source: [LFieldRef.java](../../../../../../src/haven/render/sl/LFieldRef.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,23 +15,23 @@ Represents the lfield ref shader-language AST node.
 ### Fields
 
 #### `public final LValue val`
-- Role: Holds the val state.
-- Description: Backs the cached state for this file.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `public final String el`
-- Role: Stores the el value.
-- Description: Backs the cached state for this file.
+- Role: Caches the el value.
+- Description: Caches the `el` value for reuse.
 
 ### Methods
 
 #### `public LFieldRef(LValue val, String el)`
-- Role: Creates a new LFieldRef instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one l-value field reference.
+- Description: Stores the mutable source expression and field name.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the source l-value.
+- Description: Walks the value that owns the field.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the field reference.
+- Description: Writes the field access syntax for the mutable expression.

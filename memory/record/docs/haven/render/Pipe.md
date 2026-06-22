@@ -1,5 +1,5 @@
 ---
-source: [Pipe.java](../../../../src/haven/render/Pipe.java)
+source: [Pipe.java](../../../../../src/haven/render/Pipe.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,145 +13,147 @@ Defines the pipe render pipeline component.
 ### Constants
 
 #### `public static final Op nil = new Nil()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the nil operation.
+- Value: `new Nil()`
 
 #### `public static final Pipe nil = new Nil()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the nil operation.
+- Description: Implements the nil operation.
+- Value: `new Nil()`
 
 ### Fields
 
 #### `private final Op[] ops`
-- Role: Holds the ops state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ops value.
+- Description: Caches the `ops` value for reuse.
 
 #### `public final RenderTree.Node r`
-- Role: Stores the r value.
-- Description: Backs the cached state for this file.
+- Role: Caches the r value.
+- Description: Caches the `r` value for reuse.
 
 #### `public final Op op`
-- Role: Holds the op state.
-- Description: Backs the cached state for this file.
+- Role: Caches the op value.
+- Description: Caches the `op` value for reuse.
 
 #### `public final boolean locked`
 - Role: Tracks the locked flag.
-- Description: Supports the locked operation used by the surrounding class.
+- Description: Caches the `locked` value for reuse.
 
 ### Methods
 
 #### `public <T extends State> T get(Slot<T> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Handles the states path.
+- Description: Implements the states operation.
 
 #### `public default <T extends State> void put(Slot<? super T> slot, T state)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `public default void copy(Pipe from)`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public void apply(Pipe pipe)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public Composed(Op... ops)`
-- Role: Performs composed.
-- Description: Supports the composed operation used by the surrounding class.
+- Role: Handles the composed path.
+- Description: Implements the composed operation.
 
 #### `public void apply(Pipe pipe)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Pipe for debugging and logging.
 
 #### `public void apply(Pipe pipe)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Pipe for debugging and logging.
 
 #### `public static Op compose(Op... ops)`
-- Role: Performs compose.
-- Description: Supports the compose operation used by the surrounding class.
+- Role: Handles the compose path.
+- Description: Implements the compose operation.
 
 #### `public Wrapping(RenderTree.Node r, Op op, boolean locked)`
-- Role: Performs wrapping.
-- Description: Supports the wrapping operation used by the surrounding class.
+- Role: Handles the wrapping path.
+- Description: Implements the wrapping operation.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Pipe for debugging and logging.
 
 #### `public NodeWrap wrap()`
-- Role: Performs wrap.
-- Description: Supports the wrap operation used by the surrounding class.
+- Role: Handles the wrap path.
+- Description: Implements the wrap operation.
 
 #### `public RenderTree.Node wrapped()`
-- Role: Performs wrapped.
-- Description: Supports the wrapped operation used by the surrounding class.
+- Role: Handles the wrapped path.
+- Description: Implements the wrapped operation.
 
 #### `public default Wrapping apply(RenderTree.Node r, boolean locked)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public default Wrapping apply(RenderTree.Node r)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public default Pipe prep(Op op)`
-- Role: Performs prep.
-- Description: Supports the prep operation used by the surrounding class.
+- Role: Handles the prep path.
+- Description: Implements the prep operation.
 
 #### `public static int hashCode(State[] states)`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public static boolean equals(State[] as, State[] bs)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public <T extends State> T get(Slot<T> slot)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public Pipe copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public State[] states()`
-- Role: Performs states.
-- Description: Supports the states operation used by the surrounding class.
+- Role: Handles the states path.
+- Description: Implements the states operation.

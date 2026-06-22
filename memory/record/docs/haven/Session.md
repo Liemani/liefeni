@@ -1,5 +1,5 @@
 ---
-source: [Session.java](../../../src/haven/Session.java)
+source: [Session.java](../../../../src/haven/Session.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -40,268 +40,287 @@ Represents the active game session and network connection.
 ### Constants
 
 #### `public static final Config.Variable<java.nio.file.Path> record = Config.Variable.propp("haven.record", "")`
-- Role: Defines the shared record constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the record operation.
+- Description: Implements the propp operation.
+- Value: `Config.Variable.propp("haven.record", "")`
 
 #### `public static final int PVER = 30`
-- Role: Defines the shared pver constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the pver value.
+- Description: Caches the `PVER` value for reuse.
+- Value: `30`
 
 #### `public static final int MSG_SESS = 0`
-- Role: Defines the shared msg sess constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg sess value.
+- Description: Caches the `MSG_SESS` value for reuse.
+- Value: `0`
 
 #### `public static final int MSG_REL = 1`
-- Role: Defines the shared msg rel constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg rel value.
+- Description: Caches the `MSG_REL` value for reuse.
+- Value: `1`
 
 #### `public static final int MSG_ACK = 2`
-- Role: Defines the shared msg ack constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg ack value.
+- Description: Caches the `MSG_ACK` value for reuse.
+- Value: `2`
 
 #### `public static final int MSG_BEAT = 3`
-- Role: Defines the shared msg beat constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg beat value.
+- Description: Caches the `MSG_BEAT` value for reuse.
+- Value: `3`
 
 #### `public static final int MSG_MAPREQ = 4`
-- Role: Defines the shared msg mapreq constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg mapreq value.
+- Description: Caches the `MSG_MAPREQ` value for reuse.
+- Value: `4`
 
 #### `public static final int MSG_MAPDATA = 5`
-- Role: Defines the shared msg mapdata constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg mapdata value.
+- Description: Caches the `MSG_MAPDATA` value for reuse.
+- Value: `5`
 
 #### `public static final int MSG_OBJDATA = 6`
-- Role: Defines the shared msg objdata constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg objdata value.
+- Description: Caches the `MSG_OBJDATA` value for reuse.
+- Value: `6`
 
 #### `public static final int MSG_OBJACK = 7`
-- Role: Defines the shared msg objack constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg objack value.
+- Description: Caches the `MSG_OBJACK` value for reuse.
+- Value: `7`
 
 #### `public static final int MSG_CLOSE = 8`
-- Role: Defines the shared msg close constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg close value.
+- Description: Caches the `MSG_CLOSE` value for reuse.
+- Value: `8`
 
 #### `public static final int MSG_CRYPT = 9`
-- Role: Defines the shared msg crypt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the msg crypt value.
+- Description: Caches the `MSG_CRYPT` value for reuse.
+- Value: `9`
 
 #### `public static final int SESSERR_AUTH = 1`
-- Role: Defines the shared sesserr auth constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sesserr auth value.
+- Description: Caches the `SESSERR_AUTH` value for reuse.
+- Value: `1`
 
 #### `public static final int SESSERR_BUSY = 2`
-- Role: Defines the shared sesserr busy constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sesserr busy value.
+- Description: Caches the `SESSERR_BUSY` value for reuse.
+- Value: `2`
 
 #### `public static final int SESSERR_CONN = 3`
-- Role: Defines the shared sesserr conn constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sesserr conn value.
+- Description: Caches the `SESSERR_CONN` value for reuse.
+- Value: `3`
 
 #### `public static final int SESSERR_PVER = 4`
-- Role: Defines the shared sesserr pver constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sesserr pver value.
+- Description: Caches the `SESSERR_PVER` value for reuse.
+- Value: `4`
 
 #### `public static final int SESSERR_EXPR = 5`
-- Role: Defines the shared sesserr expr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sesserr expr value.
+- Description: Caches the `SESSERR_EXPR` value for reuse.
+- Value: `5`
 
 #### `public static final int SESSERR_MESG = 6`
-- Role: Defines the shared sesserr mesg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the sesserr mesg value.
+- Description: Caches the `SESSERR_MESG` value for reuse.
+- Value: `6`
 
 #### `static final int ackthresh = 30`
-- Role: Defines the shared ackthresh constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the ackthresh value.
+- Description: Caches the `ackthresh` value for reuse.
+- Value: `30`
 
 ### Fields
 
 #### `public final Transport conn`
-- Role: Holds the conn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the conn value.
+- Description: Caches the `conn` value for reuse.
 
 #### `public int connfailed = 0`
-- Role: Stores the connfailed value.
-- Description: Backs the cached state for this file.
+- Role: Caches the connfailed value.
+- Description: Caches the `connfailed` value for reuse.
 
 #### `public String connerror = null`
-- Role: Stores the connerror value.
-- Description: Backs the cached state for this file.
+- Role: Caches the connerror value.
+- Description: Caches the `connerror` value for reuse.
 
 #### `LinkedList<PMessage> uimsgs = new LinkedList<PMessage>()`
-- Role: Caches uimsgs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the uimsgs operation.
+- Description: Implements the linked list<p message> uimsgs = new linked list<p message>() operation.
 
 #### `public final User user`
-- Role: Holds the user state.
-- Description: Backs the cached state for this file.
+- Role: Caches the user value.
+- Description: Caches the `user` value for reuse.
 
 #### `final Map<Integer, CachedRes> rescache = new TreeMap<Integer, CachedRes>()`
-- Role: Caches rescache entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the rescache operation.
+- Description: Implements the final map<integer, cached res> rescache = new tree map<integer, cached res>() operation.
 
 #### `public final Glob glob`
-- Role: Stores the glob value.
-- Description: Backs the cached state for this file.
+- Role: Caches the glob value.
+- Description: Caches the `glob` value for reuse.
 
 #### `public SignKey sesskey`
-- Role: Holds the sesskey state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sesskey value.
+- Description: Caches the `sesskey` value for reuse.
 
 #### `private boolean closed = false`
 - Role: Tracks whether closed is closed.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public String alias = null, readname = null, prsname = null`
-- Role: Stores the alias value.
-- Description: Backs the cached state for this file.
+- Role: Caches the alias value.
+- Description: Caches the `alias` value for reuse.
 
 #### `public String alias = null, readname = null, prsname = null`
-- Role: Stores the alias value.
-- Description: Backs the cached state for this file.
+- Role: Caches the alias value.
+- Description: Caches the `alias` value for reuse.
 
 #### `public String alias = null, readname = null, prsname = null`
-- Role: Stores the alias value.
-- Description: Backs the cached state for this file.
+- Role: Caches the alias value.
+- Description: Caches the `alias` value for reuse.
 
 #### `public Message msg`
-- Role: Holds the msg state.
-- Description: Backs the cached state for this file.
+- Role: Caches the msg value.
+- Description: Caches the `msg` value for reuse.
 
 #### `public final int resid`
-- Role: Stores the resid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the resid value.
+- Description: Caches the `resid` value for reuse.
 
 #### `private transient final CachedRes res`
-- Role: Holds the res state.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private final Waitable.Queue wq = new Waitable.Queue()`
-- Role: Caches wq entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the wq operation.
+- Description: Implements the queue operation.
 
 #### `private final int resid`
-- Role: Stores the resid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the resid value.
+- Description: Caches the `resid` value for reuse.
 
 #### `private String resnm = null`
-- Role: Stores the resnm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the resnm value.
+- Description: Caches the `resnm` value for reuse.
 
 #### `private int resver`
-- Role: Stores the resver value.
-- Description: Backs the cached state for this file.
+- Role: Caches the resver value.
+- Description: Caches the `resver` value for reuse.
 
 #### `private Reference<Ref> ind`
-- Role: Holds the ind state.
-- Description: Backs the cached state for this file.
+- Role: Caches the ind value.
+- Description: Caches the `ind` value for reuse.
 
 #### `private int prio = -6`
-- Role: Stores the prio value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prio value.
+- Description: Caches the `prio` value for reuse.
 
 #### `private Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final Function<Object, Object> resmapper = new ResID.ResolveMapper(this)`
-- Role: Holds the resmapper state.
-- Description: Backs the cached state for this file.
+- Role: Implements the resmapper operation.
+- Description: Implements the resolve mapper operation.
 
 #### `private final Transport.Callback conncb = new Transport.Callback()`
-- Role: Holds the conncb state.
-- Description: Backs the cached state for this file.
+- Role: Implements the conncb operation.
+- Description: Implements the callback operation.
 
 ### Methods
 
 #### `public User(String name)`
-- Role: Performs user.
-- Description: Supports the user operation used by the surrounding class.
+- Role: Handles the user path.
+- Description: Implements the user operation.
 
 #### `public User alias(String val)`
-- Role: Performs alias.
-- Description: Supports the alias operation used by the surrounding class.
+- Role: Handles the alias path.
+- Description: Implements the alias operation.
 
 #### `public User readname(String val)`
-- Role: Performs readname.
-- Description: Supports the readname operation used by the surrounding class.
+- Role: Handles the readname path.
+- Description: Implements the readname operation.
 
 #### `public User prsname(String val)`
-- Role: Performs prsname.
-- Description: Supports the prsname operation used by the surrounding class.
+- Role: Handles the prsname path.
+- Description: Implements the prsname operation.
 
 #### `public String readname()`
-- Role: Performs readname.
-- Description: Supports the readname operation used by the surrounding class.
+- Role: Handles the readname path.
+- Description: Implements the readname operation.
 
 #### `public String prsname()`
-- Role: Performs prsname.
-- Description: Supports the prsname operation used by the surrounding class.
+- Role: Handles the prsname path.
+- Description: Implements the prsname operation.
 
 #### `public String reauth()`
-- Role: Performs reauth.
-- Description: Supports the reauth operation used by the surrounding class.
+- Role: Handles the reauth path.
+- Description: Implements the reauth operation.
 
 #### `public User copy()`
-- Role: Performs copy.
-- Description: Supports the copy operation used by the surrounding class.
+- Role: Handles the copy path.
+- Description: Implements the copy operation.
 
 #### `public MessageException(String text, Message msg)`
-- Role: Performs message exception.
-- Description: Supports the message exception operation used by the surrounding class.
+- Role: Handles the message exception path.
+- Description: Implements the message exception operation.
 
 #### `private LoadingIndir(CachedRes res)`
-- Role: Performs loading indir.
-- Description: Supports the loading indir operation used by the surrounding class.
+- Role: Handles the loading indir path.
+- Description: Implements the loading indir operation.
 
 #### `public void waitfor(Runnable callback, Consumer<Waitable.Waiting> reg)`
-- Role: Performs waitfor.
-- Description: Supports the waitfor operation used by the surrounding class.
+- Role: Registers a callback to run when the waitable becomes ready.
+- Description: Registers a callback to run when the waitable becomes ready.
 
 #### `public boolean boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Requests a higher priority for the loading wait.
 
 #### `public Resource.Pool pool()`
-- Role: Performs pool.
-- Description: Supports the pool operation used by the surrounding class.
+- Role: Handles the pool path.
+- Description: Implements the pool operation.
 
 #### `private CachedRes(int id)`
-- Role: Performs cached res.
-- Description: Supports the cached res operation used by the surrounding class.
+- Role: Handles the cached resource path.
+- Description: Implements the cached res operation.
 
 #### `public Resource get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Session for debugging and logging.
 
 #### `private void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `private Ref get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void boostprio(int prio)`
-- Role: Performs boostprio.
-- Description: Supports the boostprio operation used by the surrounding class.
+- Role: Handles the boostprio path.
+- Description: Requests a higher priority for the loading wait.
 
 #### `public void set(String nm, int ver)`
-- Role: Performs set.
-- Description: Supports the set operation used by the surrounding class.
+- Role: Handles the set path.
+- Description: Updates the cached set.
 
 #### `private CachedRes cachedres(int id)`
-- Role: Performs cachedres.
-- Description: Supports the cachedres operation used by the surrounding class.
+- Role: Handles the cachedres path.
+- Description: Implements the cachedres operation.
 
 #### `public Indir<Resource> getres(int id, int prio)`
 - Role: Returns the resource.
@@ -312,37 +331,37 @@ Represents the active game session and network connection.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public Indir<Resource> dynres(UID uid)`
-- Role: Performs dynres.
-- Description: Supports the dynres operation used by the surrounding class.
+- Role: Handles the dynres path.
+- Description: Implements the dynres operation.
 
 #### `private void handlerel(PMessage msg)`
-- Role: Performs handlerel.
-- Description: Supports the handlerel operation used by the surrounding class.
+- Role: Handles the handlerel path.
+- Description: Implements the handlerel operation.
 
 #### `public Session(Transport conn, User user)`
 - Role: Creates a new Session instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Session instance from the supplied inputs.
 
 #### `public static Session connect(SocketAddress server, User user, boolean encrypt, byte[] cookie, Object... args) throws InterruptedException`
 - Role: Handles the connect workflow.
-- Description: Supports the connect operation used by the surrounding class.
+- Description: Implements the connect operation.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public void queuemsg(PMessage pmsg)`
-- Role: Performs queuemsg.
-- Description: Supports the queuemsg operation used by the surrounding class.
+- Role: Handles the queuemsg path.
+- Description: Implements the queuemsg operation.
 
 #### `public void postuimsg(PMessage msg)`
-- Role: Performs postuimsg.
-- Description: Supports the postuimsg operation used by the surrounding class.
+- Role: Handles the postuimsg path.
+- Description: Implements the postuimsg operation.
 
 #### `public PMessage getuimsg() throws InterruptedException`
-- Role: Returns the uimsg value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the uimsg.
+- Description: Returns the uimsg.
 
 #### `public void sendmsg(PMessage msg)`
-- Role: Performs sendmsg.
-- Description: Supports the sendmsg operation used by the surrounding class.
+- Role: Handles the sendmsg path.
+- Description: Implements the sendmsg operation.

@@ -1,5 +1,5 @@
 ---
-source: [GLFrameBuffer.java](../../../../../src/haven/render/gl/GLFrameBuffer.java)
+source: [GLFrameBuffer.java](../../../../../../src/haven/render/gl/GLFrameBuffer.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,119 +32,119 @@ Provides GL backend support for glframe buffer.
 ### Fields
 
 #### `public final Attachment[] color`
-- Role: Holds the color state.
-- Description: Backs the cached state for this file.
+- Role: Caches the color value.
+- Description: Caches the `color` value for reuse.
 
 #### `public final Attachment depth`
-- Role: Holds the depth state.
-- Description: Backs the cached state for this file.
+- Role: Caches the depth value.
+- Description: Caches the `depth` value for reuse.
 
 #### `public final Coord sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `private int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Coord sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `public final VectorFormat[] cfmt`
-- Role: Holds the cfmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cfmt value.
+- Description: Caches the `cfmt` value for reuse.
 
 #### `public final VectorFormat dfmt`
-- Role: Holds the dfmt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dfmt value.
+- Description: Caches the `dfmt` value for reuse.
 
 #### `public final GLTexture tex`
-- Role: Stores the tex value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tex value.
+- Description: Caches the `tex` value for reuse.
 
 #### `public final int level, w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `public final int level, w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 #### `public final int level, w, h`
-- Role: Stores the h value.
-- Description: Backs the cached state for this file.
+- Role: Caches the h value.
+- Description: Caches the `h` value for reuse.
 
 ### Methods
 
 #### `public GLFrameBuffer(GLEnvironment env, Attachment[] color, Attachment depth)`
 - Role: Creates a new GLFrameBuffer instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLFrameBuffer instance from the supplied inputs.
 
 #### `public void create(GL gl)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `protected void delete(GL gl)`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.
 
 #### `public int glid()`
-- Role: Performs glid.
-- Description: Supports the glid operation used by the surrounding class.
+- Role: Handles the glid path.
+- Description: Implements the glid operation.
 
 #### `private void register(GLTexture tex)`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `private void register()`
-- Role: Performs register.
-- Description: Supports the register operation used by the surrounding class.
+- Role: Handles the register path.
+- Description: Implements the register operation.
 
 #### `private void unregister(GLTexture tex)`
-- Role: Performs unregister.
-- Description: Supports the unregister operation used by the surrounding class.
+- Role: Handles the unregister path.
+- Description: Implements the unregister operation.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Releases the resources owned by this object.
+- Description: Releases the resources owned by this object.
 
 #### `public FormatException(String message, GLFrameBuffer fbo)`
-- Role: Performs format exception.
-- Description: Supports the format exception operation used by the surrounding class.
+- Role: Handles the format exception path.
+- Description: Implements the format exception operation.
 
 #### `public Attachment(GLTexture tex)`
-- Role: Performs attachment.
-- Description: Supports the attachment operation used by the surrounding class.
+- Role: Handles the attachment path.
+- Description: Implements the attachment operation.
 
 #### `public abstract void attach(BGL gl, GLFrameBuffer fbo, int point)`
-- Role: Performs attach.
-- Description: Supports the attach operation used by the surrounding class.
+- Role: Adds another output stream to receive copied bytes.
+- Description: Adds another output stream to receive copied bytes.
 
 #### `public abstract Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public Attach2D(GLTexture.Tex2D tex, Texture.Image<Texture2D> img)`
-- Role: Performs attach2 d.
-- Description: Supports the attach2 d operation used by the surrounding class.
+- Role: Handles the attach2 d path.
+- Description: Implements the attach2 d operation.
 
 #### `public void attach(BGL gl, GLFrameBuffer fbo, int point)`
-- Role: Performs attach.
-- Description: Supports the attach operation used by the surrounding class.
+- Role: Adds another output stream to receive copied bytes.
+- Description: Adds another output stream to receive copied bytes.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public static Attachment prepimg(GLEnvironment env, Texture.Image<?> img)`
-- Role: Performs prepimg.
-- Description: Supports the prepimg operation used by the surrounding class.
+- Role: Handles the prepimg path.
+- Description: Implements the prepimg operation.

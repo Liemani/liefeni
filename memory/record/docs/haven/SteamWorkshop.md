@@ -1,5 +1,5 @@
 ---
-source: [SteamWorkshop.java](../../../src/haven/SteamWorkshop.java)
+source: [SteamWorkshop.java](../../../../src/haven/SteamWorkshop.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -17,17 +17,17 @@ Represents the steam workshop Haven component.
 ### Methods
 
 #### `private static void err(String format, Object... args)`
-- Role: Performs err.
-- Description: Supports the err operation used by the surrounding class.
+- Role: Handles the err path.
+- Description: Implements the err operation.
 
 #### `private static void usage_upload(PrintStream out)`
-- Role: Performs usage upload.
-- Description: Supports the usage upload operation used by the surrounding class.
+- Role: Handles the usage upload path.
+- Description: Implements the usage upload operation.
 
 #### `public static void cmd_upload(String[] args)`
-- Role: Performs cmd upload.
-- Description: Supports the cmd upload operation used by the surrounding class.
+- Role: Handles the cmd upload path.
+- Description: Implements the cmd upload operation.
 
 #### `public static void main(String[] args)`
-- Role: Performs main.
-- Description: Supports the main operation used by the surrounding class.
+- Role: Handles the main path.
+- Description: Runs the client entry point.

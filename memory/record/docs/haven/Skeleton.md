@@ -1,840 +1,843 @@
 ---
-source: [Skeleton.java](../../../src/haven/Skeleton.java)
+source: [Skeleton.java](../../../../src/haven/Skeleton.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # Skeleton
 
-Represents the skeleton Haven component.
+Describes bone hierarchies, pose state, and animation tracks for rigged sprites.
 
 ## Nested Types
 
 ### Bone
 
-- Role: Represents bone within Skeleton.
-- Description: Describes the nested bone type used by the enclosing class.
+- Role: Stores one bone definition.
+- Description: Holds a bone name, bind transform, parent link, and computed index in the skeleton order.
 
 ### BoneAlign
 
-- Role: Represents bone align within Skeleton.
-- Description: Describes the nested bone align type used by the enclosing class.
+- Role: Aligns one bone to a reference bone.
+- Description: Builds a transform that reorients a bone relative to another bone and a reference position.
 
 ### BoneOffset
 
-- Role: Represents bone offset within Skeleton.
-- Description: Describes the nested bone offset type used by the enclosing class.
+- Role: Describes a named bone offset.
+- Description: Resolves a bone reference from resource data and exposes the matching transform supplier.
 
 ### CombinedMod
 
-- Role: Represents combined mod within Skeleton.
-- Description: Describes the nested combined mod type used by the enclosing class.
+- Role: Combines multiple pose modifiers.
+- Description: Collects multiple modifiers and applies them in sequence for one owner.
 
 ### Debug
 
-- Role: Represents debug within Skeleton.
-- Description: Describes the nested debug type used by the enclosing class.
+- Role: Exposes skeleton debug helpers.
+- Description: Wraps debug rendering and inspection helpers for pose state.
 
 ### Event
 
-- Role: Represents event within Skeleton.
-- Description: Describes the nested event type used by the enclosing class.
+- Role: Represents one animation event.
+- Description: Carries event timing and dispatch data used by tracks.
 
 ### EventListener
 
-- Role: Represents event listener within Skeleton.
-- Description: Describes the nested event listener type used by the enclosing class.
+- Role: Receives skeleton animation events.
+- Description: Handles callbacks emitted while an animation track plays.
 
 ### Frame
 
-- Role: Represents frame within Skeleton.
-- Description: Describes the nested frame type used by the enclosing class.
+- Role: Stores one animation frame.
+- Description: Holds pose data and timing for a single keyframe.
 
 ### FxOverlay
 
-- Role: Represents fx overlay within Skeleton.
-- Description: Describes the nested fx overlay type used by the enclosing class.
+- Role: Represents an effect overlay track.
+- Description: Attaches skeleton-driven effects to a gob overlay lifecycle.
 
 ### FxTrack
 
-- Role: Represents fx track within Skeleton.
-- Description: Describes the nested fx track type used by the enclosing class.
+- Role: Represents an effect track.
+- Description: Drives effect events and overlay creation over animation time.
 
 ### MkOverlay
 
-- Role: Represents mk overlay within Skeleton.
-- Description: Describes the nested mk overlay type used by the enclosing class.
+- Role: Represents an overlay creation event.
+- Description: Creates the overlay object when the animation reaches the event.
 
 ### ModFactory
 
-- Role: Represents mod factory within Skeleton.
-- Description: Describes the nested mod factory type used by the enclosing class.
+- Role: Creates pose modifiers.
+- Description: Builds a modifier for a specific owner and skeleton resource.
 
 ### ModOwner
 
-- Role: Represents mod owner within Skeleton.
-- Description: Describes the nested mod owner type used by the enclosing class.
+- Role: Owns pose modifiers.
+- Description: Exposes the context a modifier needs to bind to a skeleton instance.
 
 ### Pose
 
-- Role: Represents pose within Skeleton.
-- Description: Describes the nested pose type used by the enclosing class.
+- Role: Represents one pose state.
+- Description: Stores local and global transforms for each bone and updates them as a unit.
 
 ### PoseMod
 
-- Role: Represents pose mod within Skeleton.
-- Description: Describes the nested pose mod type used by the enclosing class.
+- Role: Modifies a pose.
+- Description: Applies animation or procedural changes to a pose over time.
 
 ### Res
 
-- Role: Represents res within Skeleton.
-- Description: Describes the nested res type used by the enclosing class.
+- Role: Reads skeleton resource data.
+- Description: Loads skeleton layers from resource data and turns them into runtime structures.
 
 ### ResMod
 
-- Role: Represents res mod within Skeleton.
-- Description: Describes the nested res mod type used by the enclosing class.
+- Role: Applies resource-driven pose modifiers.
+- Description: Reuses resource animation data as a pose modifier implementation.
 
 ### ResPose
 
-- Role: Represents res pose within Skeleton.
-- Description: Describes the nested res pose type used by the enclosing class.
+- Role: Represents a resource pose track.
+- Description: Loads pose data from a resource layer and exposes it as a track.
 
 ### ResourceSkeleton
 
-- Role: Represents resource skeleton within Skeleton.
-- Description: Describes the nested resource skeleton type used by the enclosing class.
+- Role: Represents a skeleton backed by a resource.
+- Description: Loads bones and track data directly from resource metadata.
 
 ### RmOverlay
 
-- Role: Represents rm overlay within Skeleton.
-- Description: Describes the nested rm overlay type used by the enclosing class.
+- Role: Represents an overlay removal event.
+- Description: Removes a previously created overlay when the animation reaches the event.
 
 ### SpawnSprite
 
-- Role: Represents spawn sprite within Skeleton.
-- Description: Describes the nested spawn sprite type used by the enclosing class.
+- Role: Represents a sprite spawn event.
+- Description: Spawns a sprite effect when the animation reaches the event.
 
 ### Tick
 
-- Role: Represents tick within Skeleton.
-- Description: Describes the nested tick type used by the enclosing class.
+- Role: Represents a tick event.
+- Description: Runs time-based callbacks during track playback.
 
 ### Track
 
-- Role: Represents track within Skeleton.
-- Description: Describes the nested track type used by the enclosing class.
+- Role: Represents one animation track.
+- Description: Stores ordered frames and events for a named animation channel.
 
 ### TrackMod
 
-- Role: Represents track mod within Skeleton.
-- Description: Describes the nested track mod type used by the enclosing class.
+- Role: Adapts a track into a pose modifier.
+- Description: Evaluates a track and applies its current frame to a pose.
 
 ### Trigger
 
-- Role: Represents trigger within Skeleton.
-- Description: Describes the nested trigger type used by the enclosing class.
+- Role: Represents an animation trigger.
+- Description: Fires a callback at a named event time in a track.
 
 ## Members
 
 ### Constants
 
 #### `public static final ModOwner nil = new ModOwner()`
-- Role: Defines the shared nil constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Provides an empty modifier owner.
+- Description: Default owner used when no modifier context is available.
+- Value: `new ModOwner()`
 
 #### `public static final ModFactory def = new ModFactory()`
-- Role: Defines the shared def constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Provides the default modifier factory.
+- Description: Factory used when a resource does not supply a custom modifier implementation.
+- Value: `new ModFactory()`
 
 #### `private static final BiFunction<Message, BoneOffset, Function<EquipTarget, Supplier<? extends Pipe.Op>>>[] opcodes = new BiFunction[256]`
-- Role: Defines the shared opcodes constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores bone-offset opcodes.
+- Description: Dispatch table used when decoding bone-offset resource data.
+- Value: `new BiFunction[256]`
 
 ### Fields
 
 #### `public final Map<String, Bone> bones = new HashMap<String, Bone>()`
-- Role: Caches bones entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the bones operation.
+- Description: Implements the public final map<string, bone> bones = new hash map<string, bone>() operation.
 
 #### `public final Bone[] blist; /* Topologically sorted */`
-- Role: Holds the skeleton state.
-- Description: Backs the cached state for this file.
+- Role: Caches the */ value.
+- Description: Caches the `*/` value for reuse.
 
 #### `public final Pose bindpose`
-- Role: Holds the bindpose state.
-- Description: Backs the cached state for this file.
+- Role: Caches the bindpose value.
+- Description: Caches the `bindpose` value for reuse.
 
 #### `public String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `public Coord3f ipos, irax`
-- Role: Stores the irax value.
-- Description: Backs the cached state for this file.
+- Role: Caches the irax value.
+- Description: Caches the `irax` value for reuse.
 
 #### `public Coord3f ipos, irax`
-- Role: Stores the irax value.
-- Description: Backs the cached state for this file.
+- Role: Caches the irax value.
+- Description: Caches the `irax` value for reuse.
 
 #### `public float irang`
-- Role: Stores the irang value.
-- Description: Backs the cached state for this file.
+- Role: Caches the irang value.
+- Description: Caches the `irang` value for reuse.
 
 #### `public Bone parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public int idx`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `public float[][] lpos, gpos`
-- Role: Stores the gpos value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gpos value.
+- Description: Caches the `gpos` value for reuse.
 
 #### `public float[][] lpos, gpos`
-- Role: Stores the gpos value.
-- Description: Backs the cached state for this file.
+- Role: Caches the gpos value.
+- Description: Caches the `gpos` value for reuse.
 
 #### `public float[][] lrot, grot`
-- Role: Stores the grot value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grot value.
+- Description: Caches the `grot` value for reuse.
 
 #### `public float[][] lrot, grot`
-- Role: Stores the grot value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grot value.
+- Description: Caches the `grot` value for reuse.
 
 #### `private Pose from = null`
-- Role: Holds the from state.
-- Description: Backs the cached state for this file.
+- Role: Caches the from value.
+- Description: Caches the `from` value for reuse.
 
 #### `public int seq = 0`
-- Role: Stores the seq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the seq value.
+- Description: Caches the `seq` value for reuse.
 
 #### `private final Coord3f ref`
-- Role: Stores the ref value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ref value.
+- Description: Caches the `ref` value for reuse.
 
 #### `private final int orig, tgt`
-- Role: Stores the tgt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `private final int orig, tgt`
-- Role: Stores the tgt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `private Location cur`
-- Role: Holds the cur state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 #### `private int cseq = -1`
-- Role: Stores the cseq value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cseq value.
+- Description: Caches the `cseq` value for reuse.
 
 #### `private final VertexArray.Layout fmt = new VertexArray.Layout(new VertexArray.Layout.Input(Homo3D.vertex, new VectorFormat(3, NumberFormat.FLOAT32), 0, 0, 16),`
-- Role: Caches fmt entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the fmt operation.
+- Description: Implements the vector format operation.
 
 #### `private final VertexArray.Buffer data`
-- Role: Caches data entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private final Model model`
-- Role: Holds the model state.
-- Description: Backs the cached state for this file.
+- Role: Caches the model value.
+- Description: Caches the `model` value for reuse.
 
 #### `private final int[] bperm`
-- Role: Stores the bperm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bperm value.
+- Description: Caches the `bperm` value for reuse.
 
 #### `public final ModOwner owner`
-- Role: Holds the owner state.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 #### `public float[][] lpos, lrot`
-- Role: Stores the lrot value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lrot value.
+- Description: Caches the `lrot` value for reuse.
 
 #### `public float[][] lpos, lrot`
-- Role: Stores the lrot value.
-- Description: Backs the cached state for this file.
+- Role: Caches the lrot value.
+- Description: Caches the `lrot` value for reuse.
 
 #### `protected final Collection<FxTrack.EventListener> cbl = new ArrayList<FxTrack.EventListener>(0)`
-- Role: Caches cbl entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cbl operation.
+- Description: Implements the protected final collection<fx track.event listener> cbl = new array list<fx track.event listener>(0) operation.
 
 #### `private final PoseMod[] mods`
-- Role: Holds the mods state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mods value.
+- Description: Caches the `mods` value for reuse.
 
 #### `private final boolean stat`
 - Role: Tracks the stat flag.
-- Description: Supports the stat operation used by the surrounding class.
+- Description: Caches the `stat` value for reuse.
 
 #### `public final Resource res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final transient Skeleton s`
-- Role: Holds the s state.
-- Description: Backs the cached state for this file.
+- Role: Caches the s value.
+- Description: Caches the `s` value for reuse.
 
 #### `public final Track[] tracks`
-- Role: Holds the tracks state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tracks value.
+- Description: Caches the `tracks` value for reuse.
 
 #### `public final FxTrack[] effects`
-- Role: Holds the effects state.
-- Description: Backs the cached state for this file.
+- Role: Caches the effects value.
+- Description: Caches the `effects` value for reuse.
 
 #### `public final float len`
-- Role: Stores the len value.
-- Description: Backs the cached state for this file.
+- Role: Caches the len value.
+- Description: Caches the `len` value for reuse.
 
 #### `public final WrapMode mode`
-- Role: Holds the mode state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mode value.
+- Description: Caches the `mode` value for reuse.
 
 #### `private final boolean stat`
 - Role: Tracks the stat flag.
-- Description: Supports the stat operation used by the surrounding class.
+- Description: Caches the `stat` value for reuse.
 
 #### `private boolean done`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `public float time = 0.0f`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Caches the time value.
+- Description: Caches the `time` value for reuse.
 
 #### `public float scale = 1.0f`
-- Role: Stores the scale value.
-- Description: Backs the cached state for this file.
+- Role: Caches the scale value.
+- Description: Caches the `scale` value for reuse.
 
 #### `protected boolean speedmod = false`
 - Role: Tracks the speedmod flag.
-- Description: Supports the speedmod operation used by the surrounding class.
+- Description: Caches the `speedmod` value for reuse.
 
 #### `protected double nspeed = 0.0`
-- Role: Stores the nspeed value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nspeed value.
+- Description: Caches the `nspeed` value for reuse.
 
 #### `private boolean back = false`
 - Role: Tracks the back flag.
-- Description: Supports the back operation used by the surrounding class.
+- Description: Caches the `back` value for reuse.
 
 #### `public final String bone`
-- Role: Stores the bone value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bone value.
+- Description: Caches the `bone` value for reuse.
 
 #### `public final Frame[] frames`
-- Role: Holds the frames state.
-- Description: Backs the cached state for this file.
+- Role: Caches the frames value.
+- Description: Caches the `frames` value for reuse.
 
 #### `public final float time`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Caches the time value.
+- Description: Caches the `time` value for reuse.
 
 #### `public final float[] trans, rot`
-- Role: Stores the rot value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rot value.
+- Description: Caches the `rot` value for reuse.
 
 #### `public final float[] trans, rot`
-- Role: Stores the rot value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rot value.
+- Description: Caches the `rot` value for reuse.
 
 #### `public final Event[] events`
-- Role: Holds the events state.
-- Description: Backs the cached state for this file.
+- Role: Caches the events value.
+- Description: Caches the `events` value for reuse.
 
 #### `public final float time`
-- Role: Stores the time value.
-- Description: Backs the cached state for this file.
+- Role: Caches the time value.
+- Description: Caches the `time` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final byte[] sdt`
-- Role: Stores the sdt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 #### `public final Function<ModOwner, Pipe.Op> loc`
-- Role: Holds the loc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the loc value.
+- Description: Caches the `loc` value for reuse.
 
 #### `public final String fxid`
-- Role: Stores the fxid value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fxid value.
+- Description: Caches the `fxid` value for reuse.
 
 #### `private final PoseMod mod`
-- Role: Holds the mod state.
-- Description: Backs the cached state for this file.
+- Role: Caches the mod value.
+- Description: Caches the `mod` value for reuse.
 
 #### `private boolean ticked = true`
 - Role: Tracks the ticked flag.
-- Description: Supports the ticked operation used by the surrounding class.
+- Description: Caches the `ticked` value for reuse.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final Indir<Resource> res`
-- Role: Stores the res value.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final byte[] sdt`
-- Role: Stores the sdt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sdt value.
+- Description: Caches the `sdt` value for reuse.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public final float len`
-- Role: Stores the len value.
-- Description: Backs the cached state for this file.
+- Role: Caches the len value.
+- Description: Caches the `len` value for reuse.
 
 #### `public final transient Track[] tracks`
-- Role: Holds the tracks state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tracks value.
+- Description: Caches the `tracks` value for reuse.
 
 #### `public final transient FxTrack[] effects`
-- Role: Holds the effects state.
-- Description: Backs the cached state for this file.
+- Role: Caches the effects value.
+- Description: Caches the `effects` value for reuse.
 
 #### `public final double nspeed`
-- Role: Stores the nspeed value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nspeed value.
+- Description: Caches the `nspeed` value for reuse.
 
 #### `public final WrapMode defmode`
-- Role: Holds the defmode state.
-- Description: Backs the cached state for this file.
+- Role: Caches the defmode value.
+- Description: Caches the `defmode` value for reuse.
 
 #### `private Skeleton refskel`
-- Role: Holds the refskel state.
-- Description: Backs the cached state for this file.
+- Role: Caches the refskel value.
+- Description: Caches the `refskel` value for reuse.
 
 #### `public final String nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `public final transient Function<EquipTarget, Supplier<Pipe.Op>>[] prog`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 ### Methods
 
 #### `public Skeleton(Collection<Bone> bones)`
 - Role: Creates a new Skeleton instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Skeleton instance from the supplied inputs.
 
 #### `public Bone(String name, Coord3f ipos, Coord3f irax, float irang)`
-- Role: Performs bone.
-- Description: Supports the bone operation used by the surrounding class.
+- Role: Handles the bone path.
+- Description: Implements the bone operation.
 
 #### `private static float[] rotasq(float[] q, float[] axis, float angle)`
-- Role: Performs rotasq.
-- Description: Supports the rotasq operation used by the surrounding class.
+- Role: Handles the rotasq path.
+- Description: Implements the rotasq operation.
 
 #### `private static float[] qqmul(float[] d, float[] a, float[] b)`
-- Role: Performs qqmul.
-- Description: Supports the qqmul operation used by the surrounding class.
+- Role: Handles the qqmul path.
+- Description: Implements the qqmul operation.
 
 #### `private static float[] vqrot(float[] d, float[] v, float[] q)`
-- Role: Performs vqrot.
-- Description: Supports the vqrot operation used by the surrounding class.
+- Role: Handles the vqrot path.
+- Description: Implements the vqrot operation.
 
 #### `private static float[] vset(float[] d, float[] s)`
-- Role: Performs vset.
-- Description: Supports the vset operation used by the surrounding class.
+- Role: Handles the vset path.
+- Description: Implements the vset operation.
 
 #### `private static float[] qset(float[] d, float[] s)`
-- Role: Performs qset.
-- Description: Supports the qset operation used by the surrounding class.
+- Role: Handles the qset path.
+- Description: Implements the qset operation.
 
 #### `private static float[] vinv(float[] d, float[] s)`
-- Role: Performs vinv.
-- Description: Supports the vinv operation used by the surrounding class.
+- Role: Handles the vinv path.
+- Description: Implements the vinv operation.
 
 #### `private static float[] qinv(float[] d, float[] s)`
-- Role: Performs qinv.
-- Description: Supports the qinv operation used by the surrounding class.
+- Role: Handles the qinv path.
+- Description: Implements the qinv operation.
 
 #### `private static float[] vvadd(float[] d, float[] a, float[] b)`
-- Role: Performs vvadd.
-- Description: Supports the vvadd operation used by the surrounding class.
+- Role: Handles the vvadd path.
+- Description: Implements the vvadd operation.
 
 #### `private static float[] qqslerp(float[] d, float[] a, float[] b, float t)`
-- Role: Performs qqslerp.
-- Description: Supports the qqslerp operation used by the surrounding class.
+- Role: Handles the qqslerp path.
+- Description: Implements the qqslerp operation.
 
 #### `public Pose mkbindpose()`
-- Role: Performs mkbindpose.
-- Description: Supports the mkbindpose operation used by the surrounding class.
+- Role: Handles the mkbindpose path.
+- Description: Implements the mkbindpose operation.
 
 #### `private Pose()`
-- Role: Performs pose.
-- Description: Supports the pose operation used by the surrounding class.
+- Role: Handles the pose path.
+- Description: Implements the pose operation.
 
 #### `public Pose(Pose from)`
-- Role: Performs pose.
-- Description: Supports the pose operation used by the surrounding class.
+- Role: Handles the pose path.
+- Description: Implements the pose operation.
 
 #### `public Skeleton skel()`
-- Role: Performs skel.
-- Description: Supports the skel operation used by the surrounding class.
+- Role: Handles the skel path.
+- Description: Implements the skel operation.
 
 #### `public void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `public void gbuild()`
-- Role: Performs gbuild.
-- Description: Supports the gbuild operation used by the surrounding class.
+- Role: Handles the gbuild path.
+- Description: Implements the gbuild operation.
 
 #### `public void blend(Pose o, float d)`
-- Role: Performs blend.
-- Description: Supports the blend operation used by the surrounding class.
+- Role: Handles the blend path.
+- Description: Implements the blend operation.
 
 #### `public Supplier<Pipe.Op> bonetrans(int bone)`
-- Role: Performs bonetrans.
-- Description: Supports the bonetrans operation used by the surrounding class.
+- Role: Handles the bonetrans path.
+- Description: Implements the bonetrans operation.
 
 #### `public Supplier<Pipe.Op> eqpoint(String name, Message dat)`
-- Role: Performs eqpoint.
-- Description: Supports the eqpoint operation used by the surrounding class.
+- Role: Handles the eqpoint path.
+- Description: Implements the eqpoint operation.
 
 #### `public Supplier<Pipe.Op> bonetrans2(int bone)`
-- Role: Performs bonetrans2.
-- Description: Supports the bonetrans2 operation used by the surrounding class.
+- Role: Handles the bonetrans2 path.
+- Description: Implements the bonetrans2 operation.
 
 #### `public BoneAlign(Coord3f ref, Bone orig, Bone tgt)`
-- Role: Performs bone align.
-- Description: Supports the bone align operation used by the surrounding class.
+- Role: Handles the bone align path.
+- Description: Implements the bone align operation.
 
 #### `public Location get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void boneoff(int bone, float[] offtrans)`
-- Role: Performs boneoff.
-- Description: Supports the boneoff operation used by the surrounding class.
+- Role: Handles the boneoff path.
+- Description: Implements the boneoff operation.
 
 #### `public Debug()`
-- Role: Performs debug.
-- Description: Supports the debug operation used by the surrounding class.
+- Role: Handles the debug path.
+- Description: Implements the debug operation.
 
 #### `public void draw(Pipe state, Render g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Skeleton content.
 
 #### `public void autogtick(Render g)`
-- Role: Performs autogtick.
-- Description: Supports the autogtick operation used by the surrounding class.
+- Role: Handles the autogtick path.
+- Description: Implements the autogtick operation.
 
 #### `public TickList.Ticking ticker()`
-- Role: Performs ticker.
-- Description: Supports the ticker operation used by the surrounding class.
+- Role: Handles the ticker path.
+- Description: Advances the er state.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public double getv()`
-- Role: Returns the avatar value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the v.
+- Description: Returns the v.
 
 #### `public Collection<Location.Chain> getloc()`
 - Role: Returns the avatar location.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the loc.
 
 #### `public PoseMod(ModOwner owner)`
-- Role: Performs pose mod.
-- Description: Supports the pose mod operation used by the surrounding class.
+- Role: Handles the pose mod path.
+- Description: Implements the pose mod operation.
 
 #### `public Skeleton skel()`
-- Role: Performs skel.
-- Description: Supports the skel operation used by the surrounding class.
+- Role: Handles the skel path.
+- Description: Implements the skel operation.
 
 #### `public void reset()`
-- Role: Performs reset.
-- Description: Supports the reset operation used by the surrounding class.
+- Role: Resets the stream if mark/reset is supported.
+- Description: Resets the stream if mark/reset is supported.
 
 #### `public void rot(int bone, float ang, float ax, float ay, float az)`
-- Role: Performs rot.
-- Description: Supports the rot operation used by the surrounding class.
+- Role: Handles the rot path.
+- Description: Implements the rot operation.
 
 #### `public void apply(Pose p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public boolean tick(float dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void age()`
-- Role: Performs age.
-- Description: Supports the age operation used by the surrounding class.
+- Role: Advances the sprite to its mature state.
+- Description: Advances the sprite to its mature state.
 
 #### `public void listen(FxTrack.EventListener l)`
-- Role: Performs listen.
-- Description: Supports the listen operation used by the surrounding class.
+- Role: Handles the listen path.
+- Description: Implements the listen operation.
 
 #### `public void remove(FxTrack.EventListener l)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void callback(FxTrack.Event ev)`
-- Role: Performs callback.
-- Description: Supports the callback operation used by the surrounding class.
+- Role: Handles the callback path.
+- Description: Implements the callback operation.
 
 #### `public abstract boolean stat()`
-- Role: Performs stat.
-- Description: Supports the stat operation used by the surrounding class.
+- Role: Handles the stat path.
+- Description: Implements the stat operation.
 
 #### `public abstract boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public PoseMod nilmod()`
-- Role: Performs nilmod.
-- Description: Supports the nilmod operation used by the surrounding class.
+- Role: Handles the nilmod path.
+- Description: Implements the nilmod operation.
 
 #### `public CombinedMod(ModOwner owner, PoseMod... mods)`
-- Role: Performs combined mod.
-- Description: Supports the combined mod operation used by the surrounding class.
+- Role: Handles the combined mod path.
+- Description: Implements the combined mod operation.
 
 #### `public void apply(Pose p)`
 - Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Description: Applies this object to the target pipe.
 
 #### `public boolean tick(float dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void age()`
-- Role: Performs age.
-- Description: Supports the age operation used by the surrounding class.
+- Role: Advances the sprite to its mature state.
+- Description: Advances the sprite to its mature state.
 
 #### `public boolean stat()`
-- Role: Performs stat.
-- Description: Supports the stat operation used by the surrounding class.
+- Role: Handles the stat path.
+- Description: Implements the stat operation.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Skeleton for debugging and logging.
 
 #### `public static PoseMod combine(PoseMod... mods)`
-- Role: Performs combine.
-- Description: Supports the combine operation used by the surrounding class.
+- Role: Handles the combine path.
+- Description: Implements the combine operation.
 
 #### `public PoseMod create(Skeleton skel, ModOwner owner, Resource res, Message sdt)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public PoseMod mkposemod(ModOwner owner, Resource res, Message sdt)`
-- Role: Performs mkposemod.
-- Description: Supports the mkposemod operation used by the surrounding class.
+- Role: Handles the mkposemod path.
+- Description: Implements the mkposemod operation.
 
 #### `public ResourceSkeleton(Collection<Bone> bones, Res info)`
-- Role: Performs resource skeleton.
-- Description: Supports the resource skeleton operation used by the surrounding class.
+- Role: Handles the resource skeleton path.
+- Description: Implements the resource skeleton operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Skeleton for debugging and logging.
 
 #### `private void read(Map<String, Bone> bones, Map<Bone, String> pm, Message buf, int ver)`
 - Role: Reads the target data.
-- Description: Supports the read operation used by the surrounding class.
+- Description: Implements the read operation.
 
 #### `public Res(Resource res, Message buf)`
-- Role: Performs res.
-- Description: Supports the res operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the res operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public TrackMod(ModOwner owner, Track[] tracks, FxTrack[] effects, float len, WrapMode mode)`
-- Role: Performs track mod.
-- Description: Supports the track mod operation used by the surrounding class.
+- Role: Handles the track mod path.
+- Description: Implements the track mod operation.
 
 #### `public void aupdate(float time)`
-- Role: Performs aupdate.
-- Description: Supports the aupdate operation used by the surrounding class.
+- Role: Handles the aupdate path.
+- Description: Implements the aupdate operation.
 
 #### `private void playfx(float ot, float nt)`
-- Role: Performs playfx.
-- Description: Supports the playfx operation used by the surrounding class.
+- Role: Handles the playfx path.
+- Description: Implements the playfx operation.
 
 #### `public boolean tick(float dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void age()`
-- Role: Performs age.
-- Description: Supports the age operation used by the surrounding class.
+- Role: Advances the sprite to its mature state.
+- Description: Advances the sprite to its mature state.
 
 #### `public boolean stat()`
-- Role: Performs stat.
-- Description: Supports the stat operation used by the surrounding class.
+- Role: Handles the stat path.
+- Description: Implements the stat operation.
 
 #### `public boolean done()`
-- Role: Performs done.
-- Description: Supports the done operation used by the surrounding class.
+- Role: Finalizes the current line of input.
+- Description: Finalizes the current line of input.
 
 #### `public Frame(float time, float[] trans, float[] rot)`
-- Role: Performs frame.
-- Description: Supports the frame operation used by the surrounding class.
+- Role: Handles the frame path.
+- Description: Implements the frame operation.
 
 #### `public Track(String bone, Frame[] frames)`
-- Role: Performs track.
-- Description: Supports the track operation used by the surrounding class.
+- Role: Handles the track path.
+- Description: Implements the track operation.
 
 #### `public void event(Event ev)`
-- Role: Performs event.
-- Description: Supports the event operation used by the surrounding class.
+- Role: Handles the event path.
+- Description: Implements the event operation.
 
 #### `public Event(float time)`
-- Role: Performs event.
-- Description: Supports the event operation used by the surrounding class.
+- Role: Handles the event path.
+- Description: Implements the event operation.
 
 #### `public abstract void trigger(ModOwner owner, PoseMod mod)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `public FxTrack(Event[] events)`
-- Role: Performs fx track.
-- Description: Supports the fx track operation used by the surrounding class.
+- Role: Handles the fx track path.
+- Description: Implements the fx track operation.
 
 #### `public SpawnSprite(float time, Indir<Resource> res, byte[] sdt, Function<ModOwner, Pipe.Op> loc)`
-- Role: Performs spawn sprite.
-- Description: Supports the spawn sprite operation used by the surrounding class.
+- Role: Handles the spawn sprite path.
+- Description: Implements the spawn sprite operation.
 
 #### `public void trigger(ModOwner owner, PoseMod mod)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `public FxOverlay(Gob gob, PoseMod mod, String id, Indir<Resource> res, Message sdt)`
-- Role: Performs fx overlay.
-- Description: Supports the fx overlay operation used by the surrounding class.
+- Role: Handles the fx overlay path.
+- Description: Implements the fx overlay operation.
 
 #### `public boolean tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `protected void removed()`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public void event(FxTrack.Event ev)`
-- Role: Performs event.
-- Description: Supports the event operation used by the surrounding class.
+- Role: Handles the event path.
+- Description: Implements the event operation.
 
 #### `public MkOverlay(float time, String id, Indir<Resource> res, byte[] sdt)`
-- Role: Performs mk overlay.
-- Description: Supports the mk overlay operation used by the surrounding class.
+- Role: Handles the mk overlay path.
+- Description: Implements the mk overlay operation.
 
 #### `public void trigger(ModOwner owner, PoseMod mod)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `public RmOverlay(float time, String id)`
-- Role: Performs rm overlay.
-- Description: Supports the rm overlay operation used by the surrounding class.
+- Role: Handles the rm overlay path.
+- Description: Implements the rm overlay operation.
 
 #### `public void trigger(ModOwner owner, PoseMod mod)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `public Trigger(float time, String id)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `public void trigger(ModOwner owner, PoseMod mod)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `public Tick(float time)`
-- Role: Performs tick.
-- Description: Supports the tick operation used by the surrounding class.
+- Role: Advances the time-based state.
+- Description: Advances the time-based state.
 
 #### `public void trigger(ModOwner owner, PoseMod mod)`
-- Role: Performs trigger.
-- Description: Supports the trigger operation used by the surrounding class.
+- Role: Handles the trigger path.
+- Description: Implements the trigger operation.
 
 #### `private Track.Frame[] parseframes(int fmt, Message buf)`
-- Role: Performs parseframes.
-- Description: Supports the parseframes operation used by the surrounding class.
+- Role: Handles the parseframes path.
+- Description: Implements the parseframes operation.
 
 #### `private FxTrack parsefx(int fmt, Message buf)`
-- Role: Performs parsefx.
-- Description: Supports the parsefx operation used by the surrounding class.
+- Role: Handles the parsefx path.
+- Description: Implements the parsefx operation.
 
 #### `public ResPose(Resource res, Message buf)`
-- Role: Performs res pose.
-- Description: Supports the res pose operation used by the surrounding class.
+- Role: Handles the resource pose path.
+- Description: Implements the res pose operation.
 
 #### `private Track[] iaIaCthulhuFhtagn(Skeleton skel)`
-- Role: Performs ia ia cthulhu fhtagn.
-- Description: Supports the ia ia cthulhu fhtagn operation used by the surrounding class.
+- Role: Handles the ia ia cthulhu fhtagn path.
+- Description: Implements the ia ia cthulhu fhtagn operation.
 
 #### `public float skelscale(Skeleton from, Skeleton to)`
-- Role: Performs skelscale.
-- Description: Supports the skelscale operation used by the surrounding class.
+- Role: Handles the skelscale path.
+- Description: Implements the skelscale operation.
 
 #### `public ResMod(ModOwner owner, Skeleton skel, WrapMode mode)`
-- Role: Performs res mod.
-- Description: Supports the res mod operation used by the surrounding class.
+- Role: Handles the resource mod path.
+- Description: Implements the res mod operation.
 
 #### `public ResMod(ModOwner owner, Skeleton skel)`
-- Role: Performs res mod.
-- Description: Supports the res mod operation used by the surrounding class.
+- Role: Handles the resource mod path.
+- Description: Implements the res mod operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Skeleton for debugging and logging.
 
 #### `public TrackMod forskel(ModOwner owner, Skeleton skel, WrapMode mode)`
-- Role: Performs forskel.
-- Description: Supports the forskel operation used by the surrounding class.
+- Role: Handles the forskel path.
+- Description: Implements the forskel operation.
 
 #### `public Integer layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public BoneOffset(Resource res, Message buf)`
-- Role: Performs bone offset.
-- Description: Supports the bone offset operation used by the surrounding class.
+- Role: Handles the bone offset path.
+- Description: Implements the bone offset operation.
 
 #### `public String layerid()`
-- Role: Performs layerid.
-- Description: Supports the layerid operation used by the surrounding class.
+- Role: Handles the layerid path.
+- Description: Implements the layerid operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `public Supplier<Pipe.Op> from(EquipTarget equ)`
-- Role: Performs from.
-- Description: Supports the from operation used by the surrounding class.
+- Role: Handles the from path.
+- Description: Implements the from operation.

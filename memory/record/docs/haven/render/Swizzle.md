@@ -1,5 +1,5 @@
 ---
-source: [Swizzle.java](../../../../src/haven/render/Swizzle.java)
+source: [Swizzle.java](../../../../../src/haven/render/Swizzle.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,49 +13,53 @@ Defines the swizzle render pipeline component.
 ### Constants
 
 #### `public static final Swizzle ID3 = id(3)`
-- Role: Defines the shared id3 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id3 operation.
+- Description: Implements the id operation.
+- Value: `id(3)`
 
 #### `public static final Swizzle ID4 = id(4)`
-- Role: Defines the shared id4 constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the id4 operation.
+- Description: Implements the id operation.
+- Value: `id(4)`
 
 #### `public static final Swizzle BGR = new Swizzle(2, 1, 0)`
-- Role: Defines the shared bgr constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bgr operation.
+- Description: Implements the swizzle operation.
+- Value: `new Swizzle(2, 1, 0)`
 
 #### `public static final Swizzle BGRA = new Swizzle(2, 1, 0, 3)`
-- Role: Defines the shared bgra constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bgra operation.
+- Description: Implements the swizzle operation.
+- Value: `new Swizzle(2, 1, 0, 3)`
 
 ### Fields
 
 #### `public final int[] perm`
-- Role: Stores the perm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the perm value.
+- Description: Caches the `perm` value for reuse.
 
 ### Methods
 
 #### `public Swizzle(int... perm)`
-- Role: Creates a new Swizzle instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one swizzle mapping.
+- Description: Stores the channel permutation used during texture reads.
 
 #### `public boolean idp()`
-- Role: Performs idp.
-- Description: Supports the idp operation used by the surrounding class.
+- Role: Tests whether the swizzle is identity.
+- Description: Returns true when the permutation keeps the default channel order.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this Swizzle for debugging and logging.
 
 #### `public boolean equals(Object o)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public static Swizzle id(int nc)`
-- Role: Performs id.
-- Description: Supports the id operation used by the surrounding class.
+- Role: Creates an identity swizzle.
+- Description: Returns a swizzle that keeps the first `nc` channels unchanged.

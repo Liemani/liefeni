@@ -1,5 +1,5 @@
 ---
-source: [GPUProfile.java](../../../src/haven/GPUProfile.java)
+source: [GPUProfile.java](../../../../src/haven/GPUProfile.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -32,103 +32,103 @@ Represents the gpuprofile Haven component.
 ### Fields
 
 #### `private final Collection<Frame> waiting = new LinkedList<>()`
-- Role: Caches waiting entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the waiting operation.
+- Description: Implements the private final collection<frame> waiting = new linked list<>() operation.
 
 #### `private long fno = 1`
-- Role: Stores the fno value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fno value.
+- Description: Caches the `fno` value for reuse.
 
 #### `private long f, t`
-- Role: Stores the t value.
-- Description: Backs the cached state for this file.
+- Role: Caches the t value.
+- Description: Caches the `t` value for reuse.
 
 #### `private long f, t`
-- Role: Stores the t value.
-- Description: Backs the cached state for this file.
+- Role: Caches the t value.
+- Description: Caches the `t` value for reuse.
 
 #### `private Part curp`
-- Role: Holds the curp state.
-- Description: Backs the cached state for this file.
+- Role: Caches the curp value.
+- Description: Caches the `curp` value for reuse.
 
 #### `private boolean fin`
 - Role: Tracks the fin flag.
-- Description: Supports the fin operation used by the surrounding class.
+- Description: Caches the `fin` value for reuse.
 
 #### `boolean done`
 - Role: Tracks the done flag.
-- Description: Supports the done operation used by the surrounding class.
+- Description: Finalizes the current line of input.
 
 #### `private final Frame frame`
-- Role: Holds the frame state.
-- Description: Backs the cached state for this file.
+- Role: Caches the frame value.
+- Description: Caches the `frame` value for reuse.
 
 #### `private List<Part> waiting = new LinkedList<>()`
-- Role: Caches waiting entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the waiting operation.
+- Description: Implements the private list<part> waiting = new linked list<>() operation.
 
 ### Methods
 
 #### `public GPUProfile(int hl)`
 - Role: Creates a new GPUProfile instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GPUProfile instance from the supplied inputs.
 
 #### `public Part(Object nm)`
-- Role: Performs part.
-- Description: Supports the part operation used by the surrounding class.
+- Role: Handles the part path.
+- Description: Implements the part operation.
 
 #### `public double f()`
-- Role: Performs f.
-- Description: Supports the f operation used by the surrounding class.
+- Role: Handles the f path.
+- Description: Implements the f operation.
 
 #### `public double t()`
-- Role: Performs t.
-- Description: Supports the t operation used by the surrounding class.
+- Role: Handles the t path.
+- Description: Implements the t operation.
 
 #### `protected abstract Frame frame()`
-- Role: Performs frame.
-- Description: Supports the frame operation used by the surrounding class.
+- Role: Handles the frame path.
+- Description: Implements the frame operation.
 
 #### `void query(Render out, Consumer<Long> prev)`
-- Role: Performs query.
-- Description: Supports the query operation used by the surrounding class.
+- Role: Handles the query path.
+- Description: Implements the query operation.
 
 #### `public Part part(Render out, Object nm)`
-- Role: Performs part.
-- Description: Supports the part operation used by the surrounding class.
+- Role: Handles the part path.
+- Description: Implements the part operation.
 
 #### `private Consumer<Long> tfin()`
-- Role: Performs tfin.
-- Description: Supports the tfin operation used by the surrounding class.
+- Role: Handles the tfin path.
+- Description: Implements the tfin operation.
 
 #### `public void fin(Render out)`
-- Role: Performs fin.
-- Description: Supports the fin operation used by the surrounding class.
+- Role: Handles the fin path.
+- Description: Implements the fin operation.
 
 #### `private FramePart(Object nm, Frame frame)`
-- Role: Performs frame part.
-- Description: Supports the frame part operation used by the surrounding class.
+- Role: Handles the frame part path.
+- Description: Implements the frame part operation.
 
 #### `protected Frame frame()`
-- Role: Performs frame.
-- Description: Supports the frame operation used by the surrounding class.
+- Role: Handles the frame path.
+- Description: Implements the frame operation.
 
 #### `public Frame(Render out)`
-- Role: Performs frame.
-- Description: Supports the frame operation used by the surrounding class.
+- Role: Handles the frame path.
+- Description: Implements the frame operation.
 
 #### `protected Frame frame()`
-- Role: Performs frame.
-- Description: Supports the frame operation used by the surrounding class.
+- Role: Handles the frame path.
+- Description: Implements the frame operation.
 
 #### `public void fin(Render out)`
-- Role: Performs fin.
-- Description: Supports the fin operation used by the surrounding class.
+- Role: Handles the fin path.
+- Description: Implements the fin operation.
 
 #### `private void fin2()`
-- Role: Performs fin2.
-- Description: Supports the fin2 operation used by the surrounding class.
+- Role: Handles the fin2 path.
+- Description: Implements the fin2 operation.
 
 #### `public void check()`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Handles the check path.
+- Description: Implements the check operation.

@@ -1,5 +1,5 @@
 ---
-source: [GSprite.java](../../../src/haven/GSprite.java)
+source: [GSprite.java](../../../../src/haven/GSprite.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -35,14 +35,15 @@ Represents the gsprite Haven component.
 ### Constants
 
 #### `public static final List<Factory> factories`
-- Role: Defines the shared factories constant.
-- Description: Shared constant used by the rest of the class.
+#### `public static final List<Factory> factories`
+- Role: Caches the factories value.
+- Description: Caches the `factories` value for reuse.
 
 ### Fields
 
 #### `public final Owner owner`
-- Role: Holds the owner state.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 ### Methods
 
@@ -55,16 +56,16 @@ Represents the gsprite Haven component.
 - Description: Exposes the resource that backs this wrapper.
 
 #### `public BufferedImage image()`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public GSprite(Owner owner)`
 - Role: Creates a new GSprite instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GSprite instance from the supplied inputs.
 
 #### `public FactMaker()`
-- Role: Performs fact maker.
-- Description: Supports the fact maker operation used by the surrounding class.
+- Role: Handles the fact maker path.
+- Description: Implements the fact maker operation.
 
 #### `public GSprite create(Owner owner, Resource res, Message sdt)`
 - Role: Creates the target object.
@@ -76,12 +77,12 @@ Represents the gsprite Haven component.
 
 #### `public abstract void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the GSprite content.
 
 #### `public abstract Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public void tick(double dt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.

@@ -1,145 +1,155 @@
 ---
-source: [FColor.java](../../../src/haven/FColor.java)
+source: [FColor.java](../../../../src/haven/FColor.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # FColor
 
-Represents the fcolor Haven component.
+Represents an RGBA color in linear float space.
 
 ## Members
 
 ### Constants
 
 #### `public static final FColor BLACK = new FColor(0, 0, 0)`
-- Role: Defines the shared black constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque black.
+- Description: Zeroes the RGB channels and uses the default alpha.
+- Value: `new FColor(0, 0, 0)`
 
 #### `public static final FColor WHITE = new FColor(1, 1, 1)`
-- Role: Defines the shared white constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque white.
+- Description: Sets all RGB channels to full intensity.
+- Value: `new FColor(1, 1, 1)`
 
 #### `public static final FColor RED = new FColor(1, 0, 0)`
-- Role: Defines the shared red constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque red.
+- Description: Uses full red with no green or blue.
+- Value: `new FColor(1, 0, 0)`
 
 #### `public static final FColor GREEN = new FColor(0, 1, 0)`
-- Role: Defines the shared green constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque green.
+- Description: Uses full green with no red or blue.
+- Value: `new FColor(0, 1, 0)`
 
 #### `public static final FColor BLUE = new FColor(0, 0, 1)`
-- Role: Defines the shared blue constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque blue.
+- Description: Uses full blue with no red or green.
+- Value: `new FColor(0, 0, 1)`
 
 #### `public static final FColor YELLOW = new FColor(1, 1, 0)`
-- Role: Defines the shared yellow constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque yellow.
+- Description: Combines full red and green.
+- Value: `new FColor(1, 1, 0)`
 
 #### `public static final FColor MAGENTA = new FColor(1, 0, 1)`
-- Role: Defines the shared magenta constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque magenta.
+- Description: Combines full red and blue.
+- Value: `new FColor(1, 0, 1)`
 
 #### `public static final FColor CYAN = new FColor(0, 1, 1)`
-- Role: Defines the shared cyan constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines opaque cyan.
+- Description: Combines full green and blue.
+- Value: `new FColor(0, 1, 1)`
 
 #### `public static final FColor BLACK_T = new FColor(0, 0, 0, 0)`
-- Role: Defines the shared black t constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines transparent black.
+- Description: Zeroes all channels, including alpha.
+- Value: `new FColor(0, 0, 0, 0)`
 
 #### `public static final FColor WHITE_T = new FColor(1, 1, 1, 0)`
-- Role: Defines the shared white t constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines transparent white.
+- Description: Sets RGB to full intensity while alpha stays zero.
+- Value: `new FColor(1, 1, 1, 0)`
 
 ### Fields
 
 #### `public final float r, g, b, a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Stores the color components.
+- Description: Holds linear RGBA values.
 
 #### `public final float r, g, b, a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Stores the color components.
+- Description: Holds linear RGBA values.
 
 #### `public final float r, g, b, a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Stores the color components.
+- Description: Holds linear RGBA values.
 
 #### `public final float r, g, b, a`
-- Role: Stores the a value.
-- Description: Backs the cached state for this file.
+- Role: Stores the color components.
+- Description: Holds linear RGBA values.
 
 ### Methods
 
 #### `public FColor(float r, float g, float b, float a)`
-- Role: Creates a new FColor instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates a color from explicit components.
+- Description: Stores the supplied linear RGBA values.
 
 #### `public FColor(float r, float g, float b)`
-- Role: Creates a new FColor instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates an opaque color from RGB components.
+- Description: Uses alpha 1.0.
 
 #### `public FColor(Color c, float f)`
-- Role: Creates a new FColor instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Converts an AWT color into float space.
+- Description: Uses the supplied alpha factor while converting RGB channels.
 
 #### `public FColor(Color c)`
-- Role: Creates a new FColor instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Converts an AWT color into float space.
+- Description: Uses the AWT alpha channel as the float alpha.
 
 #### `public float[] to3a()`
-- Role: Performs to3a.
-- Description: Supports the to3a operation used by the surrounding class.
+- Role: Returns the RGB components as an array.
+- Description: Serializes the color without alpha.
 
 #### `public float[] to4a()`
-- Role: Performs to4a.
-- Description: Supports the to4a operation used by the surrounding class.
+- Role: Returns the RGBA components as an array.
+- Description: Serializes the color including alpha.
 
 #### `public FColor mul(FColor that)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Multiplies two colors component-wise.
+- Description: Useful for tinting or masking one color by another.
 
 #### `public FColor mul(float v)`
-- Role: Performs mul.
-- Description: Supports the mul operation used by the surrounding class.
+- Role: Scales the color uniformly.
+- Description: Multiplies every channel by the same factor.
 
 #### `public FColor blend(FColor that)`
-- Role: Performs blend.
-- Description: Supports the blend operation used by the surrounding class.
+- Role: Blends two colors using the other color's alpha.
+- Description: Produces the usual source-over mix.
 
 #### `public FColor blend(FColor that, float B)`
-- Role: Performs blend.
-- Description: Supports the blend operation used by the surrounding class.
+- Role: Blends two colors using an explicit mix factor.
+- Description: Interpolates between this color and `that`.
 
 #### `public FColor preblend(FColor that)`
-- Role: Performs preblend.
-- Description: Supports the preblend operation used by the surrounding class.
+- Role: Preblends one color over another.
+- Description: Applies source-over blending using pre-multiplied alpha semantics.
 
 #### `public int hashCode()`
-- Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the color hash code.
+- Description: Hashes the four float channels.
 
 #### `public boolean equals(Object o)`
-- Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Role: Compares two colors.
+- Description: Returns true when all four channels match.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the color for debugging.
+- Description: Returns a textual RGBA representation.
 
 #### `public FColor lin2srgb()`
-- Role: Performs lin2srgb.
-- Description: Supports the lin2srgb operation used by the surrounding class.
+- Role: Converts to sRGB space.
+- Description: Applies the standard linear-to-sRGB transfer curve.
 
 #### `public FColor srgb2lin()`
-- Role: Performs srgb2lin.
-- Description: Supports the srgb2lin operation used by the surrounding class.
+- Role: Converts to linear space.
+- Description: Applies the standard sRGB-to-linear transfer curve.
 
 #### `public FColor lin2srgbf()`
-- Role: Performs lin2srgbf.
-- Description: Supports the lin2srgbf operation used by the surrounding class.
+- Role: Converts to sRGB space with float precision.
+- Description: Uses the floating-point transfer helper for each channel.
 
 #### `public FColor srgb2linf()`
-- Role: Performs srgb2linf.
-- Description: Supports the srgb2linf operation used by the surrounding class.
+- Role: Converts to linear space with float precision.
+- Description: Uses the floating-point transfer helper for each channel.

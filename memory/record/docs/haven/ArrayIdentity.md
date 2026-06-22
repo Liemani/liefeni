@@ -1,5 +1,5 @@
 ---
-source: [ArrayIdentity.java](../../../src/haven/ArrayIdentity.java)
+source: [ArrayIdentity.java](../../../../src/haven/ArrayIdentity.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -22,35 +22,35 @@ Represents the array identity Haven component.
 ### Fields
 
 #### `private static HashMap<Entry<?>, Entry<?>> set = new HashMap<Entry<?>, Entry<?>>()`
-- Role: Caches set entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Updates the cached set.
+- Description: Updates the cached set.
 
 #### `private static ReferenceQueue<Object> cleanq = new ReferenceQueue<Object>()`
-- Role: Caches cleanq entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the cleanq operation.
+- Description: Implements the private static reference queue<object> cleanq = new reference queue<object>() operation.
 
 ### Methods
 
 #### `private Entry(T[] arr)`
-- Role: Performs entry.
-- Description: Supports the entry operation used by the surrounding class.
+- Role: Handles the entry path.
+- Description: Implements the entry operation.
 
 #### `public boolean equals(Object x)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `private static void clean()`
-- Role: Performs clean.
-- Description: Supports the clean operation used by the surrounding class.
+- Role: Handles the clean path.
+- Description: Implements the clean operation.
 
 #### `private static <T> Entry<T> getcanon(Entry<T> e)`
-- Role: Performs getcanon.
-- Description: Supports the getcanon operation used by the surrounding class.
+- Role: Handles the getcanon path.
+- Description: Returns the canon.
 
 #### `public static <T> T[] intern(T[] arr)`
-- Role: Performs intern.
-- Description: Supports the intern operation used by the surrounding class.
+- Role: Handles the intern path.
+- Description: Implements the intern operation.

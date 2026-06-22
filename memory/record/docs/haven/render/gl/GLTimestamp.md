@@ -1,5 +1,5 @@
 ---
-source: [GLTimestamp.java](../../../../../src/haven/render/gl/GLTimestamp.java)
+source: [GLTimestamp.java](../../../../../../src/haven/render/gl/GLTimestamp.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,31 +15,31 @@ Provides GL backend support for gltimestamp.
 ### Fields
 
 #### `public final Consumer<Long> callback`
-- Role: Stores the callback value.
-- Description: Backs the cached state for this file.
+- Role: Caches the callback value.
+- Description: Caches the `callback` value for reuse.
 
 #### `private int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 ### Methods
 
 #### `public GLTimestamp(GLEnvironment env, Consumer<Long> callback)`
 - Role: Creates a new GLTimestamp instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the GLTimestamp instance from the supplied inputs.
 
 #### `public void create(GL gl)`
 - Role: Creates the target object.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public boolean check(GL gl)`
-- Role: Performs check.
-- Description: Supports the check operation used by the surrounding class.
+- Role: Handles the check path.
+- Description: Implements the check operation.
 
 #### `public void abort()`
-- Role: Performs abort.
-- Description: Supports the abort operation used by the surrounding class.
+- Role: Handles the abort path.
+- Description: Implements the abort operation.
 
 #### `public void delete(GL gl)`
-- Role: Performs delete.
-- Description: Supports the delete operation used by the surrounding class.
+- Role: Removes or disposes the object.
+- Description: Removes or disposes the object.

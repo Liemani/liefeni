@@ -1,69 +1,70 @@
 ---
-source: [ResCache.java](../../../src/haven/ResCache.java)
+source: [ResCache.java](../../../../src/haven/ResCache.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
 
 # ResCache
 
-Represents the res cache Haven component.
+Defines a read/write cache interface for resources.
 
 ## Members
 
 ### Constants
 
 #### `public static final Config.Variable<java.net.URI> cachebase = Config.Variable.propu("haven.cachebase", "")`
-- Role: Defines the shared cachebase constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Stores the cache base configuration.
+- Description: Configurable URI used when selecting the active cache root.
+- Value: `Config.Variable.propu("haven.cachebase", "")`
 
 ### Fields
 
 #### `public static ResCache global = StupidJavaCodeContainer.makeglobal()`
-- Role: Caches global entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Stores the global cache.
+- Description: Shared cache instance used by default resource loading.
 
 #### `public final ResCache pri, sec[]`
-- Role: Holds the res cache state.
-- Description: Backs the cached state for this file.
+- Role: Stores cache layers.
+- Description: Primary cache followed by fallback caches.
 
 #### `public final ResCache pri, sec[]`
-- Role: Holds the res cache state.
-- Description: Backs the cached state for this file.
+- Role: Caches the sec[] value.
+- Description: Caches the `sec[]` value for reuse.
 
 ### Methods
 
 #### `public OutputStream store(String name) throws IOException`
-- Role: Handles the store workflow.
-- Description: Supports the store operation used by the surrounding class.
+- Role: Writes a resource entry.
+- Description: Opens an output stream for persisting a named resource.
 
 #### `public InputStream fetch(String name) throws IOException`
-- Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Role: Reads a resource entry.
+- Description: Opens an input stream for a named cached resource.
 
 #### `private static ResCache makeglobal()`
-- Role: Performs makeglobal.
-- Description: Supports the makeglobal operation used by the surrounding class.
+- Role: Chooses the default cache.
+- Description: Returns the cache used as the global resource cache.
 
 #### `public OutputStream store(final String name)`
-- Role: Performs store.
-- Description: Supports the store operation used by the surrounding class.
+- Role: Stores test output.
+- Description: Prints the byte count when a test resource is closed.
 
 #### `public InputStream fetch(String name) throws IOException`
-- Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Role: Rejects test fetches.
+- Description: Always fails because the test cache only supports writes.
 
 #### `public Fallback(ResCache pri, ResCache... sec)`
-- Role: Performs fallback.
-- Description: Supports the fallback operation used by the surrounding class.
+- Role: Builds a fallback cache chain.
+- Description: Uses the primary cache first and falls back to secondary caches on misses.
 
 #### `public InputStream fetch(String name) throws IOException`
-- Role: Fetches the target value.
-- Description: Supports the fetch operation used by the surrounding class.
+- Role: Reads through fallback caches.
+- Description: Tries the primary cache first, then each secondary cache in order.
 
 #### `public OutputStream store(String name) throws IOException`
-- Role: Handles the store workflow.
-- Description: Supports the store operation used by the surrounding class.
+- Role: Stores through the primary cache.
+- Description: Always writes to the primary cache layer.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Returns the cache description.
+- Description: Formats the fallback chain for debugging.

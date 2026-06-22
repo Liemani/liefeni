@@ -66,7 +66,11 @@ Behavior:
 Behavior:
 
 - Describe nested types only when the source file actually defines them.
-- Give each nested type a short role and brief explanation.
+- Include the `Nested Types` section only when the source file has nested types worth documenting.
+- Give each nested type a short role paragraph in the same style as the top-level file role.
+- Only add nested-type `Members` blocks when that nested type actually declares constants, fields, or methods worth documenting.
+- When a nested type has its own members, document them under that nested type using the same `Members` structure as the top level.
+- Keep nested type member signatures exact and do not flatten them into the parent section.
 
 ### Members (required)
 
@@ -74,6 +78,7 @@ Behavior:
 
 - Group members by `Constants`, `Fields`, and `Methods`.
 - Describe each member with its signature, role, and description.
+- For constants, include the value or initializer when it is short and stable enough to be useful.
 - Skip empty groups only when the source file truly has no members in that category.
 
 ## Conventions

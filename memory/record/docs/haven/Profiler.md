@@ -1,5 +1,5 @@
 ---
-source: [Profiler.java](../../../src/haven/Profiler.java)
+source: [Profiler.java](../../../../src/haven/Profiler.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,18 +12,18 @@ Represents the profiler Haven component.
 
 ### Function
 
-- Role: Represents function within Profiler.
-- Description: Describes the nested function type used by the enclosing class.
+- Role: Aggregates profiling data for one function.
+- Description: Keyed profiling record that stores direct, indirect, and line-level tick counts.
 
 ### Loop
 
-- Role: Represents loop within Profiler.
-- Description: Describes the nested loop type used by the enclosing class.
+- Role: Runs the background profiling sampler.
+- Description: Sampling thread that periodically records stack traces from profiled threads.
 
 ### Sampler
 
-- Role: Represents sampler within Profiler.
-- Description: Describes the nested sampler type used by the enclosing class.
+- Role: Samples stack traces from a thread.
+- Description: Worker that drives profiler tick collection for a specific target thread.
 
 ## Members
 
@@ -32,135 +32,135 @@ Represents the profiler Haven component.
 ### Fields
 
 #### `private static Loop loop`
-- Role: Holds the loop state.
-- Description: Backs the cached state for this file.
+- Role: Caches the loop value.
+- Description: Caches the `loop` value for reuse.
 
 #### `public final Thread th`
-- Role: Holds the th state.
-- Description: Backs the cached state for this file.
+- Role: Caches the th value.
+- Description: Caches the `th` value for reuse.
 
 #### `private boolean enabled`
 - Role: Tracks whether enabled is enabled.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final String cl, nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `public final String cl, nm`
-- Role: Stores the nm value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nm value.
+- Description: Caches the `nm` value for reuse.
 
 #### `public int dticks, iticks`
-- Role: Stores the iticks value.
-- Description: Backs the cached state for this file.
+- Role: Caches the iticks value.
+- Description: Caches the `iticks` value for reuse.
 
 #### `public int dticks, iticks`
-- Role: Stores the iticks value.
-- Description: Backs the cached state for this file.
+- Role: Caches the iticks value.
+- Description: Caches the `iticks` value for reuse.
 
 #### `public Map<Function, Integer> tticks = new HashMap<Function, Integer>()`
-- Role: Caches tticks entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the tticks operation.
+- Description: Implements the public map<function, integer> tticks = new hash map<function, integer>() operation.
 
 #### `public Map<Function, Integer> fticks = new HashMap<Function, Integer>()`
-- Role: Caches fticks entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the fticks operation.
+- Description: Implements the public map<function, integer> fticks = new hash map<function, integer>() operation.
 
 #### `public Map<Integer, Integer> lticks = new HashMap<Integer, Integer>()`
-- Role: Caches lticks entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the lticks operation.
+- Description: Implements the public map<integer, integer> lticks = new hash map<integer, integer>() operation.
 
 #### `private int hc = 0`
-- Role: Stores the hc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the hc value.
+- Description: Caches the `hc` value for reuse.
 
 #### `private Map<Function, Function> funs = new HashMap<Function, Function>()`
-- Role: Caches funs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the funs operation.
+- Description: Implements the private map<function, function> funs = new hash map<function, function>() operation.
 
 #### `private int nticks = 0`
-- Role: Stores the nticks value.
-- Description: Backs the cached state for this file.
+- Role: Caches the nticks value.
+- Description: Caches the `nticks` value for reuse.
 
 #### `private Collection<Profiler> current = new LinkedList<Profiler>()`
-- Role: Caches current entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the current operation.
+- Description: Implements the private collection<profiler> current = new linked list<profiler>() operation.
 
 #### `public final Thread th`
-- Role: Holds the th state.
-- Description: Backs the cached state for this file.
+- Role: Caches the th value.
+- Description: Caches the `th` value for reuse.
 
 ### Methods
 
 #### `public Profiler(Thread th)`
 - Role: Creates a new Profiler instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Profiler instance from the supplied inputs.
 
 #### `public Profiler()`
 - Role: Creates a new Profiler instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Profiler instance from the supplied inputs.
 
 #### `public void enable()`
-- Role: Performs enable.
-- Description: Supports the enable operation used by the surrounding class.
+- Role: Handles the enable path.
+- Description: Implements the enable operation.
 
 #### `public void disable()`
-- Role: Performs disable.
-- Description: Supports the disable operation used by the surrounding class.
+- Role: Handles the disable path.
+- Description: Implements the disable operation.
 
 #### `public Function(String cl, String nm)`
-- Role: Performs function.
-- Description: Supports the function operation used by the surrounding class.
+- Role: Handles the function path.
+- Description: Implements the function operation.
 
 #### `public Function(StackTraceElement f)`
-- Role: Performs function.
-- Description: Supports the function operation used by the surrounding class.
+- Role: Handles the function path.
+- Description: Implements the function operation.
 
 #### `public boolean equals(Object bp)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `private Function getfun(StackTraceElement f)`
-- Role: Performs getfun.
-- Description: Supports the getfun operation used by the surrounding class.
+- Role: Handles the getfun path.
+- Description: Returns the fun.
 
 #### `protected void tick(StackTraceElement[] bt)`
 - Role: Advances the current state over time.
-- Description: Supports the tick operation used by the surrounding class.
+- Description: Advances the time-based state.
 
 #### `public void outputlp(OutputStream out, String cl, String fnm)`
-- Role: Performs outputlp.
-- Description: Supports the outputlp operation used by the surrounding class.
+- Role: Handles the outputlp path.
+- Description: Implements the outputlp operation.
 
 #### `public void output(OutputStream out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Handles the output path.
+- Description: Implements the output operation.
 
 #### `public void output(String path)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Handles the output path.
+- Description: Implements the output operation.
 
 #### `Loop()`
 - Role: Handles the loop workflow.
-- Description: Supports the loop operation used by the surrounding class.
+- Description: Implements the loop operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private Sampler(Thread th)`
-- Role: Performs sampler.
-- Description: Supports the sampler operation used by the surrounding class.
+- Role: Handles the sampler path.
+- Description: Implements the sampler operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public static void sample(Thread th)`
-- Role: Performs sample.
-- Description: Supports the sample operation used by the surrounding class.
+- Role: Handles the sample path.
+- Description: Implements the sample operation.

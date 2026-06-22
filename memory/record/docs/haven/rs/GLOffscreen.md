@@ -1,80 +1,43 @@
 ---
-source: [GLOffscreen.java](../../../../src/haven/rs/GLOffscreen.java)
+source: [GLOffscreen.java](../../../../../src/haven/rs/GLOffscreen.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # GLOffscreen
 
-Integrates Haven rendering-server support for gloffscreen.
-
-## Nested Types
-
-### ProxyEnv
-
-- Role: Represents proxy env within GLOffscreen.
-- Description: Describes the nested proxy env type used by the enclosing class.
+Provides a singleton off-screen JOGL-backed render context for render-server use.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final GLProfile prof`
-- Role: Stores the prof value.
-- Description: Backs the cached state for this file.
+- Role: Stores the chosen GL profile.
 
 #### `public final GLAutoDrawable buf`
-- Role: Holds the buf state.
-- Description: Backs the cached state for this file.
+- Role: Stores the off-screen drawable.
 
 #### `private final Object dmon = new Object()`
-- Role: Holds the dmon state.
-- Description: Backs the cached state for this file.
+- Role: Serializes redraw notifications.
 
 #### `private JOGLEnvironment benv = null`
-- Role: Holds the benv state.
-- Description: Backs the cached state for this file.
+- Role: Stores the backing JOGL environment once initialized.
 
 #### `private final Environment penv`
-- Role: Holds the penv state.
-- Description: Backs the cached state for this file.
-
-#### `private static GLOffscreen defctx = null`
-- Role: Holds the defctx state.
-- Description: Backs the cached state for this file.
+- Role: Stores the proxy environment returned to callers.
 
 ### Methods
 
 #### `public GLOffscreen()`
-- Role: Creates a new GLOffscreen instance.
-- Description: Constructs the instance and initializes its default state.
-
-#### `public Environment back()`
-- Role: Performs back.
-- Description: Supports the back operation used by the surrounding class.
-
-#### `public void submit(Render r)`
-- Role: Performs submit.
-- Description: Supports the submit operation used by the surrounding class.
-
-#### `protected GLCapabilities caps(GLProfile prof)`
-- Role: Performs caps.
-- Description: Supports the caps operation used by the surrounding class.
-
-#### `private void redraw(GL3 gl)`
-- Role: Performs redraw.
-- Description: Supports the redraw operation used by the surrounding class.
+- Role: Creates and initializes the off-screen drawable and backing environment.
 
 #### `public Environment env()`
-- Role: Performs env.
-- Description: Supports the env operation used by the surrounding class.
+- Role: Returns the proxy environment.
 
 #### `public void dispose()`
-- Role: Performs dispose.
-- Description: Supports the dispose operation used by the surrounding class.
+- Role: Disposes the off-screen context.
 
 #### `public static GLOffscreen get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Returns the singleton off-screen context.
+

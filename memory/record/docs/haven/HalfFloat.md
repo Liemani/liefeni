@@ -1,5 +1,5 @@
 ---
-source: [HalfFloat.java](../../../src/haven/HalfFloat.java)
+source: [HalfFloat.java](../../../../src/haven/HalfFloat.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,71 +15,71 @@ Represents the half float Haven component.
 ### Fields
 
 #### `public final short bits`
-- Role: Stores the bits value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bits value.
+- Description: Caches the `bits` value for reuse.
 
 ### Methods
 
 #### `public HalfFloat(short bits)`
 - Role: Creates a new HalfFloat instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HalfFloat instance from the supplied inputs.
 
 #### `public static HalfFloat decode(short bits)`
-- Role: Performs decode.
-- Description: Supports the decode operation used by the surrounding class.
+- Role: Handles the decode path.
+- Description: Implements the decode operation.
 
 #### `public static HalfFloat of(float val)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a HalfFloat value from the supplied components.
+- Description: Builds a HalfFloat value from the supplied components.
 
 #### `public static HalfFloat of(double val)`
-- Role: Performs of.
-- Description: Supports the of operation used by the surrounding class.
+- Role: Builds a HalfFloat value from the supplied components.
+- Description: Builds a HalfFloat value from the supplied components.
 
 #### `public boolean equals(HalfFloat that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean equals(Object that)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public float floatValue()`
-- Role: Performs float value.
-- Description: Supports the float value operation used by the surrounding class.
+- Role: Handles the float value path.
+- Description: Implements the float value operation.
 
 #### `public byte byteValue()`
-- Role: Performs byte value.
-- Description: Supports the byte value operation used by the surrounding class.
+- Role: Handles the byte value path.
+- Description: Implements the byte value operation.
 
 #### `public short shortValue()`
-- Role: Performs short value.
-- Description: Supports the short value operation used by the surrounding class.
+- Role: Handles the short value path.
+- Description: Implements the short value operation.
 
 #### `public int intValue()`
-- Role: Performs int value.
-- Description: Supports the int value operation used by the surrounding class.
+- Role: Handles the int value path.
+- Description: Implements the int value operation.
 
 #### `public long longValue()`
-- Role: Performs long value.
-- Description: Supports the long value operation used by the surrounding class.
+- Role: Handles the long value path.
+- Description: Implements the long value operation.
 
 #### `public double doubleValue()`
-- Role: Performs double value.
-- Description: Supports the double value operation used by the surrounding class.
+- Role: Handles the double value path.
+- Description: Implements the double value operation.
 
 #### `public String toString()`
-- Role: Returns the string representation.
-- Description: Provides a human-readable representation for debugging and logging.
+- Role: Formats the string representation.
+- Description: Formats this HalfFloat for debugging and logging.
 
 #### `public static float bits(short bits)`
-- Role: Performs bits.
-- Description: Supports the bits operation used by the surrounding class.
+- Role: Handles the bits path.
+- Description: Implements the bits operation.
 
 #### `public static short bits(float f)`
-- Role: Performs bits.
-- Description: Supports the bits operation used by the surrounding class.
+- Role: Handles the bits path.
+- Description: Implements the bits operation.

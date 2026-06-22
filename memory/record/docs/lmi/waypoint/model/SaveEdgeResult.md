@@ -1,5 +1,5 @@
 ---
-source: [SaveEdgeResult.java](../../../../../src/lmi/waypoint/model/SaveEdgeResult.java)
+source: [SaveEdgeResult.java](../../../../../../src/lmi/waypoint/model/SaveEdgeResult.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -16,42 +16,42 @@ Represents the result of save edge result.
 
 #### `public final boolean saved`
 - Role: Tracks the saved flag.
-- Description: Supports the saved operation used by the surrounding class.
+- Description: Marks whether the edge persistence succeeded.
 
 #### `public final Long edgeId`
-- Role: Stores the edge id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the edge id value.
+- Description: Caches the `edgeId` value for reuse.
 
 #### `public final Integer pointCount`
-- Role: Stores the point count value.
-- Description: Backs the cached state for this file.
+- Role: Caches the point count value.
+- Description: Caches the `pointCount` value for reuse.
 
 #### `public final WpEdge edge`
-- Role: Stores the edge value.
-- Description: Backs the cached state for this file.
+- Role: Caches the edge value.
+- Description: Caches the `edge` value for reuse.
 
 #### `public final Array<WpSegment> segments`
-- Role: Caches segments entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the segments value.
+- Description: Caches the `segments` value for reuse.
 
 #### `public final Array<WpPoint> points`
-- Role: Caches points entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the points value.
+- Description: Caches the `points` value for reuse.
 
 #### `public final String errorMessage`
-- Role: Stores the error message value.
-- Description: Backs the cached state for this file.
+- Role: Caches the error message value.
+- Description: Caches the `errorMessage` value for reuse.
 
 ### Methods
 
 #### `private SaveEdgeResult(boolean saved, Long edgeId, Integer pointCount, WpEdge edge,`
 - Role: Creates a new SaveEdgeResult instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the SaveEdgeResult instance from the supplied inputs.
 
 #### `public static SaveEdgeResult saved(long edgeId, int pointCount, WpEdge edge, Array<WpSegment> segments, Array<WpPoint> points)`
 - Role: Coordinates saved persistence or lookup.
-- Description: Supports the saved operation used by the surrounding class.
+- Description: Returns the saved edge record and all generated child rows.
 
 #### `public static SaveEdgeResult failed(String errorMessage)`
-- Role: Performs failed.
-- Description: Supports the failed operation used by the surrounding class.
+- Role: Handles the failed path.
+- Description: Returns the failure reason without persisted ids.

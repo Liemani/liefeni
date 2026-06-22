@@ -1,73 +1,48 @@
 ---
-source: [ProgramContext.java](../../../../../src/haven/render/sl/ProgramContext.java)
+source: [ProgramContext.java](../../../../../../src/haven/render/sl/ProgramContext.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # ProgramContext
 
-Represents the program context shader-language AST node.
+Collects shader modules, symbols, uniforms, attributes, and fragment outputs while a program is being built.
 
 ## Members
 
-### Constants
-
 ### Fields
 
-#### `public final VertexContext vctx`
-- Role: Stores the vctx value.
-- Description: Backs the cached state for this file.
+#### `public final List<Uniform> uniforms`
+- Role: Stores declared uniforms.
 
-#### `public final FragmentContext fctx`
-- Role: Stores the fctx value.
-- Description: Backs the cached state for this file.
+#### `public final List<Attribute> attribs`
+- Role: Stores declared vertex attributes.
 
-#### `public final Set<Uniform> uniforms = new HashSet<Uniform>()`
-- Role: Caches uniforms entries.
-- Description: Reuses previously computed values to avoid repeated work.
+#### `public final List<FragData> fragdata`
+- Role: Stores declared fragment outputs.
 
-#### `public final Set<Attribute> attribs = new HashSet<Attribute>()`
-- Role: Caches attribs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+#### `public final Map<Symbol, String> symtab`
+- Role: Maps symbols to generated names.
 
-#### `public final List<FragData> fragdata = new ArrayList<FragData>()`
-- Role: Caches fragdata entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `public final Map<Symbol, String> symtab = new HashMap<Symbol, String>()`
-- Role: Caches symtab entries.
-- Description: Reuses previously computed values to avoid repeated work.
-
-#### `public final Map<String, Symbol> rsymtab = new HashMap<String, Symbol>()`
-- Role: Caches rsymtab entries.
-- Description: Reuses previously computed values to avoid repeated work.
+#### `public final Map<String, Symbol> rsymtab`
+- Role: Maps generated names back to symbols.
 
 #### `public int symgen = 1`
-- Role: Stores the symgen value.
-- Description: Backs the cached state for this file.
+- Role: Tracks the next generated symbol id.
 
 #### `public boolean dump = false`
-- Role: Tracks the dump flag.
-- Description: Supports the dump operation used by the surrounding class.
+- Role: Enables shader source dumping.
 
 #### `public boolean instanced = false`
-- Role: Tracks the instanced flag.
-- Description: Supports the instanced operation used by the surrounding class.
-
-#### `private final Collection<Object> mods = new LinkedList<Object>()`
-- Role: Caches mods entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Marks whether the program uses instanced rendering.
 
 ### Methods
 
 #### `public ProgramContext()`
-- Role: Creates a new ProgramContext instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates an empty program context.
 
 #### `public void module(Object mod)`
-- Role: Performs module.
-- Description: Supports the module operation used by the surrounding class.
+- Role: Registers a shader module or helper object.
 
 #### `public <T> T getmod(Class<T> cl)`
-- Role: Performs getmod.
-- Description: Supports the getmod operation used by the surrounding class.
+- Role: Looks up a previously registered module by type.

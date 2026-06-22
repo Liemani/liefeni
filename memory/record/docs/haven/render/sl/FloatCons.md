@@ -1,5 +1,5 @@
 ---
-source: [FloatCons.java](../../../../../src/haven/render/sl/FloatCons.java)
+source: [FloatCons.java](../../../../../../src/haven/render/sl/FloatCons.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the float cons shader-language AST node.
 ### Fields
 
 #### `public final Expression init`
-- Role: Holds the init state.
-- Description: Backs the cached state for this file.
+- Role: Caches the init value.
+- Description: Caches the `init` value for reuse.
 
 ### Methods
 
 #### `public FloatCons(Expression init)`
-- Role: Creates a new FloatCons instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one float literal expression.
+- Description: Stores the initializer expression for the float constructor.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the initializer.
+- Description: Walks the source expression for the float constructor.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the float constructor.
+- Description: Writes the `float(...)` expression to output.

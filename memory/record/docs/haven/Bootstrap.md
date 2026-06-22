@@ -1,5 +1,5 @@
 ---
-source: [Bootstrap.java](../../../src/haven/Bootstrap.java)
+source: [Bootstrap.java](../../../../src/haven/Bootstrap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -20,141 +20,149 @@ Represents the bootstrap Haven component.
 ### Constants
 
 #### `public static final Config.Variable<String> authuser = Config.Variable.prop("haven.authuser", null)`
-- Role: Defines the shared authuser constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the authuser operation.
+- Description: Implements the prop operation.
+- Value: `Config.Variable.prop("haven.authuser", null)`
 
 #### `public static final Config.Variable<NamedSocketAddress> authserv = Config.Variable.proph("haven.server", AuthClient.DEFPORT, new NamedSocketAddress("localhost", AuthClient.DEFPORT))`
-- Role: Defines the shared authserv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the authserv operation.
+- Description: Implements the named socket address operation.
+- Value: `Config.Variable.proph("haven.server", AuthClient.DEFPORT, new NamedSocketAddress("localhost", AuthClient.DEFPORT))`
 
 #### `public static final Config.Variable<NamedSocketAddress> gameserv = Config.Variable.proph("haven.gameserv", 1870, null)`
-- Role: Defines the shared gameserv constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the gameserv operation.
+- Description: Implements the proph operation.
+- Value: `Config.Variable.proph("haven.gameserv", 1870, null)`
 
 #### `public static final Config.Variable<Integer> gameport = Config.Variable.propi("haven.gameport", 1870)`
-- Role: Defines the shared gameport constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the gameport operation.
+- Description: Implements the propi operation.
+- Value: `Config.Variable.propi("haven.gameport", 1870)`
 
 #### `public static final Config.Variable<byte[]> authck = Config.Variable.propb("haven.authck", null)`
-- Role: Defines the shared authck constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the authck operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.authck", null)`
 
 #### `public static final Config.Variable<byte[]> authtoken = Config.Variable.propb("haven.inittoken", null)`
-- Role: Defines the shared authtoken constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the authtoken operation.
+- Description: Implements the propb operation.
+- Value: `Config.Variable.propb("haven.inittoken", null)`
 
 #### `public static final Config.Variable<String[]> servargs = Config.Variable.def(() -> null)`
-- Role: Defines the shared servargs constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the servargs operation.
+- Description: Implements the def operation.
+- Value: `Config.Variable.def(() -> null)`
 
 #### `public static final Config.Variable<java.nio.file.Path> replay = Config.Variable.def(() -> null)`
-- Role: Defines the shared replay constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the replay operation.
+- Description: Implements the def operation.
+- Value: `Config.Variable.def(() -> null)`
 
 ### Fields
 
 #### `public static boolean useinitauth = true`
 - Role: Tracks the useinitauth flag.
-- Description: Supports the useinitauth operation used by the surrounding class.
+- Description: Caches the `useinitauth` value for reuse.
 
 #### `public final NamedSocketAddress server`
-- Role: Holds the server state.
-- Description: Backs the cached state for this file.
+- Role: Caches the server value.
+- Description: Caches the `server` value for reuse.
 
 #### `public final String confname`
-- Role: Stores the confname value.
-- Description: Backs the cached state for this file.
+- Role: Caches the confname value.
+- Description: Caches the `confname` value for reuse.
 
 #### `Queue<Message> msgs = new LinkedList<Message>()`
-- Role: Caches msgs entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the msgs operation.
+- Description: Implements the queue<message> msgs = new linked list<message>() operation.
 
 #### `String inituser = null`
-- Role: Stores the inituser value.
-- Description: Backs the cached state for this file.
+- Role: Caches the inituser value.
+- Description: Caches the `inituser` value for reuse.
 
 #### `byte[] initcookie = null`
-- Role: Stores the initcookie value.
-- Description: Backs the cached state for this file.
+- Role: Caches the initcookie value.
+- Description: Caches the `initcookie` value for reuse.
 
 #### `byte[] inittoken = null`
-- Role: Stores the inittoken value.
-- Description: Backs the cached state for this file.
+- Role: Caches the inittoken value.
+- Description: Caches the `inittoken` value for reuse.
 
 #### `int id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `String name`
-- Role: Stores the name value.
-- Description: Backs the cached state for this file.
+- Role: Caches the name value.
+- Description: Caches the `name` value for reuse.
 
 #### `Object[] args`
-- Role: Holds the args state.
-- Description: Backs the cached state for this file.
+- Role: Caches the args value.
+- Description: Caches the `args` value for reuse.
 
 ### Methods
 
 #### `public Message(int id, String name, Object... args)`
-- Role: Performs message.
-- Description: Supports the message operation used by the surrounding class.
+- Role: Handles the message path.
+- Description: Implements the message operation.
 
 #### `public Bootstrap(NamedSocketAddress server)`
 - Role: Creates a new Bootstrap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Bootstrap instance from the supplied inputs.
 
 #### `public Bootstrap()`
 - Role: Creates a new Bootstrap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Bootstrap instance from the supplied inputs.
 
 #### `public void setinitcookie(String username, byte[] cookie)`
-- Role: Performs setinitcookie.
-- Description: Supports the setinitcookie operation used by the surrounding class.
+- Role: Handles the setinitcookie path.
+- Description: Updates the initcookie.
 
 #### `public void setinittoken(String username, byte[] token)`
-- Role: Performs setinittoken.
-- Description: Supports the setinittoken operation used by the surrounding class.
+- Role: Handles the setinittoken path.
+- Description: Updates the inittoken.
 
 #### `private String getpref(String name, String def)`
-- Role: Performs getpref.
-- Description: Supports the getpref operation used by the surrounding class.
+- Role: Handles the getpref path.
+- Description: Returns the pref.
 
 #### `private void setpref(String name, String val)`
-- Role: Performs setpref.
-- Description: Supports the setpref operation used by the surrounding class.
+- Role: Handles the setpref path.
+- Description: Updates the pref.
 
 #### `private static byte[] getprefb(String name, String confname, byte[] def, boolean zerovalid)`
-- Role: Performs getprefb.
-- Description: Supports the getprefb operation used by the surrounding class.
+- Role: Handles the getprefb path.
+- Description: Returns the prefb.
 
 #### `private static String mangleuser(String user)`
-- Role: Performs mangleuser.
-- Description: Supports the mangleuser operation used by the surrounding class.
+- Role: Handles the mangleuser path.
+- Description: Implements the mangleuser operation.
 
 #### `public static byte[] gettoken(String user, String confname)`
-- Role: Performs gettoken.
-- Description: Supports the gettoken operation used by the surrounding class.
+- Role: Handles the gettoken path.
+- Description: Returns the token.
 
 #### `public static void rottokens(String user, String confname, boolean creat, boolean rm)`
-- Role: Performs rottokens.
-- Description: Supports the rottokens operation used by the surrounding class.
+- Role: Handles the rottokens path.
+- Description: Implements the rottokens operation.
 
 #### `public static void settoken(String user, String confname, byte[] token)`
-- Role: Performs settoken.
-- Description: Supports the settoken operation used by the surrounding class.
+- Role: Handles the settoken path.
+- Description: Updates the token.
 
 #### `private Message getmsg() throws InterruptedException`
-- Role: Returns the msg value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the msg.
+- Description: Returns the msg.
 
 #### `private static void preferhost(List<InetSocketAddress> hosts, SocketAddress prev)`
-- Role: Performs preferhost.
-- Description: Supports the preferhost operation used by the surrounding class.
+- Role: Handles the preferhost path.
+- Description: Implements the preferhost operation.
 
 #### `public UI.Runner run(UI ui) throws InterruptedException`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void rcvmsg(int widget, String msg, Object... args)`
-- Role: Performs rcvmsg.
-- Description: Supports the rcvmsg operation used by the surrounding class.
+- Role: Handles the rcvmsg path.
+- Description: Implements the rcvmsg operation.

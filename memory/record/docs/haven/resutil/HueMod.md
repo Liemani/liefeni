@@ -1,57 +1,49 @@
 ---
-source: [HueMod.java](../../../../src/haven/resutil/HueMod.java)
+source: [HueMod.java](../../../../../src/haven/resutil/HueMod.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # HueMod
 
-Provides resource helper logic for hue mod.
+Adjusts fragment color by shifting hue and scaling saturation around a target hue.
 
 ## Members
 
 ### Constants
 
 #### `public static final Slot<HueMod> slot = new Slot<>(Slot.Type.DRAW, HueMod.class)`
-- Role: Defines the shared slot constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Registers the hue-mod state for draw processing.
+- Description: Stores the current hue adjustment in the render pipe.
 
 #### `private static final Uniform cxf = new Uniform(VEC3, p ->`
-- Role: Defines the shared cxf constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Exposes hue parameters to the shader.
+- Description: Packs target hue, hue modifier, and saturation modifier into one uniform.
 
 #### `private static final Function apply = new Function.Def(VEC4)`
-- Role: Defines the shared apply constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Defines the fragment color adjustment function.
+- Description: Converts RGB to HSV, applies the hue shift, and converts back.
 
 #### `private static final ShaderMacro shader = prog ->`
-- Role: Defines the shared shader constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Installs the hue-modifying fragment step.
+- Description: Modifies the output fragment color late in the pipeline.
 
 ### Fields
 
 #### `final float tgthue, huemod, satmod`
-- Role: Stores the satmod value.
-- Description: Backs the cached state for this file.
-
-#### `final float tgthue, huemod, satmod`
-- Role: Stores the satmod value.
-- Description: Backs the cached state for this file.
-
-#### `final float tgthue, huemod, satmod`
-- Role: Stores the satmod value.
-- Description: Backs the cached state for this file.
+- Role: Stores the hue target and adjustment factors.
+- Description: `tgthue` is the pivot hue, `huemod` shifts the hue, and `satmod` scales saturation.
 
 ### Methods
 
 #### `public HueMod(float tgthue, float huemod, float satmod)`
-- Role: Creates a new HueMod instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a hue adjustment state.
+- Description: Stores the three parameters used by the shader.
 
 #### `public ShaderMacro shader()`
-- Role: Performs shader.
-- Description: Supports the shader operation used by the surrounding class.
+- Role: Returns the hue-modification shader.
+- Description: Applies the color transform to fragment output.
 
 #### `public void apply(Pipe buf)`
-- Role: Applies the menu-grid proxy changes.
-- Description: Supports the apply operation used by the surrounding class.
+- Role: Installs the state into the draw pipe.
+- Description: Makes the hue transform visible to later rendering.

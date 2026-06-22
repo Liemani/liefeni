@@ -1,5 +1,5 @@
 ---
-source: [Index.java](../../../../../src/haven/render/sl/Index.java)
+source: [Index.java](../../../../../../src/haven/render/sl/Index.java)
 created: 2026-06-15
 updated: 2026-06-15
 ---
@@ -15,12 +15,12 @@ Represents an indexed l-value expression in shader language output.
 ### Fields
 
 #### `public final Expression val`
-- Role: Holds the val state.
-- Description: Base expression being indexed.
+- Role: Caches the val value.
+- Description: Caches the `val` value for reuse.
 
 #### `public final Expression idx`
-- Role: Holds the idx state.
-- Description: Index expression applied to `val`.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 ### Methods
 
@@ -33,5 +33,5 @@ Represents an indexed l-value expression in shader language output.
 - Description: Visits both child expressions.
 
 #### `public void output(Output out)`
-- Role: Performs output.
+- Role: Implements output.
 - Description: Writes the indexed expression form to the shader output.

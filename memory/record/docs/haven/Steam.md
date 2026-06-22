@@ -1,5 +1,5 @@
 ---
-source: [Steam.java](../../../src/haven/Steam.java)
+source: [Steam.java](../../../../src/haven/Steam.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,58 +12,58 @@ Represents the steam Haven component.
 
 ### API
 
-- Role: Represents api within Steam.
-- Description: Describes the nested api type used by the enclosing class.
+- Role: Wraps the Steam API handle.
+- Description: Thin adapter that exposes the native Steam interface through the Java wrapper.
 
 ### Details
 
-- Role: Represents details within Steam.
-- Description: Describes the nested details type used by the enclosing class.
+- Role: Stores Steam application details.
+- Description: Metadata record used to describe the current Steam-integrated client state.
 
 ### Listener
 
-- Role: Represents listener within Steam.
-- Description: Describes the nested listener type used by the enclosing class.
+- Role: Receives Steam callbacks.
+- Description: Callback interface for asynchronous Steam events.
 
 ### ResultError
 
-- Role: Represents result error within Steam.
-- Description: Describes the nested result error type used by the enclosing class.
+- Role: Signals a Steam API failure.
+- Description: Error wrapper for failed Steam result operations.
 
 ### SteamLibraryLoaderJogl
 
-- Role: Represents steam library loader jogl within Steam.
-- Description: Describes the nested steam library loader jogl type used by the enclosing class.
+- Role: Loads Steam libraries for JOGL.
+- Description: Native library loader specialization for the JOGL backend.
 
 ### StorageStatus
 
-- Role: Represents storage status within Steam.
-- Description: Describes the nested storage status type used by the enclosing class.
+- Role: Tracks Steam storage availability.
+- Description: Report object describing remote storage status and quota conditions.
 
 ### SvcError
 
-- Role: Represents svc error within Steam.
-- Description: Describes the nested svc error type used by the enclosing class.
+- Role: Signals a Steam service failure.
+- Description: Runtime exception used for Steam service-level errors.
 
 ### UGItem
 
-- Role: Represents ugitem within Steam.
-- Description: Describes the nested ugitem type used by the enclosing class.
+- Role: Stores one workshop item record.
+- Description: Metadata for a Steam workshop item.
 
 ### Update
 
-- Role: Represents update within Steam.
-- Description: Describes the nested update type used by the enclosing class.
+- Role: Represents a Steam update event.
+- Description: Event wrapper used when the client receives a Steam update notification.
 
 ### Waiter
 
-- Role: Represents waiter within Steam.
-- Description: Describes the nested waiter type used by the enclosing class.
+- Role: Waits for Steam callbacks.
+- Description: Helper that blocks until a Steam operation completes.
 
 ### WebTicket
 
-- Role: Represents web ticket within Steam.
-- Description: Describes the nested web ticket type used by the enclosing class.
+- Role: Stores a Steam web ticket.
+- Description: Ticket record used for browser-based Steam authentication flows.
 
 ## Members
 
@@ -72,52 +72,52 @@ Represents the steam Haven component.
 ### Fields
 
 #### `private final Collection<Listener> listening = new CopyOnWriteArrayList<>()`
-- Role: Caches listening entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the listening operation.
+- Description: Implements the private final collection<listener> listening = new copy on write array list<>() operation.
 
 #### `private final API api = new API(this)`
-- Role: Holds the api state.
-- Description: Backs the cached state for this file.
+- Role: Implements the api operation.
+- Description: Implements the api operation.
 
 #### `public final SteamResult res`
-- Role: Holds the res state.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `private final String id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private final Queue<Object[]> got = new LinkedList<>()`
-- Role: Caches got entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the got operation.
+- Description: Implements the private final queue<object[]> got = new linked list<>() operation.
 
 #### `private static Steam instance = null`
-- Role: Holds the instance state.
-- Description: Backs the cached state for this file.
+- Role: Caches the instance value.
+- Description: Caches the `instance` value for reuse.
 
 #### `final Steam host`
-- Role: Holds the host state.
-- Description: Backs the cached state for this file.
+- Role: Caches the host value.
+- Description: Caches the `host` value for reuse.
 
 #### `final SteamUtils utils = new SteamUtils(new SteamUtilsCallback()`
-- Role: Holds the utils state.
-- Description: Backs the cached state for this file.
+- Role: Implements the utils operation.
+- Description: Implements the steam utils callback operation.
 
 #### `final SteamFriends friends = new SteamFriends(new SteamFriendsCallback()`
-- Role: Holds the friends state.
-- Description: Backs the cached state for this file.
+- Role: Implements the friends operation.
+- Description: Implements the steam friends callback operation.
 
 #### `final SteamRemoteStorage rs = new SteamRemoteStorage(new SteamRemoteStorageCallback()`
-- Role: Holds the rs state.
-- Description: Backs the cached state for this file.
+- Role: Implements the rs operation.
+- Description: Implements the steam remote storage callback operation.
 
 #### `final SteamUGC ugc = new SteamUGC(new SteamUGCCallback()`
-- Role: Holds the ugc state.
-- Description: Backs the cached state for this file.
+- Role: Implements the ugc operation.
+- Description: Implements the steam ugc callback operation.
 
 #### `final SteamUser user = new SteamUser(new SteamUserCallback()`
-- Role: Holds the user state.
-- Description: Backs the cached state for this file.
+- Role: Implements the user operation.
+- Description: Implements the steam user callback operation.
 
 #### `private static boolean loaded = false, inited = false, failed = false`
 - Role: Tracks whether loaded is loaded.
@@ -132,355 +132,355 @@ Represents the steam Haven component.
 - Description: Boolean flag used to guard the surrounding lifecycle state.
 
 #### `public final byte[] data`
-- Role: Stores the data value.
-- Description: Backs the cached state for this file.
+- Role: Caches the data value.
+- Description: Caches the `data` value for reuse.
 
 #### `private final SteamAuthTicket handle`
-- Role: Holds the handle state.
-- Description: Backs the cached state for this file.
+- Role: Caches the handle value.
+- Description: Caches the `handle` value for reuse.
 
 #### `private boolean cancelled = false`
 - Role: Tracks the cancelled flag.
-- Description: Supports the cancelled operation used by the surrounding class.
+- Description: Caches the `cancelled` value for reuse.
 
 #### `private ByteBuffer xfbuf = null`
-- Role: Stores the xfbuf value.
-- Description: Backs the cached state for this file.
+- Role: Caches the xfbuf value.
+- Description: Caches the `xfbuf` value for reuse.
 
 #### `public final SteamPublishedFileID id`
-- Role: Stores the id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `private final SteamUGC.ItemInstallInfo iinf = new SteamUGC.ItemInstallInfo()`
-- Role: Holds the iinf state.
-- Description: Backs the cached state for this file.
+- Role: Implements the iinf operation.
+- Description: Implements the item install info operation.
 
 #### `private final SteamUGC.ItemDownloadInfo dinf = new SteamUGC.ItemDownloadInfo()`
-- Role: Holds the dinf state.
-- Description: Backs the cached state for this file.
+- Role: Implements the dinf operation.
+- Description: Implements the item download info operation.
 
 #### `private Collection<SteamUGC.ItemState> state`
-- Role: Caches state entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `public SteamResult dlresult = SteamResult.OK`
-- Role: Holds the dlresult state.
-- Description: Backs the cached state for this file.
+- Role: Caches the dlresult value.
+- Description: Caches the `dlresult` value for reuse.
 
 #### `public final String title, description`
-- Role: Stores the description value.
-- Description: Backs the cached state for this file.
+- Role: Caches the description value.
+- Description: Caches the `description` value for reuse.
 
 #### `public final String title, description`
-- Role: Stores the description value.
-- Description: Backs the cached state for this file.
+- Role: Caches the description value.
+- Description: Caches the `description` value for reuse.
 
 #### `public final SteamID owner`
-- Role: Holds the owner state.
-- Description: Backs the cached state for this file.
+- Role: Caches the owner value.
+- Description: Caches the `owner` value for reuse.
 
 #### `private Future<Details> details = null`
-- Role: Holds the details state.
-- Description: Backs the cached state for this file.
+- Role: Caches the details value.
+- Description: Caches the `details` value for reuse.
 
 #### `public final SteamUGCUpdateHandle id`
-- Role: Holds the id state.
-- Description: Backs the cached state for this file.
+- Role: Caches the id value.
+- Description: Caches the `id` value for reuse.
 
 #### `public SteamResult done = null`
-- Role: Holds the done state.
-- Description: Backs the cached state for this file.
+- Role: Caches the done value.
+- Description: Caches the `done` value for reuse.
 
 #### `public boolean agreed`
 - Role: Tracks the agreed flag.
-- Description: Supports the agreed operation used by the surrounding class.
+- Description: Caches the `agreed` value for reuse.
 
 #### `public SteamUGC.ItemUpdateStatus state = SteamUGC.ItemUpdateStatus.Invalid`
-- Role: Holds the state state.
-- Description: Backs the cached state for this file.
+- Role: Caches the state value.
+- Description: Caches the `state` value for reuse.
 
 #### `public long prog, size`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 #### `public long prog, size`
-- Role: Stores the size value.
-- Description: Backs the cached state for this file.
+- Role: Caches the size value.
+- Description: Caches the `size` value for reuse.
 
 #### `public boolean agreed = true`
 - Role: Tracks the agreed flag.
-- Description: Supports the agreed operation used by the surrounding class.
+- Description: Caches the `agreed` value for reuse.
 
 ### Methods
 
 #### `public SvcError(String message)`
-- Role: Performs svc error.
-- Description: Supports the svc error operation used by the surrounding class.
+- Role: Handles the svc error path.
+- Description: Implements the svc error operation.
 
 #### `public SvcError(Throwable cause)`
-- Role: Performs svc error.
-- Description: Supports the svc error operation used by the surrounding class.
+- Role: Handles the svc error path.
+- Description: Implements the svc error operation.
 
 #### `public SvcError(String message, Throwable cause)`
-- Role: Performs svc error.
-- Description: Supports the svc error operation used by the surrounding class.
+- Role: Handles the svc error path.
+- Description: Implements the svc error operation.
 
 #### `public ResultError(String message, SteamResult res)`
-- Role: Performs result error.
-- Description: Supports the result error operation used by the surrounding class.
+- Role: Handles the result error path.
+- Description: Implements the result error operation.
 
 #### `public void callback(String id, Object[] args)`
-- Role: Performs callback.
-- Description: Supports the callback operation used by the surrounding class.
+- Role: Handles the callback path.
+- Description: Implements the callback operation.
 
 #### `public void add(Listener l)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(Listener l)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public Waiter(String id)`
-- Role: Performs waiter.
-- Description: Supports the waiter operation used by the surrounding class.
+- Role: Handles the waiter path.
+- Description: Implements the waiter operation.
 
 #### `public void callback(String id, Object[] args)`
-- Role: Performs callback.
-- Description: Supports the callback operation used by the surrounding class.
+- Role: Handles the callback path.
+- Description: Implements the callback operation.
 
 #### `public Object[] get() throws InterruptedException`
-- Role: Returns the  value.
-- Description: Exposes the requested value without mutating state.
+- Role: Returns the cached get.
+- Description: Returns the cached get.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `private void post(String cbid, Object... args)`
-- Role: Performs post.
-- Description: Supports the post operation used by the surrounding class.
+- Role: Handles the post processors path.
+- Description: Implements the post operation.
 
 #### `public boolean loadLibrary(String nm)`
 - Role: Returns the library.
-- Description: Exposes the requested value without mutating state.
+- Description: Loads the library.
 
 #### `private Steam()`
 - Role: Creates a new Steam instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Steam instance from the supplied inputs.
 
 #### `private void listen()`
-- Role: Performs listen.
-- Description: Supports the listen operation used by the surrounding class.
+- Role: Handles the listen path.
+- Description: Implements the listen operation.
 
 #### `public static synchronized Steam get()`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `private API(Steam host)`
-- Role: Performs api.
-- Description: Supports the api operation used by the surrounding class.
+- Role: Handles the api path.
+- Description: Implements the api operation.
 
 #### `private static synchronized boolean init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.
 
 #### `int fileRead(String name, ByteBuffer buf) throws IOException`
 - Role: Handles the file read workflow.
-- Description: Supports the file read operation used by the surrounding class.
+- Description: Implements the file read operation.
 
 #### `void fileWrite(String name, ByteBuffer data) throws IOException`
 - Role: Handles the file write workflow.
-- Description: Supports the file write operation used by the surrounding class.
+- Description: Implements the file write operation.
 
 #### `public synchronized int appid()`
-- Role: Performs appid.
-- Description: Supports the appid operation used by the surrounding class.
+- Role: Handles the appid path.
+- Description: Implements the appid operation.
 
 #### `public synchronized int userid()`
-- Role: Performs userid.
-- Description: Supports the userid operation used by the surrounding class.
+- Role: Handles the userid path.
+- Description: Implements the userid operation.
 
 #### `public synchronized String displayname()`
-- Role: Performs displayname.
-- Description: Supports the displayname operation used by the surrounding class.
+- Role: Handles the displayname path.
+- Description: Implements the displayname operation.
 
 #### `public synchronized void browse(URI uri, boolean modal)`
-- Role: Performs browse.
-- Description: Supports the browse operation used by the surrounding class.
+- Role: Handles the browse path.
+- Description: Implements the browse operation.
 
 #### `public synchronized void overlaypos(String pos)`
-- Role: Performs overlaypos.
-- Description: Supports the overlaypos operation used by the surrounding class.
+- Role: Handles the overlaypos path.
+- Description: Implements the overlaypos operation.
 
 #### `public synchronized void setrp(String key, String val)`
-- Role: Performs setrp.
-- Description: Supports the setrp operation used by the surrounding class.
+- Role: Handles the setrp path.
+- Description: Updates the rp.
 
 #### `public void setparty(String pid, int sz)`
-- Role: Performs setparty.
-- Description: Supports the setparty operation used by the surrounding class.
+- Role: Handles the setparty path.
+- Description: Updates the party.
 
 #### `private WebTicket(SteamAuthTicket handle, byte[] data)`
-- Role: Performs web ticket.
-- Description: Supports the web ticket operation used by the surrounding class.
+- Role: Handles the web ticket path.
+- Description: Implements the web ticket operation.
 
 #### `public void close()`
 - Role: Closes the current resource.
-- Description: Supports the close operation used by the surrounding class.
+- Description: Closes the current stream or resource.
 
 #### `public WebTicket webticket() throws InterruptedException`
 - Role: Handles the webticket workflow.
-- Description: Supports the webticket operation used by the surrounding class.
+- Description: Implements the webticket operation.
 
 #### `public StorageStatus checkstorage()`
-- Role: Performs checkstorage.
-- Description: Supports the checkstorage operation used by the surrounding class.
+- Role: Handles the checkstorage path.
+- Description: Implements the checkstorage operation.
 
 #### `public void enablestorage(boolean on)`
-- Role: Performs enablestorage.
-- Description: Supports the enablestorage operation used by the surrounding class.
+- Role: Handles the enablestorage path.
+- Description: Implements the enablestorage operation.
 
 #### `private void checkcloud() throws IOException`
 - Role: Handles the checkcloud workflow.
-- Description: Supports the checkcloud operation used by the surrounding class.
+- Description: Implements the checkcloud operation.
 
 #### `private ByteBuffer xfbuf(int sz)`
-- Role: Performs xfbuf.
-- Description: Supports the xfbuf operation used by the surrounding class.
+- Role: Handles the xfbuf path.
+- Description: Implements the xfbuf operation.
 
 #### `public synchronized byte[] readfile(String name) throws IOException`
 - Role: Handles the readfile workflow.
-- Description: Supports the readfile operation used by the surrounding class.
+- Description: Implements the readfile operation.
 
 #### `public synchronized void writefile(String name, byte[] data) throws IOException`
 - Role: Handles the writefile workflow.
-- Description: Supports the writefile operation used by the surrounding class.
+- Description: Implements the writefile operation.
 
 #### `public UGItem(SteamPublishedFileID id)`
-- Role: Performs ugitem.
-- Description: Supports the ugitem operation used by the surrounding class.
+- Role: Handles the ugitem path.
+- Description: Implements the ug item operation.
 
 #### `public long fid()`
-- Role: Performs fid.
-- Description: Supports the fid operation used by the surrounding class.
+- Role: Handles the fid path.
+- Description: Implements the fid operation.
 
 #### `public void update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public Path path()`
-- Role: Performs path.
-- Description: Supports the path operation used by the surrounding class.
+- Role: Handles the path path.
+- Description: Implements the path operation.
 
 #### `public void download(boolean prioritized)`
-- Role: Performs download.
-- Description: Supports the download operation used by the surrounding class.
+- Role: Handles the download path.
+- Description: Implements the download operation.
 
 #### `public boolean installed()`
-- Role: Performs installed.
-- Description: Supports the installed operation used by the surrounding class.
+- Role: Handles the installed path.
+- Description: Implements the installed operation.
 
 #### `public boolean stale()`
-- Role: Performs stale.
-- Description: Supports the stale operation used by the surrounding class.
+- Role: Handles the stale path.
+- Description: Implements the stale operation.
 
 #### `public boolean fetching()`
-- Role: Performs fetching.
-- Description: Supports the fetching operation used by the surrounding class.
+- Role: Handles the fetching path.
+- Description: Implements the fetching operation.
 
 #### `public boolean pending()`
-- Role: Performs pending.
-- Description: Supports the pending operation used by the surrounding class.
+- Role: Handles the pending path.
+- Description: Implements the pending operation.
 
 #### `public long got()`
-- Role: Performs got.
-- Description: Supports the got operation used by the surrounding class.
+- Role: Handles the got path.
+- Description: Implements the got operation.
 
 #### `public long size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public Details(SteamUGCDetails info)`
-- Role: Performs details.
-- Description: Supports the details operation used by the surrounding class.
+- Role: Handles the details path.
+- Description: Implements the details operation.
 
 #### `public Future<Details> details()`
-- Role: Performs details.
-- Description: Supports the details operation used by the surrounding class.
+- Role: Handles the details path.
+- Description: Implements the details operation.
 
 #### `public Update()`
-- Role: Performs update.
-- Description: Supports the update operation used by the surrounding class.
+- Role: Applies the serialized update payload.
+- Description: Applies the serialized update payload.
 
 #### `public void title(String title)`
-- Role: Performs title.
-- Description: Supports the title operation used by the surrounding class.
+- Role: Handles the title path.
+- Description: Implements the title operation.
 
 #### `public void description(String desc)`
-- Role: Performs description.
-- Description: Supports the description operation used by the surrounding class.
+- Role: Handles the description path.
+- Description: Implements the description operation.
 
 #### `public void metadata(String data)`
-- Role: Performs metadata.
-- Description: Supports the metadata operation used by the surrounding class.
+- Role: Handles the metadata path.
+- Description: Implements the metadata operation.
 
 #### `public void tags(String... tags)`
-- Role: Performs tags.
-- Description: Supports the tags operation used by the surrounding class.
+- Role: Handles the tags path.
+- Description: Implements the tags operation.
 
 #### `public void contents(Path dir)`
-- Role: Performs contents.
-- Description: Supports the contents operation used by the surrounding class.
+- Role: Handles the contents path.
+- Description: Implements the contents operation.
 
 #### `public void preview(Path file)`
-- Role: Performs preview.
-- Description: Supports the preview operation used by the surrounding class.
+- Role: Handles the preview path.
+- Description: Implements the preview operation.
 
 #### `public void setprivate()`
-- Role: Performs setprivate.
-- Description: Supports the setprivate operation used by the surrounding class.
+- Role: Handles the setprivate path.
+- Description: Updates the private.
 
 #### `public void setfriendsonly()`
-- Role: Performs setfriendsonly.
-- Description: Supports the setfriendsonly operation used by the surrounding class.
+- Role: Handles the setfriendsonly path.
+- Description: Updates the friendsonly.
 
 #### `public void setpublic()`
-- Role: Performs setpublic.
-- Description: Supports the setpublic operation used by the surrounding class.
+- Role: Handles the setpublic path.
+- Description: Updates the public.
 
 #### `public void submit(String message)`
-- Role: Performs submit.
-- Description: Supports the submit operation used by the surrounding class.
+- Role: Handles the submit path.
+- Description: Implements the submit operation.
 
 #### `public void callback(String id, Object[] args)`
-- Role: Performs callback.
-- Description: Supports the callback operation used by the surrounding class.
+- Role: Handles the callback path.
+- Description: Implements the callback operation.
 
 #### `public void getprogress()`
-- Role: Performs getprogress.
-- Description: Supports the getprogress operation used by the surrounding class.
+- Role: Handles the getprogress path.
+- Description: Returns the progress.
 
 #### `public URI legalurl()`
-- Role: Performs legalurl.
-- Description: Supports the legalurl operation used by the surrounding class.
+- Role: Handles the legalurl path.
+- Description: Implements the legalurl operation.
 
 #### `public UGItem ugitem(long id)`
-- Role: Performs ugitem.
-- Description: Supports the ugitem operation used by the surrounding class.
+- Role: Handles the ugitem path.
+- Description: Implements the ugitem operation.
 
 #### `public Collection<UGItem> ugitems()`
-- Role: Performs ugitems.
-- Description: Supports the ugitems operation used by the surrounding class.
+- Role: Handles the ugitems path.
+- Description: Implements the ugitems operation.
 
 #### `public UGItem mkugitem() throws InterruptedException`
 - Role: Handles the mkugitem workflow.
-- Description: Supports the mkugitem operation used by the surrounding class.
+- Description: Implements the mkugitem operation.
 
 #### `public void ugqueryitems(Collection<UGItem> items)`
-- Role: Performs ugqueryitems.
-- Description: Supports the ugqueryitems operation used by the surrounding class.
+- Role: Handles the ugqueryitems path.
+- Description: Implements the ugqueryitems operation.
 
 #### `public static void main(String[] args) throws Exception`
 - Role: Handles the main workflow.
-- Description: Supports the main operation used by the surrounding class.
+- Description: Runs the client entry point.

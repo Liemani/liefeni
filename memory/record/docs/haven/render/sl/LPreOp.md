@@ -1,65 +1,43 @@
 ---
-source: [LPreOp.java](../../../../../src/haven/render/sl/LPreOp.java)
+source: [LPreOp.java](../../../../../../src/haven/render/sl/LPreOp.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # LPreOp
 
-Represents the lpre op shader-language AST node.
+Represents a prefix operator that requires an l-value operand.
 
 ## Nested Types
 
-### Dec
-
-- Role: Represents dec within LPreOp.
-- Description: Describes the nested dec type used by the enclosing class.
-
 ### Inc
+Prefix increment expression.
 
-- Role: Represents inc within LPreOp.
-- Description: Describes the nested inc type used by the enclosing class.
+### Dec
+Prefix decrement expression.
 
 ## Members
-
-### Constants
 
 ### Fields
 
 #### `public final LValue op`
-- Role: Holds the op state.
-- Description: Backs the cached state for this file.
+- Role: Stores the l-value operand.
+- Description: Emitted after the prefix operator.
 
 ### Methods
 
 #### `public LPreOp(LValue op)`
-- Role: Creates a new LPreOp instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Builds a prefix l-value operator expression.
+- Description: Stores the operand.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Walks the operand expression.
+- Description: Visits the child l-value node.
 
 #### `public abstract String form()`
-- Role: Performs form.
-- Description: Supports the form operation used by the surrounding class.
+- Role: Returns the operator spelling.
+- Description: Implemented by each concrete prefix operator.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
-
-#### `public static class Inc extends LPreOp`
-- Role: Handles the lpre op workflow.
-- Description: Supports the lpre op operation used by the surrounding class.
-
-#### `public static class Inc extends LPreOp`
-- Role: Handles the lpre op workflow.
-- Description: Supports the lpre op operation used by the surrounding class.
-
-#### `public static class Dec extends LPreOp`
-- Role: Handles the lpre op workflow.
-- Description: Supports the lpre op operation used by the surrounding class.
-
-#### `public static class Dec extends LPreOp`
-- Role: Handles the lpre op workflow.
-- Description: Supports the lpre op operation used by the surrounding class.
+- Role: Emits the unary expression.
+- Description: Writes the operator before the operand.

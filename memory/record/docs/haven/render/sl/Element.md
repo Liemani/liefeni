@@ -1,25 +1,18 @@
 ---
-source: [Element.java](../../../../../src/haven/render/sl/Element.java)
+source: [Element.java](../../../../../../src/haven/render/sl/Element.java)
 created: 2026-06-13
-updated: 2026-06-14
+updated: 2026-06-20
 ---
 
 # Element
 
-Represents the element shader-language AST node.
+Base node for shader-language AST elements.
 
-## Members
-
-### Constants
-
-### Fields
-
-### Methods
+## Methods
 
 #### `public abstract void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits child elements.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits source code for the element.
+

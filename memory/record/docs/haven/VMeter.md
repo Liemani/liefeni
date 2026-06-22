@@ -1,5 +1,5 @@
 ---
-source: [VMeter.java](../../../src/haven/VMeter.java)
+source: [VMeter.java](../../../../src/haven/VMeter.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,20 +12,22 @@ Represents the vmeter Haven component.
 
 ### $_
 
-- Role: Represents $ within VMeter.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the `vmeter` widget factory.
+- Description: Creates a vertical meter widget from the resource system.
 
 ## Members
 
 ### Constants
 
 #### `public static final Tex bg = Resource.loadtex("gfx/hud/vm-frame")`
-- Role: Defines the shared bg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the bg operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/vm-frame")`
 
 #### `public static final Tex fg = Resource.loadtex("gfx/hud/vm-tex")`
-- Role: Defines the shared fg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the fg operation.
+- Description: Implements the loadtex operation.
+- Value: `Resource.loadtex("gfx/hud/vm-tex")`
 
 ### Fields
 
@@ -37,8 +39,8 @@ Represents the vmeter Haven component.
 
 #### `public VMeter(List<Meter> meters)`
 - Role: Creates a new VMeter instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the VMeter instance from the supplied inputs.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the VMeter content.

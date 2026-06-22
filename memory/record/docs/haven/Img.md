@@ -1,5 +1,5 @@
 ---
-source: [Img.java](../../../src/haven/Img.java)
+source: [Img.java](../../../../src/haven/Img.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,8 +12,8 @@ Represents the img Haven component.
 
 ### $_
 
-- Role: Represents $ within Img.
-- Description: Describes the nested $  type used by the enclosing class.
+- Role: Registers the image widget resource.
+- Description: Factory that creates an Img from a resource-backed texture.
 
 ## Members
 
@@ -22,20 +22,20 @@ Represents the img Haven component.
 ### Fields
 
 #### `private Tex img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `private BufferedImage rimg`
-- Role: Stores the rimg value.
-- Description: Backs the cached state for this file.
+- Role: Caches the rimg value.
+- Description: Caches the `rimg` value for reuse.
 
 #### `public boolean hit = false, opaque = false`
 - Role: Tracks the hit flag.
-- Description: Supports the hit operation used by the surrounding class.
+- Description: Caches the `hit` value for reuse.
 
 #### `public boolean hit = false, opaque = false`
 - Role: Tracks the hit flag.
-- Description: Supports the hit operation used by the surrounding class.
+- Description: Caches the `hit` value for reuse.
 
 ### Methods
 
@@ -44,25 +44,25 @@ Represents the img Haven component.
 - Description: Constructs the target object from the supplied inputs.
 
 #### `public void setimg(Tex img)`
-- Role: Performs setimg.
-- Description: Supports the setimg operation used by the surrounding class.
+- Role: Handles the setimg path.
+- Description: Updates the img.
 
 #### `public void draw(GOut g)`
 - Role: Draws the current content.
-- Description: Supports the draw operation used by the surrounding class.
+- Description: Draws the Img content.
 
 #### `public Img(Tex img)`
 - Role: Creates a new Img instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Img instance from the supplied inputs.
 
 #### `public void uimsg(String name, Object... args)`
 - Role: Handles a UI message.
-- Description: Supports the uimsg operation used by the surrounding class.
+- Description: Handles widget UI messages from the server.
 
 #### `public boolean checkhit(Coord c)`
-- Role: Performs checkhit.
-- Description: Supports the checkhit operation used by the surrounding class.
+- Role: Handles the checkhit path.
+- Description: Implements the checkhit operation.
 
 #### `public boolean mousedown(MouseDownEvent ev)`
 - Role: Handles mouse-down input.
-- Description: Supports the mousedown operation used by the surrounding class.
+- Description: Starts a drag or click interaction on the minimap.

@@ -1,5 +1,5 @@
 ---
-source: [ItemSpec.java](../../../src/haven/ItemSpec.java)
+source: [ItemSpec.java](../../../../src/haven/ItemSpec.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,44 +13,45 @@ Represents the item spec Haven component.
 ### Constants
 
 #### `private static final Object[] definfo =`
-- Role: Defines the shared item spec constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the definfo value.
+- Description: Caches the `definfo` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public final Object[] info`
-- Role: Holds the info state.
-- Description: Backs the cached state for this file.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `public final ResData res`
-- Role: Holds the res state.
-- Description: Backs the cached state for this file.
+- Role: Caches the res value.
+- Description: Caches the `res` value for reuse.
 
 #### `public final OwnerContext ctx`
-- Role: Stores the ctx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ctx value.
+- Description: Caches the `ctx` value for reuse.
 
 #### `private Random rnd = null`
-- Role: Holds the rnd state.
-- Description: Backs the cached state for this file.
+- Role: Caches the rnd value.
+- Description: Caches the `rnd` value for reuse.
 
 #### `private GSprite spr = null`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 #### `private List<ItemInfo> cinfo = null`
-- Role: Caches cinfo entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the cinfo value.
+- Description: Caches the `cinfo` value for reuse.
 
 ### Methods
 
 #### `public ItemSpec(OwnerContext ctx, ResData res, Object[] info)`
 - Role: Creates a new ItemSpec instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ItemSpec instance from the supplied inputs.
 
 #### `public <T> T context(Class<T> cl)`
 - Role: Returns the avatar owner context.
-- Description: Exposes the requested value without mutating state.
+- Description: Implements the context operation.
 
 #### `public Resource getres()`
 - Role: Returns the resource.
@@ -61,25 +62,25 @@ Represents the item spec Haven component.
 - Description: Constructs a random appearance context from the supplied inputs.
 
 #### `public GSprite sprite()`
-- Role: Performs sprite.
-- Description: Supports the sprite operation used by the surrounding class.
+- Role: Handles the sprite path.
+- Description: Implements the sprite operation.
 
 #### `public Resource resource()`
-- Role: Performs resource.
-- Description: Supports the resource operation used by the surrounding class.
+- Role: Handles the resource path.
+- Description: Implements the resource operation.
 
 #### `public GSprite spr()`
-- Role: Performs spr.
-- Description: Supports the spr operation used by the surrounding class.
+- Role: Handles the spr path.
+- Description: Implements the spr operation.
 
 #### `public BufferedImage image()`
-- Role: Performs image.
-- Description: Supports the image operation used by the surrounding class.
+- Role: Handles the image path.
+- Description: Implements the image operation.
 
 #### `public List<ItemInfo> info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Handles the info path.
+- Description: Implements the info operation.
 
 #### `public String name()`
-- Role: Performs name.
-- Description: Supports the name operation used by the surrounding class.
+- Role: Handles the name path.
+- Description: Implements the name operation.

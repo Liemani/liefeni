@@ -1,5 +1,5 @@
 ---
-source: [DescribeGobTextSourceJob.java](../../../../../src/agent/debug/tool/DescribeGobTextSourceJob.java)
+source: [DescribeGobTextSourceJob.java](../../../../../../src/agent/debug/tool/DescribeGobTextSourceJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,40 +18,40 @@ Inspects the text source attached to a gob.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Traces the text source attached to the selected gob.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the job description.
+- Description: Exposes the short help text shown in the menu and console.
 
 #### `private static void _describeSpeaking(Gob gob)`
-- Role: Performs  describe speaking.
-- Description: Supports the describe speaking operation used by the surrounding class.
+- Role: Prints the speech-related text source fields.
+- Description: Reads the speaking component attached to the gob.
 
 #### `private static void _describeAttributes(Gob gob)`
-- Role: Performs  describe attributes.
-- Description: Supports the describe attributes operation used by the surrounding class.
+- Role: Prints the gob attribute sources.
+- Description: Traverses the attached attributes for text-like data.
 
 #### `private static void _describeOverlays(Gob gob)`
-- Role: Performs  describe overlays.
-- Description: Supports the describe overlays operation used by the surrounding class.
+- Role: Prints the gob overlay sources.
+- Description: Traverses overlays for text-like data.
 
 #### `private static void _describeDrawable(Gob gob)`
-- Role: Performs  describe drawable.
-- Description: Supports the describe drawable operation used by the surrounding class.
+- Role: Prints the drawable source fields.
+- Description: Inspects the gob drawable for text-like data.
 
 #### `private static String _readTextField(Speaking speaking)`
-- Role: Performs  read text field.
-- Description: Supports the read text field operation used by the surrounding class.
+- Role: Reads one text field from the speaking component.
+- Description: Extracts the string value if the field is present.
 
 #### `private static void _describeTextCandidates(String label, Object object)`
-- Role: Performs  describe text candidates.
-- Description: Supports the describe text candidates operation used by the surrounding class.
+- Role: Prints text-like candidates under one label.
+- Description: Dumps the readable text values found under the object.
 
 #### `private static void _collectTextCandidates(String path, Object object, int depth, int maxDepth, Set<Object> visited, Array<String> lines)`
-- Role: Performs  collect text candidates.
-- Description: Supports the collect text candidates operation used by the surrounding class.
+- Role: Collects nested text-like values.
+- Description: Walks the object graph and records candidate text fields.
 
 #### `private static String _stringifyTextLike(Object object)`
-- Role: Performs  stringify text like.
-- Description: Supports the stringify text like operation used by the surrounding class.
+- Role: Converts a text-like object into a printable string.
+- Description: Normalizes strings, arrays, and nested values for display.

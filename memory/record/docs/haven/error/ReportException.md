@@ -1,5 +1,5 @@
 ---
-source: [ReportException.java](../../../../src/haven/error/ReportException.java)
+source: [ReportException.java](../../../../../src/haven/error/ReportException.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,4 +18,4 @@ Handles Haven error reporting for report exception.
 
 #### `public ReportException(String message)`
 - Role: Creates a new ReportException instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ReportException instance from the supplied inputs.

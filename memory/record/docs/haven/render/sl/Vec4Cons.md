@@ -1,5 +1,5 @@
 ---
-source: [Vec4Cons.java](../../../../../src/haven/render/sl/Vec4Cons.java)
+source: [Vec4Cons.java](../../../../../../src/haven/render/sl/Vec4Cons.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,29 +13,31 @@ Represents the vec4 cons shader-language AST node.
 ### Constants
 
 #### `public static final Vec4Cons z = new Vec4Cons(FloatLiteral.z, FloatLiteral.z, FloatLiteral.z, FloatLiteral.z)`
-- Role: Defines the shared z constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the z operation.
+- Description: Implements the vec4 cons operation.
+- Value: `new Vec4Cons(FloatLiteral.z, FloatLiteral.z, FloatLiteral.z, FloatLiteral.z)`
 
 #### `public static final Vec4Cons u = new Vec4Cons(FloatLiteral.u, FloatLiteral.u, FloatLiteral.u, FloatLiteral.u)`
-- Role: Defines the shared u constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the u operation.
+- Description: Implements the vec4 cons operation.
+- Value: `new Vec4Cons(FloatLiteral.u, FloatLiteral.u, FloatLiteral.u, FloatLiteral.u)`
 
 ### Fields
 
 #### `public final Expression[] els`
-- Role: Holds the els state.
-- Description: Backs the cached state for this file.
+- Role: Caches the els value.
+- Description: Caches the `els` value for reuse.
 
 ### Methods
 
 #### `public Vec4Cons(Expression... els)`
-- Role: Creates a new Vec4Cons instance.
-- Description: Constructs the instance and initializes its default state.
+- Role: Creates one vec4 constructor expression.
+- Description: Stores the four component expressions for the vector literal.
 
 #### `public void walk(Walker w)`
-- Role: Walks the current structure.
-- Description: Supports the walk operation used by the surrounding class.
+- Role: Visits the vector components.
+- Description: Walks each component expression in order.
 
 #### `public void output(Output out)`
-- Role: Performs output.
-- Description: Supports the output operation used by the surrounding class.
+- Role: Emits the vec4 constructor.
+- Description: Writes the `vec4(...)` expression to output.

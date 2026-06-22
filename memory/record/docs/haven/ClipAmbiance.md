@@ -1,5 +1,5 @@
 ---
-source: [ClipAmbiance.java](../../../src/haven/ClipAmbiance.java)
+source: [ClipAmbiance.java](../../../../src/haven/ClipAmbiance.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,13 +12,13 @@ Represents the clip ambiance Haven component.
 
 ### Desc
 
-- Role: Represents desc within ClipAmbiance.
-- Description: Describes the nested desc type used by the enclosing class.
+- Role: Describes one ambient clip set.
+- Description: Resource layer that stores ambient channels, weights, and base volume.
 
 ### Glob
 
-- Role: Represents glob within ClipAmbiance.
-- Description: Describes the nested glob type used by the enclosing class.
+- Role: Manages the active ambient mixer state.
+- Description: Runtime controller that schedules, mixes, and fades the clips for one ambient descriptor.
 
 ## Members
 
@@ -27,167 +27,167 @@ Represents the clip ambiance Haven component.
 ### Fields
 
 #### `public final Desc desc`
-- Role: Holds the desc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `public double bvol`
-- Role: Stores the bvol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bvol value.
+- Description: Caches the `bvol` value for reuse.
 
 #### `private Desc parent`
-- Role: Holds the parent state.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `private Glob glob = null`
-- Role: Stores the glob value.
-- Description: Backs the cached state for this file.
+- Role: Caches the glob value.
+- Description: Caches the `glob` value for reuse.
 
 #### `public final Desc desc`
-- Role: Holds the desc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the desc value.
+- Description: Caches the `desc` value for reuse.
 
 #### `public final ActAudio list`
-- Role: Stores the list value.
-- Description: Backs the cached state for this file.
+- Role: Caches the list value.
+- Description: Caches the `list` value for reuse.
 
 #### `private final Collection<RenderList.Slot<ClipAmbiance>> active = new ArrayList<>()`
-- Role: Caches active entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Implements the active operation.
+- Description: Implements the private final collection<render list.slot<clip ambiance>> active = new array list<>() operation.
 
 #### `private final Mixer mixer = new Mixer(true)`
-- Role: Holds the mixer state.
-- Description: Backs the cached state for this file.
+- Role: Implements the mixer operation.
+- Description: Implements the mixer operation.
 
 #### `private VolAdjust volc = null`
-- Role: Holds the volc state.
-- Description: Backs the cached state for this file.
+- Role: Caches the volc value.
+- Description: Caches the `volc` value for reuse.
 
 #### `private boolean dead = false`
 - Role: Tracks the dead flag.
-- Description: Supports the dead operation used by the surrounding class.
+- Description: Caches the `dead` value for reuse.
 
 #### `private Desc[] chans =`
-- Role: Holds the clip ambiance state.
-- Description: Backs the cached state for this file.
+- Role: Caches the chans value.
+- Description: Caches the `chans` value for reuse.
 
 #### `private CS[][] cur =`
-- Role: Holds the clip ambiance state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 #### `private int curn`
-- Role: Stores the curn value.
-- Description: Backs the cached state for this file.
+- Role: Caches the curn value.
+- Description: Caches the `curn` value for reuse.
 
 #### `private int[] n =`
 - Role: Stores the clip ambiance state.
-- Description: Backs the cached state for this file.
+- Description: Caches the `n` value for reuse.
 
 #### `private double cvol`
-- Role: Stores the cvol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cvol value.
+- Description: Caches the `cvol` value for reuse.
 
 #### `private double lastupd = Utils.rtime()`
-- Role: Stores the lastupd value.
-- Description: Backs the cached state for this file.
+- Role: Implements the lastupd operation.
+- Description: Implements the rtime operation.
 
 #### `public final Indir<Resource> parent`
-- Role: Stores the parent value.
-- Description: Backs the cached state for this file.
+- Role: Caches the parent value.
+- Description: Caches the `parent` value for reuse.
 
 #### `public final int minc, maxc, maxi`
-- Role: Stores the maxi value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxi value.
+- Description: Caches the `maxi` value for reuse.
 
 #### `public final int minc, maxc, maxi`
-- Role: Stores the maxi value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxi value.
+- Description: Caches the `maxi` value for reuse.
 
 #### `public final int minc, maxc, maxi`
-- Role: Stores the maxi value.
-- Description: Backs the cached state for this file.
+- Role: Caches the maxi value.
+- Description: Caches the `maxi` value for reuse.
 
 #### `public final double bvol`
-- Role: Stores the bvol value.
-- Description: Backs the cached state for this file.
+- Role: Caches the bvol value.
+- Description: Caches the `bvol` value for reuse.
 
 #### `public final String[] cnms`
-- Role: Stores the cnms value.
-- Description: Backs the cached state for this file.
+- Role: Caches the cnms value.
+- Description: Caches the `cnms` value for reuse.
 
 #### `public final double[] ieps`
-- Role: Stores the ieps value.
-- Description: Backs the cached state for this file.
+- Role: Caches the ieps value.
+- Description: Caches the `ieps` value for reuse.
 
 #### `public final ClipAmbiance spr`
-- Role: Holds the spr state.
-- Description: Backs the cached state for this file.
+- Role: Caches the spr value.
+- Description: Caches the `spr` value for reuse.
 
 ### Methods
 
 #### `public ClipAmbiance(Desc desc)`
 - Role: Creates a new ClipAmbiance instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the ClipAmbiance instance from the supplied inputs.
 
 #### `public Glob(Desc desc, ActAudio list)`
-- Role: Performs glob.
-- Description: Supports the glob operation used by the surrounding class.
+- Role: Handles the glob path.
+- Description: Implements the glob operation.
 
 #### `public int hashCode()`
 - Role: Returns the hash code.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns whether the h code is present.
 
 #### `public boolean equals(Object other)`
 - Role: Checks whether this value equals another value.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `private void addclip(final int chan, final int idx)`
-- Role: Performs addclip.
-- Description: Supports the addclip operation used by the surrounding class.
+- Role: Handles the addclip path.
+- Description: Adds the clip.
 
 #### `private void addmin()`
-- Role: Performs addmin.
-- Description: Supports the addmin operation used by the surrounding class.
+- Role: Handles the addmin path.
+- Description: Adds the min.
 
 #### `private void addsome(double td)`
-- Role: Performs addsome.
-- Description: Supports the addsome operation used by the surrounding class.
+- Role: Handles the addsome path.
+- Description: Adds the some.
 
 #### `private boolean playing(int ch)`
-- Role: Performs playing.
-- Description: Supports the playing operation used by the surrounding class.
+- Role: Handles the playing path.
+- Description: Implements the playing operation.
 
 #### `private void trim()`
-- Role: Performs trim.
-- Description: Supports the trim operation used by the surrounding class.
+- Role: Handles the trim path.
+- Description: Implements the trim operation.
 
 #### `private double curvol()`
-- Role: Performs curvol.
-- Description: Supports the curvol operation used by the surrounding class.
+- Role: Handles the curvol path.
+- Description: Implements the curvol operation.
 
 #### `public boolean cycle(ActAudio list)`
-- Role: Performs cycle.
-- Description: Supports the cycle operation used by the surrounding class.
+- Role: Handles the cycle path.
+- Description: Implements the cycle operation.
 
 #### `public void add(Desc ch, RenderList.Slot<ClipAmbiance> slot)`
-- Role: Performs add.
-- Description: Supports the add operation used by the surrounding class.
+- Role: Adds the supplied value to the owning container.
+- Description: Adds the supplied value to the owning container.
 
 #### `public void remove(Desc ch, RenderList.Slot<ClipAmbiance> slot)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public void added(RenderTree.Slot slot)`
-- Role: Performs added.
-- Description: Supports the added operation used by the surrounding class.
+- Role: Handles the added path.
+- Description: Adds the ed.
 
 #### `public void removed(RenderTree.Slot slot)`
-- Role: Performs removed.
-- Description: Supports the removed operation used by the surrounding class.
+- Role: Handles the removed path.
+- Description: Removes the d.
 
 #### `public Desc(Resource res, Message buf)`
-- Role: Performs desc.
-- Description: Supports the desc operation used by the surrounding class.
+- Role: Handles the desc path.
+- Description: Implements the desc operation.
 
 #### `public void init()`
-- Role: Performs init.
-- Description: Supports the init operation used by the surrounding class.
+- Role: Handles the init path.
+- Description: Initializes the class-local cache or runtime state.

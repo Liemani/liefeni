@@ -1,5 +1,5 @@
 ---
-source: [HashedMap.java](../../../src/haven/HashedMap.java)
+source: [HashedMap.java](../../../../src/haven/HashedMap.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -12,158 +12,159 @@ Represents the hashed map Haven component.
 
 ### EntryIterator
 
-- Role: Represents entry iterator within HashedMap.
-- Description: Describes the nested entry iterator type used by the enclosing class.
+- Role: Iterates over hash map entries.
+- Description: Iterator over the open-addressed backing table.
 
 ### EntrySet
 
-- Role: Represents entry set within HashedMap.
-- Description: Describes the nested entry set type used by the enclosing class.
+- Role: Exposes the map entry set view.
+- Description: Set view backed by the hash map entries.
 
 ## Members
 
 ### Constants
 
 #### `private static final Object NULL = new Object()`
-- Role: Defines the shared null constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the null operation.
+- Description: Implements the object operation.
+- Value: `new Object()`
 
 ### Fields
 
 #### `public final Hash<? super K> hash`
-- Role: Holds the hash state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hash value.
+- Description: Caches the `hash` value for reuse.
 
 #### `private Object[] tab`
-- Role: Holds the tab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tab value.
+- Description: Caches the `tab` value for reuse.
 
 #### `private int sz`
-- Role: Stores the sz value.
-- Description: Backs the cached state for this file.
+- Role: Caches the sz value.
+- Description: Caches the `sz` value for reuse.
 
 #### `private final Object[] tab = HashedMap.this.tab`
-- Role: Holds the tab state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tab value.
+- Description: Caches the `tab` value for reuse.
 
 #### `private int idx = -2, st = 0`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `private int idx = -2, st = 0`
-- Role: Stores the idx value.
-- Description: Backs the cached state for this file.
+- Role: Caches the idx value.
+- Description: Caches the `idx` value for reuse.
 
 #### `private Set<Entry<K, V>> es = null`
-- Role: Caches es entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the es value.
+- Description: Caches the `es` value for reuse.
 
 ### Methods
 
 #### `public HashedMap(Hash<? super K> hash)`
 - Role: Creates a new HashedMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HashedMap instance from the supplied inputs.
 
 #### `public HashedMap(Hash<? super K> hash, Map<? extends K, ? extends V> from)`
 - Role: Creates a new HashedMap instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HashedMap instance from the supplied inputs.
 
 #### `private Object nullkey(K key)`
-- Role: Performs nullkey.
-- Description: Supports the nullkey operation used by the surrounding class.
+- Role: Handles the nullkey path.
+- Description: Implements the nullkey operation.
 
 #### `private K keynull(Object k)`
-- Role: Performs keynull.
-- Description: Supports the keynull operation used by the surrounding class.
+- Role: Handles the keynull path.
+- Description: Implements the keynull operation.
 
 #### `private static int nextidx(Object[] tab, int idx)`
-- Role: Performs nextidx.
-- Description: Supports the nextidx operation used by the surrounding class.
+- Role: Handles the nextidx path.
+- Description: Implements the nextidx operation.
 
 #### `private int hashidx(Object[] tab, K k)`
-- Role: Performs hashidx.
-- Description: Supports the hashidx operation used by the surrounding class.
+- Role: Handles the hashidx path.
+- Description: Returns whether the hidx is present.
 
 #### `private void resize(int nsz)`
-- Role: Performs resize.
-- Description: Supports the resize operation used by the surrounding class.
+- Role: Handles the resize path.
+- Description: Implements the resize operation.
 
 #### `public V put(K key, V val)`
-- Role: Performs put.
-- Description: Supports the put operation used by the surrounding class.
+- Role: Stores or releases the supplied value in the owning container.
+- Description: Stores or releases the supplied value in the owning container.
 
 #### `private void remove(Object[] tab, int idx)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `private int findidx(Object[] tab, Object key)`
-- Role: Performs findidx.
-- Description: Supports the findidx operation used by the surrounding class.
+- Role: Handles the findidx path.
+- Description: Finds the idx.
 
 #### `public V remove(Object key)`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public V get(Object key)`
-- Role: Performs get.
-- Description: Supports the get operation used by the surrounding class.
+- Role: Handles the get path.
+- Description: Returns the cached get.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public boolean isEmpty()`
 - Role: Checks whether the empty.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public boolean containsKey(Object key)`
-- Role: Performs contains key.
-- Description: Supports the contains key operation used by the surrounding class.
+- Role: Handles the contains key path.
+- Description: Implements the contains key operation.
 
 #### `public boolean hasNext()`
 - Role: Checks whether the next.
-- Description: Returns a boolean result for the described condition.
+- Description: Returns whether the condition is satisfied.
 
 #### `public Entry<K, V> next()`
-- Role: Performs next.
-- Description: Supports the next operation used by the surrounding class.
+- Role: Handles the next path.
+- Description: Implements the next operation.
 
 #### `public void remove()`
-- Role: Performs remove.
-- Description: Supports the remove operation used by the surrounding class.
+- Role: Removes the supplied value from the owning container.
+- Description: Removes the supplied value from the owning container.
 
 #### `public K getKey()`
 - Role: Returns the key.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the key.
 
 #### `public V getValue()`
 - Role: Returns the value.
-- Description: Exposes the requested value without mutating state.
+- Description: Returns the value.
 
 #### `public V setValue(V val)`
 - Role: Sets the value.
-- Description: Mutates the owning object to keep runtime state in sync.
+- Description: Updates the current object state.
 
 #### `private EntrySet()`
-- Role: Performs entry set.
-- Description: Supports the entry set operation used by the surrounding class.
+- Role: Handles the entry set path.
+- Description: Implements the entry set operation.
 
 #### `public Iterator<Entry<K, V>> iterator()`
-- Role: Performs iterator.
-- Description: Supports the iterator operation used by the surrounding class.
+- Role: Handles the iterator path.
+- Description: Implements the iterator operation.
 
 #### `public int size()`
-- Role: Performs size.
-- Description: Supports the size operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the size operation.
 
 #### `public void clear()`
 - Role: Clears waypoint manager state.
-- Description: Removes the associated value from the current runtime state.
+- Description: Removes the current value from the owning state.
 
 #### `public Set<Entry<K, V>> entrySet()`
-- Role: Performs entry set.
-- Description: Supports the entry set operation used by the surrounding class.
+- Role: Handles the entry set path.
+- Description: Implements the entry set operation.

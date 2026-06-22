@@ -1,5 +1,5 @@
 ---
-source: [PrintIconsJob.java](../../../../../src/agent/debug/tool/PrintIconsJob.java)
+source: [PrintIconsJob.java](../../../../../../src/agent/debug/tool/PrintIconsJob.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -18,8 +18,8 @@ Prints visible icon resources for debugging.
 
 #### `public void run(AgentContext ctx, String[] args)`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Prints the visible icon resources currently known to the client.
 
 #### `public static String info()`
-- Role: Performs info.
-- Description: Supports the info operation used by the surrounding class.
+- Role: Returns the job description.
+- Description: Exposes the short help text shown in the menu and console.

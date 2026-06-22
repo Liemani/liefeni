@@ -1,5 +1,5 @@
 ---
-source: [Screenshooter.java](../../../src/haven/Screenshooter.java)
+source: [Screenshooter.java](../../../../src/haven/Screenshooter.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -35,177 +35,182 @@ Represents the screenshooter Haven component.
 ### Constants
 
 #### `public static final Config.Variable<URI> screenurl = Config.Services.var("screenurl", "")`
-- Role: Defines the shared screenurl constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the screenurl operation.
+- Description: Implements the var operation.
+- Value: `Config.Services.var("screenurl", "")`
 
 #### `public static final ComponentColorModel outcm = new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]`
-- Role: Defines the shared outcm constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the outcm operation.
+- Description: Implements the get instance operation.
+- Value: `new ComponentColorModel(ColorSpace.getInstance(ColorSpace.CS_sRGB), new int[]`
 
 #### `public static final PUtils.Convolution thumbflt = new PUtils.Lanczos(3)`
-- Role: Defines the shared thumbflt constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the thumbflt operation.
+- Description: Implements the lanczos operation.
+- Value: `new PUtils.Lanczos(3)`
 
 #### `public static final ImageFormat png = new ImageFormat()`
-- Role: Defines the shared png constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the png operation.
+- Description: Implements the image format operation.
+- Value: `new ImageFormat()`
 
 #### `public static final ImageFormat jpeg = new ImageFormat()`
-- Role: Defines the shared jpeg constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the jpeg operation.
+- Description: Implements the image format operation.
+- Value: `new ImageFormat()`
 
 ### Fields
 
 #### `public final URI tgt`
-- Role: Holds the tgt state.
-- Description: Backs the cached state for this file.
+- Role: Caches the tgt value.
+- Description: Stores the widget that accepted the hover event.
 
 #### `public final Shot shot`
-- Role: Holds the shot state.
-- Description: Backs the cached state for this file.
+- Role: Caches the shot value.
+- Description: Caches the `shot` value for reuse.
 
 #### `private final TextEntry comment`
-- Role: Stores the comment value.
-- Description: Backs the cached state for this file.
+- Role: Caches the comment value.
+- Description: Caches the `comment` value for reuse.
 
 #### `private final CheckBox decobox, pub`
-- Role: Holds the pub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pub value.
+- Description: Caches the `pub` value for reuse.
 
 #### `private final CheckBox decobox, pub`
-- Role: Holds the pub state.
-- Description: Backs the cached state for this file.
+- Role: Caches the pub value.
+- Description: Caches the `pub` value for reuse.
 
 #### `private Label prog`
-- Role: Stores the prog value.
-- Description: Backs the cached state for this file.
+- Role: Caches the prog value.
+- Description: Caches the `prog` value for reuse.
 
 #### `private Coord btnc`
-- Role: Stores the btnc value.
-- Description: Backs the cached state for this file.
+- Role: Caches the btnc value.
+- Description: Caches the `btnc` value for reuse.
 
 #### `private Button btn`
-- Role: Holds the btn state.
-- Description: Backs the cached state for this file.
+- Role: Caches the btn value.
+- Description: Caches the `btn` value for reuse.
 
 #### `public final BufferedImage map, ui`
-- Role: Stores the UI value.
-- Description: Backs the cached state for this file.
+- Role: Caches the active Haven UI instance.
+- Description: Caches the active Haven UI instance.
 
 #### `public final BufferedImage map, ui`
-- Role: Stores the UI value.
-- Description: Backs the cached state for this file.
+- Role: Caches the active Haven UI instance.
+- Description: Caches the active Haven UI instance.
 
 #### `public final TexI mapt, uit`
-- Role: Stores the uit value.
-- Description: Backs the cached state for this file.
+- Role: Caches the uit value.
+- Description: Caches the `uit` value for reuse.
 
 #### `public final TexI mapt, uit`
-- Role: Stores the uit value.
-- Description: Backs the cached state for this file.
+- Role: Caches the uit value.
+- Description: Caches the `uit` value for reuse.
 
 #### `public String comment, camera`
-- Role: Stores the camera value.
-- Description: Backs the cached state for this file.
+- Role: Caches the camera value.
+- Description: Caches the `camera` value for reuse.
 
 #### `public String comment, camera`
-- Role: Stores the camera value.
-- Description: Backs the cached state for this file.
+- Role: Caches the camera value.
+- Description: Caches the `camera` value for reuse.
 
 #### `public boolean fsaa, fl, sdw`
 - Role: Tracks the sdw flag.
-- Description: Supports the sdw operation used by the surrounding class.
+- Description: Caches the `sdw` value for reuse.
 
 #### `public boolean fsaa, fl, sdw`
 - Role: Tracks the sdw flag.
-- Description: Supports the sdw operation used by the surrounding class.
+- Description: Caches the `sdw` value for reuse.
 
 #### `public boolean fsaa, fl, sdw`
 - Role: Tracks the sdw flag.
-- Description: Supports the sdw operation used by the surrounding class.
+- Description: Caches the `sdw` value for reuse.
 
 #### `private final BufferedImage img`
-- Role: Stores the img value.
-- Description: Backs the cached state for this file.
+- Role: Caches the img value.
+- Description: Caches the `img` value for reuse.
 
 #### `private final Shot info`
-- Role: Holds the info state.
-- Description: Backs the cached state for this file.
+- Role: Caches the info value.
+- Description: Caches the `info` value for reuse.
 
 #### `private final ImageFormat fmt`
-- Role: Stores the fmt value.
-- Description: Backs the cached state for this file.
+- Role: Caches the fmt value.
+- Description: Caches the `fmt` value for reuse.
 
 #### `private volatile Closeable hackint = null`
-- Role: Holds the hackint state.
-- Description: Backs the cached state for this file.
+- Role: Caches the hackint value.
+- Description: Caches the `hackint` value for reuse.
 
 #### `private boolean cancelled = false`
 - Role: Tracks the cancelled flag.
-- Description: Supports the cancelled operation used by the surrounding class.
+- Description: Caches the `cancelled` value for reuse.
 
 ### Methods
 
 #### `public Screenshooter(URI tgt, Shot shot)`
 - Role: Creates a new Screenshooter instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the Screenshooter instance from the supplied inputs.
 
 #### `public void wdgmsg(Widget sender, String msg, Object... args)`
-- Role: Performs wdgmsg.
-- Description: Supports the wdgmsg operation used by the surrounding class.
+- Role: Handles the wdgmsg path.
+- Description: Sends a widget message through the UI message path.
 
 #### `public Shot(BufferedImage map, BufferedImage ui)`
-- Role: Performs shot.
-- Description: Supports the shot operation used by the surrounding class.
+- Role: Handles the shot path.
+- Description: Implements the shot operation.
 
 #### `public Coord sz()`
-- Role: Performs sz.
-- Description: Supports the sz operation used by the surrounding class.
+- Role: Handles the size path.
+- Description: Implements the sz operation.
 
 #### `public Coord tsz()`
-- Role: Performs tsz.
-- Description: Supports the tsz operation used by the surrounding class.
+- Role: Handles the tsz path.
+- Description: Implements the tsz operation.
 
 #### `public String ctype()`
-- Role: Performs ctype.
-- Description: Supports the ctype operation used by the surrounding class.
+- Role: Handles the ctype path.
+- Description: Implements the ctype operation.
 
 #### `public void write(OutputStream out, BufferedImage img, Shot info) throws IOException`
 - Role: Writes the target data.
-- Description: Supports the write operation used by the surrounding class.
+- Description: Implements the write operation.
 
 #### `public UploadError(String message)`
-- Role: Performs upload error.
-- Description: Supports the upload error operation used by the surrounding class.
+- Role: Handles the upload error path.
+- Description: Implements the upload error operation.
 
 #### `public Uploader(BufferedImage img, Shot info, ImageFormat fmt)`
-- Role: Performs uploader.
-- Description: Supports the uploader operation used by the surrounding class.
+- Role: Handles the uploader path.
+- Description: Implements the uploader operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `private void setstate(String t)`
-- Role: Performs setstate.
-- Description: Supports the setstate operation used by the surrounding class.
+- Role: Handles the setstate path.
+- Description: Updates the state.
 
 #### `private BufferedImage convert(BufferedImage img)`
-- Role: Performs convert.
-- Description: Supports the convert operation used by the surrounding class.
+- Role: Handles the convert path.
+- Description: Implements the convert operation.
 
 #### `public void upload(BufferedImage ss, Shot info, ImageFormat fmt) throws IOException`
 - Role: Handles the upload workflow.
-- Description: Supports the upload operation used by the surrounding class.
+- Description: Implements the upload operation.
 
 #### `public void interrupt()`
-- Role: Performs interrupt.
-- Description: Supports the interrupt operation used by the surrounding class.
+- Role: Handles the interrupt path.
+- Description: Implements the interrupt operation.
 
 #### `public void upload()`
-- Role: Performs upload.
-- Description: Supports the upload operation used by the surrounding class.
+- Role: Handles the upload path.
+- Description: Implements the upload operation.
 
 #### `public static void take(GameUI gameui, URI tgt)`
-- Role: Performs take.
-- Description: Supports the take operation used by the surrounding class.
+- Role: Handles the take path.
+- Description: Implements the take operation.

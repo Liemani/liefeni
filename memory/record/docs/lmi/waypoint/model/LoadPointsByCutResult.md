@@ -1,5 +1,5 @@
 ---
-source: [LoadPointsByCutResult.java](../../../../../src/lmi/waypoint/model/LoadPointsByCutResult.java)
+source: [LoadPointsByCutResult.java](../../../../../../src/lmi/waypoint/model/LoadPointsByCutResult.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -15,19 +15,19 @@ Represents the result of load points by cut result.
 ### Fields
 
 #### `public final long graphId`
-- Role: Stores the graph id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the graph id value.
+- Description: Caches the `graphId` value for reuse.
 
 #### `public final long gridId`
-- Role: Stores the grid id value.
-- Description: Backs the cached state for this file.
+- Role: Caches the grid id value.
+- Description: Caches the `gridId` value for reuse.
 
 #### `public final Array<WpPoint> points`
-- Role: Caches points entries.
-- Description: Reuses previously computed values to avoid repeated work.
+- Role: Caches the points value.
+- Description: Caches the `points` value for reuse.
 
 ### Methods
 
 #### `public LoadPointsByCutResult(long graphId, long gridId, Array<WpPoint> points)`
 - Role: Creates a new LoadPointsByCutResult instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the LoadPointsByCutResult instance from the supplied inputs.

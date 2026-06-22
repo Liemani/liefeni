@@ -1,5 +1,5 @@
 ---
-source: [HttpStatus.java](../../../src/haven/HttpStatus.java)
+source: [HttpStatus.java](../../../../src/haven/HttpStatus.java)
 created: 2026-06-13
 updated: 2026-06-14
 ---
@@ -13,61 +13,63 @@ Represents the http status Haven component.
 ### Constants
 
 #### `public static final Config.Variable<URI> mond = Config.Services.var("srvmon", "")`
-- Role: Defines the shared mond constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Implements the mond operation.
+- Description: Implements the var operation.
+- Value: `Config.Services.var("srvmon", "")`
 
 #### `private static final int[] delays =`
-- Role: Defines the shared http status constant.
-- Description: Shared constant used by the rest of the class.
+- Role: Caches the delays value.
+- Description: Caches the `delays` value for reuse.
+- Value: ``
 
 ### Fields
 
 #### `public final URI src`
-- Role: Holds the src state.
-- Description: Backs the cached state for this file.
+- Role: Caches the src value.
+- Description: Carries the source drag widget.
 
 #### `public boolean syn = false`
 - Role: Tracks the syn flag.
-- Description: Supports the syn operation used by the surrounding class.
+- Description: Caches the `syn` value for reuse.
 
 #### `public String status`
-- Role: Stores the status value.
-- Description: Backs the cached state for this file.
+- Role: Caches the status value.
+- Description: Caches the `status` value for reuse.
 
 #### `public int users`
-- Role: Stores the users value.
-- Description: Backs the cached state for this file.
+- Role: Caches the users value.
+- Description: Caches the `users` value for reuse.
 
 #### `private boolean quit = false`
 - Role: Tracks the quit flag.
-- Description: Supports the quit operation used by the surrounding class.
+- Description: Caches the `quit` value for reuse.
 
 #### `private InputStream cur = null`
-- Role: Holds the cur state.
-- Description: Backs the cached state for this file.
+- Role: Caches the cur value.
+- Description: Caches the `cur` value for reuse.
 
 ### Methods
 
 #### `public HttpStatus(URI src)`
 - Role: Creates a new HttpStatus instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HttpStatus instance from the supplied inputs.
 
 #### `public HttpStatus()`
 - Role: Creates a new HttpStatus instance.
-- Description: Constructs the instance and initializes its default state.
+- Description: Constructs the HttpStatus instance from the supplied inputs.
 
 #### `private void handle(String... words)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `private void handle(byte[] buf, int off, int len)`
-- Role: Performs handle.
-- Description: Supports the handle operation used by the surrounding class.
+- Role: Handles the handle path.
+- Description: Implements the handle operation.
 
 #### `public void run()`
 - Role: Runs the job.
-- Description: Supports the run operation used by the surrounding class.
+- Description: Runs the processing step for the supplied render input.
 
 #### `public void quit()`
-- Role: Performs quit.
-- Description: Supports the quit operation used by the surrounding class.
+- Role: Handles the quit path.
+- Description: Implements the quit operation.
